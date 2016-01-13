@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך להתאים אתר לסמארטפון?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="dinamit">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>איך להתאים אתר לסמארטפון? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך להתאים אתר לסמארטפון? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך להתאים אתר לסמארטפון?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך להתאים אתר לסמארטפון-1.htm" title="חיפשתי בגוגל איך לעשות את זה, אבל התוצאות שם די ישנות וחשבתי שיש דרכים חדשניות ויעילות יותר למטרה הזו.אשמח מאוד אם תעזרו לי :)">איך להתאים אתר לסמארטפון?</a></h2>
+<div class="userinfo">
+פתח
+<a>dinamit</a>
+,
+<time class="timeago relativetime" datetime="2014-09-22T15:53:51+03:00" style="display:inline-block;">
+22 לספטמבר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2022'>
+חיפשתי בגוגל איך לעשות את זה, אבל התוצאות שם די ישנות וחשבתי שיש דרכים חדשניות ויעילות יותר למטרה הזו.<br>אשמח מאוד אם תעזרו לי :) </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9070">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 23 לספטמבר 2014 </span>
+<a id="answer_9070" href="איך להתאים אתר לסמארטפון-1.htm#answer_9070">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+היום מתאימים אתר לסמארטפון על ידי כתיבת שני קבצי CSS שונים,<br>אחד שמותאם למסך גדול, אחד שמותאם למסך קטן<br>ולפעמים עוד כמה קבצי CSS נוספים, שמתאימים לטאבלטים, טלפונים עם רזולוציות שונות וכו.<br><br>ההבדל העיקרי בין קבצי ה-CSS האלה הוא מיקום האלמנטים בעמוד, הרוחב והגודל שלהם, לעפמים גם צורת התצוגה<br>כאשר בכל אחד מהמקרים מדובר באותם האלמנטים בעמוד, אך בעיצוב שונה עבורם.<br><br>ולאחר שברשותך כמה קבצי CSS שונים, כל אחד מהם מוצג בהתאם לרזולוציה של האתר.<br>לדפנפנים היום יש פונקציה חדשה, שנקראת media queries ומאפשרת להפעיל קבצים או שורות CSS נפרדות בהתאם לרזולוציה של המסך, ככה שבאמצעותם תוכל לגרום לדפדפן להשתמש בקובץ ה-CSS המתאים.<br><br>ורק כדי להיות מדויק לגמרי, אין צורך להפריד את כל ה-CSS לקבצים נפרדים בפועל. אפשר להכניס אותם לתוך קובץ .css פיזי אחד ובאמצעות media queries לומר לדפדפן איזה חלק מהקובץ להפעיל עבור אותה רזולוציה.<br><br>בשני שורות media queries נראים ככה:<br><div class="php codeblock"><span class="sy0">&lt;!--</span> CSS media query on a <span class="kw3">link</span> element <span class="sy0">--&gt;</span><br>
+<span class="sy0">&lt;</span><span class="kw3">link</span> rel<span class="sy0">=</span><span class="st0">&quot;stylesheet&quot;</span> media<span class="sy0">=</span><span class="st0">&quot;(max-width: 800px)&quot;</span> href<span class="sy0">=</span><span class="st0">&quot;example.css&quot;</span> <span class="sy0">/&gt;</span><br>
+<br>
+<span class="sy0">&lt;!--</span> CSS media query within a stylesheet <span class="sy0">--&gt;</span><br>
+<span class="sy0">&lt;</span>style<span class="sy0">&gt;</span><br>
+<span class="sy0">@</span>media <span class="br0">&#40;</span>max<span class="sy0">-</span>width<span class="sy0">:</span> 600px<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="sy0">.</span>facet_sidebar <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; display<span class="sy0">:</span> none<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span></div><br><br>ככה שה-CSS כאן יופעל רק עבור מסכים שרוחבם לא עולה על 6/800 פיקסלים (טבלטים קטנים וסמארטפונים).<br>לקרוא עוד אפשר <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">כאן</a> ו<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">כאן</a> </p>
+</div>
+<div class="answer" id="answer9071">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>dinamit</a>
+ב
+<span style="font-size:10px"> 23 לספטמבר 2014 </span>
+<a id="answer_9071" href="איך להתאים אתר לסמארטפון-1.htm#answer_9071">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אלכס תודה רבה על ההסבר! </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

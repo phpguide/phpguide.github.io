@@ -1,0 +1,22 @@
+<head/><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;
+<br/></span><span style="color: #007700">trait&nbsp;</span><span style="color: #0000BB">T&nbsp;</span><span style="color: #007700">{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">myMethod</span><span style="color: #007700">()&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World!'</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>}
+<br/>class&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;use&nbsp;</span><span style="color: #0000BB">T</span><span style="color: #007700">;
+<br/>}
+<br/>class&nbsp;</span><span style="color: #0000BB">B&nbsp;</span><span style="color: #007700">{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;use&nbsp;</span><span style="color: #0000BB">T&nbsp;</span><span style="color: #007700">{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">myMethod&nbsp;</span><span style="color: #007700">as&nbsp;private&nbsp;</span><span style="color: #0000BB">myAlias</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>}
+<br/></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">;
+<br/></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">B</span><span style="color: #007700">;
+<br/></span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">myMethod</span><span style="color: #007700">();
+<br/></span><span style="color: #0000BB">$b</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">myMethod</span><span style="color: #007700">();
+<br/></span><span style="color: #0000BB">$b</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">myAlias</span><span style="color: #007700">();</span>
+</span>
+</code>1

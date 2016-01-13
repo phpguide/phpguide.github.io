@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="קבלת תשלומים באתר דרך פייפאל עם php">
+<meta name="keywords" content="paypal, ipn, תשלומים">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>קבלת תשלומים באתר עם paypal ipn ו-php</title>
+<meta itemprop="name" content="קבלת תשלומים באתר עם paypal ipn ו-php">
+<meta itemprop="description" content="קבלת תשלומים באתר דרך פייפאל עם php">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"351","rating":"32","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>קבלת תשלומים באתר עם paypal ipn ו-php</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-12-27T13:16:49+02:00" dir="rtl">27 לדצמבר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="" alt="קבלת תשלומים באתר עם paypal ipn ו-php">
+</div>
+<div class="right post-content">
+<img src="static\images\pixel.png" alt="קבלת תשלומים באתר עם paypal ipn ו-php" title="http://s22.postimg.org/goob8n6n5/paypal_checkout.jpg" class="content-image-float"><br>אף אחד לא מפתיע שהדוקומנטציה של פייפאל מסובכת, ארוכה ולא ניתנן להבנה. אחרי הכל, <a href="https://stripe.com/">stripe</a> עשו אחלה סטארטאפ על העובדה שלהתקין קבלת תשלומים עם פייפאל באתר זה מקצוע בפני עצמו. למזלנו, ב-PHP כבר כתבו הכל, מה שמשאיר לנו משימה קצת יותר פשוטה: לקחת מחלקה מוכנה ולהבין איך להשתמש בה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>IPN — Instant Payment Notification</h2><br>בתמונה הכללית רק ארבעה שלבים מפרידים בינך לבין הכסף במהלך התקשורת עם פייפאל.<br><br><img src="static\images\pixel.png" alt="קבלת תשלומים באתר עם paypal ipn ו-php" title="http://upload.wikimedia.org/wikipedia/en/7/76/Paypal-IPN.gif" class="content-image-floatright"> <br>בשלב הראשון הלקוח לוחץ על כפתור הקניה באתר ומועבר לאתר פייפאל, בו הוא מבצע את התשלום. לאחר סיום התשלום המשתמש יוחזר לאתר ותוכל להציג לו הודעת תודה. <br><br>בשלב השני, לאחר שפייפאל יגבו את הכסף מהלקוח, השרת שלהם ישלח הודעת POST לשרת שלך. זוהי ההודעה המיידית על ביצוע התשלום (ipn). ההודעה הזו כוללת את כל המידע הדרוש לגבי התשלום שיתקבל ואפילו יותר מזה. למשל, היא כוללת את שם המוצר שנקנה, המחיר ששולם והמטבע ששימש לביצוע התשלום.<br><br>בשלב הבא עליך לאמת את מקור ההודעה, אם אתה רוצה להיות בטוח שהיא נשלחה מפייפאל ולא מאיזה סטודנט עם פידלר. בשלב הזה השרת שלך שולח לשרת של פייפאל הודעה לאימות: האם בוצע תשלום בסכום כזה, עבור מוצר כזה וכל שאר הפרטים?<br><br>בתגובה תקבל הודעה בסגנון VERIFIED או INVALID, שאכן ההודעה המקורית על קבלת תשלום נשלחה מפייפאל ולא ממישהו אחר. רק אחרי השלב הזה תוכל לשלוח למשתמש את המוצר, לעדכן לפרימיום במסד ולהיות בטוח שאתה בדרך להיות המיליונר הבא.<br><br><br><br><br><br><h3>שלב א. כמה זה עולה?</h3><br>בשלב הראשון המשתמש בוחר את המוצר(ים) באתר שלך, לוחץ על כפתור התשלום ומועבר לאתר paypal. כדי שהכישוף הזה יעבוד נצטרך להוסיף לסיר עוד כמה מרכיבים: מי המשתמש, מה המוצר ומה סכום התשלום שעלינו לגבות. כל אלו מגיעים אל פייפאל כחלק מהטופס שנשלח על ידי המשתמש ברגע לחיצת כפתור הקניה. <br><br>את הטופס עצמו אנחנו לא הולכים ליצור בעצמנו, אלא להכין דרך פייפאל. בשביל לעשות את זה - כנס לחשבון הפייפאל שלך וגש אל <strong>My Account</strong> -&gt; <strong>Profile</strong> -&gt; <strong>More Options</strong><br><br><img src="static\images\pixel.png" alt="קבלת תשלומים באתר עם paypal ipn ו-php" title="http://s30.postimg.org/6eu2at53l/Untitled.png" class="content-image-float"><br><br><br>בחירה ב- <strong>My Selling Tools</strong> בתפריט מצד שמאל תוביל אותך לעמוד הגדרות המכירות שלך. הסעיף הראשון ברשימה <strong>Paypal buttons</strong> הוא זה שמעניין אותנו כרגע, לצורך יצירת טפסים וכפתורי קניה משלנו. אני ממליץ לעבור בזמנך הפנוי גם על הסעיפים האחרים, כמו למשל מה שם העסק שיופיע בדו&quot;ח כרטיס האשראי החודשי של הלקוח.<br><br><br><img src="static\images\pixel.png" alt="קבלת תשלומים באתר עם paypal ipn ו-php" title="http://i.imgur.com/Dt5LvnY.png" class="content-image-float"><br><br><br><br>הקישור מצד ימין <strong>Create New Button</strong> יוביל אותך למסך יצירת הכפתור. אני בטוח שאם הסתדרת עם לבנות אתר ולארגן מוצר, אתה תסתדר עם ליצור כפתור. אמנם יש כמה שדות שכדאי לשים לב אליהם:<br><br><br><img src="static\images\pixel.png" alt="קבלת תשלומים באתר עם paypal ipn ו-php" title="http://s17.postimg.org/4cpvg6djj/Untitled.png" class="content-image-float"><br><br><br><br>השדות <strong>item name</strong> ו-<strong>item id</strong> ישמשו אותנו לאחר האימות כדי לדעת איזה מוצר נקנה. ה-id איננו שדה חובה ואפשר להסתדר רק עם השם של המוצר, כול עוד אתה נותן שמות ייחודיים לכל מוצר שאתה מוכר.<br>אני ממליץ לא להשאיר ריקים את השדות עם העמודים שאליהם יועבר המשתמש בסיום הקניה. בעמוד הזה תוכל לשים סקריפט ajax קטן שבודק כל 5 שניות האם התקבל ואומת תשלום עבור אותו משתמש ואם כן, להציג לו הודעה משמחת עם קישור להורדה של המוצר.<br>השדה האחרון כולל את הכתובת notify_url, הכתובת אליה paypal ישלחו בקשות ipn; אל תשכח להוסיף אחת כזאת.<br><br><h4>הוספת שדות משלך לטופס</h4><br>בסיום התהליך תקבל קוד html של טופס. את הטופס תוכל למקם באתר. השדה הנראה היחידי בטופס שהמשתמש יראה על המסך הוא הכפתור. שאר המידע לגבי הטופס, כמו מחיר, מטבע ושם המוצר נשמרים בשרת של פייפאל ואין לנו צורך לגעת בהם. <br><br>מצד שני, הטופס לא כולל משהו חשוב אחר, וזהו מזהה של המשתמש שביצע את התשלום. בלעדיו לא נוכל לדעת מי ביצע את התשלום וצריך לקבל את המוצר. לתקן את המצב אפשר על ידי הוספת שדה משלנו לטופס:<br><div class="php codeblock">&lt;input name=&quot;custom&quot; value=&quot;<span class="sy1">&lt;?=</span><span class="re0">$userid</span><span class="sy1">?&gt;</span>&quot; type=&quot;hidden&quot;&gt;</div><br>השדה custom יכלל בבקשת ה-ipn ולפיו נוכל לתת את ההרשאות למשתמש המתאים.<br><br><br><br><br><br><h2>טיפול ואימות בקשות paypal ipn - קבלת תשלומים באתר</h2><br>עברת בהצלחה את החלק הראשון בתהליך, יצרת את הטופס, הלקוחות הוציאו את כרטיסי האשראי והשרת שלך מפוצץ בבקשות ipn של תשלומים נכנסים. מה עושים איתם? הדבר הראשון שעושים - רושמים. רושמים הכל. כל פיפס שקשור לתשלומים נכנס ללוגים, כדי שאתה ושירות הלקוחות שלך לא תצטרכו לעבוד שעות נוספות.<br><br>אחרי שלא שכחת לרשום כל דבר ללוג, את הודעות ה-ipn כדאי גם לאמת, כדי לוודא שהם הגיעו מפייפאל ולא מהחלל החיצון. אתה יכול לעשות את זה בעמך, או שאתה יכול להשתמש במחלקה מוכנה PHP-PayPal-IPN. את המחלקה אפשר <a href="https://github.com/Quixotix/PHP-PayPal-IPN">להוריד מפה</a> או להתקין דרך composer. <br><br>המחלקה הזו, מאחורי הקלעים, תבדוק את הקלט, תייצר ותשלח בקשה לשרת של פייפאל, תבדוק את התשובה של פייפאל ותחזיר לך בסופו של דבר true או false, אך עדיין תשאיר בצד כמה בדיקות חשובות. קודם כל עליך לוודא שהמחיר ששולם הוא הסכום שאתה מצפה לקבל, שהמטבע הוא שקל ישראלי חדש וזוהי הודעה אמיתית שעדיין לא טיפלת בה.<br><br>אגב, פייפאל ידאג להמשיך לשלוח לך הודעות IPN עד אשר אתה תנסה לאמת אותם בהצלחה, ככה שאם אחת הבדיקות נכשלה, המסד נפל או לשרת שלך נגמרה הסוללה — פייפאל ימשיכו לשלוח לך את אותה הודעות IPN, עד שתקבל אותה.<br><br><h3>קוד לבדיקת תשלומים באתר עם paypal</h3><br>אחרי החימוש בספריית php-paypal-ipn הקוד הבא יעשה את העבודה:<br><br><div class="php codeblock"><span class="re0">$items</span> <span class="sy0">=</span> <span class="br0">&#91;</span><br>
+&nbsp; <span class="st_h">'iceCream'</span> <span class="sy0">=&gt;</span> <span class="nu19">42.90</span><br>
+&nbsp; <span class="st_h">'premium'</span> <span class="sy0">=&gt;</span> <span class="nu0">600</span><br>
+<span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$postData</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="sy0">;</span><br>
+<span class="re0">$ipnListener</span> <span class="sy0">=</span> <span class="kw2">new</span> IpnListener<span class="br0">&#40;</span><span class="st_h">'paypal_api_certificate.crt'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$ipnListener</span><span class="sy0">-&gt;</span><span class="me1">requirePostMethod</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$verified</span> <span class="sy0">=</span> <span class="re0">$ipnListener</span><span class="sy0">-&gt;</span><span class="me1">processIpn</span><span class="br0">&#40;</span><span class="re0">$postData</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$verified</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>checkDataValid<span class="br0">&#40;</span><span class="re0">$postData</span><span class="sy0">,</span> <span class="re0">$items</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// good, item was paid</span><br>
+&nbsp; &nbsp; <span class="re0">$user</span> <span class="sy0">=</span> <span class="re0">$postData</span><span class="br0">&#91;</span><span class="st_h">'custom'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="kw2">function</span> checkDataValid<span class="br0">&#40;</span><span class="kw3">array</span> <span class="re0">$postData</span><span class="sy0">,</span> <span class="re0">$items</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$postData</span><span class="br0">&#91;</span><span class="st_h">'payment_status'</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st_h">'Completed'</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$items</span><span class="br0">&#91;</span><span class="re0">$postData</span><span class="br0">&#91;</span><span class="st_h">'item_name'</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \Exception<span class="br0">&#40;</span><span class="st0">&quot;Bought an unknown item?!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$postData</span><span class="br0">&#91;</span><span class="st_h">'receiver_email'</span><span class="br0">&#93;</span> <span class="sy0">!==</span> <span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="dfb2a69fbaa7beb2afb3baf1bcb0b2">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="br0">&#41;</span> <span class="co1">// !!!!!!!!!!! money was tranfered to your account</span><br>
+&nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \Exception<span class="br0">&#40;</span><span class="st0">&quot;Receiver email not matching&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$postData</span><span class="br0">&#91;</span><span class="st_h">'mc_currency'</span><span class="br0">&#93;</span> <span class="sy0">!==</span> <span class="st_h">'ILS'</span><span class="br0">&#41;</span> <span class="co1">// paid in Israeli Shekels</span><br>
+&nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \Exception<span class="br0">&#40;</span><span class="st0">&quot;Received payment not in expected currency&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="re0">$itemPrice</span> <span class="sy0">=</span> <span class="re0">$items</span><span class="br0">&#91;</span><span class="re0">$postData</span><span class="br0">&#91;</span><span class="st_h">'item_name'</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">floatval</span><span class="br0">&#40;</span><span class="re0">$postData</span><span class="br0">&#91;</span><span class="st_h">'mc_gross'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">!==</span> <span class="kw3">floatval</span><span class="br0">&#40;</span><span class="re0">$itemPrice</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">// paid the correct price</span><br>
+&nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \Exception<span class="br0">&#40;</span><span class="st0">&quot;Amount does not match. Expected &lt;&quot;</span><span class="sy0">.</span><span class="kw3">floatval</span><span class="br0">&#40;</span><span class="re0">$postData</span><span class="br0">&#91;</span><span class="st_h">'mc_gross'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&gt;, got &lt;'</span><span class="sy0">.</span><span class="kw3">floatval</span><span class="br0">&#40;</span><span class="re0">$itemPrice</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&gt;'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>אני לא חושב שיש צורך להסביר את הקוד הזה, למעט הפרמטר של הקונסטקטור של מחלקת IpnListener. היות שהתקשורת בין השרת שלך לבין השרת של פייפאל עומדת להתבצע דרך https, יכול להיות ש-curl בשרת שלך ידרוש את התעודה של שרת הפייפאל. את קובץ ה-crt אפשר להוריד <a href="https://github.com/Quixotix/PHP-PayPal-IPN/raw/master/cert/api_cert_chain.crt">מפה</a> או <a href="https://github.com/intval/phpguide/raw/cb5dcce38096efa100cbdef58260d2e3a8c4d054/protected/data/paypal_api_certificate.crt">מפה</a>. את הנתיב לקובץ מצפה לקבל הקונסטרקטור של מחלקת ipnListener.<br><br>שים לב להכניס את הערכים המתאימים בשדות של הבדיקות: שם מוצר תואם לזה שרשמת בטופס יצירת כפתור פייפאל, אימייל שאיתו אתה רשום בפייפאל בתור מקבל הכסף ומטבע תואם לזה שברצונך לקבל. בנוסף, אזכיר שוב לרשום כל שלב וכל פיסת מידע ללוגים, למקרה שמשהו ילך לא כמו שצריך.<br><br>לראות איך זה קורה כרגע ב-phpguide <a href="https://github.com/intval/phpguide/blob/7928399eb142698493c6e9b619eb47411bdc76b6/protected/controllers/IpnController.php">אפשר</a> <a href="https://github.com/intval/phpguide/blob/9c204f587c45726cfd8486c964e69ca245ffee76/protected/models/Ipn.php">בקוד</a> המקור של האתר.<br><br><br><h2>בדיקות ו-sandbox</h2><br>את כל התהליך אפשר ואפילו צריך לבדוק לפני. בשביל בדיקות פייפאל מציעה שירות ארגז חול למשחקים. צורת העבודה שלו זהה לחלוטין לזו של הסליקה הרגילה, רק שאין צורך להזין כרטיס אשראי וגם אין מעבר כסף מחשבון אחד לחשבון אחר. כדי לנסות את המערכת בסביבת בדיקות עליך ליצור שני משתמשים חדשים באתר הבדיקות של פייפאל: <a href="https://www.sandbox.paypal.com">https://www.sandbox.paypal.com</a> ולבצע שוב את תהליך יצירת הכפתור והטפסים עם אחד מהם (המוכר). המשתמש השני ישמש אותך כדי לבצע את הקניה. בסופו של דבר שני הטפסים (האמיתי והבדיקות) שיהיו בידך יהיו שונים זה מזה רק בכתובת שאליה נשלח הטופס ובשדה hosted_button_id. <br><br>הבדל נוסף אחר בשלב הבדיקות יהיה לומר למערכת האימות לבצע את האימות מול סביבת הבדיקות של פייפאל, אחרת כל ניסיונות האימות היכשלו. מחלקת האימות שלנו כוללת מאפיין מיוחד בשביל זה שתוכל להציב כ-true או כ-false ואימות בקשת ה-ipn יתבצע מול הסביבה המתאימה:<br><div class="php codeblock"><span class="re0">$listener</span> <span class="sy0">=</span> <span class="kw2">new</span> IpnListener<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$listener</span><span class="sy0">-&gt;</span><span class="me1">use_sandbox</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span></div><br><br>בזה מסתכם עניין קבלת התשלומים באתר באמצעות פייפאל ו-php. בהצלחה במכירות. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2715"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2013 21:20</span><br>
+כמה דברים, PayPal IPN זאת כבר אפשרות פחות עדיפה לקבלת תשלום לאתר, היא ישנה ופחות דינמית מExpress Checkout (שאיתה דרך הסקריפט אתה יכול לקבוע גובהה תשלום וכו&apos;.) וחוץ מזה, PP הוציאו REST API שאיתו השמיים הם הגבול..<br>
+תודה ושבת שלום D:</div>
+<a id="comment2716"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielTador</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/12/2013 20:00</span><br>
+מדריך נחמד, רק עדיין לא הבנתי לעזאזל איפה בעצם שמים ב - IPN את כתובת האימייל של מקבל התשלום?</div>
+<a id="comment2717"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/12/2013 20:31</span><br>
+אתה לא מגדיר אמייל, דרך החשבון PP שלך אתה יוצר &quot;עסקה\העברה&quot; ולה יש ערך זיהוי (hosted_button_id) יחודי, ככה PP יודע את לאיזה חשבון להעביר את הכסף..</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה mail() בעיה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nirbe">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>mail() בעיה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="mail() בעיה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה mail() בעיה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">10</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="mail בעיה-1.htm" title="שלום,יש לי בעיה בשליחת מייל עם הפונקציה mail()אני מנסה לשלוח תמונה:&amp;lt;img src=&amp;quot;http://outboxltd.co.il/wp-content/uploads/newbox%20-%20small.png&amp;quot; /&amp;gt;ומה שאני מקבל במייל זה תמונה שבורה עם הקישור:http://%22http//outboxltd.co.il/wp-content/uploads/newboxואני לא יודע איך לסדר את זה.">mail() בעיה</a></h2>
+<div class="userinfo">
+פתח
+<a>nirbe</a>
+,
+<time class="timeago relativetime" datetime="2013-04-17T17:54:26+03:00" style="display:inline-block;">
+17 לאפריל 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1380'>
+שלום,<br>יש לי בעיה בשליחת מייל עם הפונקציה mail()<br>אני מנסה לשלוח תמונה:<br><div class="php codeblock"><span class="sy0">&lt;</span>img src<span class="sy0">=</span><span class="st0">&quot;http://outboxltd.co.il/wp-content/uploads/newbox%20-<span class="es6">%20s</span>mall.png&quot;</span> <span class="sy0">/&gt;</span></div><br>ומה שאני מקבל במייל זה תמונה שבורה עם הקישור:<br>http://%22http//outboxltd.co.il/wp-content/uploads/newbox<br><br>ואני לא יודע איך לסדר את זה.<br><br>תודה! </div>
+</div>
+<h3>
+<span id="answersCounter">10 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6124">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 17 לאפריל 2013 </span>
+<a id="answer_6124" href="mail בעיה-1.htm#answer_6124">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1) לרוב בנתיבים (path/uri) לא ברווחים, אז אל תעשה את זה.<br>2) בעקבות זה, יוצר שהדפדפו מבין שהכתובת היא http://outboxltd.co.il/wp-content/uploads/newbox ומחפש אותה ולא מוצא, ואז הוא מוסיף http:// עם הסימן %22 שלרוב ככה מוצג כתובת תמונה שבורה. (מידע עפ&quot;י חיפוש באינטרנט של הסימן %22) </p>
+</div>
+<div class="answer" id="answer6125">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 18 לאפריל 2013 </span>
+<a id="answer_6125" href="mail בעיה-1.htm#answer_6125">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ונגיד יש רווח? אפשר להשתמש ב str_replace ולהחליף את ה %20 ברווח? </p>
+</div>
+<div class="answer" id="answer6126">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 18 לאפריל 2013 </span>
+<a id="answer_6126" href="mail בעיה-1.htm#answer_6126">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר להשתמש ב-<a href="http://php.net/urlencode">urlencode</a>.<br>ולוודא שאתה שולח את האימייל בתור חתיכת HTML ולא סתם text/plain </p>
+</div>
+<div class="answer" id="answer6127">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 18 לאפריל 2013 </span>
+<a id="answer_6127" href="mail בעיה-1.htm#answer_6127">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הדפדפן הופך את הרווח ל%20, אם תעשה למחרוזת של זה preg_match עם הביטוי %20 לא תמצא. </p>
+</div>
+<div class="answer" id="answer6129">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 18 לאפריל 2013 </span>
+<a id="answer_6129" href="mail בעיה-1.htm#answer_6129">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני מנסה לשלוח מייל בסגנון הזה:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>HTML Online Editor Sample<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; Online HTML Editor<span class="sy0">&lt;/</span>h1<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; This is an online HTML editor<span class="sy0">.</span> Try editing this text area <span class="sy0">-</span> go on<span class="sy0">!&lt;/</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; Here is some <span class="sy0">&lt;</span>strong<span class="sy0">&gt;</span>sample bold text<span class="sy0">&lt;/</span>strong<span class="sy0">&gt;.&amp;</span>nbsp<span class="sy0">;&lt;/</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; Here is a checklist <span class="kw1">for</span> a good online editor<span class="sy0">:&lt;/</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>ul<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Is it a WYSIWYG editor? <span class="br0">&#40;</span>WYSIWYG means <span class="sy0">&amp;</span>quot<span class="sy0">;</span>What You See Is What You Get<span class="sy0">&amp;</span>quot<span class="sy0">;</span> <span class="sy0">-</span> just like this editor<span class="sy0">!</span><span class="br0">&#41;</span><span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Does it generate valid HTML code?<span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Is it quick and easy?<span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Is it<span class="sy0">...</span> FREE?<span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>ul<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; Feel free to <span class="kw2">use</span> this online HTML editor <span class="kw1">for</span> generating HTML code <span class="kw1">for</span> your own website<span class="sy0">,</span> MySpace page<span class="sy0">,</span> etc<span class="sy0">.</span> To view the source code<span class="sy0">,</span> simply click on the <span class="sy0">&amp;</span>quot<span class="sy0">;</span>Source<span class="sy0">&amp;</span>quot<span class="sy0">;</span> button above<span class="sy0">.&lt;/</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>hr <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>p style<span class="sy0">=</span><span class="st0">&quot;font-size:10px;&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>a href<span class="sy0">=</span><span class="st0">&quot;http://www.quackit.com/html/online-html-editor/&quot;</span><span class="sy0">&gt;</span>Online Editor<span class="sy0">&lt;/</span>a<span class="sy0">&gt;&lt;/</span>p<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br>אבל הוא קוטע לי אותו באמצע ואני לא מבין איך לאפשר להכניס קוד HTML למייל. </p>
+</div>
+<div class="answer" id="answer6130">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 18 לאפריל 2013 </span>
+<a id="answer_6130" href="mail בעיה-1.htm#answer_6130">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מייל לקוד של html מכניסים בקוד של קשור ככה:<br>&lt;A href=&quot;mailto:<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="8ffafceafde1eee2eacfe8e2eee6e3a1ece0e2">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;&gt;<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="7b0e081e09151a161e3b1c161a121755181416">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&lt;/A&gt;<br>בתוך הmailto: מכניסים את האימייל לא חייב גימייל ואחרי הקוח מכניסים מה שזה יכתוב כמו בקשור רגיל אבלל זה עובד רק במחשב window בגלל שיש את התוכנה ששולחת מיילים מהמחשב זה פותח אותה ואז שולח דרכה מה שתכתוב לה לשלוח אתה יכול לנסות </p>
+</div>
+<div class="answer" id="answer6141">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 18 לאפריל 2013 </span>
+<a id="answer_6141" href="mail בעיה-1.htm#answer_6141">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+yonikal56, איך זה לעזאזל קשור לעולם? </p>
+</div>
+<div class="answer" id="answer6142">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 18 לאפריל 2013 </span>
+<a id="answer_6142" href="mail בעיה-1.htm#answer_6142">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אמרת שאתה לא מבין איך להכניס מייל לקוד html הנה ככה להכניס קוד html למייל חיי בהודעה עצמה ולא בצאט </p>
+</div>
+<div class="answer" id="answer6143">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 18 לאפריל 2013 </span>
+<a id="answer_6143" href="mail בעיה-1.htm#answer_6143">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תקרא שוב את מה שכתבתי, אני מדבר פה על פונקציית mail(), אני מנסה לשלוח דרכה תוכן HTML.<br>ניסיתי לשנות את ה headers שיאפשרו לי תוכן HTML וחלק עובד, רוב הקוד שכתבתי למעלה פשוט נקתע. </p>
+</div>
+<div class="answer" id="answer6156">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5e5b5ba539240e4b83b11a5fbf086309?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmh19</a>
+ב
+<span style="font-size:10px"> 19 לאפריל 2013 </span>
+<a id="answer_6156" href="mail בעיה-1.htm#answer_6156">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה כמו שאמרו לעשות URLENCODE זה הפתרון היחיד. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

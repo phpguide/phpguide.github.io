@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="varnish - אקסלרטור שיגרום לאתר שלך לטוס">
+<meta name="keywords" content="varnish, apache, caching">
+<meta name="author" content="ronenyacobi">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>האצת עמודים דינאמיים ותמיכה ביותר מבקרים בעזרת Varnish Cache</title>
+<meta itemprop="name" content="האצת עמודים דינאמיים ותמיכה ביותר מבקרים בעזרת Varnish Cache">
+<meta itemprop="description" content="varnish - אקסלרטור שיגרום לאתר שלך לטוס">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"143","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>האצת עמודים דינאמיים ותמיכה ביותר מבקרים בעזרת Varnish Cache</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ronenyacobi, </div>
+<div class="right">&nbsp;<time datetime="2011-08-13T16:21:33+03:00" dir="rtl">13 לאוגוסט 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://upng.info/files/4971rsz_varnish.jpg" alt="האצת עמודים דינאמיים ותמיכה ביותר מבקרים בעזרת Varnish Cache">
+</div>
+<div class="right post-content">
+איך לתמוך במיליוני מבקרים בחודש עם שרת בפחות מ100$ <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>האצת עמודים דינאמיים ותמיכה ביותר מבקרים בעזרת Varnish Cache</h3><br><h4>(או - איך לתמוך במיליוני מבקרים בחודש עם שרת ב100$)</h4><br><br>במאמר זה אציג את Varnish Cache כפתרון להאצת אתרים בעלי עמודים דינאמיים ואראה כיצד ניתן לתמוך <strong>בהרבה</strong> יותר משתמשים תוך כדי האצת ביצועי השרת באופן משמעותי.<br><br>מהאתר של <a href="https://www.varnish-cache.org/">Varnish</a>:<br><h4><em>&quot;Varnish Cache is an open source, state of the art web application accelerator. You install it on your web server and it makes your website fly.&quot;</em></h4><br><br>אתרים רבים מריצים PHP (או שפה אחרת לצורך העניין) ובכל העלאת עמוד מריצים מאותך ואלפי שורות קוד, מבצעים קריאות מבסיס נתונים ועם זאת מציגים את אותו התוכן לרוב המבקרים. רוב העמודים לא משתנים לעיתים קרובות כל כך, כך שמדובר בעבודה מיותרת של השרת.<br>אלכס הציג <a href="buffered file cache.htm">פתרון </a>לא רע למקרים רבים, שבו נבצע caching לחלק מהעמוד או לכולו ובכך נחסוך את הרצת הקוד. לאפשרות הזו יש מספר יתרונות - היא לא דורשת התקנה וניהול של תוכנה נוספת וניתן ליישם אותה גם ב Shared Hosting כאשר אין לנו אפשרות להתקין תוכנה על השרת. החיסרונות הם:<br>1) אנחנו נדרשים לכתוב פתרון משלנו בקוד, דבר הדורש ניהול ודיבוג.<br>2) זה עדיין רץ על Apache <br><br>למה אני רושם את שרת Apache כחיסרון? כי למרות היותו שרת ה WEB מהנפוצים בעולם, Apache הוא שרת לא יעיל במיוחד (אל דאגה, אני לא הולך להציג את IIS כאלטרנטיבה למרות שנותיי הרבות כמומחה תשתיות מיקרוסופט..) - כל Process של Apache יכול לצרוך בסביבות 5MB-50MB של זיכרון, אפילו כשהוא מגיש קבצים סטטיים כמו CSS, JS, PNG. לכן, בשרתים המריצים Apache, צוואר הבקבוק הוא בד&quot;כ כמות הזיכרון בשרת.<br>מעבר לכך ש Apache צורך הרבה זיכרון, הוא גם די איטי ביחס לפתרונות מהירים יותר (כמו Nginx ו Varnish למשל). <br>באתרים עם כמות תנועה קטנה-בינונית ועם קוד יעיל, יכול להיות שלא נרגיש את החסרונות הללו, אולם כשיש פיקים של תנועה השרת יכול להתחיל לזחול.<br>לדוגמא - אם יש לנו 600MB זיכרון פנוי בשרת וכל process של apache צורך 30MB זיכרון, נוכל לתמוך בעשרים בקשות בו זמנית מבלי שהשרת יתחיל להיחנק ולהשתמש בזיכרון הווירטואלי. אם לייצר את העמוד שלנו לוקח לדוגמא, חצי שניה, נוכל לתמוך בארבעים משתמשים בו זמנית. לא הרבה במיוחד, וזה יהיה גרוע יותר אם השרת עמוד ומתחיל לקחת לו שניה וחצי לייצר עמוד. <br><br>אז אחרי ההקדמה ה&quot;קצרה&quot;, אציג את הפתרון שמספק Varnish:<br>Varnish מטפל בכל הפניות שמגיעות לשרת ומשמש כ proxy מול ה apache שלנו. כשמגיעה בקשה ל varnish הוא בודק אם יש לו כבר את העמוד ב cache, אם כן, יגיש את העמוד מהcache (בהתאם להגדרות שלנו לאורך חיי עמוד בcache, למי להגיש מcache ולמי לא וכו&#039;) שהוא בעצם קובץ סטטי ולכן זמן התגובה הוא מהיר מאוד. אם העמוד לא נמצא בקאש, varnish יפנה ל apache ויבקש את העמוד, יגיש אותו ללקוח וכמו כן יכניס אותו לקאש ובכך מוריד עומס רב מה apache שאליו יגיעו בסופו של דבר רק חלק קטן מאוד מהבקשות. <br>מעבר לחסכון בהרצת סקריפטים PHP, פניות ל MySQL וכו&#039;, יש לvarnish יתרון נוסף.<br>ציינתי כבר ש apache הוא לא מהיר במיוחד וגם כאן יש לvarnish יתרון - הוא פשוט הרבה יותר מהיר גם בהגשת התכנים מהקאש וגם בהגשת הקבצים הסטטיים שלנו. אבל אתם לא חייבים להאמין לי, יש לי דוגמא:<br>הנה דוגמא אמיתית מהשרת של <a href="http://drippler.com">drippler</a> של ביצוע 200 פניות לשרת לקבלת קובץ JS, כאשר מבוצעות 100 פניות במקביל בכל פעם. פעם ראשונה מול apache ופעם שניה מול varnish. מבוצע באמצעות <span dir="ltr">ab (apache benchmark)</span>:<br><br><br><div class="php codeblock">Server Software<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;Apache<span class="sy0">/</span><span class="nu0">2</span><span class="sy0">.</span>x<span class="sy0">.</span>xx<br>
+Server Hostname<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;drippler<span class="sy0">.</span>com<br>
+Server Port<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">8282</span><br>
+<br>
+Document Path<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">/</span>sites<span class="sy0">/</span><span class="kw1">default</span><span class="sy0">/</span>files<span class="sy0">/</span>js<span class="sy0">/</span>js_0NdHKxgqhxXfmHCwZepV3aSuD_H9T7ZP4HJzc<span class="sy0">-</span>QVyio<span class="sy0">.</span>js<br>
+Document Length<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">17968</span> bytes<br>
+<br>
+Concurrency Level<span class="sy0">:</span> &nbsp; &nbsp; &nbsp;<span class="nu0">100</span><br>
+<span class="kw3">Time</span> taken <span class="kw1">for</span> tests<span class="sy0">:</span> &nbsp; <span class="nu19">0.247</span> seconds<br>
+Complete requests<span class="sy0">:</span> &nbsp; &nbsp; &nbsp;<span class="nu0">200</span><br>
+Failed requests<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">0</span><br>
+Write errors<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="nu0">0</span><br>
+Total transferred<span class="sy0">:</span> &nbsp; &nbsp; &nbsp;<span class="nu0">3804246</span> bytes<br>
+HTML transferred<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; <span class="nu0">3719376</span> bytes<br>
+Requests per second<span class="sy0">:</span> &nbsp; &nbsp;<span class="nu19">809.30</span> <span class="br0">&#91;</span><span class="co2">#/sec] (mean)<br>
+</span><span class="kw3">Time</span> per request<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; <span class="nu19">123.564</span> <span class="br0">&#91;</span>ms<span class="br0">&#93;</span> <span class="br0">&#40;</span>mean<span class="br0">&#41;</span><br>
+<span class="kw3">Time</span> per request<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; <span class="nu19">1.236</span> <span class="br0">&#91;</span>ms<span class="br0">&#93;</span> <span class="br0">&#40;</span>mean<span class="sy0">,</span> across all concurrent requests<span class="br0">&#41;</span><br>
+Transfer rate<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu19">15033.04</span> <span class="br0">&#91;</span>Kbytes<span class="sy0">/</span>sec<span class="br0">&#93;</span> received<br>
+<br>
+Connection Times <span class="br0">&#40;</span>ms<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">min</span> &nbsp;mean<span class="br0">&#91;</span><span class="sy0">+/-</span>sd<span class="br0">&#93;</span> median &nbsp; <span class="kw3">max</span><br>
+Connect<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">0</span> &nbsp; <span class="nu0">17</span> &nbsp;<span class="nu19">10.6</span> &nbsp; &nbsp; <span class="nu0">17</span> &nbsp; &nbsp; &nbsp;<span class="nu0">28</span><br>
+Processing<span class="sy0">:</span> &nbsp; &nbsp;<span class="nu0">23</span> &nbsp; <span class="nu0">81</span> &nbsp;<span class="nu19">29.4</span> &nbsp; &nbsp; <span class="nu0">93</span> &nbsp; &nbsp; <span class="nu0">128</span><br>
+Waiting<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">2</span> &nbsp; <span class="nu0">74</span> &nbsp;<span class="nu19">31.7</span> &nbsp; &nbsp; <span class="nu0">88</span> &nbsp; &nbsp; <span class="nu0">127</span><br>
+Total<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="nu0">31</span> &nbsp; <span class="nu0">98</span> &nbsp;<span class="nu19">26.3</span> &nbsp; &nbsp;<span class="nu0">105</span> &nbsp; &nbsp; <span class="nu0">145</span><br>
+<br>
+Percentage of the requests served within a certain <span class="kw3">time</span> <span class="br0">&#40;</span>ms<span class="br0">&#41;</span><br>
+&nbsp; <span class="nu0">50</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">105</span><br>
+&nbsp; <span class="nu0">66</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">111</span><br>
+&nbsp; <span class="nu0">75</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">115</span><br>
+&nbsp; <span class="nu0">80</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">116</span><br>
+&nbsp; <span class="nu0">90</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">127</span><br>
+&nbsp; <span class="nu0">95</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">133</span><br>
+&nbsp; <span class="nu0">98</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">141</span><br>
+&nbsp; <span class="nu0">99</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">143</span><br>
+&nbsp;<span class="nu0">100</span><span class="sy0">%</span> &nbsp; &nbsp;<span class="nu0">145</span> <span class="br0">&#40;</span>longest request<span class="br0">&#41;</span></div><br><br><div class="php codeblock">Server Software<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;Apache<span class="sy0">/</span><span class="nu0">2</span><span class="sy0">.</span>x<span class="sy0">.</span>xx<br>
+Server Hostname<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;drippler<span class="sy0">.</span>com<br>
+Server Port<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">80</span><br>
+<br>
+Document Path<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">/</span>sites<span class="sy0">/</span><span class="kw1">default</span><span class="sy0">/</span>files<span class="sy0">/</span>js<span class="sy0">/</span>js_0NdHKxgqhxXfmHCwZepV3aSuD_H9T7ZP4HJzc<span class="sy0">-</span>QVyio<span class="sy0">.</span>js<br>
+Document Length<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">17968</span> bytes<br>
+<br>
+Concurrency Level<span class="sy0">:</span> &nbsp; &nbsp; &nbsp;<span class="nu0">100</span><br>
+<span class="kw3">Time</span> taken <span class="kw1">for</span> tests<span class="sy0">:</span> &nbsp; <span class="nu19">0.032</span> seconds<br>
+Complete requests<span class="sy0">:</span> &nbsp; &nbsp; &nbsp;<span class="nu0">200</span><br>
+Failed requests<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">0</span><br>
+Write errors<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="nu0">0</span><br>
+Total transferred<span class="sy0">:</span> &nbsp; &nbsp; &nbsp;<span class="nu0">3686600</span> bytes<br>
+HTML transferred<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; <span class="nu0">3593600</span> bytes<br>
+Requests per second<span class="sy0">:</span> &nbsp; &nbsp;<span class="nu19">6321.11</span> <span class="br0">&#91;</span><span class="co2">#/sec] (mean)<br>
+</span><span class="kw3">Time</span> per request<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; <span class="nu19">15.820</span> <span class="br0">&#91;</span>ms<span class="br0">&#93;</span> <span class="br0">&#40;</span>mean<span class="br0">&#41;</span><br>
+<span class="kw3">Time</span> per request<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; <span class="nu19">0.158</span> <span class="br0">&#91;</span>ms<span class="br0">&#93;</span> <span class="br0">&#40;</span>mean<span class="sy0">,</span> across all concurrent requests<span class="br0">&#41;</span><br>
+Transfer rate<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu19">113786.20</span> <span class="br0">&#91;</span>Kbytes<span class="sy0">/</span>sec<span class="br0">&#93;</span> received<br>
+<br>
+Connection Times <span class="br0">&#40;</span>ms<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">min</span> &nbsp;mean<span class="br0">&#91;</span><span class="sy0">+/-</span>sd<span class="br0">&#93;</span> median &nbsp; <span class="kw3">max</span><br>
+Connect<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">3</span> &nbsp; &nbsp;<span class="nu0">6</span> &nbsp; <span class="nu19">2.1</span> &nbsp; &nbsp; &nbsp;<span class="nu0">6</span> &nbsp; &nbsp; &nbsp;<span class="nu0">10</span><br>
+Processing<span class="sy0">:</span> &nbsp; &nbsp; <span class="nu0">3</span> &nbsp; &nbsp;<span class="nu0">8</span> &nbsp; <span class="nu19">2.3</span> &nbsp; &nbsp; &nbsp;<span class="nu0">8</span> &nbsp; &nbsp; &nbsp;<span class="nu0">12</span><br>
+Waiting<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">1</span> &nbsp; &nbsp;<span class="nu0">6</span> &nbsp; <span class="nu19">2.6</span> &nbsp; &nbsp; &nbsp;<span class="nu0">6</span> &nbsp; &nbsp; &nbsp;<span class="nu0">10</span><br>
+Total<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="nu0">13</span> &nbsp; <span class="nu0">15</span> &nbsp; <span class="nu19">0.8</span> &nbsp; &nbsp; <span class="nu0">15</span> &nbsp; &nbsp; &nbsp;<span class="nu0">16</span><br>
+<br>
+Percentage of the requests served within a certain <span class="kw3">time</span> <span class="br0">&#40;</span>ms<span class="br0">&#41;</span><br>
+&nbsp; <span class="nu0">50</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">15</span><br>
+&nbsp; <span class="nu0">66</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">15</span><br>
+&nbsp; <span class="nu0">75</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">15</span><br>
+&nbsp; <span class="nu0">80</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">16</span><br>
+&nbsp; <span class="nu0">90</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">16</span><br>
+&nbsp; <span class="nu0">95</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">16</span><br>
+&nbsp; <span class="nu0">98</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">16</span><br>
+&nbsp; <span class="nu0">99</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">16</span><br>
+&nbsp;<span class="nu0">100</span><span class="sy0">%</span> &nbsp; &nbsp; <span class="nu0">16</span> <span class="br0">&#40;</span>longest request<span class="br0">&#41;</span></div><br><br>ניתן לראות של apache לקח בממוצע 100 מילי שניות להגיש את הקובץ, בעוד שלvarnish לקחת כ15 מילישניות. הבדל משמעותי מאוד במהירות וגם בעומס על השרת היות וapache היה צריך לפתוח process כבד עבור כל בקשה שכזאת. <br>אם נבצע את אותה ההשוואה לעמודים דינאמיים, נקבל הבדלים הרבה יותר קיצוניים (מתוך רחמים על השרת שלנו ועל המשתמשים והתעצלות להעלות שרת אחר, לא אבצע את ההשוואה הזאת בפועל עכשיו) - ההבדלים יהיו שניות בapache מול מילישניות בvarnish.<br><br>היות וvarnish מאפשר לנו להגיש עמודים דינאמיים מהcache והודות לכך יכול לטפל באלפי בקשות בשניה, אם תעשו את החשבון תראו שזה יאפשר לנו לשרת מיליוני ועשרות מיליוני מבקרים בחודש בלי שום בעיה ובלי מערך של שרתים מפלצתיים.<br><br>עכשיו בטח תשאלו - מה עם המשתמשים הרשומים שלנו שצריכים לקבל תוכן דינאמי? ואולי יש לכם סוג נוסף של מבקרים שצריכים לקבל תוכן דינאמי בהתאם לעוגיות, user-agent וכו&#039;? <br>הפתרון הוא לקנפג את varnish להגיש תוכן מהקאש רק בתנאים מסויימים (לדומא אם אין למשתמש עוגיות מסויימות, אוטנטיקציה וכו&#039;). כך נפחית את העומס מהשרת ועם זאת עדיין נגיש תוכן דינאמי למי שצריך.<br><br>היות והמאמר יצא ארוך יותר מהמתוכנן, לא ארחיב על איך להתקין ולהגדיר שרת varnish. אם אראה שיש התעניינות בנושא אשתדל לכתוב פוסט נוסף עם טיפים איך לקנפג את שרת varnish.<br><br><h5><strong>שאלות?</strong></h5> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/131e2874a7b392c7696046519555f2b3?s=16&r=g&d=monsterid" alt="ronenyacobi">
+<a>ronenyacobi</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment629"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2011 14:38</span><br>
+מדריך מפורט ומוסבר כמו שצריך ))<br>
+הלכתי לבדוק את זה עכשיו,<br>
+תודה.</div>
+<a id="comment630"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2011 15:19</span><br>
+מדריך מעולה :)<br>
++1 , בודק את זה גם.</div>
+<a id="comment631"></a>
+<div class="blog-comment">
+<span class='comment-author'>ronenyacobi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2011 15:36</span><br>
+אחלה<br>
+אשמח לשמוע איך הלך לכם עם זה</div>
+<a id="comment632"></a>
+<div class="blog-comment">
+<span class='comment-author'>amitdar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2011 18:19</span><br>
+ל- Zend Server יש פתרון כזה כבר שנים שנקרא Page Cache ששומר בקאש דפים שלמים, ויכול לפעול באמצעות מגוון אופציות כמו דפים מסוימים, עוגיות, קוד מסוים או ביטוי רגולרי. משפר ביצועים בטירוף אך דורש התקנת Zend Server ולא ניתן להתקין על Shared host.<br>
+הפתרון של זנד לא דורש התערבות קוד בכלל, יתרון גדול מאוד.<br>
+בינינו מי שיש לו אתר עמוס מאוד לא שם את השרת על Shared host אלא קונה מכונה בענן או ממש פיזית ומתקין עליה מה שהוא רוצה.</div>
+<a id="comment633"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2011 20:11</span><br>
+יכול להיות שאתה צודק, אבל בו לא נשכח שרשיון לZend Server עולה כ1200$ לשנה לגירסא הבסיסית, לא לכולם יש כסף כזה לזרוק. במיוחד אם הבנאדם צריך רק דבר אחד-שתיים ולא את כל מה שזנד סרבר מציע.</div>
+<a id="comment634"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2011 21:13</span><br>
+לי חסרה השוואה עם nginx מבחינת ביצועים ויכולות <br>
+<br>
+מצאתי אותו:<br>
+<span dir="ltr"><a href="http://www.go2linux.org/linux/2011/04/nginx-varnish-compared-nginx-941">http://www.go2linux.org/linux/2011/04/nginx-varnish-compared-nginx-941</a></span><br>
+<br>
+ולפי התוצאות נראה כאילו אין הבדל רב מדי בין התוצאות, למאט מקרים שבהם גם הקבצים הסטטיים נשמרים ב ram ואין קריאה מדיסק - ואת זה יודע לעשות רק varnish<br>
+<br>
+מצד שני גם nginx הוא קוד פתוח שקיים הרבה מאוד זמן והיום משרת יותר ממחצית האתרים הגדולים. כמובן ש varnish עדיין בשלבי גדילה והיא כלי נהדר אבל השאלה שלי היא למה בחרתם ב drippler דווקא בה ולא ב nginx</div>
+<a id="comment635"></a>
+<div class="blog-comment">
+<span class='comment-author'>ronenyacobi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2011 21:44</span><br>
+nginx אכן יודע לשמש גם כ proxy וגם לעשות caching אבל לא לשם כך הוא נועד.<br>
+משום כך, ל varnish יש הרבה יותר גמישות מבחינת ההגדרות מה להגיש מהcache ומה לא, ובדריפלר אנחנו זקוקים לגמישות הזו כדי לשרת משתמשים אנונימיים וגם משתמשים רשומים וגם להגיע לרמה גבוה יותר של שליטה על expiration של עמודים מהקאש כאשר ידיעות חדשות נכנסות ולא רק לפי זמן מוגדר מראש.<br>
+יכול להיות שאשפר לעשות חלק מהדברים האלה גם עם nginx אבל אני לא מכיר מספיק טוב את nginx כדי לומר בוודאות.</div>
+<a id="comment637"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2011 22:01</span><br>
+הבנתי. תודה :-)<br>
+nginx בונה את ה cache שלו או לפי ההדרים שהדפדפן שולח לגבי תוקף העמוד (שהצבנו בעצמינו), לפי קוקי ופרמטרים נכנסים אחרים או לפי מפתח cache שהקוד שלנו מייצר כל פעם אחד שונה כזה כשהפלט משתנה.</div>
+<a id="comment678"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/08/2011 06:39</span><br>
+יפה מאוד</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

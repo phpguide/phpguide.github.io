@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="Laravel - מבנה הפריימוורק ותחילת עבודה">
+<meta name="keywords" content="laravel, laravel framework, php framework, php 5.3 framework, מבנה laravel, עבודה עם Laravel">
+<meta name="author" content="Michael">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Laravel - תחילת העבודה ומבנה הפריימוורק</title>
+<meta itemprop="name" content="Laravel - תחילת העבודה ומבנה הפריימוורק">
+<meta itemprop="description" content="Laravel - מבנה הפריימוורק ותחילת עבודה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"268","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Laravel - תחילת העבודה ומבנה הפריימוורק</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Michael, </div>
+<div class="right">&nbsp;<time datetime="2012-11-16T15:02:54+02:00" dir="rtl">16 לנובמבר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://img.scoop.it/wshqhusha0ESmyurlxzPeSN_uXZbW2oNh6e4UjnxoeI%3D" alt="Laravel - תחילת העבודה ומבנה הפריימוורק">
+</div>
+<div class="right post-content">
+אחרי שהכרנו קצת את הפריימוורק, נלמד איך להתחיל לעבוד איתו <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אחרי <a href="Laravel  הפריימוורק שתתאהבו בו.htm">שקראנו ושמענו על הפריימוורק</a>, אדבר הפעם על התחלת העבודה על לרבל.<br><br>נוריד את הפריימוורק מהרפו שלהם בג&#039;יטהאב: <a href="https://github.com/laravel/laravel/zipball/master">https://github.com/laravel/laravel/zipball/master</a><br><br>לפני שאנחנו זורקים אותו לתיקיית הוואב שלנו ומתחילים עם העבודה, יש שתי אפשרויות:<br>1. ליצור vhost חדש לפרויקט שלנו.<br>2. להצמד למה שיש.<br><br>בשביל אסתטיקה, אני אעדיף ליצור תיקייה נפרדת לפרויקט וליצור לו vhost חדש.<br>מה שצריך לעשות בשביל זה (אני אצא מנקודת הנחה שאתם משתמשים באפאצ&#039;י) - לגשת לתיקיית האפאצ&#039;י, בתוכה תמצאו תיקייה בשם sites-enabled או conf.d, ושם תיצרו קובץ חדש בשם laravelproject.conf (או איך שתירצו לקרוא לזה).<br>בתוכו נשים את הקוד הבא:<br><span class="dirleft"><div class="php codeblock"><span class="sy0">&lt;</span>VirtualHost <span class="sy0">*:</span><span class="nu0">80</span><span class="sy0">&gt;</span><br>
+&nbsp; ServerName laravelproject<span class="sy0">.</span>dev <span class="co2"># Hostname, you can edit it<br>
+</span>&nbsp; DocumentRoot <span class="sy0">/</span>path<span class="sy0">/</span>to<span class="sy0">/</span><span class="kw2">new</span><span class="sy0">/</span>laravel<span class="sy0">/</span>project<span class="sy0">/</span>folder<span class="sy0">/</span><span class="kw2">public</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; <span class="sy0">&lt;</span>Directory <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; Options FollowSymLinks<br>
+&nbsp; &nbsp; AllowOverride All<br>
+&nbsp; <span class="sy0">&lt;/</span>Directory<span class="sy0">&gt;</span><br>
+<br>
+&nbsp; <span class="sy0">&lt;</span>FilesMatch <span class="st0">&quot;access_log|error_log&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; Deny from All<br>
+&nbsp; <span class="sy0">&lt;/</span>FilesMatch<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>VirtualHost<span class="sy0">&gt;</span></div></span><br><br>לאחר מכן מה שנשאר לנו זה לערוך את הקובץ hosts שלנו להוסיף את ההוסט החדש.<br>במידה ואתם משתמשים במערכת *nix הקובץ יהיה בנתיב: <span dir="ltr">/etc/hosts</span>, במידה בחלונות זה יהיה בנתיב: <span dir="ltr">c:\windows\system32\drivers\etc\hosts</span>, שם נוסיף את השורה הבאה (בסוף הקובץ):<br><span dir="ltr"><div class="php codeblock">127<span class="sy0">.</span>0<span class="sy0">.</span>0<span class="sy0">.</span>1 &nbsp; &nbsp;laravelproject<span class="sy0">.</span>dev</div></span><br><br>נעשה ריסטרט לאפאצ&#039;י, וניגש לכתובת, ומזל טוב!<br><br>אם נשים לב לקוד של הvhost, בנטיב בסוף מצוינת תיקיית &quot;public&quot;, הסיבה לכך כי המבנה של לרבל ככה בנוי - בתיקיית הפאבליק נמצא כל התוכן החיצוני (קבצים סטטים, עמוד האינדקס). זה כמובן ניתן לשינוי, אך כרגע נצמד בהגדרות מחדל של לרבל.<br><br>נחלץ את הפריימוורק לתוך תיקיית העבודה החדשה שלנו ונראה את המבנה הבא (נכון לגירסא <span dir="ltr">3.2.x</span>):<br><span class="dirleft"><div class="php codeblock"><span class="sy0">/</span>application<br>
+<span class="sy0">/</span>bundles<br>
+<span class="sy0">/</span>laravel<br>
+<span class="sy0">/</span><span class="kw2">public</span><br>
+<span class="sy0">/</span>storage<br>
+artisan<br>
+paths<span class="sy0">.</span>php</div></span><br><br>וביותר פירוט:<br><br><strong>application</strong><br>התיקייה בעצם מכילה את הפרויקט שלכם.<br>התיקייה מכילה את המודולים, את הקונטרולרים, את הראוטרים, את הקבצי views שלכם, ואת קבצי הקונפיג.<br>שם נמצא כל הפרויקט שלכם!<br><br><strong>budles</strong><br>שם נמצאים <a href="http://laravel.com/docs/bundles">הבאנדלים</a> שלכם שדיברנו עלייהם במאמר הקודם.<br>כשתורידו ותתקינו באנדלים, הם יהיו בתיקייה הזאת.<br>חשוב גם לציין שתיקיית הapplication מוגדרת בפריימוורק כבאנדל בחירת מחדל. כלומר כל מה שאתם עושים שם אתם יכולים לעשות בבאנדלים משלכם. זה דבר מעולה ושימושי להרבה דברים, והדוגמא הכי טובה זה חילוק האתר - באנדל לפרונטאנד, ובאנדל לבאקאנד (הפאנל ניהול).<br><br><strong>laravel</strong><br>זה תיקיית הפריימוורק עצמו. שם נמצאת כל הליבה של המערכת.<br>רוב הסיכויים שלא תגעו בקבצים שנמצאים בתיקייה הזאת, אך תמיד אפשר לעשות האק לקוד, להוסיף דברים, לתקן באגים ולשתף את הדברים בג&#039;יטהאב :)<br>כמו כן כל הקוד מקור נמצא ב<a href="http://laravel.com/api"></a>API שלהם, ככה שאם תירצו לעיין באיזה חלק של הקוד מקור אפשר תמיד לבדוק שם ולקבל פירוט על כל מטודה ומחלקה בצורה טובה.<br><br><strong>public</strong><br>זה התיקייה החיצונית. כשמישהו ניגש לאתר, השרת וואב שלכם יגש לתיקייה הזאת.<br>בתיקייה נמצא קובץ האינדקס שאחראי להפעיל את הפריימוורק, והקבצים הסטטים שלכם (קבצי assets, תמונות וכו&#039;).<br><br><strong>storage</strong><br>זאת תיקייה שמשומשת על ידי הפריימוורק על מנת לשמור דברים בשביל שירותים שמשתמשים במערכת קבצים בדרייבר שלהם.<br>נקח לדוגמא סיישנס או קאשינג. במידה ובחרתם בדרייבר שזה יעבוד בקבצים (על עוד אופציות בחירה אתם יכולים לעניין בדרייברים עצמם), לשם ישמרו הקבצים.<br>התקייה צריכה להיות עם גישות כתיבה וקריאה לשרת וואב שלכם, אחרת יהיה לכם שגיאות.<br><br><strong>artisan</strong><br>זה הממשק cli של הפריימוורק. איתו אפשר לעשות המון דברים שעליהם פירטתי במאמר הקודם.<br>במאמרים הבאים אפרט עליו יותר לעומק ואיך להשתמש בו.<br><br><strong>paths.php</strong><br>שם מוגדרים הpathים של הפריימוורק (כמו איפה נמצאת תיקיית הפאבליק, application, הפריימוורק וכו&#039;).<br>במידה ותירצו לשנות את המבנה של הפריימוורק, שם זה המקום.<br>כמו כן שם ניתן להגדיר סביבות עבודה, עלייהם נפרט קצת יותר בהמשך.<br><br><h4>בתוך תיקיית Application</h4><br>נמצא את המבנה הבא:<br><span class="dirleft"><div class="php codeblock"><span class="sy0">/</span>config<br>
+<span class="sy0">/</span>controllers<br>
+<span class="sy0">/</span>language<br>
+<span class="sy0">/</span>libraries<br>
+<span class="sy0">/</span>migrations<br>
+<span class="sy0">/</span>models<br>
+<span class="sy0">/</span>tasks<br>
+<span class="sy0">/</span>tests<br>
+<span class="sy0">/</span>views<br>
+bundles<span class="sy0">.</span>php<br>
+routes<span class="sy0">.</span>php<br>
+start<span class="sy0">.</span>php</div></span><br><br><strong>config</strong><br>שם נמצא את הקונפיג של המערכת.<br>שם נגדיר את הפרטים של המסד, נגדיר כל מיני פרמטרים שקשורים במערכת עצמה, נפעיל ונכבה דרייברים,<br>נגדיר את הדרייברים האלה ועוד.<br>אחת הדברים שציינתי קודם היה סביבות עבודה. כשאנחנו מגדירים סביבת עבודה, אז אנחנו יכולים ליצור תיקייה חדשה עם השם של הסביבת עבודה הזאתי (לדוגמא development, testing, production) והפריימוורק ידאג לדרוס את כל הקבצים עם הקבצים שנמצאים בתיקייה של הסביבת עבודה הנוכחית.<br>ככה נראת הגדרה של סביבת עבודה:<br><span class="dirleft"><div class="php codeblock"><span class="re0">$environments</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+<br>
+<span class="st_h">'local'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'http://localhost*'</span><span class="sy0">,</span> <span class="st_h">'*.dev'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+<br>
+<span class="br0">&#41;</span><span class="sy0">;</span></div></span><br>המפתח במערך זה שם הסביבה, ובתוכו יש עוד מערך שמכיל את כל הקישורים שקשורים לסביבה.<br>במידה ונכנס מlocalhost, המערכת תדע לזהות באיזה סביבה מדובר ותטען את הקבצי קונפיג בהתאם.<br>במידה ואנחנו משתמשים ב*, זה יהיה כמו רג&#039;קס. לפי הדוגמא שלמעלה, כל מי שיכנס מלא משנה איזה קישור עם סיומת של .dev המערכת תטען את הסביבת עבודה לוקאל.<br>חשוב לציין: זה יכולה להיות פירצת אבטחה אם לא משתמשים בזה נכון. ניקח בתאוריה שעשינו סביבת עבודה בשם פיתוח וסביבת עבודה בשם פרוקדשיין, ובתוך הפיתוח הפעלנו שזה יציג שגיאות ועוד דברים בעיתיים של דיבאג.<br>במידה ולא הגדרנו את השרת וואב נכון, והעלו את הסביבות האלה לאוויר, הבנאדם יכול להגדיר לעצמו בקובץ hosts את השם של הסביבת פיתוח אם הוא יגלה אותה, נגיד mysupersafeproject.dev ועם האיפי של השרת, והמערכת תטען את הקבצים של הפיתוח -אז להזהר עם זה.<br><br><strong>controllers, models, views</strong><br>זה התיקיות של של הMVC של המערכת. שם ניצור את הקונטרולרים שלנו, את הדפי תצוגה, את המודולים של המידע.<br>כמו שצוין במאמר הקודם, אפשר גם במקום קונרולרים להשתמש במערכת ראטינג שלכם, או לשלב בינהם.<br><br><strong>language</strong><br>כאן נמצאים קבצי השפות שלכם. זה נועד על מנת להקל את העבודה עם l10n.<br>בבחירת מחדל יש שם כבר שתי קבצים, אחד לvalidator והשני לpagination.<br>במידה ונשתמש בvalidator של Laravel, נוכל לעשות שהוא יציג את השגיאות בכל שפה שנרצה, אפילו בעברית :)<br>כמובן שאפשר ורצוי להוסיף שם עוד קבצי שפה לדברים השונים שאנחנו עושים ובכך להקהל על התרגום של המערכת לשפות שונות.<br><br><strong>libraries</strong><br>לרבל תומך בספיריות צד שלישי. שם נוכל לזרוק ספריות שונות, לכתוב כל מיני קלאסים ולהשתמש כמובן בפונקציונליות שלרבל מציעה לנו. זה לרוב משומש לספריות קטנות, במידה וזה משהו יותר רציני עדיף למממש את הדבר בתור באנדל.<br><br><strong>migrations</strong><br>לרבל תומך במיגרציות של המסד שאתם משתמשים איתו.<br>דבר זה מאפשר לעדכן את הסכמה (Schema) של המסד, לעדכן נתונים במסד ולשמור את כל הגירגסאות של המיגרציות.<br>עוד בנושא אפשר לקרוא <a href="http://laravel.com/docs/database/migrations">בדוק</a> שלהם.<br><br><strong>tasks</strong><br>פה אנחנו ניצור קבצים של משימות. אם במידה אנחנו רוצים לעשות cron שיעשה פעולה כלשהי כמה זמן, או סתם איזה סקריפט בcli וכדומה שם אנחנו ניצור את הקבצים האלה.<br><br><strong>tests</strong><br>אם נרצה ליצור יוניט טסט למערכת שעשינו, פה אנחנו ניצור אותו ונריץ את הבדיקה עם artisan.<br><br><strong>bundles.php</strong><br>הקובץ מכיל את הבאנדלים שלנו. אם נירצה להטעין באנדל, פשוט נשים אותו במערך שנמצא בקובץ.<br><br><strong>routes.php</strong><br>הקובץ הזה מכיל את הroutes שלנו, פילטרים ועוד.<br>אם נרצה להוסיף פילטר כלשהו, route, לתפוס איוונטים - נעשה בקובץ הזה.<br><br><strong>start.php</strong><br>זה הקובץ שאחראי על טעינת קבצים, טעינת קונפיגים ועוד.<br><br>זה הכל למאמר הזה.<br>במאמר הבא נלמד יותר לעומק איך לעבוד עם הפריימוורק עצמו.<br>בינתיים אתם מוזמנים לרפרף בדוקומנטציה שלהם, היא נורא פשוטה ומובנת לכולם :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=16&r=g&d=monsterid" alt="Michael">
+<a>Michael</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2048"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/11/2012 17:26</span><br>
+תודה,<br>
+הערה: בעתיד הקרוב laravel 4 תשוחרר, היא הרבה יותר דינאמית ומותאמת ליוניט טסטינג.<br>
+ד&quot;א אני בתור אדם שלא אוהב frameworks ומערכות מוכנות התאהבתי ב laravel :D</div>
+<a id="comment2049"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/11/2012 18:20</span><br>
+^<br>
+כן בדיוק דיברתי על זה עם מישהו.<br>
+אפשר כבר להוריד את לרבל 4: <span dir="ltr"><a href="https://github.com/illuminate">https://github.com/illuminate</a></span><br>
+הפעם הם הלכו צעד קדימה ומשתמשים בcomposer כמנהל החבילות של המערכת.<br>
+אפשר לקרוא עוד על החידושים בL4 כאן: <span dir="ltr"><a href="http://net.tutsplus.com/tutorials/php/what-to-expect-from-laravel-4/">http://net.tutsplus.com/tutorials/php/what-to-expect-from-laravel-4/</a></span></div>
+<a id="comment2051"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/11/2012 09:42</span><br>
+תודה רבה!</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

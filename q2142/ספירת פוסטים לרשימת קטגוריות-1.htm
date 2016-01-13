@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ספירת פוסטים לרשימת קטגוריות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itzik">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ספירת פוסטים לרשימת קטגוריות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ספירת פוסטים לרשימת קטגוריות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ספירת פוסטים לרשימת קטגוריות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">13</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ספירת פוסטים לרשימת קטגוריות-1.htm" title="יש לי 2 טבלאות במסד. הטבלה הראשונה זה פוסטים והטבלה השנייה זה הקטגוריות.עכשיו אני רוצה להציג את רשימת הקטגוריות וליד כל קטגוריה יופיע מספר הפוסטים שמשוייכים לקטגוריה.תודה לעוזריםpost: id, name, cat
+
+category: id, name, timeתודה לעוז">ספירת פוסטים לרשימת קטגוריות</a></h2>
+<div class="userinfo">
+פתח
+<a>itzik</a>
+,
+<time class="timeago relativetime" datetime="2015-05-13T15:46:52+03:00" style="display:inline-block;">
+13 למאי 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2142'>
+יש לי 2 טבלאות במסד. הטבלה הראשונה זה פוסטים והטבלה השנייה זה הקטגוריות.<br><br>עכשיו אני רוצה להציג את רשימת הקטגוריות וליד כל קטגוריה יופיע מספר הפוסטים שמשוייכים לקטגוריה.<br><br>תודה לעוזרים<br><br><div class="php codeblock">post<span class="sy0">:</span> id<span class="sy0">,</span> name<span class="sy0">,</span> cat<br>
+<br>
+category<span class="sy0">:</span> id<span class="sy0">,</span> name<span class="sy0">,</span> <span class="kw3">time</span></div><br><br>תודה לעוזרים </div>
+</div>
+<h3>
+<span id="answersCounter">13 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9358">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 למאי 2015 </span>
+<a id="answer_9358" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9358">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">select post<span class="sy0">.</span>id<span class="sy0">,</span> post<span class="sy0">.</span>name<span class="sy0">,</span> post<span class="sy0">.</span>cat<span class="sy0">,</span> <span class="kw3">count</span><span class="br0">&#40;</span>category<span class="sy0">.</span>id<span class="br0">&#41;</span><br>
+from post<br>
+left <span class="kw3">join</span> category on category<span class="sy0">.</span>id <span class="sy0">=</span> post<span class="sy0">.</span>cat<br>
+group by post<span class="sy0">.</span>id<span class="sy0">,</span> post<span class="sy0">.</span>name<span class="sy0">,</span> post<span class="sy0">.</span>cat<br>
+order by <span class="kw3">count</span><span class="br0">&#40;</span>category<span class="sy0">.</span>id<span class="br0">&#41;</span> desc</div> </p>
+</div>
+<div class="answer" id="answer9359">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 13 למאי 2015 </span>
+<a id="answer_9359" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9359">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה אני יבדוק עוד מעט </p>
+</div>
+<div class="answer" id="answer9360">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 14 למאי 2015 </span>
+<a id="answer_9360" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9360">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה מציג לי את רשימת הפוסטים ולא את רשימת הקטגוריות.<br><br>אני רק נתתי דוגמא למעלה.<br><br>אבל אם תרצה שאני יפרט אין לי בעיה פשוט חשבתי שזה משהו לא כל כך קשה בשבילי (צירפתי תמונות), תודה רבה על העזרה. <span class="underline">ושוב</span> שמתי לב שהשעון של השרת רץ קדימה ב- 3 שעות תכוון אותו לשעון קיץ זה מעצבן בזמן של התגובות.<br><br><strong><span class="underline">Packages</span></strong>: ID - Name - Section<br><br><img src="..\static\images\pixel.png" alt="" title="http://srv1.jpg.co.il/7/5553c55f05740.png" class="content-image-float"><br><br>--------------------------------------<br><br><strong><span class="underline">Sections</span></strong>: ID - Name<br><br><img src="..\static\images\pixel.png" alt="" title="http://srv1.jpg.co.il/6/5553c589e2dbe.png" class="content-image-float"> </p>
+</div>
+<div class="answer" id="answer9361">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 למאי 2015 </span>
+<a id="answer_9361" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9361">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">select category<span class="sy0">.</span>id<span class="sy0">,</span> category<span class="sy0">.</span>name<span class="sy0">,</span> category<span class="sy0">.</span><span class="kw3">time</span><span class="sy0">,</span> <span class="kw3">count</span><span class="br0">&#40;</span>post<span class="sy0">.</span>cat<span class="br0">&#41;</span><br>
+from category<br>
+left <span class="kw3">join</span> post on post<span class="sy0">.</span>cat <span class="sy0">=</span> category<span class="sy0">.</span>id<br>
+group by category<span class="sy0">.</span>id<span class="sy0">,</span> category<span class="sy0">.</span>name<span class="sy0">,</span> category<span class="sy0">.</span><span class="kw3">time</span><br>
+order by <span class="kw3">count</span><span class="br0">&#40;</span>post<span class="sy0">.</span>cat<span class="br0">&#41;</span> desc</div> </p>
+</div>
+<div class="answer" id="answer9362">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 15 למאי 2015 </span>
+<a id="answer_9362" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9362">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה על המענה.<br><br>אבל זה מציג מספרים לא קשורים בתוצאות.<br><br>זאת הדרך שעשיתי (כנראה שטעיתי)<br><br><div class="php codeblock">while($seti=mysql_fetch_array($set))<br>
+<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">echo</span><span class="br0">&#40;</span><span class="re0">$seti</span><span class="br0">&#91;</span><span class="st_h">'0'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer9363">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 למאי 2015 </span>
+<a id="answer_9363" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9363">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תלוי. מה לדעתך נמצא תחת אינדקס אפס ?<br>אם זה האידי של הקטגוריה - עשית הכל נכון.<br><div class="php codeblock"><span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$seti</span><span class="br0">&#41;</span></div> </p>
+</div>
+<div class="answer" id="answer9364">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 17 למאי 2015 </span>
+<a id="answer_9364" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9364">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\intval-1.htm">@intval</a> סוריי זה היה מציג באמצעות &lt;?php echo($seti[&apos;0&apos;]); ?&gt; את מספר מזהה הקטגורייה ולא את הסיכום הכולל.<br><br>עשית מה שכתבת בתגובה 9363 וזה מציג לי כרגע מספר 1. <a href="http://repo.b-share.com/">לחץ כאן</a> ותגלול למטה ובצד שמאל יופיע קטגוריות ותראה מה מופיע. </p>
+</div>
+<div class="answer" id="answer9365">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 19 למאי 2015 </span>
+<a id="answer_9365" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9365">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקום להציג את מספר הפוסטים של כל קטגוריה בנפרד, הצגת למעשה לכל פוסט את מספר הפוסטים בקטגוריה שהגולש נמצא בה כרגע, כך שאם הוא גולש בדף של קטגוריה א&apos;, ויש בה 3 פוסטים, לכל הקטגוריות אתה מציג 3. בחן שוב את הקוד שלך ותראה איפה הטעות. </p>
+</div>
+<div class="answer" id="answer9366">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 19 למאי 2015 </span>
+<a id="answer_9366" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9366">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\OrelBeY-1.htm">@OrelBeY</a> תאמין לי שאם הייתי יודע מה הטעות הייתי פותר אותה אבל עדיין לא מצאתי את הטעות.<br><br>אשמח שוב לעזרה אם תעבור על ההודעה מהתחלה ותראה במה מדובר. </p>
+</div>
+<div class="answer" id="answer9368">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 20 למאי 2015 </span>
+<a id="answer_9368" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9368">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תציג את השאילתה הסופית שביצעת.<br>מבחינתך הטעות היא שבמקום שהטבלה packages תשמור את section id אתה שומר את section name ואז אתה בונה על זה שרשמת את זה 1-1 אותו דבר,מספיק שיהיה רווח באחד מהם ומבחינת המסד הם כבר לא שווים אחד לשני. </p>
+</div>
+<div class="answer" id="answer9371">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 20 למאי 2015 </span>
+<a id="answer_9371" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9371">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אחי יש מצב לקבל את המייל שלך? </p>
+</div>
+<div class="answer" id="answer9373">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 20 למאי 2015 </span>
+<a id="answer_9373" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9373">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בשביל ? האימייל מאוד לא נוח להתכתבות ומבחינתי הוא נועד רק כדי להישאר מעודכן. </p>
+</div>
+<div class="answer" id="answer9374">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 20 למאי 2015 </span>
+<a id="answer_9374" href="ספירת פוסטים לרשימת קטגוריות-1.htm#answer_9374">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\Splash-1.htm">@Splash</a> אל תדאג אני לא ישגע אותך דרך המייל.<br><br>בכל זאת המייל שלי <a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="2154534859595961464c40484d0f424e4c">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

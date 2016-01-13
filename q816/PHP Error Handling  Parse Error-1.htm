@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה PHP Error Handling - Parse Error">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="CoolNick">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>PHP Error Handling - Parse Error | שאלת לימוד PHP</title>
+<meta itemprop="name" content="PHP Error Handling - Parse Error | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה PHP Error Handling - Parse Error">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  unanswered">
+<div class="item-count">0</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="PHP Error Handling  Parse Error-1.htm" title="שלום לכם ,אני נתקלתי בבעיה קטנה .אני הרבה זמן לא התעסקתי בשגיאות וכאלה , ונתקלתי בבעיה ,הגדרתי Error Handler בעזרת הפונקציה המובנת &amp;quot;set_error_handler&amp;quot; , וכמובן שהוא לא מטפל בשגיאות בעת הרצת הסקריפט , לכן Parse Error לא נכלל בו .אז הכנסתי את השורות הבאות להצגת הפרטים של הParse Error (שקיימת) , :register_shutdown_function&amp;#40;function">PHP Error Handling - Parse Error</a></h2>
+<div class="userinfo">
+פתח
+<a>CoolNick</a>
+,
+<time class="timeago relativetime" datetime="2012-07-21T22:23:01+03:00" style="display:inline-block;">
+21 ליולי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText816'>
+שלום לכם ,<br>אני נתקלתי בבעיה קטנה .<br><br>אני הרבה זמן לא התעסקתי בשגיאות וכאלה , ונתקלתי בבעיה ,<br>הגדרתי Error Handler בעזרת הפונקציה המובנת &quot;set_error_handler&quot; , וכמובן שהוא לא מטפל בשגיאות בעת הרצת הסקריפט , לכן Parse Error לא נכלל בו .<br><br>אז הכנסתי את השורות הבאות להצגת הפרטים של הParse Error (שקיימת) , :<br><div class="php codeblock"><span class="kw3">register_shutdown_function</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">print_r</span><span class="br0">&#40;</span><span class="kw3">error_get_last</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>והבעיה היא שזה פשוט לא מציג את המערך כמו שהוא אמור , ופשוט מראה לי את השגיאה הרגילה של הWamp Server ...<br><br>האם מישהו יכול לעזור לי ? </div>
+</div>
+<h3>
+<span id="answersCounter">0 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

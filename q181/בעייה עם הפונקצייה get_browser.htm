@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעייה עם הפונקצייה get_browser.">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_92562">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>בעייה עם הפונקצייה get_browser. | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעייה עם הפונקצייה get_browser. | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעייה עם הפונקצייה get_browser.">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעייה עם הפונקצייה get_browser.htm" title="עשיתי את הקוד הבא: $browser = get_browser&amp;#40;null, true&amp;#41;;
+print_r&amp;#40;$browser&amp;#41;; הקוד הוא תקין בוודאות">בעייה עם הפונקצייה get_browser.</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_92562</a>
+,
+<time class="timeago relativetime" datetime="2012-01-27T12:40:42+02:00" style="display:inline-block;">
+27 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText181'>
+עשיתי את הקוד הבא: <div class="php codeblock"><span class="re0">$browser</span> <span class="sy0">=</span> <span class="kw3">get_browser</span><span class="br0">&#40;</span><span class="kw4">null</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$browser</span><span class="br0">&#41;</span><span class="sy0">;</span></div> הקוד הוא תקין בוודאות-כי הוא לקוח מPHP.NET,<br>והוא כותב לי שגיאה שהPHP.IN לא מוגדר(משהו כזה..) חיפשתי על זה בגוגל וכתוב שצריך להגדיר את הקובץ הנ&quot;ל,הבעייה שאני לא יודע איך לקבל את הקובץ,<br>אני באחסון חינם אז יכול להיות שהם לא מספקים את זה? </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer732">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_732" href="בעייה עם הפונקצייה get_browser.htm#answer_732">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<em>Attempts to determine the capabilities of the user&#039;s browser, by looking up the browser&#039;s information in the browscap.ini file. </em><br><br>כמו שכתוב, הפונקציה מנסה לקבל מידע על הדפדפן מתוך קובץ borwscap.ini<br>העתק של <a href="http://browsers.garykeith.com/stream.asp?PHP_BrowsCapINI"> browscap להשיג כאן</a><br><br>העניין הוא שלא מספיק שיש לך את הקובץ, אלה צריך להגדיר בקובץ php.ini איפה נמצא הקובץ browscap. את זה יכולה לעשות רק חברת האחסון שלך או מי שיש לו גישה ל php.ini של השרת. </p>
+</div>
+<div class="answer" id="answer789">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d983610489a3418245729ee2ad595a48?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_96419</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_789" href="בעייה עם הפונקצייה get_browser.htm#answer_789">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז לבונה האתר אין גישה לקובץ?<br>אם כך אז רק דיבור עם החברת אחסון יעזור..-והם יכולים לומר לא?-שהם לא רוצים שזה יעבוד,האם זה נהוג בחברות?<br>##################<br>ואם אני לוקח את הקובץ שהבאת למעלה,ומשנה בו את מה שצריך ואז מעלה לאחסון,זה יעבוד? </p>
+</div>
+<div class="answer" id="answer790">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_790" href="בעייה עם הפונקצייה get_browser.htm#answer_790">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון, רק לצוות הטכני של החברה יש אפשרות לעשות משהו עם קובץ כזה. לך בתור האחד המאוחסן אין מה לעשות איתו. <br>חוץ מזה, לדעתי אין בקובץ הזה שום דבר שיש לך מה לשנות בו. אבל אתה יודע יותר טוב.<br><br>בקשר למה תהיה תגובת האחסון - אפשר לא לנחש אלה פשוט לשאול אותם.<br>אין סיבה שלא יסכימו, זה לא משהו מסובך מדי לעשות. </p>
+</div>
+<div class="answer" id="answer835">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3e4e4b5146cb86e7cbc70bae92477e5b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_97188</a>
+ב
+<span style="font-size:10px"> 31 לינואר 2012 </span>
+<a id="answer_835" href="בעייה עם הפונקצייה get_browser.htm#answer_835">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חברת האחסון אומרת שזה רק למשתשי פרמיום...<br><strong>יש איזה המלצה לחברת אחסון חינמית?</strong> -תמיכה בPHP וMYSQL וכמובן כמה שיותר נפח,טרפיק,ופרטים אחרים =יותר טוב.<br> </p>
+</div>
+<div class="answer" id="answer836">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/80d61972ee34f78cb359c1c33704f4ab?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_97090</a>
+ב
+<span style="font-size:10px"> 31 לינואר 2012 </span>
+<a id="answer_836" href="בעייה עם הפונקצייה get_browser.htm#answer_836">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשתמש ב<a href="http://user-agent-string.info/api">API</a> של user-agent-string.info<br>הוא מתעדכן תמיד.<br>או שתעבור לאחסן בbinhoster.com. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

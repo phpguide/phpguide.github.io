@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חלק א&apos; של המדריך ל-Yii: הבסיס">
+<meta name="keywords" content="yii, framework">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Yii | מבוא, מה זה Yii ואיך להפעיל אותו</title>
+<meta itemprop="name" content="Yii | מבוא, מה זה Yii ואיך להפעיל אותו">
+<meta itemprop="description" content="חלק א&apos; של המדריך ל-Yii: הבסיס">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"178","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii | מבוא, מה זה Yii ואיך להפעיל אותו</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2011-12-23T20:41:05+02:00" dir="rtl">23 לדצמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/yii1.jpg" alt="Yii | מבוא, מה זה Yii ואיך להפעיל אותו">
+</div>
+<div class="right post-content">
+בואו נגלה מה זה Yii, מאיפה להוריד אותו ואיך להתקין אותו. ואגב, האתר בו אתם גולשים כעת עובד על Yii. אז מה זה בעצם? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>Yii - פריימקוורק</h3><br>Yii הינו פריימוורק מתקדם ונוח לשימוש, הוא חינמי ומתקדם מאוד. אני, באופן אישי, משתמש בו כמעט בכל אתר כשיש צורך ב-PHP. :-) הוא גם חוסך לי המון בעיות. אני יודע שאני הולך לראות פה כמה תגובות שאומרות &quot;אני מעדיף לעשות את המחלקות שלי לבד&quot; וכל הדברים האלה, אבל זה בטח כי הם לא בנו מערכת גדולה עם הפריימוורק הזה. בהתחלה למדתי עליו רק בשביל הידע הכללי, אבל אז הבנתי שהוא באמת אחד טוב.<br><br><strong>חובה לדעת להשתמש במחלקות!</strong><br>+ המלצה שלי להשתמש ב-netbeans כשעובדים עם פריימורק כזה.<br><br>להורדת הפריימוורק Yii לחצו <a href="http://www.yiiframework.com/download/">כאן</a>.<br><br>נכין תיקייה של הפרויקט שלנו ולשם נעביר את התיקייה framework שנמצאת ב-RAR.<br>ניצור קובץ ראשי (index.php) בתיקייה של הפרויקט, ולשם נטען את ה-Yii עבור הפרוייקט.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">require</span><span class="br0">&#40;</span> <span class="kw3">dirname</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;/framework/yii.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו אנחנו צריכים config.<br>ניצור תיקייה בשם protected, ושם ניצור תיקייה בשם config, בתוכה ניצור קובץ בשם config.php שיחזיר מערך, מה שאומר שאם נעשה לו Include, הוא יחזיר מערך במקום פעולות.<br><span class="dirleft"><em>protected/config/config.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+<br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו נגרום ל-Yii &quot;לפעול&quot;.<br>לקובץ index.php נוסיף משתנה בשם config, שיעשה include לקובץ config שלנו, מה שאומר שהמשתנה config הוא מערך עכשיו.<br><div class="php codeblock"><span class="re0">$config</span> <span class="sy0">=</span> <span class="kw1">include</span><span class="br0">&#40;</span><span class="kw3">dirname</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;/protected/config/config.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>לאחר מכן &quot;נריץ&quot; את האתר עם פונקציה של Yii.<br><div class="php codeblock">Yii<span class="sy0">::</span><span class="me2">createWebApplication</span><span class="br0">&#40;</span><span class="re0">$config</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">run</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>כמו שניתן לראות, הפונקציה שיוצרת אפליקציה מקבלת config, שדואג להגדרות של האתר.<br><br><strong>הקוד:</strong><br><span class="dirleft"><em>index.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$config</span> <span class="sy0">=</span> <span class="kw1">include</span><span class="br0">&#40;</span><span class="kw3">dirname</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;/protected/config/config.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">require</span><span class="br0">&#40;</span> <span class="kw3">dirname</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;/framework/yii.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+Yii<span class="sy0">::</span><span class="me2">createWebApplication</span><span class="br0">&#40;</span><span class="re0">$config</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">run</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br><span class="dirleft"><em>protected/config/config.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>אם ניכנס עכשיו לאתר, נקבל שגיאה - הדף לא נמצא; זה כי לא ניתן להשתמש בקונטרולר Site.<br>קונטרולר זה מה שדואג לפעולות של האתר. אם לא הגדרנו קונטרולר ראשי, הקונטרולר Site יוגדר כראשי באופן אוטומטי.<br>אז בואו נגדיר קונטרולר. ראשית, ל-config נוסיף אלמנט, למפתח נקרא deafultController והתוכן בתוכו יהיה השם של הקונטרולר הראשי, אנחנו נקרא לו main - ראשי.<br>אז הקובץ config.php הוא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;main&quot;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br>אם נריץ את האתר עכשיו , נראה שהקונטרולר main לא קיים, מה שאומר שהצלחנו לשנות את הקונטרולר הראשי.<br>עכשיו נכין את הקונטרולר שלנו. ניצור תיקייה בשם controllers בתיקייה protected, שם ניצור קובץ בשם MainController.php. כמו שניתן לראות אנחנו רושמים את השם של הקונטרולר ואז מוסיפים Controller.<br>בתוך אותו הקובץ ניצור מחלקה בשם MainController, כמו השם הקובץ - שם הקונטרולר + Controller, והיא תירוש מהמחלקה CController.<br><br><span class="dirleft"><em>protected/controllers/MainController.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>אם נכנס עכשיו לאתר, לא נקבל שגיאה שהקונטרלר לא קיים, אבל נראה שהפעולה הראשית לא קיימת.<br>הפעולה הראשית נקבעת בפונקציה actionIndex, אז ניצור פונקציה כזאת כ-public, כך שכל מה שיקרה בפונקציה יקרה באתר.<br>נוסיף אותה, ובתוכה נכתוב <span dir="ltr">echo &quot;hello world&quot;;</span>.<br><br><span class="dirleft"><em>protected/controllers/MainController.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionIndex<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;hello world&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br><span class="dirleft"><em>protected/config/config.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;main&quot;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br><span class="dirleft"><em>index.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$config</span> <span class="sy0">=</span> <span class="kw1">include</span><span class="br0">&#40;</span><span class="kw3">dirname</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;/protected/config/config.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">require</span><span class="br0">&#40;</span> <span class="kw3">dirname</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;/framework/yii.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+Yii<span class="sy0">::</span><span class="me2">createWebApplication</span><span class="br0">&#40;</span><span class="re0">$config</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">run</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>כרגע זה אולי לא נראה לכם ממש שימושי; זה רק כי זה הבסיס. בהמשך אתם תבינו שזה מאוד שימושי. :-) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment989"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/12/2011 17:10</span><br>
+מדריך מעולה, נחכה לסדרת ההמשך :)</div>
+<a id="comment990"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/12/2011 23:15</span><br>
+אהבתי מאוד, כל הכבוד.<br>
+יהיה נחמד לדעת איך ניגשים בכלל לכל הקטע של מודלים.<br>
+מחכה למאמר הבא.:)</div>
+<a id="comment991"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 00:52</span><br>
+קודם כל תודה רבה על המדריך.<br>
+מצטער על העיכוב עם הפרסום,קרה שלא נשלחה אלי הודעה על פרסום כזה מגניב חדש ולא ידעתי על קיומו.<br>
+המדריך מעולה. הוא מסביר באופן מצוין על מה YII פועלת, מה עושה הקונפיג וממה בנוי קובץ האינדקס.<br>
+<br>
+הייתי רוצה להוסיף שביחד עם YII בא גם קובץ yiic.bat / yiic(.sh) / yiic.php שיודע לייצר שלד לאפליקציה בעצמו, ליצור קונפיג, שני קבצי אינדקס אחד למערכות בדיבאג ואחד בפרודאקשן. השדל כולל את הקונפיגרוציות ללוגים, לחיבור למסד, כמה קונטרולרים, ווויוז בסיסיים, איזה עמוד ריק ועזר גנרציית קוד אוטומטית.<br>
+<br>
+<span dir="ltr"><a href="http://he.yiiframework.co.il/documentation/guide/topic/quickstart.first-app">http://he.yiiframework.co.il/documentation/guide/topic/quickstart.first-app</a></span><br>
+מקווה לראות עוד מדריכים בנושא :-) שוב תודה. אדיר.</div>
+<a id="comment992"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 13:03</span><br>
+לא יודע למה PHP יותר מסובכת, ב .NET קיימת אפשרות מובנת הנקראת ASP.NET MVC 3 web project.<br>
+ושם כל זה מגיע מוכן ומזומן לעבודה.<br>
+<br>
+הרבה יותר נוח לעבוד אם זה שם.. בגלל זה פרשתי מ PHP..</div>
+<a id="comment993"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 13:32</span><br>
+asp.net mvc הוא תוסף שצריך להתקין בנפרד (או שהוא בא עם ההתקנה שלך ל visual studio מאיפה שהורדת). בכל אופן הם חלקים נפרדים. גם כאן הם נפרדים, רק שאתה לא מוגבל לפריימוורק אחד.<br>
+יש לכל שפה את היתרונות שלה ולדעתי עדיף שתשתמש בשפה שבה לך אישית יותר נוח. <br>
+נוח לך .NET - תשתמש בה :-)<br>
+<br>
+אם זה היה אתר על .NET כנראה שזו היית כתבה על &quot;מבוא ל asp.net mvc&quot;<br>
+כרגע יצא שזה על mvc framework ב PHP<br>
+למרות שאני מאוד אשמח אם תכתוב כתבה על asp.net mvc</div>
+<a id="comment994"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 14:32</span><br>
+שיחקת אותה, פורץ דרך שכמוך...<br>
+<br>
+אמיר סימן טוב</div>
+<a id="comment995"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 14:52</span><br>
+אני רואה שאנשים אהבו את המדריך :) אני אעשה עוד מדריך בקרוב</div>
+<a id="comment996"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 16:50</span><br>
+מדריך מעולה, מחכה לחלק השני :)</div>
+<a id="comment998"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 20:09</span><br>
+נראה טוב, תודה.<br>
+מחכה להמשך. :)</div>
+<a id="comment1002"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 23:35</span><br>
+לא הבנתי במה הוא תורם?</div>
+<a id="comment1003"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2011 00:10</span><br>
+אני לא אוהב לחזור על אותם דברים עוד פעם, ממה שלמדתי עכשיו הוא לא יתרום כלום אבל בהמשך אתה תראה במה הוא יתרום: בסדר, נוחות, עבודה פשוטה עם מסד נתונים ועוד הרבה דברים.</div>
+<a id="comment1005"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2011 03:13</span><br>
+בנוסף יכול לתרום בללמוד אנגלית ולהשתמש בגוגל, כי כנכנסים לטכנולוגיה שלא מכירים - אין ממש בררה. זה אגב אחת הסיבות שאנשים לא קופצים ישר לדברים נוחים וטובים יותר (כמו אני ואמאזון?!) בלימוד צריך להשקיע, להתעמץ, להיכשכל לפני שמשהו ייצא.. כקה לראות מאחורי זה את התועלת לתווך הארוך ושההשקעה הזאת תחזור.<br>
+אני לא מכיר מישהו שהתחרת על שלמד jquery <br>
++ לעבור פריימוורק זה חתיכת קפיצת מדרגה. זה לעבור מתכנות פרוצדורלי ל OOP, מברדאק ל MVC ומקוד שכולו שלי לקוד שאין לי מושג איך הוא עובד. לא לכולם זה מתאים ולא לכולם זה עוזר. לאט לאט, אין לאן למהר</div>
+<a id="comment2319"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/03/2013 18:10</span><br>
+התיקיית framework יש בה משהו כמו 1800 קבצים, בכל אתר שאני כותב בעזרת YII אני צריך להעביר את כל ה1800 קבצים ? אין איזה קובץ או שתיים שחוסכים את כל זה ?</div>
+<a id="comment2320"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/03/2013 01:14</span><br>
+לא, אבל אתה יכול לעשות FRAMEWORK ובכל אתר שאתה משתמש בYII תעשה INCLUDE לאותו FRAMEWORK ולא תצטרך להעביר אלף פעמים רק פעם אחת</div>
+<a id="comment2321"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/03/2013 06:47</span><br>
+אבל ה FRAMEWORK הזה יש בו 1800 קבצים..</div>
+<a id="comment2322"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/03/2013 12:00</span><br>
+בדרך כלל פאנל ניהול של אחסון בא עם איזה file explorer כזה שדרכו אפשר לראות איזה קבצים יש לך בשרת<br>
+ובנוסף אפשר דרכו לפתוח קבצי ZIP, ככה שתוכל להעלות קובץ ZIP אחד ולחלץ אותו ישירות בשרת.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

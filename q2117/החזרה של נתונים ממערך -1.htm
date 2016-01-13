@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה החזרה של נתונים ממערך ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="davsev">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>החזרה של נתונים ממערך | שאלת לימוד PHP</title>
+<meta itemprop="name" content="החזרה של נתונים ממערך  | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה החזרה של נתונים ממערך ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  unanswered">
+<div class="item-count">0</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="החזרה של נתונים ממערך -1.htm" title="אני מנסה לייצא נתונים מהדטאבייס כך שיוצגו מפורמט מסויים שאציג בהמשך.זו הטבלה שיש לי במסד הנתונים:id index &amp;nbsp; first &amp;nbsp;last
+--------------------------
+1 &amp;nbsp; &amp;nbsp; 1 &amp;nbsp; &amp;nbsp;first1 &amp;nbsp; last1 &amp;nbsp;
+2 &amp;nbsp; &amp;nbsp; 1 &amp;nbsp; &amp;nbsp;first2 &amp;nbsp; last2 &amp;nbsp;
+3 &amp;nbsp;">החזרה של נתונים ממערך </a></h2>
+<div class="userinfo">
+פתח
+<a>davsev</a>
+,
+<time class="timeago relativetime" datetime="2015-03-11T19:48:29+02:00" style="display:inline-block;">
+11 למרץ 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2117'>
+אני מנסה לייצא נתונים מהדטאבייס כך שיוצגו מפורמט מסויים שאציג בהמשך.<br><br>זו הטבלה שיש לי במסד הנתונים:<br><div class="php codeblock">id index &nbsp; first &nbsp;last<br>
+<span class="sy0">--------------------------</span><br>
+<span class="nu0">1</span> &nbsp; &nbsp; <span class="nu0">1</span> &nbsp; &nbsp;first1 &nbsp; last1 &nbsp;<br>
+<span class="nu0">2</span> &nbsp; &nbsp; <span class="nu0">1</span> &nbsp; &nbsp;first2 &nbsp; last2 &nbsp;<br>
+<span class="nu0">3</span> &nbsp; &nbsp; <span class="nu0">1</span> &nbsp; &nbsp;first3 &nbsp; last3 &nbsp;<br>
+<span class="nu0">4</span> &nbsp; &nbsp; <span class="nu0">2</span> &nbsp; &nbsp;first4 &nbsp; last4 &nbsp;<br>
+<span class="nu0">5</span> &nbsp; &nbsp; <span class="nu0">2</span> &nbsp; &nbsp;first5 &nbsp; last5</div><br><br>אני מעוניין לייצא את הנתונים בפורמט הבא:<br>last1 first1 last2 first2 &amp; last3 first3<br>last4 first4 &amp; last4 first4<br><br>זה הקוד שכתבתי<br><br><div class="php codeblock"><span class="co1">//HERE I RETRIVE ALL THE DATA FROM THE DATABASE.</span><br>
+&nbsp;<span class="re0">$sql</span> <span class="sy0">=</span> <span class="st0">&quot;SELECT COUNT( * ) FROM table WHERE index= <span class="es4">$index</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$number_of_rows</span> <span class="sy0">=</span> <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">fetchColumn</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//ASSOC DEFINITION</span><br>
+&nbsp; &nbsp; <span class="re0">$sth</span> <span class="sy0">=</span> <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM table WHERE index= <span class="es4">$index</span>);<br>
+&nbsp; &nbsp; <span class="es4">$sth-&gt;execute</span>();<br>
+&nbsp; &nbsp; <span class="es4">$value</span> = <span class="es4">$sth-&gt;fetch</span>(PDO::FETCH_ASSOC);<br>
+<br>
+//THIS IS WHERE I CALL ALL THE ROWS BY THEIR VALUE<br>
+&nbsp; &nbsp; <span class="es4">$return</span> = &quot;</span><span class="st0">&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$fname</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= <span class="es4">$value</span>['fname'];<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$lname</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= <span class="es4">$value</span>['lname'];<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$numRow</span> = <span class="es4">$number_of_rows</span>-2; &nbsp; // THE ITEM BEFORE THE LAST ONE IN THE ARRAY<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$lastItem</span> = <span class="es4">$number_of_rows</span> - 1; //LAST INDEX IN THE ARRAY<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for(<span class="es4">$counter</span> = 0; <span class="es4">$counter</span> &lt;= <span class="es4">$numRow</span>; <span class="es4">$counter</span>++){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$value</span> = <span class="es4">$sth-&gt;fetch</span>(PDO::FETCH_ASSOC); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$fname</span>[<span class="es4">$counter</span>] = !empty(<span class="es4">$fname</span>[<span class="es4">$counter</span>]) ? <span class="es4">$fname</span>[<span class="es4">$counter</span>] : '';<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$return</span> .= <span class="es4">$lname</span>. ', ' . &nbsp; <span class="es4">$fname</span>;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="es4">$fname</span>[<span class="es4">$counter</span>] = !empty(<span class="es4">$fname</span>[<span class="es4">$lastItem</span>]) ? <span class="es4">$fname</span>[<span class="es4">$lastItem</span>] : '';<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$return</span> .= &quot;</span><span class="sy0">&amp;</span><span class="st0">&quot; . <span class="es4">$fname</span>. ', ' . <span class="es4">$lname</span>;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="es4">$return</span> .= ' ';<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return <span class="es4">$return</span>;</span></div><br><br>עם הקוד הזה אני מקבל את התוצאה הבאה:<br><br> last3 first1 last1 first1 &amp; last2 first1<br>last5 first4 &amp; last4 first4<br><br>כפי שניתן לראות אני מקבל קודם את התוצאה האחרונה ולאחר מכן את התוצאה הראשונה והשנייה וכך הלאה. בFIRST אני מקבל תמיד את הערך הראשון.<br><br>אני לא מבין מה אני עושה לא בסדר.<br>יעצו לי להשתמש בדגלים אבל אני לא מוצא הסבר ודוגמא טובה לכך.<br><br>תודה מראש! </div>
+</div>
+<h3>
+<span id="answersCounter">0 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

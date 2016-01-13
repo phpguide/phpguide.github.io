@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="דוגמאות והסבר לתכנות מונחה עצמים ב- javascript">
+<meta name="keywords" content="oop, json, javascript oop, מונחה עצמים">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Javacscript - כותבים OOP בעזרת JSON</title>
+<meta itemprop="name" content="Javacscript - כותבים OOP בעזרת JSON">
+<meta itemprop="description" content="דוגמאות והסבר לתכנות מונחה עצמים ב- javascript">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"31","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Javacscript - כותבים OOP בעזרת JSON</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iiddaannyy, </div>
+<div class="right">&nbsp;<time datetime="2010-11-27T13:44:23+02:00" dir="rtl">27 לנובמבר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://avatars1.cdn.promodeejay.net/00/00/58/92/71/JsonLogo.jpg" alt="Javacscript - כותבים OOP בעזרת JSON">
+</div>
+<div class="right post-content">
+האם פעם שאלתם את עצמכם, איך לעזאזל אני עולה עוד רמה ב js ומשתמש ב oop, איך בכלל כותבים oop ואיך זה אמור להיראות? במדריך זה אנו נלמד כיצד לכתוב js ב oop ומה זה json <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+לפני שנתחיל,<br>בואו נראה, איך אנו יוצרים אובייקט?<br>עד עכשיו וודאי עשיתם זאת כך:<br><div class="php codeblock"><span class="kw2">var</span> x <span class="sy0">=</span> <span class="kw2">new</span> Object<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div>אך לא עוד, מהיום נעשה כך:<br><div class="php codeblock"><span class="kw2">var</span> x <span class="sy0">=</span> <span class="br0">&#123;</span><span class="br0">&#125;</span><span class="sy0">;</span></div>יותר קל, נכון?<br><br>מה עם מערכים?<br>עד היום, וודאי עשיתם מערך כך:<br><div class="php codeblock"><span class="kw2">var</span> x <span class="sy0">=</span> <span class="kw2">new</span> <span class="kw3">Array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div>אך גם את זה לא נעשה בצורה הזאת, אלא כך:<br><div class="php codeblock"><span class="kw2">var</span> x <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">;</span></div>אוקיי,<br>אז עכשיו אנחנו יודעים איך ליצור אובייקט ומערך בצורה קצרה יותר, נו ו..?<br>אז זהו, שבקודים גדולים זה יעזור לכם מאוד.<br><br>קיימות שלוש דרכים מקובלות להשתמש באובייקטים:<br><br>הראשונה, היא באמצעות פונקציה, ולאחר מכן הגדרתה כאובייקט:<br><div class="php codeblock"><span class="kw2">function</span> man<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>legs <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>hands <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>name <span class="sy0">=</span> <span class="st0">&quot;Idan&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div>מה עשינו פה?<br>הגדרנו פונקציה בשם man, עם שלושה מאפיינים: legs, hands ו name.<br>אך זה לא אובייקט, עדיין לא.<br>עכשיו נהפוך אותו לאובייקט:<br><div class="php codeblock"><span class="kw2">var</span> OurMan <span class="sy0">=</span> <span class="kw2">new</span> man<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div>עכשיו OurMan היא האובייקט man.<br>עכשיו נוכל להשיג את המאפיינים של האובייקט:<br><div class="php codeblock"><span class="kw2">var</span> OurMan <span class="sy0">=</span> <span class="kw2">new</span> man<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+alert<span class="br0">&#40;</span>OurMan<span class="sy0">.</span>name<span class="br0">&#41;</span><span class="sy0">;</span></div>יכתוב לנו Idan.<br>אפשר לעשות את אותו הדבר עם hands וגם עם legs.<br><br>הדרך השניה,<br>גם היא באמצעות פונקציה, אך הגדרת המשתנה שיכיל אותה מתבצעת באופן מיידי,<br>דוגמא:<br><div class="php codeblock"><span class="kw2">var</span> OurMan <span class="sy0">=</span> <span class="kw2">new</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>legs <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>hands <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>name <span class="sy0">=</span> <span class="st0">&quot;Idan&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div>שימו לב, פה הגדרנו את המשתנה OurMan כאובייקט (new או אובייקט חדש), אחר כך הכנסנו מאפינים באותה השיטה שהשתמשנו בה מקודם.<br><br>שליפת המאפיינים זהה, רק שהפעם אין צורך להכניס את OurMan למשתנה ולהגדיר כאובייקט כמו מקודם,<br>כי הוא כבר אובייקט.<br>פשוט נשלוף את המאפיינים:<br><div class="php codeblock">alert<span class="br0">&#40;</span>OurMan<span class="sy0">.</span>name<span class="br0">&#41;</span><span class="sy0">;</span></div>פשוט וקל, יכתוב Idan.<br><br>השיטה השלישית, החכמה, המקצועית והמועדפת עליי ביותר, היא בעזרת JSON.<br>אין מה להבהל, זה פשוט וידידותי מאוד!<br><div class="php codeblock"><span class="kw2">var</span> OurMan <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; legs <span class="sy0">:</span> <span class="nu0">2</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; hands <span class="sy0">:</span> <span class="nu0">2</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; name <span class="sy0">:</span> <span class="st0">&quot;Idan&quot;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span></div>כמו שאמרתי, מאוד פשוט.<br>יצרנו את המשתנה OutMan, ואז, כמו שאמרתי בתחילת המדריך, יצרנו אובייקט בעזרת הסוגריים המסולסלות.<br>את המאפיינים אנו יוצרים בדרך מאוד קלה, שם המאפיין, נקודותיים וערכו.<br>מפרידים בין המאפיינים באמצעות פסיק.<br>שליפת המאפיינים, שוב, פשוטה:<br><div class="php codeblock">alert<span class="br0">&#40;</span>OurMan<span class="sy0">.</span>name<span class="br0">&#41;</span><span class="sy0">;</span></div>יכתוב Idan.<br><br>שילוב של מערכים באובייקט שלנו<br><br>זוכרים שהראנו איך יוצרים מערך בדרך פשוטה ונכונה?<br>זה לא היה לשווא.<br><br>אם לאדם שלנו יש שתי שמות? שם פרטי וכינוי, מה עושים?<br>אפשר להוסיף מאפיין נוסף, אבל אפשר גם להשתמש במערך:<br><div class="php codeblock"><span class="kw2">var</span> OurMan <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; legs <span class="sy0">:</span> <span class="nu0">2</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; hands <span class="sy0">:</span> <span class="nu0">2</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; name <span class="sy0">:</span> <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;Idan&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Dani&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#93;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span></div>עכשיו, לאובייקט שלנו יש שני שמות.<br><br>אם נרצה לשלוף אחד מהם, ניגש צעד אחר צעד אל המערך ונשלוף את מספר המפתח ([0], [1] וכו&#039;) שנרצה להציג.<br><br><div class="php codeblock">alert<span class="br0">&#40;</span>OurMan<span class="sy0">.</span>name<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div>יכתוב Dani.<br>מה שעשינו, זה הגענו למאפיין name באובייקט OurMan כפי שלמדנו, ובחור במספר המפתח שרצינו להציג.<br><br><br>אובייקט בתוך מאפיין, אפשרי?<br><br>אם תקחו את הנושא לעומק ותשתמשו בו, אתם תראו שאתם תגיעו למצב שתצטרכו להשתמש גם במאפיינים כאובייקטים.<br>זה מאוד פשוט.<br>נגיד שאנחנו רוצים ליצור אובייקט בשם OurMan, בתוכו שני מאפיינים, name ו-hobby.<br>בתוך name אנחנו רוצים עוד שני מאפיינים, firstname ו-lastname.<br>בתוך firstname, נרצה מערך שיכיל את השם הפרטי ואת הכינוי.<br><br>הביטו בזה:<br><div class="php codeblock"><span class="kw2">var</span> OurMan <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; name <span class="sy0">:</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; firstname <span class="sy0">:</span> <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;Idan&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Dani&quot;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#93;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; lastname <span class="sy0">:</span> <span class="st0">&quot;Yadgar&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; hobby <span class="sy0">:</span> <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;football&quot;</span><span class="sy0">,</span> <span class="st0">&quot;friends&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#93;</span><br>
+<span class="br0">&#125;</span></div>נראה מסובך? לא ממש, נכון?<br>בואו ננסה לשלוף את Dani.<br>נצטרך להכנס ל OurMan, משם ל name, משם ל firstname ולבחור במפתח מספר 1:<br><div class="php codeblock">alert<span class="br0">&#40;</span>OurMan<span class="sy0">.</span>name<span class="sy0">.</span>firstname<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div>יציג Dani.<br><br><br>מקווה שלמדתם משהו,<br>בהצלחה בהמשך, ואל תשכחו javascript היא הכי אחי! ;)<br><br>בברכה רבה,<br>עידן ידגר. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=16&r=g&d=mm" alt="iiddaannyy">
+<a>iiddaannyy</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1057"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/01/2012 21:19</span><br>
+עדיף לעבוד בשיטה שתכמיס את המשתנים של האובייקט ותאפשר לך ליצור אובייקטים מבלי<br>
+לחזור על קוד . לדוגמא: <br>
+<br>
+function Man(name){<br>
+<br>
+//private variable<br>
+var manName = name;<br>
+//private method<br>
+var somePrivateMethod = function(){<br>
+<br>
+return &apos;the man name is &apos;+ manName;<br>
+}<br>
+<br>
+//this is the api your want the user will use<br>
+return {<br>
+<br>
+getName: function(){<br>
+return somePrivateMethod();<br>
+},<br>
+<br>
+setName: function(newName){<br>
+<br>
+manName = newName;<br>
+}<br>
+<br>
+<br>
+};<br>
+<br>
+}<br>
+<br>
+var man1 = Man(&quot;alex&quot;); //first object<br>
+var man2 = Man(&quot;david&quot;); //another object<br>
+console.log(man1.getName()); //the man name is alex<br>
+man1.setName(&quot;mosh&quot;);<br>
+console.log(man1.getName()); //the man name is mosh<br>
+man1.manName ;//error.private variable</div>
+<a id="comment1458"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/04/2012 20:35</span><br>
+יש פה בלאגן עם כימוס והורשה... <br>
+<br>
+לדעתי לא יעיל בכלל לפרויקטים גדולים יצור בלאגן..</div>
+<a id="comment1465"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/04/2012 14:23</span><br>
+אם להרחיב בנושא ירושה וכל מה שסביב ,אני ישמח. תודה!</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

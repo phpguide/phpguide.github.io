@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה לוקח לפונקציה 5 שניות +- להטען, על מה ולמה?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Helpers">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>לוקח לפונקציה 5 שניות +- להטען, על מה ולמה? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="לוקח לפונקציה 5 שניות +- להטען, על מה ולמה? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה לוקח לפונקציה 5 שניות +- להטען, על מה ולמה?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm" title="היי :)קראתי את המדריך המצויין שלך על טיפול בשגיאות (מתוך כוונה למנוע FPD וגם סתם כי זה לא מאגניב לראות 30 שגיאות בעמוד הראשי),אז עשיתי את הפונקציה הזאת:function handleError&amp;#40;$errtype, $message, $file, $line">לוקח לפונקציה 5 שניות +- להטען, על מה ולמה?</a></h2>
+<div class="userinfo">
+פתח
+<a>Helpers</a>
+,
+<time class="timeago relativetime" datetime="2013-01-19T16:47:07+02:00" style="display:inline-block;">
+19 לינואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1200'>
+היי :)<br><br>קראתי את המדריך המצויין שלך על טיפול בשגיאות (מתוך כוונה למנוע FPD וגם סתם כי זה לא מאגניב לראות 30 שגיאות בעמוד הראשי),<br><br>אז עשיתי את הפונקציה הזאת:<br><div class="php codeblock"><span class="kw2">function</span> handleError<span class="br0">&#40;</span><span class="re0">$errtype</span><span class="sy0">,</span> <span class="re0">$message</span><span class="sy0">,</span> <span class="re0">$file</span><span class="sy0">,</span> <span class="re0">$line</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="re0">$text</span> <span class="sy0">=</span> <span class="st_h">'An error '</span><span class="sy0">.</span><span class="re0">$message</span><span class="sy0">.</span><span class="st_h">' in file '</span><span class="sy0">.</span><span class="re0">$file</span><span class="sy0">.</span><span class="st_h">' on line '</span><span class="sy0">.</span><span class="re0">$line</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw3">mail</span><span class="br0">&#40;</span><span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="f7bf929b87928584ba969e9bb7909a969e9bd994989a">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'קראת שגיאה באתר - FB-Guide'</span><span class="sy0">,</span> <span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'יש תקלה באתר ואנו פועלים לתקנה, תודה על ההבנה'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">set_error_handler</span><span class="br0">&#40;</span><span class="st_h">'handleError'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אני לא רוצה להרוג את הקוד/להעביר לדף אחר בכוונה (לפחות לא בשלב הזה), שאני נכנס לוקח לעמוד להטען 6 שניות (רק אם יש שגיאה, אחרת זה רגיל).<br><br>איך ניתן לעשות את זה כמו שצריך? ושתבין, אני על WAMP, תאר לך מה זה באחסון רגיל.<br>אשמח לעזרה! </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5259">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2013 </span>
+<a id="answer_5259" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5259">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+או שהשש שניות שייכות למה שגורם לשגיאה (למשל חיבור למסד, מנסה להתחבר 6 שניות ואז זורק שגיאה)<br>או שהשש שניות זה שליחת מייל. תנסה להפעיל בקובץ נפרד את הפונקציה מייל ולראות כמה זמן לוקח לה לבד לקרואת </p>
+</div>
+<div class="answer" id="answer5260">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/37d585ea8e6d4e0c2f593d97a4708f12?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Helpers</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2013 </span>
+<a id="answer_5260" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5260">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה שגרם לשגיאה זה פשוט ניסיון הדפסת משתנה שלא קיים,<br>הבעיה הייתה בפונקציית מייל, באמת לוקח לה 6 שניות להשלח.<br><br>יש לך רעיון במקרה? אולי לפתוח במסד טבלה בשם errors ואז בפאנל לשלוף כל שגיאה שנכנסת לשם? (בהנחה שאני מכניס).<br><br>?? </p>
+</div>
+<div class="answer" id="answer5261">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2013 </span>
+<a id="answer_5261" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5261">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל בכל מקרה עדיף לך לברר עם חברת האחסון למה לוקח לפונקציה 6 שניות ולתקן את זה.<br>שני, לשלוח הודעות למייל זה רעיון רע, בגלל שאתה הולך לקבל הרבה מאוד ספאם מהשרת שלך עם שכחת משתנה כלשהו וכמה אנשים נסנסו לאתר ולחצו F5 פה ושם.<br><br>לרשום לדאטאבייס זה אחלה אופציה. כך בחשבון שיכול להיות שהבעיה עצמה הייתה עם הדאטאבייס<br>ככה שקודם תצטרך לבדוק שבכלל יש לך חיבור פעיל. ואחרי שתרשום את השגיאה לדאטאבייס, תוכל לוודא שעוד לא היית לך שגיאה כזאת במסד ואם זו פעם ראשונה שמישהו נתקל בשגיאה כזו - אפשר לשלוח על זה מייל. </p>
+</div>
+<div class="answer" id="answer5262">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/37d585ea8e6d4e0c2f593d97a4708f12?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Helpers</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2013 </span>
+<a id="answer_5262" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5262">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+-רעיון זה עם ע&#039;..<br>בכל מקרה אחי אני על וואמפ ולוקח לי 6 שניות (אני משתמש בתוכנה שמתחברת לSMTP של ג&#039;ימייל, אני זה boolval פשוט שחכתי את הסיסמה, נתת לי את התוכנה הזאת בנושא שפתחתי).<br><br>אני עד עכשיו לא רשמתי שום שגיאה בדאטאבייס ולדאטאבייס אין שום קשר לזמן הטעינה של המייל.<br><br>וחשבתי על משהו כזה:<br>טבלת site_errors שבפונקציה handleError זה יכניס את השגיאה למסד הנתונים, בטבלה יהיו 5 שדות (כדי להבין את השגיאה כמו שצריך וזה גם ישלף מסודר מאוד לטבלה בפאנל) ID, עמודת details (שתכיל את המשתנה message), עמודת file שתכיל את הקובץ שבו זה קרה (משתנה file), עמודת line שתכיל את השורה בה חלה השגיאה (משתנה line). ואת הIP שממנו קרתה השגיאה. ואז אני יעשה num_rows לכל שגיאה שנכנסת ואם היא קיימת (איפה שהIP שווה לREMOTEֹ_ADDR) זה פשוט לא יכניס אותה.<br><br>ואת הכל אני שולף באופן מסודר לטבלה.<br><br>מה אתה אומר, רעיון טוב? תשובה בונה בבקשה. </p>
+</div>
+<div class="answer" id="answer5263">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2013 </span>
+<a id="answer_5263" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5263">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מעולה. ההבדל היחידי שיש בין ההודעות שלנו זה שלא הצעתי לך להציג את זה בטבלה בפאנל<br>בגלל שזה לא אמור להיות בפאנל. פאנל זה חלק מהתוכנה, שגיאות זה מה שלא אמור להיות בתוכנה.<br>מי שאחרי זה ישתמש בקוד שלך לא צריך לדעת מה יש בקוד שלך ואיך הוא בנוי. הוא צריך שהכל יעבוד אצלו וזהו.<br>את הלוג של השגיאות אתה עושה בשביל עצמך בתור מפתח וזה לא אמור להיות חלק המתוכנה. </p>
+</div>
+<div class="answer" id="answer5264">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/37d585ea8e6d4e0c2f593d97a4708f12?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Helpers</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2013 </span>
+<a id="answer_5264" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5264">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז איפה לשים את השגיאות אם לא בפאנל? אני לא רוצה במייל כי זה עושה ספאם, ואין num_rows כבקר על מייל... <br>עזרה? </p>
+</div>
+<div class="answer" id="answer5265">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2013 </span>
+<a id="answer_5265" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5265">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול לרשום לטבלה.<br>אתה יכול לשלוח לך מייל כשיש שגיאה מסוג מסוים בפעם הראשונה.<br>אתה לא רוצה לשים את זה בפאנל. </p>
+</div>
+<div class="answer" id="answer5279">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/37d585ea8e6d4e0c2f593d97a4708f12?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Helpers</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5279" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5279">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואיפה לשים את הטבלה?<br>יותר פשוט לעשות סוג של file_put_content או fopen &amp; fwrite לקובץ טקסט ושם לרשום את השגיאות?<br>במידה וכן (ותגיד לי אם כן), אני יכול לעשות בעמוד מסויים באתר שזה יגיד לי כמה שגיאות חדשות נוספו? (או יותר פשוט, כמה שורות חדשות נוספו) ואז שאני אכנס לקובץ זה יאפס את זה? </p>
+</div>
+<div class="answer" id="answer5292">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/37d585ea8e6d4e0c2f593d97a4708f12?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Helpers</a>
+ב
+<span style="font-size:10px"> 22 לינואר 2013 </span>
+<a id="answer_5292" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5292">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+?? </p>
+</div>
+<div class="answer" id="answer5293">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 22 לינואר 2013 </span>
+<a id="answer_5293" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5293">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תעשה מה שיותר נוח לך.<br>זה נטו בשבילך בתור מתכנת.<br>את המשתמש הסופי של האתר שלך זה לא אמור לעניין בשום צורה.<br>תאר לך יש בדפדפן פתאום טאב כזה שאתה פתוח ורואה את כל האקסשפנים שהמתכנתים של כרום שכחו לתפוס ואת כל המשתנים של כרום שהם שכחו להגדיר. <br>שגיאות יכולות להיות, תרשום אותם תתקן אותם, אבל אל תראה למשתמש, גם אם הוא מנהל האתר, כמו שאתה מנהל המחשב שלך, אבל אתה לא יודע על זה שבכרום לא עבד משהו. <br><br>מצידם המתפתחים של כרום כן רושמים את כל השגיאות ושולחים לעצמם ריפורטים לאימייל אם משהו לא בסדר<br>בכרום שאצלך במחשב.<br><br>אתה רוצה לרשום לקובץ, תרשום לקובץ. </p>
+</div>
+<div class="answer" id="answer5295">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/37d585ea8e6d4e0c2f593d97a4708f12?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Helpers</a>
+ב
+<span style="font-size:10px"> 23 לינואר 2013 </span>
+<a id="answer_5295" href="לוקח לפונקציה 5 שניות  להטען על מה ולמה-1.htm#answer_5295">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקיי תודה :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

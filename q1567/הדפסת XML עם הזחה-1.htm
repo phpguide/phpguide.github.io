@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הדפסת XML עם הזחה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mmm">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הדפסת XML עם הזחה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הדפסת XML עם הזחה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הדפסת XML עם הזחה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הדפסת XML עם הזחה-1.htm" title="שלום חברים, אני כותב ערכים לתוך קובץ XML.זה הקוד שלי:$xml = simplexml_load_file&amp;#40;&apos;lang.xml&apos;&amp;#41;;
+&amp;nbsp; $xmlTextID = $xml-&amp;gt;text-&amp;">הדפסת XML עם הזחה</a></h2>
+<div class="userinfo">
+פתח
+<a>mmm</a>
+,
+<time class="timeago relativetime" datetime="2013-07-16T16:20:52+03:00" style="display:inline-block;">
+16 ליולי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1567'>
+שלום חברים, אני כותב ערכים לתוך קובץ XML.<br>זה הקוד שלי:<br><div class="php codeblock"><span class="re0">$xml</span> <span class="sy0">=</span> <span class="kw3">simplexml_load_file</span><span class="br0">&#40;</span><span class="st_h">'lang.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$xmlTextID</span> <span class="sy0">=</span> <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">text</span><span class="sy0">-&gt;</span><span class="me1">count</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$myxml</span> <span class="sy0">=</span> <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">addChild</span><span class="br0">&#40;</span><span class="st_h">'text'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$myxml</span><span class="sy0">-&gt;</span><span class="me1">addAttribute</span><span class="br0">&#40;</span><span class="st_h">'id'</span><span class="sy0">,</span> <span class="re0">$xmlTextID</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$myxml</span><span class="sy0">-&gt;</span><span class="me1">addChild</span><span class="br0">&#40;</span><span class="st_h">'he'</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'he'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$myxml</span><span class="sy0">-&gt;</span><span class="me1">addChild</span><span class="br0">&#40;</span><span class="st_h">'en'</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'en'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">file_put_contents</span><span class="br0">&#40;</span><span class="st_h">'lang.xml'</span><span class="sy0">,</span> <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">asXML</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div><br><br>תתעלמו מהתנאי.<br>הבעיה שזה מכניס את התגים לקובץ בלי ירידות שורה, ובלי הזחה, יש למישהו מושג איך לעשות את זה? </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7112">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 ליולי 2013 </span>
+<a id="answer_7112" href="הדפסת XML עם הזחה-1.htm#answer_7112">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תצטרך להשתמש ב DomDocument <br><br><div class="php codeblock"><span class="re0">$dom</span> <span class="sy0">=</span> <span class="kw2">new</span> DOMDocument<span class="br0">&#40;</span><span class="st_h">'1.0'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">preserveWhiteSpace</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+<span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">formatOutput</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">loadXML</span><span class="br0">&#40;</span><span class="re0">$myxml</span><span class="sy0">-&gt;</span><span class="me1">asXML</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">saveXML</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer7115">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 17 ליולי 2013 </span>
+<a id="answer_7115" href="הדפסת XML עם הזחה-1.htm#answer_7115">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+האמת שראיתי את זה, והשתמשתי בזה, רק שלא השתמשתי ב-DomDocument, דברים מוזרים קרו.<br>תודה רבה אלכס. </p>
+</div>
+<div class="answer" id="answer7116">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 17 ליולי 2013 </span>
+<a id="answer_7116" href="הדפסת XML עם הזחה-1.htm#answer_7116">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$xml</span> &nbsp;<span class="sy0">=</span> <span class="kw2">new</span> DOMDocument<span class="br0">&#40;</span><span class="st_h">'1.0'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$xml</span> <span class="sy0">-&gt;</span><span class="me1">load</span><span class="br0">&#40;</span><span class="st_h">'lang.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$xml</span> <span class="sy0">-&gt;</span><span class="me1">preserveWhiteSpace</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">formatOutput</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$xpath</span> <span class="sy0">=</span> <span class="kw2">new</span> DOMXPath<span class="br0">&#40;</span><span class="re0">$xml</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp;<br>
+&nbsp; <span class="re0">$results</span> <span class="sy0">=</span> <span class="re0">$xpath</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'/lang'</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; <br>
+&nbsp; <span class="re0">$baz_node_of_xml</span> <span class="sy0">=</span> <span class="re0">$results</span><span class="sy0">-&gt;</span><span class="me1">item</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$new_node</span> <span class="sy0">=</span> <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">createElement</span><span class="br0">&#40;</span><span class="st_h">'text'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text_node</span> <span class="sy0">=</span> <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">createTextNode</span><span class="br0">&#40;</span><span class="st_h">'fdfd'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$new_node</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$text_node</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$baz_node_of_xml</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$new_node</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">file_put_contents</span><span class="br0">&#40;</span><span class="st_h">'lang.xml'</span><span class="sy0">,</span> <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">saveXML</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></div><br><br>זה הקוד החדש, לא עובד, אני עדיין מקבל את הכל בשורה אחת, אחרי שעתיים שניסיתי להבין איך לעבוד עם DOMDocument ששונה לגמרי מSIMPLExml.<br>יש לך מושג מה יכול להיות הפתרון? </p>
+</div>
+<div class="answer" id="answer7117">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 17 ליולי 2013 </span>
+<a id="answer_7117" href="הדפסת XML עם הזחה-1.htm#answer_7117">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הטעות שלי הייתה שהייתי צריך לשים את ה load() רק אחרי הpreserveWhiteSpace וה-formatOutput.<br>עכשיו עובד לי :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

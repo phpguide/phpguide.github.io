@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מערכת התחברות ראשונה (:">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="phpon">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מערכת התחברות ראשונה (: | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מערכת התחברות ראשונה (: | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מערכת התחברות ראשונה (:">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">26</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מערכת התחברות ראשונה .htm" title="&amp;lt;!DOCTYPE html PUBLIC &amp;quot;-//W3C//DTD XHTML 1.0 Strict//EN&amp;quot;
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&amp;quot;&amp;gt;
+&amp;lt;html xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot; xml:lang=&amp;quot;en&amp;quot; lang=&amp;quot;he&amp;quot; &amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;title&amp;gt;Stepping Through an Array &amp;lt;/title&amp;gt;
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;common.css&amp;quot; /&amp;gt;
+&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;">מערכת התחברות ראשונה (:</a></h2>
+<div class="userinfo">
+פתח
+<a>phpon</a>
+,
+<time class="timeago relativetime" datetime="2013-04-29T15:03:23+03:00" style="display:inline-block;">
+29 לאפריל 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1407'>
+<div class="php codeblock">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;<br>
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;he&quot; &gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Stepping Through an Array &lt;/title&gt;<br>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;common.css&quot; /&gt;<br>
+&lt;style type=&quot;text/css&quot;&gt;<br>
+&lt;/style&gt;<br>
+.error { background: #d33; color: white; padding: 0.2em; }<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;submitButton&quot;</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; processForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; displayForm<span class="br0">&#40;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+&nbsp;<span class="kw2">function</span> validateField<span class="br0">&#40;</span> <span class="re0">$fieldName</span><span class="sy0">,</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">in_array</span><span class="br0">&#40;</span> <span class="re0">$fieldName</span><span class="sy0">,</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span> &nbsp;<br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">' class=&quot;error&quot;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw2">function</span> setValue<span class="br0">&#40;</span> <span class="re0">$fieldName</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$fieldName</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span> &nbsp;<br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$fieldName</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw2">function</span> setChecked<span class="br0">&#40;</span> <span class="re0">$fieldName</span><span class="sy0">,</span> <span class="re0">$fieldValue</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$fieldName</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> and <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$fieldName</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="re0">$fieldValue</span> <span class="br0">&#41;</span> &nbsp;<span class="br0">&#123;</span> &nbsp;<br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">' checked=&quot;checked&quot;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw2">function</span> setSelected<span class="br0">&#40;</span> <span class="re0">$fieldName</span><span class="sy0">,</span> <span class="re0">$fieldValue</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$fieldName</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> and <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$fieldName</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="re0">$fieldValue</span> <span class="br0">&#41;</span> &nbsp;<span class="br0">&#123;</span> &nbsp;<br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">' selected=&quot;selected&quot;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> processForm<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$requiredFields</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span> <span class="st0">&quot;firstName&quot;</span><span class="sy0">,</span> <span class="st0">&quot;lastName&quot;</span><span class="sy0">,</span> <span class="st0">&quot;password1&quot;</span><span class="sy0">,</span><br>
+&nbsp;<span class="st0">&quot;password2&quot;</span><span class="sy0">,</span> <span class="st0">&quot;gender&quot;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$missingFields</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span> <span class="re0">$requiredFields</span> <span class="kw1">as</span> <span class="re0">$requiredField</span> <span class="br0">&#41;</span> &nbsp;<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$requiredField</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> or <span class="sy0">!</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$requiredFiled</span><span class="br0">&#93;</span> &nbsp;<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$missingFields</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$requiredField</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; displayForm<span class="br0">&#40;</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; displayThanks<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span> &nbsp;<br>
+&nbsp; <br>
+<span class="kw2">function</span> displayForm<span class="br0">&#40;</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&nbsp; &nbsp; &lt;h1&gt;מערכת התחברות&lt;/h1&gt; &nbsp;<br>
+&nbsp; <br>
+&nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;p class=&quot;error&quot;&gt;There were some problems with the form you submitted.<br>
+Please complete the fields highlighted below and click Send Details to<br>
+resend the form.&lt;/p&gt;<br>
+&nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;p&gt;Thanks for choosing to join The Widget Club. To register, please<br>
+fill in your details below and click Send Details. Fields marked with an<br>
+asterisk (*) are required.&lt;/p&gt;<br>
+&nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="br0">&#125;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; <br>
+&nbsp; &lt;form action=&quot;formfi.php&quot; &nbsp;method=&quot;post&quot;&gt;<br>
+&nbsp; &nbsp; &lt;div style=&quot;width: 30em;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;label for=&quot;lastName&quot;<span class="kw2">&lt;?php</span> validateField<span class="br0">&#40;</span> <span class="st0">&quot;lastName&quot;</span><span class="sy0">,</span> <br>
+<span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="sy1">?&gt;</span>&gt;First name *&lt;/label&gt;<br>
+&nbsp; &nbsp; &lt;input type=&quot;text&quot; name=&quot;lastName&quot; id=&quot;lastName&quot; value=<br>
+&quot;<span class="kw2">&lt;?php</span> setValue<span class="br0">&#40;</span> <span class="st0">&quot;lastName&quot;</span> <span class="br0">&#41;</span> <span class="sy1">?&gt;</span>&quot; /&gt;&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;label for=&quot;passsword1&quot;<span class="kw2">&lt;?php</span> <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="kw1">echo</span><br>
+<span class="st_h">' class=&quot;error&quot;'</span> <span class="sy1">?&gt;</span>&gt;Choose a password *&lt;/label&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;passsword&quot; name=&quot;password1&quot; id=&quot;password1&quot; value=&quot;&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;label for=&quot;passsword2&quot;<span class="kw2">&lt;?php</span> <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="kw1">echo</span><br>
+<span class="st_h">' class=&quot;error&quot;'</span> <span class="sy1">?&gt;</span>&gt;Retype password *&lt;/label&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;passsword&quot; name=&quot;password2&quot; id=&quot;password2&quot; value=&quot;&quot; /&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;label<span class="kw2">&lt;?php</span> validateField<span class="br0">&#40;</span> <span class="st0">&quot;gender&quot;</span><span class="sy0">,</span> <span class="re0">$missingFields</span> <span class="br0">&#41;</span> <span class="sy1">?&gt;</span>&gt;Your<br>
+gender: *&lt;/label&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for=&quot;genderMale&quot;&gt;Male&lt;/label&gt;<br>
+&nbsp; &nbsp; &lt;input type=&quot;radio&quot; name=&quot;gender&quot; id=&quot;genderMale&quot; value=<br>
+&quot;M&quot;<span class="kw2">&lt;?php</span> setChecked<span class="br0">&#40;</span> <span class="st0">&quot;gender&quot;</span><span class="sy0">,</span> <span class="st0">&quot;M&quot;</span> <span class="br0">&#41;</span><span class="sy1">?&gt;</span> /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for=&quot;genderFemale&quot;&gt;Female&lt;/label&gt;<br>
+&nbsp; &nbsp; &lt;input type=&quot;radio&quot; name=&quot;gender&quot; id=&quot;genderFemale&quot; value=<br>
+&quot;F&quot;<span class="kw2">&lt;?php</span> setChecked<span class="br0">&#40;</span> <span class="st0">&quot;gender&quot;</span><span class="sy0">,</span> <span class="st0">&quot;F&quot;</span> <span class="br0">&#41;</span><span class="sy1">?&gt;</span> /&gt;<br>
+&nbsp; &nbsp; wonder<br>
+&nbsp; &nbsp; &lt;label for=&quot;favoritWidget&quot;&gt;What's favorite widget? *&lt;/label&gt;<br>
+&nbsp; &nbsp; &lt;select name=&quot;favoriteWidget&quot; id=&quot;favoriteWidget&quot; size=&quot;1&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;option value=&quot;superWidget&quot;<span class="kw2">&lt;?php</span> setSelected<span class="br0">&#40;</span> <span class="st0">&quot;favoriteWidget&quot;</span><span class="sy0">,</span><br>
+<span class="st0">&quot;superWidget&quot;</span> <span class="br0">&#41;</span> <span class="sy1">?&gt;</span>&gt;The SuperWidget&lt;/option&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value=&quot;megaWidget&quot;<span class="kw2">&lt;?php</span> setSelected<span class="br0">&#40;</span> <span class="st0">&quot;favoriteWidget&quot;</span><span class="sy0">,</span><br>
+<span class="st0">&quot;megaWidget&quot;</span> <span class="br0">&#41;</span> <span class="sy1">?&gt;</span>&gt;The MegaWidget&lt;/option&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;option value=&quot;wonderWidget&quot;<span class="kw2">&lt;?php</span> setSelected<span class="br0">&#40;</span> <span class="st0">&quot;favoriteWidget&quot;</span><span class="sy0">,</span><br>
+<span class="st0">&quot;wonderWidget&quot;</span> <span class="br0">&#41;</span> <span class="sy1">?&gt;</span>&gt;The WonderWidget&lt;/option&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/select&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;label fir=&quot;newsletter&quot;&gt;Do you want to receive our newsletter?<br>
+&lt;/label&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; id=&quot;newsletter&quot; value=&quot;yes&quot;<br>
+<span class="kw2">&lt;?php</span> setChecked<span class="br0">&#40;</span> <span class="st0">&quot;newsletter&quot;</span><span class="sy0">,</span> <span class="st0">&quot;yes&quot;</span> <span class="br0">&#41;</span> <span class="sy1">?&gt;</span> /&gt;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for=&quot;comments&quot;&gt;Any comments?&lt;/label&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;textarea name=&quot;comments&quot; id=&quot;comments&quot; rows=&quot;4&quot; cols=&quot;50&quot;&gt;<span class="kw2">&lt;?php</span> <br>
+setValue<span class="br0">&#40;</span> <span class="st0">&quot;comments&quot;</span> <span class="br0">&#41;</span>&nbsp; <span class="sy1">?&gt;</span>&lt;/textarea&gt; <br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;clear: both;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; name=&quot;submitButton&quot; id=&quot;submitButton&quot; value=<br>
+&quot;Send Details&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;reset&quot; name=&quot;resetButton&quot; id=&quot;resetButton&quot; <br>
+value=&quot;Reset Form&quot; style=&quot;margin-right: 20px;&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp;&lt;/div&gt;<br>
+&nbsp; &nbsp;&lt;/form&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> displayeThanks<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;h1&gt;Thank You&lt;/h1&gt;&nbsp; <br>
+&nbsp; &nbsp; &lt;p&gt;p&gt;Thank you, your application has been received.&lt;/p&gt; <br>
+<span class="sy1">&lt;?</span>php<span class="sy0">&gt;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;</div> <br><br><br>הוא רושם לי שגיאה 137<br><br>אני לומד מphp 5.3 של wrox, כדאי לעבור למדריך אחר?<br>למרות שהם מסבירים הרבה </div>
+</div>
+<h3>
+<span id="answersCounter">26 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6228">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 29 לאפריל 2013 </span>
+<a id="answer_6228" href="מערכת התחברות ראשונה .htm#answer_6228">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לפי מה שהבנתי מגיגול קצר, הבעיה היא כנראה במחשב/דפדפן שלך. תגגל את זה, וסביר להניח שתמצא פתרונות.<br>בקשר לקוד עצמו - עוד מעט אערוך ואוסיף הערות.<br><br><strong>עריכה:</strong><br>- קוד ה-CSS שלך מחוץ לאלמנט style.<br>- בפונקציה procesForm:<br><div class="php codeblock"><span class="re0">$missingFields</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>תוריד את ה-[]. זה פשוט ייצור מערך בתור מערך.<br>לא קראתי יותר מדי, אבל בהחלט כדי לך ללמוד על הדברים הבאים אם אתה עדיין לא יודע אותם:<br>- תכנות מונחה עצמים<br>- MVC<br>אין שום בעיה ב-Beginning PHP 5.3 של Matt Doyle, רק קח בחשבון שעוד מעט כבר יוצא PHP 5.5. אל תשכח להתעדכן. (וכמובן ללמוד על עוד נושאים. הספר הזה לא מכסה את הכול. כשתגמור אותו אתה מוזמן לשאול פה, ותקבל בשמחה שמות של ספרים/אתרים...) בהצלחה. :-) </p>
+</div>
+<div class="answer" id="answer6229">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 29 לאפריל 2013 </span>
+<a id="answer_6229" href="מערכת התחברות ראשונה .htm#answer_6229">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+גם אחריי שתיקנתי..נאדה <br>ותודה רבה אור ל273 !!! </p>
+</div>
+<div class="answer" id="answer6230">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 29 לאפריל 2013 </span>
+<a id="answer_6230" href="מערכת התחברות ראשונה .htm#answer_6230">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הכינוי נובי, אני יודע. יש לו היסטוריה ארוכה. תקרא לי אוראל. :-) </p>
+</div>
+<div class="answer" id="answer6251">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6251" href="מערכת התחברות ראשונה .htm#answer_6251">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אהה לא היה לי מושג חחחחח, אין בעייה תודה אוראל!!<br>והקפצה!! עדיין לא עבד..<br>יש למישהו סקייפ או טייםוויר ויכול לעזור לי? </p>
+</div>
+<div class="answer" id="answer6252">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6252" href="מערכת התחברות ראשונה .htm#answer_6252">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&quot;לפי מה שהבנתי מגיגול קצר, הבעיה היא כנראה במחשב/דפדפן שלך. תגגל את זה, וסביר להניח שתמצא פתרונות.&quot;<br>בדקת? </p>
+</div>
+<div class="answer" id="answer6253">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6253" href="מערכת התחברות ראשונה .htm#answer_6253">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, זה משהו בקוד....<br>תיקנתי עוד כמה בעיות. ואשמח להמלצות לספרים טובים בתחום על<br>oop בעיקר. עכשיו הבעייה הרצינית היא שאני לא רוצה רק להעתיק מערכות מספרים כמו שמלמדים, אלא אשכרה להבין איך המערכת עובדת ולדעת לבנות לבד.. </p>
+</div>
+<div class="answer" id="answer6256">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6256" href="מערכת התחברות ראשונה .htm#answer_6256">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, זה משהו בקוד....<br>תיקנתי עוד כמה בעיות. ואשמח להמלצות לספרים טובים בתחום על<br>oop בעיקר. עכשיו הבעייה הרצינית היא שאני לא רוצה רק להעתיק מערכות מספרים כמו שמלמדים, אלא אשכרה להבין איך המערכת עובדת ולדעת לבנות לבד.. </p>
+</div>
+<div class="answer" id="answer6274">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6274" href="מערכת התחברות ראשונה .htm#answer_6274">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הסתדתר, מתחיל עוד פרויקטים קטנים בקרוב!<br>אשמח לקבל המלצות לספרים/אתרים בנושאים הבאים:<br>php mvc, oop וכל זה חחח. </p>
+</div>
+<div class="answer" id="answer6282">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6282" href="מערכת התחברות ראשונה .htm#answer_6282">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני אכתוב משהו מאורגן יותר ואפרסם כאן מחר או עוד כמה ימים. :-)<br><br>רק נשמח לדעת איך סידרת את זה. :-) </p>
+</div>
+<div class="answer" id="answer6284">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 04 למאי 2013 </span>
+<a id="answer_6284" href="מערכת התחברות ראשונה .htm#answer_6284">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בעיות כאלה אפשר לפתור בעזרת האחסון של 00webhost אחרי שמעלים לשרת דרך FTP אני יכול לעשות מדריך ולפרסם קשור שם זה כותב לך מה השגיאה באיזה קובץ ובאיזה שורה. דרך אגב<br>if(issest אפשר לשנות לקצור:<br>אם קיים המשתנה-<br>(if($x<br>אם לא קיים המשתנה-<br>(if(!$x </p>
+</div>
+<div class="answer" id="answer6315">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 05 למאי 2013 </span>
+<a id="answer_6315" href="מערכת התחברות ראשונה .htm#answer_6315">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הצלחתי בסוף!!<br>פשוט היה<br>&lt;?php&gt;<br>}<br>?&gt; ועוד משהו שאמרת לי לתקן וזה עבד. :D </p>
+</div>
+<div class="answer" id="answer6316">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 05 למאי 2013 </span>
+<a id="answer_6316" href="מערכת התחברות ראשונה .htm#answer_6316">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יופי </p>
+</div>
+<div class="answer" id="answer6319">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 05 למאי 2013 </span>
+<a id="answer_6319" href="מערכת התחברות ראשונה .htm#answer_6319">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+היי, יוני. הייתי ממליץ לך לעבור על הנושאים האלה שוב. ההבדל בין isset לבין פשוט לשים משתנה בתור ביטוי הוא ש-isset בודק אם המשתנה קיים (כלומר לא NULL), ומה שהצעת בודק אם הערך שלו שווה ל-true, שזה דבר אחר לחלוטין (ועוד בלי להזכיר שזה יזרוק לך שגיאה אם המשתנה לא קיים, שזה מה שהיית רוצה לבדוק אם אתה משתמש ב-isset.)<br>כנ&quot;ל לגבי ההפך (&quot;!&quot;). </p>
+</div>
+<div class="answer" id="answer6324">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 06 למאי 2013 </span>
+<a id="answer_6324" href="מערכת התחברות ראשונה .htm#answer_6324">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני משתמש ב משתנה בלי כלום לבדיקת עם קיים ובelse אם הוא לא קיים נגיד להרשמה אפשר להשתמש עם לחצו על שלח אז שיבדוק עם כל השדות מלאות וכנ&#039;&#039;ל למקרה של מספר תווים ששם אבל כן חייב לשים strln אבל בלי isset זה רק קצור זה לא משנה כלום בפקודה. </p>
+</div>
+<div class="answer" id="answer6333">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 06 למאי 2013 </span>
+<a id="answer_6333" href="מערכת התחברות ראשונה .htm#answer_6333">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אשמח לקבל ספרים בMvc oop וכל זה! <br>+כדאי להתחיל לעבור בדוקומנטציה? ואם כן מאיפה בערך?<br>ודרך אגב, המדריך בוובמאסטר טוב? </p>
+</div>
+<div class="answer" id="answer6334">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 06 למאי 2013 </span>
+<a id="answer_6334" href="מערכת התחברות ראשונה .htm#answer_6334">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+דוקומנטציה דרך php.net/manuel קשור מלא:<br>http://php.net/manual/fr/manual.php </p>
+</div>
+<div class="answer" id="answer6335">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 06 למאי 2013 </span>
+<a id="answer_6335" href="מערכת התחברות ראשונה .htm#answer_6335">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+התחברות מעולה. <br>בוודאות יותר טוב מההתחברות הראשונה שאני כתבתי :)<br>כל הכבוד והמשך כך. </p>
+</div>
+<div class="answer" id="answer6336">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 06 למאי 2013 </span>
+<a id="answer_6336" href="מערכת התחברות ראשונה .htm#answer_6336">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עוד מעט אני אגיב עם רשימה של ספרים, אבל לבינתיים (ליוני) - בכלל קראת את מה שכתבתי? הסברתי ש-isset זה לא קיצור של זה.<br>מסכים ב-100% עם אלכס. מצטער שלא ראיתי את הטוב, ורק הערתי על תיקונים. :-) </p>
+</div>
+<div class="answer" id="answer6337">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 06 למאי 2013 </span>
+<a id="answer_6337" href="מערכת התחברות ראשונה .htm#answer_6337">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני קורא מה שיש לי זמן אני די עסוק בזמן האחרון PHP אני לא מומחה אני צריך לצבור ניסיון בשביל להשתפר אני יודע ברמה בינונית אני צובר ניסיון בבניה בעצמי ואז לומד OOP אבל אני לומד בו זמנית גם CSS התחלתי לא מזמן וJS סיימתי לא מזמן אז אני די עסוק וקורא רק הודעה ראשונה בלי מה שעונים להודעה. </p>
+</div>
+<div class="answer" id="answer6338">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 06 למאי 2013 </span>
+<a id="answer_6338" href="מערכת התחברות ראשונה .htm#answer_6338">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+intval מצטער, למדתי לבנות אתזה מספר php 5.3 של מאט דויל ככה שהקוד לא שלי, מצטער לא הסברתי את עצמי נכון...<br>אני אנסה בשבוע הקרוב לשבת על מערכת משלי+אני מתחיל ללמוד בקרוב על file :D </p>
+</div>
+<div class="answer" id="answer6344">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6344" href="מערכת התחברות ראשונה .htm#answer_6344">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+:) <br>פעם למדתי visual basic מתוך ספר תלמוד ענקי ושמן באנגלית וכל מה שהייתי עושה, זה מדפדף לקטע קוד הבא, מעתיק אותו אחד לאחד, משנה את המשות של השדות\כפתורים ומריץ. אחרי זה משנה עוד קצת, מוסיף שדה משלי, מוחק כפתור שניים, וכו&#039; </p>
+</div>
+<div class="answer" id="answer6345">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6345" href="מערכת התחברות ראשונה .htm#answer_6345">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong><span class="underline">רשימת ספרים (PHP &amp; MySQL):</span></strong><br><br><strong>שלב א&#039;:</strong><br>- תגמור את הספר שכבר יש לך. :-)<br>- <a href="http://www.amazon.com/PHP-MySQL-Web-Development-Edition/dp/0672329166">PHP and MySQL Web Development (4th Edition)</a><br>לא יודע עדיין לגבי המהדורה הבאה, אבל ההסברים בספר הזה מעולים, והוא מקיף הרבה חומר שספרים בסיסיים אחרים אולי לא יכסו. <strong>חיסרון</strong>: קטעי קוד ופרויקטים ברמה של מתחילים. לא הייתי דואג לגבי זה יותר מדי, כי זה אמור להיות ספר בסיסי.<br>- <a href="http://www.amazon.com/PHP-Master-Write-Cutting-Edge/dp/0987090879">PHP Master: Write Cutting Edge Code</a><br>השלב הבא - שוב, אולי (לא אולי) יהיו כאן דברים (הרבה) שאתה יודע, אבל אתה יכול להשיג מזה הרבה.<br>אני אישית לא גמרתי לקרוא את הספר, אבל רפרפתי על מה שלא קראתי, וזה נראה מעולה.<br><br><strong>שלב ב&#039;:</strong><br>תתעדכן לגרסאות הנוכחיות דרך האתר הזה ועוד אחרים באנגלית.<br><br><strong>שלב ג&#039;:</strong><br>עכשיו אתה מוכן כבר לעבור לשלב הבא.<br>- <a href="http://www.amazon.com/Objects-Patterns-Practice-Experts-Source/dp/143022925X/ref=pd_sim_b_2">PHP Objects, Patterns and Practice</a><br>רמה גבוהה יחסית. ספר פשוט מעולה. האנגלית כאן כבר מתחילה להיות קשה יותר, אבל בתקווה שעד אז האנגלית שלך תשתפר עד לרמה הזאת (אם עוד לא קרה).<br>אני קורא את הספר הזה עכשיו, ופשוט אין לי מילים.<br>- <a href="http://www.amazon.com/Expert-PHP-MySQL-Wrox-Programmer/dp/0470563125">Expert PHP and MySQL</a><br>אני מחזיק בספר, אבל עוד לא הגעתי אליו. למיטב הבנתי (ולאחר רפרוף ברשימת הפרקים המורחבת, שאת כמעט כולה לא הכי הבנתי), הספר כבר לוקח את התכנות שלך לרמה הבאה (ושוב, מזכיר דברים שאתה כבר יודע). שפה רשמית וגבוהה קצת יותר.<br><br><strong>שלב ד&#039;:</strong><br>סורי, עוד לא הגעתי לפה, לא יכול לעזור לך. :-)<br>מה שכן, הייתי ממליץ לך בשלב הזה להתחיל לחקור מחדש את עולם הפיתוח בצד לקוח. (כן, יש עוד דברים מעניינים חוץ מצד שרת.) בשלב הזה כבר אני אתן לך רשימה נוספת של ספרים (אם תרצה). אולי עד אז אני כבר אכתוב את מה שאני מתכנן, ואז זה יהיה עוד יותר טוב.<br>יש עוד כל מיני נושאים חשובים בצד שרת, כמו CMS (יש לי רשימת ספרים קטנה שעוד לא קראתי) ופריימו&#039;ורקים (בתקווה שלקראת סוף החודש הזה כבר יצא הספר הרשמי על Laravel 4, ואני אתחיל לתרגם אותו).<br><br>בהצלחה לך! :-) </p>
+</div>
+<div class="answer" id="answer6346">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6346" href="מערכת התחברות ראשונה .htm#answer_6346">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אשמח לקבל ספרים בMvc oop וכל זה! <br>+כדאי להתחיל לעבור בדוקומנטציה? ואם כן מאיפה בערך?<br>ודרך אגב, המדריך בוובמאסטר טוב?<br><br>intval (כי הבנתי שהוא שלך חחחח לפי כמות המדריכים העצומה)<br>כמה הצעות לאתר: מערכת מוניטין, נגיד על תשובה נכונה, המשתמש יקבל מוניטין(אם כל הדברים הללו קיימים אז סליחה מראש..) <br>תיוג משתמשים.<br><br>ואוראל תודה ענקית מלך! אני אקרא את כל הספרים הללו(בתקווה כמובן :D)<br>http://www.amazon.com/PHP-MySQL-Web-Development-Edition/dp/0321833899/ref=dp_ob_title_bk<br>בקרוב החמישי.. </p>
+</div>
+<div class="answer" id="answer6350">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6350" href="מערכת התחברות ראשונה .htm#answer_6350">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+MVC תחפש. יש ב&quot;אינטרנט ישראל&quot; (ונראה לי גם פה) - וביחד הם מסבירים נהדר.<br>זו בחירה שלך. מה שכן, תמיד כשאתה לומד על פונקציה (או אם עוד לא קראת) - תקרא את התיעוד שלהם. עוזר מאוד.<br>בשמחה.<br>וכן, אם בקרוב זה עוד קצת פחות מחצי שנה. XD </p>
+</div>
+<div class="answer" id="answer6352">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6352" href="מערכת התחברות ראשונה .htm#answer_6352">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+:D<br><br>זה העתיק לי משום מה..סליחה<br>עכשיו, אני רוצה לשדרג תמערכת הרשמה, ולבנות אחת בעצמי.<br>הבעייה שהבנתי שאני צריך ללמוד mail ואני מגיע לזה רק בעוד 5 פרקים..<br>ובשביל שהמערכת הזאצ באמת תפעול חייבים מסד? (הכוונה שכיאלו המערכת תשלח מייל לאישור, ואז תוכל להיכנס עם השם הזה במערכת כניסה. </p>
+</div>
+<div class="answer" id="answer6353">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6353" href="מערכת התחברות ראשונה .htm#answer_6353">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חייב מסד לשמירת הנתונים בשביל לבדוק אותם ובשביל לשנות אותם נגיד עם זו עיר וירטואלית אז לעדכן כשמרוויחים כסף. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

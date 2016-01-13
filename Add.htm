@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הוספת מדריך לימוד PHP חדש">
+<meta name="keywords" content="חדש, לימוד, PHP">
+<meta name="author" content="">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>הוספת מדריך לימוד PHP חדש</title>
+<meta itemprop="name" content="הוספת מדריך לימוד PHP חדש">
+<meta itemprop="description" content="הוספת מדריך לימוד PHP חדש">
+</head>
+<body dir='rtl' class="add">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<form id="newPostForm" action="/Add/save" method="post">
+<div class='addform'>
+<div class="errors">
+</div>
+<h1 class="title">הוספת פוסט</h1>
+<br>
+כותרת:
+<br>
+<input type="hidden" name="edit" value="">
+<input class="name" placeholder="כותרת" tabindex="1" name="Article[title]" id="Article_title" type="text" maxlength="150"><br>
+<br>
+תמונה (75x75) <i>לא חובה</i> :
+<br>
+<input tabindex="3" dir="ltr" class="name" style="width:350px" title="קישור לתמונה בגודל 75 על 75 שתופיע ליד הכתבה בעמוד הראשי" name="Article[image]" id="Article_image" type="text" maxlength="255"> <br>
+<br>
+תיאור בשני משפטים שיופיע בעמוד הראשי ובתחילת הפוסט:
+<br>
+<textarea rows="2" tabindex="2" style="width:600px" name="ArticlePlainText[plain_description]" id="ArticlePlainText_plain_description"></textarea>
+<div class="buttons" dir="rtl">
+<a href="javascript:$('#data').bbcode('b');" title="bold text" class="bold-text">B</a>
+<a href="javascript:$('#data').bbcode('i')" title="italic text" class="italic-text">I</a>
+<a href="javascript:$('#data').bbcode('u')" title="underlined" class="underline-text">U</a>
+<a href="javascript:$('#data').bbcode('s')" title="striked out" class="through-text">S</a>
+<a href="javascript:$('#data').bbcode('h1')" title="header1" class="h1-text">H1</a>
+<a href="javascript:$('#data').bbcode('h2')" title="header2" class="h2-text">H2</a>
+<a href="javascript:$('#data').bbcode('h3')" title="header3" class="h3-text">H3</a>
+<a href="javascript:$('#data').bbcode('php')" title="block of code" class="php-text">PHP</a>
+<a href="javascript:$('#data').bbcode('left')" title="div dir-ltr" class="ltr-text">L.</a>
+<a href="javascript:$('#data').bbcode('ltr')" title="span dir-ltr" class="ltr-text">LTR</a>
+<a href="javascript:$('#data').bbcode('img')" title="image" class="img-text">IMG</a>
+<a href="javascript:$('#data').bbcode('youtube')" title="youtube vid" class="emb-text">EMB</a>
+<a href="javascript:$('#data').bbcode('url')" title="link to url" class="a-text">A</a>
+<a href="javascript:anylinkmenu.nullfunc()" class="a-color" rel='colorsMenu[click]'>color</a>
+<div class="anylinkmenu"></div>
+</div>
+<textarea class="text" id="data" tabindex="5" name="ArticlePlainText[plain_content]"></textarea>
+<br><br>
+<b>קטגוריה</b><br><br>
+<select style="width:350px;" multiple="multiple" class="chzn-select" id="test_me" name="Article[categories][]" tabindex="6">
+<option value="17">codeigniter
+<option value="6">JS צד לקוח
+<option value="3">mysql
+<option value="13">php frameworks
+<option value="7">אבטחה
+<option value="1">ביצועים ואופטימיזציה
+<option value="14">חדשות ועדכונים
+<option value="11">כלים שימושיים
+<option value="16">כנסים והרצאות
+<option value="2">מבנה הסקריפט
+<option value="15">מדריכי YII
+<option value="12">נושאים כלליים
+<option value="10">פתרונות נפוצים
+<option value="9">רשת ופרוטוקולים
+<option value="4">שליחת אימייל ב-PHP
+<option value="5">שרתים apache wamp
+<option value="8">תמונות וגרפיקה
+</select>
+<br><br><br><br>
+<b>מנועי חיפוש: </b><br><br>
+<div>
+מילות מפתח:
+<input class="name" tabindex="7" title="meta keywords למנועי החיפוש" name="Article[keywords]" id="Article_keywords" type="text">
+</div>
+<div class="clear"></div>
+<div>
+תיאור כתבה:
+<input class="name" tabindex="8" title="meta description למנועי החיפוש" name="Article[description]" id="Article_description" type="text"> </div>
+<div class="clear"></div>
+<div id="newpost_error_text"></div>
+<span style="color:red">
+יש למלא את כל השדות
+</span>
+<p>במקרים מסוימים המאמרים עוברים שינויים קוסמטיים והגהה לשונית אחרי הפרסום. לא להיבהל. :)</p>
+</div>
+<input type="button" name="submit" id="submit" class="submit" value="Submit">
+<input type="button" name="preview" id="preview" class="submit" value="Preview">
+<input id="hiddenSubmit" type="submit" style="display: none">
+</section></div>
+</form>
+  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\bbcode.js addpage.js scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.hfCDimzPFX.js"></script><script>eval(mod_pagespeed_1tUdoX4CIm);</script>
+<script>eval(mod_pagespeed_MY$6uKEh08);</script>
+<script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

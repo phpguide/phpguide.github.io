@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מניעת הורדת תמונות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מניעת הורדת תמונות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מניעת הורדת תמונות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מניעת הורדת תמונות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מניעת הורדת תמונות-1.htm" title="איך אני מונע הורדות של תמונות מהשרת שלי? :) זה מה שעשיתי אבל זה לא עובד :/AddDefaultCharset utf-8
+
+SecFilterEngine Off
+SecFilterScanPOST Off
+
+RewriteEngine on
+
+RewriteCond %&amp;#123;HTTP_REFERER&amp;#125; !^http://(.+\.)?newteck\.co\.il\/p">מניעת הורדת תמונות</a></h2>
+<div class="userinfo">
+פתח
+<a>ilikeme</a>
+,
+<time class="timeago relativetime" datetime="2013-03-28T12:27:55+02:00" style="display:inline-block;">
+28 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1333'>
+איך אני מונע הורדות של תמונות מהשרת שלי? :) זה מה שעשיתי אבל זה לא עובד :/<br><div class="php codeblock">AddDefaultCharset utf<span class="sy0">-</span><span class="nu0">8</span><br>
+<br>
+SecFilterEngine Off<br>
+SecFilterScanPOST Off<br>
+<br>
+RewriteEngine on<br>
+<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_REFERER<span class="br0">&#125;</span> <span class="sy0">!</span>^http<span class="sy0">:</span><span class="co1">//(.+\.)?newteck\.co\.il\/papion/ [NC]</span><br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_REFERER<span class="br0">&#125;</span> <span class="sy0">!</span>^$<br>
+RewriteRule <span class="sy0">.*</span>\<span class="sy0">.</span><span class="br0">&#40;</span>jpg<span class="sy0">|</span>gif<span class="sy0">|</span>bmp<span class="sy0">|</span>png<span class="br0">&#41;</span>$ static<span class="sy0">/</span>images<span class="sy0">/</span>dontsteal<span class="sy0">.</span>jpg <span class="br0">&#91;</span>L<span class="br0">&#93;</span><br>
+<br>
+<span class="co2"># if a directory or a file exists, use it directly<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>f<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>d<br>
+<br>
+<span class="co2"># otherwise forward it to index.php<br>
+</span>RewriteRule <span class="sy0">.</span> index<span class="sy0">.</span>php</div> </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5865">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 28 למרץ 2013 </span>
+<a id="answer_5865" href="מניעת הורדת תמונות-1.htm#answer_5865">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא מבין את הקטע של למנוע הורדת תמונות. המשתמש יכול לצפות בתמונה שלך? אוקיי, הוא כבר הוריד אותה. </p>
+</div>
+<div class="answer" id="answer5866">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ilikeme</a>
+ב
+<span style="font-size:10px"> 28 למרץ 2013 </span>
+<a id="answer_5866" href="מניעת הורדת תמונות-1.htm#answer_5866">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, ממש לא,... זה אתר הזמנות של אירועים ואז בתי דפוס אחרים יוכלו להוריד את ההזמנות ולהשתמש בהם<br>ואם יראו אותם באתר אז הם לא יכלו להשתמש בהם (כי הם יהיו קטנות ומפוקלסות) </p>
+</div>
+<div class="answer" id="answer5867">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 28 למרץ 2013 </span>
+<a id="answer_5867" href="מניעת הורדת תמונות-1.htm#answer_5867">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה רוצה שמישהו יוכל לצפות בזה ולא יוכל להוריד את זה? כי אם כן, זה בלתי אפשרי, כי צפייה בתמונה כוללת הורדה שלה. אם זה משהו אחר, לא הבנתי. תוכל להסביר שוב? </p>
+</div>
+<div class="answer" id="answer5870">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/550250b403b4540876614d2d3d4dd1c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mayden</a>
+ב
+<span style="font-size:10px"> 28 למרץ 2013 </span>
+<a id="answer_5870" href="מניעת הורדת תמונות-1.htm#answer_5870">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה כנראה מתבלבל בין Hot Linking לבין הורדת תמונה.<br><br>http://www.hongkiat.com/blog/smarter-way-to-prevent-image-hotlinking-with-htaccess/ </p>
+</div>
+<div class="answer" id="answer5871">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ilikeme</a>
+ב
+<span style="font-size:10px"> 28 למרץ 2013 </span>
+<a id="answer_5871" href="מניעת הורדת תמונות-1.htm#answer_5871">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+השתמשתי בקוד של HOT LINKING שהבאת<br>אבל זה לא עובד לי O__O<br><div class="php codeblock">AddDefaultCharset utf<span class="sy0">-</span><span class="nu0">8</span><br>
+<br>
+SecFilterEngine Off<br>
+SecFilterScanPOST Off<br>
+<br>
+RewriteEngine on<br>
+<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_REFERER<span class="br0">&#125;</span> <span class="sy0">!</span>^$ &nbsp;<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_REFERER<span class="br0">&#125;</span> <span class="sy0">!</span>^http<span class="br0">&#40;</span>s<span class="br0">&#41;</span>?<span class="sy0">:</span><span class="co1">//(www\.)?newteck/\.co/\.il [NC] &nbsp;</span><br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_REFERER<span class="br0">&#125;</span> <span class="sy0">!</span>^http<span class="br0">&#40;</span>s<span class="br0">&#41;</span>?<span class="sy0">:</span><span class="co1">//(www\.)?newteck/\.co/\.il [NC] &nbsp;</span><br>
+RewriteRule \<span class="sy0">.</span><span class="br0">&#40;</span>jpg<span class="sy0">|</span>jpeg<span class="sy0">|</span>png<span class="sy0">|</span>gif<span class="br0">&#41;</span>$ http<span class="sy0">:</span><span class="co1">//hpmouse.googlepages.com/hotlink.gif [NC,R,L] </span><br>
+<br>
+<span class="co2"># if a directory or a file exists, use it directly<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>f<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>d<br>
+<br>
+<span class="co2"># otherwise forward it to index.php<br>
+</span>RewriteRule <span class="sy0">.</span> index<span class="sy0">.</span>php</div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

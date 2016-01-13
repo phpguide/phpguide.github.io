@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ajax אג&apos;קס">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Aviway">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ajax אג&apos;קס | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ajax אג&apos;קס | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ajax אג&apos;קס">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">9</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ajax אגקס-1.htm" title="שלום לכולם,יש לי טופס עם אפשרות בחירת אזור בארץ, ואח&amp;quot;כ לבחור עיר מאותו אזור שבחרתי.איך אני כותב את הקוד בשביל שישנה לי את תיבת הSELECT של העיר בהתאם לאזור שבחרתי?בAJAX כמובן!מה שעשיתי כרגע זה ONCLICK על תג הOPTION, הוא קורא לפונקציה ושולח לה את הID של האזור.תודה מראש לעוזרים.">ajax אג&apos;קס</a></h2>
+<div class="userinfo">
+פתח
+<a>Aviway</a>
+,
+<time class="timeago relativetime" datetime="2012-04-10T10:15:29+03:00" style="display:inline-block;">
+10 לאפריל 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText487'>
+שלום לכולם,<br>יש לי טופס עם אפשרות בחירת אזור בארץ, ואח&quot;כ לבחור עיר מאותו אזור שבחרתי.<br>איך אני כותב את הקוד בשביל שישנה לי את תיבת הSELECT של העיר בהתאם לאזור שבחרתי?<br>בAJAX כמובן!<br>מה שעשיתי כרגע זה ONCLICK על תג הOPTION, הוא קורא לפונקציה ושולח לה את הID של האזור.<br><br>תודה מראש לעוזרים. </div>
+</div>
+<h3>
+<span id="answersCounter">9 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer1853">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 10 לאפריל 2012 </span>
+<a id="answer_1853" href="ajax אגקס-1.htm#answer_1853">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הבנת אותי נכון, אולי ההסבר שלי לא היה מדויק.<br>התכוונתי לכך שברגע שאני בוחר אזור בארץ מתגית SELECT אחת, אז תגית SELECT אחרת משתנה.<br>לדוגמא, תגית הSELECT הראשונה:<br><div class="php codeblock"><span class="sy0">&lt;</span>select <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;select_area&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;area&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;tf_area&quot;</span> <span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">&quot;1&quot;</span><span class="sy0">&gt;</span>צפון<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">&quot;2&quot;</span><span class="sy0">&gt;</span>מרכז<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">&quot;3&quot;</span><span class="sy0">&gt;</span>דרום<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span></div><br>לאחר בחירת אזור בארץ מהתג הנ&quot;ל, התג הבא אמור להשתנות בהתאם. <br>לדוגמא, אם בחרתי את OPTION 2 מרכז, אז התג הבא יראה כך:<br><div class="php codeblock"><span class="sy0">&lt;</span>select <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;select_sec_area&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;sec_area&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;tf_sec_area&quot;</span> <span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">&quot;1&quot;</span><span class="sy0">&gt;</span>אזור דן<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">&quot;2&quot;</span><span class="sy0">&gt;</span>ירושלים<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">&quot;3&quot;</span><span class="sy0">&gt;</span>השרון<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">...</span><br>
+<span class="sy0">..</span><br>
+<span class="sy0">.</span><br>
+<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span></div><br>כמובן שזה אמור להשתנות באג&#039;קס. </p>
+</div>
+<div class="answer" id="answer1855">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 10 לאפריל 2012 </span>
+<a id="answer_1855" href="ajax אגקס-1.htm#answer_1855">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אני לא רוצה שהדף ירענן, וגם אני צריך את המשתנה של האזור שנבחר בשביל פונקציית הFOREACH ששואבת את כל האזורים המשניים לפי האזור הראשי שנבחר. </p>
+</div>
+<div class="answer" id="answer1856">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 10 לאפריל 2012 </span>
+<a id="answer_1856" href="ajax אגקס-1.htm#answer_1856">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+<span class="kw2">function</span> changeSelect<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw2">var</span> x<span class="sy0">=</span>document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;mySelect&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>selectedIndex<span class="sy0">;</span><br>
+<span class="kw2">var</span> y<span class="sy0">=</span>document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;mySelect&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>options<span class="sy0">;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span>y<span class="br0">&#91;</span>x<span class="br0">&#93;</span><span class="sy0">.</span>index<span class="sy0">==</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw2">var</span> lol<span class="sy0">=</span><span class="kw2">new</span> <span class="kw3">Array</span><span class="br0">&#40;</span><span class="st0">&quot;29299&quot;</span><span class="sy0">,</span> <span class="st0">&quot;82929&quot;</span><span class="sy0">,</span> <span class="st0">&quot;2929&quot;</span><span class="sy0">,</span> <span class="st0">&quot;jffjd&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span>y<span class="br0">&#91;</span>x<span class="br0">&#93;</span><span class="sy0">.</span>index<span class="sy0">==</span><span class="nu0">2</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw2">var</span> lol<span class="sy0">=</span><span class="kw2">new</span> <span class="kw3">Array</span><span class="br0">&#40;</span><span class="st0">&quot;223344555666&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ncnmjdfskjsdf&quot;</span><span class="sy0">,</span> <span class="st0">&quot;32009832823489432&quot;</span><span class="sy0">,</span> <span class="st0">&quot;383idjkdkls&quot;</span><span class="sy0">,</span> <span class="st0">&quot;boringgg&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw2">var</span> lol<span class="sy0">=</span><span class="kw2">new</span> <span class="kw3">Array</span><span class="br0">&#40;</span><span class="st0">&quot;33003w448&quot;</span><span class="sy0">,</span> <span class="st0">&quot;484u4i4w4&quot;</span><span class="sy0">,</span> <span class="st0">&quot;809320932823&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw2">var</span> a<span class="sy0">;</span><br>
+<span class="kw1">for</span> <span class="br0">&#40;</span>option in lol<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw2">var</span> a <span class="sy0">+=</span> <span class="st0">&quot;&lt;option&gt;&quot;</span> <span class="sy0">+</span> lol<span class="br0">&#91;</span>option<span class="br0">&#93;</span> <span class="sy0">+</span> <span class="st0">&quot;&lt;/option&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;myAnotherSelect&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>innerHTML<span class="sy0">=</span>a<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br><div class="php codeblock"><span class="sy0">&lt;</span>select id<span class="sy0">=</span><span class="st0">&quot;mySelect&quot;</span> onchange<span class="sy0">=</span><span class="st0">&quot;changeSelect()&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option<span class="sy0">&gt;</span>One<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span> <span class="sy0">&lt;!--</span> <span class="kw1">default</span> <span class="sy0">--&gt;</span><br>
+<span class="sy0">&lt;</span>option<span class="sy0">&gt;</span>Two<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option<span class="sy0">&gt;</span>Three<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>select id<span class="sy0">=</span><span class="st0">&quot;myAnotherSelect&quot;</span><span class="sy0">&gt;</span> <span class="sy0">&lt;!--</span> <span class="kw1">default</span> <span class="kw1">for</span> <span class="st_h">'One'</span> <span class="sy0">--&gt;</span><br>
+<span class="sy0">&lt;</span>option<span class="sy0">&gt;</span>33003w448<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span> <br>
+<span class="sy0">&lt;</span>option<span class="sy0">&gt;</span>484u4i4w4<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>option<span class="sy0">&gt;</span><span class="nu0">809320932823</span><span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer1857">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 10 לאפריל 2012 </span>
+<a id="answer_1857" href="ajax אגקס-1.htm#answer_1857">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אחי אפשר קצת הסבר על מה שעשית, כי לא ממש הבנתי. </p>
+</div>
+<div class="answer" id="answer1858">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 11 לאפריל 2012 </span>
+<a id="answer_1858" href="ajax אגקס-1.htm#answer_1858">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+HTML:<br>יצרתי שתי תיבות Select. בעת שינוי הערך הנבחר בתיבה הראשונה, מופעלת הפונקציה changeSelect() (ב-JS).<br>בתיבה הראשונה יש את הערכים &quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;.<br>מכיוון ש-&quot;One&quot; הוא הראשון, הוא זה שנבחר אוטומטית בעת טעינת הדף, ולכן הצגתי אחר-כך תיבת Select נוספת שמכילה את הערכים שהייתי רוצה שיוצגו כאשר הערך &quot;One&quot; נבחר.<br><br>זה הכל בקוד ה-HTML, ועכשיו עוברים לקוד ה-JS:<br>(אם אתה לא משתמש ב-HTML5 עליך להוסיף type מתאים לתגית script.)<br>למשתנה x הכנסתי את הערך שנבחר ב-Select הראשון, ולמשתנה y הכנסתי סוג של מערך של הערכים של אותו ה-Select.<br>מכיוון שב-Select הראשון ישנם שלושה ערכים, השתמשתי במבנה של if...else if...else בכדי לבצע פעולות שונות בכל פעם שנבחר ערך אחר.<br>במידה ונבחר הערך השני, &quot;Two&quot; (הספירה מתחילה מ-0, ולכן זה מסומן בתור 1), הוריתי ליצור מערך המכיל 4 מחרוזות: &quot;29299&quot;, &quot;82929&quot;, &quot;2929&quot; ו-&quot;jffjd&quot;.<br>אני מניח שאתה יכול להבין לבד מה קורה אם נבחר הערך השלישי או ברירת המחדל (הראשון)...<br>לאחר מכן יצרתי לולאה שיוצרת מחרוזת המכילה תגי Option המכילים את איברי המערך שנוצר בדיוק לפני כן, ולבסוף הכנסתי אותה לתוך ה-Select השני. </p>
+</div>
+<div class="answer" id="answer1911">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 16 לאפריל 2012 </span>
+<a id="answer_1911" href="ajax אגקס-1.htm#answer_1911">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה שלי בקוד הזה היא בעיקר עניין שילוב הPHP עם הJS, תמיד זה יצר לי בעיות.<br>אני הבנתי פחות או יותר את ההסבר שלך בדגש על הפחות, אבל איך אני משלב את SELECT הראשון עם הFOREACH של הSELECT השני.<br>ז&quot;א, אין לי נתונים קבועים בתיבות הבחירה, כל הנתונים מגיעים מהDB בקוד PHP בFOREACH.<br>בתיבה הראשונה יש לי FOREACH שמוציא את כל האזורים ראשיים בארץ:<br><div class="php codeblock">&lt;select id=&quot;mySelect&quot; onchange=&quot;changeSelect()&quot; name=&quot;tf_sec_area&quot;&gt;<br>
+&nbsp; &lt;option value=&quot;&quot;&gt;בחר אזור&lt;/option&gt;<br>
+&nbsp; &lt;option value=&quot;&quot; class=&quot;area_head&quot;&gt;צפון&lt;/option&gt;<br>
+&nbsp; <span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$get_sec_areas_north</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$val</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;option onclick=&quot;send_sec_area('</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">')&quot; value=&quot;'</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/option&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">echo</span><span class="st_h">'<br>
+&nbsp; &lt;option value=&quot;&quot; class=&quot;area_head&quot;&gt;מרכז&lt;/option&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$get_sec_areas_center</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$val</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;option onclick=&quot;send_sec_area('</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">')&quot; value=&quot;'</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/option&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">echo</span><span class="st_h">'<br>
+&nbsp; &lt;option value=&quot;&quot; class=&quot;area_head&quot;&gt;דרום&lt;/option&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$get_sec_areas_south</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$val</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;option onclick=&quot;send_sec_area('</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">')&quot; value=&quot;'</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'sec_area_name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/option&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="sy1">?&gt;</span><br>
+&lt;/select&gt;</div><br>ובתיבת בחירה השנייה יש FOREACH שאמור להראות את הערים באותו אזור שנבחר וזה עפ&quot;י הID של האזור הראשי שנבחר בתיבת הבחירה הראשונה:<br><div class="php codeblock">&lt;select id=&quot;myAnotherSelect&quot; name=&quot;tf_city_select&quot;&gt;<br>
+&nbsp; &lt;option value=&quot;&quot;&gt;בחר עיר/ישוב&lt;/option&gt;<br>
+&nbsp; <span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$get_all_city_rows_admin</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$val</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'city_sec_area'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="re0">$sec_area</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;option value=&quot;'</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'city_id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'city_name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/option&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="sy1">?&gt;</span><br>
+&lt;/select&gt;</div><br><br>מקווה שהבנת אותי, ואני מצטער שאני מפגין בורות כזאת, אחרת לא הייתי מעלה את השאלה כאן. </p>
+</div>
+<div class="answer" id="answer1917">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 16 לאפריל 2012 </span>
+<a id="answer_1917" href="ajax אגקס-1.htm#answer_1917">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה בסדר, אנחנו פה כדי לנסות לעזור כמה שאפשר. :)<br><br>אם לא הבנת את הקוד שכתבתי (חוץ מהקטע של ה-.selectedIndex, .options וה-y[x].index, כי זה לא ממש ידוע עד שמתעסקים עם &lt;select&gt; וכאלה), אני ממליץ לך ללמוד JS ב-w3schools. זה מועבר שם בצורה מאוד פשוטה, ובתכלס - יש לך הרבה כבר מ-PHP. (כל זה אם אתה לא יודע JS)<br>על כל פנים, אתה מציג מהמסד את הנתונים ל-select הראשון, וב-select השני את הנתונים של ברירת המחדל של הראשון. אחר-כך אתה שם את שאר האפשרויות של ה-select השני בתוך תנאי ה-else if אחד-אחד.<br>אם לא הבנת נסה לקרוא שוב את הקוד עם ההסבר שכתבתי. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

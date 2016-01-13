@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעיית קידוד- סימני שאלה עם רקע שחור בצורת יהלום">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="David">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>בעיית קידוד- סימני שאלה עם רקע שחור בצורת יהלום | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעיית קידוד- סימני שאלה עם רקע שחור בצורת יהלום | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעיית קידוד- סימני שאלה עם רקע שחור בצורת יהלום">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיית קידוד סימני שאלה עם רקע שחור בצורת יהלום-1.htm" title="בשליפה ממסד נתונים המקודד ב UTF8 general ci אני מקבל במקום תוים בעברית סימני שאלה עם רקע שחור בצורת יהלום. במסד הנתונים הדטא מוצג בעברית באופן תקין, הגדרת UTF8 מוגדרת במקומות הבאים:קלאס התחברותpublic static function getDbh&amp;#40;&amp;#41; &amp;#123;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; $dbh">בעיית קידוד- סימני שאלה עם רקע שחור בצורת יהלום</a></h2>
+<div class="userinfo">
+פתח
+<a>David</a>
+,
+<time class="timeago relativetime" datetime="2014-07-31T04:35:49+03:00" style="display:inline-block;">
+31 ליולי 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1973'>
+בשליפה ממסד נתונים המקודד ב UTF8 general ci אני מקבל במקום תוים בעברית סימני שאלה עם רקע שחור בצורת יהלום. <br>במסד הנתונים הדטא מוצג בעברית באופן תקין,<br> <br>הגדרת UTF8 מוגדרת במקומות הבאים:<br><strong>קלאס התחברות</strong><br><br><div class="php codeblock"><span class="kw2">public</span> static <span class="kw2">function</span> getDbh<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$dbh</span> <span class="sy0">=</span> <span class="kw2">new</span> PDO<span class="br0">&#40;</span><span class="st_h">'mysql:host=localhost;dbname=biblio1'</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span>&nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'SET NAMES UTF8'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$dbh</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><strong>ובשאר המקומות הכל מוגדר בדיוק כמו במדריך הבא:</strong><br><br>http://phpguide.co.il/UTF_8_%D7%A7%D7%99%D7%93%D7%95%D7%93_%D7%95%D7%A1%D7%99%D7%9E%D7%A0%D7%99_%D7%A9%D7%90%D7%9C%D7%94.htm<br><br>אשמח לעזרה<br>תודה<br>דוד </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8908">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 31 ליולי 2014 </span>
+<a id="answer_8908" href="בעיית קידוד סימני שאלה עם רקע שחור בצורת יהלום-1.htm#answer_8908">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקובץ מקודד בUTF-8 WITHOUT BOM? </p>
+</div>
+<div class="answer" id="answer8909">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 31 ליולי 2014 </span>
+<a id="answer_8909" href="בעיית קידוד סימני שאלה עם רקע שחור בצורת יהלום-1.htm#answer_8909">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+א. אתה יכול לנסות להוסיף גם את הקוד הבא:<br><div class="php codeblock"><span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;set character_set_client='utf8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;set character_set_results='utf8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;set collation_connection='utf8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ב. רוב הסיכויים שהבעיה הייתה בהכנסה. הנתונים הוכנסו בעבר בקידוד אחר לתוך עמודה שהיא utf8_general_ci. מה קורה אם שורות חדשות שאתה מכניס בעצמך דרך phpmyadmin ? </p>
+</div>
+<div class="answer" id="answer8927">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/86c66190b60437f0540f4157af8d6fda?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>David</a>
+ב
+<span style="font-size:10px"> 02 לאוגוסט 2014 </span>
+<a id="answer_8927" href="בעיית קידוד סימני שאלה עם רקע שחור בצורת יהלום-1.htm#answer_8927">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקובץ היה מקודד ב UTF-8 WITHOUT BOM<br>תודה רבה! עזרת לי מאוד, באמת הכנסתי את הקוד הסיפור נפתר.<br><br>שוב תודה </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

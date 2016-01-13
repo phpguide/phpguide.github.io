@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה Cluster Server">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="PHPDeveloper">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>Cluster Server | שאלת לימוד PHP</title>
+<meta itemprop="name" content="Cluster Server | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה Cluster Server">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="Cluster Server-1.htm" title="היי,נניח ויש לי מערכת גדולה ואני צריך לחלק אותה בין מספר שרתים. השאלה איך זה באמת עובד באתרים גדולים כמו פייסבוק/יוטיוב כאשר מעלים קבצים רבים. יש שרת שאחראי על החלוקה לשרתים אחרים? האם קיים סקריפט כזה שיכול לעזור לי?">Cluster Server</a></h2>
+<div class="userinfo">
+פתח
+<a>PHPDeveloper</a>
+,
+<time class="timeago relativetime" datetime="2013-03-24T21:46:53+02:00" style="display:inline-block;">
+24 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1329'>
+היי,<br><br>נניח ויש לי מערכת גדולה ואני צריך לחלק אותה בין מספר שרתים. השאלה איך זה באמת עובד באתרים גדולים כמו פייסבוק/יוטיוב כאשר מעלים קבצים רבים. יש שרת שאחראי על החלוקה לשרתים אחרים? האם קיים סקריפט כזה שיכול לעזור לי? </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5855">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 26 למרץ 2013 </span>
+<a id="answer_5855" href="Cluster Server-1.htm#answer_5855">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כאשר יש לך כמה שרתים שמפעילים קוד מתווסף לתמונה שרת חדש שנקרא Load Balancer<br><br>הוא מקבל את כל כל כל הבקשות שמגיאות לאתר שלך ומעביר את הבקשות האלה לאחד מתוך כמה השרתים שמוגדר בהגדרות של ה load balancer לפי כל מיני פרמטרים שהוא מחליט. או בצורה רנדומלית, או לפי עומס עם הוא יודע איזה שרת עמוס יותר, הכלי הפופולורי היום ל Load Balancing זה או nginx למעט שרתים עו HaProxy להרבה שרתים.<br><br>רמה אחת מעל כשיש לך לא רק הרבה שרתים אלה השרתים גם מפוזרים בדאטה סנטרים מסביב לעולם - הניטוב מתבצע לא ברמת שרת מנטב (Load balancer) אלה ברמת רשומות ה DNS. כאשר אתה מקליד כתובת של אתר בדפדפן, הדפדפן צריך לקבל משרת ה-DNS את כתובת האיפי שאליה הדפדפן צריך לפנות.<br>ברמת ה-DNS הניטוב מתבצע על ידי זה, שעבור מדינה מסוימת שרת ה-DNS מחזיר כתובת איפי אחת בדאטה-סנטר אחד ועבור מדינה אחרת הוא מחזיר איפי של שרת במקום אחר. ככה גולשים ממדינה אחת מגיעים לשרתים במקום אחד וגולשים ממדינה אחרת מגיעים לשרתים במקום אחר. </p>
+</div>
+<div class="answer" id="answer5857">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 26 למרץ 2013 </span>
+<a id="answer_5857" href="Cluster Server-1.htm#answer_5857">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה אלכס.<br>ראיתי שיש משהו דומה גם לאפ&#039;צי. בשם mod_proxy_balancer <br>http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html<br><br>האם זה בסדר? קראתי שלא ממליצים להשתמש בו אבל לא הבנתי ממש למה.. </p>
+</div>
+<div class="answer" id="answer5858">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 26 למרץ 2013 </span>
+<a id="answer_5858" href="Cluster Server-1.htm#answer_5858">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טכנית זה בסדר, אבל חסר תועלת. בגלל שהחלק הקשה שבגללו מפרידים את התוכנה לכמה שרתים זה בדיוק העומס של אפאצ&#039;י.<br>אם כל הבקשות גם ככה יגיעו לאפאצ&#039;י לא תרוויח הרבה מזה.<br>שנית, למה אתה בכלל צריך את זה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מהם מפתחות ראשיים, אינדקסים ושדות ייחודיים במסדי נתונים, שבזכותם השליפות מהירות כל כך - במאמר אחד.">
+<meta name="keywords" content="primary key, unique, index">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מפתחות בטבלאות - Primary key, Unique ו-Index</title>
+<meta itemprop="name" content="מפתחות בטבלאות - Primary key, Unique ו-Index">
+<meta itemprop="description" content="מהם מפתחות ראשיים, אינדקסים ושדות ייחודיים במסדי נתונים, שבזכותם השליפות מהירות כל כך - במאמר אחד.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"112","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מפתחות בטבלאות - Primary key, Unique ו-Index</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-06-26T06:31:00+03:00" dir="rtl">26 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.build.com/imagebase/resized/75x75/baldwinimages/extra_baldwin_key.jpg" alt="מפתחות בטבלאות - Primary key, Unique ו-Index">
+</div>
+<div class="right post-content">
+מפתחות ואינדקסים אלו הדברים שעושים את השליפות מהירות ועוזרים למסדי הנתונים לארגן נכון את הנתונים בזכרון. מה זה ואיך זה עובד - בהמשך המאמר. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>מפתחות במסד</h3><br>המילה &quot;מפתח&quot; (וגם &quot;אינדקס&quot;) כבר מוכרת לנו מנושא המערכים. במערך, המפתח הוא המזהה של הערך.<br><div class="php codeblock"><span class="re0">$a</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;key&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;value&quot;</span><span class="sy0">,</span> <span class="st0">&quot;key2&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;value2&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> <br>המפתח הוא מזהה ייחודי של אלמנט במערך. לפעמים, כשהוא מספר, המפתח נקרא גם אינדקס, אבל בשני המקרים הכוונה לאותו דבר - מזהה ייחודי של אלמנט במערך.<br><br><h3>Primary key - מפתח ראשי</h3><br>המפתח הראשי הוא המזהה הייחודי של שורה בטבלה. ברוב המקרים זהו שדה בשם ID; לכל שורה יש id משלה שמסוגל להצביע על שורה אחת בטבלה במדויק. לא יכולות להיות שתי שורות עם אותו ערך של מפתח ראשי (כלומר, עם אותו id) כמו שלא יכולים להיות במערך שני אלמנטים עם אותו מפתח.<br>כמובן שאין חובה לקרוא לשדה הראשי id או שיהיה בכלל מספרי, אבל כן חובה שהערכים של שדה ה-Primary key יהיו שונים משורה לשורה כדי לזהות את השורה באופן ייחודי.<br><br><h3>Unique - ייחודי</h3><br>Unique זוהי הגבלה על הנתונים <strong>בעמודה</strong> מסוימת האומרת שבכל שורה בטבלה, הערך של הטור הזה חייב להיות שונה, ייחודי.<br>כלומר, לא יכולות להיות שתי שורות בטבלה שיהיה להן ערך זהה בעמודה &quot;username&quot;. כמובן שנוכל לבדוק בקוד עצמו האם שם המשתמש תפוס, אבל זוהי אפשרות מובנית שנותן מסד הנתונים - להגביל בכוחות עצמו את הנתונים בשדה מסויים, כך שבכל שורה ערך של שדה יהיה ייחודי - Unique.<br>למרות שנוכל לבדוק בקוד האם שם המשתמש תפוס לפני ההרשמה, חשבו מה קורה אם שני משתמשים מנסים להירשם ממש במקביל עם אותו שם משתמש. הסקריפט הראשון מבצע בדיקה, מגלה שהשם פנוי ובזמן שהוא מחשב כל מיני hashים של סיסמאות - בדיוק מגיע הסקריפט השני וגם הוא רואה שהשם פנוי (כי הסקריפט הראשון עוד לא הכניס משהו למסד).<br>הסקריפט הראשון סיים את החישובים והחליט לרשום את המשתמש למסד. אחרי שהסקריפט השני יסיים את החישובים - גם הוא ינסה לרשום את המשתמש למסד (כי את הבדיקה הוא כבר עשה). במקרה הזה יירשמו שני משתמשים עם אותו שם והגבלה בכוחות המסד עצמו יכולה דווקא להועיל פה.<br><br><h3>Index - מפתח עניינים</h3><br>את אופציה זו נותנים לשדה (טור) ממנו עושים שליפות מרובות, כיוון שהמסד מסתמך עליו כדי למצוא את הנתונים. מסד הנתונים, אחרי הכל, גם הוא שומר את הנתונים בקבצים על הדיסק הקשיח. בתור תוכנה חכמה - המסד מנהל אותם בדרך משלו, מפרק נתונים לקבצים שונים, רושם אותם באופן מסוים שרק הוא מבין וכל זה כדי לייעל את השליפות ולספק תוצאות בזמן קצר.<br>אילו יהיה לכם קובץ של משתמשים בשם &quot;users.txt&quot;, ובכל שורה בו היו מופיעים שם וסיסמא של משתמש - כדי לבדוק סיסמא של משתמש כלשהו, הייתם צריכים לטעון את כל הקובץ, לעבור שורה אחרי שורה, לקרוא את התוכן שלו ולהחליט האם זו השורה שאתם צריכים כדי להשוות סיסמאות.<br>Index על שדה מאפשר למסד לייעל את השמירה; באופן נפרד הוא גם ישמור לעצמו רשומה (משתמש אלכס נמצא בשורה 57), ואז לא יצטרך לקרוא קובץ ענק של אלפי משתמשים עם המון נתונים בכל שורה, אלא יוכל ישר לגשת לשורה 57 ולקרוא רק את תוכן השורה הנכונה. כלומר, המסד יוצר לעצמו אינדקס, מעין תוכן עניינים, כדי שיוכל לגשת ישירות למידע הנחוץ במקום לסרוק את כל הנתונים.<br><br>נניח שיש לכם הרבה שליפות מסוג <span dir="ltr">where username=Alex</span>. בלי אינדקס על השדה username, המסד יצטרך לעבור על כל הנתונים ולחפש באיזה מהם כתוב Alex. אם יש לו אינדקס, הוא יוכל לגשת ישירות למיקום שבו מתחילים השמות באות A ולסרוק רק אותם, מכיוון שהם מסודרים אצלו ברשימה נפרדת לפי הסדר. באופן הזה כמות השורות שעל המסד לעבור כדי להחזיר תשובה הרבה יותר קטנה מכמות השורות שעליו לעבור בסריקה מלאה של הטבלה, ולכן השליפות מהירות הרבה יותר.<br><br>שדה Index אינו אומר שהערכים חייבים להיות ייחודיים. יכולים להיות כמה Alex בטבלה שלכם, ובכל זאת, כדי לייעל את השליפה ולא לסרוק את כל הטבלה - תגדירו את השדה כאינדקס. <br><br><h3>לסיכומו של דבר</h3> <br>Primary key = Unique + Index<br>שדות שיש לפיהן הרבה שליפות יש להגדיר כ-Index.<br>שדות שהערכים שלהן צריכים להיות ייחודיים בכל שורה יש להגדיר כ-Unique.<br><br>לעשות את כל זה אפשר באמצעות כפתורים ב-phpMyAdmin:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="מפתחות בטבלאות - Primary key, Unique ו-Index" title="http://img98.imageshack.us/img98/2753/123ipt.png" class="content-image-float"> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment261"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/06/2011 23:00</span><br>
+מעולה :)</div>
+<a id="comment262"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/06/2011 23:01</span><br>
+תודה :)</div>
+<a id="comment264"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 10:09</span><br>
+יפה מאוד, מדריך מעולה :)</div>
+<a id="comment265"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 17:06</span><br>
+תודה ממש עזר לי D:<br>
+המשך כך.</div>
+<a id="comment270"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 19:29</span><br>
+הרגע הבנתי שלא רשמתי דבר חשוב.<br>
+<br>
+את כל שוגי המפתחות אפשר לשים במקביל על כמה שדות. אם יש לכם שליפה קבוע לפי שני שדות (שם + שם משפחה) עדיף לסמן בווי את שני השדות וללחוץ על כפתור הindex. אינדקס אחד יווצר על שני השדות ביחד ולא שני אידקסים נפרדים לכל שדה.<br>
+<br>
+כנ&quot;ל לגבי unique שיכול להגביל ערכים של שני שדות ביחד. למשל יכולים להיות לכם הרבה רשומות של name=Alex<br>
+אבל רק רשומה אחת של name=Alex and surname=Raskin<br>
+כלומר ההגבלה תחול רק במקרים שבהם הערכים של שני השדות ביחד כבר קיימים בטבלה.</div>
+<a id="comment1072"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 15:56</span><br>
+מדריך מעולה, מאוד עזר לי. תודה רבה. :)</div>
+<a id="comment1597"></a>
+<div class="blog-comment">
+<span class='comment-author'>itamarhadad</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/06/2012 21:31</span><br>
+קודם כל מדריך מעולה!<br>
+ויש לי גם שאלה אם אני הגדרתי את ID כPRIMARY KEY ואני משתמש בו הרבה לשליפות אז אני צריך להגדיר אותו גם כINDEX<br>
+אשמח אם גם תסביר במה עוזר PRIMARY KEY בשליפות מהמסד.</div>
+<a id="comment1598"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/06/2012 21:48</span><br>
+לא צריך להגדיר את ID *גם* בתור אינדקס כי כמו שכתוב למעלה<br>
+primary key = index + unique<br>
+ככה שהשדה הזה אוטומטית הופל להיות אינדקס. ולא סתם אינדקס, אלה האינדקס הראשי של הטבלה, כלומר הכי מהיר ויעיל.</div>
+<a id="comment1970"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/09/2012 20:29</span><br>
+כתוב כאן <span dir="ltr"><a href="http://www.internet-israel.com/internet/%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99%D7%9D/mysql-%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99%D7%9D/%D7%9E%D7%A4%D7%AA%D7%97%D7%95%D7%AA-%D7%A8%D7%90%D7%A9%D7%99%D7%99%D7%9D-%D7%91-mysql/">http://www.internet-israel.com/internet/מדריכים/mysql-מדריכים/מפתחות-ראשיים-ב-mysql/</a></span> ש-Unique זה אוטומטית אינדקס. ופה כתוב שאינדקס שהוא Unique הוא בעצם מפתח ראשי. לא הבנתי איך זה מסתדר.</div>
+<a id="comment1971"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/09/2012 22:35</span><br>
+unique אינו אינדקס, אלה הגבלה על ערכים ייחודיים בשורה.<br>
+אבל אם יש עמודה שהיא גם אינדקס וגם יוניק = היא שוות ערך בפונקציונליות שלה למפתח ראשי.<br>
+</div>
+<a id="comment1972"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/09/2012 22:40</span><br>
+המממ... יכול להיות שהוא התכוון לכתוב אחרת.<br>
+&quot;מפתח ייחודי שאינו מפתח ראשי הוא פשוט אינדקס שנוצר כייחודי. אם אנו מגדירים שדה מסוים כאינדקס ייחודי, אז זה בדיוק כמו להגדיר אותו כמפתח ייחודי.&quot;<br>
+במקום &quot;זה בדיוק כמו להגדיר אותו כמפתח ייחודי&quot; - &quot;זה בדיוק כמו להגדיר אותו כמפתח ראשי&quot;...</div>
+<a id="comment1973"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/09/2012 23:00</span><br>
+אני לא יודע מה הוא ניסה להגיד ואני לא ממש רוצה לנחש מה הוא רצה לכתוב במקום מה שהוא כתב,<br>
+אבל הגדרה של שדה בתור יוניק (ייחודי) אינו גורמת לו להיות אינדקס.</div>
+<a id="comment1974"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/09/2012 00:11</span><br>
+חשוב גם להוסיף מידע על foreign key.</div>
+<a id="comment1975"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/09/2012 00:19</span><br>
+קשרים בין טבלאות זה סיפור למדריך נפרד :)</div>
+<a id="comment2817"></a>
+<div class="blog-comment">
+<span class='comment-author'>Splash</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2014 05:20</span><br>
+בעקבות השאלה שנשאלה כאן - <br>
+[url=&quot;<span dir="ltr"><a href="http://phpguide.co.il/q2027/%D7%90%D7%99%D7%9A+%D7%99%D7%95%D7%AA%D7%A8+%D7%9B%D7%93%D7%90%D7%99+%D7%9C%D7%91%D7%93%D7%95%D7%A7+%D7%94%D7%AA%D7%97%D7%91%D7%A8%D7%95%D7%AA+.htm&quot;]מה">http://phpguide.co.il/q2027/איך יותר כדאי לבדוק התחברות .htm&quot;]מה</a></span> ההבדל בין unique ל primary key[/url] אני מציע להוסיף את ההבדלים</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

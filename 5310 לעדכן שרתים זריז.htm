@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="רליז חדש של PHP 5.3.10 יצא לאור ומטרתו לסגור באג אבטחה קריטי שנוצר ב-5.3.9">
+<meta name="keywords" content="5.3.10, אבטחה, PHP, פירצה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>PHP 5.3.10 – לעדכן שרתים זריז</title>
+<meta itemprop="name" content="PHP 5.3.10 – לעדכן שרתים זריז">
+<meta itemprop="description" content="רליז חדש של PHP 5.3.10 יצא לאור ומטרתו לסגור באג אבטחה קריטי שנוצר ב-5.3.9">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"193","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>PHP 5.3.10 – לעדכן שרתים זריז</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-02-05T17:00:20+02:00" dir="rtl">05 לפברואר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://cloud.ohloh.net/attachments/42/php_med.png" alt="PHP 5.3.10 – לעדכן שרתים זריז">
+</div>
+<div class="right post-content">
+עוד גרסה שמטפלת בבאג אבטחה קריטי יצאה. דיברנו כבר על זה שכל <a href="http://phpguide.co.il/%D7%A9%D7%A4%D7%95%D7%AA+%D7%A4%D7%99%D7%AA%D7%95%D7%97+Web+%D7%97%D7%A9%D7%95%D7%A4%D7%95%D7%AA+%D7%9C%D7%9E%D7%AA%D7%A7%D7%A4%D7%AA+DoS.htm">גרסאות ה-PHP עד 5.3.9 חשופות למתקפת DOS</a> שעשויה להוריד את השרת, אם כי התיקון שסגר את החור ב-5.3.9 פתח חור חדש. כל המידע מתחת לקאט. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אחד <a href="PHP 539.htm">&quot;החידושים&quot; של גרסת 5.3.9</a> היה הכנסת פרמטר חדש שמגביל את כמות משתני ה-POST שהשרת יהיה מוכן לקבל כדי למנוע את <a href="http://phpguide.co.il/%D7%A9%D7%A4%D7%95%D7%AA+%D7%A4%D7%99%D7%AA%D7%95%D7%97+Web+%D7%97%D7%A9%D7%95%D7%A4%D7%95%D7%AA+%D7%9C%D7%9E%D7%AA%D7%A7%D7%A4%D7%AA+DoS.htm">מתקפת ה-Hash Collision DoS</a> שיכולה להביא לניצול 100% מעבד והפסקת פעולת השרת.<br>יחד עם זאת, לקוד שמטפל בבעיה הזו התגנבה טעות שמאפשרת להפעיל קוד זדוני שרירותי בשרת.<br>הפרצה התגלתה על ידי מומחה לנושאי הבטחה סטפן אססר, הידוע בזכות מציאת כמה בעיות אבטחה קריטיות ב-PHP ויצירת jail break למערכות iOS.<br><br><h5>הפונקציה הנגועה</h5><br><span dir="ltr">php_register_variable_ex (php_variables.c@194)</span><br><div class="php codeblock">PHPAPI void php_register_variable_ex<span class="br0">&#40;</span>char <span class="sy0">*</span>var_name<span class="sy0">,</span> zval <span class="sy0">*</span>val<span class="sy0">,</span> zval <span class="sy0">*</span>track_vars_array TSRMLS_DC<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<span class="coMULTI">/* ... */</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">is_array</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="coMULTI">/* ... */</span><br>
+&nbsp; &nbsp; <span class="kw1">while</span> <span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="coMULTI">/* ... */</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>zend_hash_num_elements<span class="br0">&#40;</span>symtable1<span class="br0">&#41;</span> <span class="sy0">&lt;=</span> PG<span class="br0">&#40;</span>max_input_vars<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>zend_hash_num_elements<span class="br0">&#40;</span>symtable1<span class="br0">&#41;</span> <span class="sy0">==</span> PG<span class="br0">&#40;</span>max_input_vars<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; php_error_docref<span class="br0">&#40;</span><span class="kw4">NULL</span> TSRMLS_CC<span class="sy0">,</span> <span class="kw4">E_WARNING</span><span class="sy0">,</span> <span class="st0">&quot;Input variables exceeded %ld. To increase the limit change max_input_vars in php.ini.&quot;</span><span class="sy0">,</span> PG<span class="br0">&#40;</span>max_input_vars<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; MAKE_STD_ZVAL<span class="br0">&#40;</span>gpc_element<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; array_init<span class="br0">&#40;</span>gpc_element<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; zend_symtable_update<span class="br0">&#40;</span>symtable1<span class="sy0">,</span> escaped_index<span class="sy0">,</span> index_len <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="sy0">&amp;</span>gpc_element<span class="sy0">,</span> <span class="kw3">sizeof</span><span class="br0">&#40;</span>zval <span class="sy0">*</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="br0">&#40;</span>void <span class="sy0">**</span><span class="br0">&#41;</span> <span class="sy0">&amp;</span>gpc_element_p<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="coMULTI">/* ... */</span><br>
+&nbsp; symtable1 <span class="sy0">=</span> Z_ARRVAL_PP<span class="br0">&#40;</span>gpc_element_p<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="coMULTI">/* ... */</span></div><br><br>ההגבלה על כמות הפרמטרים ממומשת על ידי לולאה ותנאי IF, אבל בלי ELSE שאמור לגרום ללולאה להפסיק. בעקבות זאת, ביציאה מהלולאה למאקרוס Z_ARRVAL_PP, שמחזיר מצביע לטבלת החאשים החדשה, נכנס אלמנט נוסף (gpc_elemnt_p) עם הערך של המשתנה האחרון שטופל בלולאה. מה שמוביל להפעלת הקוד.<br><br>שרתים עם ההרחבה suhosin לא מושפעים מהבעיה (המפתח של suhosin patch זה סטפן עצמו, אגב). <br>מצחיק שיום לפני כן, החליטה debin להוציא את suhosin patch מההתקנה הדיפולטית.<br><br>phpguide כבר אתמול עבר ל-5.3.10.<br><span style="color:green;">העידכון הינו חובה לכל בעלי השרתים הנגישים באופן פומבי. אם השרת שלכם משמש אתכם רק לפיתוח ב-localhost אתם יכולים להישאר רגועים.</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1258"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/02/2012 18:29</span><br>
+למה שלא לשים את תנאי היציאה כבר בתנאי של הלולאה?<br>
+<br>
+בכל אופן, תודה רבה ותוסיף את זה לכאן:<br>
+<span dir="ltr"><a href="PHP 539.htm">http://phpguide.co.il/PHP 539.htm</a></span></div>
+<a id="comment1259"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/02/2012 18:42</span><br>
+הייתי מנסה לענות לך, אבל זה הרבה מעבר לרמה שלי :) כנראה שזה פשוט טעות והוא שכח ממנה.<br>
+<br>
+אני גם לא מבין למה לא להוציא את התוצאה של <br>
+PG(max_input_vars)<br>
+למשתנה אחד מחוץ ללולאה. </div>
+<a id="comment1260"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/02/2012 19:59</span><br>
+while(1)<br>
+ממש נראה קוד שכונה :)</div>
+<a id="comment1261"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/02/2012 21:46</span><br>
+חח, מצחיק אבל זה ככה. הקוד מקור של PHP באמת שכונה, זו עובדה ידועה :)</div>
+<a id="comment1262"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/02/2012 13:37</span><br>
+לא ממש שכונה... זה קוד C, מתרגלים לזה אבל ככה קוד באמת צריך להיראות ובשלב מסויים... מתחברים אליו יותר (מעדיף CPP, אבל נניח את זה בצד).<br>
+<br>
+@iiddaannyy אני לא רואה פה את השינויי שדובר עליו בכתבה (את התנאי ELSE) אז קשה לי לענות לך, תקן אותי אם אני טועה.<br>
+@intval - בגלל שPG זה מאקרו, תבניות מאקרו ב-C הן תבניות שמוחלפות לערך שלהן *לפני* הקימפול, ולכן אין הבדל ממשי (כמובן שהכול תלוי בערך המאקרו, לא התעמקתי יותר מדי בAPI עצמו ולכן אשאיר את זה בצד ואסמוך על התוכניתן שידע מה לעשות חחח)<br>
+<br>
+דוגמא לצורך העניין:<br>
+[code]<br>
+#import &lt;stdin&gt;<br>
+<br>
+// Define new macro<br>
+#define ADD(a, b) (a + b)<br>
+<br>
+int main() {<br>
+printf(&quot;%d&quot;, ADD(1, 2));<br>
+// is the same as:<br>
+// printf(&quot;%d&quot;, (1+2));<br>
+<br>
+return 0;<br>
+}<br>
+[/code]</div>
+<a id="comment1263"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/02/2012 14:15</span><br>
+מעניין, תודה, על ההסבר.<br>
+הלכתי לנסות.</div>
+<a id="comment1264"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/02/2012 14:18</span><br>
+@משתמש_106504<br>
+התכוונתי לכך שאת תנאי היצאה של הלולאה אפשר לשים בתנאי של הלולאה, בסוגריים שליד ה-while, במקום לגרום ללולאה לרוץ שוב ושוב ושהקוד שבתוכה יעצור אותה כשצריך.<br>
+<br>
+ואמרתי שכדאי להוסיף לכאן: <span dir="ltr"><a href="PHP 539.htm">http://phpguide.co.il/PHP 539.htm</a></span><br>
+שכדאי להוריד את גירסה 5.3.10 אם כבר משדרגים.</div>
+<a id="comment1268"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/02/2012 17:20</span><br>
+אני חושב שאנחנו צריכים לזכור שזאת שפה , ולא כל קטע קוד שנראה לנו &quot;שכונה&quot; הוא כזה.<br>
+אני מאמין שיש מחשבה מאחורי זה.<br>
+אני ידמה את זה למשהו אחר :<br>
+ברגע שאתה רואה קובץ למשל מתוך מערכת שאתה לא מכיר ורואה שם דברים שלא נראים לך , אתה לא באמת יכול לשפוט את זה לפני שתעבור על כל המערכת ותראה למה זה נכתב ככה , כנראה יש סיבה למה השתמשו בדרך מסוימת ולא בדרך אחרת.<br>
+<br>
+</div>
+<a id="comment1269"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/02/2012 17:44</span><br>
+אם תמיד היו חושבים כל כך הרבה לפני שהיו כותבים,<br>
+לא היו באגים,<br>
+ופלא.. באגים תמיד היו ויהיו</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

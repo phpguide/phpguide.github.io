@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="אחת הדרכים לייעול הסקריפט הוא שליחת תשובה מוקדמת לגולש וביצוע פעולות לאחר מכן">
+<meta name="keywords" content="buffer, output buffering, gzip, close, connection">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>ביצוע פעולות אחרי ביקור המשתמש</title>
+<meta itemprop="name" content="ביצוע פעולות אחרי ביקור המשתמש">
+<meta itemprop="description" content="אחת הדרכים לייעול הסקריפט הוא שליחת תשובה מוקדמת לגולש וביצוע פעולות לאחר מכן">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"225","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>ביצוע פעולות אחרי ביקור המשתמש</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-06-29T17:43:23+03:00" dir="rtl">29 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://jumpstartyourcareertoday.com/wp-content/uploads/2012/06/Tips-for-Personal-Time-Management-75x75.jpg" alt="ביצוע פעולות אחרי ביקור המשתמש">
+</div>
+<div class="right post-content">
+אחרי שדיברנו על <a href="קרון_להפעיל_סקריפט_בזמן_מסוים.htm">קרון</a> ו<a href="http://phpguide.co.il/PHP+as+Daemons.htm">דמונים</a> שמאפשרים לנו להריץ קוד גם בלי גולשים, היום נזרז את טעינת העמוד על ידי זה שניפטר כמה שיותר מהר מהגולש שעומד לשרת על הראש. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>איך עובד שרת עם PHP</h3><br>לא אחדש בזה שאומר שהתהליך המוכר לכם הוא — בקשה מהדפדפן מגיעה אל השרת, השרת רואה שהבקשה היא אל קובץ עם סיומת <span dir="ltr">.php</span> ומפעיל את מפענח ה-php. מפענח ה-php קורא את הסקריפט מהקובץ, מבצע את כל הפקודות שבו שורה אחרי שורה <strong>ובסיום הסקריפט מחזיר</strong> לשרת את התוכן המיוצר. השרת מקבל מהמפענח את התוכן הזה ושולח אותו בחזרה לדפדפן.<br><img src="static\images\pixel.png" alt="ביצוע פעולות אחרי ביקור המשתמש" title="http://ncdn.phpguide.co.il/blogimages/howphpworks.png" class="content-image-float"><br><br><br><h3>לאן נעלם הפלט או קצת על output buffering</h3><br>כל שורת <span dir="ltr"><span style="color:darkblue;">echo &#039;...&#039;;</span></span> גורמת ל-php להעביר פלט נוסף אל השרת, כדי שהוא, בתורו, יישלח ללקוח. <br>אבל לרוב זה לא קורה ובמקום זה php אוגרת בעצמה את כל הפלט עד סיום הסקריפט מכמה סיבות: <br><br>- אנשים מסוימים לא מודעים ל output buffering מופעל בתור ברירת מחדל ב-php<br>- אחרים בכוונה יורים לעצמם ברגל עם ob_start בתור פתרון גרוע ל<a href="Can not send session cookie  headers already sent.htm">בעיית ה headears already sent</a><br>- ומישהו בכלל מפעיל gzip דרך php ולא דרך השרת.<br><br><br><br><h3>יותר מדי איטי</h3><br>מבחינתנו כל זה אומר שהפלט יגיע לגולש רק אחרי סיום הסקריפט. ומה אם במקום זה הפלט היה מגיעה לגולש באותו רגע שבו נשלח? מה עם בזמן שאנחנו שולפים מהמסד את תוכן הכתבה - הדפדפן כבר היה מתחיל לצייר את התפריט העליון או לטעון javascriptים ?<br><br>נשמע אוטופי מדי? בכל זאת בואו ננסה.<br>סקריפט לדוגמה:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'line1'</span><span class="sy0">;</span><br>
+<span class="kw3">sleep</span><span class="br0">&#40;</span><span class="nu0">10</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// some work goes around here</span><br>
+<span class="kw1">echo</span> <span class="st_h">'line2'</span><span class="sy0">;</span></div><br><br>רק 10 שניות לאחר ההפעלה יופיעו על המסך שני השורות. במקום שיופיעו אחת וכמה שניות אחרי — השנייה. php החליטה לשמור לעצמה את כל הפלט ולא להעביר אותו הלאה לפני סיום הסקריפט. <br><br><h3><span dir="ltr">flush()</span></h3><br><span dir="ltr"><a href="http://php.net/flush">flush()</a></span> היא הפקודה שאומרת ל-php לזרוק את כל הפלט שהיא אוגרת לשרת. הופסת השורה הזו אחרי הפלט תגרום ל-php להעביר את הפלט לשרת ומשם ללקוח בלי לחכות להמשך הסקריפט. <br>בדרך כלל רק הפקודה הזו לא מספיקה ופותרת רק את הסיבה הראשונה ברשימה הקודמת. אליה מצטרפת גם הפקודה ob_flush שעושה אותו דבר עבור פלט שנצבר על ידי output_buffering מוגדר ולא על ידי php עצמה שפתורת את הסעיף השני. ואחרי השינויים הקוד החדש:<br><br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'line1'</span><span class="sy0">;</span><br>
+<span class="kw3">ob_flush</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="kw3">flush</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">sleep</span><span class="br0">&#40;</span><span class="nu0">10</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// some work goes around here</span><br>
+<span class="kw1">echo</span> <span class="st_h">'line2'</span><span class="sy0">;</span></div><br><br>למי שהדוגמה הזאת עדיין לא נתנה שיפור - נשאר לפתור את הסעיף השלישי עם הפקודה הבאה<br><div class="php codeblock"><span class="kw3">ini_set</span><span class="br0">&#40;</span><span class="st_h">'zlib.output_compression'</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><br><h4>output buffering ברמת השרת</h4><br>לאלה שבינינו מפעילים nginx או איפה ש-php מקונפג בתור fast cgi בדרך הכלל השרת ינסה לחכות לסיום הפרוצס של הסקריפט גם כן. במקרה הזה יש לשנות מעט את ההגדרות של השרת עצמו: לכבות gzip ו proxy<br><br><br><br><h3>לסגור את החיבור מוקדם</h3><br>אחד השימושים הכי מועילים שלי לכל הסיפור הוא לשלוח תשובה לגולש כמה שיותר מהר ואחרי שנסיים עם הפלט לגולש - לנתק את הבקשה ולהמשיך בפעולות התפעוליות שאפשר להשאיר לסוף. לדוגמה - לשלוח למשתמש את העמוד שביקוד ואחרי זה לרענן את הקאש או לעדכן במסד את תאריך ביקור המשתמש וכמות הצפיות בכתה, לשלוח אימיילים ולמחוק קבצים.<br><br>את כל אלה אפשר לעשות אחרי שליחת התשובה למשתמש וסגירת החיבור איתו בצורה הבאה:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="co1">// turn off server side output buffering</span><br>
+<span class="sy0">@</span><span class="kw3">apache_setenv</span><span class="br0">&#40;</span><span class="st_h">'no-gzip'</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// turn off php gzipping</span><br>
+<span class="sy0">@</span><span class="kw3">ini_set</span><span class="br0">&#40;</span><span class="st_h">'zlib.output_compression'</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// send response headers and close the connection</span><br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-type: text/html'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Connection: close'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// start output buffering</span><br>
+<span class="kw3">ob_start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/********************************************/</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/************ YOUR OUTPUT GOES HERE *********/</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/********************************************/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'blablabla'</span><span class="sy0">;</span><br>
+<br>
+<br>
+<span class="co1">// Send the content-length header</span><br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Content-Length: &quot;</span><span class="sy0">.</span><span class="kw3">mb_strlen</span><span class="br0">&#40;</span><span class="re0">$response</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Now flush all of our verbose buffers</span><br>
+<span class="kw3">ob_end_flush</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy0">@</span><span class="kw3">ob_flush</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">flush</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+<br>
+<br>
+<span class="coMULTI">/*********************************************/</span><br>
+<span class="coMULTI">/********* CODE AFTER USER *******************/</span><br>
+<span class="coMULTI">/*********************************************/</span><br>
+<br>
+<br>
+<span class="co1">// mysql_query(update x)</span><br>
+<span class="co1">// mail(y)</span><br>
+<span class="co1">// fputs(z)</span></div><br><br><br><br><h3>מתי להשתמש</h3><br>אחד החסרונות הוא חוסר האפשרות להשתמש ב-gzip .<br>המקום המתאים לנצל אפשרות זו הוא בסקריפטים שהפלט שלהם קצר וזמן הפעילות ארוך למשל סקריפטים שעונים לבקשות ajax עם עדכון נתונים או גישה לנתונים מרוחקים.<br><br>אגב, גם על זה אפשר להתגבר על ידי מעבר מ gzip ל sdch שלא צריך את כל הפלט לפני שהוא עושה את הקיבוץ ואגב, לפי הדו&quot;ח של אופרה על <a href="SPDY.htm">spdy</a> הוא גם יותר יעיל.<br><br><strong>מה לא צריך לעשות?</strong><br>לא צריך לרוץ לשים אחרי כל echo את flush. במקרה הטוב עדיף לשים שניים בעמוד, אחד אחרי התפריט העליון או החלקים הקבועים של האתר והשני במקום בו מתוכנן להסתיים הפלט ומתחילות פקודות תפעוליות כלליות שלא מייצרות פלט למשתמש. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1720"></a>
+<div class="blog-comment">
+<span class='comment-author'>nfsalon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/06/2012 22:17</span><br>
+אלכס, כתבת בטעות кок במקום php... לתשומת לבך (:<br>
+מדריך מעולה ד&quot;א.</div>
+<a id="comment1721"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/06/2012 01:31</span><br>
+:)<br>
+תודה</div>
+<a id="comment1722"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/06/2012 10:46</span><br>
+מדריך מעולה :)</div>
+<a id="comment1723"></a>
+<div class="blog-comment">
+<span class='comment-author'>Bnaya</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/06/2012 16:11</span><br>
+מימוש מאוד טוב לנושא הזה נקרא BIG PIPE ופייסבוק עובדים איתו:<br>
+<span dir="ltr"><a href="http://www.facebook.com/note.php?note_id=389414033919">http://www.facebook.com/note.php?note_id=389414033919</a></span><br>
+זה בעצם דרך לעבוד עם PHP בצורה אסינכרונית<br>
+<br>
+ועוד פונקציה חזקה שיכולה לעזור אבל זמינה רק עם PHP-FPM:<br>
+<span dir="ltr"><a href="http://il.php.net/manual/en/install.fpm.php">http://il.php.net/manual/en/install.fpm.php</a></span><br>
+fastcgi_finish_request() </div>
+<a id="comment1724"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/06/2012 18:51</span><br>
+מאמר מעולה!</div>
+<a id="comment1730"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2012 23:46</span><br>
+יש דרך לממש את זה ב-Yii?<br>
+כי תאכלס מתי שמגיע הרינדור.. כבר כל הכובד יצא מהשרת..<br>
+<br>
+יש דרך מעניינת ו&quot;חוקית&quot; לעשות את זה?</div>
+<a id="comment2073"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2012 13:22</span><br>
+הקוד:<br>
+echo &apos;line1&apos;;<br>
+ob_flush(); flush();<br>
+sleep(10); // some work goes around here<br>
+echo &apos;line2&apos;;<br>
+לא עובד לי , שולח את הכל בבת אחת, גם עם שמתי לפני זה<br>
+ini_set(&apos;zlib.output_compression&apos;, 0);</div>
+<a id="comment2492"></a>
+<div class="blog-comment">
+<span class='comment-author'>itamarhadad</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/06/2013 11:06</span><br>
+שכחת לציין שOUTPUT BUFFRING מתחיל רק לאחר שהתקבלו לדפדפן 4098 (כרום לדוגמא) בתים לפחות<br>
+לכן יש להשתמש בSTR REPEAT על מנת לשלוח מספר תווים שכזה<br>
+<br>
+ולכן קוד פשוט כמו זה לא יעבוד לפני שיתווספו תווים נוספים..<br>
+echo &apos;line1&apos;;<br>
+ob_flush(); flush();<br>
+sleep(10); // some work goes around here<br>
+echo &apos;line2&apos;;</div>
+<a id="comment2493"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/06/2013 12:05</span><br>
+חחח אחי עכשיו נזכרת? הבעיה (לפי מה שאני זוכר, זה היה כבר מלפני חצי שנה) הייתה בכלל בהידר שלא שלחתי.</div>
+<a id="comment2495"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/06/2013 21:09</span><br>
+ודרך אגב, זה לא נכון.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

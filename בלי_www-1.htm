@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="נפטרים משלושת האותיות www שאין יותר מקומם בימינו.">
+<meta name="keywords" content="remove www,בלי www,דומיין www">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>בלי קידומת www</title>
+<meta itemprop="name" content="בלי קידומת www">
+<meta itemprop="description" content="נפטרים משלושת האותיות www שאין יותר מקומם בימינו.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"47","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>בלי קידומת www</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-04T18:18:51+02:00" dir="rtl">04 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://img96.imageshack.us/img96/6779/pfvd.png" alt="בלי קידומת www">
+</div>
+<div class="right post-content">
+נפטרים משלושת האותיות www שליוו אותנו הרבה שנים. היום הם מהווים מטרד שמשתמש צריך להקליד, ובעל אתר צריך לשלם עליו. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+גוגל החליטו להחביא את קידומת ה-www בדפדפן שלהם ובתצוגת תוצאות החיפוש שלהם, משתמשים הפסיקו להקליד www, וכמובן שאתם לא שילמתם על www כשקניתם את הדומיין שלכם.<br>למה עדיין יש את שלושת האותיות המיותרות האלה? בנוסף לכול, הן גם מפריעות מאוד, כי צריך לקנות סרטיפיקט SSL נפרד גם לדומיין עם www וגם לזה שבלי (או לקנות אחד ממש יקר) ואי אפשר לקרוא קוקי של דומיין אחד בסקריפט שרץ על דומיין אחר.<br><br>כל שעלינו לעשות זה להיפטר מה-www באמצעות הקוד הבא בקובץ htaccess:<br><div class="php codeblock">RewriteEngine On<br>
+<span class="co2"># All requests to www redirect to the same page, but without www<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_HOST<span class="br0">&#125;</span> ^www<span class="sy0">.</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span> <br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span> http<span class="sy0">:</span><span class="co1">//%1/$1 [R=301,L]</span></div><br><br><em>* קובץ htaccess הוא קובץ בלי שם עם סיומת htaccess (ונקודה לפניה, כמובן). במקרה הזה עליו להיות ממוקם בתיקייה הראשית של האתר.</em> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment20"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/03/2011 11:07</span><br>
+מה שמצחיק זה, שגוגל באתר שלהם (וכן פייסבוק), לא מוחקים אלא בודקים האם הוא קיים ואז מוסיפים אותו.<br>
+<br>
+אני אישית ממליץ, להשתמש בסקריפט שלך, ואכן לבדוק האם ה-WWW לא קיים ואז לשלוח לו 301 לדף עם WWW.<br>
+<br>
+בהצלחה.<br>
+אגב, כל הכבוד על האתר, מאוד נהנתי.</div>
+<a id="comment421"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/07/2011 22:05</span><br>
+מה זה 301 ?</div>
+<a id="comment422"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/07/2011 22:09</span><br>
+301 זה קוד תשובה של הפניה.<br>
+כהשרת אומר לדפדפן לפנות למיקום אחר - זו הפניה. אם אתה תכתוב <span dir="ltr"><a href="www.phpguide.co.il">www.phpguide.co.il</a></span> השרת יגיד לדפדפן שלך לפנות לכתובת אחרת phpguide.co.il באמצעות קוד תשובה 301</div>
+<a id="comment2142"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2013 03:47</span><br>
+ניסיתי להוסיף ל-htaccess., ואני מקבל שגיאה (יש יותר מדי הפניות או משהו כזה). אני משתמש בוורדפרס.</div>
+<a id="comment2147"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2013 09:05</span><br>
+היה צריך לעשות את זה ע&quot;י כניסה ללוח הבקרה -&gt; הגדרות -&gt; כללי, והורדת ה-www מכתובת האתר.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

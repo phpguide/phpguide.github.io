@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="CodeIgniter חלק 2 מבוא לMVC ומבנה ספריות">
+<meta name="keywords" content="Code Igniter MVC">
+<meta name="author" content="alon">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>2) CodeIgniter - מבוא לMVC ומבנה ספריות</title>
+<meta itemprop="name" content="2) CodeIgniter - מבוא לMVC ומבנה ספריות">
+<meta itemprop="description" content="CodeIgniter חלק 2 מבוא לMVC ומבנה ספריות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"229","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>2) CodeIgniter - מבוא לMVC ומבנה ספריות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">alon, </div>
+<div class="right">&nbsp;<time datetime="2012-07-07T23:09:29+03:00" dir="rtl">07 ליולי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://codeigniter.com/user_guide/images/ci_logo_flame.jpg" alt="2) CodeIgniter - מבוא לMVC ומבנה ספריות">
+</div>
+<div class="right post-content">
+במאמר זה נעשה סקירה מזורזת על ארכיטקטורת הMVC, ומבנה התיקיות המרכזיות של CI <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אז לאחר שבמאמר הקודם הסברנו איך להתקין את הCI ולהקשיח אותה, נלמד במאמר הנוכחי איך להתחיל להשתמש בה<br><h3>Introduction to MVC</h3><br><h4>מה זה הראשי תיבות האלו? למה לקלל?</h4><br>MVC איננה קללה, MVC היא ארכיטקטורה של תכנות שבה אנחנו מפרידים את הקוד שלנו ל:<br><span class="dirleft"><span style="color:darkblue;">M</span>odel<br><span style="color:darkblue;">V</span>iew<br><span style="color:darkblue;">C</span>ontroller<br></span><br>החלוקה הזאת שמייד נסביר אותה, מאפשרת לנו לנהל את הקוד שלנו בקלות וביעילות, כך שלכל נושא במערכת יש את החלק שמטפל בו.<br><br><h4>Model</h4><br>תפקיד שכבת המודל הוא ניהול הנתונים, לרוב זה יהיה משיכה של נתונים מהDB והכנה שלהם, אך ניתן כמובן למשוך את הנתונים מקובץ XML, CSV או כל data source אחר.<br>הייתרון במודל הוא שמקום לכתוב את אותה שאילתה ב10 קבצים שונים אנחנו נכתוב אותה פעם אחת במודל, ונקרא לה כל פעם שנצטרך אותה.<br><br><h4>Controller</h4><br>הקונטרולר הוא השוטר תנועה של המערכת, בPHP הוא זה שמקבל את הRequest ודואג להעביר/למשוך את הנתונים את הנתונים למודל ולVIEW, הBUISNESS LOGIC של המערכת שלכם יושב כאן.<br>ולמי שרק מתחיל ללמוד MVC, הController הוא התוכנית שלכם, הוא המקבילה לקובץ PHP שהייתם כותבים בעבר ושהיה מפעיל את שאר הפונקציונאליות.<br><br><h4>View</h4><br>הView הוא שכבת התצוגה/output בעצם לאחר שהכנו את הנתונים אנחנו נעביר אותם לVIEW כדי שיציג אותם, הView יחזיק את הHTML שלכם, תגי הXML או כל מידע אחר שתרצו לשלוח למשתמש.<br><br><h4>רגע, למה לסבך את העניינים? הסתדרתי מעולה לפני הMVC</h4><br>נכון, ניתן להסתדר גם בלי הMVC, ניתן גם להסתדר בלי OOP ולכתוב קוד פרוצדוראלי אבל הניהול של הקוד יהיה סיוט, הMVC הופך את ניהול ותחזוקת הקוד לקלים ופשוטים, לדוגמא, הHTMLיסט שיודע רק HTML יכול להתעסק ישירות בVIEW בלי שהוא נוגע בתוכנית עצמה ובלי שהוא יוכל להרוס אותה בטעות, השימוש בModel מאפשר לנו לכתוב שאילתות מורכבות במקום אחד בלבד ואז לקרוא לו בכל פעם שאנו רוצים, במקום להחזיק את השאילתה והקישור לDB בכל מקום שבו צריך מידע.<br><br>לסיכום: תפקיד הMVC הוא סדר, והסדר הזה חוסך הרבה מאוד זמן כשזה מגיע לתחזוקת קוד.<br>נכון שכמו בכל התחלה לוקח קצת זמן להתרגל אליו אבל אחר כך השימוש בו מקצר את זמן הפיתוח בעשרות אחוזים.<br><h4>סכמת MVC בPHP</h4><br><img src="static\images\pixel.png" alt="2) CodeIgniter - מבוא לMVC ומבנה ספריות" title="http://drupaltroll.files.wordpress.com/2012/03/mvc-php.png" class="content-image-float"><br>אנחנו יכולים לראות שלאחר שהבקשה מגיעה לשרת הוא מבצע routing המשמעות של זה היא בעצם ההפעלה של הrewrite module שמעביר את הבקשה לindex.php (ועל זה בהרחבה בהמשך), הindex נקרא גם dispatcher כיוון שהוא מעלה את המערכת ומתחיל את הפעולה של הפריימוורק, ואז הוא מעביר את השרביט לקונטרולר, שמצידו מפעיל את המודל והview.<br><br><h3>CodeIgniter directory structure</h3><br><h4>מבוא</h4><br>אז איך המודל הזה של הMVC מתחבר אלינו?<br>אם התקנתם את הCI וההתקנה עברה בשלום ראיתם מסך של welcome screen המסך הזה נוצר על ידי פעולה של המערכת ועכשיו נעשה הצצה ראשונה על הקוד שלה.<br>לאחר ההתקנה של הCI יש לכם 2 ספריות לאחת קוראים application ולשניה system (את הuser guide המלצתי למחוק!) הapplication היא הספריה שלכם, בתוכה אנחנו הולכים לכתוב את התוכניות שלנו. לעומתה הsystem היא הפריימוורק עצמה, אנחנו לא נוגעים בה ולא משנים שם כלום!, אם רוצים לשנות את הפונקציונאליות של CI ניתן לעשות זאת דרך כל מיני מנגנונים והרחבות בapplication.<br><br>אחד הייתרונות בהפרדה זו היא שאם יצא עדכון או שרוצים לשדרג, כל מה שצריך לעשות הוא למחוק את הSYSTEM ולשים את החדש במקום. (לעיתים נידרש דם שינויים בקבצי הconfig...<a href="http://codeigniter.com/user_guide/installation/upgrading.html">ראו כאן</a>)<br><br><strong>לסיכום אנחנו עובדים תחת application הsystem לא מעניין אותנו ולא נוגעים בו</strong><br><br><h4>מבנה הapplication</h4><br>כמו שציינתי אנחנו נעבוד תחת ספרייה זאת וכאן תשב כל התוכנית שלנו, כרגע יש שם הרבה תיקיות שרובן ריקות, ואנחנו לאט לאט נלמד מה ניתן לעשות עם כל אחת.<br>כרגע מעניינות אותנו 4 תיקיות.<br>config - תחת תיקייה זו יושבים כל קבצי ההגדרות של הCodeIgniter<br>controllers - בתיקייה זו נשים את הקונטרולרים שלנו<br>model - תיקיית המודלים<br>view - תיקיית הoutput בעצם פה ישבו כל הHTMLים שלנו<br><br>אנו נראה שתיקיית המודל ריקה כרגע כיוון שאנחנו עוד לא מדברים עם DB, ותחת הקונטרולר יש קובץ שנקרא welcome.php ותחת הview יש את welcome_message.php<br>2 הקבצים האלו הם אלו שהציגו לנו את מסך הכניסה שראינו, הCI הפעיל את הקונטרולר שנקרא Welcome.php, בתוכו ישנה מתודה שנקראת Index() והיא זו שהופעילה אוטומטית, והיא פשוט קראה לview, שמכיל HTML בלבד (אני לא שם את זה פה...)<br><br>שיעור הבא נלמד איך לכתוב את זה בעצמינו... </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/4cb7bcf17e326a77aa13e000b6551a84?s=16&r=g&d=monsterid" alt="alon">
+<a>alon</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1741"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2012 09:21</span><br>
+הסבר מצויין :)</div>
+<a id="comment1742"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2012 14:53</span><br>
+&gt;&quot;הקונטרולר הוא השוטר תנועה של המערכת, בPHP הוא זה שמקבל את הRequest ודואג להעביר/למשוך את הנתונים את הנתונים למודל ולVIEW, הBUISNESS LOGIC של המערכת שלכם יושב כאן.&quot;<br>
+זה ממש לא אמור להיות ככה. controller אמור להיות כשכבה דקה שמחברת בין ה-model ל-view. המודל צריך להכיל את ה-business logic, ולא הקונטרול. מה שתיארת כאן, נקרא Fat Stupid Ugly Controllers כמו שאומרים ב-zend. זה טעות ושגיאה בתפיסה של mvc, וזה גם טעות נפוצה.</div>
+<a id="comment1743"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2012 16:27</span><br>
+אחלה מדריך ! הורדתי ואני מחכה למדריך הבא ! </div>
+<a id="comment1746"></a>
+<div class="blog-comment">
+<span class='comment-author'>alon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2012 21:51</span><br>
+לcthulhu: אחי, מבוא זה מבוא, משאירים את הכל simple as is, בהמשך לומדים להעביר את הכל לספריות ומודלים....<br>
+<br>
+</div>
+<a id="comment1747"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2012 22:32</span><br>
+מה הקשר בכלל למה שאמרתי? יש לך במדריך שגיאה נפוצה בהבנת הקונצפציה של mvc. אתה כתבת שהקונטרולר אמור להכיל את ה-business logic, וזאת טעות חמורה. מה שכתבת בתגובה הזאת שלך למעלה, בכלל לא קשור. אפשר לשמור על המדריך &quot;simple as is&quot; ובאותו הזמן לא להטעות אחרים.</div>
+<a id="comment1748"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/07/2012 09:47</span><br>
+cthulhu תרגיע בבקשה,<br>
+זה אחלה שאתה מבהיר את העניינים אבל בטעם טוב,<br>
+<br>
+מכתביו של כותב המאמר ניכר לחלוטין שהוא מבין את העניין, <br>
+כי אכן הוא הסביר את כל המבנה פרט לאותו עניין בצורה נכונה,<br>
+כנראה טעות קטנה כשמקלידים וחושבים מהר,<br>
+<br>
+businss logic בקונטרולר היא לא טעות נפוצה,<br>
+היא טעות מוחלטת,<br>
+הקונטרולר בעיקר מעביר בקשות מהWEB למודלים,<br>
+טוען קבצי עיצוב, ועוד כל מיני קטנות, זה בגדול מאוד.<br>
+<br>
+<br>
+</div>
+<a id="comment1750"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/07/2012 20:10</span><br>
+אני רגוע. רק לדעתי, המחבר צריך ללמוד לקבל ביקורת ולא להתווכח. ואני לא ממש בטוח שזו טעות בהקלדה. אנשים שיקראו את זה ימשיכו לדחוף את כל התוכן והחיבורים ל-db שלהם לקונטרולר, וזה רק יביא לעלייה בכמות קודים גרועים.</div>
+<a id="comment1756"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/07/2012 12:47</span><br>
+כל הכבוד :) תמשיך לכתוב מדריכים</div>
+<a id="comment1775"></a>
+<div class="blog-comment">
+<span class='comment-author'>eliorr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/07/2012 01:35</span><br>
+לדעתי בתוך כותב &quot;כבד&quot; ב- Codeigniter דווקא FRAMEWORK זה נכתב כ- <br>
+loosely coupled mvc .גמישות , גמישות ! וזה יתרונו הגדול. <br>
+<br>
+כאשר יש צורך ב- REUSE לכל ה- controllers / views / mode;s <br>
+דווקא הפיתרון היעל והתחזוקתי ביותר הוא בכתיבת LIbrary שכולם <br>
+יכולים לגשת אליו. כמובן שיש להשתמש ב- <br>
+;()$ci = &amp;get_instance<br>
+בספריה כדי לגשת ל- DB / SESSION ו- resources אחרים של המופע של CI <br>
+<br>
+<br>
+</div>
+<a id="comment2008"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/10/2012 13:07</span><br>
+חחח אהבתי &quot;מה זה המילים האלה למה לקלל&quot;</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

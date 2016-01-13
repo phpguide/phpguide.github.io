@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ייעול שאילתא SQL ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_197722">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ייעול שאילתא SQL | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ייעול שאילתא SQL  | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ייעול שאילתא SQL ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ייעול שאילתא SQL -1.htm" title="אהלן ..אני מנסה לייעל שאיתה שמופעלת עשרות פעמים פרטנית באיחוד תנאים כמו בדוגמא הנ&quot;ל.במקום שתפעל עשרות פעמים יצרתי שורת where ארוכה מאוד עם איחוד תנאים שונים.אני מחפש נתון מסויים שיופיע רק עם אחד מזוג התנאים יתאים וגם יהיה שווה לאחד הערכים בתנאי השלישי.העיניין שאני מגלה שכל OR כזה ממש מוריד את ביצועי החיפוש ועדיף כבר לחפש פרטנית..יש למישהו הצעות לייעול?תודה שבת שלום.select * from test w">ייעול שאילתא SQL </a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_197722</a>
+,
+<time class="timeago relativetime" datetime="2012-05-04T18:36:08+03:00" style="display:inline-block;">
+04 למאי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText549'>
+אהלן ..<br>אני מנסה לייעל שאיתה שמופעלת עשרות פעמים פרטנית באיחוד תנאים כמו בדוגמא הנ"ל.<br>במקום שתפעל עשרות פעמים יצרתי שורת where ארוכה מאוד עם איחוד תנאים שונים.<br>אני מחפש נתון מסויים שיופיע רק עם אחד מזוג התנאים יתאים וגם יהיה שווה לאחד הערכים בתנאי השלישי.<br>העיניין שאני מגלה שכל OR כזה ממש מוריד את ביצועי החיפוש ועדיף כבר לחפש פרטנית..<br><br>יש למישהו הצעות לייעול?<br><br>תודה שבת שלום.<br><br><div class="php codeblock">select <span class="sy0">*</span> from test where<span class="br0">&#40;</span><span class="br0">&#40;</span> test<span class="sy0">.</span>a<span class="sy0">=</span><span class="nu0">12</span> and test<span class="sy0">.</span>b<span class="sy0">&gt;</span><span class="nu0">12</span><span class="br0">&#41;</span>or<span class="br0">&#40;</span> test<span class="sy0">.</span>a<span class="sy0">=</span><span class="nu0">14</span> and test<span class="sy0">.</span>b<span class="sy0">&gt;</span><span class="nu0">3</span><span class="br0">&#41;</span><span class="br0">&#41;</span> and test<span class="sy0">.</span>c in<span class="br0">&#40;</span> <span class="nu0">1</span><span class="sy0">,</span><span class="nu0">2</span><span class="sy0">,</span><span class="nu0">3</span><span class="br0">&#41;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2073">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 למאי 2012 </span>
+<a id="answer_2073" href="ייעול שאילתא SQL -1.htm#answer_2073">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+להוסיף אינדקסים על השדות שלפיהם יש שליפות (וחיפושים).<br>במקרה הזה אפשר אינדקס אחד משותף על כל שלושת השדות, אבל בסדר c,b,a שמתחיל מ C </p>
+</div>
+<div class="answer" id="answer2074">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72575087fefc7f5c5fc617506f507ee7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_197722</a>
+ב
+<span style="font-size:10px"> 04 למאי 2012 </span>
+<a id="answer_2074" href="ייעול שאילתא SQL -1.htm#answer_2074">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אהלן אלכס ..<br>יש אינדקסים פרטניים על כל אחד מהשדות שעליהן מבוצעות החיפוש..<br>עדיין מדובר בשרשור של 15/20 זוגות של תנאים עם OR ..ומשום מה OR מאט את החיפושים בDB קריטית..<br>השאלה אם ניתן לבצע פה משהו מסוג אחר בכדי לייעל את הפעולות<br><br>תודה רבה על התשובה </p>
+</div>
+<div class="answer" id="answer2075">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 למאי 2012 </span>
+<a id="answer_2075" href="ייעול שאילתא SQL -1.htm#answer_2075">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תוסיף explain לפני השאילת ותראה מה המסד מנסה לעשות כשהוא מפעיל את השאילתה.<br>אולי אפשר לשלוף שני סאב-סטים שונים של נתונים ואחרי זה לחבר (או לחסר) אותםי. זה מאוד תלוי בשאילת ובלי לראות אותה אין לי הרבה מה להגיד. </p>
+</div>
+<div class="answer" id="answer2076">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72575087fefc7f5c5fc617506f507ee7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_197722</a>
+ב
+<span style="font-size:10px"> 04 למאי 2012 </span>
+<a id="answer_2076" href="ייעול שאילתא SQL -1.htm#answer_2076">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ככה בידיוק נראת השאילתא רק עם שמות שונים פישטתי את זה לצורה הפשוטה ביותר שאוכל להסביר..<br>צמד שדות בתוך תנאי אחד ועוד השוואה לקבוצת מספרים אחרת כמו בדוגמא<br>אקספליין לא מוציא משהו חריג..<br>מבחינת יעילות אין מה לעשות סאב-סלקט אולי להכניס קייס ?<br><br> </p>
+</div>
+<div class="answer" id="answer2077">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 למאי 2012 </span>
+<a id="answer_2077" href="ייעול שאילתא SQL -1.htm#answer_2077">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא חושב שפיצול איכשהו ישנה משהו, אבל אפשר אולי לנסות ככה:<br><div class="php codeblock">select <span class="sy0">*</span> from test where <br>
+<br>
+test<span class="sy0">.</span>c in<span class="br0">&#40;</span> <span class="nu0">1</span><span class="sy0">,</span><span class="nu0">2</span><span class="sy0">,</span><span class="nu0">3</span><span class="br0">&#41;</span> AND <br>
+a in<span class="br0">&#40;</span><span class="nu0">12</span><span class="sy0">,</span> <span class="nu0">14</span><span class="br0">&#41;</span> AND &nbsp;<span class="coMULTI">/* aint sure whether this will help or not. need a check */</span><br>
+b <span class="sy0">&gt;</span> <span class="nu0">3</span> AND <span class="coMULTI">/* min(b) */</span> <br>
+<br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="br0">&#40;</span> test<span class="sy0">.</span>a<span class="sy0">=</span><span class="nu0">12</span> and test<span class="sy0">.</span>b<span class="sy0">&gt;</span><span class="nu0">12</span><span class="br0">&#41;</span> or<br>
+&nbsp; <span class="br0">&#40;</span> test<span class="sy0">.</span>a<span class="sy0">=</span><span class="nu0">14</span> and test<span class="sy0">.</span>b<span class="sy0">&gt;</span><span class="nu0">3</span><span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span></div><br>ובמקום ליצור אינדקסים נפרדים על a ועל b<br>אולי יש טעם ליצור אינדקס משותף. </p>
+</div>
+<div class="answer" id="answer2080">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72575087fefc7f5c5fc617506f507ee7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_197722</a>
+ב
+<span style="font-size:10px"> 05 למאי 2012 </span>
+<a id="answer_2080" href="ייעול שאילתא SQL -1.htm#answer_2080">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה אני אבדוק </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

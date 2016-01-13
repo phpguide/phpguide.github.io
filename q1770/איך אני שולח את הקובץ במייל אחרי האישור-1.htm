@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך אני שולח את הקובץ במייל אחרי האישור?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="vu47678">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>איך אני שולח את הקובץ במייל אחרי האישור? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך אני שולח את הקובץ במייל אחרי האישור? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך אני שולח את הקובץ במייל אחרי האישור?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">1</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך אני שולח את הקובץ במייל אחרי האישור-1.htm" title="&amp;lt;?php
+
+// tell PHP to log errors to ipn_errors.log in this directory
+ini_set&amp;#40;&apos;log_errors&apos;, true&amp;#41;;
+ini_set&amp;#40;&apos;error_log&apos;">איך אני שולח את הקובץ במייל אחרי האישור?</a></h2>
+<div class="userinfo">
+פתח
+<a>vu47678</a>
+,
+<time class="timeago relativetime" datetime="2014-01-19T07:56:16+02:00" style="display:inline-block;">
+19 לינואר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1770'>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="co1">// tell PHP to log errors to ipn_errors.log in this directory</span><br>
+<span class="kw3">ini_set</span><span class="br0">&#40;</span><span class="st_h">'log_errors'</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">ini_set</span><span class="br0">&#40;</span><span class="st_h">'error_log'</span><span class="sy0">,</span> <span class="kw3">dirname</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'/ipn_errors.log'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// intantiate the IPN listener</span><br>
+<span class="kw1">include</span><span class="br0">&#40;</span><span class="st_h">'ipnlistener.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$listener</span> <span class="sy0">=</span> <span class="kw2">new</span> IpnListener<span class="br0">&#40;</span><span class="st_h">'cert/api_cert_chain.crt'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// tell the IPN listener to use the PayPal test sandbox</span><br>
+<span class="re0">$listener</span><span class="sy0">-&gt;</span><span class="me1">use_sandbox</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// try to process the IPN POST</span><br>
+try <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$listener</span><span class="sy0">-&gt;</span><span class="me1">requirePostMethod</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$verified</span> <span class="sy0">=</span> <span class="re0">$listener</span><span class="sy0">-&gt;</span><span class="me1">processIpn</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> catch <span class="br0">&#40;</span>Exception <span class="re0">$e</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">error_log</span><span class="br0">&#40;</span><span class="re0">$e</span><span class="sy0">-&gt;</span><span class="me1">getMessage</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$verified</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$errmsg</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span> &nbsp; <span class="co1">// stores errors from fraud checks</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">// 1. Make sure the payment status is &quot;Completed&quot; </span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'payment_status'</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st_h">'Completed'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// simply ignore any IPN that is not completed</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="co1">// 2. Make sure seller email matches your primary account email.</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'receiver_email'</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="bccfd9d0d0d9cefcd2d9c8ddd2d9d092dfd3d1">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errmsg</span> <span class="sy0">.=</span> <span class="st0">&quot;'receiver_email' does not match: &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errmsg</span> <span class="sy0">.=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'receiver_email'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">// 3. Make sure the amount(s) paid match</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'mc_gross'</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st_h">'2.00'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errmsg</span> <span class="sy0">.=</span> <span class="st0">&quot;'mc_gross' does not match: &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errmsg</span> <span class="sy0">.=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'mc_gross'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">// 4. Make sure the currency code matches</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'mc_currency'</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st_h">'USD'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errmsg</span> <span class="sy0">.=</span> <span class="st0">&quot;'mc_currency' does not match: &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errmsg</span> <span class="sy0">.=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'mc_currency'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="co1">// TODO: Check for duplicate txn_id</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$errmsg</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// manually investigate errors from the fraud checking</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$body</span> <span class="sy0">=</span> <span class="st0">&quot;IPN failed fraud checks: <span class="es1">\n</span><span class="es4">$errmsg</span><span class="es1">\n</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$body</span> <span class="sy0">.=</span> <span class="re0">$listener</span><span class="sy0">-&gt;</span><span class="me1">getTextReport</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">mail</span><span class="br0">&#40;</span><span class="st_h">'*****'</span><span class="sy0">,</span> <span class="st_h">'IPN Fraud Warning'</span><span class="sy0">,</span> <span class="re0">$body</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">mail</span><span class="br0">&#40;</span><span class="st_h">'******'</span><span class="sy0">,</span> <span class="st_h">'all good'</span><span class="sy0">,</span> <span class="st_h">'all good'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// manually investigate the invalid IPN</span><br>
+&nbsp; &nbsp; <span class="kw3">mail</span><span class="br0">&#40;</span><span class="st_h">'*****'</span><span class="sy0">,</span> <span class="st_h">'Invalid IPN'</span><span class="sy0">,</span> <span class="re0">$listener</span><span class="sy0">-&gt;</span><span class="me1">getTextReport</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>זה הקוד לכפתור עצמו<br><div class="php codeblock"><span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">&quot;https://www.sandbox.paypal.com/cgi-bin/webscr&quot;</span> method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span> target<span class="sy0">=</span><span class="st0">&quot;_top&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;hidden&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;cmd&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;_s-xclick&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;hidden&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;notify_url&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;http://www.****.com/config.php&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;hidden&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;hosted_button_id&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;ES9ZHDD4WREP8&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;image&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;https://www.sandbox.paypal.com/en_US/i/btn/btn_buynow_LG.gif&quot;</span> border<span class="sy0">=</span><span class="st0">&quot;0&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> alt<span class="sy0">=</span><span class="st0">&quot;PayPal - The safer, easier way to pay online!&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>img alt<span class="sy0">=</span><span class="st0">&quot;&quot;</span> border<span class="sy0">=</span><span class="st0">&quot;0&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif&quot;</span> width<span class="sy0">=</span><span class="st0">&quot;1&quot;</span> height<span class="sy0">=</span><span class="st0">&quot;1&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">1 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8092">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 19 לינואר 2014 </span>
+<a id="answer_8092" href="איך אני שולח את הקובץ במייל אחרי האישור-1.htm#answer_8092">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשתמש בספרייה כמו PHPMailer והחיים שלך יהיו הרבה יותר קלים. יש כאן <a href="..\שליחת_מייל_מ_php_דרך_gmail_smtp.htm">מדריך על זה ועל משהו שקשור לזה</a>. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

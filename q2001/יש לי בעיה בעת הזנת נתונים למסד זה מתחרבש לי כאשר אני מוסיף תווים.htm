@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itzik">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm" title="הקידוד וההתחברות למסד וגם הטבלאות מוגדרות על UTF-8.אולם כאשר מזינים טקסט עם תווים זה חותך את הטקסט ולפעמים מוסיף תווים לא מוכרים וגם מוסיף את הטקסט בצורה כזאת amp-1489 amp-1513 amp-1500.יש לציין שכאשר אין תווים הטקט מוזן מצויין.רק הבעיה היא בדרך כלל בתווים מסוג &amp;quot; &amp;apos; וכו&amp;apos;צירפתי תקוד אולי מישהו יציץ ויראה איפה השגיאה.ניסתי להכניס את התווים בפקודה preg_replace וזה לא עזר.">יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים</a></h2>
+<div class="userinfo">
+פתח
+<a>itzik</a>
+,
+<time class="timeago relativetime" datetime="2014-09-01T13:19:05+03:00" style="display:inline-block;">
+01 לספטמבר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2001'>
+הקידוד וההתחברות למסד וגם הטבלאות מוגדרות על UTF-8.<br><br>אולם כאשר מזינים טקסט עם תווים זה חותך את הטקסט ולפעמים מוסיף תווים לא מוכרים וגם מוסיף את הטקסט בצורה כזאת amp-1489 amp-1513 amp-1500.<br><br>יש לציין שכאשר אין תווים הטקט מוזן מצויין.<br><br>רק הבעיה היא בדרך כלל בתווים מסוג &quot; &apos; וכו&apos;<br><br>צירפתי תקוד אולי מישהו יציץ ויראה איפה השגיאה.<br><br>ניסתי להכניס את התווים בפקודה preg_replace וזה לא עזר.<br><br><div class="php codeblock"><span class="kw2">function</span> url_slug<span class="br0">&#40;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="re0">$options</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// Make sure string is in UTF-8 and strip invalid UTF-8 characters</span><br>
+&nbsp; <span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">mb_convert_encoding</span><span class="br0">&#40;</span><span class="br0">&#40;</span>string<span class="br0">&#41;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="sy0">,</span> <span class="kw3">mb_list_encodings</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$defaults</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'delimiter'</span> <span class="sy0">=&gt;</span> <span class="st_h">'-'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'limit'</span> <span class="sy0">=&gt;</span> <span class="kw4">null</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'lowercase'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'replacements'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'transliterate'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// Merge options</span><br>
+&nbsp; <span class="re0">$options</span> <span class="sy0">=</span> <span class="kw3">array_merge</span><span class="br0">&#40;</span><span class="re0">$defaults</span><span class="sy0">,</span> <span class="re0">$options</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// Make custom replacements</span><br>
+&nbsp; <span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'replacements'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'replacements'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// Transliterate characters to ASCII</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'transliterate'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$char_map</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="re0">$char_map</span><span class="sy0">,</span> <span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// Replace non-alphanumeric characters with our delimiter</span><br>
+&nbsp; <span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st_h">'/[^\p{L}\p{Nd}]+/u'</span><span class="sy0">,</span> <span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'delimiter'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// Remove duplicate delimiters</span><br>
+&nbsp; <span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st_h">'/('</span> <span class="sy0">.</span> <span class="kw3">preg_quote</span><span class="br0">&#40;</span><span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'delimiter'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'/'</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">'){2,}/'</span><span class="sy0">,</span> <span class="st_h">'$1'</span><span class="sy0">,</span> <span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// Truncate slug to max. characters</span><br>
+&nbsp; <span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">mb_substr</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'limit'</span><span class="br0">&#93;</span> ? <span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'limit'</span><span class="br0">&#93;</span> <span class="sy0">:</span> <span class="kw3">mb_strlen</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// Remove delimiter from ends</span><br>
+&nbsp; <span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'delimiter'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$options</span><span class="br0">&#91;</span><span class="st_h">'lowercase'</span><span class="br0">&#93;</span> ? <span class="kw3">mb_strtolower</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="br0">&#41;</span> <span class="sy0">:</span> <span class="re0">$str</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>תודה רבה לעוזרים. </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9005">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 לספטמבר 2014 </span>
+<a id="answer_9005" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9005">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נראה שהפוקנרציה עצמה <a href="..\phplive-26.htm?code=985">עובדת יופי</a>.<br>מה אתה עושה הלעה עם הפלט שלה? </p>
+</div>
+<div class="answer" id="answer9006">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 01 לספטמבר 2014 </span>
+<a id="answer_9006" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9006">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מנסה להזין נתונים שלפעמים כוללים תווים ופשוט זה לא נקלט במסד.<br><br>יותר מזה זה נקלט מחורבש או עם תווים לא קשורים. </p>
+</div>
+<div class="answer" id="answer9007">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 לספטמבר 2014 </span>
+<a id="answer_9007" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9007">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה הקוד עושה הלעה עם הפלט של הפונקציה?<br>או אם אתה בטוח שהבעיה בפונקציה הזו - תוכל להוסיף לכאן את הקלט שלא עובד לך כמו שצריך ? </p>
+</div>
+<div class="answer" id="answer9008">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 01 לספטמבר 2014 </span>
+<a id="answer_9008" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9008">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הטקסט הזה מוזן אוטומטית על ידי ה cron job.<br><br>להלן הכותרת שמוזנת : קצת שלג ושמיכות-זה מה שצריך בשביל &apos;בייבי בום&apos;: עלייה של 50% במספר הלידות <br><br>ומה שיוצא בתכלס: קצת שלג ושמיכות-זה מה שצריך </p>
+</div>
+<div class="answer" id="answer9010">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 לספטמבר 2014 </span>
+<a id="answer_9010" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9010">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\phplive-27.htm?code=986">זה לא נראה כאילו הבעיה היא בקוד שהבאת.</a><br>יכול להיות שיש מגבלה על עורך השדה בטבלה או שמשהו או מישהו גוזר אותו מאוחר יותר, אבל לא בתוך הפונקציה הזו. </p>
+</div>
+<div class="answer" id="answer9012">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 01 לספטמבר 2014 </span>
+<a id="answer_9012" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9012">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל תודה רבה על העזרה.<br><br>ועדיין לא פתרתי תבעיה.<br><br>יכול להיות שהקוד הבא צריךלהיות אחרת.<br><br><div class="php codeblock"><span class="kw2">function</span> smarty_modifier_slug<span class="br0">&#40;</span><span class="re0">$title</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<span class="re0">$slugged</span> <span class="sy0">=</span> url_slug<span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;<span class="es4">$title</span>&quot;</span><span class="sy0">,</span> <br>
+&nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'delimiter'</span> <span class="sy0">=&gt;</span> <span class="st_h">'-'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'limit'</span> <span class="sy0">=&gt;</span> <span class="nu0">80</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'lowercase'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">return</span> <span class="re0">$slugged</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer9013">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 01 לספטמבר 2014 </span>
+<a id="answer_9013" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9013">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקפצה, עקב עריכת התגובה </p>
+</div>
+<div class="answer" id="answer9015">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 01 לספטמבר 2014 </span>
+<a id="answer_9015" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9015">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תציג את הערך של title שכן כפי שאלכס כבר ציין הבעיה היא לא בפונקציה אלה בקוד שנמצא לפני.<br><br><div class="php codeblock"><span class="kw1">echo</span> url_slug<span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;שטיינמץ מציע למחזיקי אג<span class="es1">\&quot;</span>ח סקורפיו תספורת של 82 מ' ש'&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'delimiter'</span> <span class="sy0">=&gt;</span> <span class="st_h">'-'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'limit'</span> <span class="sy0">=&gt;</span> <span class="nu0">80</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'lowercase'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer9017">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 02 לספטמבר 2014 </span>
+<a id="answer_9017" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9017">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקיי לאחר בדיקה כנראה שהבעיה היא בקובץ simplepie.inc<br><br>הקובץ בגירסה 1.3.1<br><br>ניסתי להכניס את הקובץ בגירסת מפתחים 1.4<br><br>ופשוט הוא לא קורא תנתונים.<br><br>יש למישהו פתרון בנושא הזה?<br><br>למידע נוסף http://simplepie.org </p>
+</div>
+<div class="answer" id="answer9021">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 02 לספטמבר 2014 </span>
+<a id="answer_9021" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9021">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה בלתי אפשרי לעזור לך ככה,אנחנו לא הולכים להוריד את הסקריפט הנ&quot;ל ולבדוק מה לא בסדר בו.<br>בכל מקרה לא נראה שהבעיה היא בסקריפט ,אם תריץ לדוגמא דרך - <br>http://simplepie.org/demo/?feed=http%3A%2F%2Frss.nrg.co.il%2Fnews%2F<br>אתה תראה שהכל בסדר,מה שאומר שזה משהו שאתה עושה שם לא בסדר,מה שאני מציע לך זה לבצע דיבאגינג לקוד ולעבור שורה שורה עד שתמצא מה גורם למחרוזת לקטוע את עצמה ככה.<br>ההשערה שלי שאתה מבצע בעזרת פונקצית מחרוזת כל שהיא [כנראה sub_str] פעולה על המחרוזת ללא קידוד מתאים ולכן המחרוזת נקטעת באמצע. </p>
+</div>
+<div class="answer" id="answer9024">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 03 לספטמבר 2014 </span>
+<a id="answer_9024" href="יש לי בעיה בעת הזנת נתונים למסד זה מתחרבש לי כאשר אני מוסיף תווים.htm#answer_9024">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יכול להיות שבקוד הבא החסרתי משהו<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="co4">/**<br>
+&nbsp;* Smarty plugin<br>
+&nbsp;* @package Smarty<br>
+&nbsp;* @subpackage plugins<br>
+&nbsp;* @author Manuel Polacek / Hitflip<br>
+&nbsp;*/</span><br>
+<br>
+<br>
+<span class="co4">/**<br>
+&nbsp;* Smarty regex_replace modifier plugin<br>
+&nbsp;*<br>
+&nbsp;* Type: &nbsp; &nbsp; modifier&lt;br&gt;<br>
+&nbsp;* Name: &nbsp; &nbsp; substring<br>
+&nbsp;* Purpose: &nbsp;substring like in php<br>
+&nbsp;* @param string<br>
+&nbsp;* @return string<br>
+&nbsp;*/</span><br>
+<span class="kw2">function</span> smarty_modifier_slug<span class="br0">&#40;</span><span class="re0">$title</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+<span class="re0">$slugged</span> <span class="sy0">=</span> url_slug<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;<span class="es4">$title</span>&quot;</span><span class="sy0">,</span> <br>
+&nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'delimiter'</span> <span class="sy0">=&gt;</span> <span class="st_h">'-'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'limit'</span> <span class="sy0">=&gt;</span> <span class="nu0">80</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'lowercase'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">return</span> <span class="re0">$slugged</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

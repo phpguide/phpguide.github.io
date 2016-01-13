@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בדיקה מאיפה המשתמש הופנה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="yossi787">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>בדיקה מאיפה המשתמש הופנה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בדיקה מאיפה המשתמש הופנה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בדיקה מאיפה המשתמש הופנה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">15</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בדיקה מאיפה המשתמש הופנה-1.htm" title="יש דרך ב-PHP לבדוק מאיפה המשתמש הופנה,זאת אומרת מאיזה טופס באיזה עמוד הוא הופנה? (אני מקבל נתונים לדף בצורת POST).קצת קשה להסביר למה אני צריך את זה אבל זה ממש חשוב.תודה לעוזרים :)">בדיקה מאיפה המשתמש הופנה</a></h2>
+<div class="userinfo">
+פתח
+<a>yossi787</a>
+,
+<time class="timeago relativetime" datetime="2013-12-19T16:02:09+02:00" style="display:inline-block;">
+19 לדצמבר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1711'>
+יש דרך ב-PHP לבדוק מאיפה המשתמש הופנה,<br>זאת אומרת מאיזה טופס באיזה עמוד הוא הופנה? (אני מקבל נתונים לדף בצורת POST).<br>קצת קשה להסביר למה אני צריך את זה אבל זה ממש חשוב.<br>תודה לעוזרים :) </div>
+</div>
+<h3>
+<span id="answersCounter">15 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7786">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 19 לדצמבר 2013 </span>
+<a id="answer_7786" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7786">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, במשתנה <br><div class="php codeblock"><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;HTTP_REFERER&quot;</span><span class="br0">&#93;</span></div><br>נמצאת כתובת העמוד שממנה הטופס נשלח או נמצא הקישור שהמשתמש לחץ כדי להגיע לעמוד הנוכחי.<br>אם הוא ריק - זה אומר שהמשתמש כתב את הכתובת של העמוד ישירות בשורת הכתובת. </p>
+</div>
+<div class="answer" id="answer7787">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 19 לדצמבר 2013 </span>
+<a id="answer_7787" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7787">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה :)<br>אפשר להערים על המשתנה הזה, זאת אומרת איך שהוא לשנות אותו? (בכל זאת- SERVER)<br>אני רוצה להיות בטוח במאה אחוז שאין עוד פירצות שיותר מדי קלות לפיצוח. </p>
+</div>
+<div class="answer" id="answer7788">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 19 לדצמבר 2013 </span>
+<a id="answer_7788" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7788">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, אפשר. referer מגיע מהדפדן וניתן לשינוי בקלות.<br><br>אם אתה צריך את זה לצורכי אבטחה, תוסיף לטופס שדה חבוי עם ערך רנדומלי. את אותו הערך תכניס גם לסשן.<br>בעמוד שאליו התופס נשלח - תבדוק שהשדה מהטופס והערך בסשן זהים. בצורה הזו המשתמש יהיה חייב קודם לפתוח את העמוד של הטופס (שבו ירשם לסשן משהו) ורק אחרי זה לשלוח נתונים לעמוד הבדיקה. </p>
+</div>
+<div class="answer" id="answer7789">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 19 לדצמבר 2013 </span>
+<a id="answer_7789" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7789">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה היא שהשליחה לא מתבצעת מדף PHP אלא מקובץ פלאש, שאפשר לראות את המקור שלו בלי בעיות, ערך חבוי לא יעזור.. </p>
+</div>
+<div class="answer" id="answer7790">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 19 לדצמבר 2013 </span>
+<a id="answer_7790" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7790">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+גם תוכן של שדה חבוי בטופס אפשר לראות בלי בעיות. המטרה היא לא שיהיה חבוי, אלה שהשרת ייצר אחד כזה, יכניס לסשן והטופס מהפלאש ישלח אותו. זו הדרך היחידה לוודא שהבן אדם לפני זה פתח את קובץ הפלאש.<br><br>קצת להקשות אפשר על ידי הוספת קוד לתוך הפלאש, שמוסיף עוד שדה נוסף לתוכן של הטופס עם md5 של המחרוזת הרנדומלית + איזושהי סיסמה/קוד(salt) קבוע שמובנה בתוך הפלאש. הסקריפט המקבל יבדוק את קיום השדה ואת התאימות של הערך.<br><br>הדבר הזה יכול, במקרה הטוב, להוסיף עוד שלב שמצריך דיקומפילציה של קובץ הפלאש, כדי להוציא משם את הסיסמה. אבל בכל מקרה, כזה או אחר, אי אפשר לאבטח בצורה טכנית יותר מזה. כל קוד שרץ על המכונה של הלקוח - הוא על המכונה של הלקוח והלקוח יכול לעשות איתו מה שהוא רוצה, כולל לכתוב קוד דומה משלו ששולח את אותם הנתונים. </p>
+</div>
+<div class="answer" id="answer7793">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 19 לדצמבר 2013 </span>
+<a id="answer_7793" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7793">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה, עכשיו כשאני חושב על זה, אני לא חושב שמישהו כל-כך ישקיע בזה, סך הכל לקבל כסף וירטואלי באתר (זה ללא פרסים במציאות) אז אני אסתפק בתשובה הקודמת.<br>תודה רבה, עזרת לי מאוד! </p>
+</div>
+<div class="answer" id="answer7800">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 20 לדצמבר 2013 </span>
+<a id="answer_7800" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7800">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יוסי?<br>למה להשאיר פריצות אבטחה?<br>תנסה כמה שיותר לחסום את זה...<br>וזה אפשרי! </p>
+</div>
+<div class="answer" id="answer7801">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 20 לדצמבר 2013 </span>
+<a id="answer_7801" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7801">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא ממש הבנתי את התשובה שלו..<br>יש אפשרות בכלל ליצור סשן בפלאש?<br>ו-md5, אני מתכנת ב-AS2... </p>
+</div>
+<div class="answer" id="answer7802">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 20 לדצמבר 2013 </span>
+<a id="answer_7802" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7802">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יוסי שאני לא ידע במה אתה מתכנת?<br>בכל מקרה אתה יכול לטעון קובץ שהוא יצור את הסשן..<br>וMD5 כמובן זה אפשרי בפלאש עם מחלקה מיוחדת... </p>
+</div>
+<div class="answer" id="answer7803">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 20 לדצמבר 2013 </span>
+<a id="answer_7803" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7803">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואז גם המשתמש יוכל לטעון את הקובץ.<br>בעצם יכול להיות שעליתי על פתרון, אני יצרתי דף שממנו מקבלים מחרוזת רנדומלית, ועוד דף שבודק את המחרוזת (המחרוזת מוכנסת למסד בצירוף ה-IP) ואת כתובת ה-IP במידה ונכון, זה מוסיף את הפרס ומוחק את המחרוזת, במידה ולא, זה לא עושה כלום.<br>הבעיה שלי מלכתחילה הייתה ששכחתי מ-crossdomain, הוספתי עכשיו אחד כזה שמאפשר טעינה רק מאותו דומיין, ונראה לי שזה יפתור את כל הבעיות.<br>את crossdomain אי אפשר לעקוף? (אני אומר את זה בחצי היגד חצי שאלה)<br>אגב:<br>&quot;יוסי שאני לא ידע במה אתה מתכנת?&quot;<br>זה טעות כתיב או שפשט לא הבנתי מה רצית להגיד? </p>
+</div>
+<div class="answer" id="answer7804">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 20 לדצמבר 2013 </span>
+<a id="answer_7804" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7804">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא זה שגיאת כתיב...<br>ו-crossdomain אפשר לעקוף....<br>אפשר לעקוף הכול עם קצת מתאמצים... </p>
+</div>
+<div class="answer" id="answer7814">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 21 לדצמבר 2013 </span>
+<a id="answer_7814" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7814">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אפשר לעקוף הכל, אז אין בעצם הגנה אמיתית?... </p>
+</div>
+<div class="answer" id="answer7816">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 22 לדצמבר 2013 </span>
+<a id="answer_7816" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7816">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אממ יש הגנה...<br>לדוגמה צריך לדאוג שלא יעשו לקובץ פלאש שלך decompile<br>ואז אתה צריך לנסות לעשות איזה משהו לטקסט שאתה רוצה להעביר במין &quot;פונקציה&quot; סודית ככה שרק מי שיצר אותה יודע.... </p>
+</div>
+<div class="answer" id="answer7817">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 22 לדצמבר 2013 </span>
+<a id="answer_7817" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7817">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איך באמת מונעים decompile? </p>
+</div>
+<div class="answer" id="answer7818">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 22 לדצמבר 2013 </span>
+<a id="answer_7818" href="בדיקה מאיפה המשתמש הופנה-1.htm#answer_7818">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש תוכנות לזה וגם יש עוד דרכים... </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

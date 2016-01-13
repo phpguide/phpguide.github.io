@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="העלאת קבצים ותמונות ב-php, שמירת קבצים ותמונות במסד והעלאה ב-ajax">
+<meta name="keywords" content="העלאת קבצים, העלאת תמונות, העלאה, ajax">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>העלאת קבצים ותמונות</title>
+<meta itemprop="name" content="העלאת קבצים ותמונות">
+<meta itemprop="description" content="העלאת קבצים ותמונות ב-php, שמירת קבצים ותמונות במסד והעלאה ב-ajax">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"60","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>העלאת קבצים ותמונות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-12T14:56:05+02:00" dir="rtl">12 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/fileupload.png" alt="העלאת קבצים ותמונות">
+</div>
+<div class="right post-content">
+העלאת קבצים ותמונות ב-php, שמירת קבצים ותמונות במסד והעלאה ב-ajax<br>כל אלה — בכתבה ארוכה אחת. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+העלאת קבצים ותמונות ב-php יכול להסתכם בכמה שורות קוד בודדות בזכות האפשרויות של השפה. התהליך מורכב משלושה חלקים, בניית טופס שהדפדפן ידע לשלוח, העלאה עצמה, אותה עושה php ועבודה עם הקובץ המועלה שנשארת בידינו.<br>במדריך זה נדבר ונדגים על &quot;העלאת קבצים ב-ajax&quot; ונבין למה לא קיים דבר כזה בטבע ומה אפשר לעשות במקום. נדבר גם על אבטחת הקבצים הנכנסים, איך לשמור אותם במסד, או ליתר דיוק למה לא צריך לעשות את זה ונראה איזה הגדרות של php כדאי לנו לשנות.<br><br><br><h3>טופס העלאת קבצים</h3><br>לרוב תהליך העלאה php והשרת דואגים בעצמם. הם מצפים מאיתנו רק שנספק להם את הנתונים המתאימים (הפלט) ונקבל מהם הכל מוכן. תפקידו של הדפדפן הוא להעביר את הקבצים שנמצאים על המחשב שלכם לשרת, כדי שמשם יטופל על ידי מי שצריך. כמו כל הנתונים שנשלחים לשרת גם קבצים נשלחים דרך טפסים &lt;form&gt; רגילים, עם שינוי אחד קטן.<br><br>הטופס חייב להכיל 3 מרכיבים הבאים:<br>1. הטופס חייב להישלח בעזרת POST ולא בעזרת GET<br>2. הטופס חייב להכיל אטריבות enctype עם הערך multipart/form-data<br>3. הטופס יכיל שדה מסוג <span dir="ltr">&lt;input type=file&gt;</span><br><br><div class="php codeblock"><span class="sy0">&lt;</span>form method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span> enctype<span class="sy0">=</span><span class="st0">&quot;multipart/form-data&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;file&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;upfile&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;Upload me&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div><br><br><h5>enctype = multipart/formdata</h5><br>האטריבות enctype גורם לדפדפן לשלוח לשרת header שאומר מה סוג הנתונים שמגיעים אליו. <strong>multi</strong>part/form-data זהו סוג נתונים המורכב מכמה חלקים שונים ומגיע מטופס. השרת יודע לזהות כותר זה ולהתנהג אל המידע הזה בהתאם. בלעדיו יהיו מקרים שהשרת יקבל רק את הקובץ ויתעלם משאר נתוני הטופס או להפך.<br> <br><br><h3>משתנה <span dir="ltr">$_FILES</span></h3><br>אחרי שלחצנו &quot;שלח&quot; בטופס שלנו, הדפדפן שולח את הקובץ ואת הטופס לשרת, <strong>השרת שם את הקובץ בתיקיה זמנית</strong> ומריץ את הסקריפט שבו נוצר מערך עם הנתונים על הקובץ. שימו לב, השרת מקבל את הקובץ, שם אותו בתיקיה זמנית ורק אז מריץ את הסקריפט עם מערך מאותחל בו הנתונים על הקובץ. <br>כמו כל שאר הנתונים שמגיעים לסקריפטים מטפסים, גם מידע על קבצים שהועלו מגיע לסקריפט בתוך מערך מיוחד הנקרא <span dir="ltr">$_FILES;</span>. בואו נראה מה מכיל המערך הזה בעזרת ניסוי פשוט. נעלה לשרת קובץ, ונדפיס בסקריפט את תוכן המערך, באמצעות הקוד הבא:<br><br><div class="php codeblock">&lt;form method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;<br>
+&nbsp; &lt;input type=&quot;text&quot; name=&quot;text&quot; /&gt;<br>
+&nbsp; &lt;input type=&quot;file&quot; name=&quot;upfile&quot; /&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; value=&quot;Upload me&quot; /&gt;<br>
+&lt;/form&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>הפלט שלי נראה ככה:<br><div class="php codeblock"><span class="kw3">Array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="br0">&#91;</span>upfile<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="kw3">Array</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>name<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> backup<span class="sy0">.</span>sql<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>type<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> text<span class="sy0">/</span>x<span class="sy0">-</span>sql<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>tmp_name<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> C<span class="sy0">:</span>\Temp\php123<span class="sy0">.</span>tmp<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>error<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>size<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">347168</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<br>
+<span class="br0">&#41;</span></div><br><br>בדוגמה הזו אנחנו רואים מערך שבתוכו נמצא עוד מערך עם המפתח upfile, שהוא השם של השדה שרשמנו בטופס. אם נשנה את שם השדה בטופס ישתנה גם המפתח של המערך בהתאם. והנה לכם עבודה עצמית: שנו את הטופס כך שיופיעו בו שני שדות מסוג &lt;input type=file&gt;, העלו שני קבצים במקביל לשרת וראו מה מכיל המערך עכשיו.<br><br>התוצאה של פעולה זו היא מערך <span dir="ltr">$_FILES</span> שמכיל שני תת מערכים. כל אחד מהמערכים הפנימיים מכיל חמישה שדות. פירוט קצר לגבי כל אחד מהם:<br><br>1. <strong>שם</strong> — הוא השם שנשא הקובץ במחשב של המשתמש. יכול להיות שהמשתמש שינה את שם הקובץ לשם אחר שניה לפני שאעלה את הקובץ לאתר מ-hack.php למשהו פחות חשוד. בכל אופן, השם לא משחק שום תפקיד מעניין בתהליך <span class="underline">ולא מהווה שום מידע אמין</span>.<br><br>2. <strong>סוג</strong> — סוג הקובץ שהועלה. הסוג של הקובץ מתגלה על פי <strong>הסיומת</strong> של הקובץ ולכן גם הוא <span class="underline">אינו מהווה מידע אמין</span> על סוג הקובץ. <br><br>3. <strong>שם זמני</strong> — הוא השם שתחתיו השרת שמר את הקובץ בתיקיה הזמנית שלו, כדי שניקח אותו אחר-כך משם בעצמנו.<br><br>4. <strong>error</strong> — שגיאה בהעלאה. אם השרת יודע שצריך לקבל קובץ, אבל לא מצליח לשמור אותו, תופיע כאן שגיאה כלשהי. קיימות שמונה שגיאות מספריות אפשריות שרשומות <a href="http://php.net/manual/en/features.file-upload.errors.php">בעמוד הזה</a>, כאשר המספר 0 מסמן כי לא היו שגיאות, לכן ניתן לבדוק האם שדה זה גדול מאפס ולוודא שהקובץ עלה.<br><br>5. <strong>גודל</strong> הקובץ בבייטים. יש לחלק ב-1024 כדי לקבל kb ובעוד 1024 כדי להגיע לגודל הקובץ ב-mb. נוכל להשתמש בשדה זה כדי להגביל את גודל הקובץ המקסימלי.<br><br><h3>בדיקות</h3><br>לאחר שהקובץ עלה והמערך נוצר, נוכל להשתמש במערך זה כדי לוודא שהעלאה התרחשה והכל תקין. הקוד הבא מדגים בדיקת סוג קובץ וגודלו:<br><div class="php codeblock">&lt;form method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;<br>
+&nbsp; &lt;input type=&quot;text&quot; name=&quot;text&quot; /&gt;<br>
+&nbsp; &lt;input type=&quot;file&quot; name=&quot;upfile&quot; /&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; value=&quot;Upload me&quot; /&gt;<br>
+&lt;/form&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$allowed</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'image/png'</span><span class="sy0">,</span> <span class="st_h">'image/jpeg'</span><span class="sy0">,</span> <span class="st_h">'image/gif'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$maxsize</span> <span class="sy0">=</span> <span class="nu0">1</span> <span class="sy0">*</span> <span class="nu0">1024</span> <span class="sy0">*</span> <span class="nu0">1024</span><span class="sy0">;</span> <span class="co1">// 1mb</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'File '</span><span class="sy0">,</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">' was uploaded &lt;br/&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'error'</span><span class="br0">&#93;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="st0">&quot;Error #&quot;</span><span class="sy0">.</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'error'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot; occured&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'It\'s type is: '</span><span class="sy0">,</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'type'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="sy0">!</span><span class="kw3">in_array</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'type'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$allowed</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="st_h">'This type is not allowed'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$size_in_mb</span> <span class="sy0">=</span> <span class="kw3">round</span><span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'size'</span><span class="br0">&#93;</span><span class="sy0">/</span><span class="nu0">1024</span><span class="sy0">/</span><span class="nu0">1024</span> <span class="sy0">,</span><span class="nu0">3</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'It\'s size is: '</span><span class="sy0">,</span> <span class="re0">$size_in_mb</span> <span class="sy0">,</span> <span class="st_h">'mb &lt;br/&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'size'</span><span class="br0">&#93;</span> <span class="sy0">&gt;</span> <span class="re0">$maxsize</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="st0">&quot;The file is bigger then allowed&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'The file passed all validations. &lt;br/&gt; <br>
+&nbsp; &nbsp; &nbsp; It has a proper size, it is an image and it had no errors. &lt;br/&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'Copying the file as &quot;uploaded.png&quot;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">move_uploaded_file</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'tmp_name'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'./uploaded.png'</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>יצרנו מערך של סוגי קבצים שהתקבלו עלינו ואחר כך בדקנו האם סוג הקובץ שהועלה נמצא במערך הזה. אם נמצא — הקובץ הוא מסוג תקין ונאפשר לו לעבור עלאה. <br><br><h3>move_uploaded_file</h3><br>הפונקציה הזו מאוד פשוטה. היא מקבלת את נתיב הקובץ בתיקיה הזמנית (ששמור במערך <span dir="ltr">$_FILES</span>) ומעתיקה את הקובץ תוך שינוי שם למיקום אחר, כפי שנגדיר לו. הנקודה-סלאש בהתחלה מסמנות לסקריפט להעתיק את הקובץ לתיקיה הנוכחית תחת השם uploaded.png. <br><br>נכון שבפועל הקובץ הוא לאו דווקא קובץ png, אבל חשוב להבין שאין שום קשר בין השם ו/או סיומת השם של הקובץ, לבין מה, שהוא מכיל בפנים. לצורך העניין תמיד תוכלו לשנות את את השם של הסקריפט hack.php לשם goodimg.gif <br>אבל התוכן של הקובץ יישאר כפי שהיה. כך גם פה, השם משתנה, אך התוכן נשאר זהה.<br><br>אבל אם אנחנו יכולים לשנות בכזו קלות את &quot;סוג&quot; הקובץ שהשרת חושב שהוא, האם זה לא מסוכן? כן, מסוכן. השאלה היא מה אתם עושים עם הקובץ הזה. כדי שהקובץ hack.php יזיק לכם, לא מספיק שהוא יימצא בשרת, אלה צריך גם להפעיל אותו. אם תעתיקו אותו לתיקיה, שיש אליה גישה מהדפדפן, תשמרו על השם המקורי של הקובץ, יכול מאוד להיות שמישהו יפעיל אותו בכוונה או בטעות.<br><br>קבצים שעתידים להגיע למשתמש דרך הדפדפן כמו תמונות רצוי לבדוק לעומק. הפונקציה getimagesize יכולה לשמש לבדיקה האם הקובץ הוא תמונה או לא. קבצים שמגיעים לשרת לשמירה בלבד ולא מופעלים על ידי השרת או הדפדפן אינם מזיקים, ובמידה ואתם פשוט יוצרים איחסון קבצים — אין צורך לבדוק כל קובץ לסוגו.<br><br><h3>שמירת קבצים במסד</h3><br>חד וחלק - קבצים <strong>לא</strong> שומרים במסד. מסדי נתונים תומכים בשמירת כמויות גדולות של נתונים בינאריים, אבל המקום של קבצים הוא על הדיסק הקשיח ולא כחלק מתוך קבצי המסד. <br>את הקבצים עצמם יש לשמור בתיקיה כלשהי כמו uploaddir על השרת ובמידת הצורך להגביל את הגישה אליה מבחוץ באמצעות יצירת קובץ <span dir="ltr">.htaccess</span> כזה בתוך התיקיה:<br><div class="php codeblock">order deny<span class="sy0">,</span> allow<br>
+deny from all</div><br><br>אין צורך לשמור על השם המקורי של הקבצים בתיקיה, אך רצוי לשמור על השם המקורי של הקובץ במסד. להפך, בתיקיה רצוי לתת לכל קובץ שם ייחודי שלא יקרה מצב שלשני קבצים יהיה את אותו השם. בדרך כלל שם הקובץ הוא זמן שבו הועלה הקובץ. לא יכולים להיות שני קבצים שהועלו לשרת באותו רגע ממש, לכן שמות הקבצים יישאר ייחודיים.<br><br>אחרי שהנתונים על הקובץ נשרו במסד והקובץ עצמו בתיקיה שאין אליה גישה מבחוץ, נשאלת השאלה איך לאפשר להוריד את הקובץ הזה. במסד נשמור גם את שם הקובץ כפי שהוא בדיסק וגם את שם הקובץ המקורי (וגם מזהה id ייחודי של השורה במסד) וכאשר מישהו יבקש להוריד את הקובץ עם ה-id המסוים — נוכל לשלוף את שם הקובץ המקורי וגם את שם הקובץ בתיקיה, לגשת אליו <a href="php_קובץ_להורדה-1.htm">ולהציע לדפדפן להוריד אותו</a> עם השם המקורי.<br>שימו לב, בקוד שנמצא בקישור ניתן להגדיר שמות שונים איזה קובץ לשלוח ותחת איזה שם להציע אותו. נשלח את הקובץ השמור בתיקיה תחת השם המקורי ששמור במסד.<br><br>אם אתם לא מתכוונים לאפשר הורדה של קבצים ולא בונים שירות העלאת קבצים, ובכלל בונים את המערכת לשימושכם האישי, אין צורך לשמור נתונים על קבצים במסד בכלל. פשוט העלו את הקובץ, שימרו אותו בתיקיה שלכם תחת השם המקורי של הקובץ והשתמשו בו כרצונכם.<br><br><h3>שליחת קבצים ב-ajax</h3><br><strong>אין דבר כזה. </strong> <span dir="ltr">AJAX - Asynchronius javascript and xml</span> לא כוללת שום דבר בהגדרה שלה על קבצים ובכלל לא כוללת אפשרות העברת קבצים כלשהי.<br>הפתרון המושלם במקרים כאלה הוא דווקא ה-iframe שמשמש כעמוד בפני עצמו בתוך עמוד בדפדפן. השליחה מתבצעת כביכול דרך iframe שרק הוא מתרענן בזמן ששאר העמוד נשאר ללא שינוי. הקוד של השרת זהה לחלוטין לקוד הקודם, אילו הקוד של הדפדפן משתנה מאט, כדי לגרום לדפדפן לבצע את השליחה ולרענן רק את הפריים ולא את כל העמוד.<br><br><span class="dirleft"><h5>index.html</h5></span><br><div class="php codeblock"><span class="sy0">&lt;</span>form method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span> enctype<span class="sy0">=</span><span class="st0">&quot;multipart/form-data&quot;</span> target<span class="sy0">=</span><span class="st0">&quot;uploadframe&quot;</span> action<span class="sy0">=</span><span class="st0">&quot;upload.php&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;file&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;upfile&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;Upload me&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span><br>
+<br>
+<span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span><br>
+<span class="kw2">function</span> getContentFromIframe<span class="br0">&#40;</span>iFrameName<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">var</span> myIFrame <span class="sy0">=</span> document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span>iFrameName<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">var</span> content <span class="sy0">=</span> myIFrame<span class="sy0">.</span>contentWindow<span class="sy0">.</span>document<span class="sy0">.</span>body<span class="sy0">.</span>innerHTML<span class="sy0">;</span><br>
+&nbsp; content <span class="sy0">=</span> content<span class="sy0">.</span><span class="kw3">split</span><span class="br0">&#40;</span><span class="st0">&quot;;;;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; content <span class="sy0">=</span> content<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; alert <span class="br0">&#40;</span> content <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw2">&lt;/script&gt;</span><br>
+<br>
+<span class="sy0">&lt;</span>iframe id<span class="sy0">=</span><span class="st0">&quot;uploadframe&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;uploadframe&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;about:blank&quot;</span> <br>
+style<span class="sy0">=</span><span class="st0">&quot;visibility:hidden; height:0px; width:0px; border:none;&quot;</span> <span class="sy0">&gt;&lt;/</span>iframe<span class="sy0">&gt;</span></div><br><br>שימו לב לאטריביות <span dir="ltr">target=&quot;uploadframe&quot;</span> שנוסף לטופס.<br>הוא מסמל לדפדפן שיש לשלוח את הטופס דרך הדף (הפריים) עם השם הזה.<br><br>הפונקציה ה-javascriptית שהתווספה היא פונקציה שקוראת תוכן של iframe.<br>כיוון שהדבר היחידי שמתרענן אצלנו זה ה-iframe וכל הפלט של הסקריפט גם נמצא בו - יהיה עלינו לקרוא את הפלט משם. דרישה קטנה אחת היא להשאיר את תג ה-iframe <span class="underline">אחרי</span> תג הסקריפט.<br><br><span class="dirleft"><h5>upload.php</h5></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$allowed</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'image/png'</span><span class="sy0">,</span> <span class="st_h">'image/jpeg'</span><span class="sy0">,</span> <span class="st_h">'image/gif'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$maxsize</span> <span class="sy0">=</span> <span class="nu0">1</span> <span class="sy0">*</span> <span class="nu0">1024</span> <span class="sy0">*</span> <span class="nu0">1024</span><span class="sy0">;</span> <span class="co1">// 1mb</span><br>
+&nbsp; <span class="re0">$error</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'File '</span><span class="sy0">,</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st0">&quot; was uploaded <span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'error'</span><span class="br0">&#93;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="re0">$error</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;Error #&quot;</span><span class="sy0">.</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'error'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot; occured&quot;</span><span class="sy0">;</span><br>
+<br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'It\'s type is: '</span><span class="sy0">,</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'type'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="sy0">!</span><span class="kw3">in_array</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'type'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$allowed</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="sy0">!</span><span class="kw3">getimagesize</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'tmp_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="re0">$error</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'This type is not allowed'</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$size_in_mb</span> <span class="sy0">=</span> <span class="kw3">round</span><span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'size'</span><span class="br0">&#93;</span><span class="sy0">/</span><span class="nu0">1024</span><span class="sy0">/</span><span class="nu0">1024</span> <span class="sy0">,</span><span class="nu0">3</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'It\'s size is: '</span><span class="sy0">,</span> <span class="re0">$size_in_mb</span> <span class="sy0">,</span> <span class="st0">&quot;mb <span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'size'</span><span class="br0">&#93;</span> <span class="sy0">&gt;</span> <span class="re0">$maxsize</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="re0">$error</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;The file is bigger then allowed&quot;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">count</span><span class="br0">&#40;</span><span class="re0">$error</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;The file passed all validations. <span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">,</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="st0">&quot;It has a proper size, it is an image and it had no errors. <span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Copying the file as &quot;uploaded.png&quot;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">move_uploaded_file</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'upfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'tmp_name'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'./uploaded.png'</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'It has failed sove validations:'</span><span class="sy0">,</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">,</span> <span class="re0">$error</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span>;;;<br>
+&lt;script type='text/javascript'&gt; window.parent.getContentFromIframe('uploadframe'); &lt;/script&gt;</div><br>שימו לב לשורה האחרונה. היא גורמת לעמוד הנטען להריץ את הפונקציה getContentFromIframe שמוגדרת בעמוד האב המכיל את ה-iframe. כיוון שהפונקציה קוראת את כל תוכן ה-iframe היא תיקרא גם את תוכן תגי הסקריפט שמודפסים בשורה האחרונה.<br>כדי למנוע את זה — נוספו 3 סימני נקודה-פסיק שמסמנים לפונקציה שכאן נגמר התוכן ומתחילה הפקודה שלנו שאין צורך להתייחס אליה. כמו כן החלפנו את כל ה-die בקוד למערך שרושם שקרתה שגיאה כלשהי. אילו היינו משתמשים ב-die השורה האחרונה של ה-javascript אף פעם לא הייתה קוראת ולא היינו מתעדכנים בנוגע לתוצאות העלאה. <br><br>זהו זה, הסקריפט מוכן, אפשר להריץ.<br>נסו להעלות תמונה ולא תמונה, קבצים בגדלים שונים ותתבוננו בתוצאות.<br><br><br><br><br><br><br><br><h3><span style="color:green;">עדכון: html5 תומכת בהעלאת קבצים ב AJAX</span></h3><br>אחד החידושים שהתווספו ב-html5 היא אפשרות העלאת קבצים ב-ajax אמיתי ללא שימוש ב iframe. מידע נוסף באנגלית:<br><span dir="ltr"><span class="dirleft"><br><a href="http://blog.new-bamboo.co.uk/2010/7/30/html5-powered-ajax-file-uploads ">http://blog.new-bamboo.co.uk/2010/7/30/html5-powered-ajax-file-uploads </a><br><a href="http://www.sitepoint.com/html5-ajax-file-upload/">http://www.sitepoint.com/html5-ajax-file-upload/</a><br><br></span></span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment7"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/02/2011 03:45</span><br>
+מסובך רצח .. אני אישית לא הצלחתי .. תודה על המדריך בכל מקרה ..:)</div>
+<a id="comment8"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/02/2011 00:56</span><br>
+תודה.</div>
+<a id="comment9"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/02/2011 15:38</span><br>
+יש לי בעיה קטנה.<br>
+תיראה עשיתי את שתי הקבצים -index ו- uploded או משהוא כזה לא משנה עשיתי אותם והכל אני בוחר תמונה שהיא בסיומת שאפשרתה לסוגי התמונות וזאת תמונה שהיא מיתחת ל- 1mg וזה לא מציג לי את התמונה זה לא עושה כלום.<br>
+<br>
+עם תוכל לעזור לי תודה.</div>
+<a id="comment379"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/07/2011 12:47</span><br>
+תודה אלכס,בהחלט יעזור לי ;)</div>
+<a id="comment807"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yoni_Cohen</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/09/2011 03:33</span><br>
+קבל LIKE!!<br>
+<br>
+אבל שים לב שיש לסגור את התג iframe בקובץ index.html.<br>
+כי אחרת הבלוקים שיהיו אותו תג, יקבלו ערכי visibility:hidden.<br>
+<br>
+כעת אני עובר על הקוד, ועושה לו כל מיני שיפורים משלי.<br>
+אבל באמת שכל הכבוד לך ותודה, עזרת לי מאוד.</div>
+<a id="comment808"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yoni_Cohen</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/09/2011 03:34</span><br>
+אחרי* אותו תג</div>
+<a id="comment809"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/09/2011 13:05</span><br>
+תודה. סגרתי את התג.</div>
+<a id="comment973"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/12/2011 20:26</span><br>
+איש יקר<br>
+הרבה הרבה תודה זה עובד מצוין<br>
+כול הכבוד<br>
+<br>
+אלי אשכנזי<br>
+</div>
+<a id="comment975"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/12/2011 11:33</span><br>
+שלום אלכסנדר<br>
+<br>
+אפשר לצור אתך בפרטי ?<br>
+<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="fa9f9693d49b8992919f949b8093cbba9d979b9396d4999597">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script> <br>
+<br>
+תודה<br>
+אלי <br>
+</div>
+<a id="comment976"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/12/2011 15:51</span><br>
+אפשר. יש ארבעה דרכים ליצירת קשר איתי בתחתית העמוד.</div>
+<a id="comment1111"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 15:15</span><br>
+תודה!<br>
+יש דרך לבדוק מה השם של הקבצים בתיקייה?<br>
+כי אני רוצה לעשות שהשמות שלהן יהי pic1 , pic2 pic3 וכך הלאה.<br>
+אז אני רוצה לבדוק מה האחרון (לדוגמה התמונה האחרונה היא pic79 ואני רוצה לקרוא לחדשה pic80.<br>
+הבנת?</div>
+<a id="comment1112"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 15:30</span><br>
+לבדוק מה השם של הקבצים בתיקייה אפשר באמצעות glob().</div>
+<a id="comment1114"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 17:03</span><br>
+עדיף לא לעשות את זה, כי זה פעולה כבדה לסרוק את רשימת הקבצים ולברר לפיה מה הבא.<br>
+תשמור במסד אידי של הבא או משהו כזה.</div>
+<a id="comment1115"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 17:03</span><br>
+עשיתי את זה:<br>
+&lt;form method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;<br>
+&lt;input type=&quot;text&quot; name=&quot;text&quot; /&gt;<br>
+&lt;input type=&quot;file&quot; name=&quot;upfile&quot; /&gt;<br>
+&lt;input type=&quot;submit&quot; value=&quot;Upload me&quot; /&gt;<br>
+&lt;/form&gt;<br>
+<br>
+&lt;?php<br>
+<br>
+if (isset($_POST[&apos;text&apos;], $_FILES[&apos;upfile&apos;]))<br>
+{<br>
+$allowed = array(&apos;image/png&apos;, &apos;image/jpeg&apos;, &apos;image/gif&apos;);<br>
+$maxsize = 1 * 1024 * 1024; // 1mb<br>
+<br>
+echo &apos;File &apos;, $_FILES[&apos;upfile&apos;][&apos;name&apos;], &apos; was uploaded &lt;br/&gt;&apos;;<br>
+if( $_FILES[&apos;upfile&apos;][&apos;error&apos;] &gt; 0)<br>
+die(&quot;Error #&quot;.$_FILES[&apos;upfile&apos;][&apos;error&apos;].&quot; occured&quot;);<br>
+<br>
+<br>
+echo &apos;It\&apos;s type is: &apos;, $_FILES[&apos;upfile&apos;][&apos;type&apos;], &apos;&lt;br/&gt;&apos;;<br>
+if( !in_array($_FILES[&apos;upfile&apos;][&apos;type&apos;], $allowed) )<br>
+die(&apos;This type is not allowed&apos;);<br>
+<br>
+$size_in_mb = round( $_FILES[&apos;upfile&apos;][&apos;size&apos;]/1024/1024 ,3);<br>
+<br>
+echo &apos;It\&apos;s size is: &apos;, $size_in_mb , &apos;mb &lt;br/&gt;&apos;;<br>
+if($_FILES[&apos;upfile&apos;][&apos;size&apos;] &gt; $maxsize)<br>
+die(&quot;The file is bigger then allowed&quot;);<br>
+<br>
+<br>
+echo &apos;The file passed all validations. &lt;br/&gt;<br>
+It has a proper size, it is an image and it had no errors. &lt;br/&gt;&apos;;<br>
+<br>
+echo &apos;Copying the file as &quot;uploaded.png&quot;&apos;;<br>
+move_uploaded_file($_FILES[&apos;upfile&apos;][&apos;tmp_name&apos;], &apos;./uploaded.png&apos; );<br>
+}<br>
+<br>
+בשורה $maxsize = 1 * 1024 * 1024; // 1mb<br>
+שיניתי ל- $maxsize = 15 * 1024 * 1024; // 15mb<br>
+כשאני מנסה להעלות קובץ בגודל 4 מגה אז יש שגיאה Error #1 occured<br>
+למה?</div>
+<a id="comment1116"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 17:24</span><br>
+יש הגבלה ב php.ini על גודל הקבצים הניתנים להעלאה. לשנות ערכים אלה אפשר באמצעות הוספת שני השורות הבאות ל htaccess<br>
+<br>
+php_value upload_max_filesize 10M<br>
+php_value post_max_size 10M<br>
+</div>
+<a id="comment1117"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 17:29</span><br>
+תוווודה ^_^</div>
+<a id="comment1118"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 18:10</span><br>
+עכשיו נוצרת לי תמונה.<br>
+איך אני משתמש בתמונה בקובץ אחר?</div>
+<a id="comment1573"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/05/2012 08:34</span><br>
+כל הכבוד!</div>
+<a id="comment1604"></a>
+<div class="blog-comment">
+<span class='comment-author'>dinamit</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2012 15:46</span><br>
+sdsd</div>
+<a id="comment1605"></a>
+<div class="blog-comment">
+<span class='comment-author'>dinamit</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2012 15:46</span><br>
+כל הכבוד אלכס!<br>
+מדריך מעולה!</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה לא מצליח להפיל קלאסים בעזרת namespace">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="PHPDeveloper">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>לא מצליח להפיל קלאסים בעזרת namespace | שאלת לימוד PHP</title>
+<meta itemprop="name" content="לא מצליח להפיל קלאסים בעזרת namespace | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה לא מצליח להפיל קלאסים בעזרת namespace">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">13</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="לא מצליח להפיל קלאסים בעזרת namespace.htm" title="אני משתמש בפונקציה SplClassLoader שמנתבת קבצי מחלקות על פי הנייספייס.הבעיה שהיא לא מפעילה את המחלקות, קוד:$loader = new SplClassLoader&amp;#40;&apos;framework\Router&apos;, FRAMEWORK_PATH . &apos;/Routes&apos;&amp;#41;;
+">לא מצליח להפיל קלאסים בעזרת namespace</a></h2>
+<div class="userinfo">
+פתח
+<a>PHPDeveloper</a>
+,
+<time class="timeago relativetime" datetime="2012-10-07T10:52:59+02:00" style="display:inline-block;">
+07 לאוקטובר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1073'>
+אני משתמש בפונקציה SplClassLoader שמנתבת קבצי מחלקות על פי הנייספייס.<br>הבעיה שהיא לא מפעילה את המחלקות, קוד:<br><br><div class="php codeblock"><span class="re0">$loader</span> <span class="sy0">=</span> <span class="kw2">new</span> SplClassLoader<span class="br0">&#40;</span><span class="st_h">'framework\Router'</span><span class="sy0">,</span> FRAMEWORK_PATH <span class="sy0">.</span> <span class="st_h">'/Routes'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$loader</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><br>בתוך התיקיה של Routes, כל הקבצים בעלי אותו נייםספייס - <div class="php codeblock"><span class="kw2">namespace</span> framework\Router<span class="sy0">;</span></div><br><br>framework זה שם התיקיה שבה כל הקבצים קיימים. </div>
+</div>
+<h3>
+<span id="answersCounter">13 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4687">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4687" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4687">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איפה לקחת את המחלקה הזו? אולי המימוש שלה לא תקין.<br>חוץ מזה, אתה יכול לכתוב <a href="https://gist.github.com/1234504">פונקציה משלך</a> בשביל זה ואז גם לדאבג אותה ביתר קלות. </p>
+</div>
+<div class="answer" id="answer4688">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4688" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4688">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מכאן לקחתי -https://gist.github.com/221634 </p>
+</div>
+<div class="answer" id="answer4689">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4689" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4689">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני חושב שהבעיה היא בניתוב של התיקיה בנייםספייס.. יכול להיות? </p>
+</div>
+<div class="answer" id="answer4695">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4695" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4695">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יכול להיות.<br>ניסית להוסיף echo שורה מעל לאינקלוד ולראות איפה הוא מנסה לחפש את הקבצים שלך? </p>
+</div>
+<div class="answer" id="answer4697">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4697" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4697">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איזה אינקלוד? בפונקציה עצמה SplClassLoader ? </p>
+</div>
+<div class="answer" id="answer4698">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4698" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4698">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקי, בדקתי את זה בלי הפונקציה הזו אלא עשיתי רק Include() לקובץ. בהתחלה לא הופיעה כלום, רק לאחר שהורדתי את הnamespace הקלאס עבד מצוין. אני חושב שמכאן הבעיה, אתה יודע איך אני יכול לטפל בזה שהקלאס לואדר יעבוד? </p>
+</div>
+<div class="answer" id="answer4700">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4700" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4700">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יכול שאתה יוצר מופע של המחלקה בלי לרשום את הניימספייס?<br><div class="php codeblock"><span class="kw2">new</span> \mynamespace\class1<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4701">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4701" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4701">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בהחלט צודק, כעת עובד.<br>אבל אתה יודע מה הבעיה עם SplClassLoader ? יותר נוח לי אם הקלאס כבר יטען ואני יוכל להשתמש בו כרגע ולא בצורה הזו שלך.. </p>
+</div>
+<div class="answer" id="answer4702">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4702" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4702">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה לא תוכל לכתוב משהו אחר חוץ מ <div class="php codeblock">\<span class="kw2">namespace</span>\class1<span class="br0">&#40;</span><span class="br0">&#41;</span></div><br>בגלל שככה עובדים ניימספייסים. ואין שום דבר שלא בסדר במחלקה שלך. היא בסה&quot;כ עושה אינקלוד לקובץ, לא יותר מזה. </p>
+</div>
+<div class="answer" id="answer4703">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4703" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4703">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הדבר הכי מעצבן ב-php זה הסינטקס של הניימספייסים. </p>
+</div>
+<div class="answer" id="answer4706">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 08 לאוקטובר 2012 </span>
+<a id="answer_4706" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4706">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא יודע לגבי הסינטקס, אבל ה using קצת צולע לעומת שפות אחרות. </p>
+</div>
+<div class="answer" id="answer4707">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 08 לאוקטובר 2012 </span>
+<a id="answer_4707" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4707">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זאת אומרת שהטעות הייתה אצלי. לא יצרתי אירוע נכון לאובייקט. חשבתי שהוא טוען את הכל ישירות ואין צורך להשתמש בסגנון שלך. </p>
+</div>
+<div class="answer" id="answer4711">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 08 לאוקטובר 2012 </span>
+<a id="answer_4711" href="לא מצליח להפיל קלאסים בעזרת namespace.htm#answer_4711">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@intval<br>גם ה-using, אבל אני די מתעצבן מהסינטקס. כאילו, באמת... באקסלאש? זה נראה לא טוב. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

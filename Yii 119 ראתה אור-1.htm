@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="yii 1.1.9, גירסה חדשה של yii יצאה לאור עם כ-60 שיפורים ותיקונים.">
+<meta name="keywords" content="yii, 1.1.9, release">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Yii 1.1.9 ראתה אור</title>
+<meta itemprop="name" content="Yii 1.1.9 ראתה אור">
+<meta itemprop="description" content="yii 1.1.9, גירסה חדשה של yii יצאה לאור עם כ-60 שיפורים ותיקונים.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"182","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii 1.1.9 ראתה אור</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-01-02T02:55:18+02:00" dir="rtl">02 לינואר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/newyii.png" alt="Yii 1.1.9 ראתה אור">
+</div>
+<div class="right post-content">
+מתנה לכבוד השנה האזרחית החדשה מהמפתחים של YII, כוללת יותר מ-60 תיקוני באגים ושיפורים. אמנם עוד לא גרסה 2, אבל כדאי להתעדכן. אני רק מקווה שהם לא היו עדיין שיכורים כשפירסמו אותה. :-) <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+למרות שבעמוד ההורדה של YII דיברו על גרסה 2 לקראת דצמבר 2011, היא עדיין לא אצלנו. במקום זה זכינו לממשיכת סידרה 1.1, שלא כוללת שינויים דרסטיים מי-יודע-מה, אבל כן כוללת שיפורים ותיקונים קטנים וחמודים.<br><br>את הרשימה המלאה של השינויים אפשר לראות <a href="http://www.yiiframework.com/files/CHANGELOG-1.1.9.txt">בקובץ המתאים</a>,<br>למשדרגים מגרסאות קודמות יותר (כמוני למשל) <a href="http://www.yiiframework.com/files/UPGRADE-1.1.9.txt">כדאי לקרוא את ההוראות</a>.<br><br><strong>זהירות, ההמשך טכני, ומיועד למבינים ב-Yii.</strong><br><h3>נעיף מבט בשינויים המעניינים יותר:</h3><br><h4>דרך יותר פשוטה לרישום קשרים בין מודלים עם through</h4><br>את האופציה לרישום קשרים של רבים-אל-רבים באמצעות through עם טבלה אמצעית הוסיפו עוד בגרסה 1.1.7.<br>הסינטקס לא היה כל כך נוח. שני עדכוני גרסאות מאוחר יותר החליטו לשנות אותו.<br>כל הסיפור הזה נראה עכשיו כך:<br><div class="php codeblock"><span class="st_h">'comments'</span><span class="sy0">=&gt;</span>array<span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="me2">HAS_MANY</span><span class="sy0">,</span><span class="st_h">'Comment'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'ey1'</span><span class="sy0">=&gt;</span><span class="st_h">'key2'</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="st_h">'through'</span><span class="sy0">=&gt;</span><span class="st_h">'posts'</span><span class="br0">&#41;</span><span class="sy0">,</span></div><br>המעוניינים יכולים לבדוק <a href="http://www.yiiframework.com/doc/guide/1.1/en/database.arr#relational-query-with-through">מה זה אומר ואיך להשתמש בזה</a>.<br><br><h4>תנאים ו-scopes שונים בקשרים בין מודלים</h4><br>מעכשיו ניתן לרשום כמה scopes בתור חלק מההקשרים בין טבלאות, בצורה הבאה:<br><div class="php codeblock"><span class="st_h">'recentApprovedComments'</span><span class="sy0">=&gt;</span>array<span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="me2">BELONGS_TO</span><span class="sy0">,</span> <span class="st_h">'Post'</span><span class="sy0">,</span> <span class="st_h">'post_id'</span><span class="sy0">,</span> <br>
+&nbsp; &nbsp; <span class="st_h">'scopes'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'approved'</span><span class="sy0">,</span> <span class="st_h">'recent'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span></div><br>כך שעכשיו אפשר ליצור קשר מיוחד בין מודלים, עם שם משלו, ולהעביר את התנאים למודל במקום ליצור cdbcriteria בכל שליפה.<br><br><h4>join בין מודלים לפי מפתחות מסוימים</h4><br>עד עכשיו היה אפשר לעשות join רק לפי ה-primary key; מעכשיו אפשר לפי כל שדה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1188"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 22:53</span><br>
+אני מפרגן:) כל הכבוד על העבודה. חזק ואמץ והמשך לפתח את האתר לטובת כל קהילית המפתחים.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

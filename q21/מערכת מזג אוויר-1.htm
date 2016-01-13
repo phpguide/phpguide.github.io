@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מערכת מזג אוויר">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="אנונימי">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מערכת מזג אוויר | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מערכת מזג אוויר | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מערכת מזג אוויר">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מערכת מזג אוויר-1.htm" title="תראו אני בנייתי מערכת מזג אוויר שעובדת עם הAPI של GOOGLE.בWAMPSERVER היא עובדת מצויין אך בשרת היא עושה בעיותהבעיות התחילו אחרי שהוספתי את האפשרות לבחור עירהאתר: http://yourpage.co.il/ כמו שאתם יכולים לראות זה מראה -17 שמשנים עיר אבל בWAMPSERVER זה מראה פרטים כמו שצריך...הקוד של הWEATHER&amp;lt;?php
+
+class Weather
+&amp;#123;
+&amp;nbsp; &amp;">מערכת מזג אוויר</a></h2>
+<div class="userinfo">
+פתח
+<a>אנונימי</a>
+,
+<time class="timeago relativetime" datetime="2011-11-27T15:12:33+02:00" style="display:inline-block;">
+27 לנובמבר 2011 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText21'>
+תראו אני בנייתי מערכת מזג אוויר שעובדת עם הAPI של GOOGLE.<br>בWAMPSERVER היא עובדת מצויין אך בשרת היא עושה בעיות<br>הבעיות התחילו אחרי שהוספתי את האפשרות לבחור עיר<br><br>האתר: http://yourpage.co.il/ כמו שאתם יכולים לראות זה מראה -17 שמשנים עיר אבל בWAMPSERVER זה מראה פרטים כמו שצריך...<br><br>הקוד של הWEATHER<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> Weather<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">const</span> url <span class="sy0">=</span> <span class="st0">&quot;http://www.google.com/ig/api?weather=israel,&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> getStatHe<span class="br0">&#40;</span><span class="re0">$val</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$end</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;Chance of Rain&quot;</span><span class="sy0">,</span><span class="st0">&quot;Mostly Sunny&quot;</span><span class="sy0">,</span><span class="st0">&quot;Clear&quot;</span><span class="sy0">,</span><span class="st0">&quot;Partly Sunny&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$hew</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;סיכוי לגשם&quot;</span><span class="sy0">,</span><span class="st0">&quot;בעיקר שמש&quot;</span><span class="sy0">,</span><span class="st0">&quot;בהיר&quot;</span><span class="sy0">,</span><span class="st0">&quot;מעונן חלקית&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="re0">$end</span><span class="sy0">,</span> <span class="re0">$hew</span><span class="sy0">,</span> <span class="re0">$val</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> F2C<span class="br0">&#40;</span><span class="re0">$f</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">intval</span><span class="br0">&#40;</span> <span class="br0">&#40;</span><span class="re0">$f</span> <span class="sy0">-</span> <span class="nu0">32</span><span class="br0">&#41;</span> <span class="sy0">*</span> <span class="br0">&#40;</span><span class="nu0">5</span><span class="sy0">/</span><span class="nu0">9</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> showWeatherStat<span class="br0">&#40;</span><span class="re0">$day</span><span class="sy0">,</span><span class="re0">$city</span><span class="sy0">=</span><span class="st_h">'tel-aviv'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$xml_weather</span> <span class="sy0">=</span> <span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="me2">url</span> <span class="sy0">.</span> <span class="re0">$city</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$xml_weather</span> <span class="sy0">=</span> <span class="kw2">new</span> SimplexmlElement<span class="br0">&#40;</span><span class="re0">$xml_weather</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$xml_weather</span><span class="sy0">-&gt;</span><span class="me1">weather</span><span class="sy0">-&gt;</span><span class="me1">forecast_conditions</span> <span class="kw1">as</span> <span class="re0">$check</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$check</span><span class="sy0">-&gt;</span><span class="me1">day_of_week</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="sy0">==</span> <span class="re0">$day</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$today</span> <span class="sy0">=</span> <span class="re0">$check</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$icon</span> &nbsp;<span class="sy0">=</span> <span class="re0">$today</span><span class="sy0">-&gt;</span><span class="me1">icon</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$temp</span> &nbsp;<span class="sy0">=</span> <span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="me2">F2C</span><span class="br0">&#40;</span><span class="re0">$today</span><span class="sy0">-&gt;</span><span class="me1">low</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="kw2">self</span><span class="sy0">::</span><span class="me2">F2C</span><span class="br0">&#40;</span><span class="re0">$today</span><span class="sy0">-&gt;</span><span class="me1">high</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">/</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src='http://www.google.com/<span class="es4">$icon</span>' /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;strong&gt;מצב&lt;/strong&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;&quot;</span><span class="sy0">.</span><span class="kw2">self</span><span class="sy0">::</span><span class="me2">getStatHe</span><span class="br0">&#40;</span><span class="re0">$today</span><span class="sy0">-&gt;</span><span class="me1">condition</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;strong&gt;מעלות&lt;/strong&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="es4">$temp</span> &lt;span style='font-size:16px'&gt;°&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/table&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> showWeather<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$xml_weather</span> <span class="sy0">=</span> <span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="me2">url</span> <span class="sy0">.</span> <span class="st_h">'tel-aviv'</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$xml_weather</span> <span class="sy0">=</span> <span class="kw2">new</span> SimplexmlElement<span class="br0">&#40;</span><span class="re0">$xml_weather</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">openTag</span><span class="br0">&#40;</span><span class="st0">&quot;select&quot;</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;onchange&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;changeWeatherDay()&quot;</span><span class="sy0">,</span><span class="st0">&quot;id&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;weather_day&quot;</span><span class="sy0">,</span><span class="st0">&quot;style&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;width:100px&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$xml_weather</span><span class="sy0">-&gt;</span><span class="me1">weather</span><span class="sy0">-&gt;</span><span class="me1">forecast_conditions</span> <span class="kw1">as</span> <span class="re0">$weather</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">openTag</span><span class="br0">&#40;</span><span class="st0">&quot;option&quot;</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;value&quot;</span><span class="sy0">=&gt;</span><span class="re0">$weather</span><span class="sy0">-&gt;</span><span class="me1">day_of_week</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> Helper<span class="sy0">::</span><span class="me2">convertDay</span><span class="br0">&#40;</span><span class="re0">$weather</span><span class="sy0">-&gt;</span><span class="me1">day_of_week</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">closeTag</span><span class="br0">&#40;</span><span class="st0">&quot;option&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">closeTag</span><span class="br0">&#40;</span><span class="st0">&quot;select&quot;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">openTag</span><span class="br0">&#40;</span><span class="st0">&quot;select&quot;</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;onchange&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;changeWeatherDay()&quot;</span><span class="sy0">,</span><span class="st0">&quot;id&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;weather_city&quot;</span><span class="sy0">,</span><span class="st0">&quot;style&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;width:100px&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span>Helper<span class="sy0">::</span><span class="me2">getCities</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw1">as</span> <span class="re0">$city</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">openTag</span><span class="br0">&#40;</span><span class="st0">&quot;option&quot;</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;value&quot;</span><span class="sy0">=&gt;</span><span class="re0">$city</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> Helper<span class="sy0">::</span><span class="me2">city2hew</span><span class="br0">&#40;</span><span class="re0">$city</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">closeTag</span><span class="br0">&#40;</span><span class="st0">&quot;option&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">closeTag</span><span class="br0">&#40;</span><span class="st0">&quot;select&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">openTag</span><span class="br0">&#40;</span><span class="st0">&quot;div&quot;</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;id&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;weather&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="me2">showWeatherStat</span><span class="br0">&#40;</span> <span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;D&quot;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">closeTag</span><span class="br0">&#40;</span><span class="st0">&quot;div&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>הקוד של HELPER: (יש שם עוד דברים שלא קשורים למזג אוויר)<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> Helper<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> convertDay<span class="br0">&#40;</span><span class="re0">$day</span><span class="sy0">,</span><span class="re0">$to</span><span class="sy0">=</span><span class="st_h">'he'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$eng</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;Sun&quot;</span><span class="sy0">,</span><span class="st0">&quot;Mon&quot;</span><span class="sy0">,</span><span class="st0">&quot;Tue&quot;</span><span class="sy0">,</span><span class="st0">&quot;Wed&quot;</span><span class="sy0">,</span><span class="st0">&quot;Thu&quot;</span><span class="sy0">,</span><span class="st0">&quot;Fri&quot;</span><span class="sy0">,</span><span class="st0">&quot;Sat&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$hew</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;ראשון&quot;</span><span class="sy0">,</span><span class="st0">&quot;שני&quot;</span><span class="sy0">,</span><span class="st0">&quot;שלישי&quot;</span><span class="sy0">,</span><span class="st0">&quot;רביעי&quot;</span><span class="sy0">,</span><span class="st0">&quot;חמישי&quot;</span><span class="sy0">,</span><span class="st0">&quot;שישי&quot;</span><span class="sy0">,</span><span class="st0">&quot;שבת&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$to</span> <span class="sy0">==</span> <span class="st_h">'he'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="re0">$eng</span><span class="sy0">,</span> <span class="re0">$hew</span><span class="sy0">,</span> <span class="re0">$day</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="re0">$hew</span><span class="sy0">,</span> <span class="re0">$eng</span><span class="sy0">,</span> <span class="re0">$day</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> getIP<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">getenv</span><span class="br0">&#40;</span><span class="st0">&quot;HTTP_CLIENT_IP&quot;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">return</span> &nbsp;<span class="kw3">getenv</span><span class="br0">&#40;</span><span class="st0">&quot;HTTP_CLIENT_IP&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">getenv</span><span class="br0">&#40;</span><span class="st0">&quot;HTTP_X_FORWARDED_FOR&quot;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">return</span> &nbsp;<span class="kw3">getenv</span><span class="br0">&#40;</span><span class="st0">&quot;HTTP_X_FORWARDED_FOR&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">getenv</span><span class="br0">&#40;</span><span class="st0">&quot;REMOTE_ADDR&quot;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw3">getenv</span><span class="br0">&#40;</span><span class="st0">&quot;REMOTE_ADDR&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REMOTE_ADDR'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REMOTE_ADDR'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> getFileType<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">strtolower</span><span class="br0">&#40;</span><span class="kw3">end</span><span class="br0">&#40;</span><span class="kw3">explode</span><span class="br0">&#40;</span><span class="st0">&quot;.&quot;</span><span class="sy0">,</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> city2hew<span class="br0">&#40;</span><span class="re0">$city</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$eng</span> <span class="sy0">=</span> <span class="kw2">self</span><span class="sy0">::</span><span class="me2">getCities</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$hew</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;תל אביב&quot;</span><span class="sy0">,</span><span class="st0">&quot;חדרה&quot;</span><span class="sy0">,</span><span class="st0">&quot;אילת&quot;</span><span class="sy0">,</span><span class="st0">&quot;ירושלים&quot;</span><span class="sy0">,</span><span class="st0">&quot;חיפה&quot;</span><span class="sy0">,</span><span class="st_h">'כפר סבא'</span><span class="sy0">,</span><span class="st_h">'באר שבע'</span><span class="sy0">,</span><span class="st_h">'קרית שמונה'</span><span class="sy0">,</span><span class="st_h">'נצרת'</span><span class="sy0">,</span><span class="st_h">'אריאל'</span><span class="sy0">,</span><span class="st_h">'מצפה רמון'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="re0">$eng</span><span class="sy0">,</span> <span class="re0">$hew</span><span class="sy0">,</span> <span class="re0">$city</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> getCities<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;tel-aviv&quot;</span><span class="sy0">,</span><span class="st0">&quot;hadera&quot;</span><span class="sy0">,</span><span class="st_h">'eilat'</span><span class="sy0">,</span><span class="st_h">'jerusalem'</span><span class="sy0">,</span><span class="st_h">'haifa'</span><span class="sy0">,</span><span class="st0">&quot;kfar-saba&quot;</span><span class="sy0">,</span><span class="st0">&quot;beer-sheva&quot;</span><span class="sy0">,</span><span class="st_h">'kiryat-shmona'</span><span class="sy0">,</span><span class="st_h">'nazareth'</span><span class="sy0">,</span><span class="st_h">'ariel'</span><span class="sy0">,</span><span class="st_h">'mitzpe-ramon'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer75">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>raz1001</a>
+ב
+<span style="font-size:10px"> 27 לנובמבר 2011 </span>
+<a id="answer_75" href="מערכת מזג אוויר-1.htm#answer_75">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+phpguide.co.il/UTF_8_קידוד_וסימני_שאלה.htm </p>
+</div>
+<div class="answer" id="answer76">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>raz1001</a>
+ב
+<span style="font-size:10px"> 27 לנובמבר 2011 </span>
+<a id="answer_76" href="מערכת מזג אוויר-1.htm#answer_76">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+סליחה:<br>http://phpguide.co.il/UTF_8_קידוד_וסימני_שאלה.htm </p>
+</div>
+<div class="answer" id="answer77">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>raz1001</a>
+ב
+<span style="font-size:10px"> 27 לנובמבר 2011 </span>
+<a id="answer_77" href="מערכת מזג אוויר-1.htm#answer_77">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+http://phpguide.co.il/UTF_8_קידוד_וסימני_שאלה.htm </p>
+</div>
+<div class="answer" id="answer78">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>raz1001</a>
+ב
+<span style="font-size:10px"> 27 לנובמבר 2011 </span>
+<a id="answer_78" href="מערכת מזג אוויר-1.htm#answer_78">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה זסה לא עובד....<br><a href="..\UTF_8_קידוד_וסימני_שאלה.htm"></a> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="איך אתה הורג את הקוד שלך עם פקודות שכדאי להימנע מהם">
+<meta name="keywords" content="die exit">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>die must die</title>
+<meta itemprop="name" content="die must die">
+<meta itemprop="description" content="איך אתה הורג את הקוד שלך עם פקודות שכדאי להימנע מהם">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"336","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>die must die</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-09-12T02:07:40+03:00" dir="rtl">12 לספטמבר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://i.picresize.com/images/2013/09/11/QPMks.png" alt="die must die">
+</div>
+<div class="right post-content">
+בשנים האחרונות היה לי מקרה אחד בלבד שבו הייתי צריך לכתוב את הפקודות die ו exit:<br>בראיון עבודה ביקשו ממני לכתוב שני דרכים לעצור את הביצוע של הסקריפט.<br><br>אבל אם כתבת את הפקודות האלה בתוך הקוד שלך - כנראה שאתה יורה לעצמך ברגל. <br>והנא למה: <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>הפקודה die עוצרת גם קוד שהוא לא שלך</h2><br><h4>א. זה לא מה שמתכנת מצפה</h4><br>נניח שכתבת מחלקה ומישהו אחר משתמש בה. לא משנה עם זה אופן סורס, מישהו מצא אותה באינטרנט או חבר מהצוות שלך בעבודה. הוא בטוח לא מצפה שאיזה שגיאה או פרמטר לא נכון יגרמו לקוד להפסיק לעבוד על המקום.<br>מה שהוא מצפה לו במקרה הרע זה אקספשן. אקספשן זה הדרך האוניברסלית של מתכנת להגיד למתכנת אחר - אתה עושה משהו לא נכון עם הקוד שלי או משהו הולך לא לפי התוכנית. דוגמאות יש במדריך שבו <a href="http://www.internet-israel.com/internet/%D7%A4%D7%99%D7%AA%D7%95%D7%97-%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98/%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%90%D7%AA%D7%A8%D7%99-%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98-%D7%9C%D7%9E%D7%A4%D7%AA%D7%97%D7%99%D7%9D/%D7%9C%D7%94%D7%A9%D7%AA%D7%9E%D7%A9-%D7%91-try-catch/">רן בר זיק מסביר איך להשתמש ב try catch</a><br><br><h4>ב. die משאיר קצוות פתוחים</h4><br>תאר לעצמך שפתחת קובץ לקריאה, התחלת להאזין לנתונים מסוקט והתחברת לשרת חיצוני אחר, כדי להעביר לו נתונים כלשהם (כמו שרת מייל). על הדרך פתחת חיבור למסד נתונים ואתה גם באמצע טרנזקציה. ואז פתאום הסקריפט מופסק. אתה יכול לנחש מה קורה עם כל אותם משאבים פתוחים. <br><br>בטח ראית את ההודעה של מערכת ההפעלה שאי-אפשר למחוק קובץ כי מישהו אחר משתמש בו? זה מקרה לדוגמה.<br>ואתה צודק שדברים מסוימים יסגרו לבד אחרי שהסקריפט ימות. אבל לא כולם. מתכנתים שוברים ימים את הראש על איך לגרום לקוד להיות עמיד בפני הפסקת חשמל ולגרום לאחת כזאת בעצמך זה בהחלט רעיון רע.<br><br><h2>שגיאות לא צריכות להגיע ללקוח</h2><br>התוצאות יכולות להיות שונות. עמוד שמרונדר עד החצי,<br>הודעת שגיאה טכנית או מידע שלא אמור להופיע בשום מקום כמו נתוני התחברות למסד או api keys שונים.<br><br>ושוב לעזרתנו מגיעים אקספשנים שמאפשרים לך לתפוס את השגיאה ולהמשיך בתהליך אלנטרנטיבי,<br>שליחת הודעה למפתחים, הצגת הודעה מתאימה למשתמש או תיקון לפרמטרים של מטודה מסוימת.<br><br>ולסיכום: die זה קיצור דרך לסקריפט של 5 שורות במחשב הלוקאלי שלכם, אבל מעבר לזה - <br><strong><span style="color:darkblue;">die must die</span></strong><br><br><br><span style="color:green;">ואגב, בראיון עצמו כתבתי שבע דרכים לעצור את הביצוע של הסקריפט. תהנה</span><br><br>עוד מדריך שאולי יעניין אותך: <a href="טיפול_בשגיאות.htm">טיפול נכון בשגיאות שונות</a>. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2565"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:21</span><br>
+אבל..<br>
+ב-WP לצורך העניין, אם אתה מטפל בקריאות של AJAX, אתה חייב בסוף הפונקציה לבצע die(), כי אז ה-WP עצמו יחזיר לך &quot;-1&quot;, בשביל לספר לך שלא היה שום מחלקה שכן נגעה בזה.<br>
+<br>
+אז כן יש מצבים שזה נרשם.. :)</div>
+<a id="comment2566"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:27</span><br>
+תודה על ההערה.<br>
+למרות שלא ברור לי למה וורדפרס חושבים שזה בסדר לכתוב 1- בסוף כל בקשה</div>
+<a id="comment2567"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:28</span><br>
+לא נכון, <br>
+הכללות תמיד לא נכונות ;)<br>
+אבל באמת עכשיו, יש הרבה מקרים שזה שימושי, לדוגמה כאשר אתה מפתח פריימוורק MVC והמתכנת עוד לא הגדיר Error Page והמערכת ראוטינג קיבלה בקשה לא חוקית.</div>
+<a id="comment2568"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:31</span><br>
+וכשהמתכנת יגדיר עמוד כזה אתה תשלח לו גרסה חדשה של הפריימוורק שלך בלי die ?<br>
+פריימוורק זה המקום הכי אחרון הי פעם שבו צריך להיות die. <br>
+ולגבי הפריימורק שלך - תתפוס את השגיאה לבד ותציג עמוד שגיאה ברירת מחדל.</div>
+<a id="comment2569"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:34</span><br>
+P.S. לפי דעתי, פריימורק זה המקום שבו אני מצפה בתור מתכת לקבל את השגיאה הכי מפורטת שאפשר שמסבירה מה לא הגדרתי, למה לא הגדרתי ואיך להגדיר את זה. ובטח שלא עמוד ריק לבן או הודעה &quot;סליחה, לא עובד, תבין לבד&quot;. זה, בין היתר, קריטריון משמעוטי לבחירת פריימוורק.</div>
+<a id="comment2570"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:34</span><br>
+die לעמוד שגיאה ברירת מחדל, מה הבעיה בזה?<br>
+כשיש שגיאות פנימיות במשהו שלמתכנת אין יכולת לתפוס אותו אין שום הסבר למה לא להשתמש בdie - להפך, חייבים להשתמש בdie. לעיתים אין מה לעשות אם הדברים פגומים לחלוטין. לא אמרתי שצריך להשתמש רק בdie.</div>
+<a id="comment2571"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:35</span><br>
+דרך אגב, אני בקושי נוגע כבר בPHP. רק C#.</div>
+<a id="comment2572"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:38</span><br>
+למה לשים die בעמוד שגיאה? הוא מוצג וזהו, סוף הסיפור.<br>
+<br>
+לא ממש ברור לי למה אתה קורא שגיאות פנימיות שלמתכנת אין אפשרות לתפוס.<br>
+להציג עמוד שגיאה מבחינתי - זה לתפוס את השגיאה, להחליט שאי אפשר לטפל בה ואז לרנדר עמוד 500. <br>
+ושגיאות שאי אפשר לתפוס ב PHP אני לא מכיר.<br>
+<br>
+למען האמת מכיר, אבל יש מעט כאלה, וגם אותם תופסים. אומנם לא הקוד שלך, אלה השרת ווב שלך, או cgi manager או מישהו אחר רמה מעל.<br>
+<br>
+</div>
+<a id="comment2573"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 09:45</span><br>
+הצגת עמוד שגיאה ואז לצאת מהתוכנית, אלה מה? ואיך יוצאים מהתוכנית?</div>
+<a id="comment2574"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 11:40</span><br>
+לא יוצאים מתוכנית...<br>
+תלוי גם מה אתה מתכנן לכתוב.. וזה גם תלוי ברמת הקלאס שלך..</div>
+<a id="comment2575"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 12:03</span><br>
+כן יוצאים. <br>
+דרך אגב במקרה של פריימוורק המתכנת כן מצה שהפריימוורק ישלח בשבילו דף שגיאה ומצפה שיעבור אליו קלט שעבר את הולידציות הבסיסיות של הפריימוורק. זה העניין בפרימוורק</div>
+<a id="comment2576"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2013 21:05</span><br>
+אני די בטוח שבתכניות C# שלך אתה לא יוצא מהתוכנית.<br>
+בין היתר כי שם מעצבי השפה חשבו באותה צורה - אין שום סיבה לזה.<br>
+אם יש לך סיבה לצאת מהתוכנית זה אומר שיש לך מקום לשים בו if / else / throw במקום.</div>
+<a id="comment2579"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/09/2013 08:52</span><br>
+בתוכנית C# שלי אני אוהב עם פריימוורק ASP NET שיוצא מהתוכנה בשבילי, לכן אני לא צריך.</div>
+<a id="comment2580"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/09/2013 11:51</span><br>
+הוא לא יוצא !באמצע! התוכנה אף פעם. הוא מגיע לסיום באחד מנטיבי הקוד האפשריים.<br>
+וגם אתה בתור מתכנת תמיד רוצה להביא את התוכנה לנתיב סיום סביר</div>
+<a id="comment2581"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/09/2013 11:55</span><br>
+:|<br>
+אם יש שגיאה בשאילתה, 404 לשם דוגמה, אז אתה כן צריך לבצע מתודת יציאה סגירה וכו&apos; (dispose בשפות נורמליות) ולסיים את ריצת התוכנית!</div>
+<a id="comment2583"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/09/2013 22:19</span><br>
+אתה אומר את זה כאילו למעלה כתוב שתכניות אף פעם לא צריכות להסתיים ותמיד רצות עד אין סוף.<br>
+אם זה לא ברור מהכתבה - תכנית ב PHP צריכה להסתיים. אבל לא על ידי die אלה על ידי flow מסוים.<br>
+בקוד דוט נט שלך במקרה של שגיאה אתה לא קוטע את התכנית, אתה עובר ל flow אלטרנטיבי של הצגת עמוד שגיאה, קריאה ל dispose, וכו&apos;. תעשה אותו דבר ב PHP.<br>
+ודווקא במקרה של asp.net התכנית בכלל לא מסתיימת אחרי שנגמרת הבקשה ואתה רואה דף 404. שם היא ממשיכה לעבוד עוד הרבה, פשוט רץ קוד שלא אתה כתבת.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

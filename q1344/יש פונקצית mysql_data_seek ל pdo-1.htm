@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה יש פונקצית mysql_data_seek ל- pdo?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="dennis">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>יש פונקצית mysql_data_seek ל- pdo? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="יש פונקצית mysql_data_seek ל- pdo? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה יש פונקצית mysql_data_seek ל- pdo?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="יש פונקצית mysql_data_seek ל pdo-1.htm" title="חיפשתי בגוגל ומצאתי שזאת האפשרות המקבילה ב- PDO:$result = $q-&amp;gt;fetch&amp;#40;PDO::FETCH_ORI_ABS,PDO::FETCH_ORI_ABS,0&amp;#41;">יש פונקצית mysql_data_seek ל- pdo?</a></h2>
+<div class="userinfo">
+פתח
+<a>dennis</a>
+,
+<time class="timeago relativetime" datetime="2013-03-31T19:07:16+03:00" style="display:inline-block;">
+31 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1344'>
+חיפשתי בגוגל ומצאתי שזאת האפשרות המקבילה ב- PDO:<br><div class="php codeblock"><span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">fetch</span><span class="br0">&#40;</span>PDO<span class="sy0">::</span><span class="me2">FETCH_ORI_ABS</span><span class="sy0">,</span>PDO<span class="sy0">::</span><span class="me2">FETCH_ORI_ABS</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הבעיה היא שיש גם הטוענים שיש עם זה מלא בעיות ושאנשים פשוט מתוסכלים ולא מצליחים.. ועדיף לוותר..<br>נחשו מה.. גם לי זה לא כל כך עובד.. רציתי לשאול אם מישהו פעם ניסה ויודע איך עובדים עם זה נכון ולמה זה לא עובד לי?<br><br>הקוד שכתבתי..<br> <div class="php codeblock"><span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">&quot;SELECT name,age FROM users&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$q</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">setFetchMode</span><span class="br0">&#40;</span>PDO<span class="sy0">::</span><span class="me2">FETCH_ASSOC</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//get all the result's rows into array</span><br>
+<span class="re0">$arrayData</span> <span class="sy0">=</span> <span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">fetchAll</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$arrayData</span> <span class="kw1">as</span> <span class="re0">$row</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="sy0">.</span><span class="st0">&quot; &quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'age'</span><span class="br0">&#93;</span> <span class="sy0">.</span><span class="st0">&quot;&lt;br&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">fetch</span><span class="br0">&#40;</span>PDO<span class="sy0">::</span><span class="me2">FETCH_OBJ</span><span class="sy0">,</span>PDO<span class="sy0">::</span><span class="me2">FETCH_ORI_ABS</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>הווארדאמפ מחזיר false.. רעיונות? </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5909">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5909" href="יש פונקצית mysql_data_seek ל pdo-1.htm#answer_5909">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה אתה מנסה לעשות?<br>שוב פעם לעבור על כל השורות שהוחזרו לך למרות שכבר יש לך מערך שלם עם הנתונים?<br><br>בכל אופן, כדי שזה יעבוד, אתה צריך שהקורסור שלך יהיה בכלל נגיש לאיטרציה ואחזרה לאפס. כדי שזה יקרה, אתה ב prepare צריך להגיד לPDO שאנחנו רוצים scrollable cursor<br><div class="php codeblock"><span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span>PDO<span class="sy0">::</span><span class="me2">ATTR_CURSOR</span> <span class="sy0">=&gt;</span> PDO<span class="sy0">::</span><span class="me2">CURSOR_SCROLL</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>בגלל שבברית מחדל הקורסור הוא PDO::CURSOR_FWDONLY </p>
+</div>
+<div class="answer" id="answer5913">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d80e588e908c5dd3679bdf8d295315cd?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dennis</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5913" href="יש פונקצית mysql_data_seek ל pdo-1.htm#answer_5913">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, זה בדיוק מה שרציתי לעשות (הייתי צריך להזכיר את זה בשאלה).<br>זאת נראת לי בהחלט כמו תשובה נכונה, ראיתי עכשיו עוד כמה דוגמאות דומות במרחבי הרשת, אל אף שכרגע ספציפית זה לא עובד. (ראיתי שהיה באג עם ה cursor שתוקן בכמה גרסאות) אני כבר אסתדר מכאן.<br><br>המון תודה, וחג שמח :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

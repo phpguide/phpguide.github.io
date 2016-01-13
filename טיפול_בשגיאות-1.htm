@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מדריך לטיפול בשגיאות באתר בלי נזק ואיבוד משתמשים">
+<meta name="keywords" content="שגיאות, טיפול, תפיסת שגיאות, הודעות, error">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>טיפול בשגיאות</title>
+<meta itemprop="name" content="טיפול בשגיאות">
+<meta itemprop="description" content="מדריך לטיפול בשגיאות באתר בלי נזק ואיבוד משתמשים">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"97","rating":"29","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>טיפול בשגיאות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-06-02T19:29:16+03:00" dir="rtl">02 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/alert.png" alt="טיפול בשגיאות">
+</div>
+<div class="right post-content">
+קרה לך שבדקת את הקוד והוא עבד. העלית אותו לשרת, אבל אחרי חודש גילית שגולשים מסוימים מקבלים שגיאה? היום נראה ונדבר על תפיסה וטיפול בשגיאות, איך ליידע עליהם את המפתח ולדאוג לגולש. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>למה צריך לתפוס שגיאות</h3><br>שני סיבות עיקריות עשויות לגרום לך לקרוא את כל הטקסט הזה:<br>[1] העובדה ששגיאות צריך לתקן וכדי לתקן צריך לדעת שהיו שגיאות, איזה שגיאות ואיפה<br>[2] וההסכמה שאתר עם 30 שגיאות בעמוד הראשי נראה לא ממש מגניב <br><br><br><br><br><br><h3>איך לתפוס שגיאות</h3><br>אנחנו כותבים פונקציה כלשהי (myfunction1 למשל) ואומרים למנוע ה-php שיפעיל אותה כל פעם שקוראת שגיאה. כדי להגיד למנוע ה-php לאיזה פונקציה לקרוא נשתמש בפונקציה מיוחדת <a href="http://php.net/set_error_handler">set_error_handler</a>.<br><br><div class="php codeblock"><span class="kw2">function</span> myfunction1<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'oops, error &lt;br/&gt;'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">set_error_handler</span><span class="br0">&#40;</span><span class="st_h">'myfunction1'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="nu0">5</span> <span class="sy0">/</span> <span class="nu0">0</span><span class="sy0">;</span> <span class="co1">// Warning: Division by zero </span><br>
+<span class="kw1">echo</span> &nbsp;<span class="re0">$hi</span><span class="sy0">;</span> <span class="co1">// Notice: Undefined variable: hi</span><br>
+<br>
+<span class="coMULTI">/* <br>
+oops, error &lt;br/&gt;<br>
+oops, error &lt;br/&gt;<br>
+*/</span></div><br><br><br><br><br><br><h3>מידע על השגיאה</h3><br>הודעת שגיאה ב-PHP מורכבת מארבעה חלקים<br><span style="color:blue;">Notice</span>: <span style="color:green;">Undefined variable hi</span> in /<span style="color:darkred;">script.php</span> on <span style="color:indigo;">line 8</span><br><br><span dir="ltr">[1]</span> סוג השגיאה. יש כמה סוגי שגיאות <span dir="ltr">(notice, warning, error, ..)</span><br><span dir="ltr">[2]</span> טקסט השגיאה - עצם הבעיה<br>[3] הקובץ שבו קרתה השגיאה<br>[4] השורה שבה קרתה השגיאה<br><br>את ארבעת אלה php בשמחה מעבירה כפרמטרים לפונקציה שלנו באופן הבא:<br><div class="php codeblock"><span class="kw2">function</span> myfunction1<span class="br0">&#40;</span><span class="re0">$errtype</span><span class="sy0">,</span> <span class="re0">$message</span><span class="sy0">,</span> <span class="re0">$file</span><span class="sy0">,</span> <span class="re0">$line</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'Oops an error '</span> <span class="sy0">,</span> <span class="re0">$message</span> <span class="sy0">,</span> <span class="st_h">' happened in file '</span><span class="sy0">,</span><br>
+&nbsp; &nbsp;<span class="re0">$file</span><span class="sy0">,</span> <span class="st_h">' on line '</span> <span class="sy0">,</span> <span class="re0">$line</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">set_error_handler</span><span class="br0">&#40;</span><span class="st_h">'myfunction1'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$hi</span><span class="sy0">;</span><br>
+<span class="co1">// Oops an error Undefined variable hi happened in script.php on line 8</span></div><br><br><br><br><br><br><br><br><h3>מה לעשות עם שגיאות?</h3><br><h4>לא להציג אותה למשתמש</h4><br>טקסט השגיאה מכיל מידע פנימי על מבנה המערכת, הקבצים, התיקיות והשמות של הסקריפטים.<br>לספר מידע כזה לכל עובר דרך הוא לא רעיון טוב. עדיף להראות עמוד שגיאה מיוחד שפשוט יספר למשתמש שקרתה &quot;תקלה במערכת. עמך הסליחה&quot;. <br><br>אפשר לבצעה העברה של המשתמש לעמוד השגיאה עם הפקודה header באופן הבא:<br><div class="php codeblock"><span class="kw2">function</span> myfunction1<span class="br0">&#40;</span><span class="re0">$errtype</span><span class="sy0">,</span> <span class="re0">$message</span><span class="sy0">,</span> <span class="re0">$file</span><span class="sy0">,</span> <span class="re0">$line</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Location: oops.html&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">set_error_handler</span><span class="br0">&#40;</span><span class="st_h">'myfunction1'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$hi</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'this will never happen'</span><span class="sy0">;</span></div><br><br><h4>לדווח למפתח</h4><br>דיווח על כל שגיאה יישלח אליך למייל משם תוכל לעקוב אחריו ולטפל בו בהתאם:<br>תוכל להתאים את טקסט השגיאה למה שיראה לך נוח וקריא:<br><div class="php codeblock"><span class="kw2">function</span> myfunction1<span class="br0">&#40;</span><span class="re0">$errtype</span><span class="sy0">,</span> <span class="re0">$message</span><span class="sy0">,</span> <span class="re0">$file</span><span class="sy0">,</span> <span class="re0">$line</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="re0">$text</span> <span class="sy0">=</span> <span class="st_h">'An error '</span><span class="sy0">.</span><span class="re0">$message</span><span class="sy0">,</span> <span class="st_h">' in file '</span><span class="sy0">.</span><span class="re0">$file</span><span class="sy0">.</span><span class="st_h">' on line '</span><span class="sy0">.</span><span class="re0">$line</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw3">mail</span><span class="br0">&#40;</span><span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="117c68517c70787d3f727e7c">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'website error'</span><span class="sy0">,</span> <span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Location: oops.html&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">set_error_handler</span><span class="br0">&#40;</span><span class="st_h">'myfunction1'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$hi</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'this will never happen'</span><span class="sy0">;</span></div><br><br><br><br><br><br><h3>יש דיווח, אבל אין שגיאה?</h3><br>שגיאות מסוימות קוראות רק במצבים מסוימים ורק למשתמשים מסוימים. למה זה קורה?<br><br>יכול להיות שהם שלחו טופס עם נתונים ששברו את ההכנסה למסד, ערך כלשהו אצלם לא קיים בקוקי, נמחק משתנה כלשהו מהסשן בגלל באג בסקריפט אחר לגמרי או 1001 סיבות אחרות.<br><br>דיווח כמו בדוגמה למעלה לא יאפשר לך לאתר ולתקן את הבעיה בקלות.<br>הוספת נתונים על העמוד שבו נמצא, ערכי הפרמטרים של get ו post , נתוני הקוקי והסשן <br>יכולים לעזור בשחזור הבעיה וגילוי שגיאות שקוראות רק במקרים קיצוניים.<br><br><div class="php codeblock"><span class="kw2">function</span> myfunction1<span class="br0">&#40;</span><span class="re0">$errtype</span><span class="sy0">,</span> <span class="re0">$message</span><span class="sy0">,</span> <span class="re0">$file</span><span class="sy0">,</span> <span class="re0">$line</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="re0">$text</span> <span class="sy0">=</span> <span class="st0">&quot;An error <span class="es4">$message</span> in file <span class="es4">$file</span> on line <span class="es4">$line</span> <span class="es1">\r</span><span class="es1">\n</span><br>
+&nbsp; &nbsp; &nbsp; happened while visiting &quot;</span><span class="sy0">.</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'QUERY_STRING'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;Session data is: &quot;</span><span class="sy0">.</span> <span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$_SESSION</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\r</span><span class="es1">\n</span>&quot;</span> <span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;Post data is: &quot;</span><span class="sy0">.</span> <span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp;<span class="kw3">mail</span><span class="br0">&#40;</span><span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="f5988cb598949c99db969a98">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'website error'</span><span class="sy0">,</span> <span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Location: oops.html&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">set_error_handler</span><span class="br0">&#40;</span><span class="st_h">'myfunction1'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$hi</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'this will never happen'</span><span class="sy0">;</span></div><br><br><br><br><br><h3>כמה הערות כלליות</h3><br><strong><span style="color:red;">@</span> - לא מבטל שגיאות</strong><br>גם אם הסימן הזה נמצא במקום כלשהו וקרתה בו שגיאה - הפונקציה myfunction1 תופעל<br><br><span style="color:gray;">אגב, סימן @ מעיד על קוד גרוע. גם איתו php בכל זאת מפעילה את מנגנון השגיאה, הפונקציות הפנימיות שלה ומבזבזת על זה המון משאבים. ההבדל היחידי הוא, שלא מודפסת שורת ההודעה לדפדפן.<br><br>על תתעצל, תבדוק האם המשתנה קיים עם isset לפני שאתה משתמש בו. חסכת בבדיקה קטנה, הפסדת הרבה משאבים על טיפול פנימי של php בשגיאה.</span><br><br><br><br><strong><span dir="ltr">error_reporting(<span style="color:red;">0</span>);</span> באתר שלך</strong><br>הודעות על שגיאות שמגיעות לידיים הלא נכונות עשויות להיות כלי חזק נגד ההבטחה של האתר. אל תתן ל-php להדפיס הודעות על שגיאות ללקוח. <br><br>שים לב שבזמן הפיתוח אתה דווקא חייב להשתמש ב<span dir="ltr"> error_reporting(E_ALL);</span> כדי לדעת על כל שגיאה אפשרית. את כל השגיאות בקוד צריך לגלות במהלך הפיתוח והבדיקה, ולא אחרי.<br>שים שורה זו כשורה ראשונה בקוד. אפילו לפני session_start();<br><br><br><strong>אל תשכח לבדוק את המייל. דיווחים עשויים להגיע :-)</strong><br><span style="color:green;">ספר בתגובות איך אתה התמודדת או הולך להתמודד עם טיפול בשגיאות?</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment163"></a>
+<div class="blog-comment">
+<span class='comment-author'>eshk</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/06/2011 01:06</span><br>
+וואו, נחמד מאוד:)<br>
+מונע FPD בצורה מושלמת!</div>
+<a id="comment164"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/06/2011 01:26</span><br>
+תודה :)<br>
+מה זה fpd?</div>
+<a id="comment165"></a>
+<div class="blog-comment">
+<span class='comment-author'>eshk</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/06/2011 12:24</span><br>
+Full Path Dislosure - <br>
+בעיית אבטחה\תכנות..<br>
+הסקת מידע כל שהוא משגיאות שניתנות ע&quot;י הרצה לא נכונה או מדרכים כלשהם להוציא שגיאה..<br>
+פה יש הסבר הרבה יותר ברור:<br>
+<span dir="ltr"><a href="http://hakipedia.com/index.php/Full_Path_Disclosure">http://hakipedia.com/index.php/Full_Path_Disclosure</a></span></div>
+<a id="comment166"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/06/2011 12:25</span><br>
+תודה. לא הכרתי את הקיצור הזה עד עכשיו.</div>
+<a id="comment167"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/06/2011 18:45</span><br>
+ניסיתי אבל זה לא פול אל כל השגיאותת...</div>
+<a id="comment168"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/06/2011 18:49</span><br>
+יש שגיאות קריטיות למפענח, כמו שגיאת סינטקס. הסקריפט<br>
+&lt;?php ;+*/^&amp;*; ?&gt;<br>
+לא יפעל בכלל. מנוע ה-php לא הצליח לפענח את הקובץ<br>
+PARSE_ERROR<br>
+ובטח שלא הצליח ליצור את הפונקציה או להפעיל פקודה כלשהי.<br>
+שגיאות שלא נותנות למנוע ה-php להיטען - אי אפשר לתפוס.<br>
+<br>
+שגיאות כאלה גם אין כל טעם לנסות לתפוס, אתה תראה אותם במהלך הפיתוח.<br>
+אם אתה מדבר על שגיאה מסוג אחר - תכתוב איזה שגיאה ועם איזה קוד אתה מקבל אותה.</div>
+<a id="comment1073"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 17:03</span><br>
+כרגיל, מדריך מעולה, תודה. :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

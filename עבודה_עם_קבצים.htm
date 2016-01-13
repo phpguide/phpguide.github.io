@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="עבודה עם קבצים ב-PHP, קריאה וכתיבה">
+<meta name="keywords" content="קובץ, קריאה, כתיבה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>עבודה עם קבצים</title>
+<meta itemprop="name" content="עבודה עם קבצים">
+<meta itemprop="description" content="עבודה עם קבצים ב-PHP, קריאה וכתיבה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"53","rating":"32","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>עבודה עם קבצים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-01T19:00:10+02:00" dir="rtl">01 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/notepad.jpg" alt="עבודה עם קבצים">
+</div>
+<div class="right post-content">
+עשרות פונקציות לעבודה עם קבצים מובנות בתוך php.<br>כל מתכנת מתחיל מלשמור נתונים בקבצים. גם אנחנו נלך באותם עקבות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+עבודה עם קבצים היא שלב חשוב מאוד בלימוד יסודות ה-PHP. קבצים הם מקום שמירת נתונים בסיסי, נגיש והראשון שעולה בראש כשמדובר על לשמור נתונים לזמן ארוך. במדריך זה נלמד איך לקרוא ולכתוב מקובץ, לשמור בנתונים, נראה איך פועלות פונקציות עבודה עם קבצים ונבין מה קורה מאחורה.<br><br><br><h2>קצת על משאבים</h2><br>מכונית הפורשה האדומה של איציק בחריקה מחרישת אוזניים עצרה באחת מחמשת חניות המוסך. על ריצפת החניה, מתחת לפורשה, התנוססה לה הספרה ארבע.<br><br>איציק בקפיצת דאבל בורג מגניבה (כמו שכל המגניבים יודעים לעשות) יצא מהמכונית וזרק לעבר עובד המוסך: &quot;תבדוק לי שמן ונוזל בלמים, חניתי בחניה ארבע&quot;.<br>&quot;בסדר&quot; - הספיק רק לענות עובד המוסך.<br><br>מה קיבל המוסכניק? מכונית? לא.<br>הוא קיבל את מספר החניה שבא הרכב נמצא. משאב.<br><br>כאשר אנחנו עובדים עם קבצים בפועל אנחנו עובדים עם משאבים שאומרים ל-php איפה נמצא הקובץ בזיכרון. אנחנו קוראים ממשאב, כותבים אל משאב והמפענח דואג לעשות את כל העבודה השחורה מאחורה בעצמו.<br> <br><h2>פתיחת קובץ</h2><br>כשאנחנו עובדים עם קבצים, יש להעלות את הקובץ מהדיסק הקשיח אל הזיכרון.<br>פתיחת קובץ מתבצעת באמצעות הפונקציה fopen שמחזירה משאב – מקום הקובץ בזיכרון.<br>הפקודה הבאה בעברית נשמעת כך — פותחים את קובץ filename.txt לכתיבה.<br> <div class="php codeblock"><span class="re0">$rHandle</span> <span class="sy0">=</span> <span class="kw3">fopen</span><span class="br0">&#40;</span><span class="st0">&quot;filename.txt&quot;</span><span class="sy0">,</span> <span class="st0">&quot;w+&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>הפרמטר השני של הפונקציה הוא אופן הפתיחה.<br>פתיחה לכתיבה, לקריאה, לכתיבה וקריאה, להוספת תכנים בסוף הקובץ וכו&apos;.<br><br>יש <a href="http://php.net/fopen">טבלה של מצבי פתיחה</a>.<br> לא צריך להעתיק אותה לפה, אתם יכולים ללחוץ על <a href="http://php.net/fopen">הקישור</a> לבד. נכון? <br>הכוונה הייתה שתעצרו ותלחצו על ה<a href="http://php.net/fopen">קישור לטבלת מצבי פתיחה</a>.<br><br>עכשיו מבחן קל. מהי <span dir="ltr">w+</span> <br><br><span dir="ltr"><strong>w+</strong></span> = הקובץ נפתח לקריאה וכתיבה.<br>הסמן מוצב בתחילת הקובץ (כן הסמן הרגיל שאתם רואים מהבהב בזמן כתיבה).<br>כל תחולת הקובץ נמחקת לחלוטין. אם הקובץ לא קיים – הוא ייוצר.<br><br><h2>פתיחת קובץ בנתיב אחר</h2><br>יש מונח כזה &quot;תיקיית עבודה פעילה&quot; — התיקיה שבה נמצה הסקריפט ויחסית אליה תתבצע כל העבודה שלו. כשפותחים קובץ כלשהו, php יחפש אותו בתיקיה הפעילה הנוכחית. כלומר, התיקיה שבה נמצא הסקריפט. <br><br>לדוגמה עם הסקריפט שלנו הוא C:/www/localhost/script.php<br>אזי תיקיה העבודה הנוכחית היא C:/www/localhost<br><br>אם נכתוב <span dir="ltr">fopen(&apos;file.txt&apos;,&apos;r&apos;);</span> — הסקריפט יחפש את הקובץ הזה בתוך התיקיה הנוכחית. <br>כדי לפתוח קובץ בתיקיה אחרת נכתוב גם את הנתיב שלו.<br><br>אבל קיימים שני סוגי נתיבים.<br>נתיב <strong>יחסי</strong> — מיקום הקובץ ביחס לתיקיה הנוכחית: test.txt<br>נתיב <strong>אבסולוטי</strong> — מיקום הקובץ משורש הדיסק: <span dir="ltr">C:/www/localhost/test.txt</span><br>אם בתוך התיקיה הזו יש לנו את התיקיה test והקובץ נמצא בה, אזי הקוד שלנו יראה ככה:<br><div class="php codeblock"><span class="re0">$rHandle</span> <span class="sy0">=</span> <span class="kw3">fopen</span><span class="br0">&#40;</span><span class="st0">&quot;./test/test.txt&quot;</span><span class="sy0">,</span> <span class="st0">&quot;w+&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// יחסית לתיקיה הזו</span><br>
+<span class="re0">$rHandle</span> <span class="sy0">=</span> <span class="kw3">fopen</span><span class="br0">&#40;</span><span class="st0">&quot;C:/www/localhost/test/test.txt&quot;</span><span class="sy0">,</span> <span class="st0">&quot;w+&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<span class="co1">// נתיב אבסולוטי</span></div><br>במערכת הקבצים סימן הנקודה מסמן את &quot;<span class="underline">התיקיה הנוכחית</span>&quot;.<br>כלומר במקרה הראשון הפניה היא אל הקובץ שנמצא בתיקיה test שנמצאת בתוך התיקיה הנוכחית.<br><br>עוד סימן חשוב במערכת הקבצים הוא שני נקודות המסמלות <span class="underline">תיקיה אחת מעלה</span>. <br><div class="php codeblock"><span class="re0">$rHandle</span> <span class="sy0">=</span> <span class="kw3">fopen</span><span class="br0">&#40;</span><span class="st0">&quot;../test.txt&quot;</span><span class="sy0">,</span><span class="st0">&quot;r&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>זוהי פניה לקובץ שנמצא תיקיה אחת למעלה, כלומר בתוך <span dir="ltr">C:/www/</span><br><br>אם ננסה להדפיס את <span dir="ltr">$rHandle – (echo $rHandle)</span><br>אנחנו נראה הודעה: Resource id #4 ולא את תוכן הקובץ.<br>הסיבה לכך היא שהמשתנה מכיל את מספר החניה של הקובץ בזיכרון<br>ולא את התוכן עצמו.<br><br><h2>קריאה מקובץ</h2><br><br>זוכרים את המוסכניק שקיבל מזהה?<br>הוא עכשיו צריך לבצע פונקציה &quot;בדוק שמן&quot; שכוללת משהו כמו:<br>ללכת לחניה מספר ארבע, לפתוח את מכסה השמן, להציץ בפנים.<br><br>כדי לקרוא משהו מקובץ, אנחנו צריכים פונקציה שתלך לחניה שלו,<br>תציץ לתוכו ותחזיר לנו מה שהיא רואה. הפונקציה הזאת נקראת <a href="http://php.net/fread">fread</a>.<br><a href="http://php.net/fread">בדוקומנטציה</a> היא רשומה ככה:<br><div class="php codeblock">string <span class="kw3">fread</span> <span class="br0">&#40;</span> resource <span class="re0">$handle</span> <span class="sy0">,</span> int <span class="re0">$length</span> <span class="br0">&#41;</span></div><br><br>fread מקבלת שני פרמטרים.<br>הראשון מסוג resource שהוא המזהה של הקובץ שלנו, שנוצר על ידי fopen<br>השני הוא מספר — אורך הטקסט שיש לקרוא מהקובץ. למשל 20 בייטים.<br>היא מחזירה מחרוזת — התוכן שהצליחה לקרוא מהקובץ.<br><br>בואו ננסה ליצור קובץ test.txt בתיקית localhost (כך שיהיה באותה תיקיה עם הסקריפט), נכתוב בקובץ כמה מילים וננסה לקרוא אותם. אתם מוזמנים לנסות לעשות את זה בעצמכם לפני שאתם ממשיכים לקרוא את הקוד. <strong>נסו!</strong><br><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$sFilename</span> <span class="sy0">=</span> <span class="st0">&quot;./test.txt&quot;</span><span class="sy0">;</span> &nbsp;<span class="co1">// משתנה עם מיקום ושם הקובץ בתיקיה הנוכחית.</span><br>
+<span class="re0">$rHandle</span> <span class="sy0">=</span> <span class="kw3">fopen</span><span class="br0">&#40;</span><span class="re0">$sFilename</span><span class="sy0">,</span> <span class="st0">&quot;r&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<span class="co1">// פותחים את הקובץ לקריאה.</span><br>
+<span class="re0">$sContents</span> <span class="sy0">=</span> <span class="kw3">fread</span><span class="br0">&#40;</span><span class="re0">$rHandle</span><span class="sy0">,</span> <span class="kw3">filesize</span><span class="br0">&#40;</span><span class="re0">$sFilename</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<span class="co1">// קוראים את תוכן הקובץ</span><br>
+<span class="kw1">echo</span> <span class="re0">$sContents</span><span class="sy0">;</span><span class="co1">// מדפיסים את מה שהצלחנו לקרוא</span></div><br><br>הפונקציה <a href="http://php.net/filesize">filesize</a> מחזירה את גודל הקובץ בבייטים. אם גודל הקובץ הוא 500 בייט, הפונקציה תחזיר 500. נבקש מ-fread לקרוא 500 בייט ונקבל את תוכן הקובץ במלואו. <br><br><h2>כתיבה לקובץ</h2><br>כדי לכתוב משהו לקובץ, אנחנו צריכים פונקציה שתלך לחניה של הקובץ בזיכרון,<br>ותכתוב לשם מה שאנחנו רוצים. הפונקציה הזאת נקראת <a href="http://php.net/fwrite">fwrite</a>.<br><div class="php codeblock">int <span class="kw3">fwrite</span> <span class="br0">&#40;</span> resource <span class="re0">$handle</span> <span class="sy0">,</span> string <span class="re0">$string</span> <span class="br0">&#91;</span><span class="sy0">,</span> int <span class="re0">$length</span> <span class="br0">&#93;</span> <span class="br0">&#41;</span></div><br><br>fwrite מקבלת שני פרמטרים ועוד אחד אופציונלי שהוא לא חובה.<br>הראשון הוא המשאב שאליו יש לכתוב.<br>השני הוא המחרוזת שיש לכתוב אליו.<br>השלישי מגביל את אורך המחרוזת שתירשם לקובץ.<br><br>הפונקציה מחזירה את מספר הבייטים שנרשמו לקובץ או false אם הפעולה נכשלה.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$sFilename</span> <span class="sy0">=</span> <span class="st0">&quot;./test.txt&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$rHandle</span> <span class="sy0">=</span> <span class="kw3">fopen</span><span class="br0">&#40;</span><span class="re0">$sFilename</span><span class="sy0">,</span> <span class="st_h">'r'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">fwrite</span><span class="br0">&#40;</span><span class="re0">$rHandle</span><span class="sy0">,</span> <span class="st_h">'This is a test'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h4>קיצור קל</h4><br>גם פה התארגנו על שני קיצורים — שני פונקציות מובנות שמקצרות את שני התהליכים המפורטים מעלה. <a href="http://php.net/file_get_contents">file_get_contents</a> שמחזירה את כל תוכן הקובץ<br><a href="http://php.net/file_put_contents">file_put_contents</a> שמרוקנת את הקובץ ולאחר מכן כותבת לתוכו מה שנרצה.<br><div class="php codeblock"><span class="re0">$sContents</span> <span class="sy0">=</span> <span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="st0">&quot;./test.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<span class="kw3">file_put_contents</span><span class="br0">&#40;</span><span class="st0">&quot;./test.txt&quot;</span><span class="sy0">,</span> <span class="st0">&quot;write me!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>מתוך בדיקות יעילות עולה שהשימוש בקיצורים האלה הוא הרבה פעמים עדיף על פני פתיחת קובץ, קריאה וכתיבה למשאב וסגירתו. כשיש צורך לקרוא את כל תוכן הקובץ או למחוק את כל תוכנו ולכתוב משהו במקום - עדיף להשתמש בזוג הפונקציות הזה.<br><br><br><h2>פונקציות נוספות לעבודה עם קבצים</h2><br>יש עוד <a href="http://php.net/manual/en/ref.filesystem.php">פונקציות רבות</a> לעבודה עם קבצים שכל אחת מהן עושה משהו אחר.<br><br><a href="http://php.net/is_file">is_file</a> בודקת האם זהו קובץ ולא תיקיה כלשהי. מחזיר אמת או שקר.<br><div class="php codeblock"><span class="re0">$isItAFile</span> <span class="sy0">=</span> <span class="kw3">is_file</span><span class="br0">&#40;</span><span class="st0">&quot;test.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// isItAFile = true או false</span></div><br><br><a href="http://php.net/copy">Copy</a> מעתיקה קובץ ממקום אחד למקום אחר.<br><div class="php codeblock"><span class="kw3">copy</span><span class="br0">&#40;</span><span class="st0">&quot;C:/www/test1.txt&quot;</span><span class="sy0">,</span> <span class="st0">&quot;./someDirectory/test1copy.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><a href="http://php.net/unlink">unlink</a> מוחקת קובץ קיים מהדיסק.<br><div class="php codeblock"><span class="kw3">unlink</span><span class="br0">&#40;</span><span class="st0">&quot;test1copy.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><a href="http://php.net/file">file</a> מחזירה מערך שכל אלמנט בו הוא שורה אחת מהקובץ<br><div class="php codeblock"><span class="re0">$fArr</span> <span class="sy0">=</span> <span class="kw3">file</span><span class="br0">&#40;</span><span class="st0">&quot;test1.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><a href="http://php.net/is_writable">Is_writable</a> בודקת האם הקובץ ניתן לכתיבה.<br><div class="php codeblock"><span class="re0">$isFileWritable</span> <span class="sy0">=</span> <span class="kw3">is_writable</span><span class="br0">&#40;</span><span class="st0">&quot;test.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><a href="http://php.net/rename">rename</a> משנה את שם הקובץ<br><div class="php codeblock"><span class="kw3">rename</span><span class="br0">&#40;</span><span class="st0">&quot;f1.txt&quot;</span><span class="sy0">,</span> <span class="st0">&quot;2f.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>פונקציות רבות נוספות לעבודה עם קבצים ב-php אפשר <a href="http://php.net/manual/en/ref.filesystem.php">לראות בדוקומנטציה</a>.<br><br><br><h2>תרגיל בניית צא&apos;ט פשוט</h2><br>להלן מטלה לתרגול עבודה עם קבצים.<br>עליכם לבנות צא&apos;ט הבנוי מסקריפט אחד עם מסך אחד בלבד.<br>המסך יציג input קלט לכתיבת הודעה בתחתית העמוד וכפתור &quot;שלח&quot;.<br>בראש העמוד תופיע כותרת קבוע &quot;צא&apos;ט קבצים&quot;.<br>בעמוד עצמו יופיעו 10 ההודעות האחרונות שנכתבו בצא&apos;ט.<br>בלחיצה על כפתור ה&quot;שלח&quot; העמוד יתרענן, ההודעה תתווסף לקובץ וגם תוצג בעמוד עצמו.<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="עבודה עם קבצים" title="http://habreffect.ru/files/70c/160a26e9d/filees.png" class="content-image-float"><br>פרסמו את הפתרון או קבלו עזרה [url=/qna/]בפורום PHP[/url]<br>* בונוס: הגבילו אורך כל הודעה ל-50 תווים. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment961"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/12/2011 15:47</span><br>
+אפשר לעשות את הצא&apos;ט (שבשיעורי בית^^) בעזרת קובץ אחד?<br>
+צריך להשתמש בלולאה?<br>
+*תן רמז,או תסביר תאורטית..<br>
+תודה</div>
+<a id="comment962"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/12/2011 13:26</span><br>
+בסה&quot;כ אתה צריך שני קבצים. אחד זה הסקריפט, אחד זה קובץ עם הודעות המשתמשים.<br>
+הסקריפט יהיה אחראי על לכתוב ולקרוא. לולאה לא תצטרך. כל הפונקציות שתצטרך רשומות בעמוד הזה.</div>
+<a id="comment964"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/12/2011 12:25</span><br>
+איך לעשות(תאורטי) כפתור שימחק את תוכן הקובץ-למחוק את ההתכתבות בצ&apos;ט=לנקות דף?</div>
+<a id="comment965"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/12/2011 12:25</span><br>
+נ</div>
+<a id="comment966"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/12/2011 14:42</span><br>
+אם להישתמש רק בדברים שרשומים בעמוד הזה, אז פשוט למחוק את הקובץ וליצור מחדש.<br>
+אם לעשות נכון, אז לפלות את הדוקמנטציה של הפונקציה fopen. יודע איפה היא נמצאת?</div>
+<a id="comment967"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/12/2011 15:01</span><br>
+אני יודע איך למחוק קובץ.<br>
+אבל אני לא יודע,איך לעשות כפתור(לינק)שבלחיצה עליו ימחק הקובץ<br>
+</div>
+<a id="comment969"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/12/2011 00:21</span><br>
+איך לעשות שיופיעו רק 10 הודעות ולא יותר?</div>
+<a id="comment970"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/12/2011 00:53</span><br>
+צריך לקרוא רק 10 שורות. אם אתה קורא את הקובץ למערך עם file אז זה 10 האלמנטים האחרונים בלולאה. </div>
+<a id="comment971"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/12/2011 17:24</span><br>
+אני לא יודע להשתמש בFILE().<br>
+אני משתמש בלולאת while עם !feof,<br>
+יש איזה רעיון?</div>
+<a id="comment972"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/12/2011 02:16</span><br>
+תנסה ככה:<br>
+$lines = file(__FILE__);<br>
+for ($i = 1; $i &lt;= 10; $i++) {<br>
+echo $lines[$i];<br>
+}</div>
+<a id="comment974"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/12/2011 21:57</span><br>
+כן. תחפש את תו מעבר שורה &quot;
+<br>&quot;. אחרי שתקרא את התו העשירי - תעצור.<br>
+כנראה שיהיה עדיף יותר פשוט ללמוד להשתמש ב FILE</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

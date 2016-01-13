@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="short_open_tags = off יכול לגרום ל unexpected end of file">
+<meta name="keywords" content="parse, error, short">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Parse error: syntax error, unexpected end of file X</title>
+<meta itemprop="name" content="Parse error: syntax error, unexpected end of file X">
+<meta itemprop="description" content="short_open_tags = off יכול לגרום ל unexpected end of file">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"260","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Parse error: syntax error, unexpected end of file X</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-10-15T14:55:07+02:00" dir="rtl">15 לאוקטובר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="" alt="Parse error: syntax error, unexpected end of file X">
+</div>
+<div class="right post-content">
+השגיאה הזאת קוראת כשמשהו בסנינטקס לא נכון. לא סגרנו סוגריים של איזה פונקציה או גרשיים של איזה מחרוזת ו-PHP לא מסוגלת להבין את קוד ה-PHP לפניה. אבל מה אם הקוד תקין לחלוטין? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אם בדקתם את הקוד והכל תקין וגם ה IDE שלכם אומרת שהכל בסדר, אז כנראה הבעיה ב<br><strong><span style="color:brown;">short open tags = Off</span></strong><br><br><h4>בהתחלה לא האמתני ל-IDE</h4><br>אני רואה שגיאה על המסך אבל העורך טקסט אומר שאין שום שגיאות. — איך זה יכול להיות ?!<br>ברור שהעורך מטומטם!<br><br><h4>בדיקת סינטקס עם PHP</h4><br>לא עובד העורך? נמצא דרך אחרת לבדוק סינטקס.<br>מוכנים? תופים: <strong><span dir="ltr"><span style="color:blue;">php -l</span></span></strong><br>שורת פקודה אחת קצרה בודקת קבצי PHP על הימצאות שגיאות סינטקטיות. <br><br><br><img src="static\images\pixel.png" alt="Parse error: syntax error, unexpected end of file X" title="http://s7.postimage.org/96r60a1bf/syntax.png" class="content-image-float"><br><br>עובד פשוט מאוד:<br>פותחים את שורת הפקודה ומקלידים <span dir="ltr">php -l filename.php</span><br>אם נקבל הודעה ש-windows לא יודעת מה זה php, נצטרך לכתוב את הנתיב המלא למפענח ה-php.<br>משהו בסגנון:<br><div class="php codeblock">C<span class="sy0">:</span>\wamp\php\php<span class="sy0">.</span>exe <span class="sy0">-</span>l C<span class="sy0">:</span>\fileToCheck<span class="sy0">.</span>php</div><br><br><br><br><h4>וגם פה אין שגיאות??!</h4><br>גם מפענח ה-PHP שלי לא מצא שגיאות.<br>כל הקבצים עוברים עם No syntax errors detected — מה שאומר שהקוד תקין לחלוטין.<br><br><br><h4>תגי פתיחה קצרים</h4><br>זו הבעיה. <br>כשהתגים הקצרים מכובים והקוד שלכם כולל כמה כאלה - מפענח ה-PHP לא מבין את הקוד.<br>אבל, בגלל של-PHP יש כמה קבצים php.ini מבקביל, אחד למקרה ש php מופעל דרך שרת apache, השני לגרסה שבה הוא מופעל בתור CGI והשלישי לשורת הפקודה — יכול להיווצר מצב, שתגי פתיחה קצרים מאושרים בגירסת שורת הפקודה, אבל לא בגרסאות האחרות.<br><br><br><span style="color:green;">ככה שלרשותך שני אופציות:<br>א. לשנות את התגים ל <span dir="ltr">&lt;?php</span> במקום <span dir="ltr">&lt;?</span><br>ב. לשנות בקונפיג את short_open_tags = On<br>כאשר אני ממליץ על אפשרות א&#039;. אחרי הכל המחשב שלכם לא היחידי שעשוי הי פעם להריץ את הקוד.</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2009"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/10/2012 20:04</span><br>
+תודה רבה :) <br>
+*תופים ... </div>
+<a id="comment2010"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/10/2012 21:20</span><br>
+עוד טיפ על הדרך..<br>
+אם מריצים דרך ה-CLI, ויש לך נגיד לולאה שהתחלת אותה עם &lt;?php ובאמצע עשיתי פעולה עם &lt;?, אז הקוד גם ימות.</div>
+<a id="comment2011"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/10/2012 16:31</span><br>
+תודה יקיר.<br>
+לדעתי תקנו את הבאג הזה ב 5.4.7. הקוד הבא ב cli עובד פרפקט:<br>
+<br>
+&lt;?php<br>
+while($i++ &lt; 1000)<br>
+{<br>
+?&gt;<br>
+x<br>
+&lt;?<br>
+};</div>
+<a id="comment2012"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/10/2012 17:48</span><br>
+זה באג שיצא לי להתקל בו, וטוב שידעו אותו.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

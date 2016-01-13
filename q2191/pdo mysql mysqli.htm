@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה pdo mysql mysqli">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="MYSQL">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>pdo mysql mysqli | שאלת לימוד PHP</title>
+<meta itemprop="name" content="pdo mysql mysqli | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה pdo mysql mysqli">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="pdo mysql mysqli.htm" title="קראתיhttp://php.net/manual/en/mysqli.overview.phphttp://php.net/manual/en/book.pdo.phpאני רוצה לסכם וקצת לשאול , אשמח לעזרה בהרחבהMYSQL זה מסד הנתונים החינמי והנפוץ ביותר ב PHP ולכן רוב מוחלט משתמשים בו.כאשר אני משתמש בשאילתה רגילה(מה שעשיתי עד כה) עשיתי פשוט$selectA = mysql_query(&amp;quot;SELECT text FROM ***** WHERE id=&amp;apos;$id&amp;apos; &amp;quot;); $read = mysql_fetch_array($selectA); $text=$read[&amp;apos;text&amp;apos;];איך זה נקרא? עבודה ישר מול הדרייבר?...">pdo mysql mysqli</a></h2>
+<div class="userinfo">
+פתח
+<a>MYSQL</a>
+,
+<time class="timeago relativetime" datetime="2015-10-04T12:47:45+03:00" style="display:inline-block;">
+04 לאוקטובר 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2191'>
+קראתי<br>http://php.net/manual/en/mysqli.overview.php<br>http://php.net/manual/en/book.pdo.php<br>אני רוצה לסכם וקצת לשאול , אשמח לעזרה בהרחבה<br>MYSQL זה מסד הנתונים החינמי והנפוץ ביותר ב PHP ולכן רוב מוחלט משתמשים בו.<br>כאשר אני משתמש בשאילתה רגילה(מה שעשיתי עד כה) עשיתי פשוט<br>$selectA = mysql_query(&quot;SELECT text FROM ***** WHERE id=&apos;$id&apos; &quot;); $read = mysql_fetch_array($selectA); $text=$read[&apos;text&apos;];<br>איך זה נקרא? עבודה ישר מול הדרייבר?...<br><br><br><br>קראתי שאפשר להשתמש בMYSQLI שזה ספריה שנועדה לעזור לי בכתיבה, והיא כמובן OOP - לא הבנתי כ&quot;כ מה ההיתרונות שלה<br>ואז יש את PDO שזה הספריה היותר מתקדמת שהיא כמובן OOP , והייתרון המרכזי שלה שהיא לא תלויה במסד נתונים ואם אחליף למסד אחר במקום MYSQL זה שינוי פשוט<br>ראיתי שיש חסרון גם בPDO (ואני מצטט)<br>&quot;, its main disadvantage is that it doesn&apos;t allow you to use all of the advanced features that are available in the latest versions of MySQL server. For example, PDO does not allow you to use MySQL&apos;s support for Multiple Statements.&quot;<br>לא הבנתי מה זה Multiple Statements האם זה שליפה עם יותר מתנאי 1 ?(תנאים מרובים?) והאם זה עדין חיסרון? האם זה חיסרון משמעותי כ&quot;כ ?<br><br>כמו כן, האם באמת כדאי לעבור ל PDO מאשר ל MYSQL ?<br><br>אם אסכם את השאלות<br>1- מה הייתרונות להשתמש בשאילתות כמו שכתבתי עד כה(הבאתי דוגמה למעלה) <br>2- מה הייתרונות ב ב MYSQLI<br>3- מה הייתרונות והחסרונות ב PDO ,והאם באמת כ&quot;כ כדאי לעבור אליו<br>4- כמו כן היה משהו שכתוב בלינקים שציינתי לעייל שדיברו על דרייבים שלא הבנתי , ציטוטו<br>&quot;What is the PDO MYSQL driver?<br><br>The PDO MYSQL driver is not an API as such, at least from the PHP programmer&apos;s perspective. In fact the PDO MYSQL driver sits in the layer below PDO itself and provides MySQL-specific functionality. The programmer still calls the PDO API, but PDO uses the PDO MYSQL driver to carry out communication with the MySQL server.<br><br>The PDO MYSQL driver is one of several available PDO drivers. Other PDO drivers available include those for the Firebird and PostgreSQL database servers.<br><br>The PDO MYSQL driver is implemented using the PHP extension framework. Its source code is located in the directory ext/pdo_mysql. It does not expose an API to the PHP programmer.<br><br>For further information on the PDO MYSQL driver, see MySQL (PDO).<br><br>What is PHP&apos;s MySQL Native Driver?<br><br>In order to communicate with the MySQL database server the mysql extension, mysqli and the PDO MYSQL driver each use a low-level library that implements the required protocol. In the past, the only available library was the MySQL Client Library, otherwise known as libmysqlclient.<br><br>However, the interface presented by libmysqlclient was not optimized for communication with PHP applications, as libmysqlclient was originally designed with C applications in mind. For this reason the MySQL Native Driver, mysqlnd, was developed as an alternative to libmysqlclient for PHP applications.<br><br>The mysql extension, the mysqli extension and the PDO MySQL driver can each be individually configured to use either libmysqlclient or mysqlnd. As mysqlnd is designed specifically to be utilised in the PHP system it has numerous memory and speed enhancements over libmysqlclient. You are strongly encouraged to take advantage of these improvements.&quot;<br><br><br>מה בידיוק הם רוצים? MYSQLI עובד יותר עם API ו PDO לא? אשמח לקצת הסבר בנושא שם<br>תודה רבה וחג שמח!!! </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9579">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 04 לאוקטובר 2015 </span>
+<a id="answer_9579" href="pdo mysql mysqli.htm#answer_9579">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני יסמן את השאלות שלך ב +1 משום שאת השאלה הראשונה לא מספרת.<br><br>1.עבודה עם הדריבר הישן של mysql<br>2. אין.<br>4+3 - <a href="..\q1503\pdo vs mysqli.htm">pdo vs mysqli</a><br>5. כתוב שאנשים מתייחסים ל pdo mysql כ api אף על פי שהוא לא.<br><br>הדבר הכי חשוב שכדאי שיצא מהנושא הזה הוא שבשום פנים ואופן לא להשתמש בדריבר הישן [mysql] הוא לא נתמך כבר המון שנים ועם זאת אנשים שרק התחילו ללמוד php עדיין עובדים איתו ,למה ? אלוהים יודע אני מקווה שמתי שיצא php 7 וכבר לא תיהיה תמיכה סופית ב mysql אנשים ילמדו לא להשתמש בו.<br><br><strong>מספר הערות - </strong><br>1.גם PDO וגם MYSQLI שניהם מונחי עצמים,לעומת זאת ל MYSQLI יש אופציה גם לתכנות פרוצדוראלי.<br>2.<a href="http://php.net/manual/en/mysqli.quickstart.multiple-statement.php">Multiple Statements</a> מאפשר לך להריץ מספר שאילתות במקביל,מאחר ולא כל המסדים מאפשרים זאת PDO לא יכול לתמוך בפונקציונאליות הזאת.<br>3.אומנם PDO תומך במספר מסדים אבל אתה צריך להבין שהשאילתות שלך לא בהכרח תומכות במסד שאתה רוצה לעבור אליו.<br>לדוגמא מ mysql ל sql server - בעוד שב mysql שליפה של כמות מסוימת של תוצאות נעשית ע&quot;י LIMIT בסוף שאילתה ב sql server השליפה נעשית ע&quot;י המילה TOP בתחילת השאילתה.<br>על מנת שתוכל באמת לעבור בין מסדים אתה תצטרך ליצור מחלקה[או להשתמש באחת שנמצאת ברשת] שתתרגם פעולות לשאילתות </p>
+</div>
+<div class="answer" id="answer9580">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/44a7bf77a513657ae945f196ee31edc4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>MYSQL</a>
+ב
+<span style="font-size:10px"> 04 לאוקטובר 2015 </span>
+<a id="answer_9580" href="pdo mysql mysqli.htm#answer_9580">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי שצריך לזרוק את הדרך בה אני עובד מייד<br>1. לפי דבריך אני מבין שעדיף MYSQLI , מאשר PDO , אשמח אם תרחיב קצת בנושא כיוון שלא ראיתי בפוסט שציינת נימוקים חותכים, <br>בנוסף, מה הוא &quot;לתכנות פרוצדוראלי&quot; ש MYSQLI תומכת בו ו PDO לא , והאם הוא כ&quot;כ חשוב (הבנתי שזה ההפך מ OOP אבל לא הבנתי איך זה בא לידי ביטוי ולמה זה חשוב שזה מהווה ייתרון ל MYSQLI ), אתה לצורך העניין משתמש רק ב MYSQLI ולא ב PDO ?<br>2. קראתי על Multiple Statements , אך עדיין לא הבנתי לעומק מה מטרתו ולמה הוא כ&quot;כ חיסרון שאין אותו ב PDO ....<br>3. מה ההבדל המהותי בין MYSQLI ו PDO מה צורת החשיבה השונה בניהם?<br><br>חג שמח!!! </p>
+</div>
+<div class="answer" id="answer9582">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 לאוקטובר 2015 </span>
+<a id="answer_9582" href="pdo mysql mysqli.htm#answer_9582">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בסדר הפוך:<br><br>3. אין. הם אותו דבר<br><br>2. התכנות מונחה עצמים או פרוצדורלי כרגע לא רלוונטי, ולמען האמת גם בעתיד זה כנראה לא יהיה רלוונטי. אלו הם שני דרכי פיתוח תוכנה שונות, אך ליכולות של pdo ו-mysqli אין שום קשר או השפעה על הצורה שתבחר לפיתוח התוכנה שלך, ולצורה שתבחר להשתמש בה אין חשיבות לגבי הספריה שתבחר.<br><br>1. mysqli מותאמת ספציפית לעבוד מול תוכנה שנקראת mysql, אילו pdo מותאמת לעבוד מול תוכנות שונות, מה שאומר שמעוגלות באחרון כמה פינות.<br>מבחינתך אין שום סיכוי שתמצא את ההבדל, בייחוד כששימוש בפינות המעוגלות האלה הוא די נדיר, אם לא קיים.<br><br><strong>המלצה שלי היא שתמש ב-pdo</strong><br>ולא מהסיבה שהיכולות שלה עדיפות, אלא מהסיבה היחידה שיותר קל למצוא עזרה בתחום. ישנם יותר מדריכים, יותר אנשים שמתמצאים ושימוש נרחב יותר באוםן כללי. מבחינה טכנית נטו אין לבחירה שתעשה בין השניים כמעט שום השפעה לא על העתיד של התוכנה שלך ולא על העתיד שלך בתור מתכנת. </p>
+</div>
+<div class="answer" id="answer9583">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/44a7bf77a513657ae945f196ee31edc4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>MYSQL</a>
+ב
+<span style="font-size:10px"> 06 לאוקטובר 2015 </span>
+<a id="answer_9583" href="pdo mysql mysqli.htm#answer_9583">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מודה לך מאוד על התשובות המלאות<br>1,בתעשיה,במה משתמשים יותר?<br>נגיד וורדפרס במה משתמשים?דרופל?<br>2,החיסרון היחיד של mysqli זה רק הקטע שלMultiple Statements?<br>זה לא יהיה חסר לי?<br>3, למה אתה טוען שלא משנה אם אשתמש בשניהם,כי איו הבדל בין מונחה עצמין לפרוצדואלי?(אני מביו שהתכוונת כמובן לעבודה מול המסד ולא בתיכנות עצמו) אבל מדוע אין הבדל?<br>תודה שוב </p>
+</div>
+<div class="answer" id="answer9584">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 06 לאוקטובר 2015 </span>
+<a id="answer_9584" href="pdo mysql mysqli.htm#answer_9584">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. pdo, לכן המלצתי עליו (קריא שימוש נרחב יותר)<br>2. זה לא החסרון של mysqli, זה היתרון. ולא, זה לא יחסר לך. אני אישית לא השתמשתי ביכולות הזאת אף פעם ולא מכיר הרבה שעשו בה שימוש.<br>3. זה לא מה שאמרתי.<br><br>&gt; כי איו הבדל בין מונחה עצמין לפרוצדואלי<br>יש הבדל בין תכנות מונחה עצמים לבין תכנות פרוצדורלי. וההבדל הזה לא מהווה סיבה שבגללה עליך לבחור באחת הספריות. <br><br>אין זה משנה באיזו מהספריות תבחר (pdo או mysqli) בגלל שבשניהן תוכל להשתמש בין אם תבחר פרוצדוראלי ובין אם תבחר מונחה עצמים.<br>הרי זה שהפונקציה echo לא שייכת לשום מחלקה לא מונע ממך לכתוב תוכנה מונחית עצמים, כך גם העבודה שהפונקציה mysqli_bla אינה חחלק ממחלה לא תמנע ממך זאת.<br><br>בנוסף אני אומר כאן שזה לא משנה באיזו ספריה אתה תבחר, בגלל שההבדל ביניהם כה מזערי שאם תלמד אחת מהן, תוכל להשתמש בשניה גם אם יעירו אותך באמצע הלילה ויתנו לך 10 דקות על מחשב עם גישה לאינטרנט. חוץ מזה, הן שניהן מיועדות לאותה משימה<br><br>ההבדל בין שמירת נתונים בקבצים לבין עבודה עם מסד נתונים הוא כמו ההבדל בין נסיעה מתל אביב לחיפה באופניים לאומת רכב.<br>אך אם בחרת ברכב, אין זה משנה אם תיסע בטויוטה צהובה עם גג נפתח או פגו&apos; ירוקה עם קליטת רדיו משופרת. </p>
+</div>
+<div class="answer" id="answer9585">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/44a7bf77a513657ae945f196ee31edc4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>MYSQL</a>
+ב
+<span style="font-size:10px"> 06 לאוקטובר 2015 </span>
+<a id="answer_9585" href="pdo mysql mysqli.htm#answer_9585">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תותח תודה למדתי המון<br>אגב מחיפוש זריז וורדפרס לא עובדת עם pdo<br><br>כיצד ללמוד pdo<br>האם לקרוא את כל הפונקציות<br>http://php.net/manual/en/book.pdo.php<br>וזהו?<br>תאכלס מה כבר יש?שליפה מחיקה עידכון והוספה<br>שליפה joinמן הסתם גם וזהו...<br>או שיש מקור עדיף ללימוד<br><br>תודה רבה </p>
+</div>
+<div class="answer" id="answer9586">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 06 לאוקטובר 2015 </span>
+<a id="answer_9586" href="pdo mysql mysqli.htm#answer_9586">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+המקור הכי טוב ללמוד הוא לפתוח עורך קוד ולהתחיל לכתוב שליפה, מחיקה, הכנסה ועדכון.<br>ולא לפספס prepared statements. על זה אולי כדאי לחפש מדריך נפרד אם מהדוקמנטציה לא יהיה מובן. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

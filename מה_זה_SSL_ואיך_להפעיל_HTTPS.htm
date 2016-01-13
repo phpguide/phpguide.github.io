@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הסבר על TLS, אופן פעולה, שימוש והתקנת ssl בשרת הביתי">
+<meta name="keywords" content="ssl, tls, https, cert, mod_ssl, x509">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מה זה SSL ואיך להפעיל HTTPS</title>
+<meta itemprop="name" content="מה זה SSL ואיך להפעיל HTTPS">
+<meta itemprop="description" content="הסבר על TLS, אופן פעולה, שימוש והתקנת ssl בשרת הביתי">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"46","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מה זה SSL ואיך להפעיל HTTPS</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-03T21:19:04+02:00" dir="rtl">03 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.nemopro.com/images/ssl-icon-128x128.png" alt="מה זה SSL ואיך להפעיל HTTPS">
+</div>
+<div class="right post-content">
+הסבר על TLS, אופן פעולה, שימוש והתקנת ssl בשרת הביתי <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+SSL היא טכנולוגיה ישנה ופחות אקטואלית בימינו אשר ידוע בשמה המלא כ Secure Sockets Layer . בשנים האחרונות החליפה אותה ה- TLS: Tranport Layer Security שעליה נדבר היום. נבין את אופן הפעולה שלה, את דרכי ההצפנה, ונגרום לשרת שלנו לעבוד ב-https<br><br>‏SSL ו-TLS הם פרוטוקולי תקשורת לרשתות מחשבים המאפשרים תקשורת מאובטחת ומוצפנת בין שני יישומים מתקשרים, לרוב - דפדפנים.<br><br><br><h3>למה חשובה ההצפנה</h3><br>אין בית בישראל שבימינו לא ביצע אף קניה באינטרנט באמצעות כרטיס אשראי או מסר פרטים אישיים חסויים באתר כלשהו ולא היה רוצה שיגיעו לידיים הלא נכונות. מידע רגיש רב עובר כל יום בחוטי הנחושת האינטרנטיים, וקיימת סכנה מתמדת שמישהו פשוט יחתוך קבל כזה באמצע, יחבר אותו משני הצדדים למחשב ויקרא את כל המידע העובר בו.<br><br>בפועל גנבת מידע מתבצעת ביתר קלות מזה. באמצעות תוכנות מסוימות שמסוגלות לסרוק את רשת האינטרנט האלחוטית שיש לכם בבית ולהעתיק את כל המידע שעובר מהמחשב שלכם אל המודם (כמו שגוגל עשו) או בעזרת ווירוסים שיושבים לכם על כרטיס הרשת במחשב ושולחים העתק של כל בייט לשרת זדוני או אחת מעשרות דרכים אפשריות אחרות.<br><br>פתרון ברור לבעיות אלו הוא הצפנת המידע העובר ברשת. מידע מוצפן, שגם עם יגיע ליעד לא רצוי יהיה חסר כל תועלת ללא אפשרות פיענוח. אבל איך להצפין אותו? <br><br><br><h3>הצפנה אסימטרית — מפתח פרטי, מפתח ציבורי</h3><br>הצפנת מידע חייבת להתבצע על פי מפתח כלשהו באמצעותו יוכל הצד השני לפענח את מה שמוצפן. כדי שזה יקרה הדפדפן והשרת צריכים להסכים על מפתח כלשהו שבו ישתמשו, אבל הכל לא כל כך פשוט, בייחוד כשיושב מישהו באמצע ומאזין לתעבורה שלנו, הרי הוא יכול לשמוע את המפתח ולהשתמש בו גם.<br><br>כאן לתמונה נכנסת הצפנה מסג אחר — <a href="http://he.wikipedia.org/wiki/%D7%9E%D7%A4%D7%AA%D7%97_%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99">הצפנה אסימטרית</a>. <br>הצפנה כזו מאפשרת להצפין מידע עם מפתח אחד ולפענח רק עם מפתח אחר. <br><br>ניתן להמחיש זאת באנלוגיה למנעול צירופים (מנעול עם קוד). בוב שולח לאליס תיבה פתוחה שעליה תלוי מנעול צירופים פתוח כאשר לסגירת המנעול אין צורך בידיעת הצירוף הסודי. אליס יכולה לשים בתיבה מכתב ולנעול אותה, כעת היא יכולה לשלוח את התיבה לבוב ללא חשש. כיוון שרק בוב מכיר את הצירוף הסודי, רק הוא מסוגל לפתוח את התיבה ולקרוא את המכתב. אפילו אליס עצמה אינה מסוגלת לפתוח את התיבה לאחר שננעלה.<br><br>מערכות הצפנת מפתח פומבי מבוססות ברובן על מספר מצומצם של בעיות מתמטיות הידועות כקשות לפתרון מבחינה חישובית כמו בעיית פירוק לגורמים. בעיות אלו מאפשרות יישום פונקציה חד כיוונית מיוחדת הנקראת פונקציה חד-כיוונית עם דלת סתרים או דלת צונחת (Trapdoor). שהיא פונקציה חד-סטרית הקלה לחישוב בכיוון אחד אך קשה ביותר לשחזור בכיוון ההפוך. אולם מכילה מידע נוסף בעזרתו חישוב הפונקציה ההפוכה הופך לקל. ללא המידע הנסתר יהיה קשה ביותר לחשב את הפונקציה ההפוכה אלא אם כן תמצא דרך יעילה לפתרון הבעיה המתמטית האמורה. <br><br>שרת ממציא לו מפתח פרטי כלשהו ומפעיל עליו את הפונקציה הזו. כעת יש לו את המפתח הפרטי שלו שעליו הפעיל את הפונקציה, מפתח ציבורי שהתקבל מהפונקציה והמידע הדרוש לו לחישובים.<br><br>המפתח הציבורי מגיע אל הדפדפן והדפדפן מחליט לו על מפתח-סיסמה כלשהי. את הסיסמה הזו הוא שם בקופסה, מצפין עם המפתח הציבורי של השרת ושולח לשרת. לקרוא אותו יוכל רק השרת וזה ישמש מאתה את הדפדפן והשרת להצפנת נתונים ביניהם. בתקווה שבאמת הם מדברים אחד עם השני ולא אם מישהו שהתחזה לשרת ועונה לדפדפן במקומו.<br><br><br><br><h3>סרטיפיקטים נגד התחזות</h3><br>אותו מישהו שיושב ומאזין לכל התעבורה שלנו יכול בקלות להתחזות לשרת, לשלוח לנו מפתח שהוא המציא והדפדפן יצפין את התעבורה עד המתחזה שלנו במקום עד השרת האמיתי. המתחזה מצידו ידבר עם השרת האמיתי, הדפדפן שלו יצפין את המידע וישלך לשרת האמיתי ולמתחזה יהיה כל המידע שלנו מפוענח ומוגש על צלחת מזהב.<br><br>סרטיפיקטים הם תעודות זהות ששולח השרת ביחד עם המפתח הציבורי שלו. בתעודת זהות זו כתוב מיהו השרת, המפתח הציבורי של השרת, <strong>מי הנפיק</strong> לו את תעודת הזהות, <a href="http://en.wikipedia.org/wiki/Public_key_certificate">עוד כמה דברים</a> ועוד נתון ממש חשוב. <br>ה-md5 hash של כל הנתותים בסרטיפיקט, החתום <a href="http://he.wikipedia.org/wiki/%D7%97%D7%AA%D7%99%D7%9E%D7%94_%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%D7%AA">בחתימה דיגיטלית</a> של גוף מוסמך. ה-hash הזה מאפשר לדפדפן לוודא שהסרטיפיקט לא שונה בדרך, והחתימה הדיגיטלית של גוף שלישי מאפשרת לאמת את המקוריות שלו. <br><br>את הסרטיפיקטים האלה יוצר גוף שלישי שהדפדפן סומך עליו. בכל דפדפן יש רשימה מובנת של הגופים שעליהם הוא סומך. למשל זו <a href="http://www.mozilla.org/projects/security/certs/included/">הרשימה של firefox</a>. הדפדפן יכול לגשת אל הגוף השלישי הזה ולוודא מולו שהוא באמת הנפיק את הסרטיפיקט הזה עם ה-hash הזה ובכך למנוע רמאות או זיוף סרטיפיקטים.<br><br><br><h3>חתימה עצמית</h3><br>הגופים החותמים על הסרטיפיקטים גובים תשלום מסוים על השירות ולכן אתרים מסוימים נמנעים מלקנות סרטיפיקט וחותמים על סרטיפיקט בעצמם. לדומיינים מסוימים אין אפשרות לקנות סרטיפיקט בכלל, כמו localhost ולצורך בדיקות יהיה עלינו לחתום לעצמינו על סרטיפיקת. <br><br>על סרטיפיקטים שלא חתומים על ידי אחד הגופים המורשים - הדפדפן לא יכול לסמוך ולכן לא פעם נתקלתם בתמונה הבאה:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="מה זה SSL ואיך להפעיל HTTPS" title="http://habreffect.ru/files/a33/6f21f3cf9/ssl.png" class="content-image-float"><br>הדפדפן מידע אותכם שלא יכול לאמת את הסרטיפיקט ולהבטיח הגנה על הנתונים שלכם. <br><br><br><h3>יצירת סרטיפיקט לעצמנו</h3><br>כדי ליצור לעצמינו סרטיפיקט יהיה עלינו <a href="http://www.slproweb.com/products/Win32OpenSSL.html">להוריד את <span dir="ltr">openssl toolkit (Win32 OpenSSL)</span></a> — כלי שייצור עבורינו את המפתח הפומבי של השרת שלנו וסרטיפיקט.<br><br><h4>יצירת מפתח ציבורי</h4><br>השלב הראשון הוא יצירת המפתח הציבורי שלנו. המפתח הוא מפתח RSA של 1024 ביט, שמוצפן באלגוריתם Triple-Des ושמור בפורמט PEM, כדי שיהיה ניתן לקריאה כקובץ טקסט ASCII רגיל.<br><br>במהלך התקנת openssl toolkit שהורדנו ההתקנה תשאל הותנו לאן להעתיק קבצי ספריה מסוימים ותיתן לנו שני אפשרויות בחירה. הראשונה היא תיקיה windows והתיקיה השניה היא תיקית <span dir="ltr">/bin</span>. האפשרות השניה עדיפה.<br><br>לאחר ההתקנה ניפתח את cmd ונגיע לתיקיה שאליה התקננו את openssl.<br>אם התקנתם לפי ברירת מחדל - התיקיה היא <span dir="ltr">C:\OpenSSL-Win32\bin</span><br><div class="php codeblock">cd C<span class="sy0">:</span>\OpenSSL<span class="sy0">-</span>Win32\bin</div><br>בתיקיה הזו נפעיל את הפקודה הבאה:<br><div class="php codeblock">openssl<span class="sy0">.</span>exe genrsa <span class="sy0">-</span>des3 <span class="sy0">-</span>out server<span class="sy0">.</span><span class="kw3">key</span> <span class="nu0">1024</span></div><br>במהלך הפעולה הוא יבקש מכם להקליד סיסמה כלשהי פעמיים. <br>אין לה שום משמעוט כרגע. תקלידו 123 פעמיים ותזכרו מה הקלדתם.<br><div class="php codeblock">Generating RSA <span class="kw2">private</span> <span class="kw3">key</span><span class="sy0">,</span> <span class="nu0">1024</span> bit long modulus<br>
+<span class="sy0">.........................................................++++++</span><br>
+<span class="sy0">........++++++</span><br>
+e is <span class="nu0">65537</span> <span class="br0">&#40;</span><span class="nu12">0x10001</span><span class="br0">&#41;</span><br>
+Enter PEM pass phrase<span class="sy0">:</span><br>
+Verifying password <span class="sy0">-</span> Enter PEM pass phrase<span class="sy0">:</span></div><br><br>לאחר הסיום יווצר בתיקיה זו הקובץ server.key . הוא מכיל את המפתח הפומבי. <br>אפשר לפתוח את הקובץ עם עורך טקסט כלשהו ולהציץ לבפנים.<br><br><br><h4>יצירת סרטיפיקט</h4><br>השלב הבא הוא יצירת סרטיפיקט המזהה את הדומיין והבעלים שלו. במהלך יצירת הסרטיפיקט תישאלו כמה שאלות. אין צורך לתת פרטים נכונים, הרי גם כך אף אחד לא יראה את הסרטיפיקט הזה חוץ מאיתנו.<br><div class="php codeblock">openssl<span class="sy0">.</span>exe req <span class="sy0">-</span><span class="kw2">new</span> <span class="sy0">-</span><span class="kw3">key</span> server<span class="sy0">.</span><span class="kw3">key</span> <span class="sy0">-</span>out server<span class="sy0">.</span>csr</div><br>תחילה תשאלו מה הייתה הסיסמה של קובץ המפתח הפומבי- שהיא 123.<br>לאחר מכן יבואו שאלות על זהותכם. שימו לב לכתוב את שם <strong>הדומיין שלכם בשדה common name</strong>. <br>במקרה של שרת ביתי - localhost. את שני השדות האחרונים אין צורך למלא.<br><br><div class="php codeblock">C<span class="sy0">:</span>\OpenSSL<span class="sy0">-</span>Win32\bin<span class="sy0">&gt;</span>openssl<span class="sy0">.</span>exe req <span class="sy0">-</span><span class="kw2">new</span> <span class="sy0">-</span><span class="kw3">key</span> server<span class="sy0">.</span><span class="kw3">key</span> <span class="sy0">-</span>out server<span class="sy0">.</span>csr<br>
+Enter pass phrase <span class="kw1">for</span> server<span class="sy0">.</span><span class="kw3">key</span><span class="sy0">:</span><br>
+Loading <span class="st_h">'screen'</span> into random state <span class="sy0">-</span> done<br>
+You are about to be asked to enter information that will be incorporated<br>
+into your certificate request<span class="sy0">.</span><br>
+What you are about to enter is what is called a Distinguished Name or a DN<span class="sy0">.</span><br>
+There are quite a few fields but you can leave some blank<br>
+<span class="kw1">For</span> some fields there will be a <span class="kw1">default</span> value<span class="sy0">,</span><br>
+<span class="kw1">If</span> you enter <span class="st_h">'.'</span><span class="sy0">,</span> the field will be left blank<span class="sy0">.</span><br>
+<span class="sy0">-----</span><br>
+Country Name <span class="br0">&#40;</span><span class="nu0">2</span> letter code<span class="br0">&#41;</span> <span class="br0">&#91;</span>AU<span class="br0">&#93;</span><span class="sy0">:</span>IL<br>
+State or Province Name <span class="br0">&#40;</span>full name<span class="br0">&#41;</span> <span class="br0">&#91;</span>Some<span class="sy0">-</span>State<span class="br0">&#93;</span><span class="sy0">:</span>Tel<span class="sy0">-</span>Aviv<br>
+Locality Name <span class="br0">&#40;</span>eg<span class="sy0">,</span> city<span class="br0">&#41;</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span>Tel<span class="sy0">-</span>Aviv<br>
+Organization Name <span class="br0">&#40;</span>eg<span class="sy0">,</span> company<span class="br0">&#41;</span> <span class="br0">&#91;</span>Internet Widgits Pty Ltd<span class="br0">&#93;</span><span class="sy0">:</span>PHPGUIDE<br>
+Organizational Unit Name <span class="br0">&#40;</span>eg<span class="sy0">,</span> section<span class="br0">&#41;</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span>PHPGUIDE web site<br>
+Common Name <span class="br0">&#40;</span>eg<span class="sy0">,</span> YOUR name<span class="br0">&#41;</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span>localhost<br>
+Email Address <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span>Alex<span class="sy0">@</span>example<span class="sy0">.</span>com<br>
+<br>
+Please enter the following <span class="st_h">'extra'</span> attributes<br>
+to be sent with your certificate request<br>
+A challenge password <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span><br>
+An optional company name <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span></div><br>הסרטיפיקט נוצר תחת השם server.csr באותה התיקיה ועדיין לא חתום על ידי אף אחד.<br><br><br><br><h4>מחיקת סיסמה מקובץ המפתח הפומבי</h4><br>כשניתן לשרת שלנו להשתמש במפתח הפומבי שיצרנו נצטרך להקליד את הסיסמה אל הקובץ, כדי שיוכל לקרוא אותו ולהשתמש בו. ונצטרך לעשות את זה כל פעם שהשרת נדלק מחדש. ל-mod_ssl יש אופציה לגרום לתוכנה חיצונית להקליד את הסיסמה באופן אוטומטי. במחשב הביתי אין לנו בזה צורך וניתן פשוט להוריד את הסיסמה מהקובץ כך שהשרת יוכל לקרוא אותו באופן חופשי.<br><br>כדי להוריד את ההצפנה מהקובץ כמובן שהוא יבקש את הסיסמה שלנו, שהיא 123.<br><div class="php codeblock"><span class="kw3">copy</span> server<span class="sy0">.</span><span class="kw3">key</span> server<span class="sy0">.</span><span class="kw3">key</span><span class="sy0">.</span>org<br>
+openssl<span class="sy0">.</span>exe rsa <span class="sy0">-</span>in server<span class="sy0">.</span><span class="kw3">key</span><span class="sy0">.</span>org <span class="sy0">-</span>out server<span class="sy0">.</span><span class="kw3">key</span></div><br><br><br><br><h4>חתימה על הסרטיפיקט</h4><br>עד עכשיו הסרטיפיקט שלנו נשאר לא חתום. הגיע הזמן לתקן את המצב.<br>אם תרצו שגוף אחר מוסמך יחתום לכם על הסרטיפיקט — תצטרכו לשלוח לו את קובץ ה-csr. אנחנו נחתום עליו לבד עם הפקודה:<br><div class="php codeblock">openssl<span class="sy0">.</span>exe x509 <span class="sy0">-</span>req <span class="sy0">-</span>days <span class="nu0">3650</span> <span class="sy0">-</span>in server<span class="sy0">.</span>csr <span class="sy0">-</span>signkey server<span class="sy0">.</span><span class="kw3">key</span> <span class="sy0">-</span>out server<span class="sy0">.</span>crt</div><br>סוג הסרטיפיקט הוא x509. הסוג שבו משתמשים באינטרנט.<br>תוקף הסרטיפיקט 3650 ימים = 10 שנים.<br>זהו. אפשר להתבונן בקובץ הירוק ויפה server.crt בתיקיה .<br><br><br><h4>הגדרות שרת</h4><br>נעתיק את הקבצים <strong>server.key</strong> ו-<strong>server.crt</strong> לתיקיה כלשהי בשרת. <br>ב-wamp זו תהיה תיקית <span dir="ltr"><em>C:\wamp\bin\apache</em></span><br>בשרת שהותקן לפי המדריך זו יכולה להיות <span dir="ltr"><em>C:/www/server/apache</em></span><br><br>ניגש אל קובץ הקונפיגורציה של השרת<br><span dir="ltr"><em>C:/www/server/apache/conf/httpd.conf</em></span> או <br><em><span dir="ltr">C:\wamp\bin\apache\Apache2.2.17\conf\httpd.conf</span><br></em><br><br><h5>שימוש במפתח הפומבי והסרטיפיקט</h5><br>נמצא את השרותו הבאות (כל אחת בנפרד)<br><div class="php codeblock"><span class="co2">#Include conf/extra/httpd-ssl.conf<br>
+</span><span class="co2">#LoadModule ssl_module modules/mod_ssl.so</span></div><br>ונוריד בתחילתם את הסולמיות. קובץ הקונפיגורציה הנוסף מכיל הגדרות אך ורק ל-ssl שנשנה מעט.<br><br>פתחו את הקובץ <strong>extra/httpd-ssl.conf</strong> <br><br>1. מצאו את השורה <strong>SSLCertificateFile</strong> ובערך שלה רשמו <br><div class="php codeblock">SSLCertificateFile <span class="st0">&quot;C:/www/server/apache/server.crt&quot;</span></div><br>2. מצאו את השורה <strong>SSLCertificateKeyFile</strong> וכתבו בערך שלה<br><div class="php codeblock">SSLCertificateKeyFile <span class="st0">&quot;C:/www/server/apache/server.key&quot;</span></div><br>התוצר יראה <a href="http://habreffect.ru/files/807/5748dd8fd/ssl.png">כמו בתמונה הזאת</a>.<br>שימו לב שהתיקיה הרשומה היא התיקיה שאליה העתקתם את הקבצים server.crt ו-server.key <br><br><br><h5>התקנת mod_ssl</h5><br>קיימות שני גרסאות apache. אחת עם mod_ssl ואחת בלי.<br>השרת שבא עם wamp כולל אותה.<br>אם אין לכם בתיקיה modules של השרת קובץ עם השם mod_ssl.so תצטרכו להתקין מחדש רק את <a href="http://www.apache.org/dist/httpd/binaries/win32/httpd-2.2.17-win32-x86-openssl-0.9.8o.msi">apache עם mod_ssl</a> . כל התהליך עשוי לקחת בדיוק דקה אחת. רק תעשו העתק של התיקיה conf ושל שני קבצי server.key ו-server.crt ליתר בטחון. תחילה תצטרכו למחוק את ההתקנה של השרת הישן וזכרו להתקין את השרת בדיוק לאותו מקום בו היה <span dir="ltr"><strong>C:\www\server\apache</strong></span><br><br><br><h5>נפעיל מחדש את apache</h5><br>מי שלא ב-wamp עושה את זה באמצעות<br><div class="php codeblock">start <span class="sy0">-&gt;</span> <span class="me1">run</span> <span class="sy0">-&gt;</span> <span class="me1">services</span><span class="sy0">.</span>msc <span class="sy0">-&gt;</span> <span class="me1">apache</span> <span class="sy0">-&gt;</span> <span class="me1">restart</span></div><br>נגלוש ל <a href="httpS://localhost"><strong>https</strong>://localhost</a> , נאשר לדפדפן את החתימה שלנו וזהו זה, התעבורה מוצפנת, It works!<br><br><br><h5>דבר קטן אחד נוסף</h5><br>כנראה שציפיתם לראות את האתר שלכם ולא את הכיתוב It Works. בגלל שהשרת מפריד כמעט לחלוטין בין תקשורת מוצפנת לתקשורת לא מוצפנת, מאזין על פורטים שונים ומשתמש בכמעט שני קבצי הגדרות נפרדים — הוא גם מפריד את תיקיות הקבצים של האתר.<br><br>כל שעלינו לעשות, הוא להעתיק את הערך של DocumetRoot מ httpd.conf אל httpd-ssl.conf<br>כדי לומר לו שבשני המקרים יפנה לאותה תיקית קבצים, כלומר<br><div class="php codeblock"><span class="co2"># &nbsp; General setup for the virtual host<br>
+</span>DocumentRoot <span class="st0">&quot;C:/www/localhost&quot;</span></div><br>ולאחר מכן להפעיל מחדש את השרת.<br>הסתבכתם או שנשארו שאלות? פנו לפורום לקבלת עזרה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment63"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/04/2011 19:47</span><br>
+איך מפעילים את זה אל אחסון פרטי?</div>
+<a id="comment69"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/04/2011 12:24</span><br>
+על איחסון וירטואלי אי אפשר להפעיל ssl כיוון ש-ssl דורשת כתובת ip ייחודית ועזרה מסוימת מחברת האיחסון.<br>
+לאחר קניית סרטיפיקט למשל מ godady<br>
+<span dir="ltr"><a href="https://www.godaddy.com/ssl/ssl-certificates.aspx">https://www.godaddy.com/ssl/ssl-certificates.aspx</a></span><br>
+פנה לחברת האיחסון שלך לקבלת עזרה בחיבור הסרטיפיקט<br>
+רק אל תשכח לוודה איתם לפני את אפשרות הדבר וקניית ip ייחודי.</div>
+<a id="comment621"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/08/2011 07:32</span><br>
+מכל הנאמר בכתוב, לא הבנתי כיצד אני יכול לגבור על הבעיה, שהודעת השגיעה היא 0x800ccc7d ו-ssl לא ניתמך ועלי להתקשר לשרת האדמינסטרטור.</div>
+<a id="comment622"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/08/2011 09:23</span><br>
+תצרף בבקשה את טקסט השגיאה המלא בהודעה בפורום</div>
+<a id="comment1066"></a>
+<div class="blog-comment">
+<span class='comment-author'>xzxxx7</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 06:20</span><br>
+<span dir="ltr"><a href="https://secure.instantssl.com/products/SSLIdASignup1a">https://secure.instantssl.com/products/SSLIdASignup1a</a></span><br>
+תעודת SSL חינם ל90 יום, למי שרוצה לעשות ניסויים בלי לשלם.</div>
+<a id="comment1199"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/01/2012 14:56</span><br>
+מעולה, תודה :)</div>
+<a id="comment1505"></a>
+<div class="blog-comment">
+<span class='comment-author'>hafuta</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/04/2012 01:16</span><br>
+אחרי חיפוש ארוך ומתיש ברחבי הרשת, עם הסברים צולעים סוף סוף הגעתי לאתר המעולה הזה.<br>
+בעזרת המדריך יש לי WAMP עם SSL ואפשר להמשיך בפיתוח. תודה רבה! ישר כוח</div>
+<a id="comment1728"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorbal</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2012 13:09</span><br>
+אם לא מפעילים את זה על אחסון פרטי איפה אפשר להפעיל את זה??<br>
+לא כבר עדיף לקנות סרטיפיקט ואז להעלות לאחסון?<br>
+סליחה אם יש לי טעויות בנושא אני פשוט לא כל כך מבין בו</div>
+<a id="comment2039"></a>
+<div class="blog-comment">
+<span class='comment-author'>mat</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/10/2012 10:24</span><br>
+כמה דברים לא מובנים לי.<br>
+<br>
+הפקודה הזאת יוצרת מפתח פרטי לא ציבורי (במאמר כתוב ציבורי)<br>
+&quot;openssl.exe genrsa -des3 -out server.key 1024&quot;<br>
+<br>
+וגם בשביל מה להוסיף -des3 שמצפין את המפתח אם בין כה וכה אתה מוחק את זה בסוף.<br>
+<br>
+</div>
+<a id="comment2822"></a>
+<div class="blog-comment">
+<span class='comment-author'>orelymr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/12/2014 15:46</span><br>
+שלום רב, <br>
+לגבי הנתונים המופיעים הסרטיפיקטים:<br>
+1. נאמר שהדפדפן פונה לגורם לצד 3?ומוודא מולו שהוא באמת יצר את הסרטיפיקייט.<br>
+ישנם 2 מקומות בהם מופיע שם המנפיק של הסרטיפיקייט - פעם אחת בשם המנפיק ופעם שנייה כחתימה דיגיטלית על הhash, לא הבנתי את ההבדל בין המנפק לזה שיופיע בחתימה הדיגיטלית של הhash (שניהם זה היוצר ?!).<br>
+<br>
+2.לא הבנתי את משמעותו של הhash, איך הוא מסייע לוודא מקוריות הסרטיפיקייט.<br>
+<br>
+3.נאמר שהhash מאפשר לדפדפן לוודא שהנתונים לא שונו בדרך.<br>
+והחתימה הדיגיטלית של הhash מאפשרת לוודא מקוריות - מה ההבדל בין 2 הבדיקות?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה כיצד לבצע חיפוש מתקדם במסד נתונים על פי 3 קריטריונים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ACAB">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>כיצד לבצע חיפוש מתקדם במסד נתונים על פי 3 קריטריונים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="כיצד לבצע חיפוש מתקדם במסד נתונים על פי 3 קריטריונים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה כיצד לבצע חיפוש מתקדם במסד נתונים על פי 3 קריטריונים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">1</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="כיצד לבצע חיפוש מתקדם במסד נתונים על פי 3 קריטריונים-1.htm" title="אהלן,יש לי אתר של פנצ&amp;apos;רייה. אני מעוניין שהגולש יוכל לחפש צמיג לפי 3 קריטריונים והם: רוחב, חתך וקוטר החישוק, ממש כמו באתר הזה:http://www.tiredeal.co.ilהשאלה שלי היא כזו: כיצד לשמור את נתוני הצמיגים, בהנחה שכל צמיג חייב להכיל את 3 הנתונים הללו?">כיצד לבצע חיפוש מתקדם במסד נתונים על פי 3 קריטריונים</a></h2>
+<div class="userinfo">
+פתח
+<a>ACAB</a>
+,
+<time class="timeago relativetime" datetime="2015-01-31T00:33:35+02:00" style="display:inline-block;">
+31 לינואר 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2105'>
+אהלן,<br>יש לי אתר של פנצ&apos;רייה. אני מעוניין שהגולש יוכל לחפש צמיג לפי 3 קריטריונים והם: רוחב, חתך וקוטר החישוק, ממש כמו באתר הזה:<br>http://www.tiredeal.co.il<br><br>השאלה שלי היא כזו: כיצד לשמור את נתוני הצמיגים, בהנחה שכל צמיג חייב להכיל את 3 הנתונים הללו? </div>
+</div>
+<h3>
+<span id="answersCounter">1 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9282">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5c364b282589ef8fb67412a7dcffcfb2?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ryiseld</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2015 </span>
+<a id="answer_9282" href="כיצד לבצע חיפוש מתקדם במסד נתונים על פי 3 קריטריונים-1.htm#answer_9282">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בטבלה של הצמיגים, תשים לכל צמיג עוד 3 שדות: רוחב, חתך,וקוטר חישוק.<br>כאשר המשתמש רוצה לחפש צמיג לפי אותו רוחב, חתך וקוטר חישוק, מה שאתה צריך לעשות זה לקחת את מה שהוא בחר (דרך הטופס), ופשוט לחפש בטבלה של הצמיגים בעזרת WHERE.<br>לדוגמה:<br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM tires WHERE width <span class="sy0">=</span> X AND cut <span class="sy0">=</span> Y AND diameter <span class="sy0">=</span> Z</div><br>את X, Y ו Z תחליף במה שהמשתמש בחר בטופס.<br>בהצלחה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

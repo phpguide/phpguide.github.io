@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ירושה של מחלקה של SQL שבניתי">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="drorzeno">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ירושה של מחלקה של SQL שבניתי | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ירושה של מחלקה של SQL שבניתי | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ירושה של מחלקה של SQL שבניתי">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">1</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ירושה של מחלקה של SQL שבניתי-1.htm" title="שלום,בניתי מחלקה לSQL:class DAL &amp;#123;
+&amp;nbsp; &amp;nbsp; 
+&amp;nbsp; &amp;nbsp; private $query;
+&amp;nbsp; &amp;nbsp; private $conn;
+&amp;nbsp; &amp;nbsp; 
+&amp;nbsp; &amp;nbsp; function __construct&amp;#40;">ירושה של מחלקה של SQL שבניתי</a></h2>
+<div class="userinfo">
+פתח
+<a>drorzeno</a>
+,
+<time class="timeago relativetime" datetime="2013-11-01T20:47:48+02:00" style="display:inline-block;">
+01 לנובמבר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1652'>
+שלום,<br><br>בניתי מחלקה לSQL:<br><div class="php codeblock"><span class="kw2">class</span> DAL <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$query</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$conn</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dbconnect</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">function</span> __destruct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//return mysqli_close($this-&gt;conn);</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> <span class="kw3">error_log</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="re0">$str</span> <span class="sy0">.</span> <span class="st_h">'&lt;br /&gt;'</span> <span class="sy0">.</span> <span class="kw3">mysqli_error</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">conn</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> dbconnect<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">conn</span> <span class="sy0">=</span> <span class="kw3">mysqli_connect</span><span class="br0">&#40;</span>DB_HOST<span class="sy0">,</span> DB_USER<span class="sy0">,</span> DB_PASSWORD<span class="sy0">,</span> DB_NAME<span class="br0">&#41;</span>or <span class="kw3">die</span> <span class="br0">&#40;</span><span class="st0">&quot;&lt;br/&gt;Could not connect to MySQL server&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">conn</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> execute<span class="br0">&#40;</span><span class="re0">$sql</span><span class="sy0">,</span><span class="re0">$error</span><span class="sy0">=</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$res</span> <span class="sy0">=</span> <span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">conn</span><span class="sy0">,</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$res</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$res</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$error</span> ? <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">error_log</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span> <span class="sy0">:</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> set_query<span class="br0">&#40;</span><span class="re0">$sql</span><span class="sy0">,</span><span class="re0">$error</span><span class="sy0">=</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span> <span class="sy0">=</span> <span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">conn</span><span class="sy0">,</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$error</span> ? <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">error_log</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span> <span class="sy0">:</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> query_fetch_array<span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$arrayFetch</span> <span class="sy0">=</span> <span class="kw3">is_null</span><span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span> ? <span class="kw3">mysqli_fetch_array</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#41;</span> <span class="sy0">:</span> <span class="kw3">mysqli_fetch_array</span><span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="br0">&#40;</span><span class="kw3">sizeof</span><span class="br0">&#40;</span><span class="re0">$arrayFetch</span><span class="br0">&#41;</span><span class="sy0">==</span><span class="nu0">2</span><span class="br0">&#41;</span> ? <span class="re0">$arrayFetch</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">:</span> <span class="re0">$arrayFetch</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>עכשיו לדוגמא באמצע הקוד אני קורא למחלקה אחרת שיש בה גם שימוש בSQL הוא לא מזהה לי את ההתחברות למסד למרות שקראתי בראש הדף למחלקה של ה-SQL<br><br>לדוגמא במחלקה שאני קורא לה באמצע הקוד יש את הדבר הבא:<br><div class="php codeblock"><span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$input</span><span class="br0">&#41;</span><span class="br0">&#41;</span></div><br><br>מחזיר לי שגיאה שאין חיבור.<br><br>השאלה שלי היא איך אני מתגבר על זה? איך אני גורם לכך שברגע שאני שם את ההתחברות בראש הדף עד שאני מחליט לסגור אותה כל המחלקות ישתמשו באותו חיבור מבלי לנתק/לא למצוא חיבור?<br><br>זה די מסובך לי להסביר מקווה שניתן להבין ממה שרשמתי </div>
+</div>
+<h3>
+<span id="answersCounter">1 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7565">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/76da963178ade0f2235a9ec90fa7061b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>hafuta</a>
+ב
+<span style="font-size:10px"> 02 לנובמבר 2013 </span>
+<a id="answer_7565" href="ירושה של מחלקה של SQL שבניתי-1.htm#answer_7565">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+החיבור שלך הוא ב-scope של DAL, הוא לא זמין בכל מקום בתוכנית.<br>דבר נוסף, אתה משתמש ב-mysql_real_escape_string ובמחלקה עובד עם mysqli, הפונקציה שאתה צריך היא mysqli_real_escape_string.<br><br>יש לך קצת סרבול בקוד שיקשה עליך לעבוד עם המחלקה הזאת בכל מקום בקוד שלך.<br>תשמור את החיבור שלך בתוך משתנה סטטי ולא בנפרד עבור כל אובייקט של DAL, ככה תוכל להגדיר מטודה סטטית שתבצע escape, לדוגמה:<br><br>public static function escape($str){<br> return mysqli_real_escape_string($this-&gt;conn, $str);<br>}<br><br>חוץ מזה כדאי שתעבוד עם mysqli בצורה מונחת עצמים ולא פרוצידורלית ותחסוך לעצמך קצת עבודה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

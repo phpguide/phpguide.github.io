@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="Twig project, מערכת תבניות">
+<meta name="keywords" content="Twig project, מערכת תבניות">
+<meta name="author" content="RaFaeL">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Twig - תבניות מתקדמות ותנאי If </title>
+<meta itemprop="name" content="Twig - תבניות מתקדמות ותנאי If ">
+<meta itemprop="description" content="Twig project, מערכת תבניות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"245","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Twig - תבניות מתקדמות ותנאי If </h1>
+ 
+<div id="content-publishing-info">
+<div class="right">RaFaeL, </div>
+<div class="right">&nbsp;<time datetime="2012-08-23T05:45:15+03:00" dir="rtl">23 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.israup.net/images/eb6e5fb4260053ab4f5869f9269e5e59.png" alt="Twig - תבניות מתקדמות ותנאי If ">
+</div>
+<div class="right post-content">
+אחרי שלמדנו ליצור תבניות קצת יותר מתקדמות, נילמד ליצור תבניות מתקדמות אף יותר. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h5>הפרק הקודם</h5><br><a href="Twig  יוצרים תבניות מתקדמותפשוטות.htm">Twig - יוצרים תבניות מתקדמות\פשוטות</a><br><br><h4>מה במדריך?</h4><br>בחלק הקודם למדנו ליצור תבניות מתקדמות קצת יותר, בחלק זה נלמד לשפר אותם ולעשות אותם מתקדמות אף יותר ממה שהיו.<br>בפרק זה נלמד על ה Layout - extends, על ה blockים ותנאי ה IF.<br>שימו לב שהתוצאות בפרק זה היו קרובות לתוצאה בפרק הקודם אך הכתיבה שלהם תהיה יותר פשוטה ומובנת.<br><br><h4>מתחילים בתזכורת</h4><br>בואו ניזכר במה שעשינו בפרק הקודם,<br>בפרק הקודם יצרנו דף\דפים שיש להם את אותו חלק עליון ואותו חלק תחתון - Header &amp; Footer.<br><h5>קודים</h5><br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">include</span> <span class="st_h">'Layout/header.html'</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> world <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">!</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">include</span> <span class="st_h">'Layout/footer.html'</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span></div><br><div class="php codeblock"><span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br><h4>הקדמה</h4><br>כמו שאמרתי כבר בהתחלה בפרק זה נלמד ליצור תבניות מתקדמות וטובות יותר מבחינת תחביר,<br>בפרק זה נלמד ליצור בעצם Layout - תסדיר(תסדיר הינו דבר אשר חוזר על עצמו באופן סידרתי).<br>בשביל ליצור את זה נשתמש ב extends - מרחיבים, וכמובן שנלמד על ב blockים - בלוקים.<br>בואו ניראה כיצד אנו עושים זות בתמונה, ונראה מה השוני מהמדריך הקודם,<br>פרק קודם:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="Twig - תבניות מתקדמות ותנאי If " title="http://www.israup.net/images/573fce5b495c34402444aebd2335a105.png" class="content-image-float"><br>בפרק הזה:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="Twig - תבניות מתקדמות ותנאי If " title="http://www.israup.net/images/54f35f028cc22184dc4bd5a32989e01a.png" class="content-image-float"><br><br><h4>Extends - הרחבות</h4><br>תאג ה Extends משמש על מנת להרחיב תבניות בתבניות אחרות,<br>בואו נגדיר את תבנית בסיס ניקרא לה layout.html ובא ה html הפשוט הבא:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br>(שימרו אותה בתקיה layout!).<br><br>עכשיו יש לנו דף פשוט אבל לא הגדרנו את הבלוקים - לאן התוכן של כל עמוד יכנס?<br>נעשה את זה בעזרת תאג ה block.<br>כאשר התבנית ירושה מתבנית אחרת אנו צריכים להגדיר בלוקים - ריבועים שבהם יופיע המידע של העמוד שלנו.<br>דוגמא לlayout.html עם הבלוקים:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL <span class="sy0">-</span> <span class="br0">&#123;</span><span class="sy0">%</span> block title <span class="sy0">%</span><span class="br0">&#125;</span><span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> block css <span class="sy0">%</span><span class="br0">&#125;</span><span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> block body <span class="sy0">%</span><span class="br0">&#125;</span><span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br>עכשיו כל מה שנותר לעשות זה לבנות עמוד מתאים, לא ככה?<br><br><h4>העמוד המתאים - hello.html</h4><br>עכשיו אחרי שבנינו עמוד עם בלוקים אנחנו צריכים לבנות תבנית משופרת שתירוש מהתבנית עם הבלוקים ותמלא את החלל שהבלוקים השאירו.<br>דוגמא לעמוד שמתאים לירושה מהlayout:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw2">extends</span> <span class="st0">&quot;Layout/layout.html&quot;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#123;</span><span class="sy0">%</span> block title <span class="sy0">%</span><span class="br0">&#125;</span>Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> world <span class="br0">&#125;</span><span class="br0">&#125;</span> page<span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> block css <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>style type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span>important <span class="br0">&#123;</span> color<span class="sy0">:</span> red<span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> block body <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>span <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;important&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> world <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">!</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>span<span class="sy0">&gt;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>כעת מילינו את החלל הריק של הבלוקים, התוצאה: <span style="color:darkred;">Hello World!</span><br>קוד מקור:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL <span class="sy0">-</span> Hello World page<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>style type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span>important <span class="br0">&#123;</span> color<span class="sy0">:</span> red<span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>span <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;important&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Hello World<span class="sy0">!</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>span<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br><h4>הרחבות שונות לבלוקים - blockים</h4><br>אחרי שלמדנו את הבסיס של הבלוקים בואו נרחיב אותם ונלמד עליהם עוד קצת,<br><h5>שימוש בבלוק כמה פעמים בlayout</h5><br>לפעמים צריכים להשתמש בבלוק מספר פעמים בlayout לודגמא לשים כותרת עמוד מתאימה וגם להוסיף את זה ל keywords ואולי גם לdescription,<br>לשם כך יש את הפונקציה block וכך היא ניראת:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="br0">&#123;</span> block<span class="br0">&#40;</span><span class="st_h">'title'</span><span class="br0">&#41;</span> <span class="br0">&#125;</span><span class="br0">&#125;</span></div><br>דוגמא לקוד עם הפונקציה הנ&quot;ל:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL <span class="sy0">-</span> <span class="br0">&#123;</span><span class="sy0">%</span> block title <span class="sy0">%</span><span class="br0">&#125;</span><span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta name<span class="sy0">=</span><span class="st0">&quot;keywords&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;keywords,{{ block('title') }}&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta name<span class="sy0">=</span><span class="st0">&quot;description&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;description,{{ block('title') }}&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> block css <span class="sy0">%</span><span class="br0">&#125;</span><span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span><span class="br0">&#123;</span><span class="br0">&#123;</span> block<span class="br0">&#40;</span><span class="st_h">'title'</span><span class="br0">&#41;</span> <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>h1<span class="sy0">&gt;&lt;</span>br <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> block body <span class="sy0">%</span><span class="br0">&#125;</span><span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br>וזה הקוד מקור המתקבל:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL <span class="sy0">-</span> Hello World page<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta name<span class="sy0">=</span><span class="st0">&quot;keywords&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;keywords,Hello World page&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta name<span class="sy0">=</span><span class="st0">&quot;description&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;description,Hello World page&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>style type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span>important <span class="br0">&#123;</span> color<span class="sy0">:</span> red<span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span>Hello World page<span class="sy0">&lt;/</span>h1<span class="sy0">&gt;&lt;</span>br <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>span <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;important&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Hello World<span class="sy0">!</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>span<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br><h5>תוספת לבלוק במקום שינוי מוחלט</h5><br>לפעמים אתם כותבים בלוק עם ערך ברירת מחדל, אבל אם אנחנו רוצים שזה יהיה ערך קבוע שאליו יתווספו דברים?<br>לשם כך יש את הפונקציה parent, תחביר:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="br0">&#123;</span> parent<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#125;</span><span class="br0">&#125;</span></div><br><br>parent = מקור, דוגמא לשימוש בקוד:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> block css <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>style type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span>important <span class="br0">&#123;</span> color<span class="sy0">:</span> red<span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="br0">&#123;</span> parent<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>וזה הקוד המקורי של הבלוק:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> block css <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>style type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span>test <span class="br0">&#123;</span> color<span class="sy0">:</span> blue<span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>שימו לב שאת הפונקציה אתם שמים בכל מקום בבלוק שבא לכם ששם יוצג הקוד המקורי של הבלוק.<br><br><h4>תנאי IF</h4><br>גם כאן כמו ב PHP המקורי ניתן לעשות תנאים בתוך התבנית, לשם כך יש את התאג if.<br>לדוגמא נגדיר משתנה בתבנית בשם important השערך שלו true:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> set important <span class="sy0">=</span> <span class="kw4">true</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>וכעת נעשה בדיקה אם הוא שווה ל ture(אמת) אז ה span שלנו יהיה עם class ששווה ל important ואם הוא לא שווה אז הוא היה span רגיל, דוגמא:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw2">extends</span> <span class="st0">&quot;Layout/layout.html&quot;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#123;</span><span class="sy0">%</span> block title <span class="sy0">%</span><span class="br0">&#125;</span>Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> world <span class="br0">&#125;</span><span class="br0">&#125;</span> page<span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> block css <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>style type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span>important <span class="br0">&#123;</span> color<span class="sy0">:</span> red<span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="br0">&#123;</span> parent<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> block body <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> set important <span class="sy0">=</span> <span class="kw4">true</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>span<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> important <span class="sy0">==</span> <span class="kw4">true</span> <span class="sy0">%</span><span class="br0">&#125;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;important&quot;</span><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> world <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">!</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>span<span class="sy0">&gt;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>התחביר של הIF:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> <span class="br0">&#40;</span>condition<span class="br0">&#41;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span>condition<span class="br0">&#41;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">else</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>עכשיו נסו לשחק עם המשתנה important, שנו את ערכו ל false:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> set important <span class="sy0">=</span> <span class="kw4">false</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>תריצו את הדף ותראו שה class נעלם!<br><div class="php codeblock"><span class="sy0">&lt;</span>span<span class="sy0">&gt;</span> no <span class="sy0">&lt;</span>span <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;important&quot;</span><span class="sy0">&gt;</span></div><br><br><h4>במדריך הבא</h4><br>* אופרטורים<br>* עוד קצת על ה IF<br>* לולאות פשוטות </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/7ff5a4244432d30b20b8a8a2d7ed82e7?s=16&r=g&d=monsterid" alt="RaFaeL">
+<a>RaFaeL</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1887"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/08/2012 15:07</span><br>
+תודה רבה ! </div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

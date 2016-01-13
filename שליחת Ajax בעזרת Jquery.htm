@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שליחת נתונים בעזרת Ajax וקבלת תשובה באופן מיידי ללא רענון בקלות. המדריך עובד על Ajax בשימוש בספריית Jquery.">
+<meta name="keywords" content="מדריך ל Ajax בעזרת Jquery,Ajax,שליחת טופס ללא רענון הדף,ביצוע פעולה Ajax">
+<meta name="author" content="NetanelEdri">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שליחה ועיבוד נתונים ב Ajax בעזרת Jquery</title>
+<meta itemprop="name" content="שליחה ועיבוד נתונים ב Ajax בעזרת Jquery">
+<meta itemprop="description" content="שליחת נתונים בעזרת Ajax וקבלת תשובה באופן מיידי ללא רענון בקלות. המדריך עובד על Ajax בשימוש בספריית Jquery.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"152","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>שליחה ועיבוד נתונים ב Ajax בעזרת Jquery</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">NetanelEdri, </div>
+<div class="right">&nbsp;<time datetime="2011-09-07T11:25:09+03:00" dir="rtl">07 לספטמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.myg.co.il/uploads/phpg6wQ3v.png" alt="שליחה ועיבוד נתונים ב Ajax בעזרת Jquery">
+</div>
+<div class="right post-content">
+שליחת נתונים בעזרת Ajax וקבלת תשובה באופן מיידי ללא רענון בקלות.<br>המדריך עובד על Ajax בשימוש בספריית Jquery. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+לאחר קבלת פניות מגולשים ברחבי הרשת בנושא החלטתי לכתוב מדריך שמסביר את אופן השימוש ב Ajax.<br>במדריך הזה החלטתי לעבוד על Ajax בעזרת ספריית Jquery.<br><br>ספריית Jquery היא ספריית Javascript מתקדמת שמוכרת היום לכולם והסלוגן שלה אומר &quot;write less do more&quot; ואני חייב לציין שבמקרה של Ajax תוכלו לראות את המימוש של זה לעומת ביצוע Ajax בצורה רגילה עם Javascript.<br><br><strong><span class="underline">במדריך הזה נקח דוגמא מאוד נפוצה של כתיבת טופס פשוט ב HTML ושליחת הנתונים שהוזנו לטופס בעזרת Ajax ולאחר מכן קבלת תשובה מקובץ PHP בזמן אמת.</span></strong><br><br><strong><span style="color:#3B6D9F;">שלב 1 - יצירת דף HTML:</span></strong><br><div class="php codeblock"><span class="sy0">&lt;!</span>DOCTYPE html <span class="kw2">PUBLIC</span> <span class="st0">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span> <span class="st0">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>html xmlns<span class="sy0">=</span><span class="st0">&quot;http://www.w3.org/1999/xhtml&quot;</span> xml<span class="sy0">:</span>lang<span class="sy0">=</span><span class="st0">&quot;he&quot;</span> lang<span class="sy0">=</span><span class="st0">&quot;he&quot;</span> <span class="kw3">dir</span><span class="sy0">=</span><span class="st0">&quot;rtl&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta http<span class="sy0">-</span>equiv<span class="sy0">=</span><span class="st0">&quot;Content-Type&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;text/html; charset=UTF-8&quot;</span> <span class="sy0">/&gt;</span> <br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>link rel<span class="sy0">=</span><span class="st0">&quot;stylesheet&quot;</span> type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span> href<span class="sy0">=</span><span class="st0">&quot;style.css&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;General.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Ajax<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>form id<span class="sy0">=</span><span class="st0">&quot;Form&quot;</span> action<span class="sy0">=</span><span class="st0">&quot;&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>table<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>tr<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>td<span class="sy0">&gt;</span>שם מלא<span class="sy0">&lt;/</span>td<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>td<span class="sy0">&gt;&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;fullname&quot;</span> <span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>td<span class="sy0">&gt;&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;sub&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;שליחה&quot;</span> <span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>tr<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>table<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><span class="underline">יצרנו דף HTML פשוט שמכיל בתוכו טופס ובו:</span><br>שדה טקסט - שם מלא , (name=fullname)<br>כפתור שליחה - שליחה , (name=sub)<br><br>שימו לב בתגית ה head לצירוף ספריית Jquery וצירוף קובץ JS חיצוני בשם General.js<br><br><strong><span style="color:#3B6D9F;">שלב 2 - שליחת הנתונים ב Ajax:</span></strong><br>* פתחו קובץ בשם General.js , הקוד הבא נכתב בקובץ הזה.<br><div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// האם לחצו על כפתור השליחה ?</span><br>
+&nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;form#Form&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>submit<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// שליחת בקשת Ajax</span><br>
+&nbsp; &nbsp; $<span class="sy0">.</span>ajax<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; url<span class="sy0">:</span> <span class="st0">&quot;ajax.php&quot;</span><span class="sy0">,</span> <span class="co1">// מיקום הקובץ אליו תשלח הבקשה</span><br>
+&nbsp; &nbsp; &nbsp; type<span class="sy0">:</span> <span class="st0">&quot;POST&quot;</span><span class="sy0">,</span> <span class="co1">// סוג שליחת הנתונים - POST/GET</span><br>
+&nbsp; &nbsp; &nbsp; data<span class="sy0">:</span> $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span><span class="kw3">serialize</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// איזה מידע לשלוח לקובץ</span><br>
+&nbsp; &nbsp; &nbsp; success<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span>callback<span class="br0">&#41;</span><span class="br0">&#123;</span> <span class="co1">// ברגע שהבקשה נשלחה והצליחה , קבלה של נתונים חזרה - callback</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span>callback<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אוקיי בואו נסביר מה עשינו פה , שלב שלב.<br><br>1. קודם כל התחלנו בבדיקה שאומרת האם הטופס עם האיידי Form נשלח , כלומר <br>לחצו על כפתור ה submit.<br>2. שימו לב לפקודה return false; שדואגת שהדף לא יתרענן בעת שליחת הטופס.<br>3. בעזרת $.ajax אנחנו שולחים בקשה של Ajax , פירוט:<br>א. url - מציין את הקובץ אליו נרצה לשלוח את הבקשה<br>ב. type - מציין את סוג שליחת הנתונים לקובץ , POST / GET<br>ג. data - מציין איזה מידע להעביר לקובץ , במקרה הזה השתמשנו בפונקציה serialize() שלוקחת את כל שדות הטופס ואת הערכים שלהם ויוצרת מחרוזת אחת.<br>על הפונקציה הזו תוכלו למצוא מידע ודוגמאות <a href="http://api.jquery.com/serialize/">כאן.</a><br>ד. success - אירוע המציין כי הבקשה בוצעה והצליחה , באירוע הזה אנחנו יוצרים פונקציה עם פרמטר אחד שפה אני קראתי לו callback , הפרמטר הזה מכיל את מה שהקובץ שהמידע נשלח אליו החזיר.<br>בתוך הפונקציה אני משתמש ב alert להצגת המידע המוחזר.<br><br><strong><span style="color:#3B6D9F;">שלב 3 - יצירת קובץ php לעיבוד הנתונים:</span></strong><br>* צרו קובץ בשם ajax.php , הקוד הבא נכתב בקובץ זה.<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="re0">$fullname</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'fullname'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$fullname</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;יש למלא את שדה השם&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;ברוך הבא &quot;</span><span class="sy0">.</span><span class="re0">$fullname</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br>שימו לב בקובץ הזה אנחנו משתמשים במשתנה fullname שמכיל את הערך של $_POST[&#039;fullname&#039;] , שדה זה נשלח בעזרת פעולת ה Ajax שעשינו.<br>לאחר מכן ביצעתי פעולה פשוטה שבודקת האם השדה ריק והצגת הודעה בהתאם , ובמידה והשדה מלא הצגת הודעה בהתאם.<br><br><span class="underline">מספר נקודות חשובות:</span><br>1. שימו לב למאפיין ה url שאתם נותנים.<br>2. מאפיין ה type יכול להכיל POST או GET בלבד.<br>3. לפעולה $.ajax ישנם עוד מספר רב של אפשרויות מעניינות שעליהם תוכלו לקרוא ולהרחיב - <a href="http://api.jquery.com/jQuery.ajax/">לחצו כאן למעבר</a>.<br><br>המדריך הזה מהווה מדריך בסיסי בלבד בנושא , תוכלו להעמיק ולהרחיב פה באתר הרשמי של Jquery בכתובת - <a href="http://www.jquery.com">www.jquery.com</a><br><br>אשמח לענות על שאלות שיש לכם בתגובות.<br>בהצלחה :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=16&r=g&d=mm" alt="NetanelEdri">
+<a>NetanelEdri</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment729"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/09/2011 22:40</span><br>
+מדריך מצויין.<br>
+אבל מה קורה עם אני רוצה לעשות שזה יכתוב את <br>
+echo &quot;ברוך הבא &quot;.$fullname;<br>
+בתור טקסט ולא בתוך alert?</div>
+<a id="comment730"></a>
+<div class="blog-comment">
+<span class='comment-author'>NetanelEdri</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/09/2011 22:44</span><br>
+שמחתי לשמוע.<br>
+לשאלתך פשוט תחליף את פעולת ה alert בכל פעולה שתרצה.<br>
+למשל אם נציב לאחר הטופס דיב חדש עם איידי - log<br>
+נוכל לעשות במקום alert את קטע הקוד הבא:<br>
+$(&quot;#log&quot;).text(callback);<br>
+ואז הטקסט יוצג בדיב שתעשה במסמך(כמובן שתוכל לעצב את הדיב , לשים לו תמונה רקע , אייקון וכו&apos;).<br>
+<br>
+תרגיש חופשי להתנסות בעוד דברים , ותציג את הנתונים איך שתרצה :)<br>
+<br>
+בהצלחה.</div>
+<a id="comment731"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/09/2011 22:45</span><br>
+תודה על המדריך. <br>
+הבארת בצורה ברורה שקוד כתוב ב-jquery קל יותר קצר וקל לכתיבה. מעבר לזה <br>
+יש ל-jQuery קיצורים נחמדים<br>
+get.$ תעשה בקשת ajax מסוג get<br>
+post.$ הוא קיצור לבקשת post<br>
+<br>
+הרשימת פרמטרים שהבאת היא חקלית. יש עוד הרבה מאוד פרמטרים שאפשר להגדיר איתם את אופן הפעולה של הבקשה .<br>
+<br>
+בסה&quot;כ מצוין בתור התחלה. מחקה להמשך<br>
+</div>
+<a id="comment732"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/09/2011 23:32</span><br>
+כמה דברים.<br>
+אם זה מדריך, אז למה שלא תקראו JQuery ולא Jquery?<br>
+<br>
+ועוד דבר, הייתי ממליץ להוסיף את נושא ה-JSON.. שזה מאוד חשוב.</div>
+<a id="comment733"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/09/2011 15:48</span><br>
+מדריך נחמד מאוד .<br>
+כל הכבוד.</div>
+<a id="comment734"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/09/2011 17:40</span><br>
+@משתמש_12829 <br>
+jQuery או Jquery זה לא משנה כרגע בכלל מה כתוב בלוגו שלהם.<br>
+לגבי נושא ה JSON המדריך הזה הוא מדריך בסיסי ראשוני כמו שציינתי לכן הוא מספק מידע על פונקציה $.ajax ולא על פעולת json<br>
+<br>
+@עידו<br>
+שמח לשמוע , בהצלחה :)</div>
+<a id="comment742"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/09/2011 22:49</span><br>
+אמרת שאפשר להפוך את ההתראה לטקסט. איך עושים את זה בעזרת דיב? כלומר איך מחברים מסמך CSS ל-JS?</div>
+<a id="comment745"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/09/2011 12:36</span><br>
+לפני שאתה מתחיל ללמוד כאלו מאמרים, הייתי ממליץ לך ללמוד קודם כל JS ו-JQuery.<br>
+אחרי שתדע את הפרטים האלו, תעבור על המדריך הזה, ותנסה תמיד לשפר אותו לפי הצרכים שלך.<br>
+<br>
+וכן, אפשר להוסיף CSS, וגם אלמנטים איפה שבא לך ומתי שתרצה עם JQuery.</div>
+<a id="comment747"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/09/2011 17:08</span><br>
+משתמש_12829 אתה יכול לחפש באתר מדריך מאוד מפורט ומוסבר על עבודה עם JSON בPHP ועל אפשרות לשלבו בעזרת jQuery .</div>
+<a id="comment748"></a>
+<div class="blog-comment">
+<span class='comment-author'>fingerbang</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/09/2011 17:44</span><br>
+משתמש_12829: עם js אתה עורך את הdom ולא את הקבצים עצמם.</div>
+<a id="comment845"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/10/2011 15:56</span><br>
+יש לי בעיה<br>
+עשיתי סקיפט שברגע שלוחצים על enter הוא שולח.<br>
+אז יוצר מצב שלוחצים על הכפתור שלח הוא שולח ב AJAX<br>
+ושלוחצים על אנטר הוא לא מעביר את זה כמו AJAX איך אפשר לסדר את זה ?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

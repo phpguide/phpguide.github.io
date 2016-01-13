@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="raslin">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>לעשות טאבים בקלות עם Jquery ללא JqueryUI</title>
+<meta itemprop="name" content="לעשות טאבים בקלות עם Jquery ללא JqueryUI">
+<meta itemprop="description" content="">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"169","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>לעשות טאבים בקלות עם Jquery ללא JqueryUI</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">raslin, </div>
+<div class="right">&nbsp;<time datetime="2011-11-07T18:51:46+02:00" dir="rtl">07 לנובמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://cloud.ohloh.net/attachments/20036/jquery_med.png" alt="לעשות טאבים בקלות עם Jquery ללא JqueryUI">
+</div>
+<div class="right post-content">
+<br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+היום נאלצתי לעשות טאבים באיזה פרוייקט שאני עושה,<br>ובדרך כלל הפיתרון של כולם זה הטאבים של jqueryUI<br>זוהי סיפרייה נוספת ל jquery הרגיל שיש לה כמה UI חביבים בניהם הטאבים,<br>עם זאת, הקבצים כבדים ומסורבלים, וגם מגיעים עם עיצוב מוגזם לדעתי<br>שיכול להקשות להתאים אותו לצרכים שלכם.<br><br>אז האם יש אפשרות לעשות טאבים בלי סיפריית ה UI?<br>כן, פשוט בשימוש בספרייה המקורית לכתוב משהו משלכם,<br>הרבה יותר פשוט, וחוסך המון קוד מיותר לטעון <br>(ותאמינו לי, אני יודע, כל קילובייט נחשב) וכמובן הנוחות.<br><br>אז במקום לייבא כמה סיפריות, הנה דרך לעשות טאבים רק באמצעות jquery (הספריה הרגילה)<br><br>באופן פשוט נגדיר את הלשוניות של הטאבים:<br><div class="php codeblock"><span class="sy0">&lt;</span>a name<span class="sy0">=</span><span class="st0">&quot;tab1&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;tabs_title&quot;</span><span class="sy0">&gt;</span>tab1 title<span class="sy0">&lt;/</span>a<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">&lt;</span>a name<span class="sy0">=</span><span class="st0">&quot;tab2&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;tabs_title&quot;</span><span class="sy0">&gt;</span>tab2 title<span class="sy0">&lt;/</span>a<span class="sy0">&gt;</span></div><br><br><br>וכך נגדיר את התוכן:<br><br><div class="php codeblock"><span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;all_tabs&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;tabs1&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; content <span class="nu0">1</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;tab2&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; content <span class="nu0">2</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>כפי שפשוט לראות, בdiv שהID שלו הוא שם הטאב, שם יופיע תוכן הטאב.<br><br>וכך נפעיל את כל העניין:<br><div class="php codeblock"><span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// hide everything that is not your first tab</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st_h">'#all_tabs &gt; div[id!=&quot;tab1&quot;]'</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$<span class="br0">&#40;</span><span class="st_h">'.tabs_title'</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw2">var</span> tn <span class="sy0">=</span> $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span>attr<span class="br0">&#40;</span><span class="st0">&quot;name&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">//hide all the tabs that i didnt clicked</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$<span class="br0">&#40;</span><span class="st_h">'#all_tabs &gt; div[id!=&quot;'</span><span class="sy0">+</span> tn &nbsp;<span class="sy0">+</span><span class="st_h">'&quot;]'</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$<span class="br0">&#40;</span><span class="st_h">'#'</span> <span class="sy0">+</span> tn<span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;/script&gt;</span></div><br><br>קוד הג&#039;אווה סקריפט הזה, הוא בעצם ה jquery הרגיל, לא ספריית הUI הכבדה והמעצבנת,<br>ובעזרת הסיפריה המקורית פשוט מאוד לעשות את אותו הדבר בידיוק,<br>רק להגדיר בתא הראשון את שם טאב ברירת המחדל.<br><br>אני אפילו אסביר מה בידיוק עושה הקוד הזה,<br>סלקטורים בJQUERY, נועדו לבחור אלמנטים בעמוד שלנו ולעשות עליהם מניפולציות שונות.<br>הקוד הנ&quot;ל &quot;מאזין&quot; ללחיצה על הקישורים הסוג שלהם הוא טאבים (לפי שם המחלקה),<br>בודק מה נלחץ, ולפי השם מסתיר את התוכן של כל מה שלא נלחץ,<br>ומציג רק את התא שצריך. <br>מקווה שלמדתם להתעסק עם סלקטורים יותר מורכבים ב jquery ושיהיה בהצלחה.<br><br><br>כמובן שזה לא מעוצב, ומי שרוצה שכל הקישורים ישבו כמו שצריך בשורה, וגם לסדר את התוכן מוזמן לעשות זאת באמצעות CSS פשוט. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=16&r=g&d=monsterid" alt="raslin">
+<a>raslin</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment918"></a>
+<div class="blog-comment">
+<span class='comment-author'>dan252</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/11/2011 10:17</span><br>
+פשוט וטוב :) ואפשר לעשות גם אפקטים של slidein וכדומה..</div>
+<a id="comment919"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/11/2011 20:49</span><br>
+שאלה - מה הכוונה בטאבים?<br>
+כלומר מין כרטיסיות?</div>
+<a id="comment920"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/11/2011 21:39</span><br>
+כן, כרטיסיות...</div>
+<a id="comment921"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/11/2011 21:40</span><br>
+אני אני מיבא את הסיפריה של ה jquery ?<br>
+תודה על העזרה</div>
+<a id="comment922"></a>
+<div class="blog-comment">
+<span class='comment-author'>dan252</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/11/2011 22:47</span><br>
+&lt;script src=&quot;<span dir="ltr"><a href="http://code.jquery.com/jquery-1.7.min.js&quot;&gt;&lt;/script&gt">http://code.jquery.com/jquery-1.7.min.js&quot;&gt;&lt;/script&gt</a></span>;</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

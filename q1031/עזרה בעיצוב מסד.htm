@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה עזרה ב&quot;עיצוב&quot; מסד">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="xzxxx7">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>עזרה ב&quot;עיצוב&quot; מסד | שאלת לימוד PHP</title>
+<meta itemprop="name" content="עזרה ב&quot;עיצוב&quot; מסד | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה עזרה ב&quot;עיצוב&quot; מסד">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">16</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="עזרה בעיצוב מסד.htm" title="אני בונה מערכת בלוג ואני מנסה לעשות שלכל מאמר היו כמה קטגוריות.כרגע אפשר לתת רק קטגוריה אחת לכל מאמר והמ.ז. (מספר זיהוי\ID) של קטגוריה שמור בטבלה של מאמרים.הטבלה של המאמרים כזאת:post_id, post_title, post_content, post_category_idהטבלה של הקטגוריות כזאת:category_id, category_parent_id, category_nameעכשיו שתיהיה את האפשרות שיהיה לכל מאמר כמה קטגוריות צריך מערך קטגוריות, הדרך היחידה שאני יודע שאפשר ליצור מערך במסד מסוג MYSQL זה עוד טבלה (נכון?), אבל א">עזרה ב&quot;עיצוב&quot; מסד</a></h2>
+<div class="userinfo">
+פתח
+<a>xzxxx7</a>
+,
+<time class="timeago relativetime" datetime="2012-09-12T02:09:41+03:00" style="display:inline-block;">
+12 לספטמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1031'>
+אני בונה מערכת בלוג ואני מנסה לעשות שלכל מאמר היו כמה קטגוריות.<br>כרגע אפשר לתת רק קטגוריה אחת לכל מאמר והמ.ז. (מספר זיהוי\ID) של קטגוריה שמור בטבלה של מאמרים.<br><br>הטבלה של המאמרים כזאת:<br>post_id, post_title, post_content, post_category_id<br>הטבלה של הקטגוריות כזאת:<br>category_id, category_parent_id, category_name<br><br>עכשיו שתיהיה את האפשרות שיהיה לכל מאמר כמה קטגוריות צריך מערך קטגוריות, הדרך היחידה שאני יודע שאפשר ליצור מערך במסד מסוג MYSQL זה עוד טבלה (נכון?), אבל אני חושב שזה בזבוז משאבים. יש למישהו רעיון או דוגמאות איך מערכות גדולות כמו WP עובדות?<br><br>תודה. </div>
+</div>
+<h3>
+<span id="answersCounter">16 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4500">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>raslin</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4500" href="עזרה בעיצוב מסד.htm#answer_4500">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה המילה &quot;עיצוב&quot; במרכאות? זה האמא של העיצוב (נשמע טוב יותר באנגלית, design)<br><br>מה שקורה לרוב, זה שאת הקטגוריות שמים בטבלה נפרדת של קטגוריות,<br>כך שלכל קטגוריה יש ID,<br>ואז את הקטגוריות להן הפוסט שייך אפשר לשמור ב varchar או text פשוט,<br>עם המספרים של הקטגוריות מופרדים בפסיק.<br>ואז כדי להוציא את אותן קטגוריות לפי מספרי הקטגורי המופרדים בפסיק אתה משתמש ב IN.<br><br>שיהיה בהצלחה. </p>
+</div>
+<div class="answer" id="answer4501">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d9f08e20b975b3c1cbdb6c49a1a46118?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>xzxxx7</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4501" href="עזרה בעיצוב מסד.htm#answer_4501">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה!<br><br>כבר שעה אני מחפש דרך לעבוד עם IN בMYSQL ולא מוצא, למישהו יש מאמר בבקשה? </p>
+</div>
+<div class="answer" id="answer4503">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4503" href="עזרה בעיצוב מסד.htm#answer_4503">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נסה את <a href="http://www.w3schools.com/sql/sql_in.asp">זה</a> </p>
+</div>
+<div class="answer" id="answer4504">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c88a5af77e9e5fbe48dee1a369458540?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpguide1</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4504" href="עזרה בעיצוב מסד.htm#answer_4504">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם הבנתי אותך נכון: <br>אז איך אתה שולף את הפוסטים שהקטגורייה שלהם היא ID_CATEGORY=4?<br>&gt;הרי בעמודה שמשייכת את הפוסט לקטגוריות, אין רק את המספר 4, אלא יש משהו כזה: 1,4,7. </p>
+</div>
+<div class="answer" id="answer4505">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4505" href="עזרה בעיצוב מסד.htm#answer_4505">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תיצור עוד טבלה עם העמודות:<br>post_id, cat_id<br><br>בטבלה הזו תייצר את הקשרים בין הפוסטים לקטגוריות.<br>דוגמה:<br><div class="php codeblock"><span class="sy0">+--------------+-------------+</span><br>
+&nbsp;<span class="sy0">|</span> &nbsp;post_id &nbsp; &nbsp; cat_id &nbsp; &nbsp;<span class="sy0">|</span><br>
+<span class="sy0">+--------------+-------------+</span><br>
+&nbsp;<span class="sy0">|</span> &nbsp; &nbsp; &nbsp; <span class="nu0">1</span> &nbsp; &nbsp; &nbsp;<span class="sy0">|</span> &nbsp; &nbsp; &nbsp;<span class="nu0">1</span> &nbsp; &nbsp; &nbsp; <span class="sy0">|</span><br>
+<span class="sy0">+--------------+-------------+</span><br>
+&nbsp;<span class="sy0">|</span> &nbsp; &nbsp; &nbsp; <span class="nu0">1</span> &nbsp; &nbsp; &nbsp;<span class="sy0">|</span> &nbsp; &nbsp; &nbsp;<span class="nu0">2</span> &nbsp; &nbsp; &nbsp; <span class="sy0">|</span><br>
+<span class="sy0">+--------------+-------------+</span><br>
+&nbsp;<span class="sy0">|</span> &nbsp; &nbsp; &nbsp; <span class="nu0">2</span> &nbsp; &nbsp; &nbsp;<span class="sy0">|</span> &nbsp; &nbsp; &nbsp;<span class="nu0">1</span> &nbsp; &nbsp; &nbsp; <span class="sy0">|</span><br>
+<span class="sy0">+--------------+-------------+</span><br>
+&nbsp;<span class="sy0">|</span> &nbsp; &nbsp; &nbsp; <span class="nu0">3</span> &nbsp; &nbsp; &nbsp;<span class="sy0">|</span> &nbsp; &nbsp; <span class="nu0">3</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">|</span><br>
+<span class="sy0">+--------------+-------------+</span></div><br>עבור הטבלה הזו, זה אומר שהפוסט הראשון שייך לקטגוריות 1 ו-2, פוסט 2 שייך לקטגוריית 2 ופוסט 3 שייך לקטגורית 3.<br><br>ככה גם יותר קל למחוק פוסט מסוים מקטגוריה מסוימת (פשוט מוחקים שורה בטבלה) וגם קל להוסיף פוסט לקטגוריה מסוימת (להוסיף שורה חדשה בטבלה).<br><br>ד&quot;א - ככה נעשה גם ב-phpguide. </p>
+</div>
+<div class="answer" id="answer4506">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4506" href="עזרה בעיצוב מסד.htm#answer_4506">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ודרך אגב, בשביל ערכים שמופרדים בפסיקים יש את FIND_IN_SET.<br>IN לא קשורה לזה. </p>
+</div>
+<div class="answer" id="answer4508">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>raslin</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4508" href="עזרה בעיצוב מסד.htm#answer_4508">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה עם SET שהוא צריך להגדיר קטגוריות מראש, ואם זה קטגוריות שהוא מוסיף כל פעם דרך פאנל?<br>השאילתה פשוטה, זה בסגנון הזה: <br><br><br><div class="php codeblock"><span class="re0">$this_post_categories_string</span> <span class="sy0">=</span> <span class="st0">&quot;1,4,6&quot;</span><span class="sy0">;</span><br>
+SELECT <span class="sy0">*</span> FROM categories WHERE id IN <span class="br0">&#40;</span><span class="br0">&#123;</span><span class="re0">$this_post_categories_string</span><span class="br0">&#125;</span><span class="br0">&#41;</span></div> </p>
+</div>
+<div class="answer" id="answer4510">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4510" href="עזרה בעיצוב מסד.htm#answer_4510">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+FIND_IN_SET מקבלת שתי מחרוזות:<br>1 - המחרוזת שאנחנו מחפשים.<br>2 - מחרוזת שהיא רשימת ערכים מופרדים עם פסיק.<br><br>SET נשמר במסד כרשימת ערכים מופרדים עם פסיק, ולכן משתמשים ב-FIND_IN_SET כשעובדים עם SET.<br><br>אבל אפשר לשלוח ל-FIND_IN_SET כל מחרוזת, אין צורך בעמודה מסוג SET:<br><div class="php codeblock">SELECT FIND_IN_SET<span class="br0">&#40;</span><span class="st_h">'1'</span><span class="sy0">,</span> <span class="st_h">'1,4,6'</span><span class="br0">&#41;</span></div><br><br>ככה שאין צורך להגדיר את העמודה כ-SET בשביל להשתמש בזה.<br><br>בנוסף, אני לא ממליץ לעשות את זה ככה (להכניס את הקטגוריות כפסיקים).<br>עם החיפוש במסד אין בעיה, הבעיה היא כשאתה רוצה להוציא פוסט מסוים מקטגוריה מסוימת או להכניס פוסט מסוים לקטגוריה נוספת (זה פחות בעיה, פשוט משרשרים פסיק+ה-id של הקט&#039;, אבל בכל זאת).<br>אם עושים טבלה נוספת שמקשרת בין הקטגוריות לבין הפוסטים אנחנו פותרים את הבעיתיות הזו.<br><br><a href="http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_find-in-set">http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_find-in-set</a> </p>
+</div>
+<div class="answer" id="answer4517">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d9f08e20b975b3c1cbdb6c49a1a46118?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>xzxxx7</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2012 </span>
+<a id="answer_4517" href="עזרה בעיצוב מסד.htm#answer_4517">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה רבה!!<br> אני בודק עכשיו הכל, בקרוב אחזיר תשובה.<br>----<br><br>@iiddaannyy<br> גם ויקימדיה עובדת ככה, אני מכיר את השיטה.<br> אבל אני חושב שזה ממש בזבוז, תחשוב שיש כבר טבלה למאמרים וטבלה לקטגוריות. עכשיו להוסיף טבלה גם לקשר בניהן? תחשוב על השאילתא:<br><br><div class="php codeblock"><span class="re0">$posts_result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT `post_id`, `post_title` FROM `posts` LIMIT 1;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$post_row</span> &nbsp; <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$posts_result</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$categories_result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;<br>
+&nbsp; &nbsp; SELECT<br>
+&nbsp; &nbsp; &nbsp; `categories`.`category_name`, `categories`.`category_id`<br>
+&nbsp; &nbsp; FROM<br>
+&nbsp; &nbsp; &nbsp; `categories`,<br>
+&nbsp; &nbsp; &nbsp; `post_categories`<br>
+&nbsp; &nbsp; WHERE<br>
+&nbsp; &nbsp; &nbsp; `categories`.`category_id` = `post_categories`.`category_id`<br>
+&nbsp; &nbsp; &nbsp; AND <br>
+&nbsp; &nbsp; &nbsp; `post_categories`.`post_id` = '<span class="es4">{$post_row['post_id']}</span>';<br>
+&nbsp; &quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$categories_row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$categories_result</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$post_row</span><span class="br0">&#91;</span><span class="st_h">'categories'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="re0">$categories_row</span><span class="br0">&#91;</span><span class="st_h">'category_id'</span><span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$categories_row</span><span class="br0">&#91;</span><span class="st_h">'category_name'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br><strong>עריכה:</strong><br>עידן הלכתי על הדרך שהצעת אבל עכשיו יש בעיה חדשה, איך אני שולף &quot;מאמרים דומים&quot;?<br>(כרגע אני שולף אותם לפי קטגוריה == קטגוריה..) </p>
+</div>
+<div class="answer" id="answer4518">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 13 לספטמבר 2012 </span>
+<a id="answer_4518" href="עזרה בעיצוב מסד.htm#answer_4518">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה זאת אומרת &quot;מאמרים דומים&quot;? כאלה שהם באותה קטגוריה? </p>
+</div>
+<div class="answer" id="answer4519">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d9f08e20b975b3c1cbdb6c49a1a46118?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>xzxxx7</a>
+ב
+<span style="font-size:10px"> 13 לספטמבר 2012 </span>
+<a id="answer_4519" href="עזרה בעיצוב מסד.htm#answer_4519">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, כמו בסרטונים של יוטיוב.. </p>
+</div>
+<div class="answer" id="answer4520">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 13 לספטמבר 2012 </span>
+<a id="answer_4520" href="עזרה בעיצוב מסד.htm#answer_4520">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם לטבלה קוראים tutorials2categories (לקחתי דוגמה מהאתר שלי), עם העמודות tutorial, category ואתה רוצה לשלוף את המדריכים באותה קטגוריה כמו המדריך עם ה-id=1, אז:<br><div class="php codeblock">SELECT `tutorials2categories`<span class="sy0">.</span>`tutorial`<br>
+FROM <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; SELECT `category`<br>
+&nbsp; &nbsp; FROM `tutorials2categories`<br>
+&nbsp; &nbsp; WHERE `tutorial`<span class="sy0">=</span><span class="nu0">1</span><br>
+<span class="br0">&#41;</span> <span class="kw1">AS</span> `currentCategories`<br>
+LEFT <span class="kw3">JOIN</span> `tutorials2categories`<br>
+&nbsp; &nbsp; ON `tutorials2categories`<span class="sy0">.</span>`category`<span class="sy0">=</span>`currentCategories`<span class="sy0">.</span>`category`<br>
+WHERE `tutorial`<span class="sy0">!=</span><span class="nu0">1</span><br>
+GROUP BY `tutorial`</div> </p>
+</div>
+<div class="answer" id="answer4521">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 13 לספטמבר 2012 </span>
+<a id="answer_4521" href="עזרה בעיצוב מסד.htm#answer_4521">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וזה כמובן עובד גם אם המדריך שייך לכמה קטגוריות. </p>
+</div>
+<div class="answer" id="answer4522">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d9f08e20b975b3c1cbdb6c49a1a46118?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>xzxxx7</a>
+ב
+<span style="font-size:10px"> 13 לספטמבר 2012 </span>
+<a id="answer_4522" href="עזרה בעיצוב מסד.htm#answer_4522">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וואלה תודה רבה, אני לא אוהב שנותנים לי קודים אז אני אשבור את הראש להבין מה עשית פה ולמה זה עובד.<br>שוב תודה רבה! ערב טוב. </p>
+</div>
+<div class="answer" id="answer4523">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 13 לספטמבר 2012 </span>
+<a id="answer_4523" href="עזרה בעיצוב מסד.htm#answer_4523">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שמחתי לעזור, בהצלחה. :) </p>
+</div>
+<div class="answer" id="answer4553">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d9f08e20b975b3c1cbdb6c49a1a46118?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>xzxxx7</a>
+ב
+<span style="font-size:10px"> 14 לספטמבר 2012 </span>
+<a id="answer_4553" href="עזרה בעיצוב מסד.htm#answer_4553">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה, הכל תקין D: </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

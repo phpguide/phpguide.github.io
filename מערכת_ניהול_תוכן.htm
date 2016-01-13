@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="בניית מערכת ניהול תוכן עם עדכון דפים דרך מסד נתונים mysql">
+<meta name="keywords" content="ניהול תוכן, עמודים, עדכון, מערכת">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מערכת ניהול תוכן</title>
+<meta itemprop="name" content="מערכת ניהול תוכן">
+<meta itemprop="description" content="בניית מערכת ניהול תוכן עם עדכון דפים דרך מסד נתונים mysql">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"105","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מערכת ניהול תוכן</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-06-15T10:49:18+03:00" dir="rtl">15 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/cms.jpg" alt="מערכת ניהול תוכן">
+</div>
+<div class="right post-content">
+בנה מערכת ניהול תוכן בסיסית על גבי מסד נתונים עם כמה דפים, <br>עריכה ותצוגתם בעיצוב משותף <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+כמעט כל אתר מורכב ממערכת לניהול תוכן שדרכה מכניסים למסד תוכן ומציגים אותו בעמודים שונים. כמו כל מערכת אחרת, גם פה את הבניה נתחיל מתכנונן.<br><br><h2>מבנה המערכת</h2><br>[*] המערכת צריכה לאפשר יצירה של עמודים עם תכנים שונים<br>[*] המערכת צריכה לאפשר עריכה של עמודים קיימים<br>[*] המערכת צריכה להציג את התוכן של כל עמוד בנפרד<br><br><strong>manage.php</strong><br>שני הפעולות הראשונות די דומות. שניהם מציגות שדה טקסט, קולטות את הנתונים ממנו ומכניסות למסד. ההבדל הוא רק בשאילתה שיש לבצע. בגלל הדמיון ביניהם, וכנראה הרבה קוד משותף - נשאיר אותם בסקריפט אחד (עם תנאי - איזו שאילתה לעשות)<br><br><strong>show.php</strong><br>הפעולה השלישית שונה ותצריך סקריפט משלה שיבצע שליפה מהמסד.<br><br><strong>המסד עצמו</strong><br>הנתון היחידי שלפי הדרישה אנחנו צריכים לשמור זה: &quot;תוכן העמוד&quot;.<br>כדי שיהיה לנו יותר קל להבדיל בין עמוד לעמוד ולעבוד עם המסד <br>ניתן לכל עמוד גם מספר סידורי ID<br><br>1. מספר id שגדל כל הזמן לבד <span dir="ltr">(autoincrement)</span><br>2. שדה content מסוג text שיכיל את התוכן.<br><a href="http://pastebin.com/a6DnEQme">שאילתת יצירת הטבלה</a><br><br><br><br><br><h2>שליפת נתונים</h2><br>נתחיל מהחלק הקל. נכניס למסד באופן ידני (דרך phpMyAdmin) שני שורות לטבלה, כדי שעמוד 1 ועמוד 2 יהיו קיימים. כל עמוד במערכת שלנו יוצג באמצעות הקישור:<br>show.php?id=X כשבמקום X יהיה מספר העמוד.<br><br><strong>show.php</strong><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'העמוד המבוקש לא קיים'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>בעת טעינת העמוד PHP לבד עוברת על הקישור ומכניסה לתוך מערך <span dir="ltr"><span style="color:green;">$_GET</span></span> את כל הנתונים שהועברו בקישור. הפונקציה <span style="color:darkblue;">isset</span> בודקת האם המשתנה קיים (כלומר האם בתוך המערך <span dir="ltr"><span style="color:green;">$_GET</span></span> יש ערך id) .<br><br>אם המשתמש יגלוש לסקריפט בלי <span dir="ltr"><span style="color:darkblue;">?id=X</span></span> אז isset תחזיר false והסקריפט יאמר שהעמוד לא נמצא.<br><br><br><br><h4>בדיקה מספרית</h4><br>בפועל המשתמש יכול לגלוש אל <span style="color:darkblue;">show.php?id=haha</span>. במקרה הזה הערך יהיה קיים במערך, אבל הוא בכלל לא מספרי. כדי שזה לא יגרום לבעיות, נבדוק שהערך הוא מספרי:<br><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">ctype_digit</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'העמוד המבוקש לא קיים'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>הפונקציה ctype_digit בודקת האם המחרוזת שהוכנסה מכילה אך ורק ספרות ושום דבר אחר. אם כן - תחזיר true, אם לא - false<br><br><h4>שליפה</h4><br>אחרי שבדקנו שהערך תקין ומספרי — נשלוף נתונים על העמוד הזה מהמסד.<br>קודם כל יש לבצע חיבור למסד ולאחר מכן את השליפה:<br><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">ctype_digit</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// connect</span><br>
+&nbsp; <span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st_h">'test'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// select database</span><br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'UTF8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// פתרון בעיית סימני שאלה</span><br>
+<br>
+<span class="co1">// השליפה עצמה</span><br>
+&nbsp; <span class="re0">$pageResource</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `pages` WHERE `id`=&quot;</span><span class="sy0">.</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// בדיקה שהעמוד נמצא במסד. (יכול להיות שאין עמוד כזה בכלל)</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$pageResource</span><span class="br0">&#41;</span> <span class="sy0">!=</span> <span class="nu0">1</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'העמוד לא נמצא'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+<span class="co1">// הכנסת הנתונים מהמסד למערך</span><br>
+&nbsp; &nbsp; <span class="re0">$page</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$pageResource</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// הדפסת הנתונים למשתמש</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$page</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'העמוד המבוקש לא קיים'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>למה צריך את set names פירטתי [url=/UTF_8_%D7%A7%D7%99%D7%93%D7%95%D7%93_%D7%95%D7%A1%D7%99%D7%9E%D7%A0%D7%99_%D7%A9%D7%90%D7%9C%D7%94.htm]במדריך על utf-8, קידודים וסימני שאלה[/url].<br><br>השליפה עצמה בתרגום מאנגלית נראית כמו<br><span style="color:indigo;">שלוף מהטבלה pages את הנתונים של השורה שבה מספר העמוד id שווה ל</span><br>וכמספר העמוד אנחנו מציבים את המשתנה שהגיע מהקישור.<br><br><br>במסדי נתונים שליפות לא מחזירות מערך עם נתונים.<br>במקרה של פעולות שליפה mysql_query תחזיר למשתנה את השורות שהשליפה מצאה באופן מיוחד שנקרא משאב.<br><br>את השורות האלה אי אפשר סתם להדפיס. הם גם לא מערך עדיין. הם סוג נתונים אחר. משהו בזיכרון. כדי לקבל תוכן של שורה לתוך משתנה יש להשתמש בפונקציה mysql_fetch_assoc על המשאב שהתקבל מהשליפה.<br><br><br>כדי לבדוק כמה שורות נמצאו והוחזרו בשליפה - אפשר להפעיל את הפונקציה mysql_num_rows על המשאב עם התוצאות. הפונקציה מחזירה מספר של שורות.<br><br>אם המסד לא מצא עמוד עם המספר שביקשנו ממנו - mysql_num_rows תחזיר אפס ואנחנו נדע שהעמוד הזה לא קיים במסד. למשל אין לכם עמוד מספר 714 כנראה.<br><br>אם העמוד לא קיים, נדפיס הודעה בהתאם.<br>אם קיים — באמצעות mysql_fetch_assoc נקבל את הנתונים מהמשאב לתוך משתנה ונדפיס את העמודה content.<br><br><span style="color:green;"><span class="underline">זהו, סקריפט ההצגה מוכן.</span></span><br><br><br><br><br><br><br><br><br><br><br><h2>הכנסת נתונים</h2><br>הדבר הראשון יהיה כמובן ליצור את טופס ההכנסה שיכיל רק שדה טקסט וכפתור.<br><div class="php codeblock"><span class="sy0">&lt;</span>form method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>textarea name<span class="sy0">=</span><span class="st0">&quot;content&quot;</span><span class="sy0">&gt;&lt;/</span>textarea<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div><br><br>השלב הבא יהיה להכניס את הנתונים מהטופס למסד ברגע שהטופס נשלח.<br>נוסיף בדיקה האם הטופס נשלח ואינו ריק:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#41;</span> <span class="sy0">!=</span> <span class="st_h">''</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'תודה, הטופס התקבל'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+&nbsp; &lt;textarea name=&quot;content&quot;&gt;&lt;/textarea&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; /&gt;<br>
+&lt;/form&gt;</div><br><br>כמו במקרה הקודם, גם פה PHP אוטומטית מכניסה למערך <span dir="ltr"><span style="color:green;">$_POST</span></span> את כל הנתונים שמגיעים מטופס. אם המשתמש לא לחץ &quot;שלח&quot;, לא יגיעו נתונים מטופס למשתנה <span dir="ltr"><span style="color:green;">$_POST</span></span>, הוא ישאר ריק והפונקציה isset תחזיר false<br><br><br>הפונקציה trim מורידה רווחים מתחילתה ומסופה של המחרוזת. אם המשתמש יכניס רק רווחים, הפונקציה trim תוריד אותם. נבדוק האם הטקסט (בלי רווחים) מכיל משהו (כלומר המשתמש הקליד משהו בשדה ולא סתם לחץ &quot;שלח&quot; עם טופס ריק).<br><br>אם הכל בסדר, נחליף את הודעת התודה ביצירת עמוד במסד.<br>יצירת שורה בטבלה נעשית באמצעות הפקודה INSERT<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">!=</span> <span class="st_h">''</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// connect</span><br>
+&nbsp; <span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st_h">'test'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// select database</span><br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'UTF8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// פתרון בעיית סימני שאלה</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;INSERT INTO `pages` (`content`)<br>
+VALUES ('&quot;</span><span class="sy0">.</span><span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;')&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `pages` (`content`)<br>
+VALUES ('&quot;</span><span class="sy0">.</span><span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;')&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;a href='show.php?id=&quot;</span><span class="sy0">.</span><span class="kw3">mysql_insert_id</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;'&gt;העמוד החדש&lt;/a&gt;&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+&nbsp; &lt;textarea name=&quot;content&quot;&gt;&lt;/textarea&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; /&gt;<br>
+&lt;/form&gt;</div><br><br><br>בתרגום מאנגלית הפקודה היא<br><span style="color:indigo;">הכנס לתוך הטבלה pages (בשדה content) את הערך</span><br>לתוך השדה content מציבים את המשתנה מהטופס.<br><br>כדי שיהיה לנו קל להבין מה קורה בזמן הלימוד — נדפיס את טקסט השאילתה שנשלחת למסד. אם נכתוב בטופס את המילה hello, השאילתה תיראה ככה:<br><span class="dirleft"><span style="color:darkred;">INSERT INTO `pages` (`content`) VALUES (&apos;hello&apos;) </span></span><br><br>עכשיו נסו לכתוב בטופס את המחרוזת הבאה: <span style="color:darkblue;">jack o&apos;connor</span><br><span class="dirleft"><span style="color:darkred;">INSERT INTO `pages` (`content`) VALUES (&apos;jack o\&apos;connor&apos;) </span></span><br>אם לא היה סלאש לפני הגרש בשם — מבחינת המסד המחרוזת הייתה נגמרת באות o<br>וכל השאר היה גורם לשאילתה לעוף עם שגיאה.<br>הוספת סלאש כזה נקראת <span class="underline">הברחה</span> ואותה עושה הפונקציה <a href="http://php.net/mysql_real_escape_string">mysql_real_escape_string</a>. השימוש בפונקציה הזו הוא <strong><span style="color:red;">חובה</span></strong> <strong>תמיד!</strong> כל פעם שאתם מעבירים נתונים למסד נתונים. גם בהכנסות, גם בשליפות, גם בעדכונים, גם בסקריפטים אחרים בפרויקטים לא קשורים. תמיד!.<br><br>שומעים? <strong>ת-מ-י-ד</strong>!<br><span style="color:gray;">חוץ ממקום אחד.</span><br><br>שאלת בונוס: למה לא השתמשנו בפונקציה הזו בסקריפט השליפה? (תשובה בצבע לבן):<br><br><span style="color:white;">הברחה יש לעשות למחרוזות שעלולות לכלול גרש, גרשיים, מעברי שורה ועוד כמה תווים ספציפיים שהמסד דורש להבריח. מספרים הם אינם מחרוזות. הם מספרים. מספרים לא יכולים להכיל גרשיים או כל תו לא ספרתי אחר. <br><br>במקרה של השליפה - דבר ראשון ווידאנו שהמשתנה הוא הכן מספר ולכן בשאילתה יכולנו להניח שהוא כבר מספר ואין צורך לבצע עליו פעולות הברחה.</span><br><br><br><h4>ומה עם id?</h4><br>שמתם לב שלא רשמנו איזה ערך להכניס לשדה id? רשמנו רק ערך עבור content.<br>בגלל שהשדה id מוגד כ auto increment בעת יצירת הטבלה - הערך שלו פשוט גדל באחד עם כל הוספת שורה והערך החדש יהיה גדול באחד מהערך הקודם.<br><br>פונקציה מיוחדת <span style="color:darkblue;">mysql_insert_id</span> יודעת להחזיר את ה id האחרון שהוכנס לטבלה אחרי ביצוע הכנסה. נשתמש בה כדי לקבל את מספר העמוד שהרגע נוצר ונדפיס קישור אליו עם אותו מספר <span style="color:darkblue;">show.php?id=X</span><br><br>צרו עמוד עם התוכן <br><div class="php codeblock"><span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span> כותרת <span class="sy0">&lt;/</span>h1<span class="sy0">&gt;</span><br>
+שורה ראשונה <span class="sy0">&lt;</span>br<span class="sy0">/&gt;</span><br>
+שורה שניה</div><br>ועברו בקישור כדי לראות את העמוד שנוצר<br><br><span style="color:green;"><span class="underline">זהו, יצירת עמודים מוכנה, הצגת נתונים מוכנה. נשאר רק לאפשר עריכה.</span></span><br><br><br><br><br><br><br><h2>עריכה</h2><br>הפעם נשתמש באותו פטנט של מספר העמוד בקישור, אבל בסקריפט ההוספה.<br>כשנגלוש ל <span style="color:darkblue;">manage.php<strong>?id=1</strong></span> הסקריפט ידע שאנחנו <span class="underline">עורכים</span> את עמוד מס&apos; 1<br>כשנגלוש סתם אל <span style="color:darkblue;">manage.php</span> הסקריפט ידע שאנחנו <span class="underline">יוצרים</span> עמוד חדש.<br><br>גם במקרה הזה php אוטומטית תשים את הערכים מהקישור במשתנה <span dir="ltr"><span style="color:green;">$_GET</span></span><br>ובעזרת הפונקציה isset אנחנו נבדוק האם גלשו אל <span style="color:darkblue;">?id=1</span> או סתם לעמוד.<br><br>במצב עריכה אנחנו נרצה להציג בתוך ה textarea את התוכן הישן של העמוד, לכן במצב עריכה נצטרך לשלוף קודם כל את התוכן הישן באופן דומה לזה שעשינו בהצגה.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+&nbsp; <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// connect</span><br>
+&nbsp; <span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st_h">'test'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// select database</span><br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'UTF8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// פתרון בעיית סימני שאלה</span><br>
+<br>
+<br>
+<span class="co1">// משתנה שיכיל את טקסט העמוד הנוכחי במקרה של עריכה</span><br>
+<span class="re0">$current_text</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span> <span class="co1">// נגדיר את המשתנה מראש</span><br>
+<br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">!=</span> <span class="st_h">''</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `pages` (`content`)<br>
+VALUES ('&quot;</span><span class="sy0">.</span><span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;')&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;a href='show.php?id=&quot;</span><span class="sy0">.</span><span class="kw3">mysql_insert_id</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;'&gt;העמוד החדש&lt;/a&gt;&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">ctype_digit</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$pageResource</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `pages` WHERE `id`=&quot;</span><span class="sy0">.</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// בדיקה שהעמוד נמצא במסד. (יכול להיות שאין עמוד כזה בכלל)</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$pageResource</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// הכנסת הנתונים מהמסד למערך</span><br>
+&nbsp; &nbsp; <span class="re0">$page</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$pageResource</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="co1">// ושמירת התוכן הנוכחי במשתנה</span><br>
+&nbsp; &nbsp; <span class="re0">$current_text</span> <span class="sy0">=</span> <span class="re0">$page</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+&nbsp; &lt;textarea name=&quot;content&quot;&gt;<span class="kw2">&lt;?php</span> <br>
+&nbsp; <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$current_text</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; <span class="sy1">?&gt;</span>&lt;/textarea&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; /&gt;<br>
+&lt;/form&gt;</div><br><br>הפעם את החיבור למסד אנחנו עושים בתחילת הסקריפט, ולא בתוך התנאי. הרי כל אחד מהתנאים עכשיו יצריך חיבור למסד ובמקום לכתוב את קוד החיבור בכל אחד מהתנאים מחדש, נכתוב אותו פעם אחת לפניהם.<br><br>התנאי הראשון נשאר זהה. אם המשתמש שלח את הטופס - לשמור אותו במסד.<br>נוסף תנאי חדש: האם המשתמש גלש לעמוד עם id כלשהו — במקרה הזה נציג את התוכן הנוכחי של העמוד בשדה הקלט.<br><br>נניח שהתוכן שלנו הוא &lt;b&gt;hi&lt;/b&gt;. אם נכניס אותו לתוך textarea<br>נקבל בקוד מקור <span style="color:indigo;">&lt;textarea&gt;&lt;b&gt;hi&lt;/b&gt;&lt;/textarea&gt;</span><br>זהו לא html תקין. ויותר מזה, דפדפנים מסוימים יכולים להחליט לא להציג את התגים הפנימיים בשדה בכלל.<br>הפונקציה htmlspecialchars דואגת לעניין הזה.<br><br>גלשו לעמוד עדכון עם id כלשהו ותראו את הטקסט הנוכחי בשדה.<br><br><br><br><br><h3>עדכון במקום שמירה</h3><br>ועכשיו החלק המעניין - העדכון או ההוספה?<br>כרגע יש לנו רק תנאי לבדיקה האם הטופס נשלח ואם כן - נבצע הוספה.<br><br>החלק המעניין הוא, שלא רשמנו לטופס action כלשהו ולכן הטופס נשלח לאותו עמוד שבו הדפדפן נמצא כרגע. אם המשתמש נמצא ב <span style="color:darkblue;">manage.php</span> - הטופס ישלח אל <span style="color:darkblue;">manage.php</span>. אבל אם המשתמש נמצא ב <span style="color:green;">manage.php?id=7</span> הטופס ישלח בהתאם אל <span style="color:green;">manage.php?id=7</span><br><br><br>זה אומר שגם בשליחת הטופס - הקישור יכיל את id במקרה של עריכה. ולכן בעת שמירת הטופס נוכל לבדוק האם קיים id בקישור. אם הוא קיים, אזי הטופס נשלח לעריכה. אם לא קיים - הטופס נשלח להוספה.<br><br>כל זה קורה במקרה שהטופס נשלח.<br>לכן לתוך הבדיקה &quot;האם הטופס נשלח&quot; נוסיף בדיקה נוספת &quot;האם עריכה או הכנסה&quot;.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+&nbsp; <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// connect</span><br>
+&nbsp; <span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st_h">'test'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// select database</span><br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'UTF8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// פתרון בעיית סימני שאלה</span><br>
+<br>
+<br>
+<span class="co1">// משתנה שיכיל את טקסט העמוד הנוכחי במקרה של עריכה</span><br>
+<span class="re0">$current_text</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span> <span class="co1">// נגדיר את המשתנה מראש</span><br>
+<br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">!=</span> <span class="st_h">''</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">ctype_digit</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// עריכה של עמוד מספר id</span><br>
+&nbsp; &nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;UPDATE `pages` SET `content` = <br>
+&nbsp; &nbsp; '&quot;</span><span class="sy0">.</span><span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;'<br>
+<br>
+&nbsp; &nbsp; WHERE `id`=&quot;</span> <span class="sy0">.</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;a href='show.php?id=&quot;</span><span class="sy0">.</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;'&gt;העמוד אחרי עריכה&lt;/a&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// הוספה של עוד חשד</span><br>
+&nbsp; &nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `pages` (`content`)<br>
+&nbsp; &nbsp; VALUES ('&quot;</span><span class="sy0">.</span><span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;')&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;a href='show.php?id=&quot;</span><span class="sy0">.</span><span class="kw3">mysql_insert_id</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;'&gt;העמוד החדש&lt;/a&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">ctype_digit</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$pageResource</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `pages` WHERE `id`=&quot;</span><span class="sy0">.</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// בדיקה שהעמוד נמצא במסד. (יכול להיות שאין עמוד כזה בכלל)</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$pageResource</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// הכנסת הנתונים מהמסד למערך</span><br>
+&nbsp; &nbsp; <span class="re0">$page</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$pageResource</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="co1">// ושמירת התוכן הנוכחי במשתנה</span><br>
+&nbsp; &nbsp; <span class="re0">$current_text</span> <span class="sy0">=</span> <span class="re0">$page</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+&nbsp; &lt;textarea name=&quot;content&quot;&gt;<span class="kw2">&lt;?php</span> <br>
+&nbsp; <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$current_text</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; <span class="sy1">?&gt;</span>&lt;/textarea&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; /&gt;<br>
+&lt;/form&gt;</div><br><br><br>בתאני שבודק האם הטופס נשלח, הוספנו בדיקה האם קיים id והוא מספר.<br>אם כן, זוהי עריכה ונבצע שאילתת עדכון<br><span style="color:indigo;">עדכן טבלת pages הצב ערך חדש ל content איפשה שמספר העמוד שווה ל</span><br><br>את הערך החדש לתוכן לקחנו מהטופס.<br>את מספר העמוד לקחנו מהקישור.<br><br>אם אין מספר עמוד בקישור - נכניס לטבלה רשומה חדשה עם התוכן מהטופס.<br><br><strong><span class="underline"><span style="color:green;">זהו זה, מערכת ניהול תוכן מוכנה.</span></span></strong><br><br><br><br><br><h4>בנוסף</h4><br>רצוי להציץ בקוד הדגמה לאופן הפעולה של [url=/phplive?code=23]isset[/url] ושל [url=/phplive?code=22]trim[/url].<br>אם פתאום התחלתם לקבל סימני שאלה - ראו על [url=/UTF_8_%D7%A7%D7%99%D7%93%D7%95%D7%93_%D7%95%D7%A1%D7%99%D7%9E%D7%A0%D7%99_%D7%A9%D7%90%D7%9C%D7%94.htm]קידוד ושימוש נכון ב-utf8[/url]<br>במקרה שנשארו שאלות אפשר [url=/qna]לפנות לפורום[/url] לקבלת עזרה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment210"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2011 18:40</span><br>
+אלכס, קודם כל ישר כח. נראה מדריך באמת מושקע ומתאים מאוד לכלל המתחילים שרוצים לבנות מערכות ניהול תוכן.<br>
+<br>
+אבל עדיין, אל תשכח שמפה זה רק מצריך התפתחות מצד המתכנת.. אפשר תמיד להוסיף Custom Fields וכו&apos;.. כי הרי אתר שלם לא בנוי על אותה תבנית, לא? :]<br>
+<br>
+כל הכבוד על המאמרים. כבר משתף את המאמר הזה ב-FB.<br>
+<br>
+<span dir="ltr"><a href="http://www.cmusic.co.il/">http://www.cmusic.co.il/</a></span></div>
+<a id="comment211"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2011 18:43</span><br>
+תודה רבה על התגובה יקיר.<br>
+הכן מפה והלאה אפשר להוסיף עוד שדות, כותרות, תמונות, מילות מפתח ועוד. העבודה איתם תהיה לגמרי זהה לעבודה עם השדה של התוכן.<br>
+:-)</div>
+<a id="comment212"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2011 19:52</span><br>
+כל הכבוד, יעזור למתחילים.</div>
+<a id="comment213"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2011 20:35</span><br>
+אני מדבר על כך, שיהיה לך אפשרות לקטלג את האתר לפי קטגוריות, וכל קטגוריה תשתמש ב-Custom Filed שונה. ככה שיש לך את הבסיס של התוכן, הכל רק יכול לרוץ..<br>
+<br>
+בהצלחה בהמשך.</div>
+<a id="comment218"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2011 13:52</span><br>
+כל הכבוד!</div>
+<a id="comment224"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2011 22:42</span><br>
+אחלה מדריך אחי !<br>
+אפשר דמו ?</div>
+<a id="comment227"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2011 20:07</span><br>
+אין כל כך demo<br>
+<br>
+בסה&quot;כ המערכת מורכבת משני קבצים וטבלה אחת. את תוכן הקבצים manage.php ו show.php אתה יכול לקחת מהכתבה ולשמור כפי שהם תוך שינוי נתוני ההתחברות למסד.<br>
+<br>
+קישור לקוד יצירת הטבלה יש בתחילת הכתבה. תעתיק אותו לתוך phpmyadmin לחלונית SQL, תפעיל והטבלה תווצר.</div>
+<a id="comment243"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2011 21:47</span><br>
+תודה רבה. אוהב את המדריכים שלך כל כך :D!</div>
+<a id="comment285"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2011 10:58</span><br>
+מדריך מושקע יעזור להמוןןן!!<br>
+תודה!</div>
+<a id="comment1776"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi787</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/07/2012 11:31</span><br>
+מדריך ממש מושקע! אבל יש לי שאלה קטנה:<br>
+ראיתי שהרבה עושים צ&apos;אט ב-PHP ו-AJAX, ואפשר להכניס גירשים בלי ההברחה, האם ניתן לעשות זאת גם ב-PHP בלבד?<br>
+תודה מראש :)</div>
+<a id="comment1778"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/07/2012 12:33</span><br>
+את הגירשיים המשתמש מכניס בלי הברחה, הסקריפט עושה את זה אחרי שהוא מקבל את הנתונים (עם real_escape_string).</div>
+<a id="comment1781"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi787</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/07/2012 19:20</span><br>
+כן אני יודע, אבל איך ניתן להכניס את הטקסט למסד, כמו שהוא, אפילו שיש גירשים?</div>
+<a id="comment1782"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/08/2012 04:03</span><br>
+למסד זה נכנס רגיל, בלי הבאקסלאש (\) של ההברחה.<br>
+תו ההברחה רק נועד להודיע למסד שהגירשיים/גרש אחריו הם לא סוף המחרוזת, אלא פשוט תו כחלק מהמחרוזת.</div>
+<a id="comment1796"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi787</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/08/2012 18:00</span><br>
+אה, תודה :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

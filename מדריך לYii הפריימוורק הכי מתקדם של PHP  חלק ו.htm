@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חלק ו&apos; של המדריך ל-Yii: הסבר על שימוש בקאפצ&apos;ה (Captcha) באמצעות הפריימוורק">
+<meta name="keywords" content="yii, php framework">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Yii | קאפצ&apos;ה (Captcha) - התמונה המעצבנת הזו, כן?</title>
+<meta itemprop="name" content="Yii | קאפצ&apos;ה (Captcha) - התמונה המעצבנת הזו, כן?">
+<meta itemprop="description" content="חלק ו&apos; של המדריך ל-Yii: הסבר על שימוש בקאפצ&apos;ה (Captcha) באמצעות הפריימוורק">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"199","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii | קאפצ&apos;ה (Captcha) - התמונה המעצבנת הזו, כן?</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2012-02-29T21:30:59+02:00" dir="rtl">29 לפברואר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/yii6.jpg" alt="Yii | קאפצ&apos;ה (Captcha) - התמונה המעצבנת הזו, כן?">
+</div>
+<div class="right post-content">
+במדריך הזה נלמד איך להשתמש ב-Captcha שהייתה צריכה להיות בטופס שיצרנו במדריך הקודם באמצעות הפריימוורק Yii של PHP. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+בכדי להגיע לחלק א&#039; של המדריך ל-Yii לחצו <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק א.htm">כאן</a>; <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ב.htm">חלק ב&#039;</a>; <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ג.htm">חלק ג&#039;</a>; <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ד.htm">חלק ד&#039;</a>; <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ה.htm">חלק ה&#039;</a>.<br><br><h3>איזה כיף ש-Yii מאפשרת לעבוד עם captcha בקלות :-)</h3><br>כפי שכתבתי בכותרת מעל, Yii נותנת לנו אפשרות לעבוד עם Captcha בקלות כל כך, שזה ממש כיף. :)<br>דבר ראשון, בכל קונטרולר שאנו נשתמש ב-Captcha אנחנו נכתוב את זה:<br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> actions<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'captcha'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'class'</span><span class="sy0">=&gt;</span><span class="st_h">'CCaptchaAction'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'backColor'</span><span class="sy0">=&gt;</span><span class="nu12">0xFFFFFF</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'testLimit'</span><span class="sy0">=&gt;</span><span class="nu0">3</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br>באמצעות הקוד הזה אנחנו בעצם מגדירים את ההגדרות של ה-Captcha שלנו. אפשר להבין מה כל הגדרה עושה לפי השם שלה. D:<br><br>ובתוך הקונטרולר זה נראה ככה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> AccountController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$layout</span> <span class="sy0">=</span> <span class="st_h">'header'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actions<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'captcha'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'class'</span><span class="sy0">=&gt;</span><span class="st_h">'CCaptchaAction'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'backColor'</span><span class="sy0">=&gt;</span><span class="nu12">0xFFFFFF</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'testLimit'</span><span class="sy0">=&gt;</span><span class="nu0">3</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionRegister<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> RegisterForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">validate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st0">&quot;Work!&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'register'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו בואו נציג את ה-Captcha בדף ההרשמה.<br>נפתח את טופס ההרשמה ונוסיף במקום של ה-Captcha את זה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">widget</span><span class="br0">&#40;</span><span class="st_h">'CCaptcha'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br>כאן אין begin או end, כי זה מרנדר ישירות בלי שאנחנו כותבים משהו באמצע.<br>זה כאילו אנחנו כותבים:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CCaptcha'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br>שאין שום דבר באמצע...<br><br>מה שאומר שהקוד אמור הרשמה נראה ככה:<br><div class="php codeblock">&lt;h1&gt;הירשם&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="re0">$form</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CActiveForm'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &lt;/table&gt;<br>
+&nbsp; &lt;b style=&quot;font-size:16px&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'verifyCode'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/b&gt;&lt;br /&gt;<br>
+&nbsp; &lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'verifyCode'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;br /&gt;<br>
+&nbsp; <span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">widget</span><span class="br0">&#40;</span><span class="st_h">'CCaptcha'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;br /&gt;<br>
+&nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'verifyCode'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;br /&gt;<br>
+&nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">submitButton</span><span class="br0">&#40;</span><span class="st_h">'התחבר'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+<span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>אם נריץ עכשיו את האתר נקבל שגיאה, כי התיקייה assets, התיקייה בה Yii משתמשת בצד הלקוח בשביל ה-Captcha, לא קיימת.<br>אז בואו ניצור אותה - לא ליצור אותה בתיקייה protected, אלא בתיקייה הראשית של האתר.<br><br>אבל אם לא נרשום את קוד האימות הנכון ב-Captcha, לא נקבל שגיאה כי לא רשמנו בחוקים ש-verifyCode אמור להיות Captcha.<br>כדי להגדיר את זה נוסיף ל-rules את הקוד הבא:<br><div class="php codeblock"><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'verifyCode'</span><span class="sy0">,</span> <span class="st_h">'captcha'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'קוד האבטחה אינו תקין'</span><span class="br0">&#41;</span></div><br><br>captcha בודק תקינות Captcha של שדה.<br>מה שאומר שהמחלקה של ההרשמה נראית כך:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> RegisterForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$username</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של שם המשתמש</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password2</span><span class="sy0">;</span> &nbsp;<span class="co1">// השדה של אימות הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// השדה של הדואר האלקטרוני</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$verifyCode</span><span class="sy0">;</span> <span class="co1">// השדה של הקאפצ'ה</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="sy0">,</span> <span class="st_h">'length'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'min'</span> <span class="sy0">=&gt;</span> <span class="nu0">4</span><span class="sy0">,</span> <span class="st_h">'max'</span> <span class="sy0">=&gt;</span> <span class="nu0">16</span><span class="sy0">,</span> <span class="st_h">'tooShort'</span> <span class="sy0">=&gt;</span> <span class="st_h">'מספר התווים בשם המשתמש חייב להיות לפחות 4 תווים'</span><span class="sy0">,</span> <span class="st_h">'tooLong'</span> <span class="sy0">=&gt;</span> <span class="st_h">'בשם המשתמש חייבים להיות עד 16 תווים ולא יותר'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק את כמות התווים בשם המשתמש</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="sy0">,</span> <span class="st_h">'unique'</span><span class="sy0">,</span> <span class="st_h">'className'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Account'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'שם המשתמש נמצא במסד'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק אם שם המשתמש לא נמצא במסד</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'length'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'min'</span> <span class="sy0">=&gt;</span> <span class="nu0">6</span><span class="sy0">,</span> <span class="st_h">'tooShort'</span> <span class="sy0">=&gt;</span> <span class="st_h">'מספר התווים בסיסמה חייב להיות לפחות 6'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בדיקת כמות התווים בסיסמה</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password2'</span><span class="sy0">,</span> <span class="st_h">'compare'</span><span class="sy0">,</span> <span class="st_h">'compareAttribute'</span> <span class="sy0">=&gt;</span> <span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אימות הסיסמה אינו זהה לסיסמה'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודקים אם אימות הסיסמה והסיסמה זהים</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'unique'</span><span class="sy0">,</span> <span class="st_h">'className'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Account'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'הדואר האלקטרוני נמצא במסד'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק אם האימייל לא נמצא במסד</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'checkMX'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'הדואר האלקטרוני אינו תקין'</span><span class="br0">&#41;</span> <span class="co1">// בודק את התקינות של האימייל</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'verifyCode'</span><span class="sy0">,</span> <span class="st_h">'captcha'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'קוד האבטחה אינו תקין'</span><span class="br0">&#41;</span> <span class="co1">// בדיקת קוד אבטחה</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> attributeLabels<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'username'</span> <span class="sy0">=&gt;</span> <span class="st_h">'שם משתמש'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="st_h">'סיסמה'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'password2'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אימות סיסמה'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'email'</span> <span class="sy0">=&gt;</span> <span class="st_h">'דואר אלקטרוני'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'verifyCode'</span> <span class="sy0">=&gt;</span> <span class="st_h">'קוד אבטחה'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>אוקיי, התנאים עובדים, הטופס עובד, אבל לא הוספנו את המשתמש לטופס!<br>עכשיו בשביל מה היה את המדריך הקודם? בשביל שנדע איך להוסיף טורים לטופס.<br>אז אין צורך להסביר נכון?<br><div class="php codeblock"><span class="re0">$account</span> <span class="sy0">=</span> <span class="kw2">new</span> Account<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">username</span> <span class="sy0">=</span> <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">username</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">password</span> <span class="sy0">=</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">email</span> <span class="sy0">=</span> <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">email</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">ip</span> <span class="sy0">=</span> Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">userHostAddress</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">redirect</span><span class="br0">&#40;</span><span class="st_h">'index.php'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>לא יודע אם כבר אמרתי, אבל הפונקציה redirect מעבירה כתובת.<br><br>הקונטרולר:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> AccountController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$layout</span> <span class="sy0">=</span> <span class="st_h">'header'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actions<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'captcha'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'class'</span><span class="sy0">=&gt;</span><span class="st_h">'CCaptchaAction'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'backColor'</span><span class="sy0">=&gt;</span><span class="nu12">0xFFFFFF</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'testLimit'</span><span class="sy0">=&gt;</span><span class="nu0">3</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionRegister<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> RegisterForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">validate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span> <span class="sy0">=</span> <span class="kw2">new</span> Account<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">username</span> <span class="sy0">=</span> <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">username</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">password</span> <span class="sy0">=</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">email</span> <span class="sy0">=</span> <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">email</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">ip</span> <span class="sy0">=</span> Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">userHostAddress</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$account</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">redirect</span><span class="br0">&#40;</span><span class="st_h">'index.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'register'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br><strong>אם יהיו תגובות יהיה חלק ז&#039;.</strong> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1373"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/02/2012 22:16</span><br>
+אני רוצה להוסיף שני דברים ממש חשובים.<br>
+<br>
+1. קאפצ&apos;ה לא באמת עוזרת נגד מכונות.. אף אחד לא יתקיף את האתר שלכם סתם ככה, כל עוד הוא לא פורום באיזשהי מערכת מוכנה, כמו שהיה כאן פעם עם smf. ברגע שמישהו יחליט להוסיף לכם קצת ספאם לאתר ויכתוב בוט במיוחד בשביל האתר שלכם - שום תמונה לא תעזור. התמונות האלה ניתנות לפענוח ועקיפה.<br>
+<br>
+2. יש ב yii כמה סוגי וולדיטורים שאליהו תיאר למעלה.<br>
+אפשר להוסיף קישור לרשימת כל הוולדיטורים וכל הפרמטרים האפשריים שהם מקבלים<br>
+yii validators cheat sheet<br>
+<span dir="ltr"><a href="http://yii.googlecode.com/files/yii-1.1.0-validator-cheatsheet.pdf">http://yii.googlecode.com/files/yii-1.1.0-validator-cheatsheet.pdf</a></span><br>
+<br>
+כמעט לכל וולידטור אפשר לתת פרמטר של message<br>
+עם הודעת שגיאה שתוצג במקרה והוזן תוכן שלא עובר וולידציה.<br>
+<br>
+שוב תודה אליהו :)<br>
+<br>
+</div>
+<a id="comment1378"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/03/2012 06:48</span><br>
+ממליץ לא לכתוב עברית בתוך הקוד. גם מבחינת קידוד זה לא נכון וגם מבחינת תחזוקה - אנגלית היא השפה של הקידוד (כמו שרופאים עדיין כותבים בלטינית...)<br>
+<br>
+המשך לכתוב, תודה על השיתוף.<br>
+<br>
+אמיר סימן טוב</div>
+<a id="comment1380"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/03/2012 15:12</span><br>
+תודה ענקית, ממש חיכיתי בקוצר רוח!<br>
+לא יכול לחכות למדריך הבא :)!</div>
+<a id="comment1390"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/03/2012 12:53</span><br>
+שוב מדריך מצויין ושימושי!<br>
+<br>
+אני כבר מחכה למדריך הבא בקוצר רוח! D:</div>
+<a id="comment1405"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/03/2012 23:21</span><br>
+תודה רבה אשמח אם תמשיך לרשום מדריכים מחכה לזה.<br>
+<br>
+ולמגיב הראשון <br>
+intval:<br>
+אתה טועה וצודק בקשר לקפצה נכון זה קל לעקיפה אבל כל אחד שיש לו אתר חי וקיים יודע שיש אלפי בוטים שמסתובבים ברשת ומנסים להירשם ולפרסם ספאם באתרים.<br>
+ובלי קפצה אתה תקום יום אחד ותראה שנרשמו לך 20 אלף משתמשים לאתר<br>
+בכל מקרה הפתרון הכי טוב שמצאתי לזה היא לעשות מיני קפצה משלך כמו לשאול בעברית &quot;כמה זה אחד ועוד אחד&quot; וככה נפתרים מכמעט 100% מהבוטים<br>
+מי שיעקוף את זה הוא מי שתיכנן בוט במיוחד לאתר שלך<br>
+ולצורך זה יש אפשרויות אחרות</div>
+<a id="comment1406"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/03/2012 14:12</span><br>
+קמתי יום אחד וראיתי שנרשמו 121382 משתמשים :)<br>
+אני מסכים איתך לגמרי שבוטים מסתובבים ברשת ומנסים להירשם לאתרים, אבל ברוב המקרים מדובר בבוטים למערכות מוכנות, פורומים מוכנים ודברים אחרים.<br>
+<br>
+הפתרון שלי מבוטים היה די פשוט, לשים שדה חבוי בשם email<br>
+בן אדם אמיתי לא ימלא שדה hidden לאומת כל הבוטים שהגיעו לאתר.<br>
+<br>
+אם מישהו כותב בוט מיוחד לאתר שלך - אתה קצת בבעיה, אבל אתה יכול לנסות למשל את הקאפצה החדשה שלי <span dir="ltr"><a href="https://github.com/intval/3Dcaptcha">https://github.com/intval/3Dcaptcha</a></span><br>
+</div>
+<a id="comment1408"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/03/2012 21:24</span><br>
+סתם שאלה - איך אתרים גדולים מתומודדים עם בוטים? לדוגמה פייסבוק איך הם יתמודדו עם בוטים?</div>
+<a id="comment1409"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/03/2012 22:25</span><br>
+גוגל למשל מבקשת אחרי כמה ניסיונות כושלים של הזדהות להקליד recaptcha <br>
+אבל אין להם ממש מה עם מה להתמודד. הם פשוט נותנים api והצורך בבוטים נעלם :)<br>
+לא משנה כמה ספאם תשים לעצמך ב wall אנשים אחרים לא יראו אותו, אלה אם הם בעצמם ירצו. <br>
+אין להם תוכן פומבי כזה.<br>
+<br>
+</div>
+<a id="comment1410"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/03/2012 06:24</span><br>
+ובקשר לפייסבוק (וגם גוגל) בהרשמה צריך להכניס מספר פלאפון ומקבלים הודעת sms עם קוד<br>
+ככה שזה מסבך תעניינים לבוטים במיוחד אם בכל מספר אפשר להירשם רק עם חשבון אחד</div>
+<a id="comment1411"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/03/2012 11:40</span><br>
+הודעת ה-SMS של גוגל ופייסבוק לא עולה כסף, נכון?</div>
+<a id="comment1412"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/03/2012 12:17</span><br>
+&quot;אוקיי, התנאים עובדים, הטופס עובד, אבל לא הוספנו את המשתמש לטופס!<br>
+עכשיו בשביל מה היה את המדריך הקודם? בשביל שנדע איך להוסיף טורים לטופס.&quot;<br>
+מה הכוונה להוסיף טורים לטופס?<br>
+כל הכבוד ותודה רבה על המדריכים. :)<br>
+<br>
+אגב, אם מישהו יכול לתקן את פרצת ה-XSS הקבועה במדריכים זה יהיה נחמד. D:<br>
+כשערכתי, בטעות שכחתי לסגור את ה-BBcode של הבולד, וכל התגובות היו מובלטות. :)</div>
+<a id="comment1415"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/03/2012 08:49</span><br>
+להוסיף טורים למסד זה הכוונה להוסיף עוד שורה במסד נתונים שלנו (MySQL) מה שלמדנו במדריך הקודם</div>
+<a id="comment1416"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/03/2012 09:23</span><br>
+היה כתוב שם &quot;להוסיף טורים לטופס&quot;, ולא למסד.<br>
+ובכל מקרה, יש הבדל בין טור לשורה. :)</div>
+<a id="comment1429"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/03/2012 08:09</span><br>
+אחלה מדריך ^^<br>
+<br>
+מחכה להבא!</div>
+<a id="comment2223"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/02/2013 13:05</span><br>
+חלק ז&apos; יעסוק בהתחברות ?<br>
+יהיה חלק ז&apos; :-) ?</div>
+<a id="comment2301"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2013 05:05</span><br>
+איך אני מוחק את ה &quot;‪Get a new code‬&quot; שנוצר לי יחד עם הקאפצ&apos;ה ?</div>
+<a id="comment2302"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2013 11:39</span><br>
+באופ כללי אתה<br>
+0. חושב עוד שלוש פעמים האם אתה באמת רוצה להוריד אותו והטקסט הזה מפריע לך או שמספיק לשנות לא קצת עיצוב ומיקום על ידי css, אחרי זה<br>
+1. פותח את הקוד של המחלקה שמייצרת את הטקסט הזה, <br>
+2. מסתכל איזה פונקציה עושה את זה,<br>
+3. כותב מחלקה חדשה לקאפצ&apos;ה שיורשת מהמחלקה הקיימת<br>
+4. ודואג _לא להפעיל_ את הפונקציה שמייצרת את הטקסט<br>
+<br>
+</div>
+<a id="comment2305"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2013 14:58</span><br>
+למה להגיד לי שאני אפס ?<br>
+ותודה -_-</div>
+<a id="comment2306"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2013 17:26</span><br>
+החלטת שאמרו לך שאתה אפס בגלל שהתחלתי את המספור מאפס?<br>
+התחלתי אותו מאחד ואז החלטתי להוסיף עוד סעיף. במקום לערוך את כל שאר המספרים התחלתי מאפס.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

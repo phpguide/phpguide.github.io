@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הגבלת type במערכת העלאת קבצים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Pazcode">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הגבלת type במערכת העלאת קבצים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הגבלת type במערכת העלאת קבצים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הגבלת type במערכת העלאת קבצים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הגבלת type במערכת העלאת קבצים-1.htm" title="שלום,יצרתי מערכת קטנה להעלאת קבצים:&amp;lt;?php
+$site = &amp;quot;http://pazcode.net/&amp;quot;;
+$target_path = &apos;uploads/&apos;.$_FILES&amp;#91;&apos;uploadedfile&apos;">הגבלת type במערכת העלאת קבצים</a></h2>
+<div class="userinfo">
+פתח
+<a>Pazcode</a>
+,
+<time class="timeago relativetime" datetime="2012-08-25T14:23:19+03:00" style="display:inline-block;">
+25 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText964'>
+שלום,<br>יצרתי מערכת קטנה להעלאת קבצים:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$site</span> <span class="sy0">=</span> <span class="st0">&quot;http://pazcode.net/&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$target_path</span> <span class="sy0">=</span> <span class="st_h">'uploads/'</span><span class="sy0">.</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'uploadedfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span> <br>
+<br>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">move_uploaded_file</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'uploadedfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'tmp_name'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$target_path</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">print</span> <span class="st0">&quot;&lt;center&gt;<br>
+&nbsp; &lt;strong style='font-family: arial; color: green;'&gt;הקובץ הועלה בהצלחה !&lt;/strong&gt;&lt;br/&gt;<br>
+&nbsp; &lt;img src='&quot;</span><span class="sy0">.</span><span class="re0">$target_path</span><span class="sy0">.</span><span class="st0">&quot;' alt='' /&gt;&lt;br/&gt;<br>
+&nbsp; &lt;strong style='font-family: arial;'&gt;קוד לפורומים: &lt;/strong&gt;<br>
+&nbsp; &lt;input type='text' value='[IMG]&quot;</span><span class="sy0">.</span><span class="re0">$site</span><span class="sy0">.</span><span class="re0">$target_path</span><span class="sy0">.</span><span class="st0">&quot;[/IMG]' /&gt;&lt;br /&gt;<br>
+&nbsp; &lt;strong style='font-family: arial;'&gt;קוד לאתרים: &lt;/strong&gt;<br>
+&nbsp; &lt;input type='text' value=<span class="es1">\&quot;</span>&lt;img src='&quot;</span><span class="sy0">.</span><span class="re0">$site</span><span class="sy0">.</span><span class="re0">$target_path</span><span class="sy0">.</span><span class="st0">&quot;' alt='' /&gt;<span class="es1">\&quot;</span>&lt;br /&gt;<br>
+&nbsp; &lt;/center&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;למה לא העלאת קובץ יפרחח?!&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>אז איך אני הופך אותה להעלאת תמונות? כלומר עושה שאפשר רק סיומות מסיומות?<br>עזרה בבקשה.. </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4206">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 25 לאוגוסט 2012 </span>
+<a id="answer_4206" href="הגבלת type במערכת העלאת קבצים-1.htm#answer_4206">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל צריך<a href="..\אל תתן לרמות את עצמך _ בדוק נכון את סוג הקובץ.htm"> לברר את סוג הקובץ</a><br>לאחר מכן ל<a href="http://php.net/in_array">בדוק אותו מול רשימה</a> של סוגים מותרים להעלאה <br><div class="php codeblock"><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'image/png'</span><span class="sy0">,</span> <span class="st_h">'image/jpeg'</span><span class="sy0">,</span> <span class="st_h">'image/gif'</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4207">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/386aeab42cc5f6a5fb18377a83fcc7a0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Pazcode</a>
+ב
+<span style="font-size:10px"> 25 לאוגוסט 2012 </span>
+<a id="answer_4207" href="הגבלת type במערכת העלאת קבצים-1.htm#answer_4207">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבירור סוג קובץ שהבאת לי לא עובד.. </p>
+</div>
+<div class="answer" id="answer4208">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 25 לאוגוסט 2012 </span>
+<a id="answer_4208" href="הגבלת type במערכת העלאת קבצים-1.htm#answer_4208">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ממליץ לקרוא את <strong><span class="underline">כל</span></strong> הטקסט בקישור </p>
+</div>
+<div class="answer" id="answer4209">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7ff5a4244432d30b20b8a8a2d7ed82e7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>RaFaeL</a>
+ב
+<span style="font-size:10px"> 25 לאוגוסט 2012 </span>
+<a id="answer_4209" href="הגבלת type במערכת העלאת קבצים-1.htm#answer_4209">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>דווקא במקרה של העלאת תמונות עדיף להשתמש ב getimagesize().</strong><br>הפונקציה <a href="http://il.php.net/getimagesize">getimagesize </a>תחזיר false במקרה שהקובץ איננו תמונה או מערך עם מידע על התמונה אם זו תמונה, לא משנה באיזו סיומת יהיה הקובץ. </p>
+</div>
+<div class="answer" id="answer4210">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/386aeab42cc5f6a5fb18377a83fcc7a0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Pazcode</a>
+ב
+<span style="font-size:10px"> 25 לאוגוסט 2012 </span>
+<a id="answer_4210" href="הגבלת type במערכת העלאת קבצים-1.htm#answer_4210">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תוכלו להרכיב את זה על הקוד שכתבתי ולהביא לי?<br>כי לא הבנתי את זה.. </p>
+</div>
+<div class="answer" id="answer4213">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 25 לאוגוסט 2012 </span>
+<a id="answer_4213" href="הגבלת type במערכת העלאת קבצים-1.htm#answer_4213">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="re0">$site</span> <span class="sy0">=</span> <span class="st0">&quot;http://pazcode.net/&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$target_path</span> <span class="sy0">=</span> <span class="st_h">'uploads/'</span><span class="sy0">.</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'uploadedfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span> <br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw4">false</span> <span class="sy0">===</span> <span class="kw3">getimagesize</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'uploadedfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'tmp_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'this file is not an image'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">move_uploaded_file</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'uploadedfile'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'tmp_name'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$target_path</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">print</span> <span class="st0">&quot;...&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;למה לא העלאת קובץ יפרחח?!&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer4214">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 25 לאוגוסט 2012 </span>
+<a id="answer_4214" href="הגבלת type במערכת העלאת קבצים-1.htm#answer_4214">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+getimagesize תזרוק שגיאת E_WARNING שהקובץ הוא לא תמונה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

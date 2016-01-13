@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="איזה קוד מהיר יותר — טיפים בביצועים">
+<meta name="keywords" content="ביצועים, טיפים, מהירות, php, file_get_contents, count, sizeof, notice, שגיאות, לולאות, xml, json, ביטויים רולריים">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>כמה טיפים בביצועים</title>
+<meta itemprop="name" content="כמה טיפים בביצועים">
+<meta itemprop="description" content="איזה קוד מהיר יותר — טיפים בביצועים">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"16","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>כמה טיפים בביצועים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-09-23T16:04:10+02:00" dir="rtl">23 לספטמבר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://image.become.com/imageserver/s7/992938407-75-75-5-32/the-carrera-slot-car-race-set.jpg" alt="כמה טיפים בביצועים">
+</div>
+<div class="right post-content">
+מה יותר מהיר, serialize או json_encode, לבדוק שהקובץ קיים או פשוט לעשות require_once ועוד כמה טיפים של איזה קוד עובד יותר מהר <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+הכללתי ברשימה הקצרה רק דברים שמפתיעים מתכנתים מתחילים ולא כללתי דברים<br> ברורים מאליו כמו שימוש בגרש יחידה במקום גרשיים כפולות למחרוזות ודומיהן.<br> אני מקווה שמישהו יצא מכאן עם משהו חדש.<br><br><br>התוצאות ומסקנות נשענות על בסיס של ניסויים בכמה גרסאות php<br>5.2.6 debian lenny, 5.3.2 של ubuntu, ו 5.2.14 של dotdeb.<br>אולי על פלאטפורמות אחרות יש הבדלים.<br><br><br><h4>file_get_contents</h4><br><br>הפונקציה הנחמדה הזו משתמשת <a href="http://en.wikipedia.org/wiki/Mmap">במיפוי זיכרון</a> מה שמביא לגידול בולט בביצועים, באיחוד בקבצים גדולים. המשמעות היא ש:<br><div class="php codeblock"><span class="kw3">simplexml_load_string</span> <span class="br0">&#40;</span><span class="kw3">file_get_contents</span> <span class="br0">&#40;</span><span class="st_h">'file.xml'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>עובד יותר מהר מ:<br><div class="php codeblock"><span class="kw3">simplexml_load_file</span><span class="br0">&#40;</span><span class="st_h">'file.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>נראה כי הפונקציה simplexml_load_file מתבססת על fopen / fread קונבנציאונאלי, מה שמוביל להבדל במהירות.<br><br>נ.ב. עדיף להישתמש בזה לא רק בפונקציות של xml , הרי גם פונקציות אחרות יאיצו כתוצאה.לדוגמא, אם אתם מנסים לקרוא קובץ ולהפריד אותו לפי שורות לתוך מערך, אזי עדיף להחליף את file() ב<br><div class="php codeblock"><span class="kw3">explode</span><span class="br0">&#40;</span>PHP_EOL<span class="sy0">,</span> <span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="st_h">'file.xml'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h4><span dir="ltr">()count</span> ו <span dir="ltr">()sizeof</span></h4><br><span dir="ltr">sizeof</span> היא כינוי(פסאודונים) לפונקציה <span dir="ltr">count</span> אך משום מה היא עובדת מהר יותר.<br><br><br><br><h4>שגיאות ו <span dir="ltr">notices</span></h4><br>להרשות לאפליקציה לזרוק <span dir="ltr">notice</span> הוא אחד המנהגים הגרועים ביותר בעולם התכנות. אפליקציה טובה יודעת להתמודד עם שגיאות בעצמה.<br>אבל אם אתם לא מוכנים לקבל על עצמכם את החשיבות במניעת שגיאות, פשוט דעו לכם<br>שהזמן הדרוש לphp להתמודד עם שגיאה גדול מהזמן שיקח לכם לרוץ על מערך עם 30 אלמנטים ולהגדיל כל אחד מהאלמנטים שלו באחד.<br>אגב השימוש ב <strong>@ היא קטסטרופה</strong> כדרך למניעת שגיאות.<br><br>כן והיא גם הרבה יותר איטית מהוספה של בדיקה האם המשתנה קיים למשל.<br><br><br><br><br><h4>foreach</h4><br><br>בכל מאמר על ביצועים דואגים לומר את הדברים הכי גרועים על <span dir="ltr">foreach</span><br>למרות שבפועל לא הכל כל כך רע. הרבה פעמים מבנים שאנשים מנסים לכתוב כתחליף, דוגמאת:<br><br><div class="php codeblock"><span class="kw1">while</span> <span class="br0">&#40;</span><span class="kw3">list</span><span class="br0">&#40;</span><span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="sy0">=</span> <span class="kw3">each</span><span class="br0">&#40;</span><span class="re0">$item</span><span class="br0">&#41;</span><span class="br0">&#41;</span></div><br>פועלים הרבה יותר לאט וגרוע בכ-30 -40 אחוז.<br>אך עדיין שימו לב, אם יש באפשרותכם להשתמש ב <span dir="ltr">for</span> אזי הוא יהיה עדיף על <span dir="ltr">foreach</span><br><br><br><br><h4>JSON vs XML</h4><br>אוסיף כאן רק שאחרי מעבר לקבצי json לשמירת הגדרות במקום xml הרווחתי 20%-30% בביצועים. <span dir="ltr">json</span> נעים לעין, איאררכי ומהיר.<br><span dir="ltr">json_decode</span> עובדת יותר מהר עם פרמטר אחד (כאשר יוצרת אובייקט ולא מערך)<br><br><br><br><h4><span dir="ltr">mb_ereg</span> vs <span dir="ltr">preg_match</span></h4><br>ביטויים רגולריים בדרך כלל משתמשים במנוע ה-<span dir="ltr"><a href="http://en.wikipedia.org/wiki/POSIX">posix</a></span> .כדי לקרוא ולפענח מחרוזות. מנוע ה-posix ידוע באיטיות שלו, לכן<br>מנוע <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Oniguruma">oniguruma</a></span> שבו משתמשת <span dir="ltr">mb_ereg</span> לרוב יהיו בחירה טובה יותר לחייפ הרגולריים שלכםץ<br>בערך בשניים מתוך שלושה מקרים <span dir="ltr">mb_ereg</span> יעקוף בביצועים את <span dir="ltr">preg_match</span><br><br><br><br><br><h4>file_exists &amp; include</h4><br>אם אתם לא בטוחים שהקובץ קיים (<span dir="ltr">autoload__</span> למשל) תועילו לעצמכם לבדוק האם הקובץ קיים לפני שאתם עושים לו אינקלוד.<br>עוד בקשר לאינקלוד: משום מה, לשמור במערך את שמות הקבצים שכבר הוספו יותר אפפקטיבי מלהשתמש ב <span dir="ltr">include_once</span> ולא באמת ברור לי למה.<br>(כל האמור תקף גם ל<span dir="ltr">require</span>)<br><br><br><br><h4>Static vars</h4><br>הדרך הטובה והבטוחה לשמור נתונים בשדה הרעיה הגלובאלי היא בתוך משתנים סטאטיים של מחלקה כלשהי. כייון שהם סטאטיים php יודעת לנהל אותם הרבה יותר טוב מכל משתנה במחלקה או לא במחלקה שהוא. שימו לב, לרוב השימוש בקבועים <span dir="ltr">constants</span> הוא איטי נורא, לכן עדיף להימנע מכך במידת האפשר.<br><br><br><br><h4>כמה המלצות לסיום</h4><br>תציגו לעצמכם את זמן הפעולה של סקריפט במילישניות. עם שינוי כזה בקנה המידה<br>רואים את ההבדל בין &quot;התבצע ב0.1 שניות&quot; לאומת &quot;התבצע ב100 מילישניות&quot; .<br>גם קריא יותר וגם יעלה לכם את המוטיבציה לשפר עוד קצת.<br><br><br>מאוד חשוב לאסוף מידע לא רק אודות הביצוע של הסקריפט כולו אלה גם של חלקים נפרדים שלו: גרעין, אינטרפייס, רנדרינג, ועוד את הפרופיילר שלי קינפגתי (בשרת הבדיקות) לזרוק שגיאה כאשר קטע כלשהו לוקח זמן רב מדי מהצפוי:<br><span dir="ltr"> &quot;Attention!: 30% of the time taken for mysql connection&quot;</span><br><br><br><br><em>כל המסקנות נלקחו מבדיקות במערכת שלי ויכול להיות שתתקלו בתוצאות שונות אצלכם.</em> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

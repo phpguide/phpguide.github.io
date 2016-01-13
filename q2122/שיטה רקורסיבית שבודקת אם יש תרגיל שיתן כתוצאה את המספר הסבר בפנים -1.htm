@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר (הסבר בפנים) ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="yossi787">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר (הסבר בפנים) | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר (הסבר בפנים)  | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר (הסבר בפנים) ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר הסבר בפנים -1.htm" title="צריך לכתוב שיטה רקורסיבית שתקבל מערך של מספרים, טווח של המערך, בשביל הרקורסיה, ומספר. היא תחזיר אמת אם קיים צירוף מסויים של חיבור וחיסור בין המספרים במערך שיתן את המספר כתוצאה. ניסיתי הרבה דברים, לא הצלחתי להגיע לתוצאה מושלמת. אשמח לתשובה מהירה כי אני צריך את זה לשבוע הזה. תודה רבה! דוגמה לנסיון:public class P &amp;#123;
+&amp;nbsp; public stat">שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר (הסבר בפנים) </a></h2>
+<div class="userinfo">
+פתח
+<a>yossi787</a>
+,
+<time class="timeago relativetime" datetime="2015-03-24T20:59:22+02:00" style="display:inline-block;">
+24 למרץ 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2122'>
+צריך לכתוב שיטה רקורסיבית שתקבל מערך של מספרים, טווח של המערך, בשביל הרקורסיה, ומספר. <br>היא תחזיר אמת אם קיים צירוף מסויים של חיבור וחיסור בין המספרים במערך שיתן את המספר כתוצאה. <br>ניסיתי הרבה דברים, לא הצלחתי להגיע לתוצאה מושלמת. <br>אשמח לתשובה מהירה כי אני צריך את זה לשבוע הזה. תודה רבה! <br>דוגמה לנסיון:<br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">class</span> P <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> static boolean find<span class="br0">&#40;</span>int<span class="br0">&#91;</span><span class="br0">&#93;</span> A<span class="sy0">,</span> int n<span class="sy0">,</span> int num<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>n <span class="sy0">&lt;=</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>n <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> A<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">==</span> num <span class="sy0">||</span> A<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">==</span> num<span class="sy0">*</span><span class="br0">&#40;</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> find<span class="br0">&#40;</span>A<span class="sy0">,</span> n<span class="sy0">-</span><span class="nu0">1</span><span class="sy0">,</span> num<span class="sy0">+</span>A<span class="br0">&#91;</span>n<span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">||</span> find<span class="br0">&#40;</span>A<span class="sy0">,</span> n<span class="sy0">-</span><span class="nu0">1</span><span class="sy0">,</span> num<span class="sy0">-</span>A<span class="br0">&#91;</span>n<span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw2">public</span> static void main<span class="br0">&#40;</span>String<span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; int<span class="br0">&#91;</span><span class="br0">&#93;</span> a <span class="sy0">=</span> <span class="br0">&#123;</span><span class="nu0">3</span><span class="sy0">,</span><span class="nu0">2</span><span class="sy0">,</span><span class="nu0">5</span><span class="br0">&#125;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">System</span><span class="sy0">.</span>out<span class="sy0">.</span>println<span class="br0">&#40;</span>find<span class="br0">&#40;</span>a<span class="sy0">,</span>a<span class="sy0">.</span>length<span class="sy0">-</span><span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9312">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2015 </span>
+<a id="answer_9312" href="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר הסבר בפנים -1.htm#answer_9312">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="coMULTI">/* package whatever; // don't place package name! */</span><br>
+<br>
+import java<span class="sy0">.</span>util<span class="sy0">.*;</span><br>
+import java<span class="sy0">.</span>lang<span class="sy0">.*;</span><br>
+import java<span class="sy0">.</span>io<span class="sy0">.*;</span><br>
+<br>
+<span class="coMULTI">/* Name of the class has to be &quot;Main&quot; only if the class is public. */</span><br>
+<span class="kw2">class</span> Ideone<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> static void main <span class="br0">&#40;</span>String<span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span> throws java<span class="sy0">.</span>lang<span class="sy0">.</span>Exception<br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; int<span class="br0">&#91;</span><span class="br0">&#93;</span> a <span class="sy0">=</span> <span class="br0">&#123;</span> <span class="nu0">3</span><span class="sy0">,</span> <span class="nu0">8</span><span class="sy0">,</span> <span class="nu0">5</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">6</span><span class="br0">&#125;</span><span class="sy0">;</span> <br>
+<br>
+&nbsp; &nbsp; assert1<span class="br0">&#40;</span>find<span class="br0">&#40;</span>a<span class="sy0">,</span> <span class="nu0">2</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// ignored +8 -5 -1 ignored = 2 </span><br>
+&nbsp; &nbsp; assert1<span class="br0">&#40;</span>find<span class="br0">&#40;</span>a<span class="sy0">,</span> <span class="nu0">11</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// +3 +8 ign ign ign = 11</span><br>
+&nbsp; &nbsp; assert1<span class="br0">&#40;</span>find<span class="br0">&#40;</span>a<span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// !</span><br>
+&nbsp; &nbsp; assert1<span class="br0">&#40;</span>find<span class="br0">&#40;</span>a<span class="sy0">,</span> <span class="nu0">3</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// +3 ign ign ign ign = 3</span><br>
+&nbsp; &nbsp; assert1<span class="br0">&#40;</span>find<span class="br0">&#40;</span>a<span class="sy0">,</span> <span class="nu0">7</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// ign ign ign +1 +6 = 7</span><br>
+&nbsp; &nbsp; assert1<span class="br0">&#40;</span>find<span class="br0">&#40;</span>a<span class="sy0">,</span> <span class="nu0">4</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// ign, ign, +5 -1 ign = 4</span><br>
+&nbsp; &nbsp; assert1<span class="br0">&#40;</span>find<span class="br0">&#40;</span><span class="kw2">new</span> int<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//!</span><br>
+&nbsp; &nbsp; <span class="co1">//assert1(false == true);</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+<br>
+&nbsp; <span class="kw2">public</span> static boolean find<span class="br0">&#40;</span>int<span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="kw3">array</span><span class="sy0">,</span> int expectedSum<span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> find<span class="br0">&#40;</span><span class="kw3">array</span><span class="sy0">,</span> expectedSum<span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> static boolean find<span class="br0">&#40;</span>int<span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="kw3">array</span><span class="sy0">,</span> int expectedSum<span class="sy0">,</span> int startIndex<span class="sy0">,</span> long sumUpToStartIndex<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="sy0">.</span>length <span class="sy0">&lt;</span> <span class="nu0">1</span> <span class="sy0">||</span> startIndex <span class="sy0">&gt;=</span> <span class="kw3">array</span><span class="sy0">.</span>length<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; int currentValue <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#91;</span>startIndex<span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; long tryToAddSum <span class="sy0">=</span> sumUpToStartIndex <span class="sy0">+</span> currentValue<span class="sy0">;</span><br>
+&nbsp; &nbsp; long tryToSubSum <span class="sy0">=</span> sumUpToStartIndex <span class="sy0">-</span> currentValue<span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>tryToAddSum <span class="sy0">==</span> expectedSum <span class="sy0">||</span> tryToSubSum <span class="sy0">==</span> expectedSum<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">// try to continue as if we had added</span><br>
+&nbsp; &nbsp; <span class="co1">// or try to continue as if we had subtracted</span><br>
+&nbsp; &nbsp; <span class="co1">// and then try as if we had just started from the next element and ignored everything before</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> &nbsp;find<span class="br0">&#40;</span><span class="kw3">array</span><span class="sy0">,</span> expectedSum<span class="sy0">,</span> startIndex<span class="sy0">+</span><span class="nu0">1</span><span class="sy0">,</span> tryToAddSum<span class="br0">&#41;</span> <span class="sy0">||</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; find<span class="br0">&#40;</span><span class="kw3">array</span><span class="sy0">,</span> expectedSum<span class="sy0">,</span> startIndex<span class="sy0">+</span><span class="nu0">1</span><span class="sy0">,</span> tryToSubSum<span class="br0">&#41;</span> <span class="sy0">||</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; find<span class="br0">&#40;</span><span class="kw3">array</span><span class="sy0">,</span> expectedSum<span class="sy0">,</span> startIndex<span class="sy0">+</span><span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+&nbsp; <span class="kw2">private</span> static void assert1<span class="br0">&#40;</span>boolean expr<span class="br0">&#41;</span> throws IllegalArgumentException<br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//if(!expr)</span><br>
+&nbsp; &nbsp; <span class="co1">//&nbsp; throw new IllegalArgumentException(&quot;assertion has failed&quot;);</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw3">System</span><span class="sy0">.</span>out<span class="sy0">.</span>println<span class="br0">&#40;</span><span class="st0">&quot;assertion has &quot;</span> <span class="sy0">+</span> <span class="br0">&#40;</span>expr?<span class="st0">&quot;passed&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;failed&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="br0">&#125;</span></div><br><br>http://ideone.com/rFnKk2 </p>
+</div>
+<div class="answer" id="answer9314">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2015 </span>
+<a id="answer_9314" href="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר הסבר בפנים -1.htm#answer_9314">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה, אבל אתה בטוח שזה הפתרון הכי פשוט? </p>
+</div>
+<div class="answer" id="answer9315">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2015 </span>
+<a id="answer_9315" href="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר הסבר בפנים -1.htm#answer_9315">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, <br>אבל אם מה שמפריע לך זה כמות השורות - חצי מהם אפשר לזרוק או לקצר.. </p>
+</div>
+<div class="answer" id="answer9316">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2015 </span>
+<a id="answer_9316" href="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר הסבר בפנים -1.htm#answer_9316">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הכמות, אני בקורס ג&apos;אווה וזו הייתה שאלה בחחינה אז לא הגיוני שזו תהיה התשובה (לבחינה) כי חלק מזה לא למדנו וזה אמור להיות תשובה קצרה. </p>
+</div>
+<div class="answer" id="answer9317">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2015 </span>
+<a id="answer_9317" href="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר הסבר בפנים -1.htm#answer_9317">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין דבר כזה,כל הפעולות שיש כאן הן בסיסיות,חיבור,חיסור ורקורסיה הדבר היחיד שאתה כן יכול להגיד זה שברמה אלגוריתמית לא יצא לכם לחשוב ברמה הזאת וזה כבר אשמתו של המורה שבעצם דפק את כל התלמידים כי לימד אותם רק איך לכתוב קוד בלי לדעת איך לחשוב. </p>
+</div>
+<div class="answer" id="answer9318">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2015 </span>
+<a id="answer_9318" href="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר הסבר בפנים -1.htm#answer_9318">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא ממש.. התכוונתי נגיד ל:<br><div class="php codeblock">throws IllegalArgumentException</div><br>שאני לא יודע אם זה כזה חיוני לקוד אבל לא למדנו את זה. </p>
+</div>
+<div class="answer" id="answer9319">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2015 </span>
+<a id="answer_9319" href="שיטה רקורסיבית שבודקת אם יש תרגיל שיתן כתוצאה את המספר הסבר בפנים -1.htm#answer_9319">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כל המתודה assert1 היא חסרת משמעות התפקיד שלה בסך הכל להגיד &quot;אפשר&quot; או &quot;אי אפשר&quot;<br>מאחר ונדרשת לכתוב רק את המתודה הרקורסיבית בפועל גם אין צורך ב main עצמו. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

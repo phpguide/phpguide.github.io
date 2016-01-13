@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="בניית מערכת שפות בPHP באמצעות XML">
+<meta name="keywords" content="XML, PHP, עבודה עם XML באמצעות PHP, מערכת שפות בPHP, מערכת שפות בPHP באמצעות XML, מערכת שפות XML, PHP ן XML, עבודה עם XML בPHP,">
+<meta name="author" content="mmm">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מערכת שפות חלק 1</title>
+<meta itemprop="name" content="מערכת שפות חלק 1">
+<meta itemprop="description" content="בניית מערכת שפות בPHP באמצעות XML">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"332","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מערכת שפות חלק 1</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">mmm, </div>
+<div class="right">&nbsp;<time datetime="2013-07-24T22:19:46+03:00" dir="rtl">24 ליולי 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://i.imgur.com/yQIdh.jpg" alt="מערכת שפות חלק 1">
+</div>
+<div class="right post-content">
+אחד הדברים החשובים ביותר בבניית אתר גדול, זו מערכת השפות, כדאי להכין כל אתר לאפשרות של הוספת שפה בעתיד, או כבר בבניית האתר.<br>לפניכם מדריך לבניית מערכת שפות מבוססת XML, מתאים גם לMVC. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+השלב הראשון בבניית מערכת לבניית שפות הוא בניית דף להכנסת ערכים לקובץ הXML.<br><br>לא הוספתי במערכת אפשרות להוספה עתידית של שפות נוספות, כי אני עובד עם עברית ואנגלית בלבד.<br>אז או שתגדירו את השפות הנחוצות מראש, או שתוסיפו שורת קוד שתבצע את זה כשתצטרכו.<br>אז בואו נכיר את הXML שלנו, נקרא לו lang.xml.<br><br><div class="php codeblock"><span class="sy1">&lt;?</span>xml version<span class="sy0">=</span><span class="st0">&quot;1.0&quot;</span> encoding<span class="sy0">=</span><span class="st0">&quot;utf-8&quot;</span><span class="sy1">?&gt;</span><br>
+&lt;lang&gt;<br>
+&nbsp; &lt;text id=&quot;1&quot;&gt;<br>
+&nbsp; &nbsp; &lt;he&gt;ברוך הבא&lt;/he&gt;<br>
+&nbsp; &nbsp; &lt;en&gt;Welcome&lt;/en&gt;<br>
+&nbsp; &lt;/text&gt;<br>
+&nbsp; &lt;text id=&quot;2&quot;&gt;<br>
+&nbsp; &nbsp; &lt;he&gt;שם משתמש&lt;/he&gt;<br>
+&nbsp; &nbsp; &lt;en&gt;username&lt;/en&gt;<br>
+&nbsp; &lt;/text&gt;<br>
+&lt;/lang&gt;</div><br><br>אין הרבה מה להסביר, פתחנו בתג בשם LANG, שהוא תג הROOT, והוא מרכז בתוכו תגים בשם TEXT, עם ID, בכל תג TEXT מופיע טקסט אחר שנרצה להשתמש בו.<br>בכל תג TEXT יופיע התגים HE ו-EN, שאלו השפות שאני משתמש בהם (עברית ואנגלית).<br><br>תפתחו קובץ בשם lang.xml, ובתוכו תרשמו:<br><br><div class="php codeblock"><span class="sy1">&lt;?</span>xml version<span class="sy0">=</span><span class="st0">&quot;1.0&quot;</span> encoding<span class="sy0">=</span><span class="st0">&quot;utf-8&quot;</span><span class="sy1">?&gt;</span><br>
+&lt;lang&gt;<br>
+&lt;/lang&gt;</div><br>שמרו את הקובץ.<br><br><br>ועכשיו לקוד הPHP שיוסיף לנו תגי TEXT באופן אוטומטי:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-Type: text/html; charset=utf-8'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'he'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'en'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'he'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'en'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;!doctype html&gt;<br>
+&lt;html&gt;<br>
+&nbsp; &lt;body dir=&quot;rtl&quot;&gt;<br>
+&nbsp; &nbsp; &lt;form method=&quot;post&quot; action=&quot;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;textarea id=&quot;he&quot; name=&quot;he&quot; placeholder=&quot;he&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;textarea dir=&quot;ltr&quot; id=&quot;en&quot; name=&quot;en&quot; placeholder=&quot;en&quot;&gt;&lt;/textarea&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; value=&quot;שלח&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;/form&gt;<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$dom</span> <span class="sy0">=</span> <span class="kw2">new</span> DOMDocument<span class="br0">&#40;</span><span class="st_h">'1.0'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">preserveWhiteSpace</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">formatOutput</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="br0">&#40;</span><span class="st_h">'lang.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$xpath</span> <span class="sy0">=</span> <span class="kw2">new</span> DOMXPath<span class="br0">&#40;</span><span class="re0">$dom</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp;<br>
+&nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$xpath</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'/lang'</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; <br>
+&nbsp; <span class="re0">$lang</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">item</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">createElement</span><span class="br0">&#40;</span><span class="st_h">'text'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$te</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">createAttribute</span><span class="br0">&#40;</span><span class="st_h">'id'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$numID</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">getElementsByTagName</span><span class="br0">&#40;</span><span class="st_h">'text'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">length</span> <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$te</span><span class="sy0">-&gt;</span><span class="me1">value</span> <span class="sy0">=</span> <span class="re0">$numID</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$te</span> <span class="sy0">=</span> <span class="re0">$text</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$te</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text</span> <span class="sy0">=</span> <span class="re0">$lang</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$he</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">createElement</span><span class="br0">&#40;</span><span class="st_h">'he'</span><span class="sy0">,</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'he'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$en</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">createElement</span><span class="br0">&#40;</span><span class="st_h">'en'</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'en'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$he</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$en</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">file_put_contents</span><span class="br0">&#40;</span><span class="st_h">'lang.xml'</span><span class="sy0">,</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">saveXML</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+&nbsp; &lt;html&gt;<br>
+&nbsp; &lt;body dir=&quot;rtl&quot;&gt;<br>
+&nbsp; &nbsp; בוצע&lt;br /&gt;<span class="sy1">&lt;?=</span> <span class="re0">$numID</span> <span class="sy1">?&gt;</span>&lt;br /&gt;<br>
+&nbsp; &nbsp; &lt;form method=&quot;post&quot; action=&quot;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;textarea id=&quot;he&quot; name=&quot;he&quot; placeholder=&quot;he&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;textarea dir=&quot;ltr&quot; id=&quot;en&quot; name=&quot;en&quot; placeholder=&quot;en&quot;&gt;&lt;/textarea&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; value=&quot;שלח&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;/form&gt;<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="sy1">?&gt;</span></div><br><br>מה שעשינו כאן בעצם זה בדיקה מאד פשוטה האם הגיעו אלינו נתוני POST (אם אתם מאפשרים לאנשים נוספים לתרגם, מומלץ לשפר את התנאים והאבטחה), אם לא הגיעו נתונים, יודפס לנו טופס המאפשר לנו להכניס ערכים חדשים לקובץ.<br><br>בPHP יש מחלקה מאד נוחה לעבודה עםXML בשם &quot;simple XML&quot;, אבל אנחנו לא נעבוד איתה, אלא נעבוד עם מחלקה סבוכה יותר, כי &quot;simple XML&quot; מכניסה את התגים ללא הזחה, מה שמקשה על קריאת הקובץ בעת הצורך.<br><br>לאחר שבדקנו האם קיבלנו את כל הנתונים בטופס, נכניס אותם לקובץ:<br><br><div class="php codeblock"><span class="re0">$dom</span> <span class="sy0">=</span> <span class="kw2">new</span> DOMDocument<span class="br0">&#40;</span><span class="st_h">'1.0'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">preserveWhiteSpace</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">formatOutput</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="br0">&#40;</span><span class="st_h">'lang.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שורה ראשונה, קראנו למחלקה מובנית בPHP בשם DOMDocument, על מנת לכתוב לתוך קובץ הXML.<br>שורה שנייה ושלישית דואגות להזחה נכונה בתוך הקובץ.<br>שורה רביעית טוענת את קובץ הXML שלנו.<br><br>ועכשיו אנחנו עוברים לXPATH על מנת למצוא את תג הLANG בקובץ, ולהכניס תגי TEXT רק בתוכו.<br><br><div class="php codeblock"><span class="re0">$xpath</span> <span class="sy0">=</span> <span class="kw2">new</span> DOMXPath<span class="br0">&#40;</span><span class="re0">$dom</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp;<br>
+&nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$xpath</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'/lang'</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; <br>
+&nbsp; <span class="re0">$lang</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">item</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שורה ראשונה: קריאה למחלקה מובנית בPHP בשם &quot;DOMXPath&quot;.<br>שורה שניה ושלישית: חיפשנו אחר תג בשם LANG, ובחרנו במופע הראשון שלו (שהוא בעצם היחיד).<br><br>בואו ניצור תג TEXT חדש, ובתוכו Attribute בשם ID, על מנת שבעתיד נוכל לגשת לשורה הנכונה באמצעות ID:<br><br><div class="php codeblock"><span class="re0">$text</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">createElement</span><span class="br0">&#40;</span><span class="st_h">'text'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$te</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">createAttribute</span><span class="br0">&#40;</span><span class="st_h">'id'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>יצרנו תג חדש בשם TEXT, ויצרנו Attribute בשם ID, אך עדיין לא הכנסנו אותם לקובץ, ולא שייכנו אותם אחד לשני.<br><br>אז איך נדע איזה מספיר להכניס לID? פשוט מאד, נספור את תגי הTEXT הקיימים, ונוסיף להם 1.<br><br><div class="php codeblock"><span class="re0">$numID</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">getElementsByTagName</span><span class="br0">&#40;</span><span class="st_h">'text'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">length</span> <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$te</span><span class="sy0">-&gt;</span><span class="me1">value</span> <span class="sy0">=</span> <span class="re0">$numID</span><span class="sy0">;</span></div><br><br>בשורה הראשונה חיפשנו תג בשם TEXT, וספרנו כמה פעמים הוא מופיע במסמך, לאחר מכן הוספנו לו 1.<br>בשורה השנייה, לקחנו את המשתנה $te, והגדרנו לו ערך - המשתנה המחזיק את ה-ID.<br><br>עכשיו יש לשייך את הID אל תג הTEXT:<br><br><div class="php codeblock"><span class="re0">$te</span> <span class="sy0">=</span> <span class="re0">$text</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$te</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שימו לב למבנה המשתנים.<br><br>נגדיר שתג הTEXT יכנס לתוך תג הLANG ולא מחוצה לו:<br><br><div class="php codeblock"><span class="re0">$text</span> <span class="sy0">=</span> <span class="re0">$lang</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ולשלב הכי חשוב, הכנסת הערכים שקיבלנו בטופס, לתגים בשם HE, ו-EN בהתאמה:<br><br><div class="php codeblock"><span class="re0">$he</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">createElement</span><span class="br0">&#40;</span><span class="st_h">'he'</span><span class="sy0">,</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'he'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$en</span> <span class="sy0">=</span> <span class="re0">$dom</span><span class="sy0">-&gt;</span><span class="me1">createElement</span><span class="br0">&#40;</span><span class="st_h">'en'</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'en'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ועכשיו נגדיר להם להיכנס לתוך התג TEXT ולא מחוצה לו:<br><br><div class="php codeblock"><span class="re0">$text</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$he</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span><span class="sy0">-&gt;</span><span class="me1">appendChild</span><span class="br0">&#40;</span><span class="re0">$en</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>כעת נשמור את הקובץ, נדפיס חיווי למשתמש (&quot;בוצע בהצלחה&quot;), נדפיס את הID של התג אותו הכנסנו, ונדפיס טופס חדש, להכנסת ערכים נוספים:<br><br><div class="php codeblock">if(file_put_contents('lang.xml', $dom-&gt;saveXML())) {<br>
+?&gt;<br>
+&nbsp; &lt;html&gt;<br>
+&nbsp; &lt;body dir=&quot;rtl&quot;&gt;<br>
+&nbsp; &nbsp; בוצע&lt;br /&gt;<span class="sy1">&lt;?=</span> <span class="re0">$numID</span> <span class="sy1">?&gt;</span>&lt;br /&gt;<br>
+&nbsp; &nbsp; &lt;form method=&quot;post&quot; action=&quot;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;textarea id=&quot;he&quot; name=&quot;he&quot; placeholder=&quot;he&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;textarea dir=&quot;ltr&quot; id=&quot;en&quot; name=&quot;en&quot; placeholder=&quot;en&quot;&gt;&lt;/textarea&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; value=&quot;שלח&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;/form&gt;<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="sy1">?&gt;</span></div><br><br>השורה הראשונה, שומרת את כל השנויים לתוך קובץ הXML, אם השינויים נשמרו בהצלחה, יודפס טופס חדש, הודעת &quot;בוצע בהצלחה&quot;, וה-ID בו השתמשנו.<br><br><br><br>עד כאן החלק הראשון של המדריך, בקרוב אני אוסיף את החלק השני, בו אסביר איך קוראים את הקובץ, ושולפים ממנו את הערכים הנכונים.<br><br>בהצלחה :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=16&r=g&d=monsterid" alt="mmm">
+<a>mmm</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2523"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2013 12:01</span><br>
+למה לא להשתמש ב-gettext ושלום על ישראל?</div>
+<a id="comment2526"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/08/2013 17:01</span><br>
+למה לא להכין טמפלטים לעברית ולאנגלית ולטעון אותם לפי הצורך? הרי יש הרבה הבדלים חוץ מהשפה, לדוגמה LTR לRTL לדוגמה.</div>
+<a id="comment2527"></a>
+<div class="blog-comment">
+<span class='comment-author'>Devision</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/08/2013 13:27</span><br>
+יש אפשרות להשתמש בTranslator של ZEND הוא כעיקרון מובנה בתוך ZF2 אך ניתן למצוא בגיטהאב לחוד.</div>
+<a id="comment2528"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/08/2013 14:03</span><br>
+@liorel100,<br>
+הקבצים נשארים אותו דבר. מה ששונה, דורסים ב-CSS וזהו.</div>
+<a id="comment2530"></a>
+<div class="blog-comment">
+<span class='comment-author'>mmm</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/08/2013 16:47</span><br>
+פשוט מאד, יש לי קובץ css דינמי שמדפיס לי right או left בהתאמה לrtl או ltr.</div>
+<a id="comment2531"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/08/2013 18:59</span><br>
+אני לא בטוח שזה יעיל מבחינת ביצועים. צריך לחסוך כמה שיותר בחישובים על המקום.</div>
+<a id="comment2533"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/08/2013 05:20</span><br>
+ליאור, כל מה שיהיה צריך לעשות זה לשמור את זה בזיכרון מטמון. מכיוון שקשה לי להאמין שקבצי CSS יהיו דינמיים יותר מדי, אפשר יהיה להשתמש ב-preprocessor ובכל פעם שמשנים את הקובץ המקורי שומרים שני קבצים שונים - אחד rtl ואחד ltr.<br>
+או שאפשר ללכת על פיתרון אחר (שאני לא כל כך אוהב, אם לומר את האמת) - לעשות את זה ltr כברירת מחדל, ואם השפה היא rtl, פשוט מוסיפים קובץ CSS שידרוס את ההגדרות תלויות הכיוון. בערכות העיצוב ברירת המחדל של ו&apos;ורדפרס עושים את זה ככה.<br>
+(הגבתי קצת באיחור, אבל עדיף מאוחר מאשר לעולם לא. לא תמיד, בעצם, אבל במקרה הזה כן. D:)</div>
+<a id="comment2534"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/08/2013 05:34</span><br>
+בנוגע למדריך עצמו: אני לא אוהב את השיטה הזאת. בשביל מה צריך להשתמש ב-XML ולהסתבך (סימון מיותר וקוד מפרך לפענוח) כשאפשר להשתמש ב-JSON או במערכים? ואז לתכנן מחלקה שתטפל בזה. ללארוול יש אחת כזאת. (אני לא מת עליה, וסביר להניח שאעשה לזה fork בעתיד, אבל היא טובה.) תעיף מבט: <span dir="ltr"><a href="http://goo.gl/aEz76V">http://goo.gl/aEz76V</a></span> . והנה התיעוד של זה, אם אתה רוצה: <span dir="ltr"><a href="http://goo.gl/eabnP">http://goo.gl/eabnP</a></span> .<br>
+בכל מקרה, תודה רבה על המדריך! :-)</div>
+<a id="comment2535"></a>
+<div class="blog-comment">
+<span class='comment-author'>matan sh</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/08/2013 16:10</span><br>
+אני אישית אוהב לעבוד עם קבצי ini בכל מה שקשור לשפות (כמו הקונפיגרציה של PHP אותו הדבר) ויש לזה גם פונקציה מובנת ששמה את הכל במערך והחיים פשוט קלים יותר.</div>
+<a id="comment2557"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/08/2013 05:55</span><br>
+- למה לא להשתמש בgettext?<br>
+- @liorel100 לגבי RTL אפשר פשוט בקובץ CSS הראשי לעשות לפי LTR ובנוסף גם קובץ rtl.css שיטען לפי הצורך או פשוט לעשות קלאסים rtl/ltr שיתווספו לתג ה-html וישנו את הצדדים.</div>
+<a id="comment2558"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/08/2013 13:05</span><br>
+בדברים האלה חשוב לשמור על ביצועים נכונים, כי הדברים האלה יכולים להוסיף גם 0.3 שניות לטעינה ע&quot;י הדפדפן וזה לא מצב שרוצים להגיע אליו. כשאתם עובדים עם פריימוורק MVC, הפרימוורק אמור לספק לכם מידע באופן מפורש על הlanguage של המשתמש. תצרו מחלקת קונטרולר מיוחדת אבסטרקטית שמתודת הview שלה מסננת לפי הlang שמסופק ומפנה לעמודים שונים בהתאם, בהתאם לתיקיות הטמפלטים ולפורמט הטמפלטים בהם אתם משתמשים.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

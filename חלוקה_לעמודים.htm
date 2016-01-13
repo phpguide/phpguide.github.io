@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חלוקה והצגה של רשומות ממסד נתונים בעמודים ">
+<meta name="keywords" content="עמודים, חלוקה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>חלוקה לעמודים</title>
+<meta itemprop="name" content="חלוקה לעמודים">
+<meta itemprop="description" content="חלוקה והצגה של רשומות ממסד נתונים בעמודים ">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"65","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>חלוקה לעמודים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-02-16T18:07:29+02:00" dir="rtl">16 לפברואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://farm2.static.flickr.com/1055/570764642_db1c231169_s.jpg" alt="חלוקה לעמודים">
+</div>
+<div class="right post-content">
+כשיש הרבה רשומות במסד וצריך להציג אותם למשתמש שווה לפרק את הפלט לכמה עמודים. וגם לשלוף הכל לא צריך. אפשר לשלוף רק את מה שהמשתמש הולך לראות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+הצגת נתונים מרובים בעמוד אחד מכבידה על גודל העמוד, קלות ההתמצאות בו ונוחות השימוש בו. גם השרת שלכם סובל מעבודה עם כמות נתונים גדולה שאין בהם כל צורך, לכן רצוי להפריד נתונים כאלה לעמודים נפרדים. <br>כל התהליך מסתכם בהכרת הפקודה LIMIT של MySQL שעושה את כל הקסם. בפוסט הזה נראה איך היא עובדת ומה אפשר לעשות איתה. אם הפקודה <em>SELECT .. FROM .. LIMIT X,Y</em> עדיין לא מוכרת לכם, המשיכו בקריאה<br><br><br><br>לצורך ההדגמה נעבוד עם טבלה שתראה כך: (<a href="http://pastebin.com/fT6fxYpL">קוד sql</a>)<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="חלוקה לעמודים" title="http://habreffect.ru/files/ec5/423159952/pagination.png" class="content-image-float"><br>בטבלה 19 שורות שנחלק אותם ל5 שורות בעמוד.<br><br><h3>הפקודה LIMIT</h3><br>מטרתה של המילה הזו היא לומר למסד כמה שורות אנחנו רוצים לשלוף. לדוגמה השאילתה <br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM `test` WHERE `id` <span class="sy0">&gt;</span> <span class="nu0">5</span> LIMIT <span class="nu0">3</span></div><br>אומרת למסד להחזיר <strong>רק</strong> את שלוש השורות הראשונות שעונות לתנאי, למרות שבטבלה יש הרבה יותר שורות עם id שגדול מחמש. במילים אחרות LIMIT מגבילה את כמות השורות שהמסד יחזיר לשאילתה שלנו.<br><br><h4>LIMIT מורחב</h4><br>LIMIT יודעת לא רק להחזיר כמות מסוימת של שורות, אלה גם להתחיל משורה כלשהי, אם נותנים לה שני פרמטרים (שני מספרים).<br><br>LIMIT 3, 7<br>המספר הראשון מסמן החל מאיזה שורה להתחיל (על כמה שורות לדלג)<br>המספר השני מסמן את כמות השורות שיש להחזיר (בדיוק כמו לפני-כן)<br><br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM `test` WHERE `id` <span class="sy0">&gt;</span> <span class="nu0">5</span> LIMIT <span class="nu0">3</span><span class="sy0">,</span><span class="nu0">7</span></div><br>השאילתה הזו תחילה מבצעת את התנאי הרשום בwhere- ומחפשת את כל השורות שעונות לו. לצורך העניין יש 14 שורות שעונות לתנאי. לאחר מכן limit הולכת אל השורה הרבעיתי (המיספור מתחיל מאפס) מתוך אותם 14 שהתאימו ומחזירה את השבע הראשונות.<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="חלוקה לעמודים" title="http://habreffect.ru/files/8da/467b5cf48/pagination.png" class="content-image-float"><br><br>אחרי שהתנאי התבצע limit מתחילה לפעול על תוצאות השליפה. היא מדלגת על שלוש שורות ראשונות מתוך התוצאה והחל מהשורה הרביעית מתחילה לספור שבע שורות שמוחזרות כתוצאת השאילתה.<br><br><h3>קצת php</h3><br>ניצור סקריפט עם השם index.php שיקבל משורת הכתובת את העמוד הנוכחי שבו אנחנו נמצאים. index.php?page=2 למשל.<br><br>בקוד שלנו יהיה עלינו לקבל את הערך של מספר העמוד ולחשב כמה שורות יהיה עלינו לדלג בתוצאת השליפה שלנו. אנחנו רוצים להציג 5 רשומות בעמוד. כלומר<br>בעמוד הראשון נציג 5 שורות החל מהשורה האפסית (נדלג על אפס שורות)<br>בעמוד השני נציג 5 שורות החל מהשורה החמישית (נדלג על חמש השורות הראשונות)<br>בעמוד השלישי נציג חמש שורות החל מהשורה העשירית (נדלג על 10 שורות)<br><br>השאילה שלנו תראה בצורה הזו<br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM `test` LIMIT <span class="re0">$start_from</span><span class="sy0">,</span> <span class="re0">$per_page</span></div><br>start_from היא כמות השורות ש-limit צריכה לדלג עליהם<br>per_page היא כמות השורות שסה&quot;כ אנחנו רוצים למשוך מהמסד בשאילתה הזו ונשארת קבוע בכל עמוד.<br><br>כמות השורות שעלינו לדלג היא <br>(מספר העמוד פחות אחד) כפול מספר השורות בעמוד.<br><br>בעמוד אחד יהיה עלינו לדלג על 5x0 שורות<br>בעמוד שתיים יהיה עלינו לדלג על 5x1 שורות<br>בעמוד שלוש יהיה עלינו לדלג על 5x2 שורות<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp;<br>
+&nbsp;<span class="re0">$per_page</span> <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$page</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp;<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'page'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$page</span> <span class="sy0">=</span> <span class="kw3">intval</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'page'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$page</span> <span class="sy0">&lt;</span> <span class="nu0">1</span><span class="br0">&#41;</span> <span class="re0">$page</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+&nbsp;<br>
+&nbsp;<span class="re0">$start_from</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$page</span> <span class="sy0">-</span> <span class="nu0">1</span><span class="br0">&#41;</span> <span class="sy0">*</span> <span class="re0">$per_page</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp;<span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="sy0">..</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="sy0">..</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp;<span class="re0">$current_items</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span> <span class="st0">&quot;SELECT * FROM `test` LIMIT <span class="es4">$start_from</span>, <span class="es4">$per_page</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$current_items</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$item</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$current_items</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$item</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<span class="kw1">else</span><br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'this page does not exists'</span><span class="sy0">;</span> <br>
+&nbsp;<span class="br0">&#125;</span></div><br><br>תחילה נגדיר את כמות הרשומות שיש להציג בכל עמוד במשתנה per_page<br>לאחר מכן נקרא את תוכן המשתנה ?page במידה ויש כזה.<br><br>הפונקציה isset בודקת האם משתנה הזה מוגדר. אם כן - נהפוך אותו למספר שלם. אם לא, ישאר בו הערך 1. אם מישהו יכתוב במשתנה ?page משהו לא מספרי index.php?page=hello הפונקציה intval תנסה להפוך את זה למספר ותחזיר את המספר אפס. אפס הוא מספר עמוד לא חוקי, כי המספור מתחיל מאחד.<br><br>נחשב את כמות השורות שיש לדלג עליהם בשליפה ונריץ את השאילתה.<br>נסו לגלוש גם ל index.php?page=3 ותגלו שהשורות החל מהשורה ה-15 נבחרו.<br><br><h4>הצגת מיספור העמודים</h4><br>על מנת להציג קישורים לעמודים אחרים נצתרך לדעת כמה סה&quot;כ שורות יש לנו במסד. את המידע הזה נשלוף באמצעות שאילתה נוספת.<br><div class="php codeblock">SELECT <span class="kw3">COUNT</span><span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#41;</span> FROM `test`</div><br>השאילתה הזו תחזיר מספר אחד בלבד — כמות השורות שיש בטבלה.<br>נוכל להשתמש במידע זה כדי להציג קישורים לעמודים אחרים.<br><br>שימו לב, שהשאילתה הזו צריכה להחזיר את כמות השורות שעונות לתנאי של השאילתה המקורית שלנו. אם בשאילתה המקורית השתמשתם בתנאי כלשהו, לדוגמה, age &gt; 10, אזי יש להשתמש בתנאי זהה גם בשאילתה הזו.<br><br><br>לאחר מכן נחלק את כמות השורות שיש במסד בכמות השורות שאנחנו מציגים בכל עמוד ונקבל את מספר העמודים הכולל שעלינו להציג. <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp;<br>
+&nbsp;<span class="re0">$per_page</span> <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$page</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp;<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'page'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$page</span> <span class="sy0">=</span> <span class="kw3">intval</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'page'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$page</span> <span class="sy0">&lt;</span> <span class="nu0">1</span><span class="br0">&#41;</span> <span class="re0">$page</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+&nbsp;<br>
+&nbsp;<span class="re0">$start_from</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$page</span> <span class="sy0">-</span> <span class="nu0">1</span><span class="br0">&#41;</span> <span class="sy0">*</span> <span class="re0">$per_page</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp;<span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="sy0">..</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="sy0">..</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp;<span class="re0">$current_items</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span> <span class="st0">&quot;SELECT * FROM `test` LIMIT <span class="es4">$start_from</span>, <span class="es4">$per_page</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$current_items</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$item</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$current_items</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$item</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<span class="kw1">else</span><br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'this page does not exists'</span><span class="sy0">;</span> <br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<span class="re0">$total_rows</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT COUNT(*) FROM `test`&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$total_rows</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_row</span><span class="br0">&#40;</span><span class="re0">$total_rows</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$total_rows</span> <span class="sy0">=</span> <span class="re0">$total_rows</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp;<span class="re0">$total_pages</span> <span class="sy0">=</span> <span class="re0">$total_rows</span> <span class="sy0">/</span> <span class="re0">$per_page</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$total_pages</span> <span class="sy0">=</span> <span class="kw3">ceil</span><span class="br0">&#40;</span><span class="re0">$total_pages</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co2"># 19/5 = 3.8 ~=~ 4<br>
+</span> <br>
+&nbsp;<span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span> <span class="re0">$i</span> &nbsp;<span class="sy0">&lt;=</span> <span class="re0">$total_pages</span><span class="sy0">;</span> <span class="sy0">++</span><span class="re0">$i</span><span class="br0">&#41;</span><br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;a href='?page=<span class="es4">$i</span>'&gt;<span class="es4">$i</span>&lt;/a&gt; &amp;nbsp;&amp;nbsp;&quot;</span><span class="sy0">;</span><br>
+&nbsp;<span class="br0">&#125;</span></div><br><br>קיבלנו את כמות השורות במסד (19)<br>חילקנו בכמות השורות שיש להציג בכל עמוד (5)<br>קיבלנו שסה&quot;כ יהיה לנו 3.8 עמודים. לאחר עיגול 4 עמודים<br>והדפסנו אליהם קישורים.<br><br><br>זהו זה, זוהי כל החלוקה לעמודים.<br>בסה&quot;כ pagination כפי שקוראים אותה באנגלית היא פעולה פשוטה שמתבססת על פקודה אחת בלבד. מעכשיו לא תהיה לכם בעיה להציג למתשמש טבלאות ועמודים ערוכים ומפוצלים ותוכלו לשחק עם עמודים כפי שתרצו. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment46"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/04/2011 17:52</span><br>
+מדריך מעולה !,אבל לא הבנתי כל כך למה זה משמש?,אם תוכל להסביר לי את זה יותר בבירור ולתת לי דוגמאות אני יותר מאשמח! :)</div>
+<a id="comment51"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2011 20:40</span><br>
+הדבר משמש להצגת נתונים בדפים שונים.<br>
+<br>
+לדוגמה בבלוג הזה יש כמה עשרות כתבות ופרסומים על php<br>
+לא כולם מופיעים בעמוד הראשי. בעמוד הראשי מופיעים רק 15<br>
+הפרסומים האחרונים. השאר נמצאים בעמוד 2. <br>
+<br>
+נניח שיש באתר 100 פרסומים.<br>
+כשאתה גולש ל phpguide.co.il/index.php אני מראה לך את הפרסומים 0 עד 15, <br>
+כשאתה גולש ל phpguide.co.il/index.php?page=2 אתה רואה את פרסומים 16 עד 30,<br>
+index.php?page=3 אתה רואה 31 עד 45<br>
+ולא את כל ה-45 בבת אחת בעמוד הראשי.</div>
+<a id="comment67"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/04/2011 08:45</span><br>
+תודה אבל אני כבר יודע איך עושים בכל מיקרה מדריך מעווולה!</div>
+<a id="comment273"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 20:19</span><br>
+קוראים לזה pagination.</div>
+<a id="comment448"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2011 16:35</span><br>
+שלום לך אלכס,<br>
+מדריך מעולה רק ברצוני לשאול שאלה אחת :<br>
+האם תוכל לעשות את זה במדריך וידיאו?</div>
+<a id="comment829"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/09/2011 17:27</span><br>
+איך עושים שזה יציג 5 עמודים ואז זה יעשה נקודות עד העמוד האחרון?<br>
+לדוגמא:<br>
+1,2,3,4,5..30</div>
+<a id="comment830"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/09/2011 17:33</span><br>
+אתה יכול לקחת את מספר השורות.<br>
+לחלק אותם ב 5<br>
+ואז לקבל את מספר העמודים ולעשות ללואה</div>
+<a id="comment981"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/12/2011 20:11</span><br>
+תודה על המדריך.<br>
+אך יש לי בעיה, משום מה הוא מכפיל לי את כל השורות במסדר ב5..לא יודע למה</div>
+<a id="comment982"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/12/2011 21:56</span><br>
+תוכל למלא את טופס השאלה בצירוף קוד בעמוד הראשי ונסמך לעזור. בלי לראות את הקוד שלך אין לנו איך לעזור ותגובות לכתבה זה גם לא המקום :)</div>
+<a id="comment1012"></a>
+<div class="blog-comment">
+<span class='comment-author'>Kzrh</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/12/2011 18:35</span><br>
+מדריך מצויין! ממש עזר לי, תודה :)!</div>
+<a id="comment1245"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/02/2012 12:36</span><br>
+מדריך מצוין! עזרת לי מאוד! :)</div>
+<a id="comment1426"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/03/2012 15:46</span><br>
+וואוו תודה מדריך מעולה<br>
+<br>
+רק יש אפשרות לעשות הגבלה לדוגמא של תמונות שיראו בדף<br>
+<br>
+לדוגמא יש 13 תמונות אז בעמוד index,php?page=0 יהיה 10 תמונות <br>
+<br>
+וב index.php?page=2 זה יציג 3 תמונות איך עושים את זה?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

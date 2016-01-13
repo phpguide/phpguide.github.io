@@ -1,0 +1,586 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה דמוי קליק">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>דמוי קליק | שאלת לימוד PHP</title>
+<meta itemprop="name" content="דמוי קליק | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה דמוי קליק">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">33</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="דמוי קליק.htm" title="כשאני לוחץ על submit אני שולח את הגולש לדף אחר, בדף האחר הזה יש IFRAME לאתר אחר שמספק קישור, ובלחיצה על הקישור נפתח תמונה.השאלה שלי היא כזו, הם ניתן לפתוח לגולש את התמונה ישירות כשהוא לוחץ על submit ולחסוך את ההעברה של הדף ואת ה IFRAME ?כיאילו שהלחיצה על הקישור בIFRAME תיהיה אוטומטית והתמונה תפתח ישר.יש אפשרות כזו?">דמוי קליק</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2013-03-29T01:48:14+02:00" style="display:inline-block;">
+29 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1336'>
+כשאני לוחץ על submit אני שולח את הגולש לדף אחר, בדף האחר הזה יש IFRAME לאתר אחר שמספק קישור, ובלחיצה על הקישור נפתח תמונה.<br><br>השאלה שלי היא כזו, הם ניתן לפתוח לגולש את התמונה ישירות כשהוא לוחץ על submit ולחסוך את ההעברה של הדף ואת ה IFRAME ?<br>כיאילו שהלחיצה על הקישור בIFRAME תיהיה אוטומטית והתמונה תפתח ישר.<br><br>יש אפשרות כזו? </div>
+</div>
+<h3>
+<span id="answersCounter">33 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5873">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 29 למרץ 2013 </span>
+<a id="answer_5873" href="דמוי קליק.htm#answer_5873">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשים את ה-iframe בעמוד של הטופס. כשהמשתמש שולח את הטופס, &quot;תלחץ&quot; עם javascript על הכפתור שנמצא ב-iframe. </p>
+</div>
+<div class="answer" id="answer5875">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 29 למרץ 2013 </span>
+<a id="answer_5875" href="דמוי קליק.htm#answer_5875">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כמובן. DOM. יכול להיות שאתה יכול לעשות את זה אפילו עם cURL. (לפי מה שהבנתי על זה, אם כי אני לא מבין בזה בכלל כרגע.)<br>יש לך כמה אפשרויות, אתה יכול לשים מיד אחרי ה-iframe אלמנט script ובתוכו ה-JS שאתה רוצה, או לעשות משהו ב-onload של ה-iframe (נקי יותר). קיצר, מה שאתה עושה - אתה ניגש לכפתור ולוחץ עליו.<br>איך לגשת לכפתור? אם יש לו ID או name - פשוט תחפש בגוגל &quot;javascript get element by name&quot;. זה כזה מצחיק, כי זה בדיוק השם של הפונקציה: getElementByName. בצורה דומה יש גם את ID.<br>ואז, מה שאתה מקבל זה מחלקה שלו, ואתה כותב משהו כזה:<br><div class="php codeblock">document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;blablabla&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>submit<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אם התכוונת למשהו אחר בשאלה שלך - תקן אותי בבקשה. :-)<br><br>נ.ב. זה בדיוק כמו ש-iiddaannyy אמר לפני שהספקתי להגיב. :-) </p>
+</div>
+<div class="answer" id="answer5876">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 29 למרץ 2013 </span>
+<a id="answer_5876" href="דמוי קליק.htm#answer_5876">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שני תיקונים לתגובה מעליי:<br><br>1. הפונקציה היא getElementsByName. היא מחזירה מספר אלמנטים ולא אחד. :)<br>2. הכפתור בתוך ה-iframe לא שייך ל-document הנוכחי. הוא שייך ל-document של ה-iframe. ולכן צריך לעשות משהו כזה:<br><div class="php codeblock">document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;iframe&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>contentWindow<span class="sy0">.</span>document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;buttonIdInTheIframe&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer5877">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 29 למרץ 2013 </span>
+<a id="answer_5877" href="דמוי קליק.htm#answer_5877">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+צודק, כל כך הרבה זמן לא עבדתי עם JS שכבר שכחתי... סורי. </p>
+</div>
+<div class="answer" id="answer5879">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 29 למרץ 2013 </span>
+<a id="answer_5879" href="דמוי קליק.htm#answer_5879">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עידן הקוד שלך לא עובד.. זה פשוט לא עושה כלום D:. </p>
+</div>
+<div class="answer" id="answer5881">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 29 למרץ 2013 </span>
+<a id="answer_5881" href="דמוי קליק.htm#answer_5881">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שינית את הדברים המתאימים? (ID) </p>
+</div>
+<div class="answer" id="answer5882">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 29 למרץ 2013 </span>
+<a id="answer_5882" href="דמוי קליק.htm#answer_5882">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, שיחקתי עם זה עוד קצת וזה פשוט לא עובד :S </p>
+</div>
+<div class="answer" id="answer5883">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 29 למרץ 2013 </span>
+<a id="answer_5883" href="דמוי קליק.htm#answer_5883">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תבדוק מה הולך עם פיירבאג או עם כלי המפתחים של כרום או משהו כזה. </p>
+</div>
+<div class="answer" id="answer5886">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 30 למרץ 2013 </span>
+<a id="answer_5886" href="דמוי קליק.htm#answer_5886">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא כפתור, זה קישור (תגית A).<br>בקוד מקור של האתר ששם אני רוצה ללחוץ כל הכפתור, הכפתור כתוב בצורה הבאה:<br><div class="php codeblock"><span class="sy0">&lt;</span>a id<span class="sy0">=</span><span class="st0">&quot;download_link&quot;</span> href<span class="sy0">=</span><span class="st0">&quot;&quot;</span><span class="sy0">&gt;&lt;</span>img id<span class="sy0">=</span><span class="st0">&quot;download_img&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;images/form/download.png&quot;</span> alt<span class="sy0">=</span><span class="st0">&quot;&quot;</span> <span class="sy0">/&gt;&lt;/</span>a<span class="sy0">&gt;</span></div><br><br>איך אני יכול ללחוץ עליו? אין כלום ב href וזה לא BUTTON או משהו </p>
+</div>
+<div class="answer" id="answer5887">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 30 למרץ 2013 </span>
+<a id="answer_5887" href="דמוי קליק.htm#answer_5887">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+המתודה click אמורה לעבוד גם עם קישורים. היא עובדת עם כל האלמנטים, למעשה. כל מה שהיא עושה זה לדמות לחיצה, ובמקרה של קישור - זה &quot;מפעיל&quot; את הקישור. </p>
+</div>
+<div class="answer" id="answer5890">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 30 למרץ 2013 </span>
+<a id="answer_5890" href="דמוי קליק.htm#answer_5890">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני יודע, אז למה זה לא עובד ? <br><div class="php codeblock"><span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;img&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>contentWindow<span class="sy0">.</span>document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;download_link&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<span class="kw2">&lt;/script&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer5892">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 30 למרץ 2013 </span>
+<a id="answer_5892" href="דמוי קליק.htm#answer_5892">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כמו שאמרתי, &quot;תבדוק מה הולך עם פיירבאג או עם כלי המפתחים של כרום או משהו כזה.&quot; </p>
+</div>
+<div class="answer" id="answer5895">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 למרץ 2013 </span>
+<a id="answer_5895" href="דמוי קליק.htm#answer_5895">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טעיתי בנוגע לפונקציה click (טוב, אני לא אשם. לא התעסקתי עם אירועים לעומק די הרבה זמן).<br><br><em>האמת היא שכדי באמת לדמות לחיצה אתה תצטרך לעבור את כל התהליך של create-init-dispatch של האירוע. ככה שזה נראה כך:</em><br><br>עריכה:<br>ככה לא עושים את זה, ככה עשו את זה פעם.<br>היום יש את ה-constructorים השונים של האירועים השונים.<br>תנסה את זה:<br><div class="php codeblock">document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;img&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>contentWindow<span class="sy0">.</span>document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;download_link&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>dispatchEvent<span class="br0">&#40;</span><span class="kw2">new</span> MouseEvent<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer5897">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 30 למרץ 2013 </span>
+<a id="answer_5897" href="דמוי קליק.htm#answer_5897">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+גם לא עובד מוזר :S </p>
+</div>
+<div class="answer" id="answer5898">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 למרץ 2013 </span>
+<a id="answer_5898" href="דמוי קליק.htm#answer_5898">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תדביק את כל הקוד, ככה אוכל לעזור יותר. </p>
+</div>
+<div class="answer" id="answer5899">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 30 למרץ 2013 </span>
+<a id="answer_5899" href="דמוי קליק.htm#answer_5899">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה הקוד שלי:<br><div class="php codeblock"><span class="sy0">&lt;</span>iframe id<span class="sy0">=</span><span class="st0">&quot;image&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;http://site.com&quot;</span> width<span class="sy0">=</span><span class="st0">&quot;640&quot;</span> height<span class="sy0">=</span><span class="st0">&quot;130&quot;</span> frameborder<span class="sy0">=</span><span class="st0">&quot;0&quot;</span> scrolling<span class="sy0">=</span><span class="st0">&quot;no&quot;</span><span class="sy0">&gt;&lt;/</span>iframe<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;btn&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;input#submit&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;image&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>contentWindow<span class="sy0">.</span>document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;download_link&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>dispatchEvent<span class="br0">&#40;</span><span class="kw2">new</span> MouseEvent<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br><br>ובאתר שבIFRAME יש תמונה של כפתור DOWNLOAD אני בעצם צריך ללחוץ על הכפתור הזה, ובקוד מקור הוא כתוב בצורה הבאה (הקוד מקור של האתר שבתוך ה IFRAME):<br><div class="php codeblock"><span class="sy0">&lt;</span>a id<span class="sy0">=</span><span class="st0">&quot;download_link&quot;</span> href<span class="sy0">=</span><span class="st0">&quot;&quot;</span><span class="sy0">&gt;&lt;</span>img id<span class="sy0">=</span><span class="st0">&quot;download_img&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;images/form/download.png&quot;</span> alt<span class="sy0">=</span><span class="st0">&quot;&quot;</span> <span class="sy0">/&gt;&lt;/</span>a<span class="sy0">&gt;</span></div><br><br>תודה עידן. </p>
+</div>
+<div class="answer" id="answer5900">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5900" href="דמוי קליק.htm#answer_5900">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש בעיה עם לגשת לאלמנטים מתוך אייפריים שמוביל לדומיין אחר, נזרקת האזהרה:<br><div class="php codeblock">Unsafe JavaScript attempt to access frame with URL http<span class="sy0">:</span><span class="co1">//iframeSite.co.il/ from frame with URL http://mySite.co.il/pageName.html. Domains, protocols and ports must match.</span></div><br>כשאגיע הביתה אבדוק את זה יותר לעומק. </p>
+</div>
+<div class="answer" id="answer5901">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5901" href="דמוי קליק.htm#answer_5901">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן שמתי לב לזה מהפיירבאג של כרום.<br>תודה רבה עידן, אל תשכח אותי חח </p>
+</div>
+<div class="answer" id="answer5904">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5904" href="דמוי קליק.htm#answer_5904">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לך שליטה עם ה-htaccess של אותו האתר (שממנו בא ה-iframe)?<br>אם לא, אני לא חושב שזה אפשרי, עקב המדיניות של &quot;<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Same_origin_policy_for_JavaScript?redirectlocale=en-US&amp;redirectslug=Same_origin_policy_for_JavaScript">browser&#039;s same-origin</a>&quot;. מה שאתה כן יכול לעשות זה לנתח את הכתובת באמצעות PHP. אתה יודע איך לעשות את זה? </p>
+</div>
+<div class="answer" id="answer5905">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5905" href="דמוי קליק.htm#answer_5905">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין לי שליטה, זה לא אתר שלי מה שיש בIFRAME.<br>ואיך אוכל לנתח אותו באמצעות PHP?<br>תודה!. </p>
+</div>
+<div class="answer" id="answer5906">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5906" href="דמוי קליק.htm#answer_5906">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="http://php.net/manual/en/function.file-get-contents.php">file_get_contents</a>.<br>בשמחה. :) </p>
+</div>
+<div class="answer" id="answer5907">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5907" href="דמוי קליק.htm#answer_5907">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה אוכל לעשות עם זה ? איך אוכל ללחוץ על הכפתור שאני רוצה בעזרת זה :) ? </p>
+</div>
+<div class="answer" id="answer5910">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5910" href="דמוי קליק.htm#answer_5910">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אה, שכחתי את הקטע הזה. XD<br>לפני זה, &quot;תלחץ על הכפתור&quot; עם CURL, ואז תקבל את התוכן. האמת היא שכאן זה נעשה קצת מסובך... אולי עדיף שתחכה לתשובות של אחרים.<br>בכל מקרה, נניח שעשית את זה. אחר כך אתה יכול להשתמש בספריות כמו <a href="http://simplehtmldom.sourceforge.net/">PHP Simple HTML DOM Parser</a> לחלץ את הקישור. </p>
+</div>
+<div class="answer" id="answer5911">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5911" href="דמוי קליק.htm#answer_5911">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הוא אמר שיש בעיה עם לדמות לחיצה מתוך IFRAME בJS.<br>איך אני יכול ללחוץ על הכפתור עם CURL ? סיבכת אותי :S<br>יש לך סקייפ שתוכל לעזור לי כמה דקות ? </p>
+</div>
+<div class="answer" id="answer5912">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5912" href="דמוי קליק.htm#answer_5912">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, אני יודע. מצטער. עם cURL אתה יכול לשלוח לאתר POST/GET ודברים כאלה (=לחיצה על כפתור), ולקבל את התשובה (=התמונה, אחרי שאתה מפענח את התשובה, כמובן). תחפש בגוגל. </p>
+</div>
+<div class="answer" id="answer5918">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5918" href="דמוי קליק.htm#answer_5918">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין בעיה עם לדמות לחיצה של אלמנט ב-iframe. הבעיה מתחילה כשה-iframe מפנה לאתר חיצוני ואז אי אפשר לגשת אליו ב-javascript.<br><br>ככה שאני די בטוח שזה לא אפשרי לביצוע בדרך שאתה מציג את זה.<br>אבל אם תציג בדיוק מה הקישור הזה עושה, למה אתה רוצה ללחוץ עליו ומה אתה בעצם רוצה לעשות נוכל לחשוב על פתרונות אחרים. </p>
+</div>
+<div class="answer" id="answer5919">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5919" href="דמוי קליק.htm#answer_5919">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקי אסביר בדוגמא אחרת,<br>יש אתר שמספק שירות הורדה מיוטיוב, אפשר להוריד את השיר ע׳י האיידי של הסרטון ביוטיוב והאתר מציג כפתור הורדה שמוריד את השיר.<br>באתר אחר לגמרי, אני משתמש בiframe בשביל להציג את הכפתור הורדה מהאתר הקודם שהסברתי, מה שאני רוצה לעשות זה לחסוך את הiframe ולהציג לגולש כפתור שאם הוא לוחץ עליו כביכול יהיה לחיצנה על ה iframe וההורדה תפתח.<br><br>אני מקווה שזה מובן יותר ותעזור לי למצוא פתרון, תודה רבה עידן:-). </p>
+</div>
+<div class="answer" id="answer5920">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5920" href="דמוי קליק.htm#answer_5920">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול לנסות לשנות את הגודל של ה-iframe שיהיה בגודל הכפתור ויראו בתוכו רק את הכפתור.<br>ככה אם תעצב את ה-iframe שיראו בתוכו רק את הכפתור, שיהיה בגודל המתאים, ללא borders זה ייראה כאילו הכפתור נמצא באתר שלך ולוחצים עליו.<br><br>כאן צצה בעיה חדשה: כשהמשתמש ילחץ על הכפתור אז הוא יועבר לעמוד ההורדה רק בתוך ה-iframe.<br>זה לא משפיע אם הכפתור שאנחנו מדברים עליו ישר מתחיל את תהליך ההורדה. כי ההורדה פשוט תתחיל והכל יהיה בסדר.<br><br>אבל אם הכפתור הזה לא מתחיל ישר את תהליך ההורדה אלא מעביר לעמוד אחר, נצטרך לרשום מטפל לאירוע load של ה-iframe ובכך לתפוס שינויים בכתובת שאליה מפנה ה-iframe, ולדאוג לשנות את הכתובת של האתר שלנו בהתאם. </p>
+</div>
+<div class="answer" id="answer5921">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2013 </span>
+<a id="answer_5921" href="דמוי קליק.htm#answer_5921">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ההורדה נפתחת בצורה אוטומטית, לא יהיה בעיה לעצב את ה-iframe בצורה של הכפתור, הבעיה היא בדפדפנים, בכרום ואקספלורר הכל תקין אך בפיירפוקס ה-iframe בהתחלה טוב ולאחר כמה שניות זה קופץ לתחתית האתר (ככה שבעצם לא יראו את כפתור ההורדה).<br>אז מה שחשבתי לעשות זה לעצב כפתור, ובלחיצה עליו לדמות לחיצה על הכפתור בiframe.<br><br>ובנוסף, יש אפשרות להוריד במספר פורמטים (MP3,MP4), באתר שבתוך ה iframe, וגם ההורדה נפתחת באתר בצורה אוטומטית לאחר 20 שניות, מה שעוד יותר מחזק את הדרך שלי לעצב כפתור ורק בלחיצתו ההורדה תפתח.<br>כיוון שאם אעשה שתי iframeים אחד שמוריד בפורמט MP3 ואחד שמוריד בפורמט MP4, בסופו של דבר יפתח לגולש 2 הורדות (אחד של הMP3 ואחד של הMP4 לאחר 20 שניות), אם אני מחליף את זה בכפתור מעוצב משלי (ככה שזה לבחירתו MP3\MP4) יפתח לו חלון בהתאם לדרישה שלו, אם הוא רוצה MP3 הוא פשוט ילחץ על הכפתור של הMP3 ולהפך.<br><br>וגם זה יותר יפה שזה מעוצב בהתאם לעצב, מאשר כפתור בצבעים ובצורה מזעזעת.<br><br><strong>או בקיצור, אני צריך למצוא דרך שאם אני לוחץ על כפתור X מהאתר שלי, זה כיאילו לחצתי על כפתור הDOWNLOAD מהIFRAME.</strong> </p>
+</div>
+<div class="answer" id="answer5922">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2013 </span>
+<a id="answer_5922" href="דמוי קליק.htm#answer_5922">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+את הבעיה של הפיירפוקס אפשר לבדוק ולתקן, זה לא בעיה. <br><br>בנוגע לבעיה של ה-20 שניות, גם את זה אפשר לתקן. ברגע שלוחצים על אחד ה-iframeים אז מוחקים את ה-iframe השני. <br><br>בנוגע לבעיה של העיצוב, גם את זה אפשר לסדר כמובן.<br>נשים כפתור מעוצב משלנו מתחת ל-iframe ונעשה את ה-iframe שקוף. ככה שזה רק ייראה שלוחצים על הכפתור המעוצב שלנו, אבל לוחצים על ה-iframe השקוף שמעליו. </p>
+</div>
+<div class="answer" id="answer5923">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2013 </span>
+<a id="answer_5923" href="דמוי קליק.htm#answer_5923">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. פיירפוקס אוקי.<br>2. ואם הגולש לא עשה כלום במשך עשרים שניות, עדין יפתח לו שתי חלונות :S, מה שאפשר לעשות זה לבטל חלונות קופצים מתוך IFRAME, אפשרי?<br>3. אחלה רעיון, אעשה עכשיו, רק צריך למצוא פתרון ל 1,2. </p>
+</div>
+<div class="answer" id="answer5928">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 01 לאפריל 2013 </span>
+<a id="answer_5928" href="דמוי קליק.htm#answer_5928">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+2. כל 19 שניות תרענן את ה-iframe. </p>
+</div>
+<div class="answer" id="answer5930">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 02 לאפריל 2013 </span>
+<a id="answer_5930" href="דמוי קליק.htm#answer_5930">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הסתדרתי עם הכל, הבעיה היחידה זה שבפיירפוקס הIFRAME יורד לתחתית האתר לאחר כמה שניות ואז כפתור ה DOWNLOAD נעלם... </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

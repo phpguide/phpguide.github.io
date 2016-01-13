@@ -1,0 +1,15 @@
+<head/><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;
+<br/></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">someFunction</span><span style="color: #007700">()
+<br/>{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;
+<br/>}
+<br/>
+<br/>
+<br/>foreach(</span><span style="color: #0000BB">someFunction</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$num</span><span style="color: #007700">)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">someFunction</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$num2</span><span style="color: #007700">)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$num</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'-'&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$num2</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&nbsp;'&nbsp;</span><span style="color: #007700">;</span>
+</span>
+</code>1

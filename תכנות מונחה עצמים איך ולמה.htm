@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="תכנות מונחה עצמים">
+<meta name="keywords" content="oop תכנות מונחה עצמים">
+<meta name="author" content="nirbe">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>תכנות מונחה עצמים? איך ולמה?</title>
+<meta itemprop="name" content="תכנות מונחה עצמים? איך ולמה?">
+<meta itemprop="description" content="תכנות מונחה עצמים">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"283","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>תכנות מונחה עצמים? איך ולמה?</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">nirbe, </div>
+<div class="right">&nbsp;<time datetime="2013-01-12T21:40:52+02:00" dir="rtl">12 לינואר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://srv1.jpg.co.il/3/50f196261b8a2.png" alt="תכנות מונחה עצמים? איך ולמה?">
+</div>
+<div class="right post-content">
+יצא לי לקרוא המון פעמים שמתכנתים שעוד לא יודעים לעבוד עם תכנות מונחה עצמים פשוט &quot;משתגעים&quot; ולא מצליחים להבין למה זה עוזר ולמה כדאי להשתמש במחלקות ולא בדרך ה&quot;רגילה&quot; והארוכה יותר. (שגם הם לא מצליחים להבין למה הדרך ה&quot;רגילה&quot; ארוכה יותר).<br>אז בתור אחד שחווה את החוויה הזאת לפני כשנה, חוויה שליוותה אותי כמה חודשים בניסיון להבין מדוע אני צריך להשתמש בתכנות מונחה עצמים, החלטתי לבוא לפה, ולנסות להסביר בצורה הטובה ביותר שאפשר לאנשים שמתקשים ושנמצאים במצב שבו אני הייתי לפני כשנה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אז כמו שהבנתם, לפני כשנה נתקלתי בבעיה הזאת בדיוק כמוכם (במידה ואתם באמת תקועים בבעיה הזאת ולא סתם קוראים את המאמר כי משעמם לכם).<br><br>אז הנה כל ההסברים והטיפים שתוכלו לקבל על מנת להבין יותר טוב בשביל מה צריך את הדבר הזה שנקרא OOP (Object-Oriented Programming, או בעברית, תכנות מונחה עצמים).<br><br>נתחיל מדוגמא פשוטה, מערכת משתמשים.<br>יש לנו מערכת ובה אנחנו רוצים 2 עמודים שבהם יש את כל המשתמשים באתר ואת כל המשתמשים של הצוות.<br>בדרך ה&quot;רגילה&quot; כביכול, נצטרך ליצור 2 דפים ובהם קודים כאלו:<br>הקוד לדף המשתמשים:<br><br><div class="php codeblock"><span class="re0">$q</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM members WHERE type != 'admin'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$q2</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM posts WHERE id='&quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st0">&quot;id&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;username: &quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st0">&quot;username&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;full name: &quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st0">&quot;fullname&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;email: &quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st0">&quot;email&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;posts: &quot;</span><span class="sy0">.</span><span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$q2</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>הקוד לדף הצוות:<br><br><div class="php codeblock"><span class="re0">$q</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM members WHERE type = 'admin'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$q2</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM posts WHERE id='&quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st0">&quot;id&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;username: &quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st0">&quot;username&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;full name: &quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st0">&quot;fullname&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;email: &quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st0">&quot;email&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;posts: &quot;</span><span class="sy0">.</span><span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$q2</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>כמובן שעכשיו הכל עובד יפה והקוד לא כל כך ארוך.<br><br>אבל בואו נגיד שהיינו צריכים לבדוק גם אם המייל אמיתי, באורך של 10 תווים. והשם המלא הוא באמת מלא (מכיל שם פרטי ומשפחה), אנחנו גם רוצים לבדוק שהמשתמש באמת קיים, ועוד הרבה פונקציות נוספות.<br><br>במצב הזה הקוד יגדל פי 3 ונצטרך לכתוב אותו כל פעם בכל מקום שנרצה, בטח אתם חושבים לעצמכם, אפשר לעשות את זה בדף אחד ולא בשניים כמו שאמרת, אבל אני מנסה להסביר בצורה הטובה ביותר, גם אם אני לא כותב תקין ביותר.<br><br>נחזור לעניין, תכנות מונחה עצמים נותן לנו ליצור מחלקה (שנקראת ביצירה שלה &quot;אובייקט&quot;), בתוך המחלקה אפשר לכתוב תכונות ומתודות.<br><br>כדי שתבינו יותר טוב, בואו נעבור לדוגמא,<br>בכדור הארץ יש את חיים, בן אדם נחמד שעובד בהייטק, חיים הוא בן אדם, מה שאומר, שאנחנו זקקים למחלקת בני האדם, אבל אפשר לחסוך את זה עוד יותר, מה עם מיצי, החתולה? היא נחשבת בעל חיים, וגם בני אדם הם בעל חיים.<br>במצב הזה אנחנו צריכים מחלקה אחת בלבד, מחלקת בעלי חיים.<br>במחלקה הזאת אנחנו יכולים לקבוע תכונות, כמו ידיים, רגיליים, עניים, שם, משקל וכו..<br>ומתודות שבודקות לנו האם כמות הרגליים מספיקה כדי להרים את בעל החיים או שהוא פשוט לא יצליח לזוז (לדגומא כמובן).<br><br>בדרך ה&quot;רגילה&quot; אתם פשוט תתחברו מלא פעמים למסד, תכתבו מלא פונקציות, ותעשו מלא בדיקות שחוזרות על עצמם עם כל בעל חיים, ואל תשכחו שתצטרכו גם לשכפל לכל בעל חיים שנמצא בעולם, המתחכמים בניכם יגידו שאפשר לעשות את זה קצר בשימוש בפונקציות, וזה נכון מאוד, אבל היום נהוג להשתמש במחלקות ולא בכל כך הרבה פונקציות.<br><br>בדרך ה OOP, סה&quot;כ תצטרכו ליצור אובייקט (מחלקה) לקבוע את התכונות ולאחר מכן פשוט מאוד להשתמש במתודות.<br><br>אני אדגים לכם: יש לנו מחלקת בני אדם, ובה תכונות של כמות ידיים ורגליים, משקל, גיל ושם, המתודות שלנו זה אם הבן אדם מספיק חזק כדי להרים את עצמו, וגם מתודה שמשערת כמה זמן נותר לבן אדם לחיות.<br><br>ניצור אובייקט חדש בשם משה, ונקבע שיש לו 2 רגליים ויד אחת, הוא שוקל 56 והגיל שלו הוא 21, ניצור גם עוד אובייקט בשם שולה, לשולה יש 2 רגליים ו 2 ידיים, היא שוקלת 84 והגיל שלה הוא 72.<br><br>עכשיו אנחנו רוצים לבדוק אם שולה יכולה ללכת, או שהיא לא מספיק חזקה בשביל זה, נשתמש במתודה לבדיקה המתאימה ונקבל תוצאה (אמת או שקר, או כל דבר אחר).<br><br>ואנחנו רוצים לבדוק עוד כמה זמן נשאר למשה לחיות, נשתמש גם כן במחלקה המתאימה. (שהיא תחזיר לנו מספר כלשהו).<br>דוגמא שנייה, מערכת פורומים.<br><br>אני לא אתחיל לדבר איתכם על כל המערכות ואיך היא בנויה כמובן, אבל נעבוד כרגע על דף ההודעות עצמו.<br>ניצור מחלקת משתמשים עם התכונות (מזהה, שם משתמש, סיסמא, שם מלא, אימייל, סוג).<br>ועם מתודה אחת שבודקת אם המשתמש יכול לכתוב הודעה.<br>ניצור מחלקה להודעות שלנו עם התכונות (מזהה, כותרת, תוכן, יוצר ההודעה (המזהה שלו) ותאריך יצירה).<br>ומתודות של יצירת הודעה, תגובה על הודעה ולפני כמה זמן ההודעה נוצרה.<br><br>נכתוב שאילתה שלוקחת את 10 ההודעות האחרונות, ונשתמש בלולאה כדי להציג אותם.<br>בכל פעם שהלולאה רצה, ניצור אובייקט הודעה ונציג את התכונות שלה (כמובן שהמחלקה צריכה לעבוד עם מסד נתונים כדי לקבל את כל ההודעות, ואותו דבר לגבי מחלקת משתמשים).<br><br>עכשיו נוכל בכל פעם להציג את הפרטים של ההודעה בקלות, ונוכל גם להשתמש בכל מני מתודות (במערכת פורומים, מתודות כמו נעילת הנושא, נעיצה שלו, מחיקה שלו וכו..).<br>נרצה כמובן להציג גם את פרטי המשתמש, לא מספיק שרואים רק את המזהה שלו (ID).<br><br>בכל פעם שהלולאה רצה נוסיף גם אובייקט של מחלקת המשתמשים וביצירה שלו (בעזרת מתודת הקסם construct, שעליה תלמדו בהמשך, אבל בהסבר קצר, זאת מתודה שמופעלת בעת יצירת המחקה) נכניס את המזהה של המשתמש, עכשיו יהיה אפשר להשתמש בתכונות ובמתודות של המשתמש ולבדוק אם הוא יכול להגיב, מה השם משתמש שלו וכו...<br><br>עד פה המאמר הראשון שלי בנושא תכנות מונחה עצמים (והראשון שלי בכלל), אני מקווה שהצלחתם להבין קצת יותר טוב את הנושא, במאמרים הבאים שלי אני אתחיל ללמד מעשית תכנות מונחה עצמים.<br><br>לכל שאלה, הצעה, הערה והארה, תוכלו לתת תגובה :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=16&r=g&d=monsterid" alt="nirbe">
+<a>nirbe</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2131"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/01/2013 03:49</span><br>
+מעולה. תודה רבה על הפרסום ניר.<br>
+מקווה שזה יעזור למתחילים.<br>
+<br>
+לדעתי יש קפיצות מהירות מדי בין הנושאים וקשה לעקוב אחרי המחשבות.<br>
+קודם שנים של בעיות, אחרי זה פתאום עמוד, אחרי זה פתאום שולה וחיים שצריך למות ואחרי זה שוב העמוד הזה, ואחרי זה קדור הארץ עם מיצי. <br>
+<br>
+הרעיונות המרכזיים פחות בולטים וקשה להוציא אותם מהתוכן<br>
+כמו זה שתחסוך לעצמך הרבה מאוד קוד, תוכל להעביר קוד מפרוייקט לפרוייקט וליצור ירושה<br>
+והשינוי העתידי יהיה קל יותר בזכות זה שאין קוד שחוזר על עצמו.</div>
+<a id="comment2132"></a>
+<div class="blog-comment">
+<span class='comment-author'>nirbe</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/01/2013 03:53</span><br>
+אוקיי, תודה על העצות, אני אנסה לשפר את המאמר, בכל זאת, מאמר ראשון שלי.</div>
+<a id="comment2133"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/01/2013 06:31</span><br>
+יש כבר מלא כאלה, מיותר.</div>
+<a id="comment2134"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/01/2013 06:33</span><br>
+ניסיתי בעבר להסביר את התיאוריה של תכנות מונחה עצמים, <br>
+קשה לדחוס את זה לזמן קצר,<br>
+אבל הנה קישור:<span dir="ltr"><a href="OOP תכנות מונחה עצמים מבוא.htm">http://phpguide.co.il/OOP תכנות מונחה עצמים מבוא.htm</a></span><br>
+<br>
+בכל אופן, מה שחסר גם בכתבה הזו זה בעיקר דוגמאות קוד, והרבה..<br>
+<br>
+מי שבכל זאת מתקש מומלץ להתחיל לנסות לעבוד עם פריימוורק כלשהו.</div>
+<a id="comment2135"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/01/2013 06:34</span><br>
+בכל אופן, סחטיין על ההשקעה, נקווה לראות עוד כתבות טובות שלך.</div>
+<a id="comment2136"></a>
+<div class="blog-comment">
+<span class='comment-author'>nirbe</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/01/2013 06:54</span><br>
+במאמר הבא אני כבר אביא דוגמאות קוד כפי שכתבתי בתחתית המאמר, תודה רבה על התגובות!</div>
+<a id="comment2137"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/01/2013 10:39</span><br>
+אני גם כותב על OOP אבל באתר שלי - <span dir="ltr"><a href="http://www.lior-portal.co.il/php/oop-%D7%91php/%D7%AA%D7%9B%D7%A0%D7%95%D7%AA-%D7%9E%D7%95%D7%A0%D7%97%D7%94-%D7%A2%D7%A6%D7%9E%D7%99%D7%9D-%D7%91php-%D7%97%D7%9C%D7%A7-1/">http://www.lior-portal.co.il/php/oop-בphp/תכנות-מונחה-עצמים-בphp-חלק-1/</a></span><br>
+אשמח שאולי נעשה משהו ביחד.<br>
+דרך אגב, אני מכיר אותך מFXP.</div>
+<a id="comment2204"></a>
+<div class="blog-comment">
+<span class='comment-author'>pol292</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/02/2013 15:20</span><br>
+<span dir="ltr"><a href="http://www.youtube.com/watch?v=yg3Wx-JCzjE">http://www.youtube.com/watch?v=yg3Wx-JCzjE</a></span></div>
+<a id="comment2205"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/02/2013 01:25</span><br>
+:)) אחלה שיר pol</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מתודות רספ ב OOP">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nirbe">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מתודות רספ ב OOP | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מתודות רספ ב OOP | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מתודות רספ ב OOP">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מתודות רספ ב OOP-1.htm" title="יש לי שאלה לגבי מתודות קסם.האם יש מתודת קסם שמופעלת בסוף הרצת המחלקה?ואם כן, מהי?תודה!">מתודות רספ ב OOP</a></h2>
+<div class="userinfo">
+פתח
+<a>nirbe</a>
+,
+<time class="timeago relativetime" datetime="2012-07-29T11:52:19+03:00" style="display:inline-block;">
+29 ליולי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText828'>
+יש לי שאלה לגבי מתודות קסם.<br>האם יש מתודת קסם שמופעלת בסוף הרצת המחלקה?<br>ואם כן, מהי?<br><br>תודה! </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3516">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 29 ליולי 2012 </span>
+<a id="answer_3516" href="מתודות רספ ב OOP-1.htm#answer_3516">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה זאת אומרת &quot;בסוף הרצת המחלקה&quot;?<br>יש לך את destruct שמופעלת כשהורסים את המחלקה, אבל אני לא בטוח שלזה אתה מתכוון. </p>
+</div>
+<div class="answer" id="answer3517">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 29 ליולי 2012 </span>
+<a id="answer_3517" href="מתודות רספ ב OOP-1.htm#answer_3517">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה אמור לפעול בדיוק באותה השנייה של יצירת המחלקה, אבל זה יהיה בסופה (ז&quot;א, אולי יהיה הבדל של כמה מאיות השנייה, אבל לא נשים לב לזה).<br>אני יסביר למה אני רוצה את זה,<br>ב __constract אני מציג התחלה של סקריפט עם התג script<br>בפונקציות אני מציג את קוד הסקריפט עצמו (על ידי echo).<br>ואני רוצה לאחר מכן הסקריפט יסגר ישר.<br><br>אם יש אפשר להשתמש בתמתודת קסם שעובדת כאשר אני קורה לאיזה פונקציה במחלקה. </p>
+</div>
+<div class="answer" id="answer3518">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 29 ליולי 2012 </span>
+<a id="answer_3518" href="מתודות רספ ב OOP-1.htm#answer_3518">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני חושב שהכי הגיוני יהיה לשים את הסגירה של הסקריפט בסיום הקוד שלו או בפונציקה שהמחלקה תקרא לה בסיומה </p>
+</div>
+<div class="answer" id="answer3519">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 29 ליולי 2012 </span>
+<a id="answer_3519" href="מתודות רספ ב OOP-1.htm#answer_3519">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל יש פונקציות שמשתלבות ביחד, ז&quot;א, פונקציה בתוך פונקציה.<br><div class="php codeblock"><span class="re0">$test</span><span class="sy0">-&gt;</span><span class="me1">click</span><span class="br0">&#40;</span><span class="re0">$test</span><span class="sy0">-&gt;</span><span class="me1">slide</span><span class="br0">&#40;</span><span class="st0">&quot;bla&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ש click זה פונקציה שמכילה בתוכה סקריפט וגם slide, ככה שאני לא יכול לסגור בסוף את הסקריפט כי יש עוד סקריפט.<br><br>אם אתם לא חושבים על דרך כזאתי, חשבתי אם אפשר להכניס מתודות ב class לתוך האורגומנט (או איך שלא אומרים את זה) במתודת construct ואז ככה יהיה אפשר להכניס את האורגומנט שנגיד הוא $value ולהציג אותו בין שתי תגיות הסקריפט.<br>ניסיתי לעשות את עם $this ועם השם של המופע וזה לא עבד... </p>
+</div>
+<div class="answer" id="answer3521">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 ליולי 2012 </span>
+<a id="answer_3521" href="מתודות רספ ב OOP-1.htm#answer_3521">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין דבר כזה &quot;סיום של מחלקה&quot;.<br>יש יצירה x = new bla<br>אבל אין באמת סיום. יש שלב ניקוי זיכרון, אבל לא באמת סיום.<br><br>הדרך הנכונה בשבילך לעשות את זה תהיה ליצור עוד פעולה, משהו כמו<br><div class="php codeblock"><span class="re0">$test</span><span class="sy0">-&gt;</span><span class="me1">endscript</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div><br>שתהיה אחראית להוסיף את תגי הסגירה.<br><br>מכל זה נובע שהמפתח יצטרך לדעת על זה שצריך לקרוא לפעולה הזו.<br>זה לא הכי נוח, אבל אפשר לממש את זה בצורה הבאה:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> whatsoever<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$endTagAdded</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> finish<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;/script&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endTagAdded</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __destruct<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endTagAdded</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> Exception<span class="br0">&#40;</span><span class="st0">&quot;Hey, please call the finish() method&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>למרות שאני עדיין לא בטוח שזה הפתרון הכי טוב במקרה שלך <br>כי לא ידועים לי מקרי ודרכי השימוש של המחלקה </p>
+</div>
+<div class="answer" id="answer3522">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 29 ליולי 2012 </span>
+<a id="answer_3522" href="מתודות רספ ב OOP-1.htm#answer_3522">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ומה לגבי השאלה על המתודות בתוך המופע?<br>נגיד ויש לי class בשם test ומתודה בשם bla, האם אני יכול לעשות משהו כזה?<br><div class="php codeblock"><span class="re0">$i</span> <span class="sy0">=</span> <span class="kw2">new</span> test<span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">bla</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3523">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 ליולי 2012 </span>
+<a id="answer_3523" href="מתודות רספ ב OOP-1.htm#answer_3523">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טכנית - אתה יכול.<br>השאלה מה זה נותן לך.. המתכנת אמור להבין שלא צריך לסגור את הסקריפט לפני שהוא סיים לעשות הכל. </p>
+</div>
+<div class="answer" id="answer3527">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 31 ליולי 2012 </span>
+<a id="answer_3527" href="מתודות רספ ב OOP-1.htm#answer_3527">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לי תחושה שבבנאי (construct) אתה מפעיל את כל המתודות שצריך. אם אני צודק, פשוט בסוף בפונקצית בנאי תקרא למתודה שתסגור את התג. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="במדריך הזה אני מלמד אותכם איך להשתמש בספריה smarty">
+<meta name="keywords" content="mvc, תבניות, php, smarty, template engine, ספריה, תכנות">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Smarty Template Engine</title>
+<meta itemprop="name" content="Smarty Template Engine">
+<meta itemprop="description" content="במדריך הזה אני מלמד אותכם איך להשתמש בספריה smarty">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"122","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Smarty Template Engine</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2011-07-08T15:32:30+03:00" dir="rtl">08 ליולי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.smarty.net/forums/templates/smarty/images/phpbb2_logo.gif" alt="Smarty Template Engine">
+</div>
+<div class="right post-content">
+Smarty Template Engine ספריה לתבניות בPHP. מפרידים את הצד לקוח מהצד שרת. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+הכירו את הספריה Smarty ספריה להפריד צד לקוח מהצד שרת (MVC), ספריה חינמית לחלוטין.<br><br>קישור לאתר שלה: <a href="http://www.smarty.net/">Smarty</a><br>לא יודעים מה זה <a href="mvc_מפרידים_html_מ_php.htm">MVC?</a><br><br><h4>הוספת הספריה</h4><br>1.הורידו את הספריה מהאתר אינטרנט שלהם.<br>2.כנסו לתיקייה היחידה שיש שם ושם תמצאו עוד תיקייה בשם libs העבירו את התיקייה libs אל תיקיית הפרויקט.<br>3.הוסיפו אל הקוד את המחלקה בעזרת הקוד הזה:<br><div class="php codeblock"><span class="kw1">require_once</span> <span class="st_h">'libs/Smarty.class.php'</span><span class="sy0">;</span></div><br>זה טוען את המחלקה Smarty אל הדף.<br><br><h4>מחלקה חדשה</h4><br>ניצור משתנה בשם smarty שבו נגדיר את המחלקה Smarty<br><div class="php codeblock"><span class="re0">$smarty</span> <span class="sy0">=</span> <span class="kw2">new</span> Smarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>עכשיו צריך להגדיר את התיקייה שממנה הוא קורא את התבניות.<br>אז ניצור תיקייה חדשה בפרויקט בשם templates<br>ונוסיף את הקוד הזה:<br><div class="php codeblock"><span class="re0">$smarty</span> <span class="sy0">=</span> <span class="kw2">new</span> Smarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">template_dir</span> <span class="sy0">=</span> <span class="st0">&quot;templates&quot;</span><span class="sy0">;</span></div><br><br>פה בעצם הגדרנו את התיקייה templates שהיא התיקייה שיש בא את כל התבניות.<br>עכשיו צריך להגדיר את התיקייה של הקימפולים שהם ממירים את הקודים האלו שיש בצד לקוח לצד שרת.<br>אז בתוך התיקייה templates ניצור תיקייה בשם compile ועכשיו נגדיר את הcompile dir.<br><div class="php codeblock"><span class="re0">$smarty</span> <span class="sy0">=</span> <span class="kw2">new</span> Smarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">template_dir</span> <span class="sy0">=</span> <span class="st0">&quot;templates&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">compile_dir</span> &nbsp;<span class="sy0">=</span> <span class="st0">&quot;templates/compile&quot;</span><span class="sy0">;</span></div><br><br>עכשיו ניצור את התבנית שלנו.<br>בתוך התיקייה templates ניצור קובץ בשם index.html<br>ונכתוב בו<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span><span class="br0">&#123;</span><span class="re0">$title</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta http<span class="sy0">-</span>equiv<span class="sy0">=</span><span class="st0">&quot;content-type&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;text/html; charset=UTF-8&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; Welcome <span class="sy0">&lt;</span>b<span class="sy0">&gt;</span><span class="br0">&#123;</span><span class="re0">$name</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>b<span class="sy0">&gt;,</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br>עכשיו יש שני בעיות:<br>1. המשתנים title, name לא נמצאים.<br>2. לא הדפסנו את התבנית.<br><br>דבר ראשון נגדיר את שני המשתנים.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$smarty</span> <span class="sy0">=</span> <span class="kw2">new</span> Smarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">template_dir</span> <span class="sy0">=</span> <span class="st0">&quot;templates&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">compile_dir</span> &nbsp;<span class="sy0">=</span> <span class="st0">&quot;templates/compile&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;title&quot;</span><span class="sy0">,</span><span class="st0">&quot;זאת כותרת האתר&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;name&quot;</span><span class="sy0">,</span><span class="st0">&quot;אליהו&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br>פה בעצם הגדרנו את המשתנים title ו-name.<br><br>עכשיו נדפיס את התבנית שלנו.<br><div class="php codeblock"><span class="re0">$smarty</span> <span class="sy0">=</span> <span class="kw2">new</span> Smarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">template_dir</span> <span class="sy0">=</span> <span class="st0">&quot;templates&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">compile_dir</span> &nbsp;<span class="sy0">=</span> <span class="st0">&quot;templates/compile&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;title&quot;</span><span class="sy0">,</span><span class="st0">&quot;זאת כותרת האתר&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;name&quot;</span><span class="sy0">,</span><span class="st0">&quot;אליהו&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">display</span><span class="br0">&#40;</span><span class="st_h">'index.html'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>עכשיו יש בעיה קטנה כל פעם שנגדיר את המחלקה Smart אנחנו צריכים להגדיר את המשתנה של התבניות והקימפולים. ואם נרצה לשנות את השם של התבניות אז נשנה בכל הפעמים שהגדרנו את המשתנה? ואם הגדרנו 100 פעמים יהיה לכם כוח לשנות 100 פעמים?<br><br>אז בואו פשוט ניצור פונקציה שתיצור משתנה Smarty<br><div class="php codeblock"><span class="kw2">function</span> NewSmarty<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$smarty</span> <span class="sy0">=</span> <span class="kw2">new</span> Smarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">template_dir</span> <span class="sy0">=</span> <span class="st0">&quot;templates&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">compile_dir</span> &nbsp;<span class="sy0">=</span> <span class="st0">&quot;templates/compile&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$smarty</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$smarty</span> <span class="sy0">=</span> NewSmarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;title&quot;</span><span class="sy0">,</span><span class="st0">&quot;זאת כותרת האתר&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;name&quot;</span><span class="sy0">,</span><span class="st0">&quot;אליהו&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">display</span><span class="br0">&#40;</span><span class="st_h">'index.html'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h4>תנאים</h4><br>בתבניות ניתן ליצור תנאים.<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span><span class="br0">&#123;</span><span class="re0">$title</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta http<span class="sy0">-</span>equiv<span class="sy0">=</span><span class="st0">&quot;content-type&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;text/html; charset=UTF-8&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="kw1">if</span> <span class="re0">$a</span> eq <span class="nu0">1</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; Welcome <span class="sy0">&lt;</span>b<span class="sy0">&gt;</span><span class="br0">&#123;</span><span class="re0">$name</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>b<span class="sy0">&gt;,</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="kw1">else</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; a is not equal to <span class="nu0">1</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">/</span><span class="kw1">if</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br>מה שעשיתי פה זה בעצם בדקתי אם המשתנה a שווה למספר 1.<br>אבל המשתנה a לא קיים אז בואו ניצור אותו<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">function</span> NewSmarty<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$smarty</span> <span class="sy0">=</span> <span class="kw2">new</span> Smarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">template_dir</span> <span class="sy0">=</span> <span class="st0">&quot;templates&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">compile_dir</span> &nbsp;<span class="sy0">=</span> <span class="st0">&quot;templates/compile&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$smarty</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$smarty</span> <span class="sy0">=</span> NewSmarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;title&quot;</span><span class="sy0">,</span><span class="st0">&quot;זאת כותרת האתר&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;name&quot;</span><span class="sy0">,</span><span class="st0">&quot;אליהו&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">display</span><span class="br0">&#40;</span><span class="st_h">'index.html'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br>נחשו מה אמור להיות התוצאה :-)<br>את הרשימה של הבדיקות ניתן למצוא <a href="http://www.smarty.net/docsv2/en/language.function.if.tpl">כאן</a><br><br><h4>foreach</h4><br>בתבניות ניתן גם להשתמש בforeach.<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span><span class="br0">&#123;</span><span class="re0">$title</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta http<span class="sy0">-</span>equiv<span class="sy0">=</span><span class="st0">&quot;content-type&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;text/html; charset=UTF-8&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="kw1">if</span> <span class="re0">$a</span> eq <span class="nu0">1</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; Welcome <span class="sy0">&lt;</span>b<span class="sy0">&gt;</span><span class="br0">&#123;</span><span class="re0">$name</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>b<span class="sy0">&gt;,</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="kw1">else</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; a is not equal to <span class="nu0">1</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">/</span><span class="kw1">if</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>br <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="kw1">foreach</span> from<span class="sy0">=</span>users item<span class="sy0">=</span><span class="re0">$user</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; ID<span class="sy0">:</span> <span class="br0">&#123;</span><span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; Name<span class="sy0">:</span> <span class="br0">&#123;</span><span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>br <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">/</span><span class="kw1">foreach</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br>כמו שאתם רואים עשיתי פה לולאה למערך שבתוכו יש עוד מערכים שהם מחזיקים את הפרטים של המשתמשים.<br>אם תשימו לב אז תראו שבfrom לא עשיתי דולר.<br><br>עכשיו נגדיר את המשתנה של המשתמשים:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">function</span> NewSmarty<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$smarty</span> <span class="sy0">=</span> <span class="kw2">new</span> Smarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">template_dir</span> <span class="sy0">=</span> <span class="st0">&quot;templates&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">compile_dir</span> &nbsp;<span class="sy0">=</span> <span class="st0">&quot;templates/compile&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$smarty</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$users</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;id&quot;</span> <span class="sy0">=&gt;</span> <span class="nu0">1</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;name&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;אליהו&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;id&quot;</span> <span class="sy0">=&gt;</span> <span class="nu0">2</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;name&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;חיים&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;id&quot;</span> <span class="sy0">=&gt;</span> <span class="nu0">3</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;name&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;משה&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span> <span class="sy0">=</span> NewSmarty<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;title&quot;</span><span class="sy0">,</span><span class="st0">&quot;זאת כותרת האתר&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;name&quot;</span><span class="sy0">,</span><span class="st0">&quot;אליהו&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">assign</span><span class="br0">&#40;</span><span class="st0">&quot;users&quot;</span><span class="sy0">,</span> <span class="re0">$users</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">display</span><span class="br0">&#40;</span><span class="st_h">'index.html'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>עד פה המדריך שלי :-) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment364"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:29</span><br>
+ממליץ יותר אל TWIG</div>
+<a id="comment365"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:31</span><br>
+האמת היא שעד עכשיו אף פעם לא השתמשתי ב smarty כי הוא תמיד נראה לי כבד מדי, <br>
+כמו שפת תכנות נוספת ש-php מפענחת ומריצה כדי ליצור את העמוד.<br>
+<br>
+ולא ברור לי עד הסוף למה לכתוב {foreach from=users item=$user}<br>
+ולא &lt;? foreach($users as $item) ?&gt;<br>
+<br>
+יש לה איזה מנגנון cache או יעול משלה?</div>
+<a id="comment366"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:31</span><br>
+תסביר למה אתה מעדיף את TWIG מאשר Smarty מה ההיתרונות שלו על Smarty.</div>
+<a id="comment367"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:34</span><br>
+Smarty מאפשרת לכתוב קוד php בתוך הtemplate והיא באמת קצת כבדה אבל אף פעם לא בדקתי את TWIG.<br>
+<br>
+אני בטוח שאם תנסה את Smarty אתה תבין איך היא נוחה.</div>
+<a id="comment368"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:40</span><br>
+twig נחשבת למנוע התבניות הכי מהיר שקיים היום, אחרי Blitz, אבל Blitz לא כתוב ב php אלה ב-C וכדי לעבוד איתו יש לחבר אותו כ extension=blitz.so בשרת. החלטתי לא להשתמש בו בפרוייקטים שלי והלכתי על המהיר השני - twig.<br>
+<br>
+twig, למשל, לא מאפשרת קוד php בתוך ה template.<br>
+אבל העבודה הזו מעלה את השאלה: למה לא לכתוב שם ישירות php, אלה את המבנים הטקסטואלים המוזרים האלה.<br>
+<br>
+והאמת שבזמן האחרון הפסקתי להשתמש בכלל במנועי תבניות כאלה ואחרים בדיוק מאותה סיבה. הגעתי למסקנה ש-php בעצמה היא שפת תבניות.</div>
+<a id="comment369"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:45</span><br>
+יש אפשרות גם לשימוש כזה:<br>
+&lt;html&gt;<br>
+&lt;head&gt;&lt;?php include &apos;templates/head.php&apos;; ?&gt;&lt;/head&gt;<br>
+&lt;body&gt;&lt;?php include &apos;templates/body.php&apos;; ?&gt;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+אני מכיר המון מערכות כאלו.<br>
+<br>
+וגם Smarty לא מדפיס את הhtml הוא ממיר את הצד לקוח לצד שרת.</div>
+<a id="comment370"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:46</span><br>
+לא ממש הבנתי מה הוא ממיר ולאן.<br>
+יש רק צד שרת והרבה טקסט שמסודר באופן כזה שנקרא html</div>
+<a id="comment371"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:48</span><br>
+לדוגמה יש קובץ page.html<br>
+ורשום בו:<br>
+{$a}<br>
+<br>
+אז הוא יוצר קובץ חדש בקימפולים ורשם בו<br>
+echo $smarty-&gt;GetVar(&quot;a&quot;);</div>
+<a id="comment372"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:49</span><br>
+מה שכן תצטרך לנסות לעבוד עם Smarty כדי להבין למה אני מתכוון</div>
+<a id="comment373"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:56</span><br>
+אין ספק שהוא נוח, וגם ענית לי על השאלה אם יש בו אופטימיזציה פנימית. <br>
+<br>
+בכל אופן, מבחינתי האישית הפסקתי להשתמש בכלל בכל מנועי התבניות והגעתי למסקנה שעדיף לכתוב <br>
+&lt;? foreach($users as $user): //x ?&gt;<br>
+מאשר <br>
+{foreach from=users item=$user}<br>
+<br>
+כי לדעתי php עצמה היא כבר שפת תבניות.<br>
+<br>
+<br>
+למנועי התבניות יש שני יתרונות על php פשוט:<br>
+א. הרבה יותר קשה להכניס _בטעות_ לוגיקה לתוך התבנית כשהיא לא צריכה להיות שם<br>
+ב. כשאתה נותן לאנשים אחרים שליתה על התבנית (למשל כל מתשמש יכול לערוך את ה-html שיוצג לו עצמו - איך שבא לו), אתה לא יכול לאפשר לו להשתמש ב php רגיל בתבנית, ולכן מנוע תבניות כזה מהווה סוג של ארגז חול.<br>
+<br>
+לדעתי בזה נגמרים השימושים של מנוע תבניות ואני איבדתי את הסיבה להשתמש בהם.</div>
+<a id="comment374"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 20:58</span><br>
+יש את האפשרות להשתמש בקוד php בתוך תבנית.<br>
+וכן האמת php היא כן מין תבנית כזאת.<br>
+<span dir="ltr"><a href="http://www.smarty.net/docsv2/en/language.function.php">http://www.smarty.net/docsv2/en/language.function.php</a></span></div>
+<a id="comment375"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/07/2011 22:53</span><br>
+לא כ&quot;כ מצאתי לנכון לעבוד עם מנוע הטמפלייטים הזה .<br>
+הוא קצת מסורבל ולא נוח .</div>
+<a id="comment377"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/07/2011 01:27</span><br>
+למה להשתמש ב-PHP במנוע תבנית? לא מבין מה הקטע הזה?<br>
+הרי אתה משתמש במנוע תבנית, וכל מה שאתה צריך לעשות יש את זה במנוע. במידה ולא (נדיר מאוד מאוד ולא קורה), אתה יכול לכתוב פלאגין בשניה שעושה את זה בצורה יותר טובה ממה שאתה חושב.<br>
+<br>
+מנוע סמרטי הוא המנוע הכי טוב שיצא לי לעבוד איתו, וכל הפרוייקטים שלי בנויים עליו.<br>
+<br>
+ולאלו ששואלים, אכן יש לו מנוע cache מיוחד שלו. הוא כמובן מקמפל את כל התבניות, ככה שלא תמיד הוא עושה את כל הפעולה.<br>
+<br>
+צריך לקרוא קצת תיעוד כדי להבין את החוזק שעומד מאחוריו.<br>
+<br>
+והנה לינק כטיפ:<br>
+<span dir="ltr"><a href="http://www.smarty.net/why_use">http://www.smarty.net/why_use</a></span><br>
+<br>
+בהצלחה לכולם !<br>
+KingYes.</div>
+<a id="comment378"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/07/2011 13:19</span><br>
+המנוע די שימושי.<br>
+אני משתמש איתו הרבה בכל הפרוייקטים שלי, מנוע יעיל.<br>
+בהצלחה!</div>
+<a id="comment388"></a>
+<div class="blog-comment">
+<span class='comment-author'>mosheii9</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2011 18:40</span><br>
+מדריך דיי מסובך בשבילי חח, אשמח אם תסבירו לי פה למה זה בידיוק עוזר ומה זה התנאים האלה ?</div>
+<a id="comment389"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2011 18:41</span><br>
+תתחיל מזה:<br>
+<span dir="ltr"><a href="mvc_מפרידים_html_מ_php.htm">http://phpguide.co.il/mvc_מפרידים_html_מ_php.htm</a></span><br>
+<br>
+המדריך הזה הוא למנוע תבניות מוכן בשם smarty<br>
+שתוכל להשתמש בו במקום לכתוב אחד משלך כפי שמתואר בקישור למעלה</div>
+<a id="comment477"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/07/2011 22:56</span><br>
+תשמע אני סתם מרפרף בין הדפים<br>
+וככול שאני קורא יותר מדריכים אני מופתע יותר ויותר<br>
+לטובה.<br>
+עבודה יפה ,יש עניין במדריכים,מושקע<br>
+לא סתם כדי למלות חור ולאמר יש לי אתר לימוד.<br>
+פששששש פעמים welldone</div>
+<a id="comment1681"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/06/2012 11:03</span><br>
+יש דרך שאת הקימפולים הוא יעשה ב DB?</div>
+<a id="comment1754"></a>
+<div class="blog-comment">
+<span class='comment-author'>_Ad1R</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2012 01:28</span><br>
+לא ממש הבנתי, מה זאת אומרת PHP היא שפת תבניות? אתם ממליצים להשתמש בsmarty או לא?</div>
+<a id="comment1804"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/08/2012 02:09</span><br>
+smarty ממש נוחה. אני משתמש בה, והיא מאוד נוחה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מדידת זמן טעינה של העמוד על ידי חישוב זמן במיקרושניות">
+<meta name="keywords" content="זמן, מדידה, מיקושניה, מילישניה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>microtime, מדידת זמן טעינת העמוד ובכלל קצת על זמן</title>
+<meta itemprop="name" content="microtime, מדידת זמן טעינת העמוד ובכלל קצת על זמן">
+<meta itemprop="description" content="מדידת זמן טעינה של העמוד על ידי חישוב זמן במיקרושניות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"120","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>microtime, מדידת זמן טעינת העמוד ובכלל קצת על זמן</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-07-06T18:11:23+03:00" dir="rtl">06 ליולי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://natural-products.ro/images/intkeyboardps2.jpg" alt="microtime, מדידת זמן טעינת העמוד ובכלל קצת על זמן">
+</div>
+<div class="right post-content">
+כמה זמן לקח לעמוד להטען ולמה? את התשובה שלאלה הזו אפשר לקבל על ידי שימוש בפונקציה microtime שמחזירה את הזמן הנוכחי בדיוק של חלקי שניה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>נקודת ייחוס</h3><br>אנחנו, כבני אדם, סופרים את הזמן מאז שנת אפס (תחילת הספירה). זוהי נקודת הייחוס שלנו שממנה התחלנו לספור את הזמן. המחשבים לא כל כך עתיקים והם משתמשים בנקודת ייחוס שונה בתור האפס שלהם.<br><br>נקודת תחילת הספירה שלהם תואמת ל <span dir="ltr">01.01.1970 00:00</span> שלנו. זהו תאריך תחילתו של עידן היוניקס. כל פעם שתשאלו את המחשב - כמה זמן עבר מתחילת הספירה - הוא יחזיר לכם את כמות השניות שעברו מאז החצות של 1.1.1970<br><br><br><h3>מה הקשר לפונקציה time</h3><br><a href="http://php.net/time">time</a> היא הפוקנציה שמחזירה את מספר ה<strong>שניות</strong> מאז תחילת הספירה (מאז 1970). כל התאריכים שנשמרים במחשב - נשמרים בתור מספר השניות מאז תחילת הספירה. בעזרת הפונקציה time נוכל לחבר, לחסר ולחשב תאריכים. <br><br>כדי לדעת כמה זמן רץ סקריפט כלשהו - נוכל בתחילת הסקריפט להכניס למשתנה את הערך של <span dir="ltr">$start = time()</span> ובסוף הסקריפט לחסר את המשתנה מהזמן הנוכחי.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="re0">$start</span> <span class="sy0">=</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">for</span> <span class="br0">&#40;</span><span class="re0">$i</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="nu0">10000000</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-</span><span class="re0">$start</span><span class="sy0">;</span></div><br><br>אילו היום היה ה 1.1.1970 והשעה הייתה 1 בלילה והיינו מפעילים את הסקריפט הנ&quot;ל: <br>המשתנה <span dir="ltr">$start</span> היה מכיל את המספר 3600 (עברו 3600 שניות מאז תחילת הספירה)<br><br>כעבור חמש שניות שהלולאה הייתה מסתיימת , הפונקציה time בסוף הספקריפט הייתה מחזירה את המספר 3605 (עברו 3605 שניות מאז תחילת הספירה).<br><br><strong><span style="color:green;">על ידי חיסור הזמן הנוכחי מהזמן שבו הסקריפט הופעל - נקבל את משך פעילות הסקריפט.</span></strong> הלולאה עבדה למשך <span dir="ltr">3605 - 3600 = 5</span> שניות. <br><br><br><br><h3>יחידות זמן קטנות יותר</h3><br>במובן של מחשבים - שנייה זה ההההמון זמן. בשנייה אחת מחשב מסוגל לבצע כמות ענקית של פעולות ולכן רוב הסקריפטים מתבצעים בהרבה פחות משניה. למזלנו המחשב יודע לספור לא רק שניות שלמות, אלה גם חלקי שניות. <br><br>כמו שכל שעה אפשר לחלק לחלקים קטנים יותר (שניות), גם כל שניה אפשר לחלק לחלקים קטנים יותר - מילישניות (אלפיות השניה). כל אלפית אפשר לחלק עוד יותר — למיקרושניות. <br><br>הפונקציה time מחזירה את מספר השניות המלאות מאז תחילת הספירה.<br>הפונקציה microtime מחזירה מחרוזת שכוללת את חלקי השניה (כמות המיקרושניות), רווח, ואת את כמות השניות בדומה לזה, של time<br><br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">microtime</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 0.96711500 1309979927</span></div><br><br>נוכל להשתמש במיקרושניות לחישוב זמן פעולת הסקריפט באופן הבא:<br>נניח שבתחילת הסקריפט החזירה פונקציית microtime את המספר 100.<br>כלומר- עברו מאה מילישניות מאז תחילת השנייה הנוכחית. <br>בסוף הסקריפט החזירה הפונקציה את המספר 300. באמצעות חיסור נדע שהסקריפט רץ למשך 200 מילישניות בדיוק. <br><br><br><h5>אבל זה מחורזת... wtf??</h5><br>כדי שיהיה לנו יותר קל, הכניסו המפתחים בגרסה php 5.1 פרמטר חדש לפונקציה — האם להחזיר מספר, או האם להחזיר מחרוזת. <br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">microtime</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// string &quot;0.69747200 1309980195&quot;</span><br>
+<span class="kw1">echo</span> <span class="kw3">microtime</span><span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// int 1309980195.6979</span></div><br><br>כשיש לנו מספרים, הרבה יותר קל לחסר אותם ולדעת בדיוק כמה זמן לקח ללולאה להתבצע.<br><div class="php codeblock"><span class="re0">$start</span> <span class="sy0">=</span> <span class="kw3">microtime</span><span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">for</span> <span class="br0">&#40;</span><span class="re0">$i</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="nu0">10000000</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="kw3">microtime</span><span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="sy0">-</span> <span class="re0">$start</span><span class="sy0">;</span></div><br><br><span style="color:green;">אצלי הקוד הזה התבצע תוך 2.2050380706787 שניות.<br>תוך כמה אצלכם ?</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment346"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 22:38</span><br>
+אצלי זה לקח 0.654757976532<br>
+על השרת :)</div>
+<a id="comment347"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 22:40</span><br>
+חתיכת מהר :)<br>
+אני מאשים את כרטיס המסך שלי. זה בטח בגללו.</div>
+<a id="comment348"></a>
+<div class="blog-comment">
+<span class='comment-author'>nfsalon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/07/2011 01:14</span><br>
+כרטיס מסך? בטוח? O.O</div>
+<a id="comment349"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/07/2011 07:33</span><br>
+תודה רבה אלכס.<br>
+ענית על הבקשה שלי מהר, תודה רבה! (זה אני שפרסם בדף הרעיונות על microtime), המדריך מאוד עזר לי, וכל הכבוד שאתה משקיע ככה</div>
+<a id="comment353"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/07/2011 22:13</span><br>
+1.7447690963745<br>
+על localhost</div>
+<a id="comment354"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 00:58</span><br>
+מה פתחתם פה benchmark ?</div>
+<a id="comment355"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 01:00</span><br>
+jbstyle, לפי התגובה אני מסיק שאתה מתבייש בתוצאות של המחשב שלך :)</div>
+<a id="comment358"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 10:50</span><br>
+כל אחד מסיק מה שהוא רוצה .<br>
+לא טרחתי אפילו להריץ את זה כי עד כמה שאני זוכר הנושא פה זה להגיב לכתבה, לא להתחיל להשוות מהירויות ביצוע .</div>
+<a id="comment359"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 10:51</span><br>
+:-)</div>
+<a id="comment451"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2011 22:54</span><br>
+למה אני מקבל את התוצאה הפוך?<br>
+1311533498.86?</div>
+<a id="comment452"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2011 23:16</span><br>
+אתה לא מקבל את התוצאה הפוך. לא חיסרת משהו. אנה פנה לפורום לקבלת עזרה פרטית בצירוף הקוד שלך</div>
+<a id="comment453"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2011 23:48</span><br>
+אוקיי, הבנתי את הבעיה,<br>
+עכשיו אני מקבל:<br>
+0.00285911560059</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

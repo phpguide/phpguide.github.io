@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="יאיר סופ">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm" title="אני מנסה לבנות דף HTML שיגיב לקלט מהמקלדת (יותר נכון קורא RFID המחובר למחשב ב USB ומדמה מקלדת).הקלט משמש טריגר למשיכת נתונים מבסיס נתונים מסוג MYSQLהאם PHP היא הפלטפורמה הנכונה למימוש או שעדיף JS בגלל בעיתיות בפונקציה readline מימשתי את הלולאה עם fgets אבל לא הצלחתי לקרוא קלט מהמקלדת חשבתי גם על בניית אפליקציה ב C נפרדת שתקרא את הקלט ותשלח את תוכנו על בסיס TCP ל PHP...//open input $f=popen(&amp;quot;read; echo \$REPLY&amp;quot;,&amp;quot;r&amp;quot;);e">שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת</a></h2>
+<div class="userinfo">
+פתח
+<a>יאיר סופ</a>
+,
+<time class="timeago relativetime" datetime="2015-11-09T10:58:10+02:00" style="display:inline-block;">
+09 לנובמבר 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2201'>
+אני מנסה לבנות דף HTML שיגיב לקלט מהמקלדת (יותר נכון קורא RFID המחובר למחשב ב USB ומדמה מקלדת).<br>הקלט משמש טריגר למשיכת נתונים מבסיס נתונים מסוג MYSQL<br>האם PHP היא הפלטפורמה הנכונה למימוש או שעדיף JS <br>בגלל בעיתיות בפונקציה readline מימשתי את הלולאה עם fgets אבל לא הצלחתי לקרוא קלט מהמקלדת <br>חשבתי גם על בניית אפליקציה ב C נפרדת שתקרא את הקלט ותשלח את תוכנו על בסיס TCP ל PHP<br><br><br>...<br>//open input <br>$f=popen(&quot;read; echo \$REPLY&quot;,&quot;r&quot;);<br>echo &quot;\nSTDIN open&quot;;<br>$input=&quot;&quot;;<br>while(1)<br>{<br>$input = fgets($f,100);<br>if($input==&quot;&quot;)<br> continue;<br>else $serial = $input;<br>.... </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9610">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 10 לנובמבר 2015 </span>
+<a id="answer_9610" href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm#answer_9610">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יכול להיות שאני סתם זה שלא מצליח להבין מה אתה עושה אבל הקוד הנוכחי שלך הוא בכלל לא דף html ואם היה כזה הוא היה ממשיך להיטען לנצח עד שתקבל timeout בגלל שיש לך לולאה אין סופית.<br><br>אפשר יהיה לקלוט את הקלט ב js בעזרת האירוע onkeypress/onkeydown העניין הוא שאם מדובר בתכנית לוקאלית למה לא לעשות אותה כבר בשפה עילית ואז יהיה לך יותר שליטה ?<br>שימוש ב php נראה לי מיותר לגמרי. </p>
+</div>
+<div class="answer" id="answer9611">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2c3c91ef8e073668490a0952122b5b93?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>יאיר סופ</a>
+ב
+<span style="font-size:10px"> 10 לנובמבר 2015 </span>
+<a id="answer_9611" href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm#answer_9611">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני באמת מקבל לולאה אין סופית ו TIMEOUT.<br>מטרת התוכנית היא יצירת דף אינטרנט לוקאלי שהתוכן שלו דינאמי ומשתנה בהתאם לקלט מהתקן המדמה מקלדת והתקן נוסף. התוכן נשלף מDB מסוג MYSQL ולכן בחרתי PHP שמאפשר באופן קל תקשורת מול ה DB.<br>אשמח להמלצה על טכנולוגיה / שפה מתאימה. </p>
+</div>
+<div class="answer" id="answer9612">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 10 לנובמבר 2015 </span>
+<a id="answer_9612" href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm#answer_9612">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+האם אתה מודע למגבלות של העניין ? דף אינטרנט לא יכול לקבל סתם קלט מהמקלדת - אם העמוד לא יהיה בפוקוס הדפדפן לא יתיחס לקלט.<br><br>שפה עלית שתקלוט את הקלט ותשלח לאתר אינטרנט תאפשר לך יותר שליטה על קבלת הקלט עצמו.<br><br>בכל מקרה כמו שאמרתי - במידה ואתה רוצה לעשות את זה דרך אתר אינטרנט אתה תצטרך לקבל את הקלט דרך onkeypress/onkeydown ואז לשלוח בעזרת ajax את המידע לדף php והוא יחזיר לך תוצאות מהמסד. </p>
+</div>
+<div class="answer" id="answer9613">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 לנובמבר 2015 </span>
+<a id="answer_9613" href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm#answer_9613">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקרה של עמוד ווב לוקאלי - הפתרון שלך יורכב משני חלקים:<br>חלק אחד שמסוגל לקרוא קלט ממקלדת או קורא rfid או כל מכשיר אחר. החלק הזה יפעל על המחשב שאליו מחוברת המקלדת וזה יכול להיות קוד js בדפדפן, אם אתה מצליח לקבל את הקלט בתוך קוד ה-js<br>חלק שני שיהיה מסוגל לקרוא נתונים מתוך מסד ה-mysql שיופעל על המחשב שעליו מותקן שרת mysql (גם אם זה אותה מכונה פיזית שעליה מופעל חלק א&apos;) וזה יכול להיות כתוב ב-php. אך שים לב, שהחלק הזה אך ורק מקבל נתונים מהחלק הראשון (מקוד js באמצעות בקשות ajax) ומבצע חיפוש במסד. כאן אין ל-php גישה למקלדת (או לצורך העניין, אין לה מושג על קיומה של שום מקלדת ושום קורא rfid)<br><br>אמנם, ארכיטקטורת קליינט סרבר כנראה לא הדבר העדיף במקרה הזה<br>ואם כל החלקים פועלים על מחשב פיזי אחד, אין סיבה שזו לא תהיה תוכנת java או c# שישירות גם קוראת מהמקלדת וגם מחפשת במסד נתונים.<br>אלא אם כן, אתה סגור על זה שאתה רוצה דווקא להשתמש בדפדפן בתור לקוח (ואין לך בעיה עם איבוד פוקוס) ואז הפתרון של ajax הוא מה שצריך. </p>
+</div>
+<div class="answer" id="answer9614">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2c3c91ef8e073668490a0952122b5b93?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>יאיר סופ</a>
+ב
+<span style="font-size:10px"> 10 לנובמבר 2015 </span>
+<a id="answer_9614" href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm#answer_9614">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם כל הלוגיקה (קריאה מהמקלדת ומשיכת הנתונים מה DB) מתבצעת באמצעות תוכנית בשפה עלית כמו #C איך אני מעביר את הנתונים החדשים בדרך פשוטה להצגה בדף HTML? </p>
+</div>
+<div class="answer" id="answer9615">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לנובמבר 2015 </span>
+<a id="answer_9615" href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm#answer_9615">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הרעיון להשתמש בשפה עלית היה כדיל מנוע את השימוש בדף html.<br>אם אתה מחויב בדף html - אתה מראש מוגבל בטכנולוגיה שתוכל להשתמש בה, כיוון שדף html אומר שימוש ב-javascript.<br>היות ש-javascript מתוך דף html לא מסוגל לקרוא ישירות מתוך מסד נתונים - עליך להוסיף חלק שני למערכת, שיכול להיות כתוב ב-php<br>ואת התקשורת ביניהם תצטרך לעשות באמצעות ajax. </p>
+</div>
+<div class="answer" id="answer9616">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 12 לנובמבר 2015 </span>
+<a id="answer_9616" href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm#answer_9616">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה אתה צריך להציג את זה כדף html ? </p>
+</div>
+<div class="answer" id="answer9617">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2c3c91ef8e073668490a0952122b5b93?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>יאיר סופ</a>
+ב
+<span style="font-size:10px"> 14 לנובמבר 2015 </span>
+<a id="answer_9617" href="שימוש ב PHP להתאמת תוכן דף ווב לפי קלט מהמקלדת.htm#answer_9617">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+דף האינטרנט נקרא ומוצג על ידי מערכת שתומכת רק בדפי HTML </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

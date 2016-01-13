@@ -1,0 +1,507 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה Multiple Inheritance ב-PHP (שוב)">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Multiple Inheritance ב-PHP (שוב) | שאלת לימוד PHP</title>
+<meta itemprop="name" content="Multiple Inheritance ב-PHP (שוב) | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה Multiple Inheritance ב-PHP (שוב)">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">16</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="Multiple Inheritance בPHP שוב.htm" title="הפעם אני מעוניין בעזרתכם במשהו שנתקלתי בו.נניח שיש לי את המחלקות הבאות: מרובע, מקבילית, דלתון. גם מקבילית וגם דלתון אמורים לרשת ממרובע. חשבתי על שימוש ב-Traits, אבל זה סתם פתרון לא נקי ולא כיף (לזה, בכל אופן). למישהו יש רעיון?">Multiple Inheritance ב-PHP (שוב)</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2013-02-12T18:08:04+02:00" style="display:inline-block;">
+12 לפברואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1246'>
+הפעם אני מעוניין בעזרתכם במשהו שנתקלתי בו.<br>נניח שיש לי את המחלקות הבאות: מרובע, מקבילית, דלתון. גם מקבילית וגם דלתון אמורים לרשת ממרובע. חשבתי על שימוש ב-Traits, אבל זה סתם פתרון לא נקי ולא כיף (לזה, בכל אופן). למישהו יש רעיון? </div>
+</div>
+<h3>
+<span id="answersCounter">16 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5456">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2013 </span>
+<a id="answer_5456" href="Multiple Inheritance בPHP שוב.htm#answer_5456">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין שום בעיה שכמה קלאסים ירשו מקלאס אחד או לירוש מקלאס שיורש ממשהו אחר.<br><br><div class="php codeblock"><span class="kw2">class</span> Quadrilateral <span class="br0">&#123;</span><span class="br0">&#125;</span> <span class="co1">// מרובע</span><br>
+<span class="kw2">class</span> Rectangle <span class="kw2">extends</span> Quadrilateral <span class="br0">&#123;</span><span class="br0">&#125;</span> <span class="co1">// מלבן</span><br>
+<span class="kw2">class</span> Square <span class="kw2">extends</span> Rectangle <span class="br0">&#123;</span><span class="br0">&#125;</span> <span class="co1">// ריבוע</span><br>
+<span class="kw2">class</span> Kite <span class="kw2">extends</span> Quadrilateral <span class="br0">&#123;</span><span class="br0">&#125;</span> <span class="co1">// דלתון</span></div> </p>
+</div>
+<div class="answer" id="answer5457">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2013 </span>
+<a id="answer_5457" href="Multiple Inheritance בPHP שוב.htm#answer_5457">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אופס. התבלבלתי.<br>התכוונתי למקרה כמו הבא:<br>ריבוע יורש ממרובע, ממקבילית, ממלבן, מדלתון וממעוין. איך אני אמור לעשות את זה? (בסופו של דבר הוא עדיין צריך לרשת מכמה מחלקות, גם אם חלקם יורשים ממחלקות אחרות, כמו ממרובע.) </p>
+</div>
+<div class="answer" id="answer5458">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2013 </span>
+<a id="answer_5458" href="Multiple Inheritance בPHP שוב.htm#answer_5458">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא דוגמה טובהבגלל <br><br>שריבוע יורש רק ממקבילית<br>מקבילית יורשת ממלבן<br>מלבן יורש ממרובע.<br><br>ובסופו של דבר יוצא שריבוע הוא גם מקבילית, גם מרובע וגם מלבן. והקוד למעלה מתאר בדיוק את המצב הזה.<br><br>היית יכול ללקת דוגמה יותר מסובכת ולקחת סוס שיכול לתפקד אצלך גם בתור חיה וגם בתור כלי תחבורה.<br>ושם הפתרון הוא באמת traits.<br>אבל הסיבה שבדוגמה עם המצולעים traits מרגישים לך מוזר, זה בגלל שפה אין לך באמת ירושה כפולה.<br>רק תשנה את הסדר של האיררכיה והכל יסתדר. </p>
+</div>
+<div class="answer" id="answer5459">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2013 </span>
+<a id="answer_5459" href="Multiple Inheritance בPHP שוב.htm#answer_5459">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מלבן יורש ממקבילית, ולא מקבילית ממלבן. :)<br>וזה כן יוצא שהוא צריך יותר מאחד. אני בדיוק לומד את זה במתמטיקה. XD </p>
+</div>
+<div class="answer" id="answer5461">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2013 </span>
+<a id="answer_5461" href="Multiple Inheritance בPHP שוב.htm#answer_5461">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז תחליף אותם במקום.<br><br>מקבילית יורשת ממרובע<br>מלבן יורש ממקבילית <br>ריבוע יורש ממלבן<br><br>אני עדיין לא רואה מה לא מסתדר. </p>
+</div>
+<div class="answer" id="answer5465">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2013 </span>
+<a id="answer_5465" href="Multiple Inheritance בPHP שוב.htm#answer_5465">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בסופו של דבר ריבוע (בתור דוגמה) צריך לרשת מכמה: גם ממעוין וגם ממלבן (ונראה לי גם מדלתון, אבל זה לא משנה כרגע).<br><br>- מקבילית יורשת ממרובע<br>-- מלבן יורש ממקבילית<br>-- מעוין יורש ממקבילית<br>=&gt; ריבוע יורש ממלבן וממקבילית </p>
+</div>
+<div class="answer" id="answer5466">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5466" href="Multiple Inheritance בPHP שוב.htm#answer_5466">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה מה שכתבת:<br><br>- מקבילית יורשת ממרובע<br>-- מלבן יורש ממקבילית<br>=&gt; ריבוע יורש ממלבן וממקבילית<br><br>בפועל ריבוע לא יורש משני קלאסים, הוא יורש רק ממלבן<br>מלבן כבר יורש ממקבילית, לכן לריבוע כבר תהיה את כל הפונקציונאליות של מלבן<br>וגם את הפונקצינאליות של מקבילית שהוא קיבל דרך המלבן </p>
+</div>
+<div class="answer" id="answer5467">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5467" href="Multiple Inheritance בPHP שוב.htm#answer_5467">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שוב התבלבלתי. סליחה. התכוונתי שריבוע יורש ממלבן וממעוין. (ומדלתון גם אם אני לא טועה). </p>
+</div>
+<div class="answer" id="answer5477">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5477" href="Multiple Inheritance בPHP שוב.htm#answer_5477">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז כן.<br>חוץ מהשאלה ההיפותטית של מה יורש ממה, יש לך משהו לעשות עם זה? איזה פונקצינאליות כלשהי?<br>בגלל שחוץ מהורשה בתכנות יש קונצפת שמעט מכירים אבל לדעתי הוא הרבה יותר טוב מהרושה הוא נקרא Composition<br>כאשר הוא דורש ממך להכיר את המונח Interface ולעבוד איתו.<br><br>מה זה אומר? שאפר שלוותר פה על הורשה לגמרי<br><div class="php codeblock"><span class="kw2">interface</span> IMalben <br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getArea<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">interface</span> IMeuyan<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getArea<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> Rectangle implements IMalben<span class="sy0">,</span> IMeuyan<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getArea<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">w</span> <span class="sy0">*</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">h</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>או בגרסה היותר פשוטה והפחות מבלבלת:<br>כשיש לך סוס שמתפקד גם בתור כלי תחבורה וגם בתור חיה:<br><div class="php codeblock"><span class="kw2">interface</span> ITransport<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Move<span class="br0">&#40;</span><span class="re0">$miles</span><span class="br0">&#41;</span> <span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">interface</span> IAnimal<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Eat<span class="br0">&#40;</span>Food <span class="re0">$food</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="kw2">class</span> Tiger implements IAnimal<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Eat<span class="br0">&#40;</span>Food <span class="re0">$food</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Tigriss ate '</span><span class="sy0">,</span> <span class="re0">$food</span><span class="sy0">,</span> <span class="st_h">'Yammi'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> Bycicle implements ITransport<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Move<span class="br0">&#40;</span><span class="re0">$miles</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'You ride a bycicle for '</span><span class="sy0">,</span> <span class="re0">$miles</span><span class="sy0">,</span> <span class="st_h">' miles'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#93;</span><br>
+<br>
+<br>
+<span class="kw2">class</span> Horse implements ITransport<span class="sy0">,</span> IAnimal<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Eat<span class="br0">&#40;</span>Food <span class="re0">$food</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'EEEEEEHHHHHHHAAAAA '</span><span class="sy0">,</span> <span class="re0">$food</span><span class="sy0">,</span> <span class="st_h">'Yammi'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Move<span class="br0">&#40;</span><span class="re0">$miles</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Dio, Dio '</span><span class="sy0">,</span> <span class="re0">$miles</span><span class="sy0">,</span> <span class="st_h">' to go'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<br>
+<span class="kw2">class</span> Human<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> RideSomewhere<span class="br0">&#40;</span>ITransport <span class="re0">$transport</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$transport</span><span class="sy0">-&gt;</span><span class="me1">Move</span><span class="br0">&#40;</span><span class="nu0">24</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>ועכשיו החלק המעניין, מה קורה אם אתה רוצה &quot;לירוש&quot; את הפונקציונאליות הקיימת ולהוסיף לה<br>ולא לממש מאפס שוב פעם - כאן לתמונה נכנס composition:<br><br><div class="php codeblock"><span class="kw2">interface</span> ITransport<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Move<span class="br0">&#40;</span><span class="re0">$miles</span><span class="br0">&#41;</span> <span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">interface</span> IAnimal<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Eat<span class="br0">&#40;</span>IFood <span class="re0">$food</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">interface</span> IGrassEatingAnimal <span class="kw2">extends</span> IAnimal<span class="br0">&#123;</span><span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> GrassEatingAnimal implements IGrassEatingAnimal<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Eat<span class="br0">&#40;</span>IFood <span class="re0">$food</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$food</span> instanceOf GrassFood<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \InvalidArgumentException<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><span class="st0">&quot;This Animal eats only grass&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> Horse implements ITransport<span class="sy0">,</span> IGrassEatingAnimal<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$animal</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">animal</span> <span class="sy0">=</span> <span class="kw2">new</span> \GreassEatingAnimal<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Eat<span class="br0">&#40;</span>Food <span class="re0">$food</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">animal</span><span class="sy0">-&gt;</span><span class="me1">Eat</span><span class="br0">&#40;</span><span class="re0">$food</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Move<span class="br0">&#40;</span><span class="re0">$miles</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Dio, Dio '</span><span class="sy0">,</span> <span class="re0">$miles</span><span class="sy0">,</span> <span class="st_h">' to go'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> AddedFunction_Caress<br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'hrrrhrr, Moaaaaaaaaaar'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>שבמקרה הזה בפועל אין הורשה, אלה כל הפעולות ששיכות לחייה מועברות פנימה לחייה שבפנים :) </p>
+</div>
+<div class="answer" id="answer5478">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5478" href="Multiple Inheritance בPHP שוב.htm#answer_5478">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אגב, קומפוזיציה זה הסיבה העיקרית למה מי שיודע לתכנת מבין ש traits כנראה יגרמו לקוד יותר גרוע מאשר יועילו.<br>למזלנו, להבין traits לא יותר מדי קל, לכן מתכנתים בינוניים נמנעים מהם ולא כותבים את הקוד הגרוע שהיה מצופה להתקבל<br>ואילו מתכנתים מנוסים לא רואים סיבה ממשית להשתמש ב traits </p>
+</div>
+<div class="answer" id="answer5479">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5479" href="Multiple Inheritance בPHP שוב.htm#answer_5479">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא מסכים בעניין של ה-trait.<br>יש מקרים שתצטרך להשתמש ב-trait.<br>כמו במקרה של סינגלטון. תוכל ליצור trait סינגלטון. וכל קלאס שהוא סינגלטון ישתמש ב-trait הזה.<br>לא תוכל להשתמש בקומפוזיציה או הורשה בשביל סינגלטון. </p>
+</div>
+<div class="answer" id="answer5481">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5481" href="Multiple Inheritance בPHP שוב.htm#answer_5481">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בעיקרון אתה גם לא תרצה ליצור סינגלטון אם אתה עובד נכון.<br>(סינגלטון זה שקר כזה של קוד גרוע :) </p>
+</div>
+<div class="answer" id="answer5482">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 15 לפברואר 2013 </span>
+<a id="answer_5482" href="Multiple Inheritance בPHP שוב.htm#answer_5482">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקום שכל מחלקה שצריכה להיות סינגלטון תכיל פעולת getInstance ומשתנה פרטי instance סטטיים, אפשר להכניס את זה ל-trait. </p>
+</div>
+<div class="answer" id="answer5483">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לפברואר 2013 </span>
+<a id="answer_5483" href="Multiple Inheritance בPHP שוב.htm#answer_5483">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא ממש הבנתי, אולי כדאי לכתוב על זה מאמר או משהו כזה. :-)<br>בכל מקרה, חשבתי על משהו. כמה הערות לפני זה: המתודה printProperties() לא מושלמת מבחינת מה שהיא מדפיסה (פיסוק וכדו&#039;), זו רק הדגמה לרעיון עצמו. (והשמות של המחלקות הן בהגייה עברית רק לשם הנוחות. XD)<br><div class="php codeblock"><span class="kw2">class</span> Metzula <span class="br0">&#123;</span><span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> Meruba <span class="kw2">extends</span> Metzula<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$parents</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$properties</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;MERUBA&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> Malben <span class="kw2">extends</span> Metzula<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$parents</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'Meruba'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$properties</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;MALBEN&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> Meuyan <span class="kw2">extends</span> Metzula<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$parents</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'Meruba'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$properties</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;MEUYAN&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> Ribua <span class="kw2">extends</span> Metzula<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$parents</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'Malben'</span><span class="sy0">,</span> <span class="st_h">'Meuyan'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$properties</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;RIBUA&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; / The methods that use the properies<br>
+&nbsp; &nbsp; / are going to use the $parents array.<br>
+&nbsp; &nbsp; / The function below is an example for that.<br>
+&nbsp; &nbsp; */</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> printProperties<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Properties: &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="re0">$properties</span> <span class="kw1">as</span> <span class="re0">$property</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$property</span><span class="sy0">.</span><span class="st0">&quot;,&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="re0">$parents</span> <span class="kw1">as</span> <span class="re0">$parent</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot; Inherited from &quot;</span><span class="sy0">.</span><span class="re0">$parent</span><span class="sy0">.</span><span class="st0">&quot;: &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$parent_properties</span> <span class="sy0">=</span> <span class="re0">$parent</span><span class="sy0">::</span><span class="re0">$properties</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$parent_properties</span> <span class="kw1">as</span> <span class="re0">$parent_property</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$parent_property</span><span class="sy0">.</span><span class="st0">&quot;,&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+Ribua<span class="sy0">::</span><span class="me2">printProperties</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// Echoes:</span><br>
+<span class="co1">// Properties: RIBUA, Inherited from Malben: MALBEN, Inherited from Meuyan: MEUYAN,</span></div><br>רק עכשיו קלטתי שגם אם הייתה תמיכה ב-Multiple Inheritance הייתי צריך להשתמש בשיטה הזאת, אבל בכל זאת - הלוואי שהיה, כי זה הרבה יותר סמנטי.<br>אה, ובקשר לשאלה למה אני רוצה את זה - זה בשביל מבחן שלי במתמטיקה. XDDD </p>
+</div>
+<div class="answer" id="answer5484">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לפברואר 2013 </span>
+<a id="answer_5484" href="Multiple Inheritance בPHP שוב.htm#answer_5484">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עכשיו תכתוב אותו דבר אבל בלי שום דבר סטטי </p>
+</div>
+<div class="answer" id="answer5485">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לפברואר 2013 </span>
+<a id="answer_5485" href="Multiple Inheritance בPHP שוב.htm#answer_5485">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+XDD<br>עוד לא הבנתי מה ההתנגדות שלך לסטטי, זה דווקא מאוד עוזר. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

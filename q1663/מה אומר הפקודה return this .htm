@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מה אומר הפקודה return $this ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="tal22288">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מה אומר הפקודה return $this | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מה אומר הפקודה return $this  | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מה אומר הפקודה return $this ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">10</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מה אומר הפקודה return this .htm" title="במהלך לימוד הOOP שלי בשפה PHP נתקלתי בפקודה הבאה : return $this;חיפשתי הסברים אך לא מצאתי הסבר מדויק או הסבר טוב ...ואיך היא בא לידי ביטוי בקוד פה :public function check&amp;#40;$source , $i">מה אומר הפקודה return $this </a></h2>
+<div class="userinfo">
+פתח
+<a>tal22288</a>
+,
+<time class="timeago relativetime" datetime="2013-11-11T19:08:12+02:00" style="display:inline-block;">
+11 לנובמבר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1663'>
+במהלך לימוד הOOP שלי בשפה PHP נתקלתי בפקודה הבאה : <br><div class="php codeblock"><span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span></div><br>חיפשתי הסברים אך לא מצאתי הסבר מדויק או הסבר טוב ...<br><br>ואיך היא בא לידי ביטוי בקוד פה :<br><br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> check<span class="br0">&#40;</span><span class="re0">$source</span> <span class="sy0">,</span> <span class="re0">$items</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$items</span> <span class="kw1">as</span> <span class="re0">$item</span> <span class="sy0">=&gt;</span> <span class="re0">$rules</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$rules</span> <span class="kw1">as</span> <span class="re0">$rule</span> <span class="sy0">=&gt;</span> <span class="re0">$rule_value</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$value</span> <span class="sy0">=</span> <span class="re0">$source</span><span class="br0">&#91;</span><span class="re0">$item</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$rule</span> <span class="sy0">===</span> <span class="st0">&quot;required&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="me2">addError</span><span class="br0">&#40;</span><span class="st0">&quot;<span class="es4">$item</span> is required&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="kw1">else</span> <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">switch</span><span class="br0">&#40;</span><span class="re0">$rule</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">case</span> <span class="st0">&quot;min&quot;</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="re0">$rule_value</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="me2">addError</span><span class="br0">&#40;</span><span class="st0">&quot;<span class="es4">$item</span> must at least of <span class="es4">$rule_value</span> characters.&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">case</span> <span class="st0">&quot;max&quot;</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="re0">$rule_value</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="me2">addError</span><span class="br0">&#40;</span><span class="st0">&quot;<span class="es4">$item</span> must less then &nbsp;<span class="es4">$rule_value</span> characters.&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">case</span> <span class="st0">&quot;matches&quot;</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$value</span> <span class="sy0">!=</span> <span class="re0">$source</span><span class="br0">&#91;</span><span class="re0">$rule_value</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="me2">addError</span><span class="br0">&#40;</span><span class="st0">&quot;<span class="es4">$rule_value</span> must match <span class="es4">$item</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="re0">$_errors</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_passed <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span> <br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>אשמח להסבר , תודה ! </div>
+</div>
+<h3>
+<span id="answersCounter">10 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7594">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 12 לנובמבר 2013 </span>
+<a id="answer_7594" href="מה אומר הפקודה return this .htm#answer_7594">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+$this בעצם היא &quot;משתנה המחלקה&quot;.<br>בתוך משתנה זה ניתן לגשת לכל פונקציה ומשתנה של המחלקה מתוך המחלקה עצמה, כאשר אנחנו עושים return $this; אז אנחנו מחזירים בעצם את המשתנה המכיל את כל המחלקה, למשל שים לב לזה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw2">class</span> a<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$b</span> <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> a<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">b</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">b</span> <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$a</span> <span class="sy0">=</span> <span class="kw2">new</span> a<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$b</span> <span class="sy0">=</span> <span class="re0">$a</span><span class="sy0">-&gt;</span><span class="me1">a</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$b</span><span class="sy0">-&gt;</span><span class="me1">b</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>כאשר אנחנו מחזירים THIS אנחנו נותנים למשתנה שאליו הכנסו את THIS את הגישה לכל המחלקה בעצם, הבנת? </p>
+</div>
+<div class="answer" id="answer7595">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/309e9b3ea6e96a36a721c1b5d537f5c7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>tal22288</a>
+ב
+<span style="font-size:10px"> 12 לנובמבר 2013 </span>
+<a id="answer_7595" href="מה אומר הפקודה return this .htm#answer_7595">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז למשתנה אנחנו מחזירים את כל המשתנים של המחלקה ? ( ממממ... טיפה מסובך ... יש לך הסבר מפורט יותר ? )<br>תודה ! </p>
+</div>
+<div class="answer" id="answer7596">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 12 לנובמבר 2013 </span>
+<a id="answer_7596" href="מה אומר הפקודה return this .htm#answer_7596">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בוא נקרא לזה מפתח.<br>נניח ויש לך בית מסוים שמכיל בתוכו כל מיני חפצים, אם יש לנו את המפתח נוכל לפתוח את הדלת ולהכנס לתוך ובית וכמובן להשתמש בחפצים נכון?<br>אז $this הוא בעצם מפתח לכל המחלקה, אך הוא פועל אך ורק בתוך המחלקה. כלומר שתוכל לקורא למפתח של הבית בשביל חפץ מסוים רק אם הקריאה היא מתוך הבית, מובן?<br>כאשר אנחנו עושים return למפתח אנחנו נותנים את האפשרות להשתמש במפתח מחוץ למחלקה.<br><br>הבנת או שאצטרך להסביר אחרת? </p>
+</div>
+<div class="answer" id="answer7597">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 12 לנובמבר 2013 </span>
+<a id="answer_7597" href="מה אומר הפקודה return this .htm#answer_7597">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אובייקט, לא מחלקה. זה חשוב מאוד. מדובר במצב המסוים של המחלקה - האובייקט המדובר. </p>
+</div>
+<div class="answer" id="answer7600">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/309e9b3ea6e96a36a721c1b5d537f5c7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>tal22288</a>
+ב
+<span style="font-size:10px"> 14 לנובמבר 2013 </span>
+<a id="answer_7600" href="מה אומר הפקודה return this .htm#answer_7600">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקי , zacharya הבנתי ....<br>אך יש לי עוד שאלה , בהסבר שלך הסברת על $this כאשר הוא ניגש למשתנה לדוגמה : <br><div class="php codeblock"><span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">b</span><span class="sy0">;</span></div><br>שאת זה הבנתי הסבר מצוין דרך אגב ! <br>אך מה קורה כאשר ה $this לא פונה לאף משתנה ? , כמו בדוגמה בתגובתי הראשונה : <br><div class="php codeblock"><span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span></div><br>תודה ! </p>
+</div>
+<div class="answer" id="answer7601">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 לנובמבר 2013 </span>
+<a id="answer_7601" href="מה אומר הפקודה return this .htm#answer_7601">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה מחזיר מצביע לכל האובייקט. לכולו. </p>
+</div>
+<div class="answer" id="answer7602">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/309e9b3ea6e96a36a721c1b5d537f5c7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>tal22288</a>
+ב
+<span style="font-size:10px"> 14 לנובמבר 2013 </span>
+<a id="answer_7602" href="מה אומר הפקודה return this .htm#answer_7602">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוביקט = עצם ? </p>
+</div>
+<div class="answer" id="answer7603">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 לנובמבר 2013 </span>
+<a id="answer_7603" href="מה אומר הפקודה return this .htm#answer_7603">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אכן. :)<br>מצב של מחלקה, מופע של מחלקה, איך שלא תקרא לזה.<br>חשוב לציין שזה לא מעתיק את האובייקט, אלא מחזיר מצביע (Reference) לאובייקט. אני אערוך עוד מעט עם דוגמה. </p>
+</div>
+<div class="answer" id="answer7604">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/309e9b3ea6e96a36a721c1b5d537f5c7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>tal22288</a>
+ב
+<span style="font-size:10px"> 14 לנובמבר 2013 </span>
+<a id="answer_7604" href="מה אומר הפקודה return this .htm#answer_7604">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקי תודה רבה ! <br>מחכה לדוגמה :) </p>
+</div>
+<div class="answer" id="answer7605">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 לנובמבר 2013 </span>
+<a id="answer_7605" href="מה אומר הפקודה return this .htm#answer_7605">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הנה דוגמה, אני מקווה שהיא מספיק טובה:<br><div class="php codeblock"><span class="kw2">class</span> Counter <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$counter</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> increment<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">counter</span><span class="sy0">++;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getCount<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">counter</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$counter</span> <span class="sy0">=</span> <span class="kw2">new</span> Counter<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$anotherCounter</span> <span class="sy0">=</span> <span class="re0">$counter</span><span class="sy0">-&gt;</span><span class="me1">increment</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;counter: &quot;</span> <span class="sy0">.</span> <span class="re0">$counter</span><span class="sy0">-&gt;</span><span class="me1">getCount</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;anotherCounter: &quot;</span> <span class="sy0">.</span> <span class="re0">$anotherCounter</span><span class="sy0">-&gt;</span><span class="me1">getCount</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\n</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$anotherCounter</span><span class="sy0">-&gt;</span><span class="me1">increment</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;counter: &quot;</span> <span class="sy0">.</span> <span class="re0">$counter</span><span class="sy0">-&gt;</span><span class="me1">getCount</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;anotherCounter: &quot;</span> <span class="sy0">.</span> <span class="re0">$anotherCounter</span><span class="sy0">-&gt;</span><span class="me1">getCount</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span></div><br><br><a href="..\phplive-32.htm?code=878">כאן</a> אתה יכול לראות את זה פועל. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

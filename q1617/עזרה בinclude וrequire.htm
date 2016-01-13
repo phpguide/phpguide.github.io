@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה עזרה ב-include ו-require">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="yardsod">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>עזרה ב-include ו-require | שאלת לימוד PHP</title>
+<meta itemprop="name" content="עזרה ב-include ו-require | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה עזרה ב-include ו-require">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="עזרה בinclude וrequire.htm" title="אהלן,אני כרגע בונה מערכת CMS, ורציתי לדעת אם יש דרך טובה ל-include קובץ החיבור למסד הנתונים.במקום לסדר בכל קובץ את הנתיב של config.php כמו בדוגמא:include &amp;quot;../../includes/config.php&amp;quot;;וב-include &amp;quot;includes/config.php&amp;quot;;ישנה שיטה (קו">עזרה ב-include ו-require</a></h2>
+<div class="userinfo">
+פתח
+<a>yardsod</a>
+,
+<time class="timeago relativetime" datetime="2013-09-21T18:40:28+03:00" style="display:inline-block;">
+21 לספטמבר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1617'>
+אהלן,<br>אני כרגע בונה מערכת CMS, ורציתי לדעת אם יש דרך טובה ל-include קובץ החיבור למסד הנתונים.<br>במקום לסדר בכל קובץ את הנתיב של config.php כמו בדוגמא:<br><div class="php codeblock"><span class="kw1">include</span> <span class="st0">&quot;../../includes/config.php&quot;</span><span class="sy0">;</span></div><br>וב-<br><div class="php codeblock"><span class="kw1">include</span> <span class="st0">&quot;includes/config.php&quot;</span><span class="sy0">;</span></div><br>ישנה שיטה (קוד) שפשוט בודקת את המיקום של הקובץ הנוכחי ומסדרת נתיב אוטומטית?<br>חשבתי על רעיון לבנות מחלקה כזאת, אבל לפני שאני בונה אותה רציתי לדעת אם כבר קיימת שיטה כזאת...<br>כרגיל, תודה לעזרים. </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7393">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7393" href="עזרה בinclude וrequire.htm#answer_7393">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\טעינת סקריפטים לפי דרישה autoload.htm">טעינת סקריפטים לפי דרישה autoload</a><br>אתה צריך סקריפט &quot;main&quot; שדרכו <a href="..\Routing מנתבים את הבקשה נכון.htm">ינוטו כל הבקשות</a> ושם יפתחו או יוגדרו כל החיבורים למסד במקום לעשות include בכל סקריפט. </p>
+</div>
+<div class="answer" id="answer7394">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/af42e7ecac6ef7bcadad99d04354ad33?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yardsod</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7394" href="עזרה בinclude וrequire.htm#answer_7394">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קראתי את המדריך ואני חושב שהבנתי. אבל כל הקבצים יהיו חייבים להיות באותה תיקייה? </p>
+</div>
+<div class="answer" id="answer7395">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7395" href="עזרה בinclude וrequire.htm#answer_7395">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+רצוי, אתה יכול לשנות את שם הקובץ שיהיה לך נוח למשל:<br>a.php<br>ל:<br>include_a.php<br>זה יהיה לך נוח אולי במקום תיקיות. </p>
+</div>
+<div class="answer" id="answer7396">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/af42e7ecac6ef7bcadad99d04354ad33?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yardsod</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7396" href="עזרה בinclude וrequire.htm#answer_7396">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כבר בניתי מבנה מסויים של תיקיות למערכת, ובגלל שזאת מערכת די מורחבת יש הרבה קבצים ושימוש בתקיות הרבה יותר נוח.<br> אני אברר עוד על ה-autoload. </p>
+</div>
+<div class="answer" id="answer7397">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7397" href="עזרה בinclude וrequire.htm#answer_7397">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בהצלחה, אני משתמש בתיקיות לתמונות ודברים כאלה אבל לא לקבצים של PHP, שם הכל באותה תיקיה </p>
+</div>
+<div class="answer" id="answer7398">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7398" href="עזרה בinclude וrequire.htm#answer_7398">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@yonikal56, אתה רציני? מה עם פרויקטים גדולים? ומה עם היררכיה ו-Design? </p>
+</div>
+<div class="answer" id="answer7399">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7399" href="עזרה בinclude וrequire.htm#answer_7399">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כל סוג קבצים אני שם בתיקיה חוץ מPHP וCSS שבאותה תיקיה, אני משתמש בשמות לפי הצורך.<br>אני לא בונה פרוייקטים גדולים כי אין לי רעיונות, אני בניתי עד עכשיו בPHP רק שני אתרים אחד בניתי והפסקתי. וזה רק אמור לשמש כ&quot;עיר וירטואלית&quot; אז זה פרויקט קטן. יש רק תמונות וקבצים של עצוב וPHP. </p>
+</div>
+<div class="answer" id="answer7400">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7400" href="עזרה בinclude וrequire.htm#answer_7400">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ובכל זאת, זה הרגל טוב להשתמש בהיררכיה נכונה.<br>@yardsod, אם עדיין יהיו לך שאלות אחרי שתחפש - אל תהסס לשאול. </p>
+</div>
+<div class="answer" id="answer7401">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7401" href="עזרה בinclude וrequire.htm#answer_7401">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם הייתי בונה פרוייקט גדול אז הייתי מפריד כל סוג קבצים לדברים חוץ מזה.<br>שבניתי פעם פעילות לאתר, אז הייתה לה תיקייה משלה לדברים שלה. </p>
+</div>
+<div class="answer" id="answer7402">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/af42e7ecac6ef7bcadad99d04354ad33?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yardsod</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7402" href="עזרה בinclude וrequire.htm#answer_7402">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה. אני אשים כמה מחלקות חשובות ב-config.php ואשתמש בautoload. </p>
+</div>
+<div class="answer" id="answer7403">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 23 לספטמבר 2013 </span>
+<a id="answer_7403" href="עזרה בinclude וrequire.htm#answer_7403">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, הקבצים לא חייבים להיות באותה תיקיה, יש כמה דרכים לחלק אותם לתיקיות; רובן עובדות עם <a href="..\Namespace for dummies.htm">namespaces</a><br>והסטנדרט בקהילה הוא <a href="..\psr0.htm">PSR-0</a> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

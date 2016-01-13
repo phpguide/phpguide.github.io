@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="traits - תכונות המאפשרות הרחבה אופכית של הקוד על ידי שימוש בפונקציות משוטפות לכמה מחלקות">
+<meta name="keywords" content="trait, תכונה, שימוש חוזר, החרבה אופכית">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Traits — תכונות</title>
+<meta itemprop="name" content="Traits — תכונות">
+<meta itemprop="description" content="traits - תכונות המאפשרות הרחבה אופכית של הקוד על ידי שימוש בפונקציות משוטפות לכמה מחלקות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"116","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Traits — תכונות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-07-02T08:05:25+03:00" dir="rtl">02 ליולי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://lifehacks.web.id/wp-content/uploads/2010/10/learningpower_mindmap-75x75.gif" alt="Traits — תכונות">
+</div>
+<div class="right post-content">
+Traits (תכונות) דומות מאוד למחלקות ומאפשרות להגדיר פונקציות שמחלקות אחרות יוכלו להשתמש בהם בלי שכפול של קוד ורק מגרסה php 5.4 <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>הרחבת מחלקה עם תכונות</h3><br>trait כביכול הוא אופן רישום של פעולות המחלקה מחוץ למחלקה. די דומה באופן פעולתו לאינקלוד של סקריפט אחר לתוך הקובץ הנוכחי, שמתפקד כאילו העתיקו את התוכן של הקובץ החיצוני לתוך הקובץ הנוכחי. <br>traits עובדים באופן זהה, כאילו העתיקו את הקוד של ה-trait למחלקה הנוכחית:<br><br><div class="php codeblock">trait world <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw2">public</span> <span class="kw2">function</span> sayWorld<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'World!'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;<span class="kw2">class</span> hello <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw2">use</span> world<span class="sy0">;</span> <span class="co1">// &lt;--- include the external trait code here</span><br>
+&nbsp; &nbsp;<span class="kw2">public</span> <span class="kw2">function</span> say<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'Hello '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">sayWorld</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;<span class="re0">$o</span> <span class="sy0">=</span> <span class="kw2">new</span> hello<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$o</span><span class="sy0">-&gt;</span><span class="me1">say</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// echos Hello World!</span></div><br><br><br><h3>כמה מחלקות יכולות להשתמש באותו Trait</h3><br>trait אחד יכול לשמש כמה מחלקות ואין צורך שיהיו קשורות אחת לשנייה בדרך כלשהי, כמו שכמה קבצים שונים ולא קשורים יכולים לעשות אינקלוד לאותו קובץ.<br><br><div class="php codeblock">trait world <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw2">public</span> <span class="kw2">function</span> sayWorld<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'World!'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;<span class="kw2">class</span> hello <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw2">use</span> world<span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw2">public</span> <span class="kw2">function</span> say<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'Hello '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">sayWorld</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+<br>
+<span class="kw2">class</span> hi<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">use</span> world<span class="sy0">;</span> <span class="co1">// another class is using the same trait</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> say<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Hi'</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">sayWorld</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;<span class="re0">$o</span> <span class="sy0">=</span> <span class="kw2">new</span> hello<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$o</span><span class="sy0">-&gt;</span><span class="me1">say</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// echos Hello World!</span><br>
+<br>
+&nbsp;<span class="re0">$o2</span> <span class="sy0">=</span> <span class="kw2">new</span> hi<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$o2</span> <span class="sy0">-&gt;</span> <span class="me1">say</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// echos Hi World!</span></div><br><br><br><br><h3>כל מחלקה יכולה להשתמש בכמה traits במקביל</h3><br>אפשרות זו מונעת את הצורך בירושה כפולה ומאפשרת horizontal code reuse<br><br><div class="php codeblock">trait tBeep &nbsp;<span class="br0">&#123;</span> <span class="kw2">public</span> <span class="kw2">function</span> beep<span class="br0">&#40;</span><span class="br0">&#41;</span> &nbsp;<span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'beep'</span><span class="sy0">;</span> &nbsp; <span class="br0">&#125;</span> <span class="br0">&#125;</span><br>
+trait tDrive <span class="br0">&#123;</span> <span class="kw2">public</span> <span class="kw2">function</span> drive<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'whoooom'</span><span class="sy0">;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span><br>
+&nbsp;<br>
+<span class="kw2">class</span> LicencedDriver <span class="coMULTI">/*extends Driver*/</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">use</span> tBeep<span class="sy0">,</span> tDrive<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> SuperCar <span class="coMULTI">/*extends Car*/</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">use</span> tBeep<span class="sy0">,</span> tDrive<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+&nbsp;<br>
+<span class="re0">$ld</span> <span class="sy0">=</span> <span class="kw2">new</span> LicencedDriver<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$ld</span><span class="sy0">-&gt;</span><span class="me1">beep</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// beep</span><br>
+<span class="re0">$ld</span><span class="sy0">-&gt;</span><span class="me1">drive</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// whoooom</span><br>
+<br>
+<span class="re0">$sc</span> <span class="sy0">=</span> <span class="kw2">new</span> SuperCar<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">beep</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// beep</span><br>
+<span class="re0">$sc</span><span class="sy0">-&gt;</span><span class="me1">drive</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// whooom</span></div><br><br><br><br><h3>ירושת traits</h3><br>לא ממש נכון לקרוא לזה ירושה, אבל trait אחד יכול להיות מורכב בעצמו מ traits אחרים.<br><div class="php codeblock">trait Hello <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw2">public</span> <span class="kw2">function</span> sayHello<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'Hello '</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;trait World <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw2">public</span> <span class="kw2">function</span> sayWorld<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'World!'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;trait HelloWorld <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw2">use</span> Hello<span class="sy0">,</span> World<span class="sy0">;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;<span class="kw2">class</span> MyHelloWorld <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="kw2">use</span> HelloWorld<span class="sy0">;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp;<span class="re0">$o</span> <span class="sy0">=</span> <span class="kw2">new</span> MyHelloWorld<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$o</span><span class="sy0">-&gt;</span><span class="me1">sayHello</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$o</span><span class="sy0">-&gt;</span><span class="me1">sayWorld</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="co1">// Results eventually in: Hello World!</span></div><br><br><br><br><h3>traits overloading</h3><br>שני traits יכולים להכיל פונקציה עם שם זהה. במקרה הזה php תחזיר שגיאה <br><span class="dirleft">Fatal error: Trait method has not been applied, because there are collisions with other trait methods on</span><br><br>לפתור את זה אפשר על ידי הגדרה ברורה - בפונקציה של איזה מה-traits להשתמש:<br><div class="php codeblock">trait tOne &nbsp;<br>
+<span class="br0">&#123;</span> <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> beep<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'1beep'</span><span class="sy0">;</span> <span class="br0">&#125;</span> <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> dooo<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'1dooo'</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+trait tTwo <br>
+<span class="br0">&#123;</span> <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> beep<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'2beep'</span><span class="sy0">;</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> dooo<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'2dooo'</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> car<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">use</span> tOne<span class="sy0">,</span> tTwo<br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; tOne<span class="sy0">::</span><span class="me2">beep</span> insteadof tTwo<span class="sy0">;</span> <span class="co1">// use tOne's beep</span><br>
+&nbsp; &nbsp; tTwo<span class="sy0">::</span><span class="me2">dooo</span> insteadof tOne<span class="sy0">;</span> <span class="co1">// use tTwo's dooo</span><br>
+<br>
+&nbsp; &nbsp; <span class="co1">// alias for the tTwo's beep, since the default beep() is tOne's</span><br>
+&nbsp; &nbsp; tTwo<span class="sy0">::</span><span class="me2">beep</span> <span class="kw1">as</span> twobeep<span class="sy0">;</span> &nbsp; &nbsp;<br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$car</span> <span class="sy0">=</span> <span class="kw2">new</span> car<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$car</span><span class="sy0">-&gt;</span><span class="me1">beep</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp;<span class="co1">// 1beep from tOne</span><br>
+<span class="re0">$car</span><span class="sy0">-&gt;</span><span class="me1">dooo</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp;<span class="co1">// 2dooo from tTwo</span><br>
+<span class="re0">$car</span><span class="sy0">-&gt;</span><span class="me1">twobeep</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 2beep with the alias</span></div><br><br><h5>יש לקרוא את זה כ:</h5><br>השתמש בפונקציה beep של tOne במקום בזאת של tTwo<br>השתמש בפונקציה dooo של tTwo במקום בזאת של tOne<br>תקרא לפונקציה beep של tTwo בשם חדש - twobeep<br><br><br><br><br><h3>ל traits יש גישה למשתנים של המחלקה</h3><br>וחוץ מזה traits יכולים להכיל פונקציות אבסטרקטיות שחייבות להיות ממומשות במחלקה שתכיל את אותו ה trait <br><div class="php codeblock">trait polite<br>
+<span class="br0">&#123;</span> <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> hi<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'hi '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span> <span class="br0">&#125;</span> <br>
+&nbsp; abstract <span class="kw2">public</span> <span class="kw2">function</span> bye<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="kw2">class</span> guest<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">use</span> polite<span class="sy0">;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$name</span> <span class="sy0">=</span> <span class="st_h">'Alex'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> bye<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'bye '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$guest</span> <span class="sy0">=</span> <span class="kw2">new</span> guest<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$guest</span><span class="sy0">-&gt;</span><span class="me1">hi</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<span class="co1">// hi Alex</span><br>
+<span class="re0">$guest</span><span class="sy0">-&gt;</span><span class="me1">bye</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// bye Alex</span></div><br><br><br><br><h5>סיכום</h5><br>trait משמש את המנוע של php רק בזמן <span class="underline"><strong>בניית</strong></span> המחלקות. אחרי שהקוד &quot;התקמפל&quot; כבר אין הבדל בין מחלקות שנוצרו עם traits ומחלקות שנוצרו בלי. תפקידם הוא למנוע שכפול של קוד בין מחלקות שצריכות פונקציונליות זהה.<br><br>מאותה סיבה אין למחלקה גישה למשתנה המוגדר ב trait (כי trait הוא רק הזרקת קוד לתוך מחלקה בזמן הבניה (הפענוח) של הקוד ולא בזמן הריצה) וtrait יכול להשתמש במשתנים של המחלקה </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment307"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2011 13:22</span><br>
+אחי אם 5.4 לא יצא למה אתה מפרסם מדריכים אליו?</div>
+<a id="comment308"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2011 13:23</span><br>
+מתישהו הוא ייצא, לא?</div>
+<a id="comment309"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2011 13:26</span><br>
+נו אבל בא לי כבר להישתמש בוא זה יקצר לי תקוד בהמון !!<br>
+נו ימבאס למה אתה מגלה ליפני שיצא עכשיו צריך לספור ימים :(</div>
+<a id="comment310"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2011 13:28</span><br>
+4 שבועות =)<br>
++ עוד איזה שנה וקצת עד שכל האחסונים יעברו לזה</div>
+<a id="comment311"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2011 13:48</span><br>
+יאלה איזה מבאס אתה..</div>
+<a id="comment312"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2011 18:53</span><br>
+חזק ביותר, הולך לייעל הרבה עבודות, תודה.</div>
+<a id="comment313"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2011 19:18</span><br>
+חזק ביותר!<br>
+מתי יוצאת גירסא יציבה של 5.4?</div>
+<a id="comment315"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/07/2011 23:05</span><br>
+למה שלא תפרסם מדריך לclass</div>
+<a id="comment316"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/07/2011 09:28</span><br>
+כי זה נושא שאפשר לכתוב עליו ספר .<br>
+בכל מקרה כבר ראיתי את זה, חזק ביותר .</div>
+<a id="comment350"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/07/2011 18:13</span><br>
+אפשר להסתדר בלי זה (ירושה)</div>
+<a id="comment351"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/07/2011 18:19</span><br>
+<span dir="ltr"><a href="phplive-19.htm?code=76">http://phpguide.co.il/phplive?code=76</a></span></div>
+<a id="comment352"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/07/2011 21:46</span><br>
+במקרה הפשוט הזה - כן. זה נקרא <br>
+הרחבה אנכית. כל קלאס מקבל את הפונקציונליות מלמעלה.<br>
+<br>
+ברגע שיש לך כמה עצים של מחלקות יורשות שלא קשורות אחת לשניה <br>
+Transport -&gt; Car -&gt; Sport -&gt; Porsche -&gt; GT<br>
+Transport -&gt; Bus -&gt; Mini -&gt; Honda -&gt; XDBUS<br>
+Animal -&gt; Domestic -&gt; Horse -&gt; Arab -&gt; Donna<br>
+<br>
+ואתה רוצה שגם לסוס תהיה פעולת &quot;סע&quot; וגם, תהיה כזו לכל ההונדות, ולא תהיה לפורש (כי זה מכונית רק לתצוגה ולא מוכרים כאלה בכלל) - אתה תסתבך עם הורשה אנכית.<br>
+<br>
+בעצם גם עם לכל הרכבים תהיה פעולה &quot;סע&quot; ורק לסוס יש פעולה סע, כי לחתול שגם הוא חיה ביתית לא צריכה להיות פעולה שכזו.<br>
+<br>
+וגם אם לכל החיות תהיה פעולת סע, הרי אתה עכשיו תצטרך ליצור עוד מחלקה עליונה מעל חיות ומעל רכבים שתכלול את הפונקציה &quot;סע&quot;. הדבר ייצור לך תֹהוּ וָבֹהוּ קטסטרופי.<br>
+<br>
+חוץ מזה שליצור אובייקט שיורש מפעולה, זה ארכיטקטורת מערכת ממש גרוע :)</div>
+<a id="comment1580"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/06/2012 16:03</span><br>
+מדריך מדהים אלכס, שבוע טוב.</div>
+<a id="comment2172"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2013 03:02</span><br>
+כחלק מהשכתוב מחדש של המערכת שלי, אני משתמש בהרבה מאוד traits.<br>
+רק רציתי לציין שחסר כאן החלק שאומר שכאשר משתמשים (use) ב-trait בתוך מחלקה אפשר לא רק לשנות את השמות של מתודות מסוימות (as), אלא גם את רמת האינקפסולציה שלהן (private, protected, public).<br>
+דוגמה:<br>
+<span dir="ltr"><a href="phplive-20.htm?code=640">http://phpguide.co.il/phplive?code=640</a></span><br>
+<br>
+אפשר לראות בדוגמה ש-as יוצר alias, כלומר מן &quot;שכפול&quot; של myMethod.<br>
+כאשר קראנו ל-myMethod של A לא הייתה בעיה - הוא public.<br>
+כאשר קראנו ל-myMethod של B לא הייתה בעיה - הוא public (כשעשינו עליו as פשוט שכפלנו אותו אך myMethod עצמו נשאר ללא שינוי).<br>
+כאשר קראנו ל-myAlias של B קיבלנו שגיאה שאי אפשר לקרוא למתודה פרטית (private).<br>
+<br>
+אם נרצה שגם myMethod עצמו, בתוך B, יהיה private אז נצטרך להגדיר מתודת myMethod חדשה שהיא private.<br>
+<br>
+<br>
+לעוד מידע - יש את הדוקומנטציה המצוינת. :)</div>
+<a id="comment2521"></a>
+<div class="blog-comment">
+<span class='comment-author'>matan sh</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2013 04:52</span><br>
+עדיין לא הבנתי מה ההבדל בין זה לבין ה-extends? כי עפ&quot;י מה שהבנתי הם עושים את אותו הדבר.</div>
+<a id="comment2524"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/07/2013 09:20</span><br>
+@matan_sh<br>
+עם trait אתה &quot;מזריק&quot; קוד למחלקה קיימית, עם extends אתה &quot;מרחיב&quot; מחלקה קיימת..<br>
+נגיד יש לך מחלקה לניהול מסד נתונים (כמו PDO) ומחלקה לניהול קבצים (כמו SplFileObject).<br>
+כדי לעבוד איתן כ Singleton אתה צריך להרחיב את שתיהן (משהו כזה:<br>
+<span dir="ltr"><a href="phplive-21.htm?code=803">http://phpguide.co.il/phplive?code=803</a></span> )<br>
+במצב הזה אתה כבר יורש (או &quot;מרחיב&quot;) ואתה לא יכול לרשת ממחלקה אחרת, ככה שאתה צריך לעשות &quot;העתק-הדבק&quot; לקוד של הפונקציה getInstance ושל המשתנה instance,<br>
+במקום לעשות &quot;העתק-הדבק&quot; אתה כותב trait פשוט ומזריק אותו למחלקה שלך<br>
+<span dir="ltr"><a href="phplive-22.htm?code=806">http://phpguide.co.il/phplive?code=806</a></span> <br>
+<br>
+הבנת?<br>
+</div>
+<a id="comment2525"></a>
+<div class="blog-comment">
+<span class='comment-author'>matan sh</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/07/2013 10:35</span><br>
+@ldbrgr<br>
+<br>
+תודה רבה!</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

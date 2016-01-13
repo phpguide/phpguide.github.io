@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="אופטימיזציה של הפונקציה session_start">
+<meta name="keywords" content="session_start, session">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>session_start שלוקח הרבה זמן</title>
+<meta itemprop="name" content="session_start שלוקח הרבה זמן">
+<meta itemprop="description" content="אופטימיזציה של הפונקציה session_start">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"300","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>session_start שלוקח הרבה זמן</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-02-26T17:37:05+02:00" dir="rtl">26 לפברואר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.i-dev.co.il/uploads/images/session_executor_small.png" alt="session_start שלוקח הרבה זמן">
+</div>
+<div class="right post-content">
+למה כל עמוד המאה באתר עולה רק אחרי חמש שניות<br>ואיך פונקציה אחת של session_start לוקחת כל כך הרבה זמן. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>Garbage Collection</h3><br>בתור ברירת מחדל נתוני הסשן נשמרים בתור קבצים פיזיים בתיקיה מיוחדת של השרת.<br>תוקפו של סשן מסוים הינו 25 דקות. לאחר מכן, קובץ הסשן שמחזיק את הנתונים - נמחק.<br><br><h4>מי מחק את הסשן?</h4><br>במחשבים אין קסמים וסשנים לא נמחקים אוטומטית. מישהו מוחק אותם. יש פונקציה כזאת איפשהו ומישהו מריץ אותה.<br>הפונקציה הזאת נכנסת לתיקיה שבה נשמרים כל הסשנים, עוברת קובץ קובץ, בודקת את תאריך הגישה(קריאה) האחרון לאותו קובץ ואב עברו 25 דקות מאז - מוחקת אותו.<br><br>עכשיו אתה יכול לנחש לבד למה אחד מתוך מאה גלישות לוקח 5 שניות לעלות.<br>נכון, בגלל שאחת למאה בקשות PHP מפעיל את אותה הפונקציה של מחיקת סשנים, שעוברת קובץ קובץ....<br><br><h4>אפשר לשנות?</h4><br>בטח שאפשר. במקום ש-PHP תעשה את זה אחת לכל מאה בקשות, שתעשה אחת ל 10000. <br>שני הגדרות של php.ini יוצרות משוואה:<br><br><strong>session.gc_probability</strong><br>מונה במשוואה של אחת לכמה בקשות להפעיל את ניקוי הסשנים.<br>ערך ברירת מחדל <strong>1</strong>.<br><br><strong>session.gc_divisor</strong><br>המכנה באותה משוואה. <br>ברירת מחדל 100 או 1000 (תלוי במערכת הפעלה)<br><br>הסיכוי שבבקשה הזו יופעל ניקוי סשנים = <span dir="ltr"><strong>1 / 100</strong></span><br>ובוסופו של דבר אחת לכמה בקשות השרת נתקע כדי לנקות את תיקיית הסשנים.<br><br><h3>בונוס: מפרקים את PHP</h3><br>אחד היתרונות של PHP היא שהיא ידידותית למתחילים. ולא צריך לחשוב, לשחק עם ההגדרות או לדעת משהו.<br>באופן כללי, יתרון מהסוג הזה בא על חשבון ביצועים. <br><br>בפועל אפשר ללכת צעד אחד הלאה ולהוריד מ-PHP את הדאגה הזאת.<br>אפשר להקל על PHP בניקוי סשנים, עבודה עם קבצים ופעולות מיותרות בכל בקשה ולהוציא את מטלת ניקוי הסשנים לפעולה חיצונית. <br>כדי לכבות את ניקוי הסשנים ב PHP מספיק להציב <span dir="ltr"><span style="color:indigo;">session.gc_probability = 0</span></span><br>ובמקום זה להוסיף פעולת קרון חדשה שתעשה בדיוק אותו דבר. תמחק את כל קבצי הסשן הישנים<br><div class="php codeblock"><span class="sy0">*/</span><span class="nu0">15</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> find <span class="sy0">/</span>tmp<span class="sy0">/</span>sess_<span class="sy0">*</span> <span class="sy0">-</span>mmin <span class="sy0">+</span><span class="nu0">25</span> <span class="sy0">-</span><span class="kw3">exec</span> rm <span class="sy0">-</span>rf <span class="br0">&#123;</span><span class="br0">&#125;</span> \<span class="sy0">;</span></div><br>פעולה זו תופעל כל רבע שעה ותמחק מהתיקיה הזמנית של השרת את קבצי הסשנים שלא נגעו בהם 25 דקות.<br><br><br>עמודים עם זמן טעינה מעל רבע שניה בגלל session_start פשוט נעלמים.<br><br><br>----------------------------------------------<br><h5>מה אם זה קורה תמיד לאותו משתמש?</h5><br>אני מזכיר שמשתמש אחד ששולח כמה בקשות יכול לנעול את קובץ הסשן לעצמו כמו שמתואר<br>במדריך <a href="session lock.htm">נעילת סשנים</a>. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2248"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/02/2013 20:00</span><br>
+&quot;כדי לכבות את ניקוי הסשנים ב PHP מספיק להציב session.gc_probability = 1&quot;<br>
+אתה לא מתכוון ללהציב 0?<br>
+<br>
+<br>
+ומדריך מצוין, תודה רבה. :)</div>
+<a id="comment2249"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/02/2013 20:10</span><br>
+מתמטיקה..<br>
+תודה :)</div>
+<a id="comment2250"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/02/2013 20:43</span><br>
+תודה רבה :)<br>
+עוד טיפ לייעול האתר ... :)</div>
+<a id="comment2270"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/03/2013 16:48</span><br>
+מזכיר על נעילת סשנים:<br>
+<span dir="ltr"><a href="session lock.htm">http://phpguide.co.il/session lock.htm</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

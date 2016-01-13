@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="המדריך מסביר איך בעצם ליצור מערכת התחברות עם הפריימוורק Yii, עם שימוש בקוקיז ומסד נתונים">
+<meta name="keywords" content="Yii, Cookie, התחברות, שליפת נתונים">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Yii| טופס התחברות עם Cookies, ושליפת נתונים</title>
+<meta itemprop="name" content="Yii| טופס התחברות עם Cookies, ושליפת נתונים">
+<meta itemprop="description" content="המדריך מסביר איך בעצם ליצור מערכת התחברות עם הפריימוורק Yii, עם שימוש בקוקיז ומסד נתונים">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"349","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii| טופס התחברות עם Cookies, ושליפת נתונים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ArielTador, </div>
+<div class="right">&nbsp;<time datetime="2013-12-10T20:05:31+02:00" dir="rtl">10 לדצמבר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://i.imgur.com/4JlD3Pt.png" alt="Yii| טופס התחברות עם Cookies, ושליפת נתונים">
+</div>
+<div class="right post-content">
+לאחר שיצרתם מערכת הרשמה במדריכים הקודמים, רוצים לדעת ליצור מערכת התחברות עם Cookies, ולשלוף נתונים מהמסד?<br>הכל כאן! <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+כעת, ניצור מערכת התחברות, הקולטת נתונים מהמסד ומזהה התחברות נכונה;<br>ובנוסף נשתמש עם Cookie, לשמירת וזכירת ההתחברות.<br><br>בקונטרולר(Controller) בשם Account, אנחנו יצרנו במדריכים הקודמים את Register, שהוא בעצם עמוד ההרשמה:<br><span class="dirleft">protected/controllers/AccountController.php</span><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> AccountController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$layout</span> <span class="sy0">=</span> <span class="st_h">'header'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionRegister<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> RegisterForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">validate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">'Work!'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'register'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br><br>בואו נוסיף לו עמוד חדש, נקרא לו Login:<br><span class="dirleft">protected/controllers/AccountController.php</span><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> AccountController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$layout</span> <span class="sy0">=</span> <span class="st_h">'header'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionRegister<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> RegisterForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">validate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">'Work!'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'register'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionLogin<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'login'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>לאחר שיצרנו עמוד חדש בשם Login, אנחנו ניצור טופס חדש בשם LoginForm, שבדומה ל RegisterForm, גם הוא מסתיים ב Form.<br>שם אנו נגדיר תחילה את שדות הטופס, בצורה הבאה:<br><span class="dirleft">protected/models/LoginForm.php</span><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> LoginForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>פה קבענו ששדות הטופס יהיו אימייל וסיסמה.<br>(כל משתנה שיצרנו, מגדיר אינפוט מסויים בטופס, חובה להגדיר את השדה כאן, לפני הגדרתו בטופס).<br><br>כעת, אנחנו צריכים לקבוע קריטריונים(חוקים) לכל אינפוט בשליחת הטופס, הקריטריונים עוזרים לקבלת מידע נכון ואקטואלי למערכת.<br>במדריכים הקודמים למדתם איך לקבוע קריטריונים לנתונים הנשלחים מטופס, אנו נחזור ונקבע עכשיו קריטריונים לטופס ההתחברות שלנו:<br><br><span class="dirleft">protected/models/LoginForm.php</span><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> LoginForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email, password'</span><span class="sy0">,</span> <span class="st_h">'required'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אחד או יותר מהשדות ריקים'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'checkMX'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'האימייל אינו תקין'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'authenticate'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>קבענו שהאימייל והסיסמה לא יכולים להיות ריקים, האימייל צריך להיות תקין ומלא, והסיסמה דורשת אימות כלשהו.<br>(בהמשך אנחנו ניצור את האימות לסיסמה ב SQL, ע&quot;י authenticate).<br><br>כעת ניצור את הטופס להתחברות:<br><br><span class="dirleft">protected/views/account/login.php</span><br><br><div class="php codeblock">&lt;h1&gt;התחבר&lt;/h1&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="re0">$form</span><span class="sy0">=</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CActiveForm'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'action'</span> <span class="sy0">=&gt;</span> Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">createUrl</span><span class="br0">&#40;</span><span class="st_h">'main/login'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">errorSummary</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">label</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span><span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">emailField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span><span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">label</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span><span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span><span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">submitButton</span><span class="br0">&#40;</span><span class="st_h">'Login'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/table&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>כנאמר למעלה, הטופס בנוי מאימייל וסיסמה, (שימו לב, השתמשתי ב errorSummary, בכדי להציג את כל השגיאות בטופס).<br><br>עכשיו, ניצור את האימות של הסיסמה ב SQL, כאן אנחנו נבדוק האם הפרטים של המשתמש, אכן תקינים ורשומים במסד:<br><br><span class="dirleft">protected/models/LoginForm.php</span><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> LoginForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_identity<br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email, password'</span><span class="sy0">,</span> <span class="st_h">'required'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אחד או יותר מהשדות ריקים'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'checkMX'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'האימייל אינו תקין'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'authenticate'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> authenticate<span class="br0">&#40;</span><span class="re0">$attribute</span><span class="sy0">,</span><span class="re0">$params</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_identity <span class="sy0">=</span> Account<span class="sy0">::</span><span class="me2">model</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">checkLogin</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">email</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_identity<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">addError</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'שם המשתמש או הסיסמה שגויים'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>במדריכים הקודמים לא הסברנו למה המשתנה $_identity משמש, עכשיו אני אסביר;<br>המשתנה $_identity משמש להכנסת פונקציה(ממודל כלשהו), שבעצם בודקת את השדה בטופס שלנו.<br><br>במקרה שלנו, הגדרנו שהפונקציה checkLogin במודל Account תחזיר לנו את נתוני הבדיקה במסד, (שימו לב, הפונקציה חייבת להכיל את האימייל והסיסמה, בכדי שתוכל לבדוק אותם במסד);<br>לאחר מכן, בדקנו האם הערך שחוזר מהפונקציה checkLogin שבמודל Account הוא שלילי, אם כן, הוא מציג הודעת שגיאה על כך שלא נמצא משתמש עם הפרטים שהו הזין.<br>-------<br>כעת, אני רוצה להגדיר Labelים(הטקסטים שכתובים ליד כל אינפוט) בעברית, למדתם איך לעשות זאת במדריכים הקודמים, וככה זה נראה ב LoginForm:<br><br><span class="dirleft">protected/models/LoginForm.php</span><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> LoginForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_identity<br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email, password'</span><span class="sy0">,</span> <span class="st_h">'required'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אחד או יותר מהשדות ריקים'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'checkMX'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'האימייל אינו תקין'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'authenticate'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> authenticate<span class="br0">&#40;</span><span class="re0">$attribute</span><span class="sy0">,</span><span class="re0">$params</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_identity <span class="sy0">=</span> Accounts<span class="sy0">::</span><span class="me2">model</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">checkLogin</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">email</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_identity<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">addError</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'שם המשתמש או הסיסמה שגויים'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> attributeLabels<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'email'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אימייל'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="st_h">'סיסמה'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>Email=אימייל, Password=סיסמה.<br><br>אוקיי, עכשיו אנחנו נראה איך אנחנו בודקים את הטופס במודל Account (המודל שלכם לבדיקות מסד מהמדריכים הקודמים):<br><span class="dirleft">protected/models/Account.php</span><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> Account <span class="kw2">extends</span> CActiveRecord<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> tableName<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="st_h">'accounts'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> primaryKey<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="st_h">'id'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> checkLogin<span class="br0">&#40;</span><span class="re0">$email</span><span class="sy0">,</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$password</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$user</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">findByAttributes</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span> <span class="sy0">=&gt;</span> <span class="re0">$email</span><span class="sy0">,</span> <span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="re0">$password</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$user</span><span class="sy0">===</span><span class="kw4">null</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">checkLogined</span><span class="br0">&#40;</span><span class="re0">$email</span><span class="sy0">,</span> <span class="re0">$password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">private</span> <span class="kw2">function</span> checkLogined<span class="br0">&#40;</span><span class="re0">$email</span><span class="sy0">,</span> <span class="kw3">sha1</span><span class="br0">&#40;</span><span class="re0">$password</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$cookies</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'ue'</span> <span class="sy0">=&gt;</span> <span class="re0">$email</span><span class="sy0">,</span> <span class="st_h">'up'</span> <span class="sy0">=&gt;</span> <span class="re0">$password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$cookies</span> <span class="kw1">as</span> <span class="re0">$name</span><span class="sy0">=&gt;</span><span class="re0">$value</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$cookie</span> <span class="sy0">=</span> <span class="kw2">new</span> CHttpCookie<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$cookie</span><span class="sy0">-&gt;</span><span class="me1">expire</span> <span class="sy0">=</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">60</span><span class="sy0">*</span><span class="nu0">60</span><span class="sy0">*</span><span class="nu0">48</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">cookies</span><span class="br0">&#91;</span><span class="re0">$name</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$cookie</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>אל תבהלו מהקוד, אני אסביר הכל :D<br><br>ראשית, בקובץ LoginForm, קבענו שנקבל את נתוני בדיקת ההתחברות מהפונקציה checkLogin שבמודל Account.<br>כאן במודל Account, יצרנו את הפונקציה checkLogin, וקבענו שהיא תקבל את האימייל והסיסמה(מה ששלחנו עם הפונקציה ב LoginForm);<br>בפונקציה אנחנו יצרנו משתנה בשם user, שבעצם מחפש במסד שורות עם הנתונים שביקשנו, במידה והוא מוצא, הוא מחזיר ערך חיובי;<br>במקרה שלנו, אנחנו חיפשנו בתוך מערך שורה שהאימייל והסיסמה שלה שווים לנתונים ששלח המשתמש, לאחר מכן הצבנו תנאי שבודק האם הערך חיובי/שלילי, במידה והערך חיובי, זה אומר שהוא מצא משתמש אשר מתאים לפרטים שהזין המשתמש, במידה ולא, הוא יחזיר את השגיאה שקבענו ב LoginForm.<br><br>לאחר שהפונקציה מצאה את הפרטים שהזין המשתמש, היא שולחת אותנו לפונקציה checkLegined, שהיא בעצם מייצאת את כל נתוני ה Cookie, ובעצם קובעת שהמשתמש התחבר.<br><br>בהצלחה ;) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=16&r=g&d=monsterid" alt="ArielTador">
+<a>ArielTador</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2702"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/12/2013 20:10</span><br>
+מדריך מעולה, תודה רבה :)</div>
+<a id="comment2703"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielTador</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/12/2013 20:15</span><br>
+תודה רבה!, שמח לכתוב ;)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

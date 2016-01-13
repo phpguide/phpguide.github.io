@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הדגמה מוחשית לאלגוריתמי מיון מערכים שונים באמצעות ריקוד.">
+<meta name="keywords" content="מיון מערכים, מיון, sort, shell sort, selection sort, bouble sort, insert sort, algorythm, ריקוד">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>מיון מערכים</title>
+<meta itemprop="name" content="מיון מערכים">
+<meta itemprop="description" content="הדגמה מוחשית לאלגוריתמי מיון מערכים שונים באמצעות ריקוד.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"76","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מיון מערכים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-04-12T16:22:12+03:00" dir="rtl">12 לאפריל 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/sortdancing.png" alt="מיון מערכים">
+</div>
+<div class="right post-content">
+נראה לכם שיש קשר בין ריקוד לארבעה אלגוריתמים למיון מערכים?<br>כמה חבר&#039;ה מאוניברסיטה בטיזינבי חושבים שיש, והכי חשוב זה המוזיקה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+כולנו יודעים שכמעט בכל שפה אפשר למיין מערך עם פונקציית מיון כזו או אחרת. בטבע קיימים כמה אלגוריתמים למיון מערכים ואוניברסיטת <a href="http://en.wikipedia.org/wiki/Sapientia_University">Sapientia</a> מטרנסילבניה החליטה להציג אותם באופן מעניין.<br><br><h2>מיון בועות (Bubble Sort)</h2><br>אלגוריתם מיון שמשווה כל זוג אלמנטים סמוכים ומחליף ביניהם עד שהגדולים ביותר מגיעים לסוף.<br><br><iframe width="480" height="390" src="http://www.youtube.com/embed/lyZQPjUT5B4?rel=0" frameborder="0" allowfullscreen=""></iframe><br><br><h2>מיון הכנסה (Insertion Sort)</h2><br>האלגוריתם לוקח כל אלמנט ומשווה אותו לכל האלמנטים שלפניו כדי להכניס אותו במקום המתאים ברצף לפי הגודל. מיון הכנסה יעיל במיון מערכים קטנים.<br><br><iframe width="480" height="390" src="http://www.youtube.com/embed/ROalU379l3U?rel=0" frameborder="0" allowfullscreen=""></iframe><br><br><h2>Shell Sort</h2><br><a href="http://en.wikipedia.org/wiki/Shell_sort">Shell Sort</a> מנסה למיין את המערך &quot;בערך&quot; ולאחר מכן להשתמש במיון הכנסה כדי לסדר את הערכים באופן נכון, כיוון שמיון הכנסה עובד מהר על מערכים בערך ממוינים. <br><br><iframe width="480" height="390" src="http://www.youtube.com/embed/CmPA7zE8mx0?rel=0" frameborder="0" allowfullscreen=""></iframe><br><br><h2>מיון בחירה (Selection Sort)</h2><br>במיון בחירה, אלגוריתם איטי ולא יעיל, עוברים על כל האלמנטים, מוצאים את האלמנט הקטן ביותר, שמים אותו במקום הראשון וחוזרים על התהליך - מוצאים את האלמנט הקטן ביותר במערך (פרט לזה שנמצא במקום הראשון) ושמים אותו במקום השני.<br><br><iframe width="480" height="390" src="http://www.youtube.com/embed/Ns4TPTC8whw?rel=0" frameborder="0" allowfullscreen=""></iframe><br><br><h2>מיון מהיר (Quick Sort)</h2><br>ברוב שפות התכנות פונקציית המיון המובנית מבצעת את אלגוריתם המיון המהיר (<a href="http://en.wikipedia.org/wiki/Quicksort">Quick Sort</a>).<br>האלגוריתם הזה יעיל במיון מערכים גדולים. הוא פועל בשיטת הפרד ומשול. בקצרה, זה אומר חילוק המערך לחלקים, אחד של מספרים הגדולים יותר מערך מסוים שנבחר, והשני של מספרים הקטנים יותר מאותו הערך. האלגוריתם הוא רקורסיבי.<br><br><iframe width="480" height="390" src="http://www.youtube.com/embed/ywWBy6J5gz8?rel=0" frameborder="0" allowfullscreen=""></iframe><br><br><span style="color:green;">כתבו בתגובות: איזה מיון הכי אהבתם?</span><br><br><h2>בונוסים</h2><br>עכשיו אפשר לא רק לראות אלא גם לשמוע את הסוגים השונים של המיונים.<br><br><iframe width="480" height="390" src="http://www.youtube.com/embed/t8g-iYGHpEA?rel=0" frameborder="0" allowfullscreen=""></iframe><br><br>בונוס נוסף: סרטון שמדגים מיון בועות ומיון מהיר באמצעות שני רובוטים חמודים שגם מתחרים ביניהם אחרי זה על הפרס הגדול - הרבה אלקטרונים כחולים. ממליץ לראות:<br><br><iframe width="480" height="390" src="http://www.youtube.com/embed/o2dm4X-t8L0?rel=0" frameborder="0" allowfullscreen=""></iframe><br><br><em>(תודה על הסרטון ל <a href="http://zuto.co.il">zuto.co.il</a>.)</em> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment38"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/04/2011 21:32</span><br>
+לפי אורך הסרטון מבינים מה עובד יותר מהר :)<br>
+למרות שעם סידור התחלטי שונה התוצאות גם יהיו שונות.<br>
+השוואת מהירויות נאה ניתן לראות כאן <span dir="ltr"><a href="http://www.sorting-algorithms.com">http://www.sorting-algorithms.com</a></span></div>
+<a id="comment100"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/04/2011 19:20</span><br>
+איזה משועממים הם</div>
+<a id="comment1011"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/12/2011 15:06</span><br>
+יפה</div>
+<a id="comment1558"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/05/2012 19:03</span><br>
+יש לזה הרבה משמעות ואפילו קורס שלם בתואר למדעי המחשב בשנה הראשונה- כאשר רוצים לדעת מה המהיר מביניהם- יש מושג שנקרא סיבוכיות. כל ריצה על מערך נקראת סיבוכיות O n כשה n מגדיר פעמי ריצות במערך. ונגיד ניתן לראות באלגוריתם כשכותבים אותו (באבל סורט לדוגמא שיש ריצה פעמיים על המערך. ולכן הסיבוכיות O n בריבוע! ככל שה n גבוה יותר הסיבוכיות גבוה יותר ופחות מהירה ופחות יעילה.<br>
+<br>
+ניתן שוב לראות למשל במיון quick sort- סיבוכיות של O log 2 n כשה 2 הוא בסיס 2 וה n זה החזקה. כלומר האלגוריתם קוויק סורט מפצל ברקורסיביות (לרוב) את הריצה של המערך לבסיסים של 2 . (בינארי) ולכן אם נמדוד הרצה נראה שבאמת הריצה פה הרבה יותר נמוכה מה O N בריבוע.</div>
+<a id="comment1589"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/06/2012 22:42</span><br>
+תוספת חדשה לקולקציית הסרטונים.<br>
+מעכשיו אפשר לשמוע - איך נשמעים אלגוריטמי מיון שונים.<br>
+<br>
+<span dir="ltr"><a href="http://youtu.be/t8g-iYGHpEA">http://youtu.be/t8g-iYGHpEA</a></span></div>
+<a id="comment1594"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/06/2012 19:21</span><br>
+ממליץ להוסיף גם את הסרטון הנחמד הזה:<br>
+<span dir="ltr"><a href="http://www.youtube.com/watch?v=o2dm4X-t8L0">http://www.youtube.com/watch?v=o2dm4X-t8L0</a></span></div>
+<a id="comment1595"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/06/2012 19:31</span><br>
+הרובוטים האלה, אדיר :) הוספתי. תודה</div>
+<a id="comment2614"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/10/2013 15:25</span><br>
+אני רואה עכשיו ש-Quick Sort לא מופיע כאן בפני עצמו. אז הנה ריקוד העם ההונגרי שלו: <span dir="ltr"><a href="https://www.youtube.com/watch?v=ywWBy6J5gz8">https://www.youtube.com/watch?v=ywWBy6J5gz8</a></span></div>
+<a id="comment2615"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/10/2013 16:39</span><br>
+אתה יכול לערוך ולהוסיף?</div>
+<a id="comment2617"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/10/2013 19:49</span><br>
+כמובן. רק רציתי ליידע, כי זה מה שכתבת לעשות. :-)</div>
+<a id="comment2618"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/10/2013 22:15</span><br>
+מעולה. תודה :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

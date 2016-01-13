@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שינוי input לפי ComboBox">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Razdom">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שינוי input לפי ComboBox | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שינוי input לפי ComboBox | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שינוי input לפי ComboBox">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שינוי input לפי ComboBox.htm" title="עשיתי את הדבר הזה (אל תיחסו לזה שזה mysql רגיל)&amp;lt;select name=&amp;quot;title&amp;quot;&amp;gt;
+&amp;lt;option&amp;gt;Name&amp;lt;/option&amp;gt;
+&amp;lt;?php 
+while&amp;#40;$text = mysql_fetch_array&amp;#40;$sql&amp;#41;&amp;#41;">שינוי input לפי ComboBox</a></h2>
+<div class="userinfo">
+פתח
+<a>Razdom</a>
+,
+<time class="timeago relativetime" datetime="2014-07-07T08:16:46+03:00" style="display:inline-block;">
+07 ליולי 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1956'>
+עשיתי את הדבר הזה (אל תיחסו לזה שזה mysql רגיל)<br><div class="php codeblock">&lt;select name=&quot;title&quot;&gt;<br>
+&lt;option&gt;Name&lt;/option&gt;<br>
+<span class="kw2">&lt;?php</span> <br>
+<span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;option onclick=&quot;jQuery(function () {<br>
+&nbsp; &nbsp; $('#name').val('<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$text</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>');<br>
+&nbsp; &nbsp; });&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$text</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/option&gt;<br>
+&nbsp; &nbsp; <span class="kw2">&lt;?php</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;/select&gt;</div><br>וזה לא משנה לי את ה ערך של input.<br>אני יודע שאני יכול לעשות את זה גם בדרך אחרת <br>אבל זה אמור להיות טופס שלם שצריך להשתנות עם כל מני נתונים מהמסד אז ככה הדרך הכי נוחה.<br>חשוב לציין שבדפדפנים אחרים זה עובד.. זה לא עובד רק ב google chrome </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8839">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 ליולי 2014 </span>
+<a id="answer_8839" href="שינוי input לפי ComboBox.htm#answer_8839">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תוכל לפתוח את קוד המקור של העמוד (מה שיוצא) ולהביא אותו לכאן? (ככה שיהיה לנו את קוד ה html/js שהדפדפן מנסה לבצע, ולא נצטרך לבצע קוד php בראש) </p>
+</div>
+<div class="answer" id="answer8840">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65fe9387c25ba8a930abc5e436320c30?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Razdom</a>
+ב
+<span style="font-size:10px"> 07 ליולי 2014 </span>
+<a id="answer_8840" href="שינוי input לפי ComboBox.htm#answer_8840">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="sy0">&lt;</span>option onclick<span class="sy0">=</span><span class="st0">&quot;jQuery(function () {$('#name').val('Text');});&quot;</span><span class="sy0">&gt;</span>Text<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer8841">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 ליולי 2014 </span>
+<a id="answer_8841" href="שינוי input לפי ComboBox.htm#answer_8841">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עדיף להשתמש ב onchange עבור select במקום onclick בכל אחד מה-option, מכל מני סיבות, כולל למשל בחירה באמצעות המקלדת ולא העכבר.<br>הקוד יכול להיראות ככה:<br><div class="php codeblock"><span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">&quot;http://code.jquery.com/jquery-git2.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;&lt;</span>input id<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;</span>select name<span class="sy0">=</span><span class="st0">&quot;title&quot;</span> onchange<span class="sy0">=</span><span class="st0">&quot;$('#text').val($(this).val())&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>option disabled<span class="sy0">=</span><span class="st0">&quot;disabled&quot;</span> selected<span class="sy0">=</span><span class="st0">&quot;selected&quot;</span><span class="sy0">&gt;</span>Choose<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>option<span class="sy0">&gt;</span>Kate<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>option<span class="sy0">&gt;</span>John<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer8842">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65fe9387c25ba8a930abc5e436320c30?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Razdom</a>
+ב
+<span style="font-size:10px"> 07 ליולי 2014 </span>
+<a id="answer_8842" href="שינוי input לפי ComboBox.htm#answer_8842">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן ברור..<br>אבל יש לי שמה כל מני ערכים לא רק את השם<br>כלומר הקוד הוא יהיה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;option onclick=&quot;jQuery(function () {<br>
+&nbsp; &nbsp; $('#name').val('<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$text</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>');<br>
+&nbsp; &nbsp; $('#num').val('<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$text</span><span class="br0">&#91;</span><span class="st_h">'num'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>');<br>
+&nbsp; &nbsp; });&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$text</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/option&gt;<br>
+&nbsp; &nbsp; <span class="kw2">&lt;?php</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer8843">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 ליולי 2014 </span>
+<a id="answer_8843" href="שינוי input לפי ComboBox.htm#answer_8843">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">&quot;http://code.jquery.com/jquery-git2.js&quot;</span><span class="sy0">&gt;</span><span class="kw2">&lt;/script&gt;</span><br>
+<span class="sy0">&lt;</span>input id<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> size<span class="sy0">=</span><span class="st0">&quot;60&quot;</span><span class="sy0">/&gt;</span><br>
+<br>
+<span class="sy0">&lt;</span>select id<span class="sy0">=</span><span class="st0">&quot;myselector&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>option disabled<span class="sy0">=</span><span class="st0">&quot;disabled&quot;</span> selected<span class="sy0">=</span><span class="st0">&quot;selected&quot;</span><span class="sy0">&gt;</span>Choose<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>option data<span class="sy0">-</span>age<span class="sy0">=</span><span class="st0">&quot;23&quot;</span> data<span class="sy0">-</span>gender<span class="sy0">=</span><span class="st0">&quot;female&quot;</span><span class="sy0">&gt;</span>Kate<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>option data<span class="sy0">-</span>age<span class="sy0">=</span><span class="st0">&quot;43&quot;</span> data<span class="sy0">-</span>gender<span class="sy0">=</span><span class="st0">&quot;male&quot;</span><span class="sy0">&gt;</span>John<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span><br>
+<br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; $<span class="br0">&#40;</span><span class="st_h">'#myselector'</span><span class="br0">&#41;</span><span class="sy0">.</span>on<span class="br0">&#40;</span><span class="st_h">'change'</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">var</span> x <span class="sy0">=</span> optionSelected <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st0">&quot;option:selected&quot;</span><span class="sy0">,</span> this<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">var</span> msg <span class="sy0">=</span> x<span class="sy0">.</span>val<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="st_h">' is a '</span> <span class="sy0">+</span> x<span class="sy0">.</span>data<span class="br0">&#40;</span><span class="st_h">'age'</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="st_h">' years old '</span> <span class="sy0">+</span> x<span class="sy0">.</span>data<span class="br0">&#40;</span><span class="st_h">'gender'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st_h">'#text'</span><span class="br0">&#41;</span><span class="sy0">.</span>val<span class="br0">&#40;</span>msg<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer8844">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65fe9387c25ba8a930abc5e436320c30?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Razdom</a>
+ב
+<span style="font-size:10px"> 07 ליולי 2014 </span>
+<a id="answer_8844" href="שינוי input לפי ComboBox.htm#answer_8844">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה על העזרה :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

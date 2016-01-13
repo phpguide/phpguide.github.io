@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="סביבת הפיתוח מותקנת ומוכנה לשימוש. כעת, ניצור אפליקציה Hello world ונגדיר מכונת אנדרואיד וירטואלית המכונה AVD.">
+<meta name="keywords" content="hello world, AVD, אנדרואיד, סביבת פיתוח, מדריך לאנדרואיד, Android Virtual Device Manager, יצירת אפליקציה ראשונה לאנדרואיד">
+<meta name="author" content="YardSodM">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD</title>
+<meta itemprop="name" content="2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD">
+<meta itemprop="description" content="סביבת הפיתוח מותקנת ומוכנה לשימוש. כעת, ניצור אפליקציה Hello world ונגדיר מכונת אנדרואיד וירטואלית המכונה AVD.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"370","rating":"9","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">YardSodM, </div>
+<div class="right">&nbsp;<time datetime="2014-05-24T05:21:17+03:00" dir="rtl">24 למאי 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://i.imgur.com/FVjslFO.png" alt="2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD">
+</div>
+<div class="right post-content">
+סביבת הפיתוח מותקנת ומוכנה לשימוש. כעת, ניצור אפליקציה Hello world ונגדיר מכונת אנדרואיד וירטואלית המכונה AVD. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+לאחר שהתקנו את סביבת הפיתוח ניצור את אפליקציית האנדרואיד הראשונה שלנו ונגדיר מכונת אנדרואיד וירטואלית להרצת האפליקציה שלנו במחשב.<br><h3>יצירת אפליקציה ראשונה</h3>יצירת אפליקציה ב eclipse הוא תהליך פשוט מאוד.<br>בתוך תוכנת eclipse יש ללחוץ על File &gt; New &gt; Android Application Project ואשף יצירת האפליקציה יופיע לפניכם.<br><br><img src="static\images\pixel.png" alt="2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD" title="http://i.imgur.com/pLLK5lD.png" class="content-image-float"><br><br>בדף הראשון יש להגדיר את מאפייני האפליקציה.<br><strong>Application Name</strong> – שם האפליקציה שלכם. מומלץ מאוד לתת את השם באנגלית.<br><strong>Project Name</strong> – שם הפרוייקט. גם אותו מומלץ לרשום באנגלית.<br><strong>Package Name</strong> – מזהה האפליקציה. לכל האפליקציה יש מזהה (או חבילה) משלה, באופן הדומה לדומיין. בד&quot;כ בתבנית הזאת: com.developername.appname (לדוגמא: com.google.chrome).<br><strong>Minimum required SDK </strong>– הגרסה המינימלית ביותר לשימוש. אם לדוגמא הגרסה שבחרתי היא 2.2, מכשירים המריצים גרסה הנמוכה מ-2.2 לא יוכלו להריץ את האפליקציה. כדאי לבחור בזהירות את הגרסה המינימלית, מפני שבגרסאות החדשות יותר יש תכונות נוספות שלא תומכות בישנות.<br><strong>Target SDK</strong> – הגרסה המיועדת לפיתוח. מומלץ לבחור בגרסא הישנה ביותר.<br><strong>Compile With</strong> – הגרסה שאיתה eclipse יעבוד ויקמפל כדי להציג שינויים. בד&quot;כ תהיה כמו ה- Target SDK.<br><strong>Theme</strong> – ערכת הנושא של האפליקציה. <br>לאפליקציה שניצור נקרא Example App, שם הפרוייקט יהיה ExampleApp, מזהה האפליקציה יהיה com.yourname.example, הגרסה המינימלית להרצה תהיה 2.2 והגרסה המיועדת לפיתוח תהיה 4.4 (ואת ערכת העיצוב תשנו למה שאתם רוצים).<br>נלחץ על Next ונגיע לעמוד הבא. <br><br><img src="static\images\pixel.png" alt="2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD" title="http://i.imgur.com/td3Nsgd.png" class="content-image-float"><br><br>ודאו ש Create Activity מסומן (אסביר בהמשך) וגם Create Project In Workspace. אם אתם רוצים, תוכלו לסמן גם את Create custom launcher icon כדי ליצור אייקון, אבל אני אדלג על הקטע הזה.<br><br><img src="static\images\pixel.png" alt="2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD" title="http://i.imgur.com/BUTdfaU.png" class="content-image-float"><br><br>בעמוד הבא ניצור את הפעילות (Activity).<br><h4>מהי פעילות?</h4>פעילות (אקטיביטי) היא תצוגה על הצג המכילה את ממשק המשתמש (התמונות, הכפתורים...). האפליקציה יכולה לכלול מספר פעילויות, לכל אחת מהן מראה שונה, אובייקטים שונים...<br>ניתן לראות 3 פעילויות מובנות, אותן eclipse יוצר באופן אוטומטי. אנחנו ניצור אפליקציה מתוך תבנית ריקה, לכן בחרו Blank Activity ולחצו Next.<br>במסך הבא נוכל לראות כמה הגדרות בנוגע לפעילות. השאירו אותם כמו שהם ולחצו Finish.<br>זהו. עכשיו eclipse יוצר את קבצי הפרוייקט ואנחנו מוכנים להמשיך.<br><br><img src="static\images\pixel.png" alt="2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD" title="http://i.imgur.com/q74gG1O.png" class="content-image-float"><br><br>לאחר שeclipse סיים ליצור את קבצי הפרוייקט יופיע העורך הויזואלי של האפליקציה, או ליתר דיוק של הפעילות.<br>על העורך הויזואלי נדבר בהמשך, ועכשיו הגיע הזמן ליצור את ה-AVD.<br><h3>יצירת ה-AVD</h3>ה-<strong>AVD</strong> (Android Virtual Device) הוא כלי חשוב מאוד בפיתוח לבדיקת האפליקציה על מערכת ההפעלה. הכלי מדמה את מערכת ההפעלה אנדרואיד על המחשב (כמו מכונה וירטואלית) שעליה נוכל להריץ את האפליקציה שלנו.<br>ליצירת AVD חדש יש להיכנס ל-Android Virtual Device Manager על ידי לחיצה על האייקון בסרגל העליון שנראה ככה <img src="static\images\pixel.png" alt="2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD" title="http://i.imgur.com/SPfoKaj.png" class="content-image-float"><br>או על ידי לחיצה על תפריט Window ובחירה ב-Android Virtual Device Manager.<br><br><img src="static\images\pixel.png" alt="2# סדרת מדריכים לפיתוח לאנדרואיד – יצירת אפליקציה ראשונה והגדרת AVD" title="http://i.imgur.com/JwrBp8J.png" class="content-image-float"><br><br>בחלון שנפתח יש ללחוץ על New ולאחר מכן למלות את הפרטים בהתאם.<br><strong>AVD name</strong> – שם המכונה הווירטואלית. תנו למכונה איזה שם שתרצו, כמו Android44<br><strong>Device</strong> – המכשיר שאותו ה-AVD ידמה. לדוגמא Nexus4.<br><strong>Target</strong> – גרסת אנדרואיד שאותה ה-AVD יריץ. ניתן להוריד גרסאות נוספות מה-SDK Manager (במדריכים הבאים).<br><strong>Keyboard ו-Skin</strong> – כדאי להשאיר אותם. זה כולל מקלדת וכפתורים מובנים ב-AVD.<br><strong>Front ו-Back Camera</strong> – אם יש לכם מצלמת רשת במחשב, תוכלו לחבר אותה ל-AVD.<br><strong>Memory Options</strong> – כמות זיכרון הראם של המכשיר. כאשר בוחרים את המכשיר שאותו ידמה ה-AVD, הראם וה-VM Heap משתנים באופן אוטומטי. בווינדוס, אם זיכרון הראם גדול מ-768M אז ה-AVD יוכל להראות שגיאות, או לא לעלות בכלל.<br>שני הדברים הבאים קשורים לזיכרון האחסון. תוכלו לבחור כמה זיכרון אחסון פנימי יהיה למכשיר, וכמה זיכרון אחסון יהיה לכרטיס זיכרון SD חיצוני מדומה.<br>לסיום לחצו OK.<br>על מנת להפעיל את ה-AVD, לחצו על שם המכונה ברשימה בתוך AVD Manager, ואז על כפתור Start שבצד.<br>בחלון שייפתח תוכלו להגדיר כמה דברים שנוגע לגודל התצוגה של ה-AVD. אני אשאיר את זה ככה ו... לחצו Launche.<br>זהו! מכונת ה-AVD נטענת ולאחר מכן מערכת ההפעלה תעלה.<br>עד כאן המדריך. במדריך הבא: הכירות עם סביבת הפיתוח, מבנה הפרויקט וקבצים. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/0f8492f31762583330d2ebcb7fa85a0a?s=16&r=g&d=monsterid" alt="YardSodM">
+<a>YardSodM</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2791"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/05/2014 20:40</span><br>
+תודה רבה. מחכה למדריכים מתקדמים יותר :).</div>
+<a id="comment2792"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielTador</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/05/2014 21:37</span><br>
+וואו!<br>
+<br>
+השקעה אדירה גבר, כל הכבוד!<br>
+אני ממש מחכה למדריכים הבאים.<br>
+<br>
+בהצלחה ;)</div>
+<a id="comment2802"></a>
+<div class="blog-comment">
+<span class='comment-author'>mmm</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2014 22:57</span><br>
+מדריך מעולה, המשך כך, ישר כוח.</div>
+<a id="comment2819"></a>
+<div class="blog-comment">
+<span class='comment-author'>נתי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/10/2014 08:12</span><br>
+הוא כותב לי שגיאה NO CPU/ABI SYSTEM IMAGE AVAILBLE FOR THIS TARGET</div>
+<a id="comment2820"></a>
+<div class="blog-comment">
+<span class='comment-author'>משה</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/11/2014 13:51</span><br>
+תודה ענקית וכל הכבוד על השקעה<br>
+למי שנתקל בשגיאה NO CPU/ABI SYSTEM IMAGE AVAILBLE FOR THIS TARGET<br>
+יכול להסתקל פה: <span dir="ltr"><a href="https://www.youtube.com/watch?v=Po6o7j8S-IQ">https://www.youtube.com/watch?v=Po6o7j8S-IQ</a></span></div>
+<a id="comment2829"></a>
+<div class="blog-comment">
+<span class='comment-author'>shimon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2015 20:58</span><br>
+תודה רבה. המדריך הבא על בישול איטי כנראה הוא משו משו...</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

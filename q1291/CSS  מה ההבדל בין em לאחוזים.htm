@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה CSS | מה ההבדל בין em לאחוזים?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>CSS | מה ההבדל בין em לאחוזים? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="CSS | מה ההבדל בין em לאחוזים? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה CSS | מה ההבדל בין em לאחוזים?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="CSS  מה ההבדל בין em לאחוזים.htm" title="כל המאמרים שקראתי על הנושא (1, 2, 3) - או שהם בכלל לא מדברים על ההבדל בין יחידות em לאחוזים (1-2), או שהם לא באמת מסבירים (3).במאמר השלישי כל מה שהבנתי זה שיש הבדלים בעקבות תקלות טכניות, או משהו כזה. כמה שברחבי האינטרנט חופרים על em, לא ראיתי בשום מקום חפירה על אחוזים. אז מה בעצם ההבדל?">CSS | מה ההבדל בין em לאחוזים?</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2013-03-09T10:26:18+02:00" style="display:inline-block;">
+09 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1291'>
+כל המאמרים שקראתי על הנושא (<a href="http://snook.ca/archives/html_and_css/font-size-with-rem">1</a>, <a href="http://clagnut.com/blog/348/">2</a>, <a href="http://kyleschaeffer.com/user-experience/css-font-size-em-vs-px-vs-pt-vs/">3</a>) - או שהם בכלל לא מדברים על ההבדל בין יחידות em לאחוזים (1-2), או שהם לא באמת מסבירים (3).<br>במאמר השלישי כל מה שהבנתי זה שיש הבדלים בעקבות תקלות טכניות, או משהו כזה. כמה שברחבי האינטרנט חופרים על em, לא ראיתי בשום מקום חפירה על אחוזים. אז מה בעצם ההבדל?<br><br><strong>עריכה:</strong><br><a href="http://stackoverflow.com/questions/15311338/whats-the-difference-between-em-units-and-percents">השאלה ב-Stack Overflow</a> </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5668">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 למרץ 2013 </span>
+<a id="answer_5668" href="CSS  מה ההבדל בין em לאחוזים.htm#answer_5668">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+% מדבר בהשוואה לאלמנט האב<br>EM מדבר בשהואאה לברירת מחדל של הדפדפן.<br><br><div class="php codeblock">div <span class="br0">&#40;</span> font<span class="sy0">-</span>size<span class="sy0">:</span> <span class="nu0">110</span><span class="sy0">%</span> <span class="br0">&#41;</span><br>
+&nbsp; <span class="sy0">-&gt;</span> <span class="me1">text</span> <span class="br0">&#40;</span>sized at <span class="nu0">110</span><span class="sy0">%</span> of browser<span class="st_h">'s default)<br>
+&nbsp; -&gt; div (font-size: 200%)<br>
+&nbsp; &nbsp; -&gt; text (sized at 200% from parent = 220% of browser)<br>
+<br>
+div ( 1.1 em)<br>
+&nbsp; -&gt; text (sized 110% of browser'</span>s <span class="kw1">default</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="sy0">-&gt;</span> <span class="me1">div</span> <span class="br0">&#40;</span> 2em<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="sy0">-&gt;</span> <span class="me1">text</span> <span class="br0">&#40;</span>sized <span class="nu0">200</span><span class="sy0">%</span> of browser<span class="st_h">'s default, not of parent)</span></div> </p>
+</div>
+<div class="answer" id="answer5669">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 09 למרץ 2013 </span>
+<a id="answer_5669" href="CSS  מה ההבדל בין em לאחוזים.htm#answer_5669">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מצאתי במפרט של W3C מידע על em שסותר את מה שאתה אומר (לפי מה שהבנתי):<br>&quot;Equal to the computed value of the ‘font-size’ property of the element on which it is used.&quot;<br>אז אני יודע מה em עושה, אבל עדיין אין לי מושג מה ההבדל בינו לבין אחוזים. לא מצאתי במפרט שום דבר על אחוזים. </p>
+</div>
+<div class="answer" id="answer5691">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 12 למרץ 2013 </span>
+<a id="answer_5691" href="CSS  מה ההבדל בין em לאחוזים.htm#answer_5691">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ענו לי ב-ב-Stack Overflow. החלטתי לסכם את התשובות:<br>- כל ערך percentage (של אחוזים; לדוגמה: 5, 9em, 204%) של line-height יחסי ל-font-size הנוכחי.<br>- יחידות em תמיד יחסיות ל-font-size הנוכחי.<br>- אחוזים תלויים בהקשר. לדוגמה, אם משתמשים בהם ב-font-size, הם יהיו יחסיים ל-font-size הנוכחי; אם זה ב-height, הם יהיו יחסיים ל-height.<br>- זה משתנה קצת כשלאלמנט הורה יש font-size המוגדר כ-small, כ-medium או כ-large, כי הערכים האלה מושפעים מהגדרות הדפדפן. בהקשר הזה, 1em לא שווה ל-100% - נראה כי 1em גורם להגדרות להיות קצת קיצונית יותר; גדול/קטן יותר מהגדול/קטן של 100%. קראו על זה עוד <a href="http://kyleschaeffer.com/user-experience/css-font-size-em-vs-px-vs-pt-vs/">פה</a>. </p>
+</div>
+<div class="answer" id="answer5693">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/550250b403b4540876614d2d3d4dd1c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mayden</a>
+ב
+<span style="font-size:10px"> 13 למרץ 2013 </span>
+<a id="answer_5693" href="CSS  מה ההבדל בין em לאחוזים.htm#answer_5693">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כל הזמן חשבתי שזה שווה לערך של 13 פיקסלים +-. ח&quot;ח על ההתעניינות! </p>
+</div>
+<div class="answer" id="answer5696">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 למרץ 2013 </span>
+<a id="answer_5696" href="CSS  מה ההבדל בין em לאחוזים.htm#answer_5696">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני מתכוון לתרגם בקרוב את <strong>ה</strong>מאמר שמסביר על שימוש ב-em. לבינתיים אתה יכול לקרוא על <a href="http://orelbey.wordpress.com/2013/03/06/%d7%a7%d7%91%d7%99%d7%a2%d7%aa-%d7%92%d7%95%d7%93%d7%9c-%d7%92%d7%95%d7%a4%d7%9f-%d7%a2%d7%9d-%d7%99%d7%97%d7%99%d7%93%d7%95%d7%aa-rem/">מה שונה ב-rem ב-CSS</a> אם אתה רוצה. :-)<br><br><strong>עריכה:</strong> הנה קישור למאמר שתרגמתי/ערכתי על <a href="http://orelbey.wordpress.com/2013/04/06/%d7%90%d7%99%d7%9a-%d7%9c%d7%a9%d7%a0%d7%95%d7%aa-%d7%92%d7%95%d7%93%d7%9c-%d7%92%d7%95%d7%a4%d7%9f-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%99%d7%97%d7%99%d7%93%d7%95%d7%aa-em/">em ב-CSS בהרחבה</a>. עדכנתי גם את הקישור ל-rem למעלה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

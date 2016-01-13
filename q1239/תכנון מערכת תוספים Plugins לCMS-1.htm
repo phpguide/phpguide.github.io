@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה תכנון מערכת תוספים (Plugins) ל-CMS">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>תכנון מערכת תוספים (Plugins) ל-CMS | שאלת לימוד PHP</title>
+<meta itemprop="name" content="תכנון מערכת תוספים (Plugins) ל-CMS | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה תכנון מערכת תוספים (Plugins) ל-CMS">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="תכנון מערכת תוספים Plugins לCMS-1.htm" title="למישהו יש רעיון לאלגוריתם כללי לאפשר פלאגינים במערכת? מדובר בפלאגינים שיוכלו לשלוט כמעט בכל דבר - לוח הבקרה, דפים באתר וכדו&amp;#039;.נ.ב. מה עם מערכת ו&amp;#039;ידגטים?">תכנון מערכת תוספים (Plugins) ל-CMS</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2013-02-06T17:26:12+02:00" style="display:inline-block;">
+06 לפברואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1239'>
+למישהו יש רעיון לאלגוריתם כללי לאפשר פלאגינים במערכת? מדובר בפלאגינים שיוכלו לשלוט כמעט בכל דבר - לוח הבקרה, דפים באתר וכדו&#039;.<br>נ.ב. מה עם מערכת ו&#039;ידגטים? </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5420">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5420" href="תכנון מערכת תוספים Plugins לCMS-1.htm#answer_5420">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשתמש בהורשה עם מחלקות.. כמו קונטרולרים בMVC </p>
+</div>
+<div class="answer" id="answer5421">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5421" href="תכנון מערכת תוספים Plugins לCMS-1.htm#answer_5421">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני אישית לא מזהה קשר בין הורשה וקונטרולרים לבין פלאגינים<br>אבל אני בהחלט מזהה קשר בין <a href="..\observer pattern.htm">observer</a> לפלאגינים.<br><br>המטרה של observer היא לנעל סוג של מרכזיית דואר.<br>המערכת שלך אחרי כל פעולה תשלח הודעה למרכזיה שהיה אירוע כלשהו<br>ומישהו שירצה יפנה אל המרכזיה בנפרד ויבקש ממנה להודיע לו כל פעם שהיה אירוע מסוים.<br><br>בתור אירועים אפשר להסתכל על &quot;יצירת עמוד&quot;, &quot;שליפה ממסד&quot;, &quot;שמירת תוכן של עמוד&quot;<br>כאשר מישהו יירשם לאותו אירוע של שמירת תוכן, ולפני השמירה עצמה ישנה אותו קצת, למשל יעביר דרך bbcode parser<br><br>מקומות מסוימים יהיו קצת יותר קשים לביצוע בצורה הזו, למשל תצוגה של עמוד<br>שאת אותה תצוגה פלאגין כלשהו צריך לשנות. ( ולפלאגין מסוג כזה קוראים ווידגט) <br>פה במקום לשנות את התצוגה באמצעות איבנט ומישהו שרשום אליו<br>יהיה יותר נכון לעשות על ידי זה, שהמנוע תבניות שלך ישאיר מקום מסוים בתבנית עבור ווידגטים <br>וכאשר ירנדר את העמוד - יפנה אל כל אחד מהווידגטים שנטענו וישאל אותו אם יש לו איזה תצוגה מועילה שצריך להוסיף לעמוד.<br><br><br>ככה או ככה, ממליץ לך להתסכל על איך wordpress מימשו את מנגנון הפלאגינים שלהם (ואפילו לכתוב על זה מדריך כלשהו) </p>
+</div>
+<div class="answer" id="answer5434">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5434" href="תכנון מערכת תוספים Plugins לCMS-1.htm#answer_5434">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקיי, תודה רבה. אני אלמד על דרך הפעולה של ו&#039;ורדפרס בנושא הזה, ואז סביר להניח שאני אכתוב על זה משהו. :) </p>
+</div>
+<div class="answer" id="answer5438">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fde6f4fb89c317dd68a45195e576983f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>alexmelo</a>
+ב
+<span style="font-size:10px"> 08 לפברואר 2013 </span>
+<a id="answer_5438" href="תכנון מערכת תוספים Plugins לCMS-1.htm#answer_5438">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש ספר ששמו CMS Design Using PHP and jQuery<br>יש שם הסבר איך לעשות את מה שאתה רוצה פלאגנים וויג&#039;טים כמו בwordpress<br>http://www.packtpub.com/cms-design-using-php-and-jquery/book </p>
+</div>
+<div class="answer" id="answer5439">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 08 לפברואר 2013 </span>
+<a id="answer_5439" href="תכנון מערכת תוספים Plugins לCMS-1.htm#answer_5439">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה. :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

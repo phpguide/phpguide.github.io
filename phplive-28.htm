@@ -1,0 +1,27 @@
+<head/><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;
+<br/></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">A
+<br/></span><span style="color: #007700">{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">blabla</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">)&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$param</span><span style="color: #007700">;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">saySomething</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$callback</span><span style="color: #007700">)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Will&nbsp;call&nbsp;callback&nbsp;function:&nbsp;\r\n"</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$callback</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">saySomethingElse</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saySomething</span><span style="color: #007700">(</span><span style="color: #0000BB">$param</span><span style="color: #007700">,&nbsp;[</span><span style="color: #0000BB">$this</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'blabla'</span><span style="color: #007700">]);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>}
+<br/>
+<br/></span><span style="color: #0000BB">$aInstance&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">();
+<br/></span><span style="color: #0000BB">$aInstance</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saySomething</span><span style="color: #007700">(</span><span style="color: #DD0000">'hello'</span><span style="color: #007700">,&nbsp;[</span><span style="color: #0000BB">$aInstance</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'blabla'</span><span style="color: #007700">]);
+<br/>echo&nbsp;</span><span style="color: #DD0000">"\r\n\r\n"</span><span style="color: #007700">;
+<br/></span><span style="color: #0000BB">$aInstance</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saySomethingElse</span><span style="color: #007700">(</span><span style="color: #DD0000">'world'</span><span style="color: #007700">);</span>
+</span>
+</code>1

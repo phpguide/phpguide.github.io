@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מחיקת קובץ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="zacharya">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מחיקת קובץ | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מחיקת קובץ | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מחיקת קובץ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">9</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מחיקת קובץ.htm" title="יש לי את הקוד הבא:if&amp;#40;isset&amp;#40;$_GET&amp;#91;&apos;delete&apos;&amp;#93;&amp;#41;&amp;#41;
+&amp;nbsp; &amp;#123;
+&amp;nbsp; $file = $_GET">מחיקת קובץ</a></h2>
+<div class="userinfo">
+פתח
+<a>zacharya</a>
+,
+<time class="timeago relativetime" datetime="2013-05-07T04:44:01+03:00" style="display:inline-block;">
+07 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1426'>
+יש לי את הקוד הבא:<br><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'delete'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$file</span> <span class="sy0">=</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'delete'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$site</span> <span class="sy0">=</span> <span class="st_h">'http://ncode.bbp.co.il/'</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$folder</span> <span class="sy0">=</span> <span class="st_h">'file/'</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$loc</span> <span class="sy0">=</span> <span class="re0">$site</span><span class="sy0">.</span><span class="re0">$folder</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">file_exists</span><span class="br0">&#40;</span><span class="br0">&#40;</span><span class="re0">$loc</span><span class="sy0">.</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">unlink</span><span class="br0">&#40;</span><span class="re0">$loc</span><span class="sy0">.</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>delete_file<span class="br0">&#40;</span><span class="re0">$loc</span> <span class="sy0">,</span> <span class="re0">$file</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$messg</span> <span class="sy0">=</span> <span class="co3">&lt;&lt;&lt;html<br>
+&nbsp; &lt;script&gt; alert (&quot;הקובץ נמחק בהצלחה!&quot;); &lt;/script&gt;<br>
+html</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$messg</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$err2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error</span> <span class="sy0">=</span> <span class="co3">&lt;&lt;&lt;html<br>
+&nbsp; &nbsp; &lt;script&gt; alert (&quot;הקובץ שאתה מנסה למחוק אינו קיים, בטוח שזה הוא קישור המחיקה?&quot;); &lt;/script&gt;<br>
+html</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$error</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>אבל מסיבה מסויימת מבחינתו הקובץ אף פעם לא קיים (file exists יוצא שלילי תמיד). </div>
+</div>
+<h3>
+<span id="answersCounter">9 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6342">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6342" href="מחיקת קובץ.htm#answer_6342">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לקובץ יש הרשאות 777? </p>
+</div>
+<div class="answer" id="answer6343">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6343" href="מחיקת קובץ.htm#answer_6343">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$site</span> <span class="sy0">=</span> <span class="st_h">'http://facebook.com/'</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$folder</span> <span class="sy0">=</span> <span class="st_h">'file/'</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$loc</span> <span class="sy0">=</span> <span class="re0">$site</span><span class="sy0">.</span><span class="re0">$folder</span></div><br><br>איך אתה רואה את זה קורה?<br>הקוד מתחבר רגע facebook.com ומוחק משם את הקובץ index.php ?<br>או שאולי צריך לתת לו את הנתיב של הקובץ במחשב הנוכחי? כמו<br>C:\wamp/www/whatever/httpdocs<br><br><br>---<br>אין פונקציה כזו כמו delete_file. </p>
+</div>
+<div class="answer" id="answer6347">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6347" href="מחיקת קובץ.htm#answer_6347">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הבנתי את התשובה שלך...<br>וראיתי את הפונקצייה הזאת בלארן בוק. </p>
+</div>
+<div class="answer" id="answer6351">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6351" href="מחיקת קובץ.htm#answer_6351">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש סוגים שונים של כתובות. הכתובת שאתה משתמש בה היא כתובת בפרוטוקול HTTP, היא לא קשורה למה שאתה מנסה לעשות. כשאתה אומר לשרת למחוק את הקובץ, אתה &quot;נמצא&quot; בתוך השרת, אתה לא פונה אליו בפרוטוקול אינטרנט, אלא כמו במחשב שלך. עכשיו תנסה לקרוא שוב את מה שהוא כתב. :-)<br>בקשר לפונקציה - השתמשו בה שם כי הגדירו אותה שם. אתה לא יכול לגשת אליה סתם כך. מפענח ה-PHP שלך לא מודע לזה שבאתר אחר איפשהו שם יש מדריך עליו (יש סיכוי שהוא יהיה די מוחמא, האמת), ושבמדריך הזה הגדירו פונקציה והשתמשו בה. :-) </p>
+</div>
+<div class="answer" id="answer6354">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6354" href="מחיקת קובץ.htm#answer_6354">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז איך אני מגדיר את המחיקה כאילו היא במחשב שלי? </p>
+</div>
+<div class="answer" id="answer6355">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6355" href="מחיקת קובץ.htm#answer_6355">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול להשתמש בנתיב יחסי. כלומר, אם אתה (הסקריפט שלך) נמצא ב:<br><div class="php codeblock">C<span class="sy0">:</span>\wamp\www\index<span class="sy0">.</span>php</div><br>ואתה רוצה למחוק קובץ בשם blablabla.php שנמצא בתת-תיקייה (abc) של התיקייה שבתוכה index.php, תכתוב:<br><div class="php codeblock">abc\blablabla<span class="sy0">.</span>php</div><br><br>או שתשתמש ב<a href="https://www.google.co.il/search?q=php+absolute+path&amp;aq=f&amp;oq=php+absolute+path&amp;aqs=chrome.0.57j0l3j62l2.8990j0&amp;sourceid=chrome&amp;ie=UTF-8">נתיב מוחלט</a>. שים לב ש<strong>אם אתה משתמש במאפיינים סופר-גלובליים (כולל $_SERVER), אתה צריך לסנן את הנתונים קודם.</strong> </p>
+</div>
+<div class="answer" id="answer6367">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6367" href="מחיקת קובץ.htm#answer_6367">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הבנתי כל כך, החלק של הסקריפט הוא על השרת, אז אין לי מושג מה המיקום שלו.<br>החלק עם הנתיב מוחלט, תוכל להראות קוד לדוגמה? </p>
+</div>
+<div class="answer" id="answer6370">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 07 למאי 2013 </span>
+<a id="answer_6370" href="מחיקת קובץ.htm#answer_6370">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה מארגן שם את התיקיות ואת הקבצים, יש לך מושג מדויק איפה הקובץ שאתה רוצה (בנתיב יחסי).<br>בנתיב מוחלט - אתה רק צריך להגיע לתיקיית השורש של ה&quot;אתר&quot; עצמו. ואת זה אתה יכול להשיג בקלות. תגגל קצת, ותמצא אלפי דוגמאות קוד. </p>
+</div>
+<div class="answer" id="answer6372">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 08 למאי 2013 </span>
+<a id="answer_6372" href="מחיקת קובץ.htm#answer_6372">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+השתמשתי במשתנה $_SERVER[&quot;DOCUMENT_ROOT&quot;] </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

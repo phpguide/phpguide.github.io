@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הSMTP של ג&apos;ימייל מבקש לשים פקד STARTTLS, לא מבין...">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="boolval">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>הSMTP של ג&apos;ימייל מבקש לשים פקד STARTTLS, לא מבין... | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הSMTP של ג&apos;ימייל מבקש לשים פקד STARTTLS, לא מבין... | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הSMTP של ג&apos;ימייל מבקש לשים פקד STARTTLS, לא מבין...">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm" title="היום הורדתי מחדש את הWAMP בגלל בעיה שהייתה לי,הגדרתי את smtp.gmail.com כשרת SMTP שישמש לי לשלוח מיילים מהוואמפ,שאני בא לשלוח מייל אני מקבל את השגיאה הבאה:&amp;quot;( ! ) Warning: mail() [&amp;lt;a href=&amp;#039;function.mail&amp;#039;&amp;gt;function.mail&amp;lt;/a&amp;gt;]: SMTP server response: 530 5.7.0 Must issue a STARTTLS command first. z8sm74041002eeo.11 in C:\wamp\www\face-guide\actions\model.php on line 20&amp;quot;(חשוב לציין שהבעיה לא בmodel.php זה בקשה של הSMTP),אני מתכנת ">הSMTP של ג&apos;ימייל מבקש לשים פקד STARTTLS, לא מבין...</a></h2>
+<div class="userinfo">
+פתח
+<a>boolval</a>
+,
+<time class="timeago relativetime" datetime="2012-12-29T19:28:44+02:00" style="display:inline-block;">
+29 לדצמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1155'>
+היום הורדתי מחדש את הWAMP בגלל בעיה שהייתה לי,<br>הגדרתי את smtp.gmail.com כשרת SMTP שישמש לי לשלוח מיילים מהוואמפ,<br>שאני בא לשלוח מייל אני מקבל את השגיאה הבאה:<br><br>&quot;( ! ) Warning: mail() [&lt;a href=&#039;function.mail&#039;&gt;function.mail&lt;/a&gt;]: SMTP server response: 530 5.7.0 Must issue a STARTTLS command first. z8sm74041002eeo.11 in C:\wamp\www\face-guide\actions\model.php on line 20&quot;<br><br>(חשוב לציין שהבעיה לא בmodel.php זה בקשה של הSMTP),<br>אני מתכנת PHP (חיוני לדעת מכיוון שיש את מה שאני מבקש בעוד כמה שפות),<br>תודה מראש לעוזרים. </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5081">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 30 לדצמבר 2012 </span>
+<a id="answer_5081" href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm#answer_5081">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+גוגל רוצים שהחיבור לשרת ה SMTP שלהם יתבצע דרך https<br><br>אופציה א: להוריד ספריה חיצונית לשליחת אמיילים. אני משתמש ב swiftmailer לשלוח אימיילים.<br>אופציה ב: לשנות בהגדרות של השרת את כתובת ה smtp<br><div class="php codeblock"><span class="kw3">ini_set</span><span class="br0">&#40;</span><span class="st0">&quot;SMTP&quot;</span><span class="sy0">,</span><span class="st0">&quot;ssl://smtp.gmail.com&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">ini_set</span><span class="br0">&#40;</span><span class="st0">&quot;smtp_port&quot;</span><span class="sy0">,</span><span class="st0">&quot;465&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer5082">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/db52fa3ec93a5d5f221399cf1ed5b0ee?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>boolval</a>
+ב
+<span style="font-size:10px"> 30 לדצמבר 2012 </span>
+<a id="answer_5082" href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm#answer_5082">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל שליחת מיילים מתבצעת באמצעות SMTP, אני יכול לשלוח דרך האחסון שלי אבל אין לי עצבים כל שניה לגשת לאחסון בשביל לבדוק דברים קטנים, אני צריך שליחת מייל על הוואמפ...<br><br>מה אפשר לעשות? </p>
+</div>
+<div class="answer" id="answer5083">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 30 לדצמבר 2012 </span>
+<a id="answer_5083" href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm#answer_5083">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+להשתמש ב swiftmailer<br>ככה שזה ישלח תמיד דרך גימייל גם מהאחסון וגם מהוואמפ </p>
+</div>
+<div class="answer" id="answer5084">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/db52fa3ec93a5d5f221399cf1ed5b0ee?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>boolval</a>
+ב
+<span style="font-size:10px"> 30 לדצמבר 2012 </span>
+<a id="answer_5084" href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm#answer_5084">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אמרת שג&#039;ימייל דורשים https ואין לי את זה... </p>
+</div>
+<div class="answer" id="answer5085">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 30 לדצמבר 2012 </span>
+<a id="answer_5085" href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm#answer_5085">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פורסם פה באתר:<br><a href="..\שליחת אימייל לוקאלי wamp.htm">4 צעדים לשליחת אימיילים ב-wamp</a> </p>
+</div>
+<div class="answer" id="answer5086">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/db52fa3ec93a5d5f221399cf1ed5b0ee?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>boolval</a>
+ב
+<span style="font-size:10px"> 30 לדצמבר 2012 </span>
+<a id="answer_5086" href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm#answer_5086">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה לשניכם, אבדוק מחר :) </p>
+</div>
+<div class="answer" id="answer5087">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 30 לדצמבר 2012 </span>
+<a id="answer_5087" href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm#answer_5087">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+swiftMailer זה ספריה לשליחת מיילים שמתחברת לשרת ה SMTP לבד </p>
+</div>
+<div class="answer" id="answer5092">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/db52fa3ec93a5d5f221399cf1ed5b0ee?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>boolval</a>
+ב
+<span style="font-size:10px"> 02 לינואר 2013 </span>
+<a id="answer_5092" href="הSMTP של גימייל מבקש לשים פקד STARTTLS לא מבין.htm#answer_5092">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא משנה, הבעיה הייתה בקובץ הini של sendmail, כתבתי smtp_server=smtp_server=smtp.gmail.com ,<br>תודה חבר&#039;ה :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

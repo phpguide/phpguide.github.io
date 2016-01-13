@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שאלה על עיצוב מסד">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ldbrgr">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שאלה על עיצוב מסד | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שאלה על עיצוב מסד | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שאלה על עיצוב מסד">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שאלה על עיצוב מסד-1.htm" title="מה עדיף:מצב ראשון:שתי טבלאות, אחת movies עם קצת שדות (בערך 20) ואחת movies_metadata (שתחיל 4 שדות: ID, Movie_ID, key, value), **במקום שבטבלה movies יהיה שדה title יהיה את ה key &amp;quot;title&amp;quot; והvalue שלו.. (מערך)מצב שני:טבלה אחת שתכיל את כל הערכים שיכולים להיות בסרט (בערך 200) ולרוב 50% היו ריקים (לא לכל סרט יש סרט המשך\פייסבוק פייג&amp;#039;\ערוץ ביוטיוב וכו&amp;#039;).עכשו יש כמה Views לסרט; תמונות מהסרט שבו אני">שאלה על עיצוב מסד</a></h2>
+<div class="userinfo">
+פתח
+<a>ldbrgr</a>
+,
+<time class="timeago relativetime" datetime="2013-02-12T22:22:08+02:00" style="display:inline-block;">
+12 לפברואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1247'>
+מה עדיף:<br><strong>מצב ראשון:</strong><br>שתי טבלאות, אחת movies עם קצת שדות (בערך 20) ואחת movies_metadata <br>(שתחיל 4 שדות: ID, Movie_ID, key, value), <br>**במקום שבטבלה movies יהיה שדה title יהיה את ה key &quot;title&quot; והvalue שלו.. (מערך)<br><br><strong>מצב שני:</strong><br>טבלה אחת שתכיל את כל הערכים שיכולים להיות בסרט (בערך 200) ולרוב 50% היו ריקים (לא לכל סרט יש סרט המשך\פייסבוק פייג&#039;\ערוץ ביוטיוב וכו&#039;).<br><br>עכשו יש כמה Views לסרט; תמונות מהסרט שבו אני שולף בערך <em>20</em> שדות (במצב הראשון זה <em>20</em> שאילתות &quot;קלות&quot;, במצב השני זאת שאילתא אחת &quot;כבדה&quot;).<br>בView של הכותר אני שולף בערך <em>140</em> שדות (מצב ראשון: זה <em>140</em> שאילתות &quot;קלות&quot;, במצב שני שאילתא אחת &quot;כבדה&quot;)<br><br><br>מבחינת סידור למערכת - אני מעדיף ת&#039;מצב הראשון, ככה אין יותר מדי שדות ואני יכול להוסיף מפתחות בלי להוסיף שדה לטבלה.<br><br>אבל מבחינת מהירות?<br><br>מבחינת ביצועים?<br><br>מה עדיף? תודה מראש </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5464">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2013 </span>
+<a id="answer_5464" href="שאלה על עיצוב מסד-1.htm#answer_5464">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקרה של שני טבלאות זה סה&quot;כ שני שאילתות מאוד מהירות:<br>אחת לשלוף את המידע על הסרט ואחת לשלוף את כל השורות שקיימות ב metadata<br><br>זה יהיה טיפה יותר איטי מלשלוף שורה אחת עם המון שדות ריקים אבל לא בהרבה.<br>קח בחשבון שברגע שאתה תתחיל להרגיש עומס על השרת שלך, אתה תכניס כמות גדולה של לשיפות לקאש <br>והשאלה הזו יחסית תרד מהפרק, לכן אני הייתי הולך על האופציה הראשונה, שתמשור את הטבלאות יותר נקיות וקטנות.<br><br>אגב, השאלה שלך היא usecase קלאסי למסד נתונים כמו MongoDb או CoucheDb שמאפשר לשמור רשומות עם כמות שדות שונה ומשונה. אם אתה הולך להפעיל את האתר על שרת משלך - זה אחלה הזדמנות להכיר ולהתנסות עם מסד נתונים חדש. </p>
+</div>
+<div class="answer" id="answer5475">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5475" href="שאלה על עיצוב מסד-1.htm#answer_5475">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקרה הראשון אלו לא היו 2 שאילתות (או שכן?), כי אני לא רוצה לטעון את כל הmetadata של הסרט לזיכרון אז אני שולף רק את הדרושים..<br>במקרה שאני צריך את השם של הסרט (title) השאילתא תיהיה כזאת:<br><div class="php codeblock"><span class="st0">&quot;SELECT `ID`, `value` FROM `movie_metadatas` WHERE `mid` = '<span class="es4">{$movie-&gt;id}</span>' AND `key` = '<span class="es4">{$key}</span>' LIMIT 1;&quot;</span> <span class="co1">// $key = 'title';</span></div> וכו&#039; לגבי כל מפתח..<br>ולא שאילתא אחת כזאת:<br><div class="php codeblock"><span class="st0">&quot;SELECT `ID`, `value`, `key` FROM `movie_metadatas` WHERE `mid` = '<span class="es4">{$movie-&gt;id}</span>';&quot;</span></div><br><br>או שעדיף לשלוף את כל המפתחות בשאילתא אחת (ובמקרה של עדכון, עדיף לעדכן כל מפתח בנפרד או את כולן [רק אלו שהשתנו] באותה השאילתא..) ? </p>
+</div>
+<div class="answer" id="answer5476">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5476" href="שאלה על עיצוב מסד-1.htm#answer_5476">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אופציה א. לעשות 20 שליפות רק למטה דטה שאתה צריך<br>אופציה ב. לעשות שליפה אחת של 50 שורות ולהתעלם ממה שאתה לא צריך בצד של הסקריפט.<br><br>אופציה א. יותר איטית בגלל שיש הרבה פניות למסד, הרבה קריאות נפרדות מדיסק בצד של המסד והרבה תעבורה בין PHP למסד<br>אופציה ב. אוכלת יותר זכרון. אם תחשב פי כמה יותר זיכרון, תגלה שזה מספר יחסית נמוך שבהחלט שווה את זה. </p>
+</div>
+<div class="answer" id="answer5480">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2013 </span>
+<a id="answer_5480" href="שאלה על עיצוב מסד-1.htm#answer_5480">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה 20 שליפות?<br><div class="php codeblock">SELECT `ID`<span class="sy0">,</span>`value`<span class="sy0">,</span>`<span class="kw3">key</span>`<br>
+FROM `metaData`<br>
+WHERE `<span class="kw3">key</span>` IN<span class="br0">&#40;</span><span class="st_h">'title'</span><span class="sy0">,</span><span class="st_h">'facebook'</span><span class="sy0">,</span><span class="st_h">'twitter'</span><span class="sy0">,</span><span class="st_h">'googleplus'</span><span class="br0">&#41;</span></div> </p>
+</div>
+<div class="answer" id="answer5486">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 15 לפברואר 2013 </span>
+<a id="answer_5486" href="שאלה על עיצוב מסד-1.htm#answer_5486">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@iiddaannyy אפשרי אבל אני לא יכול &quot;לנחש&quot; איזה מפתחות כל view צריך ואם אני אגדיר אותם בכל קונטרולר זה הורס ת&#039;דנמיות שאני שואף לה..<br><br>@intval<br>תודה רבה, אני הלך עם אופציה ב.. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

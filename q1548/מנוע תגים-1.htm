@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מנוע תגים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mmm">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מנוע תגים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מנוע תגים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מנוע תגים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מנוע תגים-1.htm" title="שלום חברים, נניח ויש לי טבלה של כתבות.יש בה ID, כותרת, תוכן, ועוד מספר ערכים.יש בה גם תא שנקרא לו TAGS.עכשיו בתא יש יותר מתג אחד, והתגים מופרדים בפסיק, נניח &amp;quot;android,samsung,aosp&amp;quot;.יש לי דף שבו אני רוצה לרכז את כל הכתבות בעלי התג &amp;quot;AOSP&amp;quot;, עכשיו ברור שזה לא יעיל לשלוף את כל הכתבות ולעשות EXPLODE ולנטר את התג הנכון.מצד שני אין לי מושג איך לעשות שאילתה כזו, שיודעת למצוא מילה מתוך טקסט ארוך.אשמח להכוונה בנושא.">מנוע תגים</a></h2>
+<div class="userinfo">
+פתח
+<a>mmm</a>
+,
+<time class="timeago relativetime" datetime="2013-06-27T14:00:13+03:00" style="display:inline-block;">
+27 ליוני 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1548'>
+שלום חברים, נניח ויש לי טבלה של כתבות.<br>יש בה ID, כותרת, תוכן, ועוד מספר ערכים.<br>יש בה גם תא שנקרא לו TAGS.<br><br>עכשיו בתא יש יותר מתג אחד, והתגים מופרדים בפסיק, נניח &quot;android,samsung,aosp&quot;.<br>יש לי דף שבו אני רוצה לרכז את כל הכתבות בעלי התג &quot;AOSP&quot;, עכשיו ברור שזה לא יעיל לשלוף את כל הכתבות ולעשות EXPLODE ולנטר את התג הנכון.<br>מצד שני אין לי מושג איך לעשות שאילתה כזו, שיודעת למצוא מילה מתוך טקסט ארוך.<br><br>אשמח להכוונה בנושא. </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7024">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 28 ליוני 2013 </span>
+<a id="answer_7024" href="מנוע תגים-1.htm#answer_7024">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">where tags like <span class="st_h">'%blatag%'</span></div><br>ובשביל לא ליפול על תאגים שהטקסט שלהם יכול להיות חלק של טאג אחר, אפשר לחפש עם פסיקים<br><div class="php codeblock">where tags like <span class="st_h">'%,blatag,%'</span></div><br>אבל זה יצריך ממך תמיד להוסיף שני פסיקים בעת השמירה למסד </p>
+</div>
+<div class="answer" id="answer7025">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 28 ליוני 2013 </span>
+<a id="answer_7025" href="מנוע תגים-1.htm#answer_7025">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה אלכס </p>
+</div>
+<div class="answer" id="answer7026">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 28 ליוני 2013 </span>
+<a id="answer_7026" href="מנוע תגים-1.htm#answer_7026">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אגב באותו עניין: איך אפשר להכניס למסד תג חדש (מבלי למחוק את הקיימים ומבלי לשלוף את התגים הקיימים ואז להוסיף להם תג חדש ולהכניס, כי זה סתם יקח הרבה זמן).. </p>
+</div>
+<div class="answer" id="answer7027">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 28 ליוני 2013 </span>
+<a id="answer_7027" href="מנוע תגים-1.htm#answer_7027">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה בעיה אחת במבנה הנוכחי של המסד.<br>יכול להיות שתרצה לעשות מבנה אחר של מסד, עם קשר רבים אל רבים<br>או בכלל להחליף מסד. </p>
+</div>
+<div class="answer" id="answer7029">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 28 ליוני 2013 </span>
+<a id="answer_7029" href="מנוע תגים-1.htm#answer_7029">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תוכל לפרט? </p>
+</div>
+<div class="answer" id="answer7034">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 28 ליוני 2013 </span>
+<a id="answer_7034" href="מנוע תגים-1.htm#answer_7034">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טבלה של כתבות, טבלה של תגים, וטבלה אחת שמחברת ביניהן (עמודה עם ID של כתבה ועמודה עם ID של תג).<br>כך אתה יכול לכתוב שאילתות שיחפשו למשל את כל הכתבות שיש להם תגים מסוימים. (1. שליפה של ה-ID של התג הרצוי. 2. חיפוש של המופעים שלו בטבלת הקשרים. 3. שליפת הכתבות שנמצאו (אם בכלל) מהטבלה שלהן לפי ה-ID.)<br>זה הרבה יותר נקי ורצוי מאשר לעשות חיפוש טקסט מלא. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

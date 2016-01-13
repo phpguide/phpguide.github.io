@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="השימוש בסשן גורם לשני סקריפטים לחקות אחד לשני במקום לעבוד במקביל">
+<meta name="keywords" content="session, lock, paraller, resource">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>על נעילת סשנים או איך כולם חיקו לבקשה אחת </title>
+<meta itemprop="name" content="על נעילת סשנים או איך כולם חיקו לבקשה אחת ">
+<meta itemprop="description" content="השימוש בסשן גורם לשני סקריפטים לחקות אחד לשני במקום לעבוד במקביל">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"222","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>על נעילת סשנים או איך כולם חיקו לבקשה אחת </h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-06-25T16:51:58+03:00" dir="rtl">25 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/queue1.png" alt="על נעילת סשנים או איך כולם חיקו לבקשה אחת ">
+</div>
+<div class="right post-content">
+כשמדובר בתהליכים מקבילים, המחשבים פשוט מתקפלים ונסוגים לביצוע פעולות בתורות, פעולה אחרי פעולה. באיחוד כאשר זה נוגע לניצול משאבים משותפים, כמו מסד נתונים, כרטיס הרשת או קבצים. ככה קרה שגם הסשן הוא אחד מאותם משאבים משותפים. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>הצילו, למה ננעל לי הסשן?</h3><br>כשפרוצס מנסה לערוך משאב מסוים — הוא נועל אותו. כל זה נעשה כדי למנוע מצב מאוד פשוט - אם שני פרוצסים ינסו לכתוב משהו לסוף הקובץ, הראשון ינסה לרשום 111 והשני ינסה לרשום 222 - התוצאה שנקבל תהיה דומה ל-122112. ברוב המקרים זה לא התוצאה שהיינו רוצים לקבל ולכן אנחנו מוסיפים נעילות, שעוצרות את הפרוצס השני מלגשת אל המשאב, עד שהראשון יסיים.<br><br>סשן, שמבוסס על קבצים, חולק גורל זהה לכל קובץ אחר. ברגע ששני סקריפטים מקבילים מנסים לקרוא או לכתוב לשם נתונים, הראשון נועל את הסשן והשני נתקע. ולא רק שאין לנו הרבה שליטה על התהליך, אלה גם טעינת כל דף מורכבת מהמון בקשות לשרת וחלק מהם מופנות אל סקריפטים שמתחילים בשורה session_start<br><br><br><h3>נא להיכנס לפאניקה!</h3><br>בואו נריץ את שני הסקריפטים הבאים:<br><br><strong><span class="dirleft">test1.php</span></strong><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="kw3">session_start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$_SESSION</span><span class="br0">&#91;</span><span class="st_h">'test1'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="kw3">sleep</span><span class="br0">&#40;</span><span class="nu0">20</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'script1 has completed'</span><span class="sy0">;</span></div><br><strong><span class="dirleft">test2.php</span></strong><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="kw3">session_start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$_SESSION</span><span class="br0">&#91;</span><span class="st_h">'test2'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'script2 has completed'</span><span class="sy0">;</span></div><br><br>נפעיל את script1 ובזמן שהוא עושה את שלו נפעיל גם את script2.<br>..כעבור זמן מה..<br>תופיע הודעת הסיום בסקריפט 2, אבל זה קורה לא לפני, שסקריפט מספר אחד מסיים.<br>הסיבה מאוד פשוטה - סקריפט2 מנסה לגשת אל קובץ הסשן, מגלה שקובץ הסשן תפוס ומחקה בתור בשקט.<br><br><br><h3>הללויה session_write_close</h3><br>אחד הפתרונות לבעיה זו היא להגיד ל-PHP שסיימנו, שלא נעשה יותר שינויים לסשן בסקריפט הזה ושאפשר לרשום את הסשן לקובץ ולשחרר את הנעילה. את הפעולה הזו מבצעת הפונקציה <a href="http://php.net/session_write_close">session_write_close</a> ובקוד זה נראה ככה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="kw3">session_start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$_SESSION</span><span class="br0">&#91;</span><span class="st_h">'test1'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="kw3">session_write_close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">sleep</span><span class="br0">&#40;</span><span class="nu0">20</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'script1 has completed'</span><span class="sy0">;</span></div><br><br><h4>אבל לא צריך לרוץ לשים את זה בכל סקריפט</h4><br>קודם כל PHP מבצעת את הפעולה הזו ממילא בסוף הסקריפט לכן לקרוא לפעולה הזו בכוונה בסוף הסקריפט יהיה חסר תועלת. שנית, המקרה הברור שבו רצוי לשים את הפעולה הזו היא ברגע שיש כמה בקשות מקבילות לשרת אל סקריפטים, כמו frames בעמוד או javascriptים, סטיילים ותמונות שנוצרות בצורה דינאמית בשרת, דוגמאת קאפצ&#039;ה.<br><br><br>ואם פתאום גיליתם שמשום מה סקריפטים שאמורים להתבצע במקביל מחכים אחד לשני במקום זאת — סשן זו כנראה הסיבה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1695"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2012 22:28</span><br>
+אחלה כתבה :)<br>
+אהבתי.</div>
+<a id="comment1696"></a>
+<div class="blog-comment">
+<span class='comment-author'>NaseemIB96</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2012 22:35</span><br>
+תודה רבה לך, רק שאלה קטנה :<br>
+הפונקציה sleep זו פונקציה שעוצרת לזמן מסיום ? כמו במקרה שלמעלה זה עוצר ל 20 שניות ?</div>
+<a id="comment1697"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2012 22:44</span><br>
+כן</div>
+<a id="comment1698"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/06/2012 08:43</span><br>
+תודה רבה.<br>
+אני זוכר שלפני כמה זמן הייתי מציג (עם curl) להמשתמש לעמוד מסוים אם קרתה שגיאה.<br>
+באותו עמוד מסוים הייתי צריך להשתמש בסשן, ומה שקרה זה בעצם שהסקריפט הראשון השתמש בקוקי, שגרם לסקריפט השני (שאליו שלחתי בקשה עם curl) להמתין לסקריפט הראשון שיסיים עם הקוקי, אבל הסקריפט הראשון גם ממתין לסקריפט השני שיחזיר לו תשובה, וככה נכנסתי ללולאה אינסופית ולא היה לי מושג מה לא בסדר. :)<br>
+<br>
+לבסוף הבנתי שזו הבעיה והשתמש בפונקציה. (:</div>
+<a id="comment1699"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/06/2012 08:43</span><br>
+*במקום קוקי -&gt; סשן.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הגנה מפני SQL Injection והסכנות שבתוכן המשתמש">
+<meta name="keywords" content="sql injection, אבטחת מידע, pdo, mysql_real_escape_string">
+<meta name="author" content="iosolidar">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>SQL Injection</title>
+<meta itemprop="name" content="SQL Injection">
+<meta itemprop="description" content="הגנה מפני SQL Injection והסכנות שבתוכן המשתמש">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"108","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>SQL Injection</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iosolidar, </div>
+<div class="right">&nbsp;<time datetime="2011-06-21T21:09:34+03:00" dir="rtl">21 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.arch.pvt.k12.ia.us/CathCharities/jpgtiffs/Jail.jpg" alt="SQL Injection">
+</div>
+<div class="right post-content">
+SQL injection יכולה להרוס לכם את האתר, הגנה מפניה היא בבסיס אבטחת האתר. המדריך הבא יסביר כיצד היא פועלת וכיצד ניתן להתגונן מפניה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>מה זה SQL Injection?</h3><br>SQL היא שפה לתקשורת עם בסיסי נתונים מבוססי טבלאות, היא מאפשרת ליצור, למחוק, לשנות ערכים ושדות של טבלאות ולנהל מידע בצורה יעילה ומהירה. רוב אתרי ה-PHP משתמשים בבסיס נתונים בשם MySQL בכדי לנהל את המידע של האתר. אך פעמים רבות נוצרות בעיות אבטחה בשימוש לא נכון ב-SQL, לדוגמה ניקח את קוד התחברות ללוח הניהול הבא:<br><br><div class="php codeblock"><span class="re0">$conn</span> <span class="sy0">=</span> <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'user'</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st0">&quot;database&quot;</span><span class="sy0">,</span> <span class="re0">$conn</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$username</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$password</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM Users where username='<span class="es4">$username</span>' and password='<span class="es4">$password</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">mysql_fetch_row</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> “Access Granted”<span class="sy0">;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> “Access Denied”<span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>PHP מחליפה את המשתנים <span dir="ltr">$username</span> ו-<span dir="ltr">$password</span> בערכים שמתקבלים ב-POST כך שאם נשים לדוגמה את הערך admin בשדה שם המשתמש ו-123456 בשדה הסיסמה השאילתא שתיווצר היא זו:<br><br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM Users WHERE username<span class="sy0">=</span><span class="st_h">'admin'</span> AND password<span class="sy0">=</span><span class="st_h">'123456'</span></div><br><br>אך מה יקרה אם במקום להכניס שם משתמש וסיסמה סטנדרטיים שהמערכת מצפה להם נספק את הערך <span dir="ltr">admin'</span> עם גרש יחיד בסוף? השאילתא שתיצוור היא:<br><br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM Users WHERE username<span class="sy0">=</span><span class="st_h">'admin'</span><span class="st_h">' AND PASSWORD='</span><span class="nu0">123456</span><span class="st_h">'</span></div><br><br>שתגרום לשגיאת SQL כיוון שפתחנו מחרוזת (הגרש היחיד) בלי לסגור אותה.<br><br>מה שקורה הוא שהתוכן שנמצא בשדה שם המשתמש מפורש על ידי mysql_query כחלק מהתחביר של פקודת ה-SQL ומריץ אותה ככזו. תוקף יכול להשתמש בזה בשביל ליצור שאילתות מסוכנות יותר כמו לדוגמה במקרה שבו התוקף מכניס בשדה שם המשתמש את התוכן הבא:<br><br><div class="php codeblock"><span class="st_h">' or 1=1--</span></div><br><br>השאילתא שתיווצר במקרה הזה היא:<br><br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM Users WHERE username<span class="sy0">=</span><span class="st_h">''</span> or <span class="nu0">1</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">--</span><span class="st_h">' AND password='</span><span class="st_h">'</span></div><br><br>הגרש היחיד משמש לסגירת המחרוזת כך שנוצרת שאילתא חדשה שאומרת לבסיס הנתונים, “אני מעוניין בשורות שבהם התנאי שם המשתמש שווה לכלום או במקרה שבו התנאי 1=1 נכון”, מכיוון ש-1 תמיד יהיה שווה ל-1 השאילתא תחזיר את כל המשתמשים במערכת. המקף הכפול בסוף השאילתא אומר ל-MySQL להתעלם משאר השאילתא בשביל למנוע שגיאת SQL.<br><br>ניתן ליצור שאילתות מורכבות יותר שיספקו לתוקף את כל השדות והשורות בטבלאות שלכם, לקרוא קבצים שנמצאים על השרת או אפילו במקרים מסויימים להעלות קבצים שיאפשרו שליטה מלאה על השרת.<br><br>חשוב להבין שכל קלט שמגיע מהמשתמש הוא פוטנציאלית מסוכן ולא רק $_POST ו_$_GET. לדוגמה במקרה שבו כתבנו אפליקציית דיבוג שנותנת לנו מידע על דפים שלא נמצאו (404) או שגיאות (500) נרצה לשמור את ה-URL שיצר את השגיאה בבסיס הנתונים. אם השאילתות לא מוגנות המערכת תהיה פגיעה ל-URL מסוכן שמכיל קוד SQL. זה נכון גם לגבי עוגיות שיכולות להכיל מידע בעייתי או ה-referrer או ה-User Agent של המשתמש. כל מידע שמגיע מהמשתמש הוא פוטנציאלית מסוכן ודורש הגנה ראויה.<br><br><h3>הגנה מפני SQL Injection</h3><br><h4>mysql_real_escape_string</h4><br>ישנן שתי דרכים להגנה מפני המתקפה. הנפוצה אך הפחות בטוחה היא שימוש בפונקציה mysql_real_escape_string שמוסיפה סלאש הפוך (\) ליד תווים בעייתים כך שהם לא מפורשים כתווים מיוחדים בשפת SQL. לדוגמה:<br><div class="php codeblock"><span class="re0">$username</span> <span class="sy0">=</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$password</span> <span class="sy0">=</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM Users WHERE username='<span class="es4">$username</span>' and password='<span class="es4">$password</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">mysql_fetch_row</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;access granted&quot;</span><span class="sy0">;</span><br>
+<span class="kw1">else</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;access denied&quot;</span><span class="sy0">;</span></div><br><br>הקוד הבא ימנע SQL Injection כיוון שכאשר התוקף ינסה להשתמש בתווים מיוחדים בשביל ליצור שאילתות SQL זה ימנע ממנו, באמצעות הברחת תווים מיוחדים:<br><br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="st0">&quot;admin' or 1=1--&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<br>
+output<span class="sy0">:</span> admin\<span class="st_h">' or 1=1--</span></div><br><br>אך הפונקציה הזו לא בטוחה בכל המקרים כמו למשל במקרה שמדובר בשדה מספרי ולא נבדק שהערך הוא ערך מספרי:<br><br><div class="php codeblock"><span class="re0">$id</span> <span class="sy0">=</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT page,title,date from Articles where id=<span class="es4">$id</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>במקרה כזה האפליקציה עדיין פגיעה ל-SQL Injection כיוון שניתן להחדיר פקודות SQL ללא תווים מיוחדים, לדוגמה:<br><br><div class="php codeblock"><span class="sy0">-</span><span class="nu0">1</span> union select <span class="kw4">null</span><span class="sy0">,</span><span class="kw4">null</span><span class="sy0">,</span><span class="kw4">null</span> from Articles<span class="sy0">--</span></div><br><br><br>שתיצור את השאילתא הבאה:<br><br><div class="php codeblock"><span class="kw3">mysql_query</span><span class="br0">&#40;</span>“SELECT page<span class="sy0">,</span>title<span class="sy0">,</span><span class="kw3">date</span> from Articles where id<span class="sy0">=-</span><span class="nu0">1</span> union select <span class="kw4">null</span><span class="sy0">,</span><span class="kw4">null</span> from Articles<span class="sy0">--</span>”<span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ערכים שהם לא מחרוזות צריכים לבדוק או להתייחס אליהם כמחרוזות בתוך השאילתא באמצעות הוספת גרש, המתקפה למעלה יכולה להימנע באמצעות:<br><br><div class="php codeblock"><span class="kw3">mysql_query</span><span class="br0">&#40;</span>“SELECT page<span class="sy0">,</span>title<span class="sy0">,</span><span class="kw3">date</span> from Articles where id<span class="sy0">=</span><span class="st_h">'$id'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>כיוון שישנן מרכאות MySQL יתייחס לתוכן כמחרוזת, ותווים בעיתים יטופלו על mysql_real_escape_string.<br><br><br><h3>Parameterized Statements ו-PDO</h3><br><br>הדרך הנכונה והמומלצת לעבוד בכדי למנוע SQL Injection היא שימוש בטכניקה שנקראת parameterized statements שבה ישנה הפרדה בין הקוד לבין הערכים. ב-PHP ישנו API לבסיסי נתונים בשם PDO שיש לו הרבה יתרונות על פונקציות ה-mysql_*. האובייקט מאפשר לתקשר עם יותר מבסיס נתונים אחד למשל עם sqlite או orcale ולא רק עם MySQL. יש לו יתרונות נוספים כמו מהירות, אך לצורך המדריך היתרון הכי גדול שלו הוא השימוש ב-parametrized statements.<br><br>הנה דוגמה לשימוש ב-PDO:<br><br><div class="php codeblock"><span class="re0">$dbhost</span> <span class="sy0">=</span> <span class="st_h">'localhost'</span><span class="sy0">;</span><br>
+<span class="re0">$dbname</span> <span class="sy0">=</span> <span class="st_h">'database'</span><span class="sy0">;</span><br>
+<span class="re0">$dbuser</span> <span class="sy0">=</span> <span class="st_h">'user'</span><span class="sy0">;</span><br>
+<span class="re0">$dbpass</span> <span class="sy0">=</span> <span class="st_h">'pass'</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$pdo_info</span> <span class="sy0">=</span> <span class="st0">&quot;mysql:host=<span class="es4">$dbhost</span>;dbname=<span class="es4">$dbname</span>&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$conn</span> <span class="sy0">=</span> <span class="kw2">new</span> PDO<span class="br0">&#40;</span><span class="re0">$pdo_info</span><span class="sy0">,</span> <span class="re0">$dbuser</span><span class="sy0">,</span> <span class="re0">$dbpass</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$st</span> <span class="sy0">=</span> <span class="re0">$conn</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM Users WHERE username=? and password=?&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$st</span><span class="sy0">-&gt;</span><span class="me1">setFetchMode</span><span class="br0">&#40;</span>PDO<span class="sy0">::</span><span class="me2">FETCH_ASSOC</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$st</span><span class="sy0">-&gt;</span><span class="me1">bindParam</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$st</span><span class="sy0">-&gt;</span><span class="me1">bindParam</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$st</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$r</span> <span class="sy0">=</span> <span class="re0">$st</span><span class="sy0">-&gt;</span><span class="me1">fetch</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$r</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>$pdo_info זה הפרמטר הראשון ביצירה של אובייקט PDO חדש, הוא מכיל את בסיס הנתונים המדובר, במקרה הזה mysql, לאחר מכן נקודתיים והפרמטרים host ו-dbname. הארגיומנט השני ל-PDO הוא שם המשתמש של המסד והשלישי הסיסמה.<br>בשורה:<br><div class="php codeblock"><span class="re0">$st</span> <span class="sy0">=</span> <span class="re0">$conn</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM Users WHERE username=? and password=?&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>מופיעה המתודה prepare שיוצרת שאילתא חדשה ומקמפלת אותה לטיפוס נתונים פנימי שהוא יעיל יותר. סימני השאלה הם החלק החשוב והם משמשים כמחזיקי מקום לערכים שלאחר מכן ימולאו באמצעות המתודה bindParam.<br>השורה לאחר מכן:<br><div class="php codeblock"><span class="re0">$st</span><span class="sy0">-&gt;</span><span class="me1">setFetchMode</span><span class="br0">&#40;</span>PDO<span class="sy0">::</span><span class="me2">FETCH_ASSOC</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אומרת ל-PDO שאנחנו מעוניינים לקבל את הערכים בתור מילון של מפתחות וערכים, זה החלופה ל-mysql_fetch_assoc.<br>בשורות הבאות אנחנו משתמשים ב-bindParam בשביל להחליף את סימני השאלה עם ערכים, כאשר הארגיומנט הראשון הוא מספר סימן השאלה (ראשון, שני, שלישי...) והשני הוא הערך שאותו אנחנו מעוניינים להחליף.<br><br>עד עכשיו הכנו את השאילתא, אך רק כאשר נשתמש במתודה execute השאילתא תרוץ על השרת.<br><br>השיטה הזה מונעת SQL Injection לחלוטין והיא המומלצת ביותר לשימוש. ישנם עוד מתודות רבות ואופציות ל-PDO ואני ממליץ לקרוא את הדוקומנטציה הרשמית שמופיעה ב-<a href="http://php.net/manual/en/book.pdo.php">http://php.net/manual/en/book.pdo.php</a> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/577835562fa9e54ea5f73adf6b887062?s=16&r=g&d=monsterid" alt="iosolidar">
+<a>iosolidar</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment236"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2011 22:11</span><br>
+מדריך מצוין ביותר. כתוב בצורה ברורה ומובנת, מעוצב בפסקאות עם כותרות כפי שצריך והכי חשוב - באמת מסביר מה זה sql injection ואיך להגן מפניה.<br>
+<br>
+עד עכשיו אף פעם לא חשבתי על זה ש mysql_real_escape_string יהיה מסוכן עבור פרמטרים מספריים, למרות שעם mysql אני משתמש בו וב-intval להבחרת הקלט.<br>
+<br>
+כמובן שאני בעד pdo או mysqli במקרים קטנים.</div>
+<a id="comment237"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2011 00:43</span><br>
+תודה רבה, מדריך מעולה.<br>
+אגב, אשמח אם תפרט בתגובה/בפורום על union select/union select all.<br>
+כי אני משתמש בזה המון להזרקת SQL, אך באמת שאין לי מושג מה קורה שם מאחורי הקלעים, אשמח מאוד להסבר על שתי הפונקציות. תודה!</div>
+<a id="comment238"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2011 02:18</span><br>
+מאמר נחמד מאוד (:<br>
+<br>
+גם אני ממליץ לעבור לעבוד עם MySQLi או PDO ולא רק במקרים קטנים אלכס .</div>
+<a id="comment239"></a>
+<div class="blog-comment">
+<span class='comment-author'>iosolidar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2011 02:27</span><br>
+union מאפשרת לך לאחד מספר שאילתות select ולקבל את הנתונים בתור טבלה אחת. union all עושה אותו הדבר רק שהיא לא מסירה תוצאות כפולות. תיצור שתי טבלאות ותתנסה אחרי שתקרא את הדוקומנטציה הרשמית של union פה -&gt; <span dir="ltr"><a href="http://dev.mysql.com/doc/refman/5.0/en/union.html">http://dev.mysql.com/doc/refman/5.0/en/union.html</a></span><br>
+<br>
+בגלל שברוב הזמן אנחנו לא יודעים את שמות השדות אנחנו משתמשים במספרים/null בשביל לא לקבל שגיאה ולגלות את מספר העמודות. mysql פשוט ישים את המספר שלנו בתשובה. לאחר שיש לנו את מספר העמודות אנחנו יכולים להשתמש בפונקציות מיוחדות של בסיס הנתונים ובסיסי נתונים/טבלאות מיוחדים בשביל לקבל עוד מידע על מבנה בסיס הנתונים או על קבצים מיוחדים שיש בשרת כמו /etc/passwd או במקרים מסויימים אפילו העלאת קבצים באמצעות select into outfile.<br>
+<br>
+כל הדברים האלה נמצאים בדוקומנטציה הרשמית של MySQL שמכילה הרבה מידע מעניין.</div>
+<a id="comment241"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2011 11:41</span><br>
+ומה יקרה במצב ובו יש לי בשאילתא סימן שאלה שאני לא רוצה להחליף במשתנה?</div>
+<a id="comment242"></a>
+<div class="blog-comment">
+<span class='comment-author'>iosolidar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2011 12:34</span><br>
+זה לא משנה. PDO עושה הפרדה מלאה בין ערכים לבין קוד, זה בדיוק ההבדל בין parameterised statements ו-mysql_real_escape_query, שהוא לא מבריח תווים אלא מתייחס אליהם כנפרדים לחלוטין.<br>
+<br>
+מתקפות שקשורות בהזרקת קוד כמו SQL Injection מתבססים על העובדה שיש שתי שפות סקריפט שהאחת רצה מהשניה ואתה מבלבל את המפרש של אחת מהן. במקרה הזה את המפרש SQL. מה ש-parameterised statements עושים זה מקמפלים את השאילתא לטיפוס נתונים פנימי ולאחר מכן שמים ערכים כך שבסיס הנתונים יודע בדיוק מה ההבדל בין תוכן לבין קוד. זה כמו לכתוב קוד SQL בתוך קובץ text, יש לך רק שפה אחת שמעורבת בזה SQL ואתה שם לב מתי אתה כותב קוד ומתי יש ערכים.</div>
+<a id="comment244"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2011 21:51</span><br>
+תודה רבה,<br>
+אתה בהחלט צודק. חובה להזהר מפריצות כאלו ואחרות, ולהגן על האתר :).</div>
+<a id="comment245"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/06/2011 17:07</span><br>
+תודה רבה על המדריך !</div>
+<a id="comment1065"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/01/2012 23:01</span><br>
+עם אני לא מעוניין בOOP?<br>
+</div>
+<a id="comment1067"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 11:53</span><br>
+יכול להיות שיעניין אותך לקרוא את מה שכתוב בכתבה. <br>
+הגנה מפני SQL Injection <br>
+תת סעיף mysql_real_escape_string</div>
+<a id="comment1099"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 13:39</span><br>
+מתי כבר אנשים ילמדו שרכיב ישן והפונקציות: &quot;_mysql&quot; מתו!<br>
+צריך להשתמש בPDO או ב MySQLi<br>
+ואז לא היו דאגות לSQL inj.<br>
+<br>
+בכל מקרה כל הכבוד.</div>
+<a id="comment1624"></a>
+<div class="blog-comment">
+<span class='comment-author'>ניב</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2012 07:19</span><br>
+סתם מעניין לדעת, מה ההבדל בין PDO לבין MySqli?</div>
+<a id="comment1629"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2012 11:58</span><br>
+הראשון עובד עם הרבה מדסי נתונים<br>
+השני מיועד ספציפית ל mysqli ומכאן מבצע דברים בהתאמה ויעילות רבה יותר.</div>
+<a id="comment1896"></a>
+<div class="blog-comment">
+<span class='comment-author'>HayMiz</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/08/2012 20:49</span><br>
+תודה רבה,נותן המון מידע - מעולה!</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<head/><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;
+<br/>$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">PASSWORD_BCRYPT</span><span style="color: #007700">;
+<br/></span><span style="color: #0000BB">$hash&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">password_hash</span><span style="color: #007700">(</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">);
+<br/>
+<br/>if(</span><span style="color: #0000BB">password_verify</span><span style="color: #007700">(</span><span style="color: #0000BB">$inputPassword</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$hashFromDb</span><span style="color: #007700">))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'authenticated'</span><span style="color: #007700">;
+<br/>
+<br/>if(!</span><span style="color: #0000BB">password_needs_rehash</span><span style="color: #007700">(</span><span style="color: #0000BB">$hashFromDb</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">,&nbsp;[</span><span style="color: #DD0000">'cost'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">]))
+<br/>{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$newHash&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">password_hash</span><span style="color: #007700">(</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">,&nbsp;[</span><span style="color: #DD0000">'cost'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">]);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$newHash</span><span style="color: #007700">);
+<br/>}
+<br/>
+<br/>
+<br/></span><span style="color: #0000BB">password_get_info</span><span style="color: #007700">(</span><span style="color: #0000BB">$hashFromDb</span><span style="color: #007700">);&nbsp;
+<br/></span><span style="color: #FF8000">/*
+<br/>[&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;algo&nbsp;=&gt;&nbsp;PASSWORD_BCRYPT
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;algoName&nbsp;=&gt;&nbsp;'blowfisha'
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;cost&nbsp;=&gt;&nbsp;10
+<br/>]
+<br/>*/</span>
+</span>
+</code>1

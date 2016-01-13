@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שמירת משתנה לסשיין בלארוול דרך אג&apos;קס לא נשמרת בסשיין">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="vu47678">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שמירת משתנה לסשיין בלארוול דרך אג&apos;קס לא נשמרת בסשיין | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שמירת משתנה לסשיין בלארוול דרך אג&apos;קס לא נשמרת בסשיין | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שמירת משתנה לסשיין בלארוול דרך אג&apos;קס לא נשמרת בסשיין">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  unanswered">
+<div class="item-count">0</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שמירת משתנה לסשיין בלארוול דרך אגקס לא נשמרת בסשיין-1.htm" title="I want to save some var to my session, and when i make the request with ajax this dont work. This is the ajax$http.post&amp;#40;&apos;saveToSession&apos;, &amp;#123;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; hunts: hunts
+&amp;nbsp; &amp;nbsp; &amp;#125;&amp;#41;;">שמירת משתנה לסשיין בלארוול דרך אג&apos;קס לא נשמרת בסשיין</a></h2>
+<div class="userinfo">
+פתח
+<a>vu47678</a>
+,
+<time class="timeago relativetime" datetime="2014-12-16T15:25:42+02:00" style="display:inline-block;">
+16 לדצמבר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2089'>
+I want to save some var to my session, and when i make the request with ajax this dont work. This is the ajax<br><div class="php codeblock"><span class="re0">$http</span><span class="sy0">.</span>post<span class="br0">&#40;</span><span class="st_h">'saveToSession'</span><span class="sy0">,</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; hunts<span class="sy0">:</span> hunts<br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>the controller:<br><br><div class="php codeblock"><span class="kw2">class</span> HuntController <span class="kw2">extends</span> \BaseController <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> saveItems<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Session<span class="sy0">::</span><span class="me2">put</span><span class="br0">&#40;</span><span class="st_h">'hunts'</span><span class="sy0">,</span> Input<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'hunts'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> Response<span class="sy0">::</span><span class="me2">json</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'saved'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> destroy<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Session<span class="sy0">::</span><span class="me2">forget</span><span class="br0">&#40;</span><span class="st_h">'hunts'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp;<span class="kw2">public</span> <span class="kw2">function</span> getHunts<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> Session<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'hunts'</span><span class="br0">&#41;</span> <span class="co1">// dont exits</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">0 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

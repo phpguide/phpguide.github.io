@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה preg_match - לא להתייחס לרווחים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nirbe">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>preg_match - לא להתייחס לרווחים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="preg_match - לא להתייחס לרווחים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה preg_match - לא להתייחס לרווחים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="preg_match  לא להתייחס לרווחים.htm" title="שלום,הייתי מעוניין לדעת האם ואיך אפשר להתעלם מרווחים וריווחי שורות ב preg_match.זה הביטוי:/method &amp;#40;.*&amp;#41;\&amp;#123;&amp;#40;.*&amp;#41;\&amp;#125;/הבעיה היא כאשר אני יורד שורה אחרי ה } וכותב משהו ו">preg_match - לא להתייחס לרווחים</a></h2>
+<div class="userinfo">
+פתח
+<a>nirbe</a>
+,
+<time class="timeago relativetime" datetime="2012-09-14T16:07:48+03:00" style="display:inline-block;">
+14 לספטמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1039'>
+שלום,<br>הייתי מעוניין לדעת האם ואיך אפשר להתעלם מרווחים וריווחי שורות ב preg_match.<br>זה הביטוי:<br><div class="php codeblock"><span class="sy0">/</span>method <span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>\<span class="br0">&#123;</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>\<span class="br0">&#125;</span><span class="sy0">/</span></div><br><br>הבעיה היא כאשר אני יורד שורה אחרי ה } וכותב משהו ויורד שורה וכותב }, אז PHP נותנת לי שגיאה, בגלל שאני חייב לכתוב הכל בשורה אחת.<br><br>איך אפשר להתעלם מהרווחים?<br><br>תודה רבה! </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4545">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לספטמבר 2012 </span>
+<a id="answer_4545" href="preg_match  לא להתייחס לרווחים.htm#answer_4545">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז צריך לסמן בביטוי הרגולרי שיהיה תו } ואחריו יכול להיות ויכול שלא להיות תו של מעבר שורה.<br>תו של מעבר שורה מסמנים ב \n </p>
+</div>
+<div class="answer" id="answer4546">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 14 לספטמבר 2012 </span>
+<a id="answer_4546" href="preg_match  לא להתייחס לרווחים.htm#answer_4546">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עשיתי את זה עכשיו:<br><div class="php codeblock"><span class="sy0">/</span>method <span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>\<span class="br0">&#123;</span>\n<span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>\n\<span class="br0">&#125;</span><span class="sy0">/</span></div><br>והשורות זה:<br><div class="php codeblock">method bla<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; background<span class="sy0">-</span>color<span class="sy0">:</span> red<span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>וזה עדיין לא מחזיר לי כמו שצריך, עדיין את השגיאה..<br>זה הקוד:<br><div class="php codeblock"><span class="re0">$final</span> <span class="sy0">=</span> <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">&quot;/method (.*)\{<span class="es1">\n</span>(.*)<span class="es1">\n</span>\}/&quot;</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">file</span><span class="sy0">,</span> <span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">methods</span><span class="br0">&#91;</span><span class="re0">$matches</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$matches</span><span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4547">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לספטמבר 2012 </span>
+<a id="answer_4547" href="preg_match  לא להתייחס לרווחים.htm#answer_4547">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="st_h">'method bla<br>
+{<br>
+&nbsp; &nbsp; background-color: red;<br>
+}'</span><span class="sy0">;</span><br>
+<span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">&quot;#method \s+ ([a-z0-9]+) [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* \{ [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* ([^\}]*) [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* \}#imsuUx&quot;</span><span class="sy0">,</span> <span class="re0">$text</span><span class="sy0">,</span> <span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4554">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 15 לספטמבר 2012 </span>
+<a id="answer_4554" href="preg_match  לא להתייחס לרווחים.htm#answer_4554">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה, אני צריך ללמוד איך זה פועל.<br>אבל עכשיו יש לי בעיה כשאני מנסה להכניס הכל למערך, ונגיד יש לי:<br><div class="php codeblock">method bla<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; background<span class="sy0">-</span>color<span class="sy0">:</span> red<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+method blo<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; background<span class="sy0">-</span>color<span class="sy0">:</span> red<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+method ble<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; background<span class="sy0">-</span>color<span class="sy0">:</span> red<span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>אני רוצה להכניס את כולם לתוך מערך, מפתח והתוכן שלו.<br>אני עושה משהו כזה:<br><div class="php codeblock"><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">&quot;#method \s+ ([a-z0-9]+) [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* \{ [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* ([^\}]*) [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* \}#imsuUx&quot;</span><span class="sy0">,</span> <span class="re0">$text</span><span class="sy0">,</span> <span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">methods</span><span class="br0">&#91;</span><span class="re0">$matches</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$matches</span><span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br><br>וזה לא עובד, כי הוא מבצע את זה פעם אחת, אז בדקתי כמה שורות יש ועשיתי עם לולאה, זה לא עבד, אחר כך הגדלתי את הלולאה ל 20000 פעמים, וזה עדיין לא עבד...<br>ככה אני עושה את זה:<br><div class="php codeblock"><span class="kw1">for</span> <span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">&lt;=</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">count</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">&quot;#method \s+ ([a-z0-9]+) [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* \{ [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* ([^\}]*) [\s<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\t</span>]* \}#imsuUx&quot;</span><span class="sy0">,</span> <span class="re0">$text</span><span class="sy0">,</span> <span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">methods</span><span class="br0">&#91;</span><span class="re0">$matches</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$matches</span><span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><strong>* אני עכשיו מנסה לעשות את זה עם מערכים דו מימדים ו preg_match_all<br>יש מצב שאני מצליח, אם לא, אני יכתוב פה.</strong> </p>
+</div>
+<div class="answer" id="answer4555">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 15 לספטמבר 2012 </span>
+<a id="answer_4555" href="preg_match  לא להתייחס לרווחים.htm#answer_4555">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אחרי שעתיים שלמות ששברתי בהם את הראש, הצלחתי!<br>תודה על העזרה, זה האתר מספר 1! </p>
+</div>
+<div class="answer" id="answer4560">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 16 לספטמבר 2012 </span>
+<a id="answer_4560" href="preg_match  לא להתייחס לרווחים.htm#answer_4560">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+intval, אני לא מבין מה עשית שם, אפשר הסבר כדי שאני יוכל לעשות את זה לבד מהראש שלי?<br>והאם יש איזה ביטוי קצר יותר?<br>אני מנסה לעשות כזה דבר:<br><div class="php codeblock"><span class="co2">#bla<br>
+</span><span class="br0">&#123;</span><br>
+&nbsp;blo<br>
+<span class="br0">&#125;</span></div><br><br>ואני רוצה להוציא את ה BLA ואת ה BLO, ואני רוצה שלא משנה, גם אם זה יהיה בשורה אחת או בכמה שורות&#039; זה תמיד יקלט. </p>
+</div>
+<div class="answer" id="answer4561">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 16 לספטמבר 2012 </span>
+<a id="answer_4561" href="preg_match  לא להתייחס לרווחים.htm#answer_4561">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\ביטויים_רגולריים.htm">לפי המדריך הזה</a><br>תעבור תו תו ותנסה להבין מה הוא אומר.<br><br>אחרי שתסיים - תגיד לי איזה תו <strong>בדיוק</strong> לא הבנת ממה שכתוב שם :) </p>
+</div>
+<div class="answer" id="answer4562">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 16 לספטמבר 2012 </span>
+<a id="answer_4562" href="preg_match  לא להתייחס לרווחים.htm#answer_4562">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי בערך והצלחתי בערך, אבל בתוך הבלוק יש לי משהו כזה:<br><div class="php codeblock"><span class="co2">#bla<br>
+</span><span class="br0">&#123;</span><br>
+&nbsp;<span class="br0">&#123;</span>test<span class="br0">&#125;</span><br>
+&nbsp;color<span class="sy0">:</span> white<span class="sy0">;</span><br>
+&nbsp;border<span class="sy0">:</span> 1px solid black<span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>עכשיו הוא נקטע לפני ה { האחרון אחרי ה test, איך אפשר לסדר שיתעלם ממנו ופשוט יחזיר למערך את זה:<br><div class="php codeblock"><span class="br0">&#123;</span>test<span class="br0">&#125;</span><br>
+&nbsp;color<span class="sy0">:</span> white<span class="sy0">;</span><br>
+&nbsp;border<span class="sy0">:</span> 1px solid black<span class="sy0">;</span></div><br><br>הוא מציג לי עכשיו<br><div class="php codeblock"><span class="br0">&#123;</span>test</div><br><br>זה הביטוי:<br><div class="php codeblock"><span class="co2">#\#(.*) [\s\r\n\t]* \{ [\s\r\n\t]* ([^\}]*) [\s\r\n\t]* \}#imsuUx</span></div><br><br>תודה רבה! </p>
+</div>
+<div class="answer" id="answer4563">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 16 לספטמבר 2012 </span>
+<a id="answer_4563" href="preg_match  לא להתייחס לרווחים.htm#answer_4563">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בעיקרון אי אפשר, באיחוד במקרים שיש לך מחרוזת כמו<br><div class="php codeblock">method bla<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">..</span><span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+method blu<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="br0">&#123;</span> <span class="sy0">..</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>או אפילו כימוס יותר עמוק שבתוך הסוגריים הפנימיות יהיה עוד איזה משהו<br>בגלל שאתה בביטוי הרגולרי שלך יכול לגרום לו לעצור או ב { הראשון<br>או ב { האחרון.<br><br>אם אתה רוצה שהוא ידלג על סוגריים פנימיים, תצטרך לכתוב לולאה משלך שעוברת תו-תו בטקסט וסופרת כמה סוגריים מסולסלות נפתחו ואחרי זה נסגרו. <br><br>אם רמת העומק המירבי הוא 2, כלומר בתוך הסוגריים המסולסלות הפנימיות לא יהיה עוד משהו שיכול להכיל סוגריים מסולסות - אז אפשר לנסות לכתוב ביטוי שמאשר סוגריים מסולסלות ואם היו כאלה, אז חייב להיות עוד סוגר מסולסל אחרי זה. </p>
+</div>
+<div class="answer" id="answer4564">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 16 לספטמבר 2012 </span>
+<a id="answer_4564" href="preg_match  לא להתייחס לרווחים.htm#answer_4564">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פשוט נחליף את הסוגריים המסולסלות לרגילות, לא צריך להסתבך יותר מדי עכשיו.<br>תודה רבה! אם תיהיה לי בעיה אני אכתוב פה. </p>
+</div>
+<div class="answer" id="answer4568">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 17 לספטמבר 2012 </span>
+<a id="answer_4568" href="preg_match  לא להתייחס לרווחים.htm#answer_4568">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר להוריד את המודיפיקטור U. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

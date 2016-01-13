@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="המדריך השני בסדרת המדריכים - התקנה ותצורה בסיסית.">
+<meta name="keywords" content="laravel, פריימוורק, PHP, framework, לארבל">
+<meta name="author" content="ArielSafari">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>2# סדרת מדריכי laravel - התקנה ותצורה בסיסית (בערך)</title>
+<meta itemprop="name" content="2# סדרת מדריכי laravel - התקנה ותצורה בסיסית (בערך)">
+<meta itemprop="description" content="המדריך השני בסדרת המדריכים - התקנה ותצורה בסיסית.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"363","rating":"6","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>2# סדרת מדריכי laravel - התקנה ותצורה בסיסית (בערך)</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ArielSafari, </div>
+<div class="right">&nbsp;<time datetime="2014-04-09T18:08:21+03:00" dir="rtl">09 לאפריל 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://s11.postimg.org/kmp1zvxhr/laravel.png" alt="2# סדרת מדריכי laravel - התקנה ותצורה בסיסית (בערך)">
+</div>
+<div class="right post-content">
+אהבתם את הפריימוורק הפופולארי והמגניב? אם כן - אז הגיע הזמן להתקין אותו!<br>במדריך אני אסביר את להתקין את laravel שלב-אחר-שלב גם בווינדווס, וגם במערכות הפעלה מבוססות לינוקס (שזה כולל את mac...).<br>כל זאת ועוד, במדריך השני על בסדרת המדריכים על הפרימוורק laravel! <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שלום!<br>אז אם קראתם את המדריך הקודם שלי - &quot;<a href="1 סדרת מדריכי laravel  הסבר בסיסי וייתרונות.htm"><span style="color:blue;">laravel - הסבר בסיסי וייתרונות</span></a>&quot; ואהבתם את הפרימוורק, אז תמשיכו לקרוא, כי במדריך היום נדבר על ההתקנה של laravel, ועל קונפיגורצייה בסיסית.<br><br>אז בואו נתחיל!<br><br><h2>דרישות המערכת ודרישות ממך</h2><br>את laravel ניתן להתקין כמעט על כל שרת, (גם על שרתים מבוססי cPanel כמו GoDaddy או 000webhost וכו&apos;) אבל שרת VPS - (ראשי תיבות של Virtual Private Servers), שבו אתם מקבלים גישה לקונסולה (אם במבוסס-לינוקס - terminal ואם בוינדווס - cmd) יקל על תהליך ההתקנה באופן ניכר. בגלל שאין לי נסיון בהתקנת laravel על שרת שיתופי (שרת בסגנון של cPanel, שבו אתם לא עובדים עם קונסולה, אלא עם מערכת פשוטה שבה כבר הכל (כולל ה-php וה-mySql) כבר מותקן - כמו 99% מהאתרי אחסון החינמיים) - אז אני לא הולך לכתוב על שיטת ההתקנה על שרת כזה. אני הולך להראות לכם את תהליך ההתקנה על שרת VPS - שבו יש לכם גישה לקונסולה.<br>אז אם אתם רוצים להתקין את laravel על שרת שיתופי - תחפשו מדריך אחר בגוגל...<br><br><span style="color:gray;"><em>הערת שוליים: אם אתם לא רוצים כרגע להתקין את laravel, אבל אתם בכל מקרה רוצים ללמוד איך להשתמש בה - אז אני מציע לכם לפתוח פרוייקט laravel חדש באתר http://phpassist.com/.</em></span><br><br>אז אם ביררתם, ויש אפשרות לגשת לשורת הפקודה מהשרת שלכם, (אם יש לכם שרת localhost שנמצא על מחשב הווינדווס שלכם, ולא על שרת מרוחק, אז לא תהיה לכם בעיה להתקין... פשוט תעברו לחלק של ההתקנה בווינדווס כאן למטה...), אז תוכלו להמשיך במדריך.<br><br>הדרישות של השרת:<br>PHP &gt;= 5.3.7 - גרסת ה-php שלכם אמורה להיות גרסה 5.3.7 או יותר.<br>MCrypt PHP Extension - כנסו לקובץ ה-php.ini ותדאגו שההרחבה &quot;MCrypt&quot; דלוקה...<br><br>אם הכול טוב - תמשיכו במדריך :)<br><br><br><h2>וסוף כל סוף - ההתקנה עצמה!</h2><br>אז אם עברתם על החלק של הדרישות, ומצאתם שאתם מתאימים, אז הגיע הזמן להתקין את הפרימוורק הנכסף!<br><br>אז החלק הזה במדריך ייתחלק ל-2 חלקים - התקנה בווינודס, והתקנה בלינוקס (לגרסותיו ומערכות הפעלותיו...)<br><br>אז נתחיל ממערכת ההפעלה הנפוצה יותר:<br><br><h4>התקנת laravel על windows</h4><br>אני מצאתי ביוטיוב סרטון נחמד שמסביר בצורה טובה מאוד את ההתקנה על גבי ווינווס, אז מי שרוצה שייראה את הסרטון:<br><iframe width="480" height="390" src="http://www.youtube.com/embed/m3D894qZKws?rel=0" frameborder="0" allowfullscreen=""></iframe><br>אבל מי שמעדיף - אני אכתוב גם את ההתקנה בעברית:<br>כדי להתקין את laravel צריך להוריד composer - אם אתם לא כל כך יודעים מה זה, לא חשוב. תעקבו אחר ההוראות.<br><br>1. היכנסו לאתר https://getcomposer.org/download/, ותרדו למטה עד שתגיעו לחלק &quot;Windows Installer&quot;, שם תלחצו על הלינק &quot;Composer-Setup.exe&quot;, ותתחיל ההורדה. (או שפשוט תיכנסו ישירות ללינק הבא https://getcomposer.org/Composer-Setup.exe וההורדה תחל אוטומטית...)<br><br>2. התקינו את composer. (פשוט נקסט-נקסט, ואז תבחרו במהלך ההתקנה את קובץ ה-php.exe, של ה&quot;שרת&quot; שלכם (חפשו את הקובץ ברחבי המחשב...), ואז עוד כמה נקסט וסיימתם.)<br><br>3. פתחו את ה-cmd, ותכתבו בתוך ה-cmd את הביטוי &quot;composer&quot; ותלחצו אנטר. אתם אמורים לראות משהו כזה:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="2# סדרת מדריכי laravel - התקנה ותצורה בסיסית (בערך)" title="http://imageshack.com/a/img541/8213/jcle.png" class="content-image-float"><br>אם זה מה שאתם רואים, אז התקנתם את composer בצורה טובה, ואפשר להתחיל בהתקנת laravel.<br><br>4. עכשיו תכתבו בשורת הפקודות את הביטוי הבא: (אבל אל תלחצו אנטר בינתיים, קודם תקראו את מה שרשום מתחת...)<br><strong><span style="color:darkred;"><span class="dirleft">composer create-project laravel/laravel {the-dir-for-laravel} --prefer-dist</span></span></strong><br>עכשיו אני אסביר מה הולך פה שלב שלב.<br>אז קודם כל, אנחנו מתחילים את הביטוי במילה &quot;composer&quot;, ואז משתמשים בפקודה מובנית שלו - &quot;create-project&quot;.<br>אחר כך אנחנו מספקים את שם הפרוייקט, ומאיפה להוריד אותו (אם אתם מבינים קצת בpackegist, אז אתם תבינו מה המשמעות של &quot;laravel/laravel&quot;, אבל זה לא משנה אם אתה לא יודע...).<br>עכשיו מגיע החלק שאותו אנחנו משנים. במקום &quot;{the-dir-for-laravel}&quot; אתם הולכים לספק את התיקייה שבה larave יותקן. <br>אם לדוגמה אתם רוצים להתקין את laravel ב- &quot;C:\wamp\www\laravel\&quot;, אז זה מה שאתם הולכים לרשום שם.<br><br><span style="color:gray;"><em>הערת שוליים: לא חובה לספק את התיקייה להתקנת laravel. אם לא תכתבו שם כלום, אז laravel יותקן בתיקייה שאתם נמצאים בה. ולכן תוכלו לעשות CD (קיצור של change directory) לתיקייה שבה תרצו להתקין, ואז תריצו את הפקודה הנ&quot;ל (composer create-project....)</em></span><br><br>והחלק האחרון, &quot;prefer-dist--&quot;, לא חובה, אך מומלץ לרשום.<br><br>וזהו! עכשיו תקישו אנטר, וההתקנה תתחיל לרוץ, ובתוך דקה עד שתיים laravel יהיה מותקן!<br><br>מזל טוב! עכשיו תיכנסו לקישור של laravel דרך הדפדפן, (אם לדוגמה התקנתם את laravel בתיקייה C:\wamp\www\laravel, אז תכתבו בדפדפן את הכתובת localhost/laravel), ותבדקו אם התקנתם בהצלחה. אם כן, אתם אמורים לראות משהו כזה:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="2# סדרת מדריכי laravel - התקנה ותצורה בסיסית (בערך)" title="http://imageshack.com/a/img401/1479/o3d5.png" class="content-image-float"><br>אם זה מה שאתם רואים - גוד ג&apos;וב! התקנתם את laravel בהצלחה!<br>אם אתם רואים שגיאה כלשהיא - אז כנראה הייתה לכם בעיה במהלך ההתקנה. אני מציע לכם לנסות ולהתקין מחדש.<br><br>נ.ב. אם אתם לא רוצים לדעת איך מתקינים את laravel בלינוקס, אז פשוט תדלגו על החלק הבא, ותעברו ישר לחלק על קונפיגורציה בסיסית... ;)<br><br><h4>התקנת laravel על linux (לסוגיו ומערכות הפעלותיו)</h4> <em><span style="color:gray;">הערת שוליים: אני אישית ניסיתי והצלחתי להתקין את laravel על מערכת <strong>debian</strong>, שמותקן עלייה lamp. אבל ההתקנה זהה לגבי כל שאר מערכות ההפעלה של לינוקס לדורותיו.. :)</span></em><br><br>כדי להתקין את laravel בקלות, אנחנו צריכים להתקין composer.<br>אז בואו נתחיל!<br><br>1. פתחו את הterminal.<br>2. תרשמו בטרמינל את הפקודה הבאה: (כדי להתקין את composer)<br><strong><span style="color:darkred;"><span class="dirleft">php -r &quot;readfile(&apos;https://getcomposer.org/installer&apos;);&quot; | php</span></span></strong><br>3. בדקו אם התקנתם את composer טוב, ע&quot;י כתיבת הפקודה הבאה: <br><strong><span style="color:darkred;"><span class="dirleft">php composer.phar</span></span></strong><br>אם ההתקנה הצליחה, אז אתם תראו משהו דומה לתמונה מעל (של התקנת composer על ווינדווס).<br>4. עכשיו הגיע הזמן להתקין את laravel בכבודו ובעצמו!<br>כדי לעשות זאת, תרשמו בשורת הפקודה את הביטוי הבא:<br><strong><span style="color:darkred;"><span class="dirleft">php composer.phar create-project laravel/laravel {path-for-laravel} --prefer-dist</span></span></strong><br>ואת {path-for-laravel} תחליפו בתיקייה שבה larave יותקן. <br>אם לדוגמה אתם רוצים להתקין את laravel ב- &quot;var/www/laravel&quot;, אז זה מה שאתם הולכים לרשום במקום &quot;{path-for-laravel}&quot;.<br>כמובן שאם לא תספקו את הפרמטר הזה, אז laravel יותקן בתיקייה שאתם נמצאים בה (אפשר לשנות את התיקייה שאתם נמצאים בה בעזרת פקודת cd).<br><br>ואחרי שתלחצו על אנטר, ההתקנה של laravel תחל.<br><br>אם יהיו לכם שגיאות במהלך ההתקנה - אז תבדקו שוב אם אתם עומדים בתנאים של laravel שכתבתי בראש המדריך...<br><br>5. אם הכול עבד כשורה, אז כשתיכנסו דרך הדפדפן לכתובת שבה התקנתם את laravel (אם לדוגמה התקנתם את laravel בתיקייה var\www\laravel, אז תכתבו בדפדפן את הכתובת localhost/laravel) אתם תראו את התמונה הבאה:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="2# סדרת מדריכי laravel - התקנה ותצורה בסיסית (בערך)" title="http://imageshack.com/a/img401/1479/o3d5.png" class="content-image-float"><br>אם זה מה שאתם רואים - אז מזל טוב! אתם התקנתם את laravel בהצלחה!<br>אם אתם רואים שגיאה כלשהי - אז כנראה הייתה לכם טעות במהלך ההתקנה, אז תנסו להתקין את laravel שוב ע&quot;פ ההוראות שנתתי.<br><br>אז אחרי שבשעה טובה, (אני מקווה) סיימנו להתקין את laravel - הגיע הזמן ל...:<br><br><h2>תצורה בסיסית של ההתקנה הטרייה</h2><br>אז כבר אפשר לברך אתכם! אתם סיימתם את החלק הקשה בlaravel - ההתקנה! :)<br>ועכשיו, כן כן! ממש עכשיו! אתם יכולים להתחיל לעבוד ולפתח את הפייסבוק הבא על laravel!<br><br>אז אל תדאגו כרגע לתצורה... תתחילו לעבוד!<br><br>ועל זה נדבר בפרק הבא של סדרת מדריכי laravel שלי!<br><br><strong>3# סדרת מדריכי laravel - טבילת האש </strong>שיועלה בקרוב (אני מקווה ;)<br><br>אז ייאלה ביי, ואני מקווה שאהבתם :)<br><br>ומה אכפת לך? פרגן :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/b63b77698327e388d5fbd7b307545ab1?s=16&r=g&d=monsterid" alt="ArielSafari">
+<a>ArielSafari</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2769"></a>
+<div class="blog-comment">
+<span class='comment-author'>hafuta</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/04/2014 02:15</span><br>
+דבר ראשון כל הכבוד על היוזמה.<br>
+דבר שני לא הבנתי את הקשר שעשית בין cPanel ו-Laravel, ולמה אי אפשר להריץ את Laravel בלי גישה לטרמינל?<br>
+בשרת שיתופי משתמש יכול להתקין את התלויות (Dependencies) על סביבת הפיתוח ולהעלות את ה-vendor לשרת בצורה ידנית, אמנם זה לא הכי נוח אבל עושה את העבודה. את כל שאר הדברים כמו נתינת הרשאות לתיקיות אפשר לעשות דרך ה-ftp או file manager כלשהו בתוכנת הניהול.<br>
+התנאי היחידי להרצה הוא גירסת PHP מתאימה ו-php-mcrypt מותקן, כל השאר זה כבר עניין של נוחות.<br>
+<br>
+ושוב. כל הכבוד על היוזמה</div>
+<a id="comment2770"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielSafari</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/04/2014 17:11</span><br>
+בגלל שאין לי נסיון ובגלל שלא ידעתי איך, אז לא כתבתי במדריך את השיטה שאתה הצעת.<br>
+אז אני אעדכן את המדריך בהתאם, אבל בגלל שאני לא יודע איך להתקין את laravel לפי השיטה שלך, אני לא אכתוב מדריך התקנה על השיטה הזו. (אלא אם כן אתה מכיר מדריך טוב שאני אוכל להבין ממנו איך לעשות את זה, ואז אני אכתוב גם את השיטה הזו...)<br>
+<br>
+תודה רבה! :)</div>
+<a id="comment2771"></a>
+<div class="blog-comment">
+<span class='comment-author'>vu47678</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2014 00:33</span><br>
+אין מה להבין אחי... אתה פשוט מעלה לשרת שלך את התיקיות של LARAVEL שהתקנת במחשב המקומי שלך וזהו הכל עובד כרגיל</div>
+<a id="comment2772"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielSafari</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2014 00:59</span><br>
+זה לא רק להעלות.... צריך לעשות dependencies גם... <br>
+אם זה היה פשוט כמו להעלות את הקבצים אז למה צריך להתקין את composer, ולעבור תהליך התקנה ארוך? (יחסית)...<br>
+זה לא כמו codeigniter...</div>
+<a id="comment2773"></a>
+<div class="blog-comment">
+<span class='comment-author'>vu47678</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2014 07:38</span><br>
+אחי אני עשיתי את זה אני לא אומר לך סתם מה קשור למה שאתה אומר<br>
+אתה מתקין הכל על המחשב המקומי מה שאתה צריך ואז מעלה את הקבצים דרך FTP וזהו זה כמו אתר רגיל מה זה שונה, פשוט אתה מתקין את כל התלויות שלך וכל מה שאתה צריך קודם על המחשב המקומי ואז מעתיק לשרת זהו</div>
+<a id="comment2774"></a>
+<div class="blog-comment">
+<span class='comment-author'>vu47678</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2014 07:39</span><br>
+תגלוש לכתובת הזאת <span dir="ltr"><a href="http://netanelphp.com/">http://netanelphp.com/</a></span> ותראה </div>
+<a id="comment2775"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielSafari</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2014 11:00</span><br>
+אהה אם אתה מתקין לפני זה על המחשב... טוב אני אנסה את זה ואז אני אעדכן את המדריך בהתאם :-)</div>
+<a id="comment2778"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2014 18:42</span><br>
+מובן שתצטרך לעדכן כל הזמן את ספריות הצד השלישי ידנית.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

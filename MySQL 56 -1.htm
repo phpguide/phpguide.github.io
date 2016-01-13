@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="גרסה חדשה של mysql 5.6 עם המון דברים חדשים מחכה לך">
+<meta name="keywords" content="mysql, גרסה, עדכון">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>MySQL 5.6 </title>
+<meta itemprop="name" content="MySQL 5.6 ">
+<meta itemprop="description" content="גרסה חדשה של mysql 5.6 עם המון דברים חדשים מחכה לך">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"290","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>MySQL 5.6 </h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-02-08T01:30:08+02:00" dir="rtl">08 לפברואר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://i.picresize.com/images/2013/02/07/71gI4.png" alt="MySQL 5.6 ">
+</div>
+<div class="right post-content">
+ב 5 בפברואר, הודיע ​​אורקל על יציאתה של גרסה יציבה חדשה: MySQL 5.6 <br>בגרסה החדשה נעשתה הרבה עבודה נהדרת. עיקר המאמץ הופנה לשיפור ביצועים, יכולת הרחבה וגמישות. המנוע הכי חשוב innodb ספג הרבה שינוים משמעוטיים בהחלט. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+השיפורים עיקריים כוללים: תמיכה בחיפוש <a href="חיפוש_במסד_טקסט_מלא.htm">טקסט מלא</a>, היכולת לגשת לנתונים באמצעות Memcached API, ביצועים משופרים בכתיבת נתונים אינטנסיבית, כמו גם היכולות טיפול בהמון חיבורים פתוחים מקבילים.<br><br>אחד החידושים המגניבים בגרסה החדשה היא האפשרות לבצע פעולות <span dir="ltr">(data definition language) DDL</span> בלי להפסיק את העבודה של המסד עצמו וחסימת גישה לטבלאות. (כלומר פעולות כמו שינוי מבנה טבלה, מחיקה והוספה של עמודות ושינויי שמות עמודות בלי לחסום את הגישה אל הטבלה באותו זמן).<br><br>על הדרך, גרסה 5.6 תומכת בשרתים עם 48 ליבות לעומת 32 ליבות בגרסה 5.5.<br><br><span class="underline"><h4>קצת פירוט על החידושים הנוספים:</h4></span><br>* <strong>התווסף API חדש לגישה לנתונים לפי ערך-מפתח</strong> בטבלאות InnoDB שתואם את ה API של memcached.<br><br>* <strong>נוספה האפשרות ליצור אינדקס לחיפוש טקסט מלא בטלבאות InnoDB</strong>. בעבר אופציה זו היית רק במנוע ה MyISAM<br><br>* <strong>אופטימיזציות חדשות במפענח השאילתות. </strong><br><span dir="ltr">Index Condition Pushdown (ICP)</span> ו- <span dir="ltr">Batch Key Access (BKA)</span> מאפשרים להגדיל עד פי 280 את התפוקה של שאילתות מסוג <span dir="ltr">«SELECT… FROM single_table… ORDER BY non_index_column [DESC] LIMIT [M,]N;»</span><br><br>* <strong>הורחבו משמעוטית כלי האבחון. מעכשיו explain עובד גם על שאילתות insert, update, delete. </strong><br>את תוצאות ה explain אפשר לקבל בתור json וכלי חדש מאפשר לעקוב אחרי כל ההחלטות של האופטימייזר בשלב האופטימיזציה של השאילתה.<br>( מי שהיה בכנס PHP השני זוכר ש mysql קודם מפענחת את השאילתה (parsing) ואחרי זה בונה לו execution plan - מה תהיה הדרך הכי טובה בשבילה להשיג את הנתונים המבוקשים.<br><br>* <strong>נוספו אופטימיזציות חדשות לתתי-שאילתות לפני הביצוע שלהם</strong><br>למשל תת-שאילת <span dir="ltr">«SELECT… FROM table1 WHERE… IN (SELECT… FROM table2 ...))»</span><br>תולחף ב JOIN יותר אפקטיבי.<br><br>* <strong>שופרה המהירות קריאה בטבלאות InnoDB</strong>, במקומות מסיומים אף עד 230%. כולם יודעים שהיתרון היחסי של טבלאות MyISAM היה המהירות קריאה הגבוה היותר.<br><br>* <strong>נוספה אפשרות של דיליי ברפליקציה,</strong> ככה שהרפליקציה לא תהיה מיידית, אלה אחרי פרק זמן מסוים. <br>יכול לעזור מטעויות אנוש כמו מחיקת נתונים מיותרת.<br><br>* תמיכה בהפעלה של המסד ב<strong>מצב של קריאה בלבד</strong><br><br>* אפשרות <strong>שמירת חלקי שניות בשדות מסוג timestamp, time, datetime</strong><br><br><br>עוד כל מיני פיצ&#039;רים חדשים שרשומים ב <a href="http://dev.mysql.com/tech-resources/articles/whats-new-in-mysql-5.6.html">changelog</a> או <a href="http://www.oracle.com/us/corporate/press/1904335">בהודעה של אורקל</a> שבה הם גם מזמינים ל<a href="https://event.on24.com/eventRegistration/EventLobbyServlet?target=registration.jsp&amp;eventid=571307&amp;sessionid=1&amp;key=397F5DB6ABD4A0F1A03302324BAA03F0&amp;partnerref=web&amp;sourcepage=register">וובינר שבו יספרו על החידושים בגרסה</a> (14 לפברואר,20:00 בשעון ישראל, שפה: אנגלית ).<br><br><br>הגרסה החדשה מוסיפה למאבק של mysql עם המתחרה שלה MariaDB שלאט לאט מוציאה את mysql מההפצות לינוקס (כרגע fedora &amp; opensuse). נזכיר ש-MariaDB היא fork של mysql. כאשר mysql עברה לבעלותה של oracle ונהפכה להיות קוד סגור, המפתחים הראשיים עזבו את החברה והמשיכו בפיתוח קוד פתוח. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2216"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/02/2013 17:59</span><br>
+תודה :-)</div>
+<a id="comment2219"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/02/2013 23:00</span><br>
+תודה רבה. :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

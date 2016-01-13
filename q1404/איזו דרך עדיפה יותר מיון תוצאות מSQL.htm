@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איזו דרך עדיפה יותר? [מיון תוצאות מ-SQL]">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="astn">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>איזו דרך עדיפה יותר? [מיון תוצאות מ-SQL] | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איזו דרך עדיפה יותר? [מיון תוצאות מ-SQL] | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איזו דרך עדיפה יותר? [מיון תוצאות מ-SQL]">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">14</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm" title="יש לי בסיס נתונים שמחזיק רשימה של משתמשים. אני רוצה כל פעם לקבל ממנו רשימה של חברים ורשימה של לא חברים. ניתן לדעת אם אדם חבר ע&amp;quot;פ מערך של id&amp;#039;s של חברים שניתן להשוות למה שאנו מקבלים.דרך ראשונה:שליפה של כל התוצאות מהטבלה (SELCET *) ואז foreach דרך המערך ומיון דרך in_array. אם נמצא בתוך המערך של id&amp;#039;s של חברים - חבר, ואם לא - לא חבר.דרך שניה:שליפה מותנית של חברים בלבד ע&amp;quot;י SELECT IN, כך שהוא שולף לי רק חברים ואז עוד שליפה של &amp;quot;לא חברים&amp;quot; בצורה אחרת (">איזו דרך עדיפה יותר? [מיון תוצאות מ-SQL]</a></h2>
+<div class="userinfo">
+פתח
+<a>astn</a>
+,
+<time class="timeago relativetime" datetime="2013-04-28T08:42:26+03:00" style="display:inline-block;">
+28 לאפריל 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1404'>
+יש לי בסיס נתונים שמחזיק רשימה של משתמשים. אני רוצה כל פעם לקבל ממנו רשימה של חברים ורשימה של לא חברים. ניתן לדעת אם אדם חבר ע&quot;פ מערך של id&#039;s של חברים שניתן להשוות למה שאנו מקבלים.<br>דרך ראשונה:<br>שליפה של כל התוצאות מהטבלה (SELCET *) ואז foreach דרך המערך ומיון דרך in_array. אם נמצא בתוך המערך של id&#039;s של חברים - חבר, ואם לא - לא חבר.<br>דרך שניה:<br>שליפה מותנית של חברים בלבד ע&quot;י SELECT IN, כך שהוא שולף לי רק חברים ואז עוד שליפה של &quot;לא חברים&quot; בצורה אחרת (לא ממש חשבתי על זה...) אולי שליפה של הכל (SELECT *) ואז מחיקה של ערכים עם UNSET,ז&quot;א כל הערכים שנמצאים כבר במערך של החברים, כך שהוא משאיר לי רק &quot;לא חברים&quot;.<br><br>או שאולי יש דרך אחרת יעילה יותר שעדיין לא חשבתי עליה??<br><br>תודה רבה מראש. </div>
+</div>
+<h3>
+<span id="answersCounter">14 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6218">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2013 </span>
+<a id="answer_6218" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6218">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שתי הדרכים לא יעילות ברמה מטורפת, אבל הבעיה היא במבנה של בסיס הנתונים. אם יש לך את האפשרות לשנות את זה (ואז סביר להניח שתצטרך לשנות חלקים בקוד שנסמכים על זה) - פשוט תוסיף עמודה ב&quot;משתמשים&quot; שהיא תקבע אם המשתמש חבר או לא. אם יש מידע נוסף לכל &quot;חבר&quot;, כן תוסיף טבלה חדשה, אבל אז לפחות תדע מי החברים לפי העמודה החדשה.<br>הרבה זמן לא באמת כתבתי קוד, בייחוד לא SQL, ושכחתי חצי מהדברים.<br>אבל אני כן זוכר שאתה יכול להשתמש ב-Join (אם אתה לא יכול לשנות את זה). </p>
+</div>
+<div class="answer" id="answer6220">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/89389981273775622511ac7aa997682c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>astn</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2013 </span>
+<a id="answer_6220" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6220">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה היא שהמערך שקובע אם מישהו חבר או לא הוא דינמי - הוא משתנה לפי המשתמש שמחובר, אני שולף אותו מפייסבוק.<br>אני בעצם מנסה לסנכרן בין רשימת החברים מפייסבוק לרשימת המשתמשים אצלי. לכן אני לא יכול להוסיף עמודה. אין לי עוד מידע על כל חבר. לפחות לא משהו שאני צריך לשמור. <br>תודה. </p>
+</div>
+<div class="answer" id="answer6227">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 29 לאפריל 2013 </span>
+<a id="answer_6227" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6227">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תסביר מה אתה מנסה לעשות אולי יש דרך טובה יותר.. </p>
+</div>
+<div class="answer" id="answer6241">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/89389981273775622511ac7aa997682c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>astn</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6241" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6241">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לי DB של אנשים מפייסבוק, אני מזהה אותם ע&quot;פ הID שלהם בפייסבוק.<br>נאמר שאדם חדש מגיע. אני רוצה להראות לו את כל האנשים שנמצאים אצלי והם גם חברים שלו בפייסבוק. אני בעצם צריך לסנכרן בין מערך של חברים שאני מקבל מהAPI ובין התוצאות של ה SQL.<br>מה הדרך הטובה ביותר? אני מניח ששלי (מה שכתבתי למעלה) היא לא. האם כדאי פשוט לשמור בDB שלי רשימה של חברים שגם נמצאים אצלי לכל אדם ואז לעדכן את זה כל פעם שמישהו חדש נכנס? </p>
+</div>
+<div class="answer" id="answer6242">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6242" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6242">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תעשה טבלה רבים-ל-רבים של חברים לפי fbid<br>fbid | friendfbid<br><br>כשמתמש נכנס בפעם הראשונה - הכנס לטבלה הזו הרבה שורות לפי הנתונים שאתה מקבל מפייסבוק.<br>כל פעם שאתה רוצה להנסכרן מחדש את רשימת החברים שיש לך במערכת עם הרשימה של המשתמשים מפייסבוק - תמחוק את כל השורות ששייכות לאותו משתמש ותכניס אותם מחדש.<br><br>בטבלה של משתמשים רשומים תוסיף עמודה בשם fbid <br>שלפיה אחרך כך תוכל לשלוף.<br><br>כשאתה מקבל מפייסבוק את רשימת הID של החברים תוכל להשתמש ברשימה הזאת עבור שאילתת IN.<br><br><br><div class="php codeblock">select <span class="sy0">*</span> from friends2friends<br>
+where fbid <span class="sy0">=</span> <span class="re0">$myfbid</span><br>
+and friendFbId in <span class="br0">&#40;</span><span class="re0">$listOfIdsFromFacebook</span><span class="br0">&#41;</span><br>
+left <span class="kw3">join</span> users<br>
+on user<span class="sy0">.</span>fbid <span class="sy0">=</span> friends2friends<span class="sy0">.</span>friendFbId</div> </p>
+</div>
+<div class="answer" id="answer6244">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6244" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6244">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לפייסבוק יש את FQL שמאפשר לעשות את זה בקלות..<br><div class="php codeblock">SELECT uid1 FROM friend WHERE uid2 <span class="sy0">=</span> me<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>זה יחזיר לך ID&#039;S של כל המשתמשים שחברים שלך (כאשר הפונקציה me() מחזירה את הID של המשתמש המחובר)(אפשר גם לשים במקום ID ולא את הפונקציה ME)<br>בשביל להוציא מידע של הפרופיל על החברים תשתמש בשאליתת IN.<br><div class="php codeblock">SELECT name FROM user WHERE uid IN<span class="br0">&#40;</span>SELECT uid1 FROM friend WHERE uid2 <span class="sy0">=</span> me<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer6245">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/89389981273775622511ac7aa997682c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>astn</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6245" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6245">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@intval<br><br>אתה אומר שכדאי פשוט ליצור עוד טבלה עם החברים של כל משתמש שקיימים גם אצלי? ז&quot;א לחסוך כל פעם את המיון של האנשים ולבחור לסנכרן רק מדי פעם?<br>הבנתי נכון? </p>
+</div>
+<div class="answer" id="answer6248">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6248" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6248">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למען האמת אתה יכול בעת ההתחברות של המשתמש למערכת לשלוף את רשימת החברים מפייסבוק (כמו שהציאה dekel) ולשמור אותה בסשן או שקאש כלשהו ואז לא צריך לשמור ולסנכרן טבלה כזו. </p>
+</div>
+<div class="answer" id="answer6249">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/89389981273775622511ac7aa997682c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>astn</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6249" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6249">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא ענה על השאלה של מתי לעשות סינכרון בין הרשימה של היוזרים שיש לי לבין רשימת החברים שלו. או שבעצם אתה אומר שכדאי לעשות סינכרון כזה פעם אחת בכל התחברות ולשמור מערך של id&#039;s בסשן? מערך של id&#039;s שהם גם חברים של היוזר וגם נמצאים אצלי ז״א. </p>
+</div>
+<div class="answer" id="answer6250">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6250" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6250">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה לשמור בסשן? זה הורס את החוויה של &quot;לא צריך להסתמך על מה שיש לך עכשיו&quot;..<br>כל פעם שאתה צריך תבדוק מחדש. </p>
+</div>
+<div class="answer" id="answer6254">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/89389981273775622511ac7aa997682c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>astn</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6254" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6254">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לעבור על שני מערכים דו מימדיים של מאות פרטים ולמצוא זהויות כל פעם מחדש? זה בזבוז משאבים ענק... </p>
+</div>
+<div class="answer" id="answer6255">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6255" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6255">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מספיק אחת לחיבור. לא מתווספים כל כך הרבה חברים חדשים לאנשים בפייסבוק בזמן שהם עושים דברים באתר אחר. </p>
+</div>
+<div class="answer" id="answer6257">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/89389981273775622511ac7aa997682c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>astn</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6257" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6257">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שאלה נוספת. האם כדאי להעביר HTML בAJAX או להעביר JSON ואז ליצור את הHTML בצד הלקוח? </p>
+</div>
+<div class="answer" id="answer6258">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6258" href="איזו דרך עדיפה יותר מיון תוצאות מSQL.htm#answer_6258">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני מאמין שהשרת צריך רק להעביר מידע והלקוח מציג אותו איך שהוא רוצה.<br>אז לשאלתך, להעביר את המידע שJSON </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

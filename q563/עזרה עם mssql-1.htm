@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה עזרה עם ms-sql">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_214319">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>עזרה עם ms-sql | שאלת לימוד PHP</title>
+<meta itemprop="name" content="עזרה עם ms-sql | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה עזרה עם ms-sql">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="עזרה עם mssql-1.htm" title="אהלן התחלתי לעבוד עם pdo לphp שמאפשר עבודה מול mssql ..בשונה מmy-sql הכל מסובך!דבר ראשון לעשות load של מידע מקבצי csv/txt.. כאשר קבצי הtxt מקודדים כutf8 הכל עולה לDB כג&apos;יבריש! הקוליישן של הDB מוגדר latin1_CS_AS וכל תא שמכיל עברית נבנה כ NvarChar..ועדיין אין עברית עד שלא שומרים מחדש את קבצי הטקסט כANSI ועושים LOAD מחדש..זה תהליך מסורבל ולא עמיד בLOAD ששרתים עושים שהכל ישתבשזה קטע הקוד">עזרה עם ms-sql</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_214319</a>
+,
+<time class="timeago relativetime" datetime="2012-05-14T14:17:10+03:00" style="display:inline-block;">
+14 למאי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText563'>
+אהלן התחלתי לעבוד עם pdo לphp שמאפשר עבודה מול mssql ..<br><br>בשונה מmy-sql הכל מסובך!<br><br>דבר ראשון לעשות load של מידע מקבצי csv/txt.. כאשר קבצי הtxt מקודדים כutf8 הכל עולה לDB כג'יבריש!<br> <br>הקוליישן של הDB מוגדר latin1_CS_AS וכל תא שמכיל עברית נבנה כ NvarChar..<br><br>ועדיין אין עברית עד שלא שומרים מחדש את קבצי הטקסט כANSI ועושים LOAD מחדש..<br><br>זה תהליך מסורבל ולא עמיד בLOAD ששרתים עושים שהכל ישתבש<br><br>זה קטע הקוד<br><br><div class="php codeblock"><span class="kw2">use</span><span class="br0">&#91;</span>db<span class="br0">&#93;</span> <br>
+BULK<br>
+INSERT test<br>
+FROM <span class="st_h">'123.txt'</span><br>
+WITH<br>
+<span class="br0">&#40;</span><br>
+DATAFILETYPE <span class="sy0">=</span> <span class="st_h">'char'</span><span class="sy0">,</span><br>
+FIRSTROW <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">,</span><br>
+FIELDTERMINATOR <span class="sy0">=</span> <span class="st_h">','</span><span class="sy0">,</span><br>
+ROWTERMINATOR <span class="sy0">=</span> <span class="st_h">'\n'</span><span class="sy0">,</span><br>
+CODEPAGE <span class="sy0">=</span><span class="st_h">'1255'</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+<span class="br0">&#41;</span><br>
+GO</div><br><br>דבר שני..<br>אני מנסה להגדיר ללא הצלחה תאים כאינקדס KEY פשוט מה שMYSQL עובד פשוט וקל..<br>עוד דבר כל LIKE שאני מבצע לא תופס על עברית משום מה...<br><br><br>חייב את העזרה שלכם .. ושכל העולם יעבור כבר לDB אחד <br><br>יום טוב תודה רבה </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2125">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 למאי 2012 </span>
+<a id="answer_2125" href="עזרה עם mssql-1.htm#answer_2125">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. כמו שעלית על זה נכון, או שצריך לשמור את כל הקבצים ב ansi כדי שהקידוד שלהם יתאים ל collation של המסד, או לשנות את ה collation של המסד ל utf8 . שזה בלתי אפשרי, כיוון ש sql server עובד רק עם utf-16 (ואגב, לשדות מסוג <strong>n</strong>varcha כבר מוגדר בצורה אוטומטית collation של utf-16)<br><br>ככה שבמילים פשוטות - אין שום דבר שאתה יכול לעשות חוץ מלהפוך את הקובץ ל utf-16 לפני שאתה מפעיל עליו את ה bulk insert<br><br><br>2. מה הפקודה שאתה מנסה להריץ?<br><div class="php codeblock">CREATE INDEX idx1 ON tablename<span class="br0">&#40;</span>columnname<span class="br0">&#41;</span><span class="sy0">;</span></div><br>אינדקס פרימיטיבי פשוט, לא מפתח ראשי, לא כלום. <br>ב sqlserver יש הרבה יותר סוגים של אינדקסים וכל אחד מהם יכול להיות מוגבל למלא דברים ומלא בהרבה אופציות שונות מבלבד ה"עמודה". <br>מפתח ראשי עם הפקודה הבאה:<br><div class="php codeblock">ALTER TABLE Tablename<br>
+ADD CONSTRAINT pk_whatever_name PRIMARY <span class="kw3">KEY</span><span class="br0">&#40;</span>columnName<span class="br0">&#41;</span></div><br><br><br><br>3. עוד פעם, השאילת משווה נתונים שאתה נותן לה ב utf-8 לאומת נתונים ששמורים במסד בתור utf-16.<br>גם לזה אין באמת פתרון, חוץ מלקודד את המחרוזת שאתה עושה לה LIKE לקידוד אחר (utf-16) לפני שאתה שולח אותה למסד.<br><br><br>באופן כללי ריבוי שפות זה לא הצד החזק של sqlserver.<br>ואם אתה חייב להישתמש בו, תצטרך לעשות הרבה קונבטרציות של קידודים. <br>אם לא, לך על postgresql ושכח מכל הבעיות האלה. </p>
+</div>
+<div class="answer" id="answer2126">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e1b84cf80cb1bd8ec8d790c57bd513f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_214319</a>
+ב
+<span style="font-size:10px"> 15 למאי 2012 </span>
+<a id="answer_2126" href="עזרה עם mssql-1.htm#answer_2126">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה על העזרה..<br><br>שאלה כזאת.. אולי עדיף להשאיר במסד ג'יבריש ובכל חיבור לעשות המרות לקידוד המתאים?<br><br>ניסיתי לעשות ששליפה תתבצע בג'יבריש ואחרי זה תרגום שלה יתבצע דרך הPHP לעברית <br><br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">iconv</span><span class="br0">&#40;</span><span class="st_h">'UTF-8'</span><span class="sy0">,</span><span class="st_h">'windows-1255'</span><span class="sy0">,</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>לא ממש הולך .. זה חותך שורות לא מתרגם כמו שצריך .. וצפוי לי עוד הרבה כאב ראש מכל הסיפור הזה..<br><br>מה אתה אומר?<br><br>תודה </p>
+</div>
+<div class="answer" id="answer2127">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 למאי 2012 </span>
+<a id="answer_2127" href="עזרה עם mssql-1.htm#answer_2127">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני אומר שאם אתה הולך לעבוד עם sqlserver ורק עם עברית (ולא שום שפה אחרת) - אז תעבוד עם ansii<br>ותשנה את ה collation ל Hebrew_CI_AI ותקודד את הקבצים שאתה מכניס למסד ל Windows-1255 עם iconv.<br>כנ"ל לגבי קבצי הקוד וההדרים שנשלחים לדפדפן. </p>
+</div>
+<div class="answer" id="answer2128">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e1b84cf80cb1bd8ec8d790c57bd513f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_214319</a>
+ב
+<span style="font-size:10px"> 15 למאי 2012 </span>
+<a id="answer_2128" href="עזרה עם mssql-1.htm#answer_2128">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ועוד משהו אני לוקח ג'יבריש מהמסד ומנסה להריץ שאילתה במסד על אותו הטקסט ושימצא אותו וכלום..<br> </p>
+</div>
+<div class="answer" id="answer2129">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e1b84cf80cb1bd8ec8d790c57bd513f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_214319</a>
+ב
+<span style="font-size:10px"> 15 למאי 2012 </span>
+<a id="answer_2129" href="עזרה עם mssql-1.htm#answer_2129">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני מרגיש עכשיו בשנת 2000 עם כל הבעיות תאימות בקידודים ... איזה עולם הזוי!<br><br>דבר שני ..שיניתי את הDB ל Hebrew_CI_AI+תאימות קבצים לansi ..<br><br>Load מתבצע על 1255 ואפילו אין צורך בקידוד חוזר לUTF8 או ל1255 בקבצי קוד לבצע שליפות<br><br>כרגע זה פתרון זמני שעובד.. אני אצטרך לחשוב בהמשך על המרה דרך השרת מTXT UTF8 לקובץ טקסט ANSI ..יש אפשרות כזאת און דה פליי או מצריך פרוצדורה שמטפלת במחרוזות ושומרת עם קידוד אחר??<br><br><br>תודה רבה גבר! </p>
+</div>
+<div class="answer" id="answer2130">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 למאי 2012 </span>
+<a id="answer_2130" href="עזרה עם mssql-1.htm#answer_2130">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לפרוצדורה הזו קוראים iconv :)<br> </p>
+</div>
+<div class="answer" id="answer2132">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e1b84cf80cb1bd8ec8d790c57bd513f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_214319</a>
+ב
+<span style="font-size:10px"> 15 למאי 2012 </span>
+<a id="answer_2132" href="עזרה עם mssql-1.htm#answer_2132">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ממה שבדקתי הוא משבש מחרוזות מעל גודל מסויים...<br><br>אני מכוון לקבצים בגדלי גיגה ומעלה שבכל קובץ מעל 16 מיליון רשומות... לא יעשה בעיה?<br><br>דרך אגב לא צריך לבצע קידוד אחרי שליפות ניתן להכניס את זה לקונייקשן סטרינג של הSQL <br><div class="php codeblock"><span class="re0">$connectionInfo</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span> <span class="st0">&quot;Database&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;database&quot;</span><span class="sy0">,</span> <span class="st0">&quot;UID&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="st0">&quot;PWD&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;&quot;</span><span class="sy0">,</span><span class="st0">&quot;CharacterSet&quot;</span><span class="sy0">=&gt;</span><span class="st0">&quot;UTF-8&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2133">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 למאי 2012 </span>
+<a id="answer_2133" href="עזרה עם mssql-1.htm#answer_2133">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר לנסות להישתמש גם ב mb_convert_encoding<br>או בכלל לא לעשות את זה ב PHP אלה בשורת הפקודה ששם אין שום סיבה ש iconv לא יעבוד.<br>תנסה להוריד איפשהו iconv.exe </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

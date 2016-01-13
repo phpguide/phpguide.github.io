@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מדריך והסבר מה זה סשן ב-php, איך סשן פועל ומה ההבדל מקוקי">
+<meta name="keywords" content="סשן, session">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>SESSION</title>
+<meta itemprop="name" content="SESSION">
+<meta itemprop="description" content="מדריך והסבר מה זה סשן ב-php, איך סשן פועל ומה ההבדל מקוקי">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"98","rating":"34","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>SESSION</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-06-07T13:05:10+03:00" dir="rtl">07 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://s3.amazonaws.com/live.public/images/marketing/thumb_schedule_session.jpg" alt="SESSION">
+</div>
+<div class="right post-content">
+בתרגום מאנגלית הכוונה ל—&quot;ישיבה&quot;. מה הכוונה לישיבה בתרגום מ-php ? <br>המילה היחידה הזו היא ההסבר לאיך השרת יודע שאתם זה אתם ולא מישהו אחר. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אחרי שלמדנו <a href="כל_האמת_על_קוקיס.htm">מה זה קוקי</a> (ואם עוד לא למדנו, <a href="כל_האמת_על_קוקיס.htm">זה הזמן!!</a>) אפשר להתקדם הלאה. <br><br><h3>הספרייה העירונית</h3><br>דמיינו לרגע שעשיתם מנוי בספריה העירונית. בפעם הראשונה שביקרתם בספריה הזדהיתם עם שם ושם משפחה, רשמו אתכם למחשב המרכזי ובתמורה קיבלתם &quot;כרטיס קורא&quot;, כרטיס שנושא בגאווה את שמכם ומספר הקורא שלכם לצד הלוגו של הספרייה עצמה.<br><br>יום למחרת אתם נכנסים לספריה, בוחרים ספר וניגשים לספרנית. הספרנית מחייכת ומבקשת לראות את כרטיס הקורא. היא מעתיקה את מספר הקורא למחשב, מעלה את נתוני הקורא שלכם, מוסיפה לרשומה ספר, מברכת אתכם לשלום ושוכחת מכם לגמרי כדי לטפל בלקוח הבא בתור.<br><br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="SESSION" title="http://ncdn.phpguide.co.il/blogimages/sticky_session_cookie.jpg" class="content-image-float"><br><br><strong>מזכיר לכם את הקוקיז?</strong><br>בביקור הראשון שלכם נתנו לכם מדבקה(, כרטיס, קוקי) עם המספר קורא שלכם.<br>כל ביקור הבא לספריה אתם תבואו עם אותו כרטיס (קוקי) ותציגו אותו לספרנית.<br><br>בדומה לקוקי תוכלו לחזור הביתה, לקחת טיפקס ובשקט לשנות את מספר הקורא למספר אחר. או תוכלו לבוא לספריה בלי הקוקי (בלי הכרטיס) ואף אחד לא ידע שאתם זה אתם. <br><br>עכשיו תסתכלו שוב על הכרטיס קורא בבקשה. כתוב עליו רק המספר קורא שלכם. לא רשום איזה ספרים השאלתם, מתי תחזירו אותם או איפה אתם גרים. והנא באה השאלה הקשה. מוכנים?<br><br><br><br><br><br><br><br><br><br><br><h3>איפה נשמרים הנתונים האלה?</h3><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="SESSION" title="http://www.warriorlibrarian.com/pix08/260/lewis_weird.jpg" class="content-image-floatleft"><br>התשובה די פשוטה. זה לא נמצא בכרטיס שלכם, אלה במסד נתונים של הספרייה.<br><br>והספרנית היא כמו תוכנה חכמה במטריקס.<br>בכל פעם שניגשים אליה, קוראת את המספר קורא מהכרטיס, מוציאה מהמסד את הנתונים עליכם ומכניסה אותם לזיכרון בראש כדי לבצעה את הבקשה שלכם.<br> <br>כשתבואו בלי כרטיס קורא, התוכנה &quot;ספרנית&quot; תפעיל את התנאי המתאים ותציע לכם לעשות מנוי שנתי. ואם תשנו את מספר הקורא שלכם לאחד שלא קיים, היא תעשה עיניים גדולות ותיתקע. <br><br><span style="color:green;"><br>עד עכשיו הכל היה מובן? <br>זהו, אתם מכירים את אופן הפעולה של &quot;סשן&quot; מבוסס על מסד נתונים.</span><br><br><br><br><br><br><br><br><h3>סשן <span class="underline">לא</span> על בסיס מסד נתונים</h3><br>נחזור 30 שנה אחורה כשכבר היו ספריות, אבל עוד לא היה להם מחשבים.<br>מה היה אז?<br><br>תופתעו לגלות שגם אז הכל עבד בדיוק באותה צורה. בזמן שהייתם מתקרבים לעמדת ההשאלה, הייתם כבר מחזיקים את כטריס הקורא שלכם בידיים מתוחות קדימה. <br><br>הספרנית הייתה רואה אתכם מרחוק עם הכרטיס, זריז מוצאת את טופס הלקוח שלכם בין שאר הטפסים במגירת המסמכים, קוראת ממנו את הנתונים עליכם לזיכרון ופוגשת אתכם מוכנה ומזומנת לעבודה.<br><br><span style="color:green;">זה היה סשן המבוסס על דפים</span><br><br><br><br><br><br><br><br><br><h3>סשן ב-php</h3><br>ב-php יש חלק מובנה שדומה מאוד לספרנית ונקרא פונקציית — <a href="http://php.net/session_start">session_start</a> שמבצעת את כל פעולות הספרנית בבת אחת.<br><br>בקריאה לפונקציה הזו - php בודקת לבד האם המשתמש בא עם קוקי (כרטיס קורא). <br><br>אם לא -&gt; היא יוצרת ושולחת לו קוקי בעצמה (יוצרת מנוי חדש). <br>אם כן -&gt; היא ניגשת למקום האחסון הפנימי שלה ומחפשת שם את כל הנתונים שיש לה על אותו משתמש.<br><br>את כל מה שהיא מצאה היא טוענת למשתנה מיוחד: <span dir="ltr"><span style="color:blue;">$_SESSION</span></span><br><br><br><br><br><br><br><h4>קוקי על בסיס קבצים ומספר קורא מסובך</h4><br>ב-php מנגנון הסשן מבוסס על קבצים. במקום לשמור נתונים על כל משתמש במסד נתונים — היא שומרת אותם כקבצים (בתיקיה זמנית של השרת).<br><br>בדוגמה שלנו מספר הקורא שלי היה 123.<br>היה לי די קל לשנות אותו ל 124 וכנראה שהייתי מנחש מספר קורא של מישהו אחר.<br><br><br><br><br><strong>phpsessid</strong><br>כדי לא לאפשר התחזות למשתמש אחר php נותנת לכל לקוח מזהה (מספר קורא) ארוך יותר ומסובך. בדרך כלל זהו רצף של 32 אותיות ומספרים שרירותיים. לנחש רצף של 32 תווים אצל משתמש אחר בלתי אפשרי. <br><br>מזהה זה נשמר לרוב בקוקי עם השם PHPSESSID.<br>תוכלו לראות שהדפדפן שלכם שומר קוקי עם שם כזה גם עבור phpguide.co.il <br>והערך בו יכול להיות דומה לזה: <span style="color:darkblue;">PHPSESSID=7dfe29a9c4945ca2a287c528031538c9</span><br><br><br>כל פעם שאני גולש לאתר הזה, הדפדפן שלי מראה ל-php את ה-phpsessid שלי,<br>php לבד הולכת לבדוק האם יש לה קובץ עם השם הזה בדיוק בתיקיה הזמנית <br>ואם כן - טוענת את כל תוכן הקובץ הזה למערך <span style="color:green;"><span dir="ltr">$_SESSION</span></span><br><br><br>אם הסקריפט שינה ערך כלשהו במערך, בסיום הסקריפט php תדאג לבד לשמור את התוכן החדש של המערך לקובץ, כדי שבפעם הבאה המערך יכיל כבר את הנתונים החדשים.<br><br><br><br><br><br><br><br><h3>אורך החיים של סשן</h3><br>משך החיים של סשן הוא ל&quot;ישיבה אחת&quot; בלבד. <br><br>לכל קוקי יש זמן חיים כלשהו. לקוקי של סשן זמן החיים מוגבל עד לסגירת הדפדפן הקרובה. ברגע שסגרתם את הדפדפן, הקוקי <em>phpsessid</em> נמחק. כלומר כל עוד אתם יושבים מול הדפדפן — הקוקי קיים, אחרי שקמתם — זהו.<br><br><span style="color:green;">מכאן בא השם: ישיבה-סשן</span><br><br>אפילו אם השארתם את הדפדפן פתוח כל הלילה אבל לא ביצעתם בקשות לשרת בשמך 25 דקות, והשרת לא קיבל בקשות חדשות מכם, הוא ימחק את קובץ הקוקי בעצמו. <br><br>כלומר קובץ הקוקי בדפדפן יחיה עד שתסגרו את הדפדפן. והקובץ יהיה קיים בשרת למשך 25 דקות מהבקשה האחרונה שלכם. כשאחד מהם ימחק — סופו של הסשן.<br><br><br><br><br><h5>השימושים של סשן </h5><br>ברוב המקרים מסתכמים בהתחברות לאתר ושמירת נתונים לתווך הקצר.<br><br><strong><span class="underline">ולסיכום כל הטקסט הזה בשני פסקאות:</span></strong><br>php יוצרת קוקי עם id ייחודי וקובץ עם אותו השם. כל פעם שהמשתמש גולש אל העמוד, php קוראת את ה-id מהקוקי ומחפשת קובץ עם שם זהה בתיקיה מיוחדת. את תוכן הקובץ היא מכניסה למשתנה $_SESSION שאיתו אפשר לעבוד.<br><br>בסוף הסקריפט PHP רושמת את הנתונים שהשתנו מהמשתנה אל הקובץ ובגלישה הבאה שוב תטען אותם למערך. משך החיים של סשן הוא עד סגירת הדפדפן או 25 דקות של חוסר פעילות באתר (המוקדם מביניהם).<br><br><br><br><span style="color:green;">זהו זה, רשמו בתגובות איך אתם משתמשים בסשן, טיפים ושאלות אם יש.<br>אשמח לענות :-)</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment177"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/06/2011 10:25</span><br>
+וואו! מדריך מעולה ומפורט. קראתי את כולו. כתוב בצורה מדהימה :). המשך כך!</div>
+<a id="comment178"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/06/2011 10:25</span><br>
+תודה רבה :)</div>
+<a id="comment183"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/06/2011 14:44</span><br>
+מדריך יפה מאוד,<br>
+כל הכבוד על ההשקעה המתמדת שלך.</div>
+<a id="comment188"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/06/2011 22:07</span><br>
+יש לי שאלה;<br>
+אם הקובץ ניתן לרשות הקבצים הזמניים של הדפדפן, זה אומר שהמשתמש יכול לשנות בסשן פרטים? תודה!</div>
+<a id="comment189"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/06/2011 22:08</span><br>
+הקובץ נמצא במחשב של השרת. אצל הדפדפן נמצאת רק המדבקה (הקוקי). בספריה הנתונים עליך נשמרים בספריה ואצלך יש רק כרטיס קרוא עם מספר קורא</div>
+<a id="comment197"></a>
+<div class="blog-comment">
+<span class='comment-author'>idan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/06/2011 14:38</span><br>
+אז לכן הדפדפן לפעמים מרענן את העמוד לבד כל כמה דקות?<br>
+כדי למנוע מחיקה של הקוקי מצד השרת?</div>
+<a id="comment198"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/06/2011 18:48</span><br>
+הדפדפן אף פעם לא עושה את זה לבד. אולי קוד ה javascript של האתר עושה את זה, אבל הדפדפן עצמו לא עושה את זה. שום דפדפן.</div>
+<a id="comment255"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2011 22:45</span><br>
+שלום אלכס,<br>
+כיצד ניתן להגדיר את משך זמן החיים עבור SESSION?<br>
+שדיברת עך אורך זמן החיים של SESSION התכוונת עד שהקוקי נמחק ואז מוחק על הדרך את הקובץ הנמצא בשרת, או שרק הSESSION נמחק והעוגייה נשארת, או שניהם ביחד? האם בזה שאני ישנה את אורך החיים של העוגייה בשם phpsessid כך גם ישתנה הקוקי, או שהוא נמחק אחרי 25 דקות וזהו? תודה...</div>
+<a id="comment256"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2011 22:46</span><br>
+כך גם ישתנה בSESSION..... טעות בכתיבה... סליחה</div>
+<a id="comment257"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2011 22:49</span><br>
+הקוקי בדפדפן לא יכול בשום אופן למחוק קבצים בשרת.<br>
+יש שני קבצים נפרדים שמשתתפים במנגנון הזה.<br>
+<br>
+קובץ קוקי שנמצא במחשב של הדפדפן ותקף עד סגירת הדפדפן.<br>
+קובץ סשן בשרת שתקף ל25 דקות מהפעולה האחרונה.<br>
+<br>
+ברגע שאחד מהם נעלם - המנגנון מפסיק לפעול. (במקום הקבצים הישנים נוצרים קבצים חדשים והכל חוזר שוב).<br>
+<br>
+כדי להאריך את זמן החיים של קובץ הסשן יש לשנות בקובץ php.ini את הערך של session.gc_maxlifetime = 1440 לכמות שניות אחרת. 1440 שניות = 25 דקות.</div>
+<a id="comment1246"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/02/2012 13:30</span><br>
+עשיתי כפתור יציאה מהאתר שמבצע מחיקת סשן,<br>
+עכשיו אני מתחבר לאתר ואז סוגר את הדפדפן (ללא לחיצה על התנתקות) באקספלור ופפירפוקס זה מתנתק<br>
+ובכרום לא!<br>
+ניסיתי להוסיף לזה גם מחיקת קוקי ועשיין הכרום עקשן<br>
+(עשיתי UNSET ולאחריו DESTROY ואחריו מחיקת קוקי ואז HEADER-LOCATION)</div>
+<a id="comment1247"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/02/2012 13:31</span><br>
+&gt;&gt;&gt; מחיקת קוקי ו*עשיין* הכרום עקשן<br>
+*** *ועדיין*</div>
+<a id="comment1364"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2012 11:23</span><br>
+מדריך מעולה הסבר מפורט ומלא.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

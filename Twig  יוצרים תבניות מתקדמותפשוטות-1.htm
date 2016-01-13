@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="Twig project, מערכת תבניות">
+<meta name="keywords" content="Twig project, מערכת תבניות">
+<meta name="author" content="RaFaeL">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Twig - יוצרים תבניות מתקדמות\פשוטות</title>
+<meta itemprop="name" content="Twig - יוצרים תבניות מתקדמות\פשוטות">
+<meta itemprop="description" content="Twig project, מערכת תבניות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"244","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Twig - יוצרים תבניות מתקדמות\פשוטות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">RaFaeL, </div>
+<div class="right">&nbsp;<time datetime="2012-08-21T11:26:14+03:00" dir="rtl">21 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.israup.net/images/eb6e5fb4260053ab4f5869f9269e5e59.png" alt="Twig - יוצרים תבניות מתקדמות\פשוטות">
+</div>
+<div class="right post-content">
+אחרי שהכרנו וגילינו מה טוב ב-Twig אנחנו מתקדמים ויוצרים תבניות מתקדמות\פשוטות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h5>חלקים</h5><br>* חלק א&#039; <a href="Twig  הכרות הפעלה ומאפיינים.htm">כאן</a><br><br><h4>מה במדריך?</h4><br>אחרי שהכרנו עם המערכת Twig וגילינו את הצדדים הטובים בה אנחנו לא עוצרים לרגע וממשיכים ללמוד הכל על המערכת.<br>בחלק הזה נלמד כיצד ליצור תבניות פשוטות על ידי שימוש בInclude אחרי שנבין את הבסיס נתקדם וניצור תבניות מתקדמות על ידי שימוש ב Layout ו Blockים.<br>כמו שאמרתי המדריך הקודם ל-Twig אפשרויות רבות, בין האפשרויות ישנה אפשרות מדהימה ליצירת תבניות בצורה שונה מהרגיל.<br><br><h4>הגדרות והכנות</h4><br>ליפני שנתחיל לעבוד על התבניות שלנו יש כמה צעדים פשוטים ליפני זה על מנת להוציא את המיטב מהמערכת.<br><h5>תיקיות</h5><br>ליפני תחילת העבודה יש ליצור מספר תיקיות שישמשו אותנו בעתיד הקרוב,<br>1: Public<br>2: Public/Html<br>3: Public/Html/Layout<br><br>זה אמור להראות ככה:<br>-Public<br>--Public/Html<br>---Public/Html/Layout<br><br><h4>מתחילים לעבוד</h4><br>אחרי שהכנו הכל אנחנו מתחילים לעבוד עם הסבר על כל מה שאנחנו עושים,<br>קודם כל בואו נחליף את הקוד הבא:<br><div class="php codeblock"><span class="re0">$loader</span> <span class="sy0">=</span> <span class="kw2">new</span> Twig_Loader_String<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$twig</span> <span class="sy0">=</span> <span class="kw2">new</span> Twig_Environment<span class="br0">&#40;</span><span class="re0">$loader</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$twig</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'Hello {{ world }}!'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'world'</span> <span class="sy0">=&gt;</span> <span class="st_h">'World!'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>לקוד הבא:<br><div class="php codeblock"><span class="re0">$loader</span> <span class="sy0">=</span> <span class="kw2">new</span> Twig_Loader_Filesystem<span class="br0">&#40;</span><span class="st_h">'/path/to/Public/Html'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$twig</span> <span class="sy0">=</span> <span class="kw2">new</span> Twig_Environment<span class="br0">&#40;</span><span class="re0">$loader</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$twig</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'hello.html'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'world'</span> <span class="sy0">=&gt;</span> <span class="st_h">'World'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>מה שעשינו זה הגדרנו החלפנו את התבנית שקודם נכתבה בפרמטר הראשון של render לתבנית שנכתבת בקובץ נפרד.<br>כעת אם תריצו את הקוד תקבלו הודעת שגיאה שנוצרה על ידי Twig וכך היא נראת:<br><span dir="ltr">Uncaught exception &#039;Twig_Error_Loader&#039; with message &#039;Unable to find template &quot;hello.html&quot; (looked into: ./Public).&#039; in D:\User\Serve\www\Twig\Protected\Twig\Loader\Filesystem.php on line 129</span><br>(פירוש: לא ניתן למצוא את התבנית &quot;hello.html&quot; בתקיה /path/to/Public)<br><br><h5>תיקון השגיאה</h5><br>על מנת לתקן את השגיאה עלינו ליצרו קובץ בשם hello.html בתקיה Public/Html, דוגמא לקובץ פשוט:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> world <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">!</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br>כעת אחרי שנריץ את העמוד נקבל את הפלט הבא: Hello World!, הקוד מקור:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; Hello World<span class="sy0">!</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br><h4>הופכים את התבנית למתקדמת קצת יותר</h4><br>בדרך כלל באתרים אתם רואים שיש חלקים שלא משתנים באתר(Header &amp; Footer - החלק העליון והתחתון של העמוד), בשביל לבצע דבר כזה יש שתי אפשרויות:<br>1: Include <br>2: Layout &amp; Blocks<br>על שתי האפשרויות נפרט ונסביר בהמשך המדריך.<br><br><h4>Include - יבוא קבצים</h4><br>אחת האפשרויות ש-Twig מציאה היא פונקציית ה Include שמאפשרת ליבא תבנית\קובץ אל תבנית אחרת.<br>אפשר להשתמש בפונקצייה זו על מנת ליצור עמודים עם חלק עליות ותחתון זהה לחלוטין.<br><br><h5>כיצד עושים את זה</h5><br>על מנת להבין כיצד נעשה את זה עלינו לחלק את העמוד לשלושה חלקים: חלק עליון, תוכן העמוד, חלק תחתון:<br><img src="static\images\pixel.png" alt="Twig - יוצרים תבניות מתקדמות\פשוטות" title="http://www.israup.net/images/573fce5b495c34402444aebd2335a105.png" class="content-image-float"><br><br>וככה זה יראה עם קודים:<br><img src="static\images\pixel.png" alt="Twig - יוצרים תבניות מתקדמות\פשוטות" title="http://www.israup.net/images/9e5d8710ddb816aab072bdbf0ea7a36d.png" class="content-image-float"><br><br><h5>כותבים את העמוד</h5><br>עכשיו בואו נתרגם את התמונות לקוד פשוט, ליפני כן יש ליצור שתי קבצים בתקייה Public/Html/Layout: <br>* Header.html<br>* Footer.html<br><br>כך יראו התקיות:<br>-Public<br>--Public/Html<br>--hello.html<br>---Public/Html/Layout<br>---- Header.html<br>---- Footer.html<br><br>כעת אחראי שיצרתם את שתי הקבצים בואו נכתוב קוד מתאים בכל קובץ,<br>נתחיל עם hello.html:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">include</span> <span class="st_h">'Layout/header.html'</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> world <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">!</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">include</span> <span class="st_h">'Layout/footer.html'</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br>header.html:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span></div><br>footer.html:<br><div class="php codeblock"><span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br>מה שעשינו זה יצרנו שתי עמודים וקובץ תבנית, בקובץ תבנית עשינו יבוא של שתי הקבצים על פי הדרישה על מנת ליצור מעטפת.<br><br>לאחר הרצת הקוד, קוד המקור שמתקבל הינו:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Twig guide <span class="sy0">-</span> by RaFaeL<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; Hello World<span class="sy0">!</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br><h4>במדריך הבא</h4><br>* משפרים את התבניות עוד יותר<br>* יצירת תנאי IF<br><br><h4>המדריך הבא</h4><br><a href="Twig  תבניות מתקדמות ותנאי If .htm">Twig - תבניות מתקדמות ותנאי If</a><br><br><h5>בהצלחה!</h5> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/7ff5a4244432d30b20b8a8a2d7ed82e7?s=16&r=g&d=monsterid" alt="RaFaeL">
+<a>RaFaeL</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1874"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/08/2012 10:29</span><br>
+מעולה. תודה.<br>
+תוסיף בבקשה קישורים מפה לחלק הראשון<br>
+ומהחלק הראשון לפה.</div>
+<a id="comment1880"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/08/2012 13:26</span><br>
+@intval ערכתי :)<br>
+דרך אגב אלכס לא זזות לי הנקודות... כיאילו אני מקבל רק על מדריכים אני לא מקבל על תשובות וזה..</div>
+<a id="comment1881"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/08/2012 17:06</span><br>
+מדריך נחמד. תודה רבה. :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

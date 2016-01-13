@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מאמר קצר הסוקר את הקונטיינר namespace ואת העבודה איתו בphp">
+<meta name="keywords" content="php namespace, ניימספייס, מדריך לnamespace">
+<meta name="author" content="Michael">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Namespace for dummies</title>
+<meta itemprop="name" content="Namespace for dummies">
+<meta itemprop="description" content="מאמר קצר הסוקר את הקונטיינר namespace ואת העבודה איתו בphp">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"276","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Namespace for dummies</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Michael, </div>
+<div class="right">&nbsp;<time datetime="2012-12-27T09:50:30+02:00" dir="rtl">27 לדצמבר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://s7.postimage.org/gk16n8jbr/import_namespace.png" alt="Namespace for dummies">
+</div>
+<div class="right post-content">
+אנחנו מתחילים לעבוד על מערכת לרעיון מגניב שחשבנו עליו. עם הזמן והזמן אנחנו מפתחים ומפתחים אותה ובסוף מסתבר שאנחנו יוצרים מחלקה חדשה אבל השם הזה כבר קיים. אם נסתכל על מערכות כמו CodeIgniter, ZF1 או אפילו Yii - הם פתרו את הבעיה הזאת בנתינת prefix כמו Zend_, CI_, או במקרה האחר פשוט C,זה הסתיים בכך שיש מחלקות עם שמות מטורפים כמו &quot;Zend_Application_Bootstrap_Bootstrap&quot; ואף יותר גדולים. בואו נכיר את namespae <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אחד הדברים החשובים שהרבה מתכנתים חיכו שהגיע עם הרליס של 5.3 הוא ניימספייס, שעליו נדבר היום במאמר.<br><br><h3>מה זה <a href="http://php.net/manual/en/language.namespaces.rationale.php">namespace</a> בכלל?</h3><br>עם הזמן כשאר אנחנו מפתחים מערכת, לבד או בחברה קטנה, המערכת כל הזמן גדלה, אנחנו לוקחים מדי פעם<br>מחלקות צד שלישי בשביל פעולה מסוימת ואז אנחנו מבינים שיש לנו לפעמים קונפליקט עם הפונקציות או המחלקות - אותו שם בקבצים שונים. עד 5.3, רוב המערכות והפריימוורקים היו עושים prefix למחלקות בסגנון של Zend_Application_Bootstrap_Bootstrap שאומר לנו שבתוך תיקיית זנד, יש תיקיית אפליקשן, בתוכה בוסטראפ ושם נמצאת המחלקה שלנו. זה גרם שהיה מחלקות עם שמות ענקיים, ובכללי הדרך היתה די &quot;מלוכלכת&quot; (messy) ולא נעימה לעין. לכאן נכנס namespace - הוא מגדיר לנו קונטיינר אבסטרקטי שמאפשר לנו לכתוב קוד שמתייחס ספציפית לניימספייס הזה. כלומר, נקח לצורך הדוגמא שיש לנו מחלקת אימייל בתוך תיקיית application ואותה שם של מחלקה בתיקיית core. שתי המחלקות מכילות קוד שונה אך אותו שם, ואנחנו נרצה לטעון את שתי המחלקות בקובץ אחר במערכת, ופשוט נעשה <span dir="ltr">$coreEmail = new \Core\Email;</span> ו - <span dir="ltr">$appEmail = new \Application\Email;</span>, ובכך לצורך הדוגמא נמנענו מקונפליקט מיותר.<br><br><h3>הסינטקס</h3><br>הסינטקס של ניימספייס בPHP מתבטא בשתי צורות, אופציה ראשונה זה לרשום בשורה אחת ואופציה שניה להכניס את כל הקוד של הניימספייס שלנו לתוך סוגריים מסולסלות:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">namespace</span> Application\Database<span class="sy0">;</span><br>
+<span class="co1">// some code</span><br>
+<br>
+<span class="co1">// OR</span><br>
+<br>
+<span class="kw2">namespace</span> Application\Database <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// code</span><br>
+<span class="br0">&#125;</span></div><br>וככה יצרנו את הקונטיינר הראשון שלנו.<br><br>השם של הניימספייס אמור להכיל את הנתיב המלא לקובץ. כלומר, אם יש לנו קובץ בשם Blog.php שנמצא בתוך תיקיית controllers שנמצא בתוך תיקיית application, אז השם של הניימספייס שלנו יהיה: <span dir="ltr">namespace Application\Controllers\Blog</span>.<br>הסטנדרט <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">psr-0</a> של קבוצת פיג מסביר לנו מה השם הראוי לניימספייס.<br><br>הזיהוי של הניימספייס שאנחנו מתייחסים אליו מחולק לשלוש קבוצות:<br>1. <strong>Fully qualified name</strong><br>Fully qualified name מתייחס לנתיב המלא למיקום של הניימספייס שאנחנו מתכוונים אליו במערכת קבצים.<br>כלומר, אם אנחנו נשתמש בניימספייס <span dir="ltr">\Foo\Bar\MyClass</span> הוא יחפש את המחלקה MyClass בתוך הניימספייס Foo\Bar.<br><br>2. <strong>Qualified name</strong><br>Qualified name מתייחס לנתיב שנמצא בניימספייס שאנחנו משתמשים בו כרגע. כלומר, אם אנחנו כרגע נמצאים בניימספייס בשם <span dir="ltr">\Foo\Bar</span> ואנחנו מנסים לגשת ל<span dir="ltr">Libs\Someclass</span> הוא יחפש את המחלקה בנתיב <span dir="ltr">\Foo\Bar\Libs\Someclass</span>. שימו לב, שאם הינו שמים \ לפני Libs, הוא היה לא מתייחס לזה כחלק מ<span dir="ltr">\Foo\Bar</span> והיה הולך ישירות ל<span dir="ltr">\Libs\Someclass</span>.<br><br>3. <strong>Unqualified name</strong><br>Unqualified name מתייחס כמובן לנתיב הנוכחי שאנחנו עובדים בו. אם ניצור אינטנט חדש של מחלקה, או נשתמש בפונקציה מסוימת תחת הניימספייס <span dir="ltr">\Foo\Bar</span> הוא יחפש אותם באותו ניימספייס.<br><br>למי שאיבד אותי, הינה קוד קטן שימחיש את הקטגוריות:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">namespace</span> Foo<span class="sy0">;</span><br>
+<br>
+<span class="kw2">class</span> Someclass <span class="br0">&#123;</span><span class="br0">&#125;</span><br>
+<span class="kw2">function</span> Somefunction<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="br0">&#125;</span><br>
+<br>
+<span class="co1">// Fully qualified name</span><br>
+<span class="re0">$myMailClass</span> <span class="sy0">=</span> <span class="kw2">new</span> \Libs\AwesomeMail\Mailer<span class="sy0">;</span><br>
+\Core\Functions\addViewToDb<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Qualified name</span><br>
+<span class="re0">$otherClass</span> <span class="sy0">=</span> <span class="kw2">new</span> Bar\Baz<span class="sy0">;</span> <span class="co1">// Will reffer this as Foo\Bar\Baz</span><br>
+Bar\awesomeFunction<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// The same ^</span><br>
+<br>
+<span class="co1">// Unqualified name</span><br>
+<span class="re0">$lastClass</span> <span class="sy0">=</span> <span class="kw2">new</span> Someclass<span class="sy0">;</span> <span class="co1">// Reffers to the current namespace class</span><br>
+Somefunction<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>עכשיו, כשאנחנו נרצה ליצור אינסנטס חדש של מחלקה מובנת בPHP, ניצטרך לגשת אלייה עם סלאש אחורי בהתחלה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">namespace</span> Framework\Database<span class="sy0">;</span><br>
+<br>
+<span class="kw2">class</span> Database <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$dsn</span><span class="sy0">,</span> <span class="re0">$user</span> <span class="sy0">=</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="re0">$pass</span> <span class="sy0">=</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="re0">$drivers</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$pdo</span> <span class="sy0">=</span> <span class="kw2">new</span> \PDO<span class="br0">&#40;</span><span class="re0">$dsn</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="sy0">,</span> <span class="re0">$drivers</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>אומנם זה לא תקף לפונקציות המובנות:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">namespace</span> Libs\Functions\FileManager<span class="sy0">;</span><br>
+<br>
+<span class="kw2">function</span> <span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="re0">$filename</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$filename</span> <span class="sy0">=</span> <span class="st0">&quot;fakefile.jaja&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="re0">$filename</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// bool(true)</span><br>
+<span class="kw3">var_dump</span><span class="br0">&#40;</span>\<span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="re0">$filename</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// bool(false) and probably an E_WARNING</span><br>
+<span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$filename</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// int(13), as we didn't overried the function so it looks up to the built-in functions</span></div><br><br><br><h3>use</h3><br>כשאנחנו רוצים להשתמש בכמה ניימספייסים ארוכים בקובץ אצלינו במערכת, רוב הסיכויים שיהיה מבאס לכתוב את כל הנתיב (Fully qualified name), לשם כך יש לנו את המילה השמורה: <strong>use</strong>.<br>כאשר אנחנו משתמשים בה בקוד, אנחנו מציינים את הנתיב של הניימספייס/ים שלנו, ובכך אנחנו מאפשרים לעצמנו שימוש עם Qualified name או Unqualified name במקום לרשום את כל הנתיב.<br><br>לדוגמא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">use</span> \Foo\Bar\Baz\Gaz\Shmaz<span class="sy0">;</span><br>
+<span class="kw2">use</span> \AwesomeFramework\Libs\UnveryNeedenStuff\FacebookAPI<span class="sy0">;</span><br>
+<br>
+Shmaz\ShmazIT<span class="br0">&#40;</span><span class="st0">&quot;yes!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Reffers to \Foo\Bar\Baz\Gaz\Shmaz</span><br>
+<span class="kw2">new</span> FacebookAPI<span class="br0">&#40;</span><span class="st0">&quot;mySecretKey&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Reffers to \AwesomeFramework\Libs\UnveryNeedenStuff\FacebookAPI</span><br>
+<span class="kw2">new</span> \FacebookAPI<span class="br0">&#40;</span><span class="st0">&quot;otherClass&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Does not affected by \AwesomeFramework\Libs\UnveryNeedenStuff\FacebookAPI</span></div><br><br>ואפילו הוסיפו לנו את המילה as שמאפשרת לתת alias לניימספייסים:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">use</span> \Foo\Bar\Baz\Gaz\Shmaz <span class="kw1">as</span> ShmazFunctions<span class="sy0">;</span><br>
+<span class="kw2">use</span> \AwesomeFramework\Libs\UnveryNeedenStuff\FacebookAPI <span class="kw1">as</span> FB<span class="sy0">;</span><br>
+<br>
+ShmazFunctions\ShmazIT<span class="br0">&#40;</span><span class="st0">&quot;yes!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">new</span> FB\FacebookAPI<span class="br0">&#40;</span><span class="st0">&quot;mySecretKey&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h3>לסיכום</h3><br>ניימספייס הוא תכונה חזקה שמאפשרת לנו לפתח מערכות ואת הארכיאקטורה שלהם בצורה יותר חכמה ונקייה.<br>השימוש פשוט, התוצאות טובות.<br>אפשר לקרוא עוד על <a href="http://php.net/manual/en/language.namespaces.php">ניימספייס</a> בphp.net :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=16&r=g&d=monsterid" alt="Michael">
+<a>Michael</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2074"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2012 06:47</span><br>
+תודה רבה על המדריך ... חידשת לי :)</div>
+<a id="comment2075"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2012 07:19</span><br>
+אחלה מדריך. תודה. :-)<br>
+אולי כדאי להוסיף קישור למאמר על PSR-0 באתר... <span dir="ltr"><a href="psr0.htm">http://phpguide.co.il/psr0.htm</a></span></div>
+<a id="comment2077"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2012 10:13</span><br>
+מדריך נחמד , למרות שכבר יש כזה בעברית.<br>
+בקיצור מיותר.</div>
+<a id="comment2078"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2012 10:20</span><br>
+תצטרף קישור. יהיה שני מדריכים.</div>
+<a id="comment2079"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2012 13:26</span><br>
+אם אתה חושב שזה מיותר, אתה מוזמן לכתוב בעצמך מאמר לאתר על נושא שלא כתבו עליו עדיין =)</div>
+<a id="comment2080"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2012 23:01</span><br>
+יש לי אתר של מדריכים:<br>
+<span dir="ltr"><a href="http://lior-portal.co.il">http://lior-portal.co.il</a></span><br>
+אתה יכול להיכנס להתעדכן במדריכים על התכנות (לא רק PHP)<br>
+המאמר נמצא כאן:<br>
+<span dir="ltr"><a href="http://www.internet-israel.com/internet/%D7%A4%D7%99%D7%AA%D7%95%D7%97-%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98/%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%90%D7%AA%D7%A8%D7%99-%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98-%D7%9C%D7%9E%D7%A4%D7%AA%D7%97%D7%99%D7%9D/php-5-3-namespacing/">http://www.internet-israel.com/internet/פיתוח-אינטרנט/בניית-אתרי-אינטרנט-למפתחים/php-5-3-namespacing/</a></span><br>
+</div>
+<a id="comment2081"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/12/2012 02:10</span><br>
+אחלה אתר מדריכים ותודה על הקישור למדריך של רן. לדעתי מיכאל פשוט פירט את הנושא עוד יותר<br>
+בתקווה שזה יגרום לך ולמתכנתים אחרים להתחיל להשתבש בזה ואולי אפילו לכתוב את המדריך השלישי :)</div>
+<a id="comment2086"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/12/2012 13:34</span><br>
+תודה רבה , אשמח אם תיצור איתי קשר באימייל\סקייפ\FXP (יהומלך).<br>
+אם אתה חושב שזה חיוני אני באמת יפרסם על זה מדריך , אני מחפש דברים מעניינים לפרסם עליהם.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

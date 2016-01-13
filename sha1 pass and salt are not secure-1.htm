@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הסיסמאות שלכם פחות מאובטחות ממה שחשבתם!">
+<meta name="keywords" content="סיסמה, גיבוב, hash">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>חשבת ש-sha1 עם מלח זה מספיק? פונקציות לעבודה מאובטחת עם סיסמאות!</title>
+<meta itemprop="name" content="חשבת ש-sha1 עם מלח זה מספיק? פונקציות לעבודה מאובטחת עם סיסמאות!">
+<meta itemprop="description" content="הסיסמאות שלכם פחות מאובטחות ממה שחשבתם!">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"279","rating":"32","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>חשבת ש-sha1 עם מלח זה מספיק? פונקציות לעבודה מאובטחת עם סיסמאות!</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-12-15T11:36:49+02:00" dir="rtl">15 לדצמבר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://s20.postimage.org/67gy4p3ix/rsz_aj_padlock.png" alt="חשבת ש-sha1 עם מלח זה מספיק? פונקציות לעבודה מאובטחת עם סיסמאות!">
+</div>
+<div class="right post-content">
+אבטחה, סיסמאות, הצפנה, גיבוב וקריפטוגרפיה זה בדרך כלל לא הנושאים שהכי מעניינים אותנו בתור מתכנתי PHP והרבה מאוד פעמים מהווים את הנקודה החלשה במערכות שלנו. רוצה להפסיק לשבור את הראש ולהישאר מאובטח?<br><br>עברה כמעט שנה מאז הפרסום הראשוני של המדריך הזה, אך אנשים ממשיכים לעשות את אותם הטעויות בהצפנת סיסמאות. ממשיכים להשתמש ב-md5, אולי עוברים ל-sha1, אחרים מוסיפים מלח (salt) לפונקציות הגיבוב שלהם, אבל שום דבר מזה לא מספיק. שני פונקציות חדשות שנוספו לשפת PHP ושימוש בלאגוריטם הצפנה מתעדכן מבטיח להשאיר אותך מאובטח. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>גיבוב זו פעולה מאוד מהירה</h2><br>פעולות כמו md5, sha1, sha2 עוצבו כדי לבצע בדיקה <strong>מהירה</strong> שהודעה שהתקבלה זהה להודעה שנלשחה ברשת וממש לא בשביל לייצר חאשים של סיסמאות. הם מהירות מדי בשביל סיסמאות.<br><br>אם בעבר היינו <a href="5_מיתוסים_על_md5.htm">מוסיפים לסיסמה salt כלשהו כדי להגן מפני rainbow tables</a>, היום כבר אין צורך ב rainbow table בגלל שלייצר אותו לוקח כלום זמן. המחשבים היום בעלי כוח עיבוד מטורף, אבל מעבר לזה הם בעלי כרטיסים גרפיים מתוחכמים עם המון ליבות וכוח חישובי מטורף.<br><br><img src="static\images\pixel.png" alt="חשבת ש-sha1 עם מלח זה מספיק? פונקציות לעבודה מאובטחת עם סיסמאות!" title="http://s2.postimage.org/oo98sr2m1/gpu.png" class="content-image-float"><br><em>כמות חישובי sha2 שיכול להוציא המעבד בשניה לאומת כרטיס גרפי</em><br><br>קופסה פשוטה ב 2000 דולר עם כמה כרטיסים גרפיים יכולה להוציא כמעט כל סיסמה בזמן סביר.<br><br><br><h2>יש פונקציה איטית?</h2><br>תאר לעצמכך שהיית פונקציה שהיה לוקח לה בדיוק שניה אחת לחשב חאש של מחרוזת. לא משנה כמה מעבדים יהיה לפורץ במקרה הזה, הוא יוכל לנסות לנחש סיסמה אחת בשניה מתוך מליוני האופציות שיש בפועל.<br>הכי קרוב לזה שיש לנו בPHP זה bcrypt שבתור פרמטר יודעת לקבל רמת קושי - ראונדס. הרעיון בראוונדס הגבוהים הוא לגרום לפעולה של ההאש לקחת הרבה יותר זמן על ידי חישוב חאש 1000 פעם במקום פעם אחת.<br><br><h2>bcrypt קצת מסובך</h2><br>יותר נכון השימוש בו ב-PHP קצת מסובך בגלל שצריך ליצור salt במבנה מאוד מסוים שיכלול את כל המידע על זה לגבי כמה מסובכת צריכה להיות ההצפנה. בגלל שלנו אין כוח להתעסק בזה - מפתחי ה PHP החליטו להוסיף לשפה 2 פונקציות חדשות שיעשו הכל בשבילנו.<br><br><h2><span dir="ltr">password_hash($password, $algo)</span></h2><br><a href="http://php.net/password_hash">password_hash</a> היא פונקציה מובנית בPHP שמטרתה היא לגבב (ליצור hash) של סיסמאות.<br>הפונקציה הזו מקבלת שני פרמטרים:<br>— את הסיסמה שצריך להצפין (qwerty)<br>— את אלגוריטם הגיבוב שבה תשתמש (PASSWORD_BCRYPT)<br>היא תייצר את ה-salt בעצמה בצורה שרירותית וכתוצאה תקבל hash של סיסמה אותו אפשר להכניס למסד נתונים או להשתמש בו לצורך השוואת סיסמה בסופו של דבר.<br><br><div class="php codeblock"><span class="re0">$hashed</span> <span class="sy0">=</span> password_hash<span class="br0">&#40;</span><span class="re0">$pass</span><span class="sy0">,</span> PASSWORD_BCRYPT<span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שים לב שבתור אלגוריטם בחרנו את bcrypt, שנחשב לאלגוריטם מספק היום, אבל מה יקרה בעוד שנה, שנתיים כשהמחשבים ישתדרגו? לאף אחד מאיתנו אין בתוכניות להיות עם היד על הדופק כשמשהו משתנה ומיד לחזור אל הקוד עוד שנתיים כדי לשנות את אלגוריטם ההצפנה.<br><br>בשביל לא להתריח אותנו יותר מדי, מפתחי השפה הכניסו קבוע נוסף PASSWORD_DEFAULT שהולך להשתנות לבד מגירסה לגירסה ברגע שמשהו יתעדכן בעולם האבטחה. במקום לכתוב בפרמטר השני, בצורה מפורשת, באיזה אלגוריטם נרצה להשתמש - נוכל לכתוב PASSWORD_DEFAULT ו-PHP תבחר את האלגוריטם המתאים ביותר לאותה תקופה ולאות גרסת PHP.<br><br><div class="php codeblock"><span class="re0">$hashed</span> <span class="sy0">=</span> password_hash<span class="br0">&#40;</span><span class="re0">$pass</span><span class="sy0">,</span> PASSWORD_DEFAULT<span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><br><h2><span dir="ltr">if(password_verify($_POST[&#039;pw&#039;], $hashed))</span></h2><br>בדיקת סיסמה מתבצעת בשורה אחת על ידי פונקציה מובנית נוספת - <a href="http://www.php.net/manual/en/function.password-verify.php">password_verify</a><br>הפרמטר הראשון זו הסיסמה שהבן אדם כרגע הזין ואנחנו רוצים לבדוק שהיא נכונה<br>הפרמטר השני זה ה-hash ששמור במסד כתוצעה מ-password_hash<br><br><h2>רגע, זה לא מPHP5.5 ?</h2><br>למרות שהפונקציות האלה מופיעות רק ב PHP 5.5 - אתה יכול להתחיל להשתמש בהם כבר עכשיו.<br>פשוט תעשה אינקלוד לקובץ <a href="https://github.com/ircmaxell/password_compat/blob/master/lib/password.php">password_compat</a> ותתחיל להשתמש. הקוד יבדוק לבד את גרסת ה-PHP שלך ובהתאם לזה יחליט אם להשתמש בפונקציות המובנות בשפה עצמה או בפונקציות הממומשות בקובץ.<br><br><br><br><h2>דוגמה לעבודה עם סיסמאות במסד</h2><br><br>הרשמה: <br><div class="php codeblock"><span class="re0">$passwordHash</span> <span class="sy0">=</span> password_hash<span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'pass'</span><span class="br0">&#93;</span><span class="sy0">,</span> PASSWORD_DEFAULT <span class="br0">&#41;</span><span class="sy0">;</span><br>
+query<span class="br0">&#40;</span><span class="st0">&quot; INSERT INTO users (mail, pass) &nbsp;VALUES ('<span class="es4">$mail</span>', '<span class="es4">$passwordHash</span>')&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>הזדהות:<br><div class="php codeblock"><span class="re0">$hashInDb</span> <span class="sy0">=</span> query<span class="br0">&#40;</span><span class="st0">&quot;SELECT pass FROM users WHERE mail = '<span class="es4">$mail</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span>password_verify<span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'pass'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$hashInDb</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'welcome'</span><span class="sy0">;</span><br>
+<span class="kw1">else</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'wrong pw'</span><span class="sy0">;</span></div><br><br>גיבוב ובדיקה של סיסמה הופכות לעניין של שורה אחת עם רמת אבטחה גבוה. בדוגמה למעלה אין צורך לבצע כל מני שטויות כמו real_escape_sting או htmlSpecialChars על הסיסמה, היות שהיא תעבור גיבוב וה-hash שלה בוודאות יהיה מספיק תקין בשביל להתקבל על ידי המסד.<br><br>אותו דבר נכון גם לגבי אימייל. מספיק שתבדוק שהאימייל כתוב נכון וזה יהיה מספיק מאובטח בשביל להכניס אותו למסד בלי escape_string או htmlSpecialChars. אימייל תקין לא יכול להכיל תווים מוזרים וגרשיים. ניתן <a href="בדיקת_תקינות_אימייל_ב_php.htm">לבדוק האם אימייל כתוב בצורה תקינה</a> באמצעות פונקציות מובנות בשפת PHP. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2102"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/01/2013 06:17</span><br>
+ענק!</div>
+<a id="comment2103"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/01/2013 10:09</span><br>
+התחלתי לקרוא, אמרתי נחמד אבל אני יודע שזה מ-php 5.5 אז זה לא שמיש כרגע. <br>
+משמח לדעת שאפשר להשתמש בזה כבר עכשיו. :-) </div>
+<a id="comment2104"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/01/2013 10:12</span><br>
+אני אישית הוספתי את זה לפני כמה שעות לאחד הפרוייקטים שלי.<br>
+עובד פצצה :)</div>
+<a id="comment2178"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2013 11:36</span><br>
+יהיה טוב לציין ש-password_hash מחזירה מחרוזת באורך 60 תווים. רק כדי שידעו איזה אורך לקבוע במסד.</div>
+<a id="comment2191"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/01/2013 00:51</span><br>
+אגב, תודה רבה על הערה עידן,<br>
+ואני עוד יוסיף שאת השדה יש לקבוע לא בתור varchar אלה בתור binary(60<br>
+</div>
+<a id="comment2194"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/01/2013 11:26</span><br>
+מדוע לא char(60)?<br>
+<br>
+תודה. :)</div>
+<a id="comment2195"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/01/2013 12:18</span><br>
+תודה רבה!.<br>
+אשמח לדעת גם למה binary ולא char :).</div>
+<a id="comment2196"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/01/2013 03:29</span><br>
+בגלל שהפלט של הפונקציה הזו הוא ערך בינארי שכל בייט בו לאו דווקא מייצג אות כלשהי שאפשר לקרוא.<br>
+אם השדה יהיה char המסד יצרטך לעשות המרה של אותם בייטים לאותיות. ואין שום סיבה לעשות את זה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

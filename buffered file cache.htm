@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שמירת נתונים ב-cache על בסיס קבצים באמצעות output buffering">
+<meta name="keywords" content="cache, buffer, output buffering, file cache">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>file cache &amp; output buffering או איך להחזיר את כח השרת האבוד</title>
+<meta itemprop="name" content="file cache &amp; output buffering או איך להחזיר את כח השרת האבוד">
+<meta itemprop="description" content="שמירת נתונים ב-cache על בסיס קבצים באמצעות output buffering">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"119","rating":"32","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>file cache &amp; output buffering או איך להחזיר את כח השרת האבוד</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-07-05T07:56:09+03:00" dir="rtl">05 ליולי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ecx.images-amazon.com/images/I/416uHbBWtyL._SL500_SS75_.jpg" alt="file cache &amp; output buffering או איך להחזיר את כח השרת האבוד">
+</div>
+<div class="right post-content">
+רק כדי להציג עמוד יחיד זה השרת צריך להתחבר למסד, לעשות כמה שליפות, לקרוא כמה קבצי תבניות (mvc :) ולבצע עוד כמה חישובים. וכל פעם שאנחנו לוחצים ריענון השרת מחשב את כל זה מחדש שוב ושוב. למרות ששום דבר לא השתנה כאן בחצי שעה האחרונה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>למה צריך cache</h2><br><h3>בזבוז משאבים מיותר</h3><br>בסה&quot;כ רצינו להציג עמוד. אבל בפועל כל טעינה של העמוד מכריחה את השרת לייצר אותו מחדש, לחשב, לשלוף, להציג. וכשיש כמה גולשים במקביל? השרת מחשב את אותם תוצאות כל פעם מחדש ולפעמים את אותו החישוב כמה פעמים בשניה. <br><br><h3>cache</h3><br>במקום שהשרת שלנו יחשב או אותו עמוד כמה פעמים בשניה - למה שלא נשמור את תוצאות החישוב לזמן מסוים? מלבד מדריכי php, העמוד הזה מציג הודעות אחרונות מהפורום. התוכן של העמוד משתנה בערך אחת לחצי שעה. <br><br>באפשרותינו לשמור את תוצאות החישוב ( ה-html הסופי) למשך חצי שעה ופעם בחצי שעה לחשב את העמוד עוד פעם. באופן הזה במקום שהשרת יבצע את אותם חישובים כמה פעמים בשניה - הוא יבצע חישוב אחד פעם בחצי שעה.<br><br><br><h3>שמירת העמוד</h3><br>קודם כל עלינו לשמור את תוצאות החישובים (את ה-html הסופי) איפשהו למשך חצי שעה כדי שלא נחשב אותו כל פעם מחדש. אנחנו נעשה את זה בדרך הפשוטה ביותר - באמצעות קבצים שבהם נשמור את התוכן המוכן. בכל פעם שהעמוד ייטען - הסקריפט יבדוק האם יש קובץ עם html מוכן מהחצי שעה האחרונה. אם כן - יבצע פעולה אחת - קריאה מקובץ. אם לא - יבצע את שלל החישובים, השליפות וכל השאר.<br><br><br><br><h2>output buffering</h2><br>בדרך כלל כל הפלט של העמוד שלנו נשלח ישירות <s>לשרת web</s> לדפדפן ברגע שהוא מודפס. עשינו echo - הפלט ישר נשלח. חציצה (output buffering) היא שמירת נתונים בזכרון לפני שליחתם הלאה. כל הפלט נאסף בזכרון עד שכל הנתונים כולם יהיו מוכנים לשליחה ותתבצע פעולת שליחה אחת בלבד (במקום כמה שליחות קטנות ומרובות).<br><br>בעזרת buffering אפשר לקבל את הפלט הסופי לתוך משתנה שנוכל לשמור בקובץ לשימוש עתידי. למזלנו php מספקת כלים ממש פשוטים לעבודה עם buffering בעזרת כמה פונקציות פשוטות.<br><br><br><h3>פונקציות ob</h3><br>לא נרחיב על פונקציות ה-buffering ב-php שיש <a href="http://php.net/manual/en/ref.outcontrol.php">לא הרבה כאלה</a> ונתמקד רק באחת החשובה שבהם. <a href="http://php.net/ob_start">ob_start</a><br>כשקוראים לפונקציה הזו, היא מאתחלת את זכרון ה-buffer ומתחילה לשמור כל פלט שבא אחריה לתוך הזכרון. ברגע שהסקריפט מסתיים - היא שולחת הלאה את כל הפלט שהצטבר.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="kw3">ob_start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="kw1">echo</span> <span class="st_h">'everything will be buffered first'</span><span class="sy0">;</span></div><br><br>תכונה חשובה שלה, היא האפשרות להעביר פרמטר מסוים לפוקנציה הזו. הפרמטר שהיא מקבלת הוא <strong>שם של פונקציה</strong> שלה היא תקרא ממש לפני שהפלט נשלח הלאה (לדפדפן).<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="kw2">function</span> callback<span class="br0">&#40;</span><span class="re0">$buffer</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">return</span> <span class="re0">$buffer</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="kw3">ob_start</span><span class="br0">&#40;</span><span class="st_h">'callback'</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<span class="kw1">echo</span> <span class="st_h">'everything will be buffered first'</span><span class="sy0">;</span></div><br><br><strong>שימו לב, חשוב:</strong><br>הפונקציה callback תתבצע ברגע ש-php תהיה מוכנה להעביר את כל הפלט לדפדפן (ברגע סיום העבודה של הסקריפט. הפונקציה callback בתור פרמטר <span class="underline">מקבלת את כל התוכן</span> שנשמר ב-buffer ומיועד לשליחה.<br>הפונקציה יכולה לעשות שינויים על התוכן, עדכונים וכו&apos; אבל <span class="underline">הערך המוחזר מהפונקציה הוא יהיה הפלט</span> החדש שיישלח לדפדפן.<br><br><br><br><h2>לא הכל ל-cache אחד</h2><br>ברוב המקרים הפלט של סקריפט אחד יהיה שונה באופן תלוי בפרמטרים. למשל עבור script.php?id=1 יהיה פלט כלשהו ועבור id=2 יהיה פלט שונה לחלוטין. למקרה הזה הדרך הטובה היא לשמור שני תוצאות ב cache ולהחזיר את התוצאה המתאימה לפרמטרים.<br><br><h2>הקוד</h2><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw3">error_reporting</span><span class="br0">&#40;</span><span class="kw4">E_ALL</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<br>
+<br>
+<span class="re0">$_cache</span><span class="br0">&#91;</span><span class="st_h">'time_to_cache'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="nu0">1800</span><span class="sy0">;</span><br>
+<span class="re0">$_cache</span><span class="br0">&#91;</span><span class="st_h">'directory'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'cache'</span><span class="sy0">;</span><br>
+<br>
+<span class="kw2">function</span> save_cache<span class="br0">&#40;</span><span class="re0">$data</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span> <br>
+&nbsp; <span class="kw2">global</span> <span class="re0">$_cache</span><span class="sy0">;</span> <br>
+&nbsp; <br>
+&nbsp; <span class="kw3">chdir</span><span class="br0">&#40;</span><span class="kw3">dirname</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// create the cache file</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">touch</span><span class="br0">&#40;</span><span class="re0">$_cache</span><span class="br0">&#91;</span><span class="st_h">'url'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="st_h">'failed to create cache file. check directory permissions'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// write the data to the cache file</span><br>
+&nbsp; <span class="kw3">file_put_contents</span><span class="br0">&#40;</span><span class="re0">$_cache</span><span class="br0">&#91;</span><span class="st_h">'url'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="co1">// the return value is being echoed</span><br>
+&nbsp; <span class="kw1">return</span> &nbsp;<span class="re0">$data</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> cache_by_query_string<span class="br0">&#40;</span> <span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">global</span> <span class="re0">$_cache</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// get url file name (/directory/script.php?x=1&amp;y=2)</span><br>
+&nbsp; <span class="re0">$url</span> <span class="sy0">=</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;PHP_SELF&quot;</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'?'</span> <span class="sy0">.</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;QUERY_STRING&quot;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// encode the url (%2Fdirectory%2Fscript.php%3Fx%3D1%26y%3D2)</span><br>
+&nbsp; <span class="re0">$url</span> <span class="sy0">=</span> <span class="kw3">urlencode</span><span class="br0">&#40;</span><span class="re0">$url</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// find out the name of the cache file</span><br>
+&nbsp; <span class="co1">// cache/%2Fdirectory%2Fscript.php%3Fx%3D1%26y%3D2.cache</span><br>
+&nbsp; <span class="re0">$cache_file_name</span> <span class="sy0">=</span> <span class="re0">$_cache</span><span class="br0">&#91;</span><span class="st_h">'directory'</span><span class="br0">&#93;</span> <span class="sy0">.</span><span class="st_h">'/'</span><span class="sy0">.</span> <span class="re0">$url</span> <span class="sy0">.</span> <span class="st_h">'.cache'</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw3">clearstatcache</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">file_exists</span><span class="br0">&#40;</span><span class="re0">$cache_file_name</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; <span class="co1">// last file's modification time</span><br>
+&nbsp; &nbsp; <span class="re0">$last_cache_time</span> <span class="sy0">=</span> <span class="kw3">filectime</span><span class="br0">&#40;</span><span class="re0">$cache_file_name</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">// if the file was modified in the last X seconds -&gt; it's good</span><br>
+&nbsp; &nbsp; <span class="co1">// otherwise, it's too old</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$last_cache_time</span> <span class="sy0">+</span> <span class="re0">$_cache</span><span class="br0">&#91;</span><span class="st_h">'time_to_cache'</span><span class="br0">&#93;</span> <span class="sy0">&gt;</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">ob_clean</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">readfile</span><span class="br0">&#40;</span><span class="re0">$cache_file_name</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw3">ob_start</span><span class="br0">&#40;</span><span class="st_h">'save_cache'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$_cache</span><span class="br0">&#91;</span><span class="st_h">'url'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$cache_file_name</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="co1">// start the caching procedure </span><br>
+cache_by_query_string<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="coMULTI">/********** ALL YOUR CODE GOES BELOW ************/</span><br>
+<br>
+<span class="kw1">echo</span> <span class="st_h">'hey, hi, heya'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'this page cached with id '</span><span class="sy0">,</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br><br><span style="color:gray;">את הקוד אפשר לשמור בקובץ נפרד ולעשות לו אינקלוד בתחילת כל סקריפט.</span><br><br>בתחילת העמוד מוגדרים שני פרמטרים.<br>הראשון הוא תיקיה שבה ישמרו קבצי ה-cache (בשביל זה ניצור תיקיה cache) והשני הוא זמן חיי ה-cache לפני שנחשיב אותו לישן מדי. כאן הוא מוגדר לחצי שעה.<br><br>בתחילת הטעינה של העמוד קוראים לפונקציה cache_by_query_string<br>היא בודקת האם קיים קובץ cache מתאים לעמוד שביקשו. אם כן הוא בודק את זמן יצירת הקובץ. אם הקובץ נוצר בחצי שעה האחרונה - זה אומר שהתוכן שלו עדיין עדכני ואפשר להשתמש בו.<br><br>אם הקובץ לא קיים, או שהוא כבר לא עדכני יותר - הוא מפעיל את מנגנון ה-buffering שבסיומו יקרא לפונקציה save_cache . הפונקציה save_cache מקבתל כפרמטר את התוכן של ה-buffer ושומרת אותו בקובץ.<br><br>אם הקובץ לא קיים touch יוצרת אותו. אם הוא כבר קיים - touch מרוקנת אותו ומעדכנת את זמן יצירת הקובץ. אל תוך הקובץ מוכנס כל התוכן הסופי של העמוד. בפעם הבאה שמשהו ירצה לרענן את העמוד - הקובץ הזה יהיה קיים והתוכן ישלף ממנו במקום שיחושב שוב פעם מחדש.<br><br><h4>הרכבת שם הקובץ</h4><br>שם הקובץ במערכת ההפעלה יהיה זהה לבקשה שעברה לשרת <span dir="ltr">cache/myscript.php?id=3.cache</span><br>בגלל שתווים מסוימים לא יכולים להיות חלק של שם הקובץ. השתמשנו ב urlencode כדי להחליף אותם למשהו שיכול להיות חלק מקובץ ורשמנו אותו ככה.<br><br><br><h3>ולסיכום</h3><br>את זמן חיי ה-cache יש לבחור בהתאם לעמוד. עם זה עמוד עם תגובות ודברים אחרים שמתעדכנים לעתים קרובות - יש לבחור זמן נמוך יותר. למשל חישוב אחד פעם בחמש שניות מביא לגידול של מאות אחוזים בביצועים לאומת כמה חישובים בשניה אחת. <br><br>מצד שני שמירת תוצאות בקבצים היא לא הדרך היעילה ביותר. הדרך העדיפה ביותר היא שמירת הנתונים בזכרון ה-ram עם שימוש בתוכנת (שרתים) שמתאימות ומיועדות במיוחד בשביל זה כמו memcache או mysql עם טבלאות ה memory שלהם.<br><br><br><br><h2>בעקבות בקשות הקהל — איך להשתמש בקוד</h2><br>1. יוצרים קובץ חדש (למשל cache_manager.php) מעתיקים את כל הקוד מהכתבה לתוכו. <br>2. מוחקים מסוף הקוד את שני שורות ה echo . הם לא שייכות, הם סתם דוגמה.<br>3. מוסיפים inculde &apos;cache_manager.php&apos; בתחילת כל הסקריפטים שגולשים אליהם<br>4. יוצרים תיקיה cache (ובאחסון נותנים לה הראשות כתיבה 0777)<br>5. מריצים ובודקים שבאמת נוצר קובץ עם תוכן בתיקיה cache<br><br><strong>מתי לא להשתמש בזה:</strong><br>בסקריפטים שהפלט שלהם שונה ממשתמש למשתמש (לפי קוקיז, סשן, ip)<br>בסקריפטים שמעבדים טפסים<br>בסקריפטים שלא עושים שום דבר מסובך ממילא<br>בזמן פיתוח. אחרת לא תראו שינויים שעשיתם בסקריפט. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment325"></a>
+<div class="blog-comment">
+<span class='comment-author'>דניאל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 22:33</span><br>
+לא הצלחתי להבין איך להשתמש בזה.<br>
+אתה משקיע את מירב המאמאצים בכתיבה על מה שעומד מאחורי זה. אבל שוכח לכתוב בפועל איך להשתמש בה.<br>
+<br>
+אשמח אם תוכל להביא דוגמאות ולהסביר ולהתעמק בהם.<br>
+כמו שאומרים - תמונה אחת שווה אלף מילים.</div>
+<a id="comment326"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 22:36</span><br>
+אהה תודה... אני יעדכן את המדריך.<br>
+המטרה שלי בכל אופן היא באמת להסביר את מה שעומד מאחורה ולא סתם לתת פה סקריפטים להורדה.</div>
+<a id="comment327"></a>
+<div class="blog-comment">
+<span class='comment-author'>astn</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 22:42</span><br>
+אם כבר מדברים על CACHE - באחד הפוסטים פה, רשמת שאתה משתמש ב TWIG. שמתי לב שלTWIG אין מנגנון מובנה לקאשינג בדומה למה שהראת למעלה. אני מניח שאתה כן משתמש בקאשינג לאתר - מה אתה עושה? מתמש במשהו קיים או שיצרת משהו משלך?<br>
+<br>
+תודה.</div>
+<a id="comment328"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 22:44</span><br>
+דווקא ל-twig יש קש טיפה שונה. הוא מחבר את כל התבניות והמשתנים לסקריפטים רגילים שאחרי זה מתקמפלים על ידי zend optimizer<br>
+<br>
+הקש היחידי שאני מימשתי הוא על תוכן הכתבה שבמקור מורכבת מ-bbcodes רגילים שמפוענחים רק פעם אחת. מבוסס על מסד ולא על קבצים</div>
+<a id="comment329"></a>
+<div class="blog-comment">
+<span class='comment-author'>דניאל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 22:48</span><br>
+אלכס, תודה שהתייחסת לתגובה שלי. :)<br>
+אני לא אומר לך להביא מערכות או משהו בסגנון.<br>
+<br>
+אני חושב שזה נושא מאוד חשוב ב PHP ושצריך להתעמק גם בעוד נושאים מלבד מה ש&quot;עומד מאחורי&quot;.<br>
+<br>
+אני מצפה בקוצר רוח לעדכון :]<br>
+<br>
+ד&quot;א אחלה אתר, באמת שיש בו מאמרים ממש טובים. :]</div>
+<a id="comment330"></a>
+<div class="blog-comment">
+<span class='comment-author'>astn</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 22:49</span><br>
+ככה שמבחינת יעילות וכד&apos; אין הבדל (ז&quot;א,זה מספיק יעיל)? אני לא צריך למצוא/לכתוב משהו כמו למעלה?</div>
+<a id="comment331"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 22:53</span><br>
+המטרה היא לחסוך את הפעילות הכבדה שיש לך. אם אין לך שום פעילות כבדה בעמוד - כנראה שאין טעם. למרות שאם הדפים שלך לא מתעדכנים יותר מדי - בכל זאת תוכל להרוויח מהשימוש בזה. <br>
+<br>
+בגדול אתה תמיד תרוויח מזה, למעט מקרים שהעמוד שלך עושה פחות פעולות שהקוד בכתבה עושה. בשאר המקרים זה באמת רקלהעתיק את הקוד לקובץ חדש ולעשות לו אינקלוד בכל העמודים שאתה רוצה שישמרו בקש.</div>
+<a id="comment332"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 23:00</span><br>
+הוספתי הסבר קצר על &quot;איך להשתמש&quot;. <br>
+יותר ברור? :)</div>
+<a id="comment333"></a>
+<div class="blog-comment">
+<span class='comment-author'>דניאל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 23:08</span><br>
+ואם אני רוצה שרק מידע ספציפי יאוסחן ב cache?<br>
+<br>
+ע&quot;פ הדוגמה שראיתי אני מבין שמרגע שאתה מפעיל את הקוד - כל מה שמתחתיו ישמור את הנתונים.</div>
+<a id="comment334"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 23:11</span><br>
+נכון. במקרה הזה כל העמוד במלואו יישמר בקש. אם אתה רוצה לשמור רק חלק מהעמוד תצטרך להוריד את exit מהקוד, <br>
+לעשות לו אינקלוד בתחילת החלק שאתה רוצה שיישמר ובסוף החלק לקרוא לפוונקציה ob_end_flush()<br>
+<br>
+שים לב שהפוקנציה כרגע בכל זאת מיועדת לעבוד עם פרמטרים שונים מתוך הקישור של העמוד. אם אתה רוצה לשמור בקש חלק מהעמוד והוא לא משתנה בהתאם לפרמטרים - תצטרך לשנות את הפונקציה עצמה.</div>
+<a id="comment335"></a>
+<div class="blog-comment">
+<span class='comment-author'>דניאל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2011 23:28</span><br>
+אוקיי אני חושב שהבנתי. :]<br>
+<br>
+תודה רבה.</div>
+<a id="comment336"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 01:40</span><br>
+לגולשים היקרים, השתמשו בקאש בעיקר בעמודים שדורשים זמן ניתוח לא קטן ועשו זאת רק בקבצים שאתם לא רוצים שבכל דקה ודקה באתר יראו את השינויים שקרו .<br>
+<br>
+הקטע הוא להיות יעילים ולעשות את הקאשינג רק במקום שאתם צריכים ויודעים שזה יחסוך לכם שאילתות כבדות וכד&apos; ..<br>
+<br>
+כך לדוגמא, אל תשתמשו בקאש בעמודי חיפוש או בעדכונים האחרונים באתר חדשות שמביא עדכונים בכל דקה ושניה, שהרי חייבים את התוצאות העכשוויות ביותר .</div>
+<a id="comment337"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 07:27</span><br>
+דווקא עמודי חיפוש זה מקום מצוין לקאשינג עקב היותם כבדים ותחלופת תוצאות איטית. עמודים שמתעדכנים הרבה במזן קצר - גם הם ירוויחו מקאשינג אם לשנות את זמן חיי הקש ל10 שניות לדוגמה. בעיקר אתרי חדשות פופולאריים עם מאות גולשים במקביל.</div>
+<a id="comment338"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 11:14</span><br>
+ממש ממש לא .<br>
+וכמובן שאני מדבר על עמודי חיפוש שאתה חייב בהן תוצאות על הדקה כמו לדוגמא נושאים בפורומים, באתרי חדשות וכד&apos; ..</div>
+<a id="comment339"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 11:18</span><br>
+עכשיו שמתי לב שכתבת לדוגמא 10 שניות .<br>
+תן לי להוסיף ולומר שאם מדובר באתר כבד שמבוקר הרבה אז במקרה כזה באמת רצוי למטמן לכ10 שניות עד חצי דקה .<br>
+העיקר להישאר בטווח של הדקה ולקבל את התוצאות המעודכנות ביותר .</div>
+<a id="comment340"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 11:23</span><br>
+לגולשים היקרים שמבינים אנגלית, מצאתי בשבילכם מאמר נהדר שגם מביא תרשימים שמחדדים יותר את העניין ואיך הוא עוזר לנו .<br>
+<br>
+<span dir="ltr"><a href="http://www.developertutorials.com/tutorials/php/php-caching-1370/">http://www.developertutorials.com/tutorials/php/php-caching-1370/</a></span></div>
+<a id="comment341"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 12:30</span><br>
+במקרה של עמוד חיפוש אתה יכול לטמון להרבה הרבה יותר מ10 שניות, כל עוד הקש תלוי בפרמטר החיפוש. למשל הקוד בכתבה הכן מתחשב בפרמטרים המועברים וייצור דפי קש שונים עבור הבקשה <br>
+search.php?id=car<br>
+וקש אחר עבור<br>
+search.php?id=bus</div>
+<a id="comment342"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 13:53</span><br>
+כן, ברור שהוא יתחשב בפרמטרים .<br>
+ולגבי שניות, זה כבר שיקול של בעל האתר .<br>
+אם אני באופן אישי אמטמן תוצאות חיפוש אני לא אעשה את זה ליותר מדי זמן .</div>
+<a id="comment343"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 14:20</span><br>
+אה, וכותבים &quot;האבוד&quot; .</div>
+<a id="comment344"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 16:27</span><br>
+איזה פאדיחות :)</div>
+<a id="comment345"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/07/2011 16:45</span><br>
+שטויות, כולנו בני אדם ובני אדם טועים :)</div>
+<a id="comment356"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 03:21</span><br>
+מדריך מעולה))<br>
+אחרי שפירסמת את זה הבנתי שעדיף באמת לעבוד ככה.<br>
+לפני זה מדי פעם חשבתי אבל לא חשבתי שזה עד כדי כך עוזר))<br>
+בכ&quot;מ, תודה על הפרסום. אזרתי קצת כוח וכתבתי מחלקה לזה.</div>
+<a id="comment357"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 03:22</span><br>
+אני באמת שמח לשמוע דברים כאלה.<br>
+רוצה אולי לפרסם את המחלקה שלך ? :)</div>
+<a id="comment360"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 15:56</span><br>
+אח, אני מתבייש להראות אותה בפומבי, אם בא לך שאני אשלח לך בפרטי בכיף))<br>
+לא השקעתי בה במיוחד אז זה בושה להראות כזה דבר :D</div>
+<a id="comment361"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 15:57</span><br>
+תפרסם אותה בכל זאת, תקבל פידבק וגם תהיה לך סיבה טובה מאוד לכתוב קוד תקין ויפה :)</div>
+<a id="comment362"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 16:05</span><br>
+איפה לפרסם? בתגובה פה אי אפשר, פה זה RTL ולא יהיה מובן.</div>
+<a id="comment363"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2011 18:20</span><br>
+בפורום בפונקציות מוכנות ותן פה קישור</div>
+<a id="comment1632"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 14:09</span><br>
+עשיתי את זה באתר שלי.<br>
+אבל לא מורגש שינוי וגם אם אני מבצע שינויים בקבצים השינויים עדיין קוראים ישר ולא צריך לחכות.<br>
+למה זה ככה?</div>
+<a id="comment1633"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 15:08</span><br>
+כנראה שהמנגנון לא הופעל אז.<br>
+נוצרים לך קבצים בתיקיה הזמנית? תנסה לדחוף echo לפונקציות בכל מיני מקומות, לראות שהפונקציות האלה באמת מופעלות.</div>
+<a id="comment1634"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 15:46</span><br>
+לא הבנתי בדיוק השתמשתי בקוד שנתתת שמתי אותו באתר ונוצרים קבצים בתקיה.</div>
+<a id="comment1635"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 16:49</span><br>
+ואם אתה לוקח את הקוד איך שהו, 1 ל 1, שם בקובץ ריק ומפעיל, זה עובד ?</div>
+<a id="comment1636"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 17:09</span><br>
+לא הבנתתי את השאלה</div>
+<a id="comment1637"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 17:10</span><br>
+1. להעתיק את הקוד לקובץ בשם blabla.php<br>
+2. להפעיל<br>
+3. לשנות את הטקסט<br>
+4. ללחוץ F5 ולראות את הטקסט הישן</div>
+<a id="comment1638"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 17:10</span><br>
+הטקסט מגיע ממסד נתונים</div>
+<a id="comment1639"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 17:20</span><br>
+אתה יכול לעשות מה שכתוב?<br>
+<br>
+1. להעתיק את הקוד לקובץ בשם blabla.php<br>
+2. להפעיל<br>
+3. לשנות את הטקסט<br>
+4. ללחוץ F5 ולראות את הטקסט הישן<br>
+<br>
+הרגע בדקתי, אין ב-4 סעיפים האלה שום דבר על מסד נתונים :/</div>
+<a id="comment1640"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 17:23</span><br>
+להעתיק את הקוד מהקובץ הזמני או מהרגיל?</div>
+<a id="comment1641"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 17:34</span><br>
+מאיזה קובץ? על מה אתה מדבר?<br>
+להעתיק מאתר לקובץ.<br>
+</div>
+<a id="comment2740"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/02/2014 23:13</span><br>
+יש אצלי בעיה,<br>
+הקוד יוצר את התיקיה והכל טוב, אבל כל פעם שאני נכנס לעמוד הוא מעדכן את הקובץ cache מבלי לבדוק את הזמן.. כיאילו הוא מדלג על זה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

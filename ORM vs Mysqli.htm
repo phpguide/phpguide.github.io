@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="ActiveRecord ORM vs. Mysqli vs. PDO vs. Couchbase, מה הפערים?">
+<meta name="keywords" content="orm, php activerecord,mysql vs activerecord,couchbase,PDO">
+<meta name="author" content="raslin">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>ActiveRecord ORM vs. Mysqli vs. PDO vs. Couchbase</title>
+<meta itemprop="name" content="ActiveRecord ORM vs. Mysqli vs. PDO vs. Couchbase">
+<meta itemprop="description" content="ActiveRecord ORM vs. Mysqli vs. PDO vs. Couchbase, מה הפערים?">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"293","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>ActiveRecord ORM vs. Mysqli vs. PDO vs. Couchbase</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">raslin, </div>
+<div class="right">&nbsp;<time datetime="2013-02-15T23:29:24+02:00" dir="rtl">15 לפברואר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://2.bp.blogspot.com/-TGtCiJSPQ5g/TXAoDr1FsCI/AAAAAAAAALA/IREAaz7IFpA/s400/Boxing-Gloves-icon.png" alt="ActiveRecord ORM vs. Mysqli vs. PDO vs. Couchbase">
+</div>
+<div class="right post-content">
+כמה אנחנו שמים על המאזניים כשאנו מתלבטים בין מהירות לנוחות הקוד?<br>הגיע הזמן לגלות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אין לאף אחד ספק ש ORM היא הדרך הנוחה ביותר לעבודה עם גאטהבייס,<br>להתייחס למידע מהמסד כאובייקט ולבצע פעולות בצורה פשוטה ונוחה..<br>ה ORM שבחרתי, הוא ה php activerecord, והוא מבוסס PDO.<br>ומה לגבי PDO/MySqli? <br>ואם היינו משתמשים ב NoSQL?<br><br>ברור מתחושה שיש פער בביצועים, אבל עד כמה?<br>אני לא הצלחתי למצוא השוואה בין כולם בשום מקום, אז החלטתי לנסות בעצמי ולשתף אתכם חברים,<br>אז קדימה!<br><br>השרת בו אני משתמש הוא שרת מסוג m1.large של אמאזון, הנה פרטיו:<br>M1 Large Instance 7.5 GiB of memory, 4 EC2 Compute Units (2 virtual cores with 2 EC2 Compute Units each), 850 GB of local instance storage, 64-bit platform<br><br>נתחיל מלהכניס 20000 שורות לדאטהבייס..<br><br><h3>INSERTS</h3><br><br><br><h4>ORM</h4><br><br>הנה הקוד בו השתמשתי: (אל תשכחו להוריד את ה active record)<br><br><div class="php codeblock"><span class="kw1">require_once</span> &nbsp;<span class="st_h">'php-activerecord/ActiveRecord.php'</span><span class="sy0">;</span><br>
+<br>
+<span class="kw2">class</span> User <span class="kw2">extends</span> ActiveRecord\Model <span class="br0">&#123;</span> <span class="br0">&#125;</span><br>
+<br>
+ActiveRecord\Config<span class="sy0">::</span><span class="me2">initialize</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="re0">$cfg</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$cfg</span><span class="sy0">-&gt;</span><span class="me1">set_model_directory</span><span class="br0">&#40;</span><span class="st_h">'.'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$cfg</span><span class="sy0">-&gt;</span><span class="me1">set_connections</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'development'</span> <span class="sy0">=&gt;</span> <span class="st_h">'mysql://root:@127.0.0.1/ormtest'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$loops</span> <span class="sy0">=</span> <span class="nu0">20000</span><span class="sy0">;</span><br>
+<span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">&lt;</span><span class="re0">$loops</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$user</span> <span class="sy0">=</span> <span class="kw2">new</span> User<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$user</span><span class="sy0">-&gt;</span><span class="me1">money</span> <span class="sy0">=</span> <span class="nu0">100</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$user</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>התוצאה שקיבלתי:<br><strong>with orm it took 31.54630112648 seconds</strong><br>*ראו הערה בסוף הכתבה<br><br><br><h4>MySqli</h4><br><br>מה אתם חושבים יקרה עם Mysqli? גם אני סקרן..<br>נרוקן את הטבלה וננסה..<br><br>נכניס 20000 שורות,<br>הנה הקוד בו השתמשתי:<br><br><br><div class="php codeblock"><span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="st0">&quot;localhost&quot;</span><span class="sy0">,</span> <span class="st0">&quot;root&quot;</span><span class="sy0">,</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ormtest&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO users(money) VALUES (?)&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$money</span> <span class="sy0">=</span> <span class="nu0">100</span><span class="sy0">;</span><br>
+<span class="re0">$loops</span> <span class="sy0">=</span> <span class="nu0">20000</span><span class="sy0">;</span><br>
+<span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">&lt;</span><span class="re0">$loops</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$stmt</span><span class="sy0">-&gt;</span><span class="me1">bind_param</span><span class="br0">&#40;</span><span class="st_h">'i'</span><span class="sy0">,</span> <span class="re0">$money</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$stmt</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<span class="br0">&#125;</span></div><br><br><br>התוצאה שקיבלתי:<br><strong>with mysqli it took 24.606364011765 seconds</strong><br><br><br>ניסיתי גם בלי Prepare, בצורה הבאה:<br><div class="php codeblock"><span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO users(money) VALUES (100)&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>והתוצאה הייתה:<br><strong>with mysqli it took 25.704789161682 seconds</strong><br><br>גם זה מעניין! כי ה prepare היה אמור לגרום ל Mysql לדלג על אחד השלבים שלו: יצירת החתימה של השאילתה.<br><br><br><h4>PDO</h4><br>אז השתמשתי ב PDO שכולנו מכירים, הנה הקוד:<br><br><div class="php codeblock"><span class="re0">$db</span> <span class="sy0">=</span> <span class="kw2">new</span> PDO<span class="br0">&#40;</span><span class="st_h">'mysql:host=localhost;dbname=ormtest'</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO users(money) VALUES (?)&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$loops</span> <span class="sy0">=</span> <span class="nu0">20000</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">&lt;</span><span class="re0">$loops</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="re0">$stmt</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>מסקרן? אז הנה התוצאה:<br><strong>with PDO it took 26.245838165283 seconds</strong><br>מדהים, זהה כמעט לחלוטין ל Mysqli, ההימור שלי היה מעט יותר גבוהה<br><br><br>קבלו בונוס, התקנתי היום couchbase, מסד נתונים מסוג Nosql, שיודע לשלב עבודה חכמה עם הram ועוד הרבה דברים, זה סיפור לפעם אחרת, אבל בואו ננסה לבצע עליו את אותן הפעולות.. מה דעתכם?<br><br><h4>CouchBase</h4><br><br>הנה הקוד בו השתמשתי:<br><div class="php codeblock"><span class="re0">$cb</span> <span class="sy0">=</span> <span class="kw2">new</span> Couchbase<span class="br0">&#40;</span><span class="st0">&quot;localhost:8091&quot;</span><span class="sy0">,</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="st0">&quot;default&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">&lt;</span><span class="nu0">20000</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$cb</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">,</span> <span class="kw3">json_encode</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'money'</span><span class="sy0">=&gt;</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br><br><strong>with couchbase it took 2.8949840068817 seconds</strong><br>וואו!!!<br>כל מילה מיותרת! מהו couchbase ומה עקרונותיו זה כבר לפוסט אחר.. <br><br><br><h3>UPDATES</h3><br><br>טוב, בואו נעבור לעדכונים! UPDATES!<br>מה אתם אומרים? הקרב הוכרע? חכו!<br><br>אנו נוציא את 20000 השורות, ונוסיף עוד 100 כסף לכל משתמש<br><br><h4>ORM</h4><br>הנה הקוד בו השתמשתי:<br><br><div class="php codeblock"><span class="kw1">require_once</span> &nbsp;<span class="st_h">'php-activerecord/ActiveRecord.php'</span><span class="sy0">;</span><br>
+<br>
+<span class="kw2">class</span> User <span class="kw2">extends</span> ActiveRecord\Model <span class="br0">&#123;</span> <span class="br0">&#125;</span><br>
+<br>
+<br>
+ActiveRecord\Config<span class="sy0">::</span><span class="me2">initialize</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="re0">$cfg</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$cfg</span><span class="sy0">-&gt;</span><span class="me1">set_model_directory</span><span class="br0">&#40;</span><span class="st_h">'.'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$cfg</span><span class="sy0">-&gt;</span><span class="me1">set_connections</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'development'</span> <span class="sy0">=&gt;</span> <span class="st_h">'mysql://root:@127.0.0.1/ormtest'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$users</span> <span class="sy0">=</span> User<span class="sy0">::</span><span class="me2">all</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$users</span> <span class="kw1">as</span> <span class="re0">$key</span><span class="sy0">=&gt;</span><span class="re0">$user</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$user</span><span class="sy0">-&gt;</span><span class="me1">money</span> <span class="sy0">+=</span> <span class="nu0">100</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$user</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>כמובן יכולתי לעשות את זה בשאילתה אחת, אבל זו לא המטרה...<br>והתוצאה היא:<br><strong>with orm it took 36.750089883804 seconds</strong><br>לא שונה בהרבה מלהכניס את כל הנתונים מחדש...<br><br>נחזיר לכולם חזרה ל100 כסף וננסה את mysqli<br><br><h4>MySqli</h4><br><br><br>הקוד בו השתמשתי:<br><div class="php codeblock"><span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="st0">&quot;localhost&quot;</span><span class="sy0">,</span> <span class="st0">&quot;root&quot;</span><span class="sy0">,</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ormtest&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$users</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM usersorm&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$user</span> <span class="sy0">=</span> <span class="kw3">mysqli_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$users</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;UPDATE usersorm SET money=money + 100 WHERE id='<span class="es4">{$user['id']}</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br><br><strong>with mysqli it took 25.470515966415 seconds</strong><br><br><h4>PDO</h4><br>אז הנה הקוד, שמשתמש ב PDO, <br><br><div class="php codeblock"><span class="re0">$db</span> <span class="sy0">=</span> <span class="kw2">new</span> PDO<span class="br0">&#40;</span><span class="st_h">'mysql:host=localhost;dbname=ormtest'</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$sth</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM users&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$sth</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$users</span> <span class="sy0">=</span> <span class="re0">$sth</span><span class="sy0">-&gt;</span><span class="me1">fetchAll</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$u</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;UPDATE users SET money=money + 100 WHERE id=:uid&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$users</span> <span class="kw1">as</span> <span class="re0">$key</span><span class="sy0">=&gt;</span><span class="re0">$user</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$u</span><span class="sy0">-&gt;</span><span class="me1">bindParam</span><span class="br0">&#40;</span><span class="st_h">':uid'</span><span class="sy0">,</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">,</span> PDO<span class="sy0">::</span><span class="me2">PARAM_INT</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$u</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>ולהלן התוצאה:<br><strong>with PDO it took 30.656561136246 seconds</strong><br>טיפה יותר זמן מ mysqli.<br><br><br><h4>Couchbase</h4><br>אני אפילו אעשה את זה בצורה מעט בזבזנית, כדי לבצע שאילתות מסננות, צריך להשתמש ב map reduce,<br>בגלל שגם זה לנושא אחר, נעשה את זה בצורה הזו:<br><br><div class="php codeblock"><span class="re0">$cb</span> <span class="sy0">=</span> <span class="kw2">new</span> Couchbase<span class="br0">&#40;</span><span class="st0">&quot;localhost:8091&quot;</span><span class="sy0">,</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span> <span class="st0">&quot;default&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">&lt;</span><span class="nu0">20000</span><span class="sy0">;</span><span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$u</span> <span class="sy0">=</span> <span class="kw3">json_decode</span><span class="br0">&#40;</span><span class="re0">$cb</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$cb</span><span class="sy0">-&gt;</span><span class="me1">set</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">,</span><span class="kw3">json_encode</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'money'</span><span class="sy0">=&gt;</span><span class="re0">$u</span><span class="sy0">-&gt;</span><span class="me1">money</span> <span class="sy0">+</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>והתוצאה היא....<br><strong>With couchbase it took 5.4407348632812 seconds</strong><br>וואו! עשיתי פה 40000 פעולות, 20000 קריאה, 20000 כתיבה (כפול משאר הבדיקות, ותראו מה קיבלנו!)<br><br><br><br><h3>*הערה חשובה מאוד</h3><br>ביצעתי את הניסוי גם על המחשב האישי שלי, שחלש בהרבה מהשרת,<br>הבדל אחד היה וזה בין ORM ל mysqli/PDO, <br>כאשר בבדיקה הנוכחית השתמשתי בשרת חזק, הפערים היו לא גדולים,<br>כאשר השתמשתי בשרת חלש, הORM לקח פי 3 יותר זמן!<br>לקח לי 55 שניות להכניס 2500 שורות ב mysqli, לעומת 155 שניות להכניס 2500 שורות עם activerecord.<br>ככל שהשרת חזק יותר הפערים מצטמצמים, אז מאוד חשוב לקחת את זה בחשבון.<br>לגבי השאר התוצאות בשרת חלש יותר היו ביחס זהה לתוצאות כאן.<br><br><h4>מסקנות</h4><br><br>גם תוצאה לא כל כך מפתיעה, אבל אכן פערים משמעותיים,<br>האם הנוחות של ORM שווה את זה? (תלוי בפרוייקט), ולפי ההערה תלוי בעוצמת השרת שלכם,<br>האם הוא יכול להינות מהלוקסוס הזה.<br>כמובן בשאילתות בודדות, ההבדל יהיה זניח, וקוד קריא וברור לפעמים חשוב לא פחות,<br>בשילוב מנגוני cache כמו memcached או apc אפשר לצמצם את העניין בקריאת נתונים.<br>אבל ראיתם מה קורה כשרוצים להריץ 20000 במכה אחת.<br>אז באמת שזה תלוי בפרוייקט, באיכות השרת או בסוג המידע בו אתם משתמשים.<br>אז תהיו בטוחים מה אתם עושים כשאתם בוחרים ב ORM.<br><br>לגבי PDO/MySQLi זה ברור, תבחרו PDO, כל יתרונותיו עולים על השנייה הנוספת.<br><br>ומה למדנו לגבי nosql ו couchbase בפרט?<br>כשאפשר, לכו.. אהה סליחה, טוסו על זה!!<br><br>ראינו שבאופן אירוני, ככל שהקוד יפה יותר, נוח יותר, כך הוא רץ לאט יותר,<br>חבל שלא נולדנו רובוטים,<br>אבל תמיד אפשר לפתח כלים, לחשוב יצירתי, ולהגיע לביצועים מדהימים.<br><br>ומה אתם חושבים על זה? </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=16&r=g&d=monsterid" alt="raslin">
+<a>raslin</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2233"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/02/2013 06:41</span><br>
+תודה רבה, השוואה מעניינת בהחלט.<br>
+התוצאות מעניינות אבל לא מפתיעות בכלל.<br>
+<br>
+חשוב לציין שהטייטל עצמו יכול להיות קצת מבלבל (orm vs mysqli) , בגלל שה-ORM עצמו יכול להיות מבוסס על גבי mysqli.<br>
+ההשוואה ההגינית תהיה בין שאילתות פשוטות ב PDO לבין ORM שיושב על גבי PDO.<br>
+בכל אופן, התוצאות שם לא יהיו שונות בהרבה.<br>
+<br>
+מה שכן מעניין, הוא שהוצגו שני שאילתות מאוד מאוד פשוטות.<br>
+ברגע שמגיעים לשליפות מכמה טבלאות או שליפות מתוחכמות, כמו לשלוף את כל ההודעות באשכול הזה ולשלוף את המידע הבסיסי על המשתמשים שכתבו את ההודעות האלה - ORM נותן תוצאות הרבה יותר גרועות בגלל שהוא לא באמת יודע מה אתה בסופו של דבר צריך.<br>
+<br>
+האם לשלוף הכל בשאילת אחת עם join, האם לשלוף בשני שאילתות, אחת לאשכול ואחת לכמה משתמשים בבת אחת או לשעות 10 שאילתות ל 10 תשובות באשכול ועשרת המתשמשים שהשאירו אותם (וזה מה שיקרה ברוב המקרים).<br>
+<br>
+<br>
+----<br>
+אגב, בדוגמה השניה בכתבה ה ORM קודם ישלוף את השורות אחרי זה יוסיף לכל אחת מהן 100 ואחרי זה ישמור אותם. כלומר יוצר 2500 שאילתות קריאה ועוד 2500 שאילתות עדכון.<br>
+במקרה עם השאילה הישירה אין שליפה. יש רק 2500 שאילתות עדכון וזהו.<br>
+רוב ה ORMים מאפשרים לעשות שאילתות עדכון בלי שליפה מקדימה. <br>
+</div>
+<a id="comment2234"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/02/2013 06:52</span><br>
+בקשר לדוגמא השניה, הוא יוצר שאילתת קריאה אחת, הוא מוציא את כל המשתמשים,<br>
+הORM הזה יודע לעשות כמובן את העידכון בשאילתה אחת (ואף כתבתי את זה)<br>
+אבל במקרה וארצה להוסיף סכום שונה לכל אחד וכו&apos;..<br>
+המטרה הייתה אותן כמות שאילתות בשתי הבדיקות.<br>
+<br>
+active record כתוב על בסיס PDO, מה שכן, יש הרבה השוואות בין mysqli ל PDO.<br>
+<br>
+מקווה שניהניתם.</div>
+<a id="comment2235"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/02/2013 06:53</span><br>
+אגב, לגבי joins ב ORM, אז זה מאוד פשוט, וכן אפשר להגדיר את רוב הדברים שאתה רוצה.<br>
+אני מניח שגם שם התוצאות מהירות יהיו דומות, או קשות יותר.</div>
+<a id="comment2236"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/02/2013 06:57</span><br>
+מה עם Eloquent ORM של לארוול? D:</div>
+<a id="comment2237"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/02/2013 02:59</span><br>
+אתה יכול לעשות את הבדיקה על eloquent לבד, אבל התוצאות יהיו זהות.</div>
+<a id="comment2238"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/02/2013 04:10</span><br>
+תודה רבה :)<br>
+אני אשאר בPDO ...</div>
+<a id="comment2239"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/02/2013 05:21</span><br>
+אני מאוד מאמין ש<br>
+&gt;&gt; אני אשאר בPDO<br>
+היא טעות מאוד נפוצה שמתכנתים עושים כאשר הם מעדיפים עוד 10 מילישניות של השרת על פני 10 דקות עבודה שלהם. <br>
+<br>
+אני יודע שתכף יבואו אנשים ויגידו שאני אמרתי לכתוב קוד גרוע ואיטי<br>
+אבל המשפט הזה אומר משהו אחר לגמרי:<br>
+המשפט הזה אומר שב 90% מהמקרים השקעת הזמן של המתכנת היא לא נכונה.<br>
+היא לא צריכה להתבזבז על נסיון לבנות שאילת אידאלית, אלה צריכה להיות מושקעת בבנית ערך מוסף לאפליקציה. <br>
+הרגע היחידי שמותר בו למתכנת להתחיל לעסוק ביעול זה רק אחרי שהמתכנת הפעיל את הפרופיילר וראה לבד מה לוקח הרבה זמן וגילה שבפועל לא השלוש שאילתות שיש בעמוד הוסיפו 30 מילישניות לזמן הטעינה,<br>
+אלה הלולאה בתוך לולאה והקריאה לפונקציה מיותרת איפשהו לפני גרמול לאיטיות.<br>
+</div>
+<a id="comment2268"></a>
+<div class="blog-comment">
+<span class='comment-author'>pol292</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/03/2013 01:59</span><br>
+תנשה לעשות query עם הPDO ככה הוא עובד מהר יותר</div>
+<a id="comment2269"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/03/2013 10:36</span><br>
+תכלס אתה צודק.<br>
+צריך להשוות prepared statements ל prepared statements<br>
+ו query ל query</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

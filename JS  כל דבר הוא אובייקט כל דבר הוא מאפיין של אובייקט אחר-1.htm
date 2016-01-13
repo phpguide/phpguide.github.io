@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="ב-javascript כל דבר הוא מאפיין של אובייקט אחר וכמעט כל דבר הוא אובייקט. נראה מה זה אומר לגבי מתודות של אובייקטים והאם קיים בכלל דבר כזה ב-javascript.">
+<meta name="keywords" content="js, property, properties, javascript, object, in javascript there are no methods, primitive types">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>JS - כל דבר הוא מאפיין של אובייקט אחר, כמעט כל דבר הוא אובייקט</title>
+<meta itemprop="name" content="JS - כל דבר הוא מאפיין של אובייקט אחר, כמעט כל דבר הוא אובייקט">
+<meta itemprop="description" content="ב-javascript כל דבר הוא מאפיין של אובייקט אחר וכמעט כל דבר הוא אובייקט. נראה מה זה אומר לגבי מתודות של אובייקטים והאם קיים בכלל דבר כזה ב-javascript.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"227","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>JS - כל דבר הוא מאפיין של אובייקט אחר, כמעט כל דבר הוא אובייקט</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iiddaannyy, </div>
+<div class="right">&nbsp;<time datetime="2012-07-03T17:15:21+03:00" dir="rtl">03 ליולי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.veryicon.com/icon/png/System/GANT%202/JS.png" alt="JS - כל דבר הוא מאפיין של אובייקט אחר, כמעט כל דבר הוא אובייקט">
+</div>
+<div class="right post-content">
+ב-javascript כל דבר הוא מאפיין של אובייקט אחר וכמעט כל דבר הוא אובייקט.<br>נראה מה זה אומר לגבי מתודות של אובייקטים והאם קיים בכלל דבר כזה ב-javascript. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+ב-javascript כל דבר הוא מאפיין של אובייקט אחר וכמעט כל דבר הוא אובייקט.<br>מה זה אומר בעצם?<br><br>נתחיל מדוגמה פשוטה של אובייקט &quot;איש&quot;:<br><div class="php codeblock"><span class="kw2">var</span> person <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="st0">&quot;name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;Idan&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;height&quot;</span> <span class="sy0">:</span> <span class="nu0">175</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;birthDay&quot;</span> <span class="sy0">:</span> <span class="kw2">new</span> <span class="kw3">Date</span><span class="br0">&#40;</span><span class="nu0">1996</span><span class="sy0">,</span> <span class="nu0">3</span><span class="sy0">,</span> <span class="nu0">14</span><span class="br0">&#41;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span></div><br>ב-javasctipt, אובייקט הוא פשוט רשימה של מאפיינים וערכים. כל ערך יכול להיות מחרוזת, מספר, פונקציה, או כל דבר אחר. אבל מה שחשוב להבין - זה שכל דבר הוא אובייקט (כמעט), נסתכל בדוגמה שלמעלה.<br>היינו יכולים להגיע לתוצאה דומה כך:<br><div class="php codeblock"><span class="kw2">var</span> person <span class="sy0">=</span> <span class="kw2">new</span> Object<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+person<span class="sy0">.</span>name <span class="sy0">=</span> <span class="kw2">new</span> String<span class="br0">&#40;</span><span class="st_h">'Idan'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+person<span class="sy0">.</span>height <span class="sy0">=</span> <span class="kw2">new</span> Number<span class="br0">&#40;</span><span class="nu0">175</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+person<span class="sy0">.</span>birthDay <span class="sy0">=</span> <span class="kw2">new</span> <span class="kw3">Date</span><span class="br0">&#40;</span><span class="nu0">1996</span><span class="sy0">,</span> <span class="nu0">3</span><span class="sy0">,</span> <span class="nu0">14</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>שני הקודים למעלה כמעט זהים.<br>ההבדל הוא שבקוד השני, כולם אובייקטים ובקוד הראשון, name ו-height הם לא.<br>למה לא? כי הם משתנים מסוגים פרימיטיבים. משתנים פרימיטיבים הם משתנים מהסוג מחרוזת/בוליאני/מספר.<br>אין אפשרות להצמיד להם מאפיינים, כי הם פשוט לא אובייקטים. לעומת זאת, בדוגמה השנייה height ו-name הם כן אובייקטים ונוכל להצמיד להם עד מאפיינים.<br>* גם undefined זהו type בפני עצמו. אבל הוא פשוט אומר שאין למשתנה ערך ולכן לא אתייחס אליו. לדוגמה:<br><div class="php codeblock"><span class="kw2">var</span> a<span class="sy0">;</span> <span class="co1">// no value, so js sets its 'value' to undefined</span><br>
+alert<span class="br0">&#40;</span>a<span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// undefined</span><br>
+alert<span class="br0">&#40;</span>someVar<span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// we didn't define someVar, so it's undefined</span></div><br><br><h5>אבל רגע - אני משתמש כל הזמן במאפיין length של המחרוזת. זה אובייקט!</h5><br>אז זהו שלא. ב-js יש דבר שנקרא אובייקט עוטף, wrapper object. לדוגמה - הפונקציות String, Number ו-Boolean. מה שקורה כשאנחנו מנסים לגשת למאפיין length, לדוגמה, של מחרוזת, אובייקט עוטף String נוצר, מוחזר ממנו המאפיין שרצינו (length במקרה שלנו) ואחר כך הוא נמחק.<br>כל זה קורה בלי שנשים לב, ככה שזה נראה כאילו מחרוזות, מספרים וערכים בוליאנים מתנהגים כמו אובייקטים, אבל עם מאפיינים לקריאה-בלבד.<br>מערכים לדוגמה, הם באמת אובייקטים, יש להם פונקציות שמשנות את התוכן של המערך, ואצל מחרוזות, ערכים בוליאנים ומספרים - לא כך הדבר.<br><br>אבל יש לשים לב - אם נעשה (&quot;new String(&quot;out string, זהו בהחלט אובייקט ונוכל להצמיד לו מאפיינים. אבל אם נעשה &quot;out string&quot; - זהו לא אובייקט. כנ&quot;ל לגבי בוליאנים ומספרים.<br>לעיתים רחוקות באמת משתמשים ב-(&quot;new String(&quot;out string במקום ב-&quot;our string&quot;.<br>אבל זה רק בגלל שרוצים שזה יהיה אובייקט, כדי להעביר אותו by reference. אבל זה אולי למדריך אחר.<br><br><h4>literals</h4><br>ב-javascript (ולא רק ב-js) יש אפשרות ליצור אובייקט, אך בלי המילה השמורה new.<br>לדוגמה, השורות הבאות זהות לחלוטין:<br><div class="php codeblock"><span class="kw2">new</span> <span class="kw3">Array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br>בשני המקרים נוצר אובייקט מערך חדש. השורה השנייה עושה את זה בלי המילה השמורה new.<br>קיימים עוד אובייקטים שאפשר ליצור בלי new, כמו Object (באמצעות {}, כמו שהשתמשנו קודם), כמו Regexp (באמצעות תווים בין שני סלאשים) וכמו Function שנראה בהמשך.<br>ה&quot;שיטות&quot; האלה ליצירת אובייקט נקראות literals. {} לדוגמה, זה Object literal, ו-[] זה Arrray literal.<br><br><h3>מתודות, פונקציות</h3><br>גם פונקציה היא בסך הכל אובייקט. instance של הקונסטרקטור Function.<br>הקודים הבאים זהים לחלוטין:<br><div class="php codeblock"><span class="kw2">var</span> sum <span class="sy0">=</span> <span class="kw2">new</span> <span class="kw2">Function</span><span class="br0">&#40;</span><span class="st_h">'arg1'</span><span class="sy0">,</span> <span class="st_h">'arg2'</span><span class="sy0">,</span> <span class="st_h">'return arg1+arg2'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><div class="php codeblock"><span class="kw2">var</span> sum <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span>arg1<span class="sy0">,</span> arg2<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">return</span> arg1<span class="sy0">+</span>arg2<span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="kw2">function</span> sum<span class="br0">&#40;</span>arg1<span class="sy0">,</span> arg2<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">return</span> arg1<span class="sy0">+</span>arg2<span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>אפשר לראות שכשאנחנו כותבים {} ()function זה בעצם Function literal, אנחנו בעצם יוצרים instance של הקונסטרקטור Function.<br>Function מקבלת n פרמטרים. הפרמטר האחרון הוא גוף הפונקציה, הקוד שצריך לבצע, כמחרוזת. כל שאר הפרמטרים שלפני הפרמטר האחרון הם בעצם הפרמטרים של הפונקציה שלנו (פונקציה יכולה לקבל עד 255 פרמטרים).<br>אפשר לראות ש<strong>אין</strong> ל-Function פרמטר שקובע את השם של הפונקציה. למה בעצם?<br>פשוט מאוד - כי לפונקציות אין שם. אין דבר כזה &quot;שם של פונקציה&quot; <strong>ב-javascript</strong>.<br>אנחנו פשוט מכניסים אותה למשתנה, למאפיין של אובייקט מסוים, שמכיל אותה וכך אנחנו יכולים לקרוא לה מאוחר יותר.<br>בדוגמה למעלה sum הוא לא השם של הפונקציה, sum הוא פשוט מאפיין של אובייקט אחר (אובייקט window במקרה שלנו) שהערך שלו הוא הפונקציה.<br>אפשר להקצות פונקציה (instance של Function) למאפיין של אובייקט, אפשר להשתמש בפונקציה כפרמטר. הם יכולות להיות מוקצות, אבל אין להן שם. רק פרמטרים וגוף.<br><br><h4>מישהו דיבר על מתודות ב-javascript?</h4><br>אין דבר כזה מתודות ב-javascript.<br>הרי אמרנו שאובייקט הוא אוסף של מאפיינים וערכים, לא הזכרנו מתודות. נראה את הקוד הבא:<br><div class="php codeblock"><span class="kw2">var</span> person <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="st0">&quot;firstname&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;Idan&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;lastname&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;Yadgar&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;getName&quot;</span> <span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> this<span class="sy0">.</span>firstname<span class="sy0">+</span><span class="st_h">' '</span><span class="sy0">+</span>this<span class="sy0">.</span>lastname<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>getName הוא מאפיין שהערך שלו הוא פונקציה, getName זו לא מתודה. ואת זה נוכיח כאן ועכשיו. :)<br><div class="php codeblock">console<span class="sy0">.</span><span class="kw3">log</span><span class="br0">&#40;</span>person<span class="sy0">.</span>getName<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Idan Yadgar</span><br>
+person<span class="sy0">.</span>getName <span class="sy0">=</span> <span class="st_h">'this is not a method'</span><span class="sy0">;</span><br>
+console<span class="sy0">.</span><span class="kw3">log</span><span class="br0">&#40;</span>person<span class="sy0">.</span>getName<span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// this is not a method</span><br>
+console<span class="sy0">.</span><span class="kw3">log</span><span class="br0">&#40;</span>person<span class="sy0">.</span>getName<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Error: person.getName is not a function</span></div><br>מכיוון שמתודות הן מתודות, ומאפיינים הם מאפיינים - אין בעיה שלמאפיין ולמתודה יהיה את אותו השם.<br>אבל, אנחנו רואים כאן שאחרי ששינינו את הערך ל<strong><span class="underline">מאפיין</span></strong> getName, קיבלנו שגיאה אחרי שניסינו להפעיל את ה&quot;<em>מתודה</em>&quot; getName. זה פשוט מאוד בגלל ש-getName היה מאפיין כל הזמן הזה - לא מתודה.<br>הפונקציה שהכיל getName לא קשורה כלל אל האובייקט person, פשוט מאוד getName הוא הפנייה, reference, אל הפונקציה (שהיא בעצם instance של Function).<br><br><h3>this</h3><br>בכל טווח (מאפיין של אובייקט) יש לנו את this.<br>this מכיל את הטווח שכרגע אנחנו נמצאים בו, את האובייקט שכרגע אנחנו נמצאים בו.<br>this בתוך הפונקציה שבמאפיין getName באובייקט person שלנו תחזיר את האובייקט person.<br>אם נריץ את הקןד הבא ב-global scope (מחוץ לכל אובייקט):<br><div class="php codeblock">alert<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">;</span></div><br>נקבל את האובייקט window, שהוא האובייקט שמכיל את כל האובייקטים בעמוד.<br>כלומר - כל דבר שאינו בתוך אובייקט (ב-global scope) הוא בעצם באובייקט window.<br>אם כך - איפה האובייקט window? תופתעו לדעת, אבל הוא נמצא בתוך האובייקט window, בתוך עצמו.<br>בעצם לאובייקט הראשי, window, יש גם מאפיין window שבעצם מפנה לאובייקט הראשי window. כך שגם window הוא מאפיין של אובייקט (במקרה שלו - הוא מאפיין של עצמו).<br><br><br><br>לסיכום:<br>1. כל דבר ב-javascript הוא אובייקט, חוץ מסוגים פרימיטיבים (מחרוזות, מספרים ובוליאנים) ומשתנים שלא הוגדר להם ערך והם מוגדרים כ-undefined.<br>2. כל דבר ב-javascript הוא בעצם מאפיין של אובייקט אחר (גם מה שנראה מחוץ לכל אובייקט, בטווח הגלובלי, הוא מאפיין של האובייקט window (וזה תקף גם ל-window עצמו...)).<br>3. אובייקט הוא אוסף של מאפיינים. למאפיינים האלה אפשר להקצות ערכים שונים, שהם כולם אובייקטים מסוגים שונים: Number, String, Object, RegExp, Function, Array וכו&#039;, או ערכים מסוגים פרימיטיבים.<br>4. פונקציה היא בסך הכל אובייקט, instance של Function, והיא עומדת בפני עצמה, בלי שם ואפשר להקצות אותה אל הרבה מאפיינים של הרבה אובייקטים שונים.<br>5. this מצביע על הטווח שאנחנו כרגע נמצאים בו, האובייקט שאנחנו כרגע נמצאים בו (הטווח הנוכחי לא תמיד שווה לאובייקט הנוכחי, ל-this, אבל זה למדריך אחר). </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=16&r=g&d=mm" alt="iiddaannyy">
+<a>iiddaannyy</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1731"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/07/2012 21:06</span><br>
+יפה מאוד ! </div>
+<a id="comment1733"></a>
+<div class="blog-comment">
+<span class='comment-author'>nocksh</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/07/2012 23:05</span><br>
+מדריך טוב מאוד.<br>
+<br>
+לפי מה שהבנתי, מחרוזת עם גרש אחד זה לא תיקני אלא חייבים להשתמש במרכאות (כשאתה מגדיר מאפיין בתוך אובייקט), זה נכון?<br>
+</div>
+<a id="comment1734"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2012 00:40</span><br>
+תודה רבה.<br>
+<br>
+ולא, גרש אחת זה כמעט אותו הדבר כמו מרכאות.<br>
+ההבדל היחיד הוא שסימנים מיוחדים כמו n\ יומרו למשמעות שלהם (n\ זה שורה חדשה) במרכאות ובגרש יחידה לא.<br>
+תיקנתי את המדריך. :)</div>
+<a id="comment1735"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2012 00:50</span><br>
+קבל תיקון: טעיתי, התבלבלתי עם php במקרה הזה.<br>
+ב-javascript אין הבדל בין גרשיים בודדות לגרשיים כפולות.<br>
+מה שכן - אם אתה עובד עם json, אז לפי התקן (המחמיר) יש להשתמש בגרשיים כפולות ולא בודדות.<br>
+אבל זה לא נוגע לשימוש השוטף עם javascript.<br>
+<br>
+<br>
+:)</div>
+<a id="comment1736"></a>
+<div class="blog-comment">
+<span class='comment-author'>nocksh</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2012 00:56</span><br>
+זה מה שהתכוונתי וכתבתי בסוגריים: &quot;(כשאתה מגדיר מאפיין בתוך אובייקט)&quot;<br>
+זה לא היה מספיק מובן כנראה.<br>
+<br>
+<br>
+</div>
+<a id="comment1737"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/07/2012 01:01</span><br>
+אוקיי, אז עכשיו הכל מובן. (:</div>
+<a id="comment1759"></a>
+<div class="blog-comment">
+<span class='comment-author'>ublanktext</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/07/2012 05:13</span><br>
+תודה אלכס מדריך מצוין.</div>
+<a id="comment1762"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/07/2012 17:51</span><br>
+זה לא אלכס, אבל תודה.. ^^</div>
+<a id="comment1783"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/08/2012 14:51</span><br>
+שימו לב - המאמר עודכן. תוקנו כמה טעויות מהותיות.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

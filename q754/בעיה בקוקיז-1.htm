@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעיה בקוקיז">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>בעיה בקוקיז | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעיה בקוקיז | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעיה בקוקיז">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">28</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיה בקוקיז-1.htm" title="שלום,בניתי מערכת הרשמה, ויש בעיה קטנה בהתחברות,אני שמתי שמתי שהמשתמש מתחבר יהיה קוקיז, אבל הקוקיז עושה לי בעיה,זה הקוד של המערכת כולה:if&amp;#40;$do == login&amp;#41;
+&amp;#123;
+print&apos;
+&amp;lt;form method=&amp;quot;post&amp;quot; action=&amp;quot;">בעיה בקוקיז</a></h2>
+<div class="userinfo">
+פתח
+<a>ArielTador</a>
+,
+<time class="timeago relativetime" datetime="2012-07-03T14:01:18+03:00" style="display:inline-block;">
+03 ליולי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText754'>
+שלום,<br><br>בניתי מערכת הרשמה, ויש בעיה קטנה בהתחברות,<br>אני שמתי שמתי שהמשתמש מתחבר יהיה קוקיז, אבל הקוקיז עושה לי בעיה,<br><br>זה הקוד של המערכת כולה:<br><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$do</span> <span class="sy0">==</span> login<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<span class="kw1">print</span><span class="st_h">'<br>
+&lt;form method=&quot;post&quot; action=&quot;?do=loginc&quot;&gt;<br>
+&lt;table&gt;<br>
+&lt;tr&gt;<br>
+&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;userl&quot; /&gt;&lt;/td&gt;<br>
+&lt;td&gt;שם משתמש&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;passl&quot; /&gt;&lt;/td&gt;<br>
+&lt;td&gt;סיסמה&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&lt;td&gt;&lt;input type=&quot;reset&quot; name=&quot;resetl&quot; /&gt;&lt;/td&gt;<br>
+&lt;td&gt;&lt;input type=&quot;submit&quot; name=&quot;subl&quot; /&gt;&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+&lt;/form&gt;<br>
+'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'log'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">print</span><span class="st_h">'אתה מחובר'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span><br>
+<span class="kw1">print</span><span class="st_h">'אתה לא מחובר&lt;br&gt;'</span><span class="sy0">;</span><br>
+<span class="kw1">print</span><span class="st_h">'&lt;a href=&quot;?do=logut&quot;&gt;התנתק&lt;/a&gt;'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$do</span> <span class="sy0">==</span> loginc<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<span class="re0">$usr</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'userl'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="re0">$pss</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'passl'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="re0">$time</span> <span class="sy0">=</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$login</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `Users` where `Username`='<span class="es4">$usr</span>' AND `Password`='<span class="es4">$pss</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$loginr</span> <span class="sy0">=</span> <span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$login</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subl'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$loginr</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<span class="re0">$pass</span> <span class="sy0">=</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$usr</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;log&quot;</span><span class="sy0">,</span><span class="st_h">'true'</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="nu0">86400</span><span class="sy0">*</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'התחברת בהצלחה'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$do</span> <span class="sy0">==</span> logut<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;log&quot;</span><span class="sy0">,</span><span class="st_h">'$pass'</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">-</span> <span class="nu0">86400</span><span class="sy0">*</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">print</span><span class="st_h">'התנתקת בהצלחה'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>אך הקוד הזה (של ההתחברות):<br><br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;log&quot;</span><span class="sy0">,</span><span class="st_h">'true'</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="nu0">86400</span><span class="sy0">*</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>והקוד הזה (של ההתנתקות):<br><br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;log&quot;</span><span class="sy0">,</span><span class="st_h">'$pass'</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">-</span> <span class="nu0">86400</span><span class="sy0">*</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>עושים לי בעיה כזו באתר:<br><br><div class="php codeblock">Warning<span class="sy0">:</span> Cannot modify <span class="kw3">header</span> information <span class="sy0">-</span> headers already sent by <span class="br0">&#40;</span>output started at <span class="sy0">/</span>home<span class="sy0">/</span>dgale<span class="sy0">/</span>domains<span class="sy0">/</span>psd<span class="sy0">-</span>galery<span class="sy0">.</span>net<span class="sy0">/</span>public_html<span class="sy0">/</span>register<span class="sy0">/</span>index<span class="sy0">.</span>php<span class="sy0">:</span><span class="nu0">15</span><span class="br0">&#41;</span> in <span class="sy0">/</span>home<span class="sy0">/</span>dgale<span class="sy0">/</span>domains<span class="sy0">/</span>psd<span class="sy0">-</span>galery<span class="sy0">.</span>net<span class="sy0">/</span>public_html<span class="sy0">/</span>register<span class="sy0">/</span>index<span class="sy0">.</span>php on line <span class="nu0">164</span></div><br><br>אז מי שיכול לעזור, שיעזור בבקשה :) </div>
+</div>
+<h3>
+<span id="answersCounter">28 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3213">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3213" href="בעיה בקוקיז-1.htm#answer_3213">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עוגיות נשלחות בין ה-headerים, ולא כתוכן לדפדפן.<br>מה שאני רוצה להגיד זה ששמת פלט לפני setcookie וזה אסור.<br>את כל הפלט שים בסוף. </p>
+</div>
+<div class="answer" id="answer3214">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3214" href="בעיה בקוקיז-1.htm#answer_3214">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול בבקשה לתת לי דוגמא לזה, בכך שתעשה זאת במערכת שלי? </p>
+</div>
+<div class="answer" id="answer3215">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3215" href="בעיה בקוקיז-1.htm#answer_3215">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כל מה שב-print לא צריך להיות שם. הכל צריך להיות בסוף הדף. </p>
+</div>
+<div class="answer" id="answer3216">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3216" href="בעיה בקוקיז-1.htm#answer_3216">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מזאת אומרת בסוף הדף?, איפה אני יכול לשים אותו בשביל שמתי שהמשתמש יתחבר זה יופיע? </p>
+</div>
+<div class="answer" id="answer3217">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3217" href="בעיה בקוקיז-1.htm#answer_3217">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$output</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$do</span> <span class="sy0">==</span> <span class="st_h">'login'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> <span class="st_h">'<br>
+&nbsp; &lt;form method=&quot;post&quot; action=&quot;?do=loginc&quot;&gt;<br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &lt;tr&gt;<br>
+&nbsp; &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;userl&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &lt;td&gt;שם משתמש&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>
+&nbsp; &lt;tr&gt;<br>
+&nbsp; &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;passl&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &lt;td&gt;סיסמה&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>
+&nbsp; &lt;tr&gt;<br>
+&nbsp; &lt;td&gt;&lt;input type=&quot;reset&quot; name=&quot;resetl&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &lt;td&gt;&lt;input type=&quot;submit&quot; name=&quot;subl&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>
+&nbsp; &lt;/table&gt;<br>
+&nbsp; &lt;/form&gt;<br>
+&nbsp; '</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'log'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> <span class="st_h">'אתה מחובר'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> <span class="st_h">'אתה לא מחובר&lt;br&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> <span class="st_h">'&lt;a href=&quot;?do=logut&quot;&gt;התנתק&lt;/a&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$do</span> <span class="sy0">==</span> <span class="st_h">'loginc'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$usr</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'userl'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="re0">$pss</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'passl'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="re0">$time</span> <span class="sy0">=</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$login</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `Users` where `Username`='<span class="es4">$usr</span>' AND `Password`='<span class="es4">$pss</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$loginr</span> <span class="sy0">=</span> <span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$login</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subl'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$loginr</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$pass</span> <span class="sy0">=</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$usr</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;log&quot;</span><span class="sy0">,</span><span class="st_h">'true'</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="nu0">86400</span><span class="sy0">*</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> <span class="st_h">'התחברת בהצלחה'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$do</span> <span class="sy0">==</span> <span class="st_h">'logut'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;log&quot;</span><span class="sy0">,</span><span class="st_h">'$pass'</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">-</span> <span class="nu0">86400</span><span class="sy0">*</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> <span class="st_h">'התנתקת בהצלחה'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">echo</span> <span class="re0">$output</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3218">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3218" href="בעיה בקוקיז-1.htm#answer_3218">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ד&quot;א, תלמד על mvc, הקוד הזה ממש רע וגם יש לך פריצת אבטחה. </p>
+</div>
+<div class="answer" id="answer3219">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3219" href="בעיה בקוקיז-1.htm#answer_3219">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אחיי? עדיין יוצא לי: <br><div class="php codeblock">Warning<span class="sy0">:</span> Cannot modify <span class="kw3">header</span> information <span class="sy0">-</span> headers already sent by <span class="br0">&#40;</span>output started at <span class="sy0">/</span>home<span class="sy0">/</span>dgale<span class="sy0">/</span>domains<span class="sy0">/</span>psd<span class="sy0">-</span>galery<span class="sy0">.</span>net<span class="sy0">/</span>public_html<span class="sy0">/</span>register<span class="sy0">/</span>index<span class="sy0">.</span>php<span class="sy0">:</span><span class="nu0">9</span><span class="br0">&#41;</span> in <span class="sy0">/</span>home<span class="sy0">/</span>dgale<span class="sy0">/</span>domains<span class="sy0">/</span>psd<span class="sy0">-</span>galery<span class="sy0">.</span>net<span class="sy0">/</span>public_html<span class="sy0">/</span>register<span class="sy0">/</span>index<span class="sy0">.</span>php on line <span class="nu0">164</span></div><br><br>אפשר עוד תמיכה?! </p>
+</div>
+<div class="answer" id="answer3220">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3220" href="בעיה בקוקיז-1.htm#answer_3220">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כי יש לך לפני זה עוד הדפסות.<br>תראה מה שעשיתי ותיישם את זה בכל שאר המקומות. </p>
+</div>
+<div class="answer" id="answer3221">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3221" href="בעיה בקוקיז-1.htm#answer_3221">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אין לי עוד קוקיז בדף, ד&quot;א, יש לך סקייפ אני יראה לך הכל במפורט? </p>
+</div>
+<div class="answer" id="answer3222">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3222" href="בעיה בקוקיז-1.htm#answer_3222">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז מה, יש לך עוד פלט לפני setcookie.<br><br>ואין לי סקייפ, מצטער.<br><br><br>תיישם את מה שעשיתי בקוד שלך בשאר הקוד. </p>
+</div>
+<div class="answer" id="answer3223">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3223" href="בעיה בקוקיז-1.htm#answer_3223">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נעשה שכל פלט יהיה ב HEADER? זה לא קצת מוגזם?, כאילו, בכל זאת אחרי זה יהיה עוד פלטים, כי אם אני ישים את זה למעלה, אני יצטרך לשים לזה Echoים עם פלט, נגיד שמתי את זה:<br><div class="php codeblock"><span class="re0">$my</span> <span class="sy0">=</span> <span class="st_h">'שלום'</span><span class="sy0">;</span></div><br><br>אחרי זה אני יצטרך לשים את זה בתוך התוכן שלמטה בתור:<br><br><div class="php codeblock"><span class="kw1">echo</span> <span class="re0">$my</span><span class="sy0">;</span></div><br><br>אז זה גם נקרא פלט לא?<br>אז מה עושים? </p>
+</div>
+<div class="answer" id="answer3224">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3224" href="בעיה בקוקיז-1.htm#answer_3224">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+את המשתנה output שיצרתי תשים הכי למעלה. וכל פעם שאתה רוצה להדפיס משהו אז פשוט תשרשר אותו למשתנה, וב************סוף************ הקוד תדפיס את ה-output.<br><br>ותעבור ל-<a href="..\mvc_מפרידים_html_מ_php.htm">mvc</a>. </p>
+</div>
+<div class="answer" id="answer3225">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3225" href="בעיה בקוקיז-1.htm#answer_3225">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מזה &quot;************&quot; ??? </p>
+</div>
+<div class="answer" id="answer3227">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3227" href="בעיה בקוקיז-1.htm#answer_3227">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מדגיש את המילה &quot;סוף&quot;. </p>
+</div>
+<div class="answer" id="answer3230">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3230" href="בעיה בקוקיז-1.htm#answer_3230">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שים לב, זה כל המערכת שבניתי מתחילת הדף עד הסוף:<br><br>http://phpguide.co.il/phplive?code=433<br><br>שמתי בכולם את מה שאמרת, וכלום לא עובד לי!!<br>כלום!!!<br><br>תבדוק את כל זה, ותגיד לי בבקשה מה הבעיה. </p>
+</div>
+<div class="answer" id="answer3231">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3231" href="בעיה בקוקיז-1.htm#answer_3231">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה שמחוץ לתגי php הוא גם פלט. **כל** הפלט -&gt; לסוף. </p>
+</div>
+<div class="answer" id="answer3232">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3232" href="בעיה בקוקיז-1.htm#answer_3232">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקיי, עכשיו זה לא מציג לי את הבעיה, אבל בכל זאת יש בעיה אחרת: זה הקוד שלי:<br><br>http://phpguide.co.il/phplive?code=434<br><br>אבל הבעיה פה, היא בדף ה ?do=login איפה שאמור להיות כתוב &quot;אתה מחובר&quot; או &quot;אתה מנותק&quot;, זה משאיר לי אותו כל הזמן על מחובר, אפילו אם אני נכנס ל ?do=logut .<br>למה? </p>
+</div>
+<div class="answer" id="answer3233">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3233" href="בעיה בקוקיז-1.htm#answer_3233">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקוד שלך הוא לא נכון.<br>אתה עושה דבר כזה:<br><div class="php codeblock"><span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$do</span> <span class="sy0">==</span> register<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+<span class="br0">&#125;</span></div><br>register אמור להיות מחרוזת, תעטוף אותו בגירשיים.<br>כשאתה כותב את זה ככה php מחפשת קבוע (constant) בשם register. </p>
+</div>
+<div class="answer" id="answer3234">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3234" href="בעיה בקוקיז-1.htm#answer_3234">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואם אני יעשה את זה, מה שאמרתי יפעל? </p>
+</div>
+<div class="answer" id="answer3235">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3235" href="בעיה בקוקיז-1.htm#answer_3235">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקוד שלך ממש קוד מסורבל, תחפש טעויות כמו שהזכרתי ותתקן אותן. זה קודם לכל. </p>
+</div>
+<div class="answer" id="answer3236">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3236" href="בעיה בקוקיז-1.htm#answer_3236">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+סידרתי את הקוד כמו שאמרת:<br><br>http://phpguide.co.il/phplive?code=435<br><br>אבל עדיין כתוב לי &quot;אתה מחובר&quot; כל הזמן!!<br>מה עושים? </p>
+</div>
+<div class="answer" id="answer3238">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3238" href="בעיה בקוקיז-1.htm#answer_3238">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה חייב ללמוד איך לכתוב קוד. הכל אצלך ממש לא מובן.<br>הנה הקוד ה&quot;חדש&quot;: http://pastebin.com/DPwZGq96<br>לא תיקנתי כלום כי קשה להבין משהו מהקוד, אבל אולי ככה יהיה לך יותר קל למצוא את הבעיה ולא תזדקק לעזרה. </p>
+</div>
+<div class="answer" id="answer3239">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3239" href="בעיה בקוקיז-1.htm#answer_3239">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול בבקשה להכניס את הקוד לאתר אחר? או להביא לי אותו בתור קובץ להורדה? כי פשוט אתרים שמכניסים בהם קודים לא עובדים לי :S </p>
+</div>
+<div class="answer" id="answer3240">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3240" href="בעיה בקוקיז-1.htm#answer_3240">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="http://pastebin.com/download.php?i=DPwZGq96">http://pastebin.com/download.php?i=DPwZGq96</a> </p>
+</div>
+<div class="answer" id="answer3241">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3241" href="בעיה בקוקיז-1.htm#answer_3241">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל זה לא עובד לי!, תעלה קובץ PHP ל F2H, ותביא לי אותו.<br><br><strong>תודה!</strong> </p>
+</div>
+<div class="answer" id="answer3242">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3242" href="בעיה בקוקיז-1.htm#answer_3242">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקישור ששלחתי עכשיו הוא הקובץ להורדה, מה לא עובד בדיוק? </p>
+</div>
+<div class="answer" id="answer3243">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3243" href="בעיה בקוקיז-1.htm#answer_3243">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+האתר הזה בכלל לא עובד לי..<br>תוכל להעלות לאתר אחר? </p>
+</div>
+<div class="answer" id="answer3244">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 ליולי 2012 </span>
+<a id="answer_3244" href="בעיה בקוקיז-1.htm#answer_3244">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+http://www.upf.co.il/file/410101355.html </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

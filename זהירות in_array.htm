@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="תוצאות לא צפויות בפונקציה in_array של PHP והפתרון לכך">
+<meta name="keywords" content="in_array, bug">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>תוצאות לא צפויות בעת שימוש בפונקציה in_array והפתרון לכך</title>
+<meta itemprop="name" content="תוצאות לא צפויות בעת שימוש בפונקציה in_array והפתרון לכך">
+<meta itemprop="description" content="תוצאות לא צפויות בפונקציה in_array של PHP והפתרון לכך">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"149","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>תוצאות לא צפויות בעת שימוש בפונקציה in_array והפתרון לכך</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-09-04T05:31:53+03:00" dir="rtl">04 לספטמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://my.picresize.com/vault/PZU435WL1R.jpg" alt="תוצאות לא צפויות בעת שימוש בפונקציה in_array והפתרון לכך">
+</div>
+<div class="right post-content">
+הפונקציה in_array של PHP משמשת אותנו בהרבה מקרים, אבל יש לה גם תכונות מיוחדות שעשויות לגרום לתוצאות להיות לא צפיות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h4>הקוד הבא ממחיש את זה:</h4><br><div class="php codeblock"><span class="re0">$array</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span> <span class="st_h">'one'</span><span class="sy0">,</span> <span class="st_h">'two'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="kw3">in_array</span><span class="br0">&#40;</span><span class="st_h">'three'</span><span class="sy0">,</span> <span class="re0">$array</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>למרבה ההפתעה, התוצאה שתתקבל היא <strong>true</strong>.<br>הסיבה לזה היא ש-PHP ממירה את סוגי הנתונים השונים לסוג אחד בשביל השוואה, במקרה שלנו ל-integer.<br>כשהמחרוזת <em>three</em> מומרת ל-integer, מתקבל המספר 0 (שכן מופיע במערך), ולכן התוצאה המתקבלת לפונקציה היא true.<br><br><h4>הפתרון</h4><br>הפרמטר השלישי של in_array קובע אם לא להמיר סוג הנתונים לשם ההשוואה. הקוד הבא יחזיר את התוצאה הצפויה כמו שצריך:<br><div class="php codeblock"><span class="re0">$array</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span> <span class="st_h">'one'</span><span class="sy0">,</span> <span class="st_h">'two'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="kw3">in_array</span><span class="br0">&#40;</span><span class="st_h">'three'</span><span class="sy0">,</span> <span class="re0">$array</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>הגיע הזמן להתרגל להשתמש גם ב-true, הפרמטר השלישי ב-in_array.<br><br>דוגמא נוספת תוכלו למצוא <a href="phplive-16.htm?code=135">כאן</a>. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment719"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/09/2011 09:39</span><br>
+כל הכבוד, אהבתי !</div>
+<a id="comment723"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/09/2011 13:56</span><br>
+נחמד, תודה. אני ידעתי על זה מהמאמר באנגלית אבל נחמד שאתה מפרסם את זה פה.</div>
+<a id="comment1150"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2012 18:58</span><br>
+תודה, לא ידעתי על כך לפני כן. :)</div>
+<a id="comment2689"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/11/2013 19:52</span><br>
+נשאלה השאלה:<br>
+אלכס, למה זה ככה? כלומר, למה עדיף לנו שהפונקציה תעשה המרה?<br>
+<br>
+הנה התשובה:<br>
+זה בכלל לא עדיף. הפוך, עדיף לנו שהפונקציה _לא_ תעשה המרות.<br>
+<br>
+PHP היא שפה דינאמית, כלומר למשתנים אין סוגים קבועים ולכן ב PHP יש שני סוגי השוואות. השוואה בלי בדיקת טיפוס נתונים == והשוואה קפדנית === שבודקת גם סוג.<br>
+<br>
+לפי ברירת מחדל PHP משתמשת בהשוואה פשוטה == בכל המקרים ו in_array הוא אחד המקרים האלה.<br>
+<br>
+לדעתי האישית, זה רע מאוד ואני תמיד כותב === בכל מקום, גם אם זה דורש ממני לדעת מה הסוג נתונים הנכנס או לעשות המרות.<br>
+<br>
+הפרמטר השלישי ב in_array אומר לPHP איזה סוג השוואה לעשות. השוואה טיפשית == או השוואה קפדנית === והוספת true בתור פרמטר שלישי הופך את השוואות לקפדניות, כדי שהמתכנת לא יצטרך לשבור כמה שעות את הראש על חיפוש באגים שמופיעים רק בהשוואת לא קפדניות.<br>
+<br>
+--<br>
+באופן כללי בתכנות, מכאן ולהבא, כמה שיותר קפדני הקוד שלך, ככה קטן יותר הסיכוי לעשות טעויות או לבזבז כמה שעות או ימים על בעיות שקשה לאתר.</div>
+<a id="comment2690"></a>
+<div class="blog-comment">
+<span class='comment-author'>mat</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/11/2013 21:17</span><br>
+לדעתי הכי פשוט לעשות<br>
+<br>
+isset($array[&quot;three&quot;]);</div>
+<a id="comment2691"></a>
+<div class="blog-comment">
+<span class='comment-author'>mat</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/11/2013 21:36</span><br>
+טעיתי זה מערך לא אובייקט. וה in_array הולך על הערכים.<br>
+חשבתי שזה מחפש את הkey.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעיה עם JQuery click function">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="homie">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>בעיה עם JQuery click function | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעיה עם JQuery click function | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעיה עם JQuery click function">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיה עם JQuery click function-1.htm" title="יש לי 2 אלמנטים : DIV שקוראים לו b , ואת ה- body כמובן.בניתי ב JQUERY שני מקרים שבהם יש לחיצה על b ועל body.כלומר ככה :הבעיה היא שברגע שיש לחיצה על b , כל מה שכתוב בתוך המקרה של body - מופעל גם כן,כי לחיצה על b נחשבת לחיצה על body. אני מנסה למצוא דרך שכל מה שיש בתוך b לא יופעל.ניסיתי עם משתנים בוליאניים אך לא הצלחתי.$&amp;#40;&amp;quot;#b&amp;quot;&amp;#41;">בעיה עם JQuery click function</a></h2>
+<div class="userinfo">
+פתח
+<a>homie</a>
+,
+<time class="timeago relativetime" datetime="2014-03-07T12:03:38+02:00" style="display:inline-block;">
+07 למרץ 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1829'>
+יש לי 2 אלמנטים : DIV שקוראים לו b , ואת ה- body כמובן.<br>בניתי ב JQUERY שני מקרים שבהם יש לחיצה על b ועל body.<br>כלומר ככה :<br><br><br>הבעיה היא שברגע שיש לחיצה על b , כל מה שכתוב בתוך המקרה של body - מופעל גם כן,<br>כי לחיצה על b נחשבת לחיצה על body. אני מנסה למצוא דרך שכל מה שיש בתוך b לא יופעל.<br>ניסיתי עם משתנים בוליאניים אך לא הצלחתי.<br><br><div class="javascript codeblock">$<span class="br0">&#40;</span><span class="st0">&quot;#b&quot;</span><span class="br0">&#41;</span>.<span class="me1">click</span><span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">//...</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+$<span class="br0">&#40;</span><span class="st0">&quot;body&quot;</span><span class="br0">&#41;</span>.<span class="me1">click</span><span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">//...</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><br>אשמח לעזרה, תודה רבה ! </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8315">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 07 למרץ 2014 </span>
+<a id="answer_8315" href="בעיה עם JQuery click function-1.htm#answer_8315">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פשוט תמחק את האירוע של הלחיצה על הbody אני לא חושב שבאמת צריך אותו </p>
+</div>
+<div class="answer" id="answer8316">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a4c0cb1c099dbc2e4b834a4bfb287b13?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>homie</a>
+ב
+<span style="font-size:10px"> 07 למרץ 2014 </span>
+<a id="answer_8316" href="בעיה עם JQuery click function-1.htm#answer_8316">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חחח צריך. זה נובע מפרפקטציונזם. </p>
+</div>
+<div class="answer" id="answer8317">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d13bb8962ca31a6c9ce9f5bb8b90937a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>vu47678</a>
+ב
+<span style="font-size:10px"> 07 למרץ 2014 </span>
+<a id="answer_8317" href="בעיה עם JQuery click function-1.htm#answer_8317">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+$(&quot;div&quot;).click(function(event){<br> event.stopPropagation();<br> alert(&quot;The div element was clicked.&quot;);<br> }); </p>
+</div>
+<div class="answer" id="answer8318">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 07 למרץ 2014 </span>
+<a id="answer_8318" href="בעיה עם JQuery click function-1.htm#answer_8318">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה לעשות את b כפתור. </p>
+</div>
+<div class="answer" id="answer8319">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d13bb8962ca31a6c9ce9f5bb8b90937a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>vu47678</a>
+ב
+<span style="font-size:10px"> 07 למרץ 2014 </span>
+<a id="answer_8319" href="בעיה עם JQuery click function-1.htm#answer_8319">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">$<span class="br0">&#40;</span><span class="st0">&quot;div&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span>event<span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; event<span class="sy0">.</span>stopPropagation<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;The div element was clicked.&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

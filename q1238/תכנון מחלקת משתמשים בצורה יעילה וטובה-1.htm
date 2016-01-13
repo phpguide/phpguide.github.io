@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה תכנון מחלקת משתמשים בצורה יעילה וטובה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>תכנון מחלקת משתמשים בצורה יעילה וטובה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="תכנון מחלקת משתמשים בצורה יעילה וטובה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה תכנון מחלקת משתמשים בצורה יעילה וטובה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">13</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm" title="חשבתי על מחלקה אחת שתנהל את המשתמשים הלא רשומים (Guest) ומחלקה אחת שתנהל את המשתמשים הרשומים (User).במחלקה של המשתמשים הרשומים הקונסטרוקטור יקבל Token של המשתמש הרשום וכל שאר הפונקציות בו יעבדו וישלפו מהמסד לפי הToken.ובמחלקה של המשתמשים הלא רשומים הקונסטרוקטור לא יקבל דבר והפונקציות שם ישלפו מידע מהמסד לכל המשתמשים האורחים.לדוגמא אם משתמש רשום גולש בפרופיל שלו, המחלקה User תעבוד ( תשלוף לו מידע על המשתמש שלו לפי ה Token שלו) , ואם איזה אורח מסויים נכנס לפרופיל של משתמש כ">תכנון מחלקת משתמשים בצורה יעילה וטובה</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2013-02-06T14:37:31+02:00" style="display:inline-block;">
+06 לפברואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1238'>
+חשבתי על מחלקה אחת שתנהל את המשתמשים הלא רשומים (Guest) ומחלקה אחת שתנהל את המשתמשים הרשומים (User).<br>במחלקה של המשתמשים הרשומים הקונסטרוקטור יקבל Token של המשתמש הרשום וכל שאר הפונקציות בו יעבדו וישלפו מהמסד לפי הToken.<br>ובמחלקה של המשתמשים הלא רשומים הקונסטרוקטור לא יקבל דבר והפונקציות שם ישלפו מידע מהמסד לכל המשתמשים האורחים.<br><br>לדוגמא אם משתמש רשום גולש בפרופיל שלו, המחלקה User תעבוד ( תשלוף לו מידע על המשתמש שלו לפי ה Token שלו) , ואם איזה אורח מסויים נכנס לפרופיל של משתמש כלשהו המחלקה Guest תעבוד (תשלוף לאורח מידע על המשתמש האמצעות ה Id).<br><br>** קראתי בכמה מקומות שזיהוי משתמש באמצעות ה Token הוא יותר טוב מאשר זיהוי משתמש באמצעות ה Id, משהו שקשור לסשנים, כי בכל פעם שהמשתמש מתחבר לאתר אני יוצר מחרוזת רנדומלית שמעדכנת את השדה Token. לכן כל הפרוצדורה הזו.<br><br>אשמח אם תציעו דרכים נוספות לפתרון דבר כזה או תכנון אחר של המחלקה, אני מאמין שזה לא יעזור רק לי. </div>
+</div>
+<h3>
+<span id="answersCounter">13 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5416">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5416" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5416">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל - Guest ולא Ghost.<br>ואני ממליץ על 3 מחלקות:<br>Member שיורשת מ-User - מייצגת משתמש מחובר.<br>Guest שיורשת מ-User - מייצגת משתמש אורח.<br>User - מייצגת משתמש כללי. המאפיינים שלו יהיו מאפיינים שיש לכ משתמש שנכנס לאתר, כמו ip. </p>
+</div>
+<div class="answer" id="answer5417">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5417" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5417">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לדעתי אתה קצת מבלבל דברים.<br>תסתכל על מחלקה יוזר בתור עצם שמייצג משתמש.<br>ובמערכת שלך תעשה איזשהו משתנה שהוא מייצג את המשתמש הנוכחי ויכול להיות או מופע של המחלקה יוזר <br>או null. <br><br>סתם עצם שמייצג מכונית לא יכול להיות מכונית חונה או מכונית נוסעת, היא יכולה להיות רק מכונית.<br>מה שעושה אותו חונה או נוסע זה העובדה האם אתה נמצא בתוכה או לא.<br>דוגמא בקוד היית נראה בערך ככה:<br><br><div class="php codeblock"><span class="re0">$userId</span> <span class="sy0">=</span> <span class="kw3">intval</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'userid'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$user</span> <span class="sy0">=</span> <span class="kw2">new</span> UsersRepository<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">findById</span><span class="br0">&#40;</span><span class="re0">$userId</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw4">null</span> <span class="sy0">===</span> <span class="re0">$user</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'404'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="kw4">null</span> <span class="sy0">!==</span> <span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span><span class="sy0">-&gt;</span><span class="me1">id</span> <span class="sy0">===</span> <span class="re0">$user</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'hi Mr '</span><span class="sy0">,</span> <span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">,</span> <br>
+&nbsp; <span class="st_h">' Feel free to edit your profile: &nbsp;'</span><span class="sy0">,</span><br>
+&nbsp; <span class="st_h">'&lt;form&gt;&lt;/form&gt;'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'Profile of '</span><span class="sy0">,</span> <span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>עכשיו שים לב שפה בקוד הופיעו שני מחלקות חדשות.<br>הראשונה זה UsersRepository<br>שאתה יכול כרגע להתעלם ממנה ולהחליף אותה במטודה סטטית של המחלקה יוזר<br>לדגומה <span dir="ltr">User::getById</span><br>למרות שאני לא ממליץ לעשות את זה וכן ליצור קלאס שהמטרה שלו תהיה לשלוף יוזרים מהמסד ולהחזיר לך מופעים של יוזר.<br><br>המחלקה השניה שנוספה היא המחלקה של $mySite<br>שהיא כנראה תהיה איזשהו אובייקט גלובאלי שתאתכל בקובץ index.php שלך ותעביר לכל מקום<br>בצורת singleton לדוגמה. (חפש את המדריך על סינגלטון באתר)<br>ואז ייצא לך משהו כזה:<br><span dir="ltr"><br>$mySite = MySite::getInstance()<br></span> </p>
+</div>
+<div class="answer" id="answer5418">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5418" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5418">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+היי קודם תודה על התשובות.<br>@iiddaannyy, תודה רבה הבנתי.<br>@intval, את שלך קצת פחות הבנתי, אשמח אם תרחיב קצת יותר:<br>את השורות שיש בהן 2 הפניות, כלומר 2 חיצים ( &lt;- ) לא הבנתי איך הקוד אמור להראות - איך המחלקה אמורה להיות כדי לאפשר הפניה כזו:<br><div class="php codeblock"><span class="re0">$user</span> <span class="sy0">=</span> <span class="kw2">new</span> UsersRepository<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">findById</span><span class="br0">&#40;</span><span class="re0">$userId</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span><span class="sy0">-&gt;</span><span class="me1">id</span></div><br><br>ומה לגבי ה TOKEN ? זה יותר שימושי ? יותר נוח ? יותר מאובטח במידה מסויימת ? או שפשוט עדיף להציג את הפרטים למשתמש הרשום ולמשתמש הלא רשום על ידי ה ID של המשתמש ולמחוק את העמודה TOKEN מהמסד?<br><br><span class="underline">כי כמו שהסברתי:</span><br>- בפרופיל של משתמש <span class="underline">אחר </span>מסויים (שאורח או משתמש מחובר כלשהו צופה בו) אציג את הפרטים על ידי ה ID של המשתמש.<br>- למשתמש מחובר אציג לו את הפרטים והסטטיסטיקות בפרופיל <span class="underline">שלו </span>באמצעות ה TOKEN שלו ( הטוקן מתעדכן ומשתנה בכל פעם שהמשתמש מתחבר לאתר, זה לא משהו שנשאר קבוע כמו הID ).<br><br>מה יותר בטוח, יעיל, עדיף ובכללי הכי טוב ?<br><br><strong>סליחה שאני כזה חופר, אני פשוט מנסה להבין את העיניין הזה כבר הרבה זמן וכמה שאני קורא אני לא מבין, זה מתסכל באיזהשהו שלב :S.</strong> </p>
+</div>
+<div class="answer" id="answer5423">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5423" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5423">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא יודע מה זה token ואני אישית לא רואה משהו יותר שימושי מ id.<br>לגבי שני חצים <br><div class="php codeblock"><span class="kw2">class</span> AnyClass<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$subClass</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$number</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$n</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">number</span> <span class="sy0">=</span> <span class="re0">$n</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$class1</span> <span class="sy0">=</span> <span class="kw2">new</span> AnyClass<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$class2</span> <span class="sy0">=</span> <span class="kw2">new</span> AnyClass<span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$class3</span> <span class="sy0">=</span> <span class="kw2">new</span> AnyClass<span class="br0">&#40;</span><span class="nu0">3</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$class1</span><span class="sy0">-&gt;</span><span class="me1">subClass</span> <span class="sy0">=</span> <span class="re0">$class2</span><span class="sy0">;</span><br>
+<span class="re0">$class2</span><span class="sy0">-&gt;</span><span class="me1">subClass</span> <span class="sy0">=</span> <span class="re0">$class3</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="re0">$class1</span><span class="sy0">-&gt;</span><span class="me1">subClass</span><span class="sy0">-&gt;</span><span class="me1">subClass</span><span class="sy0">-&gt;</span><span class="me1">number</span><span class="sy0">;</span><br>
+<span class="co1">// same as </span><br>
+<span class="co1">// ( ($class1-&gt;subClass)-&gt;subClass)-&gt;number;</span><br>
+<span class="co1">// ( $class2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt;subClass)-&gt;number;</span><br>
+<span class="co1">// $class3-&gt;number;</span></div> </p>
+</div>
+<div class="answer" id="answer5424">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5424" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5424">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+Token זה מחרוזת של מספרים ואותיות רנדומליות. בכל פעם שמשתמש מתחבר לאתר, אני יוצר מחרוזת רנדומלית ומכניס אותה למסד ובנוסף משווה אותה לסשן של היוזר. כך שבעצם הסשן שווה לטוקן שבמסד שמשתנה בכל פעם שהמשתמש מתחבר מחדש למערכת. כל השליפות שמציגות למשתמש המחובר את פרטיו, נשלפות ע׳י הטוקן שזה בעצם הסשן. אם הסשן לא שווה לטוקן שבמסד אז המשתמש לא מחובר. <br>לגבי הפעולה של שני החיצים, תודה רבה הבנתי.<br><br>עכשיו מה דעתך על הפעולה עם הטוקן ? </p>
+</div>
+<div class="answer" id="answer5425">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5425" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5425">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מיותר לחלוטין.<br>אתה עצמך רואה כל סיבה לגיטימית שהיא לסבך את זה מעבר לשליפה לפי ID (חוץ מ &quot;קראתי איפשהו שזה טוב&quot; ?) </p>
+</div>
+<div class="answer" id="answer5426">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5426" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5426">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+האמת שאתה צודק, הדבר היחידי שקראתי עליו זה ׳שזה טוב׳. תודה רבה:).<br>בדוגמא שנתת בקוד הראשון כתבת:<br><div class="php codeblock"><span class="re0">$user</span> <span class="sy0">=</span> <span class="kw2">new</span> UsersRepository<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">findById</span><span class="br0">&#40;</span><span class="re0">$userId</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>כתבת UsersRepository() זו מחלקה אחת שמפנה (-&gt;) למחלקה findById ששולפת נתונים על ידי שליפה באמצעות האיידי ?<br>או שזה פונקציה רגילה וההפניה אליה מתבצעת באותה הדרך ? אני פשוט רוצה לעבוד ע׳פ מה שאתה כתבת כיאילו ללמוד את זה בגלל זה השאלות .... סליחה אם זה חופר:) </p>
+</div>
+<div class="answer" id="answer5427">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5427" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5427">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+findById זה מטודה (פעולה של המחלקה UsersRepository).<br>אם אתה לא מצליח לקרוא את זה בשורה אחת, תפריד אותם לשני שורות.<br><div class="php codeblock"><span class="re0">$repository</span> <span class="sy0">=</span> <span class="kw2">new</span> UsersRepository<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$user</span> <span class="sy0">=</span> <span class="re0">$repository</span><span class="sy0">-&gt;</span><span class="me1">findById</span><span class="br0">&#40;</span><span class="re0">$userId</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ולמען האמת, צריך לשים שם סוגריים, אחרת המפענח של PHP לא יוכל את זה.<br><div class="php codeblock"><span class="re0">$user</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="kw2">new</span> UsersRepository<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">findById</span><span class="br0">&#40;</span><span class="re0">$userId</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer5428">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5428" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5428">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקי תודה הבנתי.<br>עכשיו שאלה אחרונה לגבי השורה:<br><div class="php codeblock"><span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span><span class="sy0">-&gt;</span><span class="me1">name</span></div><br><br>currentUser זו שיטה והחץ (-&gt;) מפנה למשתנה name שנמצא בתוך השיטה currentUser ?<br>לא הצלחתי לכתוב את הקוד שיתאים לצורה הזו, זה לא אמור להיות ככה וזהו:<br><div class="php codeblock"><span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">name</span></div><br><br>המשתנה $name יהיה public והמטודה currentUser תעדכן אותה לפי השליפה ?<br>בעצם המחלקה UsersRepository היא רק מחפשת את שם המשתמש במסד לפי האיידי.<br>והמחלקה של mySite היא בעצם אחראית על כל השליפות והמתודות של המשתמש כאשר הוא <strong>מחובר</strong>, והיא בודקת שהוא מחובר אם קיים איידי מהמחלקה UsersRepository ( שגם ב UsersRepository מתרחשת ההרשמה? )?<br>ואי זה קצת מסובך אבל אני בסוף יבין את זה אני מקווה. </p>
+</div>
+<div class="answer" id="answer5429">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2013 </span>
+<a id="answer_5429" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5429">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שיטה זה מהמילה שיט ?<br>יש מילה כזאת מטודה שזה <s>פעולה</s> פונקציה שהיא בתוך מחלקה.<br>פונקציות בשפת PHP תמיד באות עם סוגריים<br><div class="php codeblock"><span class="re0">$x</span> <span class="sy0">=</span> kurwaFunction<span class="br0">&#40;</span><span class="br0">&#41;</span></div><br><div class="php codeblock"><span class="re0">$x</span> <span class="sy0">=</span> <span class="re0">$class</span><span class="sy0">-&gt;</span><span class="me1">kurwaMethod</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div><br><div class="php codeblock"><span class="re0">$x</span> <span class="sy0">=</span> <span class="re0">$class</span><span class="sy0">-&gt;</span><span class="me1">methodThatReturnsAnotherClass</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">anotherMethod</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>בשביל מה המחלקה usersrepository כתבתי למעלה <br>וגם כתבתי שאתה יכול להתעלם ממנה.<br><br><br><br>אם החץ מוביל למשהו שהוא בלי סוגריים, אז זה לא מטודה אלה מאפיין של המחלקה.<br>ואם יש שני חצים, זה אומר שהחץ הראשון גם החזיר מחלקה.<br><div class="php codeblock"><span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span><span class="sy0">-&gt;</span><span class="me1">name</span><br>
+<span class="co1">// MEANS THAT</span><br>
+<span class="re0">$mySite</span><span class="sy0">-&gt;</span><span class="me1">currentUser</span> is also a <span class="kw2">class</span><br>
+<span class="co1">// and that class has a property called NAME</span></div><br><br><br>אני רואה שפספסת את <a href="..\phplive-41.htm?code=653">הדוגמה הזאת</a>. תסתכל עליה עוד פעם. </p>
+</div>
+<div class="answer" id="answer5431">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 08 לפברואר 2013 </span>
+<a id="answer_5431" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5431">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&quot;סתם עצם שמייצג מכונית לא יכול להיות מכונית חונה או מכונית נוסעת, היא יכולה להיות רק מכונית&quot;<br><br>נכון. כי &quot;חונה&quot; או &quot;לא חונה&quot; זו פשוט תכונה אחת של המכונית.<br>לעומת זאת, User אתה יכול לפרק ל-Member ול-Guest. זה כי קיימים המון דברים ב-Member שאין לך ב-Guest ולכן הפירוק הוא נכון.<br><br>זה כמו ש-Worker אתה יכול לפרק לעובד רגיל או למנהל כי במנהל יהיו לך הרבה תכונות ודברים שלעובד רגיל אין.<br><br><br>השאלה האם לפרק תלויה במה ייצא לך מהפירוק הזה. אם הרווחת משהו וחסכת - אני הייתי מפרק. אם לא אז לא.<br>גם את Member אפשר לפרק ל-Admin ול-Standard, אבל לא יוצא לי מזה כלום. Standard תהיה מחלקה ריקה וגם ב-Admin לא יהיה לי יותר מידי מה להוסיף. ככה שעדיף לא לפרק.<br><br>ככה שכל מקרה לגופו. </p>
+</div>
+<div class="answer" id="answer5432">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 08 לפברואר 2013 </span>
+<a id="answer_5432" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5432">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הפירוק שלו היה האם המשתמש הזה שלי או לא שלי.<br>זה כמו המגפיים של דינה או של שרה.<br>זה מגפיים.<br>אבל שייכות הם למי שנועל אותם.<br><br>ולא משנה עם זה מגפיים גבוהות או נמוכות.<br>(מדובר במקרה שלו ספציפית) </p>
+</div>
+<div class="answer" id="answer5433">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 08 לפברואר 2013 </span>
+<a id="answer_5433" href="תכנון מחלקת משתמשים בצורה יעילה וטובה-1.htm#answer_5433">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פירוק של מחלקת User לשתי תתי מחלקות: MyUser, SomeoneElsesUser בכלל לא הגיוני. מה ההבדלים בין המחלקות? משתמש הוא משתמש וזה לא משנה האם הוא שלי או לא.<br>לעומת זאת, יש הבדל גדול בין רשום לבין אורח. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה פונקציה אחת עם שתי משתנים שונים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="razand">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>פונקציה אחת עם שתי משתנים שונים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="פונקציה אחת עם שתי משתנים שונים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה פונקציה אחת עם שתי משתנים שונים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="פונקציה אחת עם שתי משתנים שונים.htm" title="זה אפשרי ב PHP לעשות פונציה שאפשר להכניס עליה שתי סוגי ערכים לדוגמה:function __construct&amp;#40;$username,$sql&amp;#41; &amp;#123;
+&amp;nbsp; &amp;nbsp; $datis = $sql-&amp;gt;query">פונקציה אחת עם שתי משתנים שונים</a></h2>
+<div class="userinfo">
+פתח
+<a>razand</a>
+,
+<time class="timeago relativetime" datetime="2013-10-05T06:06:18+03:00" style="display:inline-block;">
+05 לאוקטובר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1629'>
+זה אפשרי ב PHP לעשות פונציה שאפשר להכניס עליה שתי סוגי ערכים לדוגמה:<br><div class="php codeblock"><span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$username</span><span class="sy0">,</span><span class="re0">$sql</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$datis</span> <span class="sy0">=</span> <span class="re0">$sql</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'SELECT * FROM `users` WHERE username=&quot;'</span><span class="sy0">.</span><span class="re0">$username</span><span class="sy0">.</span><span class="st_h">'&quot;'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>וגם <br><div class="php codeblock"><span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$id</span><span class="sy0">,</span><span class="re0">$sql</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$datis</span> <span class="sy0">=</span> <span class="re0">$sql</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'SELECT * FROM `users` WHERE id=&quot;'</span><span class="sy0">.</span><span class="re0">$id</span><span class="sy0">.</span><span class="st_h">'&quot;'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>באותה מחלקה שיהיה אפשר לדוגמה בראשון לשים גם ID וגם username<br>וזה עדייין ימצא את המשתמש? </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7437">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 לאוקטובר 2013 </span>
+<a id="answer_7437" href="פונקציה אחת עם שתי משתנים שונים.htm#answer_7437">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+א. בקונסטרקטור שלך לא אמורות להיות שום פעולות. לא שליפה מהדאטאבייס ולא שום דבר אחר. למעט בדיקת קלט והצבת משתנים. כל דבר אחר צריך לקרות במקומות אחרים, לא בקונסטרקטור.<br><br>ב. יעבירו אליך משתנה אחד, איך תדע לפיו עם זה יוזרניים או אידי? אתה יכול לבדוק אם המשתנה הוא מספר, אבל מה היוזרניים של מישהו הוא 123456 ? עם משתנה אחד אין לך דרך לדעת האם מה שמעבירים לך זה את האידי או את הניקניים. אתה יכול להחליט שאם מעבירים משתנה מסוג מחרוזת - זה יוזרניים אם לא, זה אידי וזה יראה ככה:<br><br><div class="php codeblock"><span class="kw2">class</span> WhatEver<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$param</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$sqlConnection</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$dataFromDb</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$param</span><span class="sy0">,</span> <span class="re0">$sqlConnection</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$param</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \InvalidArgumentException<span class="br0">&#40;</span><span class="st0">&quot;Search param cannot be empty&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw4">null</span> <span class="sy0">==</span> <span class="re0">$sqlConnection</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \InvalidArgumentException<span class="br0">&#40;</span><span class="st0">&quot;Db connection is null&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">param</span> <span class="sy0">=</span> <span class="re0">$param</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">sqlConnection</span> <span class="sy0">=</span> <span class="re0">$sqlConnection</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> GetUserData<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">GetData</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">private</span> <span class="kw2">function</span> GetData<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dataFromDb</span> <span class="sy0">==</span> <span class="kw4">null</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">is_int</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">param</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">&quot;id=&quot;</span><span class="sy0">.</span><span class="kw3">intval</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">param</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">else</span> <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">is_string</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">param</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">&quot;username='&quot;</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">sqlConnection</span><span class="sy0">-&gt;</span><span class="me1">escape</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">param</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;'&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \Exception<span class="br0">&#40;</span><span class="st0">&quot;Passed param is neither string nor int&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dataFromDb</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">sqlConnection</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;select .. from .. <span class="es4">$query</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dataFromDb</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer7438">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 05 לאוקטובר 2013 </span>
+<a id="answer_7438" href="פונקציה אחת עם שתי משתנים שונים.htm#answer_7438">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+סתם שאלה.<br>למה בקונסטרקטור לא לשים פעולות כמו שליפה מהמסד? </p>
+</div>
+<div class="answer" id="answer7439">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 לאוקטובר 2013 </span>
+<a id="answer_7439" href="פונקציה אחת עם שתי משתנים שונים.htm#answer_7439">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+א. מבחינה טכנית: בגלל שיכול להיות שתיצור מחלקה ואף פעם לא תשתמש בה ואז סתם עשית פעולות מיותרות.<br>ב. מבחינה רעיונית: הוא לא מיועד בשביל זה. זה שאפשר לעשות את זה, לא אומר שצריך. בדיוק כמו שטויוטה רגילה לא מתאימה לנסיעות שטח, למרות שאפשר לעשות את זה. לצערי, יש הרבה דברים שאף אחד אף פעם לא מסביר בשום מקום, ולמה מיועד קונסטרקטור - זה אחד מהם. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

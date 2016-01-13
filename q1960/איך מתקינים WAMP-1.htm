@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך מתקינים WAMP?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="yossi787">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>איך מתקינים WAMP? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך מתקינים WAMP? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך מתקינים WAMP?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">9</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך מתקינים WAMP-1.htm" title="ניסיתי כבר 3 פעמים, אחרי שראיתי שצריך לצאת מהסקייפ, יצאתי ממנו ועדיין לא עובד, ה-localhost מראה שגיאה 404...אני עם Win 8.1 64Bitשינתי את הפורט לסקייפ, הIIS לא פועל וערכתי את ה-hosts">איך מתקינים WAMP?</a></h2>
+<div class="userinfo">
+פתח
+<a>yossi787</a>
+,
+<time class="timeago relativetime" datetime="2014-07-20T06:49:32+03:00" style="display:inline-block;">
+20 ליולי 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1960'>
+ניסיתי כבר 3 פעמים, אחרי שראיתי שצריך לצאת מהסקייפ, יצאתי ממנו ועדיין לא עובד, ה-localhost מראה שגיאה 404...<br>אני עם Win 8.1 64Bit<br>שינתי את הפורט לסקייפ, הIIS לא פועל וערכתי את ה-hosts </div>
+</div>
+<h3>
+<span id="answersCounter">9 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8860">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 ליולי 2014 </span>
+<a id="answer_8860" href="איך מתקינים WAMP-1.htm#answer_8860">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לגבי 404. הסיבה לזה יכולה להיות כל דבר וקשה סתם לנחש.<br>יכול להיות קובץ htacess בתיקיה, יכול להיות ששמת את הקבצים בתיקיה הלא נכונה, יכול להיות שקובץ הקונפיגורציה של ברירת מחדל בכלל לא נכון.<br>ראשית, בדוק אם אתה מצליח לפתוח קבצי html דרך הדפדפן והשרת?<br>שנית, נסה להיסתכל בקובץ השגיאות error.log.בדרך כלל ניתן לראות שם הודעות על נתיבים שגויים.<br><br>-------------------------------------------------<br>אם אתה מנסה להפעיל גם את IIS אז יש קצת בעיה עם להפעיל wamp, skype &amp; iis במקביל על אותו פורט. <br>אמנם שינית את הפורט בסקייפ, iis וwamp עדיין לא ישמחו להיות ביחד.<br>יש לך אופציה בהגדרות של wamp לשנות את הפורט שלו גם (לפתוח את הקובץ httpd.conf ולשנות את השורה Port 80 למשל ל Port 8080)<br>(תצטרך לגלוש ל <a href="http://localhost:8080">http://localhost:8080</a> מהדפדפן) </p>
+</div>
+<div class="answer" id="answer8861">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 20 ליולי 2014 </span>
+<a id="answer_8861" href="איך מתקינים WAMP-1.htm#answer_8861">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בסוף הפיתרון היה להשבית איזה משהו ב-services, בכל מקרה- יש הבדל בין WAMP לשרת של Webmatrix? </p>
+</div>
+<div class="answer" id="answer8862">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 ליולי 2014 </span>
+<a id="answer_8862" href="איך מתקינים WAMP-1.htm#answer_8862">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, webmatrix פועל על בסיס iis ולכן אם תצטרך לעשות פעולות עם קובץ .htaccess (כמו mod_rewrite) - הם לא יעבדו.<br>יכול להיות שכרגע אתה בכלל לא צריך את זה ויהיה לך יותר נוח להישתמש בשרת של webmatrix.<br>תוכל גם לשנות את הפורט של wamp ולעבוד עם שניהם במקביל לפי הצורך </p>
+</div>
+<div class="answer" id="answer8863">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 20 ליולי 2014 </span>
+<a id="answer_8863" href="איך מתקינים WAMP-1.htm#answer_8863">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, החלטתי בסוף ללכת על webmatrix, פתחתי בסיס נתונים וטבלה, מה השם משתמש והססמה (לא הגדרתי לפני זה, אז סביר להניח שהם הברירת מחדל). </p>
+</div>
+<div class="answer" id="answer8864">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 20 ליולי 2014 </span>
+<a id="answer_8864" href="איך מתקינים WAMP-1.htm#answer_8864">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חחחחחחחחחחחחחחחחחחחחחחחחחחחחחחחחח וובמטריקס הוא ממש ממש לא שרת<br>הוא עובד עם שרת IIS, אבל וובמטריקס הוא סך הכל עורך קוד.<br>וובמטריקס עדיף מWAMP אבל XAMPP עדיף משניהם, מניסיון. </p>
+</div>
+<div class="answer" id="answer8865">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a1dfe7b93101a49b740e428c78d9b829?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yossi787</a>
+ב
+<span style="font-size:10px"> 21 ליולי 2014 </span>
+<a id="answer_8865" href="איך מתקינים WAMP-1.htm#answer_8865">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\yonikal56-1.htm">@yonikal56</a><br>תודה רבה!<br>תוכנה ממש נוחה וקלה לתפעול. </p>
+</div>
+<div class="answer" id="answer8866">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 21 ליולי 2014 </span>
+<a id="answer_8866" href="איך מתקינים WAMP-1.htm#answer_8866">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אכן, עם סקייפ יש לה בעיה ובשביל לפתור אותה בסקייפ באנגלית עושים ככה:<br>Tools-&gt;Options-&gt;Advanced-&gt;Connection<br>ושם מבטל את הצאקבוקס הראשון<br>בהצלחה :) </p>
+</div>
+<div class="answer" id="answer8867">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 21 ליולי 2014 </span>
+<a id="answer_8867" href="איך מתקינים WAMP-1.htm#answer_8867">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\yonikal56-1.htm">@yonikal56</a> על בסיס מה אתה טוען ש&quot;וובמטריקס עדיף מ-WAMP&quot;?<br>D: </p>
+</div>
+<div class="answer" id="answer8868">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 21 ליולי 2014 </span>
+<a id="answer_8868" href="איך מתקינים WAMP-1.htm#answer_8868">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+על בסיס ניסיון, מבחינת קלות הפעלה והכל. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

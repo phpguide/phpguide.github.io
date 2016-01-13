@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="וובמאסטר מגוגל מתחלק עם 6 עצות שימושיות לביצועים ">
+<meta name="keywords" content="ביצועים, מטמון, שאילתה, לולאה, caching, buffering, getter, setter, profiling, פרופילינג">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>טיפים בביצועים מגוגל</title>
+<meta itemprop="name" content="טיפים בביצועים מגוגל">
+<meta itemprop="description" content="וובמאסטר מגוגל מתחלק עם 6 עצות שימושיות לביצועים ">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"101","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>טיפים בביצועים מגוגל</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-06-09T17:57:00+03:00" dir="rtl">09 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.aricanada.com/fuelbilling/images/config.gif" alt="טיפים בביצועים מגוגל">
+</div>
+<div class="right post-content">
+&quot;בואו נעשה את הרשת מהירה יותר&quot; — כך קרא Eric Higgins, וובמאסטר בגוגל, למאמר שפרסם בנושא ביצועים של php. מעניין מה הוא אמר? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אריק פותח במשפט אחד על פופולריות PHP ומוסיף הסתייגות קצרה שהתועלת מכל מה שיאמר יכול להשתנות בהתאם לגרסת php, השרת ומערכת ההפעלה ולאחר מכן ניגש ישר לעניין:<br><br><br><h3>פרופילינג</h3><br>profiling — הוא תהליך של בדיקת הקוד שבו נבדק זמן הפעולה של כל חלק בנפרד. כאן, ממליץ המחבר, לבצע בדיקות מהירות על הקוד ורק אחרי שבידכם תוצאות - להתחיל לשפר את הביצועים של המקומות הבעייתיים. <br><br><em>אופטימיזציה מוקדמת היא שורש כל רע</em> — ולנסות לשפר את הקוד לפני שהוא נכתב ונבדק הוא סיבוך שכדאי להימנע ממנו.<br><br><br><br><h3>עדכנו גרסה</h3><br>קבוצת המפתחים של php משפרת את השפה מגרסה לגרסה ואם אתם עדיין עובדים עם הגרסה הלא עדכנית ביותר, הגיעה הזמן לשדרג או לצאת לפנסיה.<br><br>למרבה המזל <a href="6_צעדים_קצרים_לעדכון_גרסת_php_ב_wamp.htm">עדכון גרסה בשרת wamp הביתי</a> הוא תהליך יחסית פשוט.<br><br><br><br><h3>השתמשו ב-caching</h3><br>בקצרה: כל פעם שהסקריפט מופעל - הוא עושה את כל הפעולות שלו ומייצר html סופי. בהרבה מקרים ה-html הנוצר אינו משתנה בתדירות גבוה ולרוב קבוע - אפשר לשמור לזמן מה את ה-html התוצר ובכל גישה לסקריפט להחזיר את אותו התוצר השמור, במקום לבצע את כל הפעולות והחישובים שוב.<br><br>לדוגמה העמוד הראשי של האתר הזה נשאר זהה למשך כמה ימים בין פרסום לפרסום. במקום שהסקריפט כל פעם מחדש ייגש למסד, ישלוף את הנתונים, יכניס אותם לטבלה וכו&#039; - אפשר להציג html מוכן שכבר נוצר על ידי הסקריפט ביום הפרסום ולא השתנה מאז.<br><br>השתמשו ב- <a href="http://memcached.org/">memcached</a> ובמערת תבניות עם caching מובנה כמו <a href="http://twig-project.org">twig-project</a><br><br><br><br><br><h3>שמרו את הפלט בבופר</h3><br>buffer — במדעי המחשב חוצץ (buffer) הוא מקטע זיכרון המאחסן מידע באופן זמני בעת העברתו ממקום למקום.<br><br>כל פעם ש-php מעבירה משהו לפלט (אל שרת ה-apache) היא מבזבזת משאבים מסוימים. כדי לחסוך אותם אפשר לשמור את כל הפלט בזיכרון זמני ולבצעה את פעולת העברה רק פעם אחת.<br><br>בעמודים גדולים יכולה להיווצר השליה של טעינה איטית כיוון שנתונים לא מגיעים מהשרת ברגע שנוצרו אלה רק בסוף. אפשר להקטין את גודל ה-buffer והנתונים יעברו באופן שוטף יותר.<br><br>כל אלה ניתנים לשינוי בהגדרות של php.ini על ידי שינוי הערך של output_buffering<br><br><a href="http://www.php.net/manual/book.outcontrol.php">PHP Output Buffering</a><br><br><br><br><br><br><h3>הימנעו מכתיבה getters ו-setters מיותרים</h3><br>במחלקות מסוימות מעדיפים לא לתת גישה למשתנים פנימיים מחוץ לקוד של מחלקה ולכן כותבים מתודות שעבודתם היא לקרוא או לשנות ערך של משתנה:<br><div class="php codeblock"><span class="kw2">class</span> dog <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$name</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> setName<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="re0">$name</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getName<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>אם המשתנים מיועדים לשינוי מבחוץ בכל מקרה, אין סיבה לכתוב מתודות חסרות משמעוט אלו ועדיף לעבוד עם המשתנה ישירות. השיפור יכול להגיע <a href="http://pastie.org/638732">ללמעלה מ-100%</a>.<br><br><br><br><br><h3>אל תצרו העתקים של משתנים</h3><br>לפעמים בניסיון לעשות את הקוד נקי יותר מתכנתים יוצרים העתק של המשתנה עם שם קצר יותר כדי לעבוד איתו.<br><div class="php codeblock"><span class="re0">$description</span> <span class="sy0">=</span> <span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'description'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$description</span><span class="sy0">;</span></div><br>קוד כזה גורם לשימוש בכמות זיכרון כפולה בסקריפט חוץ מההאטה.<br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'description'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אם אתם ממש רוצים לתת שם קצר יותר למשתנה השתמשו באופרטור &amp; ליצירת הפניה.<br><br><br><br><br><br><h3>שאילתות בתוך לולאה אסורות בהחלט</h3><br><br>זוהי טעות נפוצה בקרב מתחילים.<br>צריך למחוק 50 שורות — לעשות לולאה שתפעיל 50 פעם מחיקה.<br>צריך להוסיף 10 רשומות — לעשות לולאה שתבצע 10 פעמים שאילתת הוספה.<br><br><div class="php codeblock"><span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$userList</span> <span class="kw1">as</span> <span class="re0">$user</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="st_h">'INSERT INTO users (first_name,last_name) VALUES(&quot;'</span> <span class="sy0">.</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'first_name'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'&quot;, &quot;'</span> <span class="sy0">.</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'last_name'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'&quot;)'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>במקום להשתמש בלולאה כזו אפשר לחבר את כל הפעולות לשאילתה אחת בלבד.<br><div class="php codeblock"><span class="re0">$userData</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$userList</span> <span class="kw1">as</span> <span class="re0">$user</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$userData</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'(&quot;'</span> <span class="sy0">.</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'first_name'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'&quot;, &quot;'</span> <span class="sy0">.</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'last_name'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'&quot;)'</span><span class="sy0">;</span><br>
+&nbsp;<span class="br0">&#125;</span><br>
+<span class="re0">$query</span> <span class="sy0">=</span> <span class="st_h">'INSERT INTO users (first_name,last_name) VALUES'</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">','</span><span class="sy0">,</span> <span class="re0">$userData</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ייתן:<br><div class="php codeblock">INSERT INTO users <span class="br0">&#40;</span>first_name<span class="sy0">,</span>last_name<span class="br0">&#41;</span> VALUES<span class="br0">&#40;</span><span class="st0">&quot;John&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Doe&quot;</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="br0">&#40;</span><span class="st0">&quot;Jane&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Doe&quot;</span><span class="br0">&#41;</span><span class="sy0">...</span></div><br><br><br><br><br>כל הטיפים בכתבה מסבירים טעיות נפוצות בעת הפיתוח שמדי פעם מחליקות<br>גם אצל מפתחים יותר מנוסים. <br>קישור למקור באנגלית: <a href="http://code.google.com/speed/articles/optimizing-php.html">Let&#039;s make the web faster</a><br><span style="color:green;">כתבו בתגובות טיפים לייעול שאתם משתמשים בהם באתרכם</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment190"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/06/2011 22:32</span><br>
+תודה רבה.<br>
+אתה בטוח לגבי מה שרשמת ב&quot;אל תצרו העתקים של משתנים&quot; ?<br>
+כי אני משתמש בזה המון וזה מקל מאוד על חיי המתכנת,<br>
+אשמח לדעת ב-100% אם מתכנת טוב אמור לרשום $_POST[&apos;text&apos;] במקום איזה משתנה פשוט $text ..</div>
+<a id="comment191"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/06/2011 22:39</span><br>
+זה שזה מבזבז כפליים יותר זיכרון? אני בטוח במאה אחוז.<br>
+אם אתה רוצה לקצר את השם פשוט, תוכל להשתמש באופרטור &amp;<br>
+<br>
+text = &amp; $_POST[&apos;text&apos;] ; //x$<br>
+<br>
+במקרה הזה במקום שאותם נתונים יופיעו פעמיים במקומות שונים בזיכרון של המחשב, יהיו לך שני משתנים שמצביעים לאותו מקום אחד בזיכרון.</div>
+<a id="comment192"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/06/2011 22:40</span><br>
+נהדר, תודה אלכס.</div>
+<a id="comment195"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/06/2011 16:46</span><br>
+תודה רבה.</div>
+<a id="comment454"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/07/2011 00:56</span><br>
+השתמשתי באופ&apos; &amp; והמיקרוטיים יותר גבוה עכשיו..</div>
+<a id="comment455"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/07/2011 00:57</span><br>
+לא ממש ברור איפה השתמשת באופרטור הזה ולמה, אבל זמן ככל שזמן הביצוע _נמוך יותר_ ככה טוב יותר.</div>
+<a id="comment456"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/07/2011 01:45</span><br>
+אני יודע, כנראה שאנד לא באמת יעיל..</div>
+<a id="comment886"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/10/2011 23:00</span><br>
+לגבי השמה כרפרנס - טעות בידיך.<br>
+אם תשים משתנה בשם אחר (בלי רפרנס מפורש) הוא יצביע למשתנה המקורי עד שתשנה את המשתנה החדש (ואז יווצר העתק כדי לא לפגוע במידע הקודם).<br>
+לכן אין שום בעיה לתת שם הגיוני למשתנה שרירותי.</div>
+<a id="comment887"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/10/2011 23:32</span><br>
+זה בהחלט נכון. אני רק לא רואה במה זה שונה ממה שכתוב.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

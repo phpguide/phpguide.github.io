@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה המתודה REQUEST">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="soogo">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>המתודה REQUEST | שאלת לימוד PHP</title>
+<meta itemprop="name" content="המתודה REQUEST | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה המתודה REQUEST">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">12</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="המתודה REQUEST.htm" title="אם יש את המתודה REQUEST איזה סיבה יש לי להשתמש בשאר המתודות?">המתודה REQUEST</a></h2>
+<div class="userinfo">
+פתח
+<a>soogo</a>
+,
+<time class="timeago relativetime" datetime="2012-08-26T17:51:41+03:00" style="display:inline-block;">
+26 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText968'>
+אם יש את המתודה REQUEST איזה סיבה יש לי להשתמש בשאר המתודות? </div>
+</div>
+<h3>
+<span id="answersCounter">12 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4237">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>shlomo120</a>
+ב
+<span style="font-size:10px"> 26 לאוגוסט 2012 </span>
+<a id="answer_4237" href="המתודה REQUEST.htm#answer_4237">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אתה רוצה להיות יותר ספציפי ... </p>
+</div>
+<div class="answer" id="answer4238">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 26 לאוגוסט 2012 </span>
+<a id="answer_4238" href="המתודה REQUEST.htm#answer_4238">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+באופן כללי למה לכתוב <br><div class="php codeblock"><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+או<br>
+<span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br>כשאפשר תמיד לכתוב <br><div class="php codeblock"><span class="re0">$_REQUEST</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4239">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 26 לאוגוסט 2012 </span>
+<a id="answer_4239" href="המתודה REQUEST.htm#answer_4239">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לפי דעתי זה בגלל שזה פחות מאובטח<br>כי לדוגמה אתה עושה טופס כזה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_REQUEST</span><span class="br0">&#91;</span><span class="st_h">'hide'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="co1">//$_REQUEST['hide'] its POST</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br>עכשיו מישהו יכול לשים לך משהו ב GET.<br>ובעצם לעקוב את הטופס.(לא שאי אפשר לשנות לפני השליחה אבל עדיין).<br>וגם ניראלי שהוא יותר איטי כי הוא צריך לחפש את המשתנה הזה גם בשני המקומות.. </p>
+</div>
+<div class="answer" id="answer4240">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 26 לאוגוסט 2012 </span>
+<a id="answer_4240" href="המתודה REQUEST.htm#answer_4240">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מהסיבה ש request לוקח את הנתונים משלושה מקורות שונים ורושם אחד מעל השני.<br>אם הסקריפט שלך מצפה לקחת איזה נתון מתוך טופס, מישהו יכול במקום זה לדחוף לך משהו לא מועיל לשורת הכתובת או לקוקיז. אם הסקריפט שלך לא יצפה לזה - אתה בבעיה.<br><br>כנ&quot;ל גם ההיפך. אם הסקריפט שלך מסתמך על משהו בקוקיז ובמקום זה הוא מקבל את זה סתם מתוך טופס, בכוונה או בטעות - אתה שוב בבעייה. לדוגמה אם אתה שומר את האימייל של המשתמש בקוקי וגם יש לך טופס באתר עם שדה אימייל - תתחיל לך בלבלת נתונים. </p>
+</div>
+<div class="answer" id="answer4241">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 26 לאוגוסט 2012 </span>
+<a id="answer_4241" href="המתודה REQUEST.htm#answer_4241">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבתם לי עכשיו סיבות למה בכלל לא להשתמש ב REQUEST </p>
+</div>
+<div class="answer" id="answer4243">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 26 לאוגוסט 2012 </span>
+<a id="answer_4243" href="המתודה REQUEST.htm#answer_4243">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בדיוק :) </p>
+</div>
+<div class="answer" id="answer4253">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 27 לאוגוסט 2012 </span>
+<a id="answer_4253" href="המתודה REQUEST.htm#answer_4253">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתם טוענים שבשום מקרה לא להשתמש ב REQUEST ? </p>
+</div>
+<div class="answer" id="answer4256">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 27 לאוגוסט 2012 </span>
+<a id="answer_4256" href="המתודה REQUEST.htm#answer_4256">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שמע חייבים להיות מיקרים להשתמש בהם כי עם לא בישביל מה המציאו אותם?<br>אבל עם זה טופס פשוט או התחברות עדיף שלא. </p>
+</div>
+<div class="answer" id="answer4263">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/77687afd3880fb9ad19abc54f4c706df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>KingYes</a>
+ב
+<span style="font-size:10px"> 27 לאוגוסט 2012 </span>
+<a id="answer_4263" href="המתודה REQUEST.htm#answer_4263">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לי יצא להשתמש בזה בטופס חיפוש... </p>
+</div>
+<div class="answer" id="answer4264">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 לאוגוסט 2012 </span>
+<a id="answer_4264" href="המתודה REQUEST.htm#answer_4264">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הוא מיועד למקרים שבהם אתה לא יודע באיזה דרך יגיעו אליך הנתונים </p>
+</div>
+<div class="answer" id="answer4267">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 27 לאוגוסט 2012 </span>
+<a id="answer_4267" href="המתודה REQUEST.htm#answer_4267">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איך אני לא אדע אם אני זה יצרתי את הטופס ותמיד אפשר לבדוק </p>
+</div>
+<div class="answer" id="answer4274">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3f01ef901a86619cc74edc8f763175dc?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>bnayal</a>
+ב
+<span style="font-size:10px"> 28 לאוגוסט 2012 </span>
+<a id="answer_4274" href="המתודה REQUEST.htm#answer_4274">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בכל שנותיי כמתכנת PHP לא מצאתי סיבה להשתמש ב $_REQUEST. אני חושב שאם המערכת מצפה לקבל מידע משני מקורות (GET או POST, בד&quot;כ אין מקרים שקוקיז נכנס לתמונה בכלל) אז צריך לבדוק לפי סדר עדיפות מאיפה הגיע המידע ואז להשתמש בו, על שדה ספציפי.<br>לאחרונה נתקלתי במערכת נוראית שמשתמש ב _REQUEST בכל הקלט שלה. זה פשוט אסון.<br><br>בניה </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

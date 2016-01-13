@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="rsa קיבלה שוחד מ-NSA ליצירת חור שיאפשר לה לפרוץ כל הצפנה">
+<meta name="keywords" content="rsa, nsa">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>RSA קיבלה 10,000,000$ מ-NSA כדי להשתמש ב- random number generator פגום</title>
+<meta itemprop="name" content="RSA קיבלה 10,000,000$ מ-NSA כדי להשתמש ב- random number generator פגום">
+<meta itemprop="description" content="rsa קיבלה שוחד מ-NSA ליצירת חור שיאפשר לה לפרוץ כל הצפנה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"353","rating":"6","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>RSA קיבלה 10,000,000$ מ-NSA כדי להשתמש ב- random number generator פגום</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2014-01-02T16:53:44+02:00" dir="rtl">02 לינואר 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="" alt="RSA קיבלה 10,000,000$ מ-NSA כדי להשתמש ב- random number generator פגום">
+</div>
+<div class="right post-content">
+עוד בספטמבר האחרון RSA Security הודיעה על באקדור מטעם הסוכנות האמריקאית לביטחון לאומי (NSA) <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<img src="static\images\pixel.png" alt="RSA קיבלה 10,000,000$ מ-NSA כדי להשתמש ב- random number generator פגום" title="http://habr.habrastorage.org/post_images/8fa/6b4/f63/8fa6b4f632b01dd0cb5d8f5cd137ea5a.png" class="content-image-floatright"><br><br>עוד בספטמבר האחרון RSA Security הודיעה על באקדור מטעם הסוכנות האמריקאית לביטחון לאומי (NSA) במוצרים שלה RSA Data Protection ו-RSA Bsafe שמשתמשים באלגוריטם <a href="http://ru.wikipedia.org/wiki/Dual_EC_DRBG">Dual_EC_DRBG</a> הוא — <span dir="ltr">(Dual Eliptic Curve Deterministic Random Bit Generation)</span>, <strong>המאושר בעבר על ידי NIST</strong>.<br><br>מסתבר שהאלגורטים אושר עם הפתעה מטעם ה-NSA, כלומר הוא בכלל לא רנדומלי, כמו שהשם שלו אומר, אם ידוע לכם הבסיס. שני חוקרים ממיקרוסופט (Dan Shumow ו-Niels Ferguson) בעבר <a href="http://www.wired.com/politics/security/commentary/securitymatters/2007/11/securitymatters_1115">כבר אמרו</a> שהמכולל המספרים הרנדומלי הזה מסוגל להכיל באקדור אידאלי עבור כל אלגוריטם הצפנה שישתמש בו.<br><br>בין היתר, DUAL_EC_DRBG הוא דבר די פופולארי ומובנה ב-windows למשל, מה שהופך אותו לאלגוריטם הכי פופולארי בעולם. הרבה מוצרים אחרים משתמשים בו גם כן, או תוך כדי הסתמכות על הגנרטור של מערכת ההפעלה או בעצמם. ביניהם גם הפונקציות המובנות של שפות התכנות ליצירות מחרוזות ומספרים רנדומליים, שלאחר מכן משמשים את התוכנות להצפנה.<br><br>אמנם האלגוריטם ישן, העשן התחיל לעלות שוב לאחר הפרסומים של אדוארד סנודן שבהם נאמר על אלגוריטם כלשהו משנת 2006 עם פגם שהחדירה ה-NSA. שלושה חודשים אחרי האירועים של ספטמבר <a href="http://www.reuters.com/article/2013/12/20/us-usa-security-rsa-idUSBRE9BJ1C220131220">הופיע מידע חדש</a> בפרשה. לפי המידע החדש הסיבה האמיתית לבחירת האלגוריטם DUAL_EC_DRBG עם פוטנציאל לבאקדור נבעה משוחד מצד ה-NSA האמריקאי.<br><br>לפי המקורות של Reuters, שירות הביטחון הלאומי שילמו ל-RSA Security עשרה מליון דולרים תמורת שימוש באלגוריטם עם באקדור אפשרי בתור אלגוריטם הברירת מחדל. למרות שעשרה מליון לא נשמעים כמו סכום גדול כל כך, בזמנו הסכום הזה היווה יותר משליש מההכנסות של אותו מדור בחברה.<br><br>מצידה, RSA סירבה לענות על שאלות בפרשה, אך הצהירה שאין לה שום קשר לעניין ואם הממשלה יודעת לשבור את ההצפנה שלהם - זה לא אשמתם: «RSA תמיד פועלת לטובת האינטרסים של הלקוחות שלה ובשום אופן לא מעצבת או מפעילה באקדורים במוצרים שלה. ההחלטות לגבי התכונות והפונקציונאליות של המוצרים שייכות ל-RSA בלבד». <br><br>פעולות מהסוג הזה מצד ה-NSA תוארו במסמכים של אדוארד סנודן בעבר, מה שמגביר את החששות בפרשה<br><img src="static\images\pixel.png" alt="RSA קיבלה 10,000,000$ מ-NSA כדי להשתמש ב- random number generator פגום" title="http://habr.habrastorage.org/post_images/caf/fdc/919/caffdc919b517a895a86529add75e68b.png" class="content-image-float"> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2722"></a>
+<div class="blog-comment">
+<span class='comment-author'>nikolai</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 01:32</span><br>
+זה נראה שNSA רק מסתבכים יותר ויותר </div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

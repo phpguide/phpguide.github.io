@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה [בעיה] העלאת קבצים ו Curl">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="אנונימי">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>[בעיה] העלאת קבצים ו Curl | שאלת לימוד PHP</title>
+<meta itemprop="name" content="[בעיה] העלאת קבצים ו Curl | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה [בעיה] העלאת קבצים ו Curl">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  unanswered">
+<div class="item-count">0</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיה העלאת קבצים ו Curl-1.htm" title="ניסיתי לעשות מערכת העלאת קבצים ב curl לכמה אתרים מסויימים **ב4 אתרים זה כן עובד**עכשיו יש לי בעיה, האתר mytube מקבל את הקבצים אבל מחזיר שגיאה שהסוג\סיימת לא תקפים - אפילו שהם כן.יש כמה קבצים, זה הקטעים החשובים:Curl$ch = curl_init&amp;#40;&amp;#41;; //start Curl
+&amp;nbsp; ">[בעיה] העלאת קבצים ו Curl</a></h2>
+<div class="userinfo">
+פתח
+<a>אנונימי</a>
+,
+<time class="timeago relativetime" datetime="2011-11-30T13:15:57+02:00" style="display:inline-block;">
+30 לנובמבר 2011 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText29'>
+ניסיתי לעשות מערכת העלאת קבצים ב curl לכמה אתרים מסויימים **ב4 אתרים זה כן עובד**<br>עכשיו יש לי בעיה, האתר mytube מקבל את הקבצים אבל מחזיר שגיאה שהסוג\סיימת לא תקפים - אפילו שהם כן.<br>יש כמה קבצים, זה הקטעים החשובים:<br>Curl<br><div class="php codeblock"><span class="re0">$ch</span> <span class="sy0">=</span> <span class="kw3">curl_init</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//start Curl</span><br>
+&nbsp; <span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_FOLLOWLOCATION<span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//[Curl option] follow location header (301)</span><br>
+&nbsp; <span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_URL<span class="sy0">,</span> <span class="re0">$url</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//[Curl option] url to connect</span><br>
+&nbsp; <span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_RETURNTRANSFER<span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//[Curl option] get content (without headers) to variable</span><br>
+&nbsp; <span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_POST<span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//[Curl option] set method post</span><br>
+&nbsp; <span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_POSTFIELDS<span class="sy0">,</span> <span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//[Curl option] send files</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw3">curl_exec</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//return Curl content</span><br>
+&nbsp; <span class="kw3">curl_close</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//close &nbsp;Curl</span><br>
+&nbsp; <span class="co1">//data</span><br>
+&nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'file'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;@<span class="es4">{$file}</span>&quot;</span><span class="sy0">;</span> <span class="co1">//set data..</span><br>
+&nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'Filedata'</span><span class="sy0">;</span> <span class="co1">//set data..</span><br>
+&nbsp; <span class="re0">$url</span> <span class="sy0">=</span> <span class="st0">&quot;http://upload.mytube.co.il/templates/frontend/default/php/uploadify.php&quot;</span><span class="sy0">;</span> <span class="co1">//set data..</span></div><br>אני לא בטוח שתבינו הכל דרך כאן, אז העלתי את המערכת שתראו אתה יותר טוב. הורדה: http://f2h.nana10.co.il/zaxruujmbxlg<br><br>תודה מראש :) </div>
+</div>
+<h3>
+<span id="answersCounter">0 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

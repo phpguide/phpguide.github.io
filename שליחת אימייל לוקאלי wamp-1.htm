@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הגדרת שרת smtp לשליחת אימייל ב-wapm או שרת לוקאלי אחר">
+<meta name="keywords" content="שליחת אימייל לוקאלי, אימייל wamp">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>4 צעדים לשליחת אימיילים ב-wamp</title>
+<meta itemprop="name" content="4 צעדים לשליחת אימיילים ב-wamp">
+<meta itemprop="description" content="הגדרת שרת smtp לשליחת אימייל ב-wapm או שרת לוקאלי אחר">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"128","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>4 צעדים לשליחת אימיילים ב-wamp</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-07-22T19:18:50+03:00" dir="rtl">22 ליולי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/sendmail.jpg" alt="4 צעדים לשליחת אימיילים ב-wamp">
+</div>
+<div class="right post-content">
+4 צעדים פשוטים לשליחת אימיילים מהשרת הביתי / wamp <br>עם עזרה קטנה של gmail :) <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>שליחת אימייל דרך PHP מ-wamp / שרת לוקאלי</h3><br><br><h4>שלב 1: הורדת fake sendmail</h4><br><a href="http://www.glob.com.au/sendmail/sendmail.zip">קישור להורדה</a>.<br>בתוך הארכיון מחקים לנו 8 קבצים אותם נעתיק לתיקיה <span dir="ltr"><span style="color:green;">C:\wamp\bin\sendmail\</span></span><br>שימו לב, התיקיה sendmail לא קיימת - יש ליצור אותה.<br><br><br><h4>שלב 2: הגדרת PHP</h4><br>פתחו את <a href="איפה_נמצא_phpini.htm">קובץ ה-php.ini</a> שלכם ומצאו בו את השורה <span dir="ltr"><span style="color:brown;">[mail function]</span></span><br>אחריה תהיה רשימת הגדרות של שליחת אימיילים. יש להוסיף נקודה פסיק לפני כל ההגדרות פרט להגדרה של <span style="color:green;">sendmail_path</span> שבה יש להוריד את הנקודה פסיק.<br>בתוכן של sendmail_path יש לכתוב <span dir="ltr"><span style="color:brown;">&quot;C:\wamp\bin\sendmail.exe -t&quot;</span></span><br><br><div class="php codeblock"><span class="br0">&#91;</span><span class="kw3">mail</span> <span class="kw2">function</span><span class="br0">&#93;</span><br>
+<span class="sy0">;</span>SMTP <span class="sy0">=</span> localhost<br>
+<span class="sy0">;</span>smtp_port <span class="sy0">=</span> <span class="nu0">25</span><br>
+<span class="sy0">;</span>sendmail_from <span class="sy0">=</span> test<span class="sy0">@</span>localhost<br>
+sendmail_path <span class="sy0">=</span> <span class="st0">&quot;C:\wamp\bin\sendmail\sendmail.exe -t&quot;</span><br>
+<span class="sy0">;</span>mail<span class="sy0">.</span>force_extra_parameters <span class="sy0">=</span><br>
+<span class="sy0">;</span>mail<span class="sy0">.</span><span class="kw3">log</span> <span class="sy0">=</span></div><br><br><br><br><h4>שלב 3: פתיחת חשבון gmail</h4><br><a href="http://mail.google.com/mail/signup">טופס פתיחת משתמש</a>.<br>תזכרו את שם המשתמש והסיסמה שאיתה נרשמתם.<br><br><br><br><h4>שלב 4: הגדרת sendmail</h4><br>השלב האחרון. פתחו את קובץ <span style="color:brown;">sendmail.ini</span> שנמצא בתיקיה <span dir="ltr"><span style="color:green;">C:\wamp\bin\sendmail</span></span><br>שנו את ההגדרות באופן הבא:<br><div class="php codeblock"><span class="br0">&#91;</span>sendmail<span class="br0">&#93;</span><br>
+smtp_server<span class="sy0">=</span>smtp<span class="sy0">.</span>gmail<span class="sy0">.</span>com <br>
+smtp_port<span class="sy0">=</span><span class="nu0">587</span><br>
+smtp_ssl<span class="sy0">=</span>tls<br>
+default_domain<span class="sy0">=</span>localhost<br>
+error_logfile<span class="sy0">=</span>error<span class="sy0">.</span><span class="kw3">log</span><br>
+debug_logfile<span class="sy0">=</span>debug<span class="sy0">.</span><span class="kw3">log</span><br>
+<br>
+<br>
+auth_username<span class="sy0">=</span>yourGMAILaccount<span class="sy0">@</span>gmail<span class="sy0">.</span>com<br>
+auth_password<span class="sy0">=</span>qwerty<br>
+<br>
+pop3_server<span class="sy0">=</span><br>
+pop3_username<span class="sy0">=</span><br>
+pop3_password<span class="sy0">=</span><br>
+<br>
+<br>
+force_sender<span class="sy0">=</span>me<span class="sy0">@</span>localhost<br>
+force_recipient<span class="sy0">=</span><br>
+hostname<span class="sy0">=</span></div><br><br>שימו לב להעתיק את ההגדרות של השרת, הפורט וה-TLS בקפדנות.<br>זהו זה, נשאר רק להפעיל מחדש את apache<br><br><h4>בדיקה</h4><br>לאחר הפעלה מחדש של apache ניצור קובץ עם התוכן:<br><div class="php codeblock"><span class="kw3">mail</span><span class="br0">&#40;</span><span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="20534f4d45654d41494c6057414c4c410e434f4d">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'test subj'</span><span class="sy0">,</span> <span class="st_h">'test message'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הציבו את כתובת האימייל האמיתית שלכם וודאו שאתם מקבלים את המכתב.<br><br><br><br><br><h3>מה עשינו פה בעצם</h3><br>שליחת אימיילים מתבצעת באמצעות תוכנה מיוחדת שנקראת שרת smtp.<br>שרת כזה דורש ip משלו, רישומי דומיין והגדרות מסובכות אחרות שלא נתעסק בהם כאן. אנחנו נשתמש בשרת שליחת האימיילים של גוגל שזמין בכתובת gmail.smtp.com<br><br>php לא יודעת להתחבר, להזדהות ולשלוח אימיילים בעצמה.<br>אבל היא יודעת להפעיל שרת smtp שמותקן על אותו מחשב.<br><br>כיוון שהשרת של gmail לא נמצא באותו מחשב, יהיה צורך בתוכנה מגשרת. שאותה תפעיל PHP והיא תבצע את ההזדהות והשליחה מול השרת של גוגל. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment440"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/07/2011 23:32</span><br>
+תודה אלכס, שימושי. :)</div>
+<a id="comment441"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/07/2011 11:45</span><br>
+Warning: mail() [function.mail]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in G:\Rafael\wamp\www\mail.php on line 2</div>
+<a id="comment442"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/07/2011 12:31</span><br>
+תוודא שוב שעשית את שלב 2 כמו שצריך.<br>
+יכול להיות שערכת את הקובץ php.ini הלא נכון או שלא שמת נקודה-פסיק לפני כל ההגדרות חוץ מ sendmail_path</div>
+<a id="comment443"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/07/2011 16:57</span><br>
+תודה רבה :)</div>
+<a id="comment446"></a>
+<div class="blog-comment">
+<span class='comment-author'>erez213</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2011 00:01</span><br>
+יש תוכנה שיוצרת שרת SMTP על המחשב ואז בלי להגדיר שום דבר בוואמפ זה מציג לך מייליםם ששלחת מהPHP. רק שהשם ברח לי מהראש...</div>
+<a id="comment447"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2011 00:07</span><br>
+אתה מתכוון לסוג של sendmail stub שבמקום באמת לשלוח את האימיילים פשוט שומר אותם לקובץ בתיקיה מסוימת ואתה יכול לצפות בהם?</div>
+<a id="comment449"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2011 16:58</span><br>
+לא יודע , הוא לא שולח לי את המייל , ועשיתי אותו הדבר כמו בהגדרות (פשוט עשיתי העתק הדבק כאילו)..</div>
+<a id="comment450"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2011 17:02</span><br>
+אם יש בעיות עם שליחת המייל - בתיקיה C:\wamp\bin\sendmail יווצר קובץ debug.log או error.log שיכיל מידע והודעת שגיאה על הסיבה למה המייל לא נשלח.<br>
+<br>
+אנה פנו לפורום לקבלת עזרה עם נוצרים לכם הקבצים האלה והמייל לא נשלח.</div>
+<a id="comment459"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2011 13:13</span><br>
+Warning: mail() [function.mail]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\wamp\www\ex.php on line 2<br>
+<br>
+ועקבתי אחרי כל ההגדרות</div>
+<a id="comment460"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2011 13:15</span><br>
+תוודא שערכת את ה-php.ini הנכון. אתה השני שזה קורא לו. אני יבדוק היום שוב את הנושא ואחזור עם תשובה בערב.</div>
+<a id="comment463"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2011 18:14</span><br>
+מצאתי שגיאה אחת<br>
+אבל תיקנתי אותה והשגיאה נמשכת<br>
+השגיאה היא פה:<br>
+&quot;C:\wamp\bin\sendmail.exe -t&quot;<br>
+<br>
+זה אמור היות<br>
+<br>
+&quot;C:\wamp\bin\sendmail\sendmail.exe -t&quot;</div>
+<a id="comment519"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/08/2011 01:10</span><br>
+תודה רבה...באמת היה חסר לי</div>
+<a id="comment560"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/08/2011 23:43</span><br>
+אני לא מצליח אני ניסיתי כבר כ 5 פעמים</div>
+<a id="comment561"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/08/2011 23:43</span><br>
+אתה מקבל שגיאות ?</div>
+<a id="comment880"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/10/2011 14:44</span><br>
+אני עדיין מקבל את השגיאה הזאת<br>
+<br>
+The requested URL /mailer.php was not found on this server<br>
+<br>
+לא יודע למה,הוא לא מוצא את הקובץ על השרת (wamp)</div>
+<a id="comment881"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/10/2011 14:46</span><br>
+אין לזה ממש קשר לכתבה בכלל. תוודא שהנתיב שאתה גולש אליו הוא זה, שבו ממוקם הקוד של הסקריפט שלך.</div>
+<a id="comment1154"></a>
+<div class="blog-comment">
+<span class='comment-author'>כסיף דקל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/01/2012 19:46</span><br>
+מה שהראת פה נותן לשלוח מיילים מ WAMP נכון, אבל לא fakemail משום שהמייל נשלח מהחשבון GMAIL שהכנסת.</div>
+<a id="comment1157"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/01/2012 23:15</span><br>
+צודק לגמרי, אני יעדכן את זה.</div>
+<a id="comment1158"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2012 01:40</span><br>
+ניסיתי כבר את הכל, ושום דבר לא עוזר. כל הזמן אני מקבל שגיאה בקובץ error.log <br>
+SSL is not available on this server.<br>
+בדקתי עשר פעמים שלא טעיתי בהקלדה וכדומה.<br>
+מה יכול להיות? </div>
+<a id="comment1160"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2012 02:13</span><br>
+לא ברור באיזה סרבר מדובר. בשלך או בזה של ה smtp<br>
+כנראה שצריך להוריד את הנקודה פסיק לפני php_openssl.dll בקובץ php.ini</div>
+<a id="comment1161"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2012 14:14</span><br>
+בכלל לא היה רשום php_openssl.dll בתוך php.ini<br>
+בדקתי, שהקובץ הזה קיים. ואז הוספתי extension=php_openssl.dll בתוך php.ini<br>
+עצרתי את אפאצ&apos; והפעלתי שוב. <br>
+ועדיין שום דבר לא עוזר. עדיין אני מקבל אותה השגיאה.<br>
+<br>
+אולי קיים איזה שרות דוא&quot;ל חינמי בלי ssl ?</div>
+<a id="comment1162"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2012 14:26</span><br>
+זהו הסתדרתי!!!<br>
+בהתחלה, הקבצים של sendmail, לא לקחתי מכאן, אלא מאתר אחר, ששם גם כתבו שזה מתאים לגוגל ול-ssl<br>
+עכשיו החלפתי את הקבצים במה שממוקם באתר כאן, וזה עובד. נראה שהיה חסר שורה: smtp_ssl=auto (חוץ מזה אני לא רואה הבדלים).<br>
+בקיצור, זה עבוד, ואין לכם מושג כמה שאני שמח, כי כבר הלכו לי על זה שעות רבות.<br>
+תודה רבה!</div>
+<a id="comment1342"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/02/2012 23:39</span><br>
+זה עדיין לא שולח לי מייל עשיתי ככה:<br>
+[sendmail]<br>
+smtp_server=smtp.gmail.com <br>
+smtp_port=587<br>
+smtp_ssl=tls<br>
+default_domain=localhost<br>
+error_logfile=error.log<br>
+debug_logfile=debug.log<br>
+<br>
+<br>
+auth_username=<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="88faede9e4cdc5e9e1e4c8efe5e9e1e4a6ebe7e5">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>
+auth_password=password of gmail<br>
+<br>
+pop3_server=<br>
+pop3_username=<br>
+pop3_password=<br>
+<br>
+<br>
+force_sender=me@localhost<br>
+force_recipient=<br>
+hostname=<br>
+מה עוד להוסיף ??<br>
+ומזה הגדרות של השרת, הפורט וה-TLS <br>
+תודה על העזרה!!!! </div>
+<a id="comment1570"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/05/2012 17:32</span><br>
+עקבתי אחרי ההוראות ויישמתי אותם אחת לאחת<br>
+לא קיבלתי שום הודעת שגיאה גם לא נפתח לי קובץ לוג כלשהו<br>
+אולם כלום לא נשלח<br>
+איך אפשר לודא שנשלח משהו?</div>
+<a id="comment1571"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/05/2012 18:53</span><br>
+להיכנס לחשחבון האימייל ולפתוח את תיקיית ה&quot;נשלחו&quot;<br>
+או פשוט לשלוח משהו לכתובת שהיא שלך.</div>
+<a id="comment1572"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/05/2012 18:54</span><br>
+למרות שהבנתי שלאנשים מסוימים היו בעיות עם הצעדים האלה.<br>
+צריך לוודא שזה אקטואלי גם לגרסאות הנוכחיות.</div>
+<a id="comment2842"></a>
+<div class="blog-comment">
+<span class='comment-author'>אריק</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/10/2015 10:00</span><br>
+מישהו יודע אם זה עובד עכשיו???</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

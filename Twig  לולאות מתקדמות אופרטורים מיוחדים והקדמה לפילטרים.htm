@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="Twig project, מערכת תבניות">
+<meta name="keywords" content="Twig project, מערכת תבניות">
+<meta name="author" content="RaFaeL">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Twig - לולאות מתקדמות, אופרטורים מיוחדים והקדמה לפילטרים</title>
+<meta itemprop="name" content="Twig - לולאות מתקדמות, אופרטורים מיוחדים והקדמה לפילטרים">
+<meta itemprop="description" content="Twig project, מערכת תבניות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"248","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Twig - לולאות מתקדמות, אופרטורים מיוחדים והקדמה לפילטרים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">RaFaeL, </div>
+<div class="right">&nbsp;<time datetime="2012-08-24T06:39:49+03:00" dir="rtl">24 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.israup.net/images/eb6e5fb4260053ab4f5869f9269e5e59.png" alt="Twig - לולאות מתקדמות, אופרטורים מיוחדים והקדמה לפילטרים">
+</div>
+<div class="right post-content">
+במדריך הקודם למדנו על לולאות פשוטות ואופרטורים, במדריך זה נשפר את הידע ונעשה הקדמה לפילטרים. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h4>מדריך קודם</h4><br><a href="Twig  אופרטורים תנאי IF מורכבים ולולאות פשוטות.htm">Twig - אופרטורים, תנאי IF מורכבים ולולאות פשוטות</a><br><br><h4>הקדמה</h4><br>במדריך הקודם למדנו על לולאות פשוטים ועל אופרטורים לא ממש מיוחדים, במדריך הזה נרחיב את הידע שלנו בנושאים הללו ונילמד על אופרטורים ועזרים ליצירת השוואות בין משתנים וגם על לולאות מתקדמות ומיוחדות.<br><br>בפרק זה גם נעשה הקדמה לנושא הפילטים שזה נושא גדול ומורכב שעליו נילמד במדריך הבא, נושא הפילטרים כולל כ- 26 פילטרים שונים ומיוחדים שמשמשים כעזר.<br><br>רק חשוב לומר שהפילטרים זה לא הסוף של הלימוד, יש עוד המון דברים שיש לנו לילמוד כמו תאגים, פונקציות, כלים למתכנתים מתקדמים ועוד...<br><br><h4>לולאות מיתקדמות</h4><br>אחרי שלמדנו לכתוב לולאות פשוטות עלינו לילמוד לשפר את הלולאות בעזרת פילטרים\משתנים מיוחדים שבאים עם ה-Twig.<br><br><h5>משתנים מיוחדים</h5><br>בתוך ללולאה ניתן לגשת כמה משתנים מיוחדים:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="Twig - לולאות מתקדמות, אופרטורים מיוחדים והקדמה לפילטרים" title="http://www.israup.net/images/3cea298165e467dba8154fcc656df718.png" class="content-image-float"><br>הורדת .Html: <a href="http://www.mediafire.com/?6q4vs1w8jsvswmr">כאן</a><br><br>הסברים:<br><strong>{{ loop.index }}</strong>:<br>מביא את המספר הסידורי של סיבוב הלולאה(מתחיל מ- 1):<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> num1 in <span class="nu0">1</span><span class="sy0">..</span><span class="nu0">10</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="br0">&#123;</span> loop<span class="sy0">.</span>index <span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#123;</span><span class="co2"># 1 2 3 4 5 6 7 8 9 10 #}<br>
+</span>&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><strong>{{ loop.index0 }}</strong>:<br>כמו loop.index רק שכאן הספירה מתחילה מ- 0:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> num1 in <span class="nu0">1</span><span class="sy0">..</span><span class="nu0">10</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="br0">&#123;</span> loop<span class="sy0">.</span>index0 <span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#123;</span><span class="co2"># 0 1 2 3 4 5 6 7 8 9 #}<br>
+</span>&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><strong>{{ loop.revindex }}</strong>:<br>כמו האינדקס רק שכאן זה הפוך - הספירה מהסוף להתחלה:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> num1 in <span class="nu0">1</span><span class="sy0">..</span><span class="nu0">10</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="br0">&#123;</span> loop<span class="sy0">.</span>revindex <span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#123;</span><span class="co2"># 10 9 8 7 6 5 4 3 2 1 #}<br>
+</span>&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><strong>{{ loop.revindex0 }}</strong>:<br>כמו loop.revindex רק שהספירה כוללת את 0:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> num1 in <span class="nu0">1</span><span class="sy0">..</span><span class="nu0">10</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="br0">&#123;</span> loop<span class="sy0">.</span>revindex0 <span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#123;</span><span class="co2"># 9 8 7 6 5 4 3 2 1 0 #}<br>
+</span>&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><strong>{{ loop.first }} {{ loop.last }}</strong>:<br>מחזיר אם סיבוב הלולאה הוא אחרון\ראשון תלוי במה בחרתם( first - ראשון last - אחרון):<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> num1 in <span class="nu0">1</span><span class="sy0">..</span><span class="nu0">10</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> loop<span class="sy0">.</span>first <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; Hello<br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">elseif</span> loop<span class="sy0">.</span>last <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; World<span class="sy0">!</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><strong>{{ loop.length }}</strong>:<br>מחזיר כמה סיבובים עושה הלולאה בסך הכל:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> num1 in <span class="nu0">1</span><span class="sy0">..</span><span class="nu0">10</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="br0">&#123;</span> loop<span class="sy0">.</span>length <span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#123;</span><span class="co2"># 10 10 10 10 10 10 10 10 10 10 #}<br>
+</span>&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><strong>Loop.length, loop.revindex, loop.revindex0, ו loop.last זמינים רק עבור מערכים של PHP או אובייקטים המיישמים את ממשק Countable.<br> הם גם לא זמינים כאשר לולאות עם מצב.</strong><br><br><h5>לולאות עם פילטרים\אופרטורים</h5><br>בפרק הקודם למדנו על אופרטורים שונים, את חלקם אפשר ליישם גם בלולאות למשל האופרטור .. (שתי נקודות) ניתן לשימוש בלולאות כמו שהצגתי בחלק הקודם של העמוד.<br>שימוש לב שאפשר להשתמש בחלק מהאופרטורים גם עם אותיות: <br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> letter in <span class="st_h">'a'</span><span class="sy0">..</span><span class="st_h">'z'</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">*</span> <span class="br0">&#123;</span><span class="br0">&#123;</span> letter <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br>עכשיו בואו ננסה לשלב שם פילטר, לדוגמא upper שהופך את כל הטקסט בתוכו לאותיות גדולות, ככה:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> letter in <span class="st_h">'a'</span><span class="sy0">|</span>upper<span class="sy0">..</span><span class="st_h">'z'</span><span class="sy0">|</span>upper <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">*</span> <span class="br0">&#123;</span><span class="br0">&#123;</span> letter <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br>תוצאה:<br>* A * B * C * D * E * F * G * H * I * J * K * L * M * N * O * P * Q * R * S * T * U * V * W * X * Y * Z<br><br>כמובן שאפשר לשלב אותם בתוך גוף הלולאה:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> number in <span class="sy0">-</span><span class="nu0">5</span><span class="sy0">..</span><span class="nu0">5</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="br0">&#123;</span><span class="br0">&#123;</span> number<span class="sy0">|</span>abs <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><h5>תנאי עם לולאות</h5><br>ניתן לשלב בין תנאי IF ללולאות, מה שעלינו לעשות זה אחרי המשפט היכן לחפש להוסיף את התנאי, למשל:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> i in <span class="nu0">0</span><span class="sy0">..</span><span class="nu0">10</span> <span class="kw1">if</span> <span class="br0">&#40;</span>condition<span class="br0">&#41;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="co2"># loop #}<br>
+</span>&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>דוגמא:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> set varr <span class="sy0">=</span> <span class="kw4">true</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> i in <span class="nu0">0</span><span class="sy0">..</span><span class="nu0">10</span> <span class="kw1">if</span> varr <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">*</span> <span class="br0">&#123;</span><span class="br0">&#123;</span> i <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>תוצאה:<br>* 0 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10<br><br>עכשיו נסו לשנות א הערך של VARR ל FALSE ככה:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> set varr <span class="sy0">=</span> <span class="kw4">false</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> i in <span class="nu0">0</span><span class="sy0">..</span><span class="nu0">10</span> <span class="kw1">if</span> varr <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">*</span> <span class="br0">&#123;</span><span class="br0">&#123;</span> i <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>כעת הלולאה לא מתבצעת כי התנאי לא מיתקיים.<br><strong>גם כאן ניתן להשתמש באופרטורים על מנת ליצור השוואה בין שתים או יותר מישתנים</strong><br><br><h4>אופרטורים מיוחדים</h4><br>אני במקום Twig לא היתי מגדיר את זה אופרטור אלה פונקצייה אבל אנחנו ניצמדים למה שהם כתבו לכן ניקרא לזה אופרטורים.<br>בצורת הכתיבה הם יותר דומים לפונקצייות.<br><br><h5>רשימת אופרטורים מיוחדים</h5><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="Twig - לולאות מתקדמות, אופרטורים מיוחדים והקדמה לפילטרים" title="http://www.israup.net/images/646fd06a22a76a8f928af6727dff4853.png" class="content-image-float"><br>הורדה: <a href="http://www.mediafire.com/?h1h14oyxjrhbyrn">כאן</a><br><br><h5>דוגמאות לכל אופרטור</h5><br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> loop<span class="sy0">.</span>index is divisibleby<span class="br0">&#40;</span><span class="nu0">3</span><span class="br0">&#41;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="br0">&#123;</span> <span class="kw2">var</span> is <span class="kw4">null</span> <span class="br0">&#125;</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="br0">&#123;</span> <span class="kw2">var</span> is even <span class="br0">&#125;</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="br0">&#123;</span> <span class="kw2">var</span> is odd <span class="br0">&#125;</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> foo<span class="sy0">.</span>attribute is sameas<span class="br0">&#40;</span><span class="kw4">false</span><span class="br0">&#41;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; the foo attribute really is the ``<span class="kw4">false</span>`` PHP value<br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> post<span class="sy0">.</span>status is <span class="kw3">constant</span><span class="br0">&#40;</span><span class="st_h">'Post::PUBLISHED'</span><span class="br0">&#41;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; the status attribute is exactly the same <span class="kw1">as</span> Post<span class="sy0">::</span><span class="me2">PUBLISHED</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="co2"># defined works with variable names #}<br>
+</span><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> foo is <span class="kw3">defined</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#123;</span><span class="co2"># and attributes on variables names #}<br>
+</span><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> foo<span class="sy0">.</span>bar is <span class="kw3">defined</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> foo<span class="br0">&#91;</span><span class="st_h">'bar'</span><span class="br0">&#93;</span> is <span class="kw3">defined</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> <span class="kw2">var</span> is <span class="kw3">defined</span> and foo<span class="sy0">.</span>method<span class="br0">&#40;</span><span class="kw2">var</span><span class="br0">&#41;</span> is <span class="kw3">defined</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="co2"># evaluates to true if the foo variable is null, false, an empty array, or the empty string #}<br>
+</span><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> foo is <span class="kw3">empty</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="co2"># evaluates to true if the foo variable is iterable #}<br>
+</span><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">if</span> users is iterable <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> user in users <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> user <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">!</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">else</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="co2"># users is probably a string #}<br>
+</span> &nbsp; &nbsp;Hello <span class="br0">&#123;</span><span class="br0">&#123;</span> users <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">!</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endif</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><h4>פילטרים - הקדמה</h4><br>פילטר הינו מסנן שמאפשר לסנן את התוצאות או בעתם להמיר אותו למשהו אחר.<br>ב- Twig קיימים 26 פילטרים שונים ביותר שמאפשרים לשנות את המשתנה מקצה לקצה וליצור דברים מדהימים.<br>דברים שאנו עושים ב PHP בהמון שורות ניתנים לעשות ב- Twig בכמה אותיות פשוטות.<br><br>בנוסף Twig מאפשר ליצור פחלטרים מותאמים אישית שעליהם נילמד בחלק מתקדם יותר בחלק של Twig - מתכנתים ברמה גבוהה.<br><br><h4>בפרק הבא</h4><br>* פילטרים חלק א&#039; </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/7ff5a4244432d30b20b8a8a2d7ed82e7?s=16&r=g&d=monsterid" alt="RaFaeL">
+<a>RaFaeL</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1892"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/08/2012 14:57</span><br>
+תודה רבה על המדריך ! </div>
+<a id="comment1898"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/08/2012 15:24</span><br>
+&quot;הם גם לא זמינים כאשר לולאות עם מצב.&quot; - ההרגשה היא שתרגמת את הדוקומנטציה עםgoogle translate.</div>
+<a id="comment1899"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/08/2012 15:28</span><br>
+הטקסט המקורי הוא - &quot;They are also not available when looping with a condition&quot;.<br>
+מקור: <span dir="ltr"><a href="http://twig.sensiolabs.org/doc/tags/for.html">http://twig.sensiolabs.org/doc/tags/for.html</a></span><br>
+תלמד אנגלית.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

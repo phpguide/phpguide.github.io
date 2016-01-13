@@ -1,0 +1,26 @@
+<head/><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;
+<br/></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">IntegerHandler&nbsp;</span><span style="color: #007700">{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$n</span><span style="color: #007700">)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">multiplyBy</span><span style="color: #007700">(</span><span style="color: #0000BB">$n</span><span style="color: #007700">)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">subtract</span><span style="color: #007700">(</span><span style="color: #0000BB">$n</span><span style="color: #007700">)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>}
+<br/>class&nbsp;</span><span style="color: #0000BB">ArrayHandler&nbsp;</span><span style="color: #007700">{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">average</span><span style="color: #007700">()&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">array_sum</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">)&nbsp;/&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>}
+<br/></span><span style="color: #0000BB">register_primitive_type_handler</span><span style="color: #007700">(</span><span style="color: #DD0000">'int'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IntegerHandler'</span><span style="color: #007700">);
+<br/></span><span style="color: #0000BB">register_primitive_type_handler</span><span style="color: #007700">(</span><span style="color: #DD0000">'array'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ArrayHandler'</span><span style="color: #007700">);
+<br/>
+<br/></span><span style="color: #0000BB">$number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">;
+<br/></span><span style="color: #0000BB">$list&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #0000BB">3</span><span style="color: #007700">];
+<br/>echo&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">multiplyBy</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">subtract</span><span style="color: #007700">(</span><span style="color: #0000BB">$list</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">average</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">));</span>
+</span>
+</code>1

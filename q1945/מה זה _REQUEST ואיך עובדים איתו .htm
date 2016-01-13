@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מה זה $_REQUEST ואיך עובדים איתו? ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Expl0de">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מה זה $_REQUEST ואיך עובדים איתו? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מה זה $_REQUEST ואיך עובדים איתו?  | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מה זה $_REQUEST ואיך עובדים איתו? ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מה זה _REQUEST ואיך עובדים איתו .htm" title="מה זה $_REQUEST ואיך עובדים איתו? שמעתי עליו, לא הבנתי מה הרעיון בו? יש GET וPOST.">מה זה $_REQUEST ואיך עובדים איתו? </a></h2>
+<div class="userinfo">
+פתח
+<a>Expl0de</a>
+,
+<time class="timeago relativetime" datetime="2014-06-29T13:11:43+03:00" style="display:inline-block;">
+29 ליוני 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1945'>
+מה זה $_REQUEST ואיך עובדים איתו? <br>שמעתי עליו, לא הבנתי מה הרעיון בו? יש GET וPOST. </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8805">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 29 ליוני 2014 </span>
+<a id="answer_8805" href="מה זה _REQUEST ואיך עובדים איתו .htm#answer_8805">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+REQUEST הוא בדיוק כמו POST וGET רק שהוא מכיל את שניהם.<br>מה שאומר שנגיד אם אתה שולח דרך טופס נתון במתודה POST, תוכל לגשת אליו דרך המערך POST, ואם אתה שולח נתון דרך הכתובת או טופס במתודה GET - תיגש אליו דרך המערך GET, אבל בREQUEST אתה יכול לגשת לשניהם. </p>
+</div>
+<div class="answer" id="answer8806">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/13e941aa7bfca94c0a2b846ef358b96a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Expl0de</a>
+ב
+<span style="font-size:10px"> 29 ליוני 2014 </span>
+<a id="answer_8806" href="מה זה _REQUEST ואיך עובדים איתו .htm#answer_8806">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל מתי הוא שימוש בעצם? הרי אני לא שולח טופס ב POST ו GET ביחד... </p>
+</div>
+<div class="answer" id="answer8808">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 29 ליוני 2014 </span>
+<a id="answer_8808" href="מה זה _REQUEST ואיך עובדים איתו .htm#answer_8808">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא רואה אף פעם סיבה להשתמש ב REQUEST כי אני יודע מאיזו מתודה אני רוצה להשיג את הנתונים שלי בכל מצב מסוים, אבל אני מניח שיש מתכנתים שיראו בזה הקלה או דרך נוחה יותר, במקום להתעסק עם שני מערכים GET וPOST, להתעסק עם מערך אחד - REQUEST.<br>אתה אומנם לא שולח טופס POST ו GET יחד, אבל נניח אתה שולח טופס POST לכתובת שיש בה פרמטרים של GET, תוכל להתעסק עם כל הנתונים שלך במערך אחד. </p>
+</div>
+<div class="answer" id="answer8809">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 29 ליוני 2014 </span>
+<a id="answer_8809" href="מה זה _REQUEST ואיך עובדים איתו .htm#answer_8809">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אגב, תקרא את ה<a href="http://www.internet-israel.com/internet/%D7%A4%D7%99%D7%AA%D7%95%D7%97-%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98/%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%90%D7%AA%D7%A8%D7%99-%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98-%D7%9C%D7%9E%D7%A4%D7%AA%D7%97%D7%99%D7%9D/filter_input-%D7%93%D7%A8%D7%9A-%D7%98%D7%95%D7%91%D7%94-%D7%94%D7%A8%D7%91%D7%94-%D7%99%D7%95%D7%AA%D7%A8-%D7%9C%D7%A7%D7%91%D7%9C%D7%AA-%D7%9E%D7%A9%D7%AA%D7%A0%D7%99-get-%D7%90%D7%95-post/">מאמר של רן בר-זיק באינטרנט ישראל</a>. </p>
+</div>
+<div class="answer" id="answer8810">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/13e941aa7bfca94c0a2b846ef358b96a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Expl0de</a>
+ב
+<span style="font-size:10px"> 29 ליוני 2014 </span>
+<a id="answer_8810" href="מה זה _REQUEST ואיך עובדים איתו .htm#answer_8810">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה ;) </p>
+</div>
+<div class="answer" id="answer8831">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2014 </span>
+<a id="answer_8831" href="מה זה _REQUEST ואיך עובדים איתו .htm#answer_8831">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הנה, עכשיו, באמצע שנת 2014, המפתחים של אחד התוספים הפופולריים ביותר של וורדפרס היו צריכים לפרסם עדכון אבטחה בגלל זה:<br><br>A few hours ago Dominic Lüchinger, security engineer (https://twitter.com/drdol), contacted us to disclose <strong>a possible attack leveraging the way PHP merges into the REQUEST array all GET, POST and cookies parameters</strong>. It&apos;s directly related to the previous vulnerability, and we just released a new version 2.6.8 to address this particular threat.<br><br><a href="http://stackoverflow.com/questions/2142497/whats-wrong-with-using-request">אל תשתמש ב-REQUEST.</a> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

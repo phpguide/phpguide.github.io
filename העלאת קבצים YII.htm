@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הסבר על העלאת קבצים בעזרת YII">
+<meta name="keywords" content="yii, העלאת קבצים, העלאת תמונות">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>העלאת קבצים (YII)</title>
+<meta itemprop="name" content="העלאת קבצים (YII)">
+<meta itemprop="description" content="הסבר על העלאת קבצים בעזרת YII">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"273","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>העלאת קבצים (YII)</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2012-12-07T04:06:25+02:00" dir="rtl">07 לדצמבר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/yii8.jpg" alt="העלאת קבצים (YII)">
+</div>
+<div class="right post-content">
+במדריך הנ&quot;ל אני אסביר על העלאת קבצים בעזרת YII <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+הרבה זמן לא כתבתי מדריך, כי לא ממש יצא לי<br>אבל פתאום יש לי חשק לכתוב מדריך!<br><br><h3>העלאת קבצים</h3><br>במדריך הזה אני אלמד אותכם איך לעלות קבצים ע&quot;י YII<br>אז יחסית פשוט.<br><br><strong>דרוש:</strong><br> - ידע על טפסים בעזרת YII (למדתי את זה כבר)<br><br>טוב אז ככה<br>דבר ראשון ניצור את הACTION שלנו<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> SiteContoller <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionUpload<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">renderText</span><span class="br0">&#40;</span><span class="st_h">'check'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו נבדוק אם זה ידפיס לנו CHECK אם לא אז... זה משהו שהסברתי בחלק הראשון של הסדרת מדריכים<br>טוב, עכשיו בואו ניצור את הMODEL של הקובץ שלנו<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> UploadForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$image</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$_identity</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>כמו שניתן לראות עשיתי משתנה לתמונה שלנו בטופס<br>עכשיו צריך לטפל בRULES כדי שהMODEL יהיה מודע לזה שזה תמונה<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> UploadForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$image</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$_identity</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'image'</span><span class="sy0">,</span> <span class="st_h">'file'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>ככה אנו מודיעים לMODEL שIMAGE צריך להיות FILE (קובץ)<br>עכשיו, בואו נגדיר משקל דרוש לתמונה, זאת אומרת נגיד אני רוצה שגודל הקובץ יהיה חייב להיות בין 1~2MB<br>אז עושים את זה ככה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> UploadForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$image</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$_identity</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'image'</span><span class="sy0">,</span> <span class="st_h">'file'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'maxSize'</span> &nbsp; <span class="sy0">=&gt;</span> <span class="nu0">2097152</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'minSize'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="nu0">1048576</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'tooLarge'</span> <span class="sy0">=&gt;</span> <span class="st_h">'גודל הקובץ חייב להיות קטן מ2 מגה בית'</span><span class="sy0">,,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'tooSmall'</span> <span class="sy0">=&gt;</span> <span class="st_h">'גודל הקובץ חייב להיות 1 מגה בית מינימום'</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>עכשיו שימו לב! גודל הקובץ חייב להיות בBYTE!<br>maxSize - הגודל הכי גדול שאפשר (אם לא מכניסים זה ללא הגבלה)<br>minSize - הגדול הכי קטן שאפשר (אם לא מכניסים זה ללא הגבלה)<br>tooLarge - ההודעה כאשר גודל הקובץ גדול מידי<br>tooSmall - הודעה כאשר גודל הקובץ קטן מידי<br><br>---------------------------------------------------------------------------------------------<br><br>עכשיו צריך לבדוק אם הקבצים הם תמונה שזה ע&quot;י השדה types<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> UploadForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$image</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$_identity</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'image'</span><span class="sy0">,</span> <span class="st_h">'file'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'maxSize'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="nu0">2097152</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'minSize'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="nu0">1048576</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'tooLarge'</span> <span class="sy0">=&gt;</span> <span class="st_h">'גודל הקובץ חייב להיות קטן מ2 מגה בית'</span><span class="sy0">,,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'tooSmall'</span> <span class="sy0">=&gt;</span> <span class="st_h">'גודל הקובץ חייב להיות 1 מגה בית מינימום'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'types'</span> &nbsp; &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'jpg, jpeg, gif, png, ico'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'wrongType'</span> <span class="sy0">=&gt;</span> <span class="st_h">'ניתן לבחור קובץ רק מסוג: jpg, jpeg, gif, png, ico'</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>types - רשימת סוגי הקבצים<br>wrongType - השגיאה שמקבלים אם בוחר סוג קובץ לא נכון<br><br>-------------------------------------------------<br><br>בואו נחזור אל הController וניצור משתנה לFORM<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> SiteContoller <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionUpload<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> UploadForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'form'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>וניצור את הview<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="re0">$form</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CActiveForm'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'htmlOptions'</span><span class="sy0">=&gt;</span>array<span class="br0">&#40;</span><span class="st_h">'enctype'</span><span class="sy0">=&gt;</span><span class="st_h">'multipart/form-data'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">errorSummary</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">fileField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'image'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;br /&gt;<br>
+&nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">submitButton</span><span class="br0">&#40;</span><span class="st_h">'העלאה תמונה'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+<span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>שמים למשהו שונה?<br>אוקיי דבר ראשון כן צריך להוסיף את הקטע עם enctype כאשר מעלים קובץ<br>וגם כדי להציג input של file משתמשים בfileField<br><br>ועכשיו נחזור לCONTROLLER<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> SiteContoller <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionUpload<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> UploadForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'UploadForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'UploadForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'form'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>ועכשיו משהו חדש, נגיד את המשתנה IMAGE של הFORM בתור תמונה<br>ואנחנו נעשה את זה ככה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> SiteContoller <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionUpload<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> UploadForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'UploadForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'UploadForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">image</span> <span class="sy0">=</span> CUploadedFile<span class="sy0">::</span><span class="me2">getInstance</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'image'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'form'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>ועכשיו נעלה את הקובץ<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> SiteContoller <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionUpload<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> UploadForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'UploadForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'UploadForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">image</span> <span class="sy0">=</span> CUploadedFile<span class="sy0">::</span><span class="me2">getInstance</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'image'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">validate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$name</span> <span class="sy0">=</span> <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">image</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">image</span><span class="sy0">-&gt;</span><span class="me1">saveAs</span><span class="br0">&#40;</span><span class="st_h">'images/'</span><span class="sy0">.</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'form'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>הסבר<br>בדקתי אם התנאים עבדו כמו שצריך (הסברתי על זה כבר במדריכים קודמים)<br>וקלטתי את שם הקובץ, כדאי לעלות אותו<br>שזה פשוט המשתנה name<br>והעליתי אותו שזה מבצעים ע&quot;י הפונקציה saveAs והוא קולט string שזה המיקום של התמונה<br>====================================================================<br>עכשיו נגיד אנחנו רוצים לא להכריח את המשתמש לבחור תמונה, נגיד שזה אופציה לא חובה<br><br>אז דבר ראשון נוסיף לcontroller את הallowEmpty ונכניס true<br>כאילו ככה<br><div class="php codeblock"><span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span></div><br><br>ונעשה בדיקה בCONTROLLER<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> SiteContoller <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionUpload<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> UploadForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'UploadForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'UploadForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">image</span> <span class="sy0">=</span> CUploadedFile<span class="sy0">::</span><span class="me2">getInstance</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'image'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">validate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">image</span> <span class="sy0">!==</span> <span class="kw4">null</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$name</span> <span class="sy0">=</span> <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">image</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">image</span><span class="sy0">-&gt;</span><span class="me1">saveAs</span><span class="br0">&#40;</span><span class="st_h">'images/'</span><span class="sy0">.</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'form'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>אז מה עשיתי פה בעצם?<br>פשוט עשיתי תנאי ובדקתי אם הערך של התמונה הוא לא ריק<br><br><br>וזה הכל :) אשמח לתגובות </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2057"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/12/2012 08:28</span><br>
+תודה,<br>
+יש תמיכה ב multiupload ?</div>
+<a id="comment2058"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/12/2012 08:55</span><br>
+כן יש תמיכה בmultiupload אתה פשוט מגדיר בrules את הmaxFiles בתור הכמות הקבצים האפשרים</div>
+<a id="comment2059"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/12/2012 02:37</span><br>
+תודה :) אחלה מדריך</div>
+<a id="comment2060"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/12/2012 23:23</span><br>
+תודה רבה, מדריך מעולה ! </div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

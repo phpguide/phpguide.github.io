@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שילוב http push/long polling/web sockets עם PHP">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="questioner">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שילוב http push/long polling/web sockets עם PHP | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שילוב http push/long polling/web sockets עם PHP | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שילוב http push/long polling/web sockets עם PHP">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שילוב http pushlong pollingweb sockets עם PHP.htm" title="אני מנסה לצור משחק רב משתתפים.מדובר במשחק קלפים, כך שמעט מאוד מידע עובר בין השרת ללקוח, אבל כל כמה שניות.קראתי באינטרנט והבנתי שהטכנולוגיות המתאימות הן:long polling (בקשה שאיכשהו תשאר פתוחה עד שיש מידע חדש)web sockets (פרוטוקול חדש, שאין לי מושג איך אני אמור לצור את צד השרת שלו)http push (אין לי מושג איך זה עובד)את הקונספט של הטכנולוגיות הבנתי, אבל לא מצאתי באינטרנט שום מדריך שמסביר כיצד ניתן להשתמש בהן באמצעות JS וPHP.יכול להיות שאני ל">שילוב http push/long polling/web sockets עם PHP</a></h2>
+<div class="userinfo">
+פתח
+<a>questioner</a>
+,
+<time class="timeago relativetime" datetime="2012-08-15T09:59:28+03:00" style="display:inline-block;">
+15 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText902'>
+אני מנסה לצור משחק רב משתתפים.<br>מדובר במשחק קלפים, כך שמעט מאוד מידע עובר בין השרת ללקוח, אבל כל כמה שניות.<br><br>קראתי באינטרנט והבנתי שהטכנולוגיות המתאימות הן:<br>long polling (בקשה שאיכשהו תשאר פתוחה עד שיש מידע חדש)<br>web sockets (פרוטוקול חדש, שאין לי מושג איך אני אמור לצור את צד השרת שלו)<br>http push (אין לי מושג איך זה עובד)<br><br>את הקונספט של הטכנולוגיות הבנתי, אבל לא מצאתי באינטרנט שום מדריך שמסביר כיצד ניתן להשתמש בהן באמצעות JS וPHP.<br><br>יכול להיות שאני לא מחפש על פי מילות המפתח המתאימות כי אני באמת לא מכיר את הנושא.<br>מישהו יוכל לתת לי המלצה למדריך, או יותר טוב, לכתוב מדריך כאן באתר? </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3863">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3863" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3863">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+רוב הסיכויים שלא מצאת מדריכים לנושאים האלה כיוון ש-PHP לא תהיה הכלי המתאים במקרים האלה.<br><br>Long Polling היא פשוט בקשה מאוד ארוכה. כמו סקריפט שהיית כותב בו sleep(10); ופותח בדפדפן - הדפדפן היה מחכה לתוכן 10 שניות. במקרה הזה היית עושה הרבה בקשות ajax או iframe אל הסקריפט שלך, שהיה בודק אחת לכמה שניות אם יש תוכן חדש בדאטאבייס, אם לא, מריץ עוד sleep, עד שבדאטאבייס היה מופיע התור של השחקן השני. לאחר מכן הסקריפט היה פולט את התוכן של התור, הבקשה נסגרת ונשלחת בקשה הבאה.<br><br>Web Sockets מוסיף לדפדפן פונקציונליות חדשה מעולם אחר. פה אתה כבר צריך שרת חדש שמסוגל לעבוד עם סוקטים פתוחים.<br><br>Server Sent Events יותר פשוט, למרות שגם פה php/apache לא הטכנולוגיה הכי מתאימה.<br>הקוד שיתקבל יראה בערך ככה:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'sse'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Content-Type: text/event-stream<span class="es1">\n</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span> <span class="re0">$nothingNewInDatabase</span> <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">sleep</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;data: <span class="es4">$newDatabaseData</span> <span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;script&gt;<br>
+&nbsp; var source = new EventSource('a.php?sse');<br>
+&nbsp; source.onmessage = function (event) {<br>
+&nbsp; &nbsp; alert(event.data);<br>
+&nbsp; };<br>
+&lt;/script&gt;</div><br><br><br>בשביל דברים כאלה יש פתרונות מוכנים, כמו ה- ape project או sockets.io </p>
+</div>
+<div class="answer" id="answer3883">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/be497f5081a81b6333d998c4e9519c5f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>questioner</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3883" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3883">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1) מה יהיה הכלי המתאים? איזו שפה?<br>2) תוכל לפרט עוד על הפתרונות המוכנים? ניתן להשתמש בהם יחד עם PHP? </p>
+</div>
+<div class="answer" id="answer3884">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3884" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3884">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הדבר הראשון שעלה לך לראש לא היה להעתיק את המילים <a href="http://www.ape-project.org/">ape project</a> לגוגל ? </p>
+</div>
+<div class="answer" id="answer3895">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/be497f5081a81b6333d998c4e9519c5f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>questioner</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3895" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3895">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חיפשתי, הצעת כמה דברים, שאלתי מה הכי טוב.<br><br>כתוב שם שצד השרת גם בJS, הם מדברים על שימוש בNode.js? </p>
+</div>
+<div class="answer" id="answer3897">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3897" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3897">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשמע אני לא חושב שצריך פה איזה חיבור רציף לשרת..<br><br>תנסה לתזמן שליחות AJAX כל מספר שניות בכדי לבדוק מהלכים של המשתמש השני ולגרור תגובה בהתאם לתוצאה.. </p>
+</div>
+<div class="answer" id="answer3900">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/be497f5081a81b6333d998c4e9519c5f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>questioner</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3900" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3900">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מדובר כאן במשחק קלפים, כך שתאורתית פעולה יכולה להיות כל חצי שנייה, וזה אומר המון בקשות בזבזניות.<br>עזוב רגע א הדוגמה של משחק קלפים. תחשוב שאני צריך לבנות צ&#039;אט. בקשות AJAX רגילות הן לא הפתרון כאן. </p>
+</div>
+<div class="answer" id="answer3901">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d5489318b0ce990d7ea29e0cffd43110?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>JBStyle</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3901" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3901">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני מציע גם שאם יש לך אפשרות תשמור את הטבלה של זה בRAM .<br>בכל מקרה נכנסת לAPE ? </p>
+</div>
+<div class="answer" id="answer3904">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3904" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3904">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+דווקא צ&#039;אט כן הייתי עושה בפולינג AJAX פשוט מאוד..תעבורה אפסית<br><br>עוד בנושא שצויין<br>http://www.html5rocks.com/en/tutorials/eventsource/basics/ </p>
+</div>
+<div class="answer" id="answer3908">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/be497f5081a81b6333d998c4e9519c5f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>questioner</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3908" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3908">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לשמור בRAM זה אומר טבלה מסוג MEMORY? </p>
+</div>
+<div class="answer" id="answer3909">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d5489318b0ce990d7ea29e0cffd43110?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>JBStyle</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3909" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3909">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן . </p>
+</div>
+<div class="answer" id="answer3916">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3916" href="שילוב http pushlong pollingweb sockets עם PHP.htm#answer_3916">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ape project מתפקד בתור שרת בפני עצמו. את הקוד ל callbackים שלו אתה כותב ב JS<br>והם נותנים לך אפשרות לעבוד עם מסד נתונים.<br><br>רוב הצ&#039;אטים שהי פעם ראית בנויים על ajax פרימיטיבי ששולח בקשה לשרת כל כמה שניות. בדיוק כמו הצ&#039;אט כאן. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

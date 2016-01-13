@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך אני שם שתי אפשרויות בקוד SQL ? (התקין)">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>איך אני שם שתי אפשרויות בקוד SQL ? (התקין) | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך אני שם שתי אפשרויות בקוד SQL ? (התקין) | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך אני שם שתי אפשרויות בקוד SQL ? (התקין)">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך אני שם שתי אפשרויות בקוד SQL  התקין.htm" title="שלום,נגיד ויש לי קוד SQL, ששולף משהו מהמסד, איך אני יכול לעשות שהוא יעשה בתוך הקוד גם את החיפוש עצמו, גם להוסיף LIMIT וגם להוסיף ORDER BY ?כשניסתי זה נתן לי ארור..">איך אני שם שתי אפשרויות בקוד SQL ? (התקין)</a></h2>
+<div class="userinfo">
+פתח
+<a>ArielTador</a>
+,
+<time class="timeago relativetime" datetime="2012-08-22T16:38:18+03:00" style="display:inline-block;">
+22 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText944'>
+שלום,<br><br>נגיד ויש לי קוד SQL, ששולף משהו מהמסד, איך אני יכול לעשות שהוא יעשה בתוך הקוד גם את החיפוש עצמו, גם להוסיף LIMIT וגם להוסיף ORDER BY ?<br>כשניסתי זה נתן לי ארור.. </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4076">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 22 לאוגוסט 2012 </span>
+<a id="answer_4076" href="איך אני שם שתי אפשרויות בקוד SQL  התקין.htm#answer_4076">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איזה חיפוש? על מה אתה מדבר?<br>אפשר לשלב פרמטרים שונים, ובדרך כלל הסדר שלהם חשוב.<br>ומה לעזאזל: &quot;זה <strong>נתן לי ארור</strong>&quot;? למה לא לכתוב &quot;קיבלתי שגיאה&quot; ואולי גם לצרף את השגיאה, כי אף אחד כאן לא ינחש בשבילך. &quot;ארור&quot; זה מילה עם משמעות אחרת לגמרי בעברית. </p>
+</div>
+<div class="answer" id="answer4078">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 22 לאוגוסט 2012 </span>
+<a id="answer_4078" href="איך אני שם שתי אפשרויות בקוד SQL  התקין.htm#answer_4078">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. ארור = error !<br>2. השגיאה היא: Warning: mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/fofol/domains/pawno.950mb.co.il/public_html/index.php on line 222<br><br>3. זה הקוד SQL שלי:<br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM `icars` WHERE `yazran`<span class="sy0">=</span><span class="st_h">'$s1'</span> AND `degem`<span class="sy0">=</span><span class="st_h">'$s2'</span> AND `shana`<span class="sy0">&gt;=</span><span class="st_h">'$s3'</span> AND `shana`<span class="sy0">&lt;=</span><span class="st_h">'$s4'</span> AND `mehir`<span class="sy0">&gt;=</span><span class="st_h">'$s5'</span> AND `mehir`<span class="sy0">&lt;=</span><span class="st_h">'$s6'</span> AND `delek`<span class="sy0">=</span><span class="st_h">'$s7'</span> AND `kilometer`<span class="sy0">=</span><span class="st_h">'$s8'</span> AND `camut`<span class="sy0">=</span><span class="st_h">'$s9'</span> LIMIT <span class="re0">$start_from</span><span class="sy0">,</span> <span class="re0">$per_page</span> ORDER BY id DESC</div><br><br>וזה לא עובד!!<br><br><br>מה עושים!? </p>
+</div>
+<div class="answer" id="answer4080">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 22 לאוגוסט 2012 </span>
+<a id="answer_4080" href="איך אני שם שתי אפשרויות בקוד SQL  התקין.htm#answer_4080">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1) שגיאה = error<br>3)<br> א. במקום כזה דבר:<br><div class="php codeblock">`mehir`<span class="sy0">&gt;=</span><span class="st_h">'$s5'</span> AND `mehir`<span class="sy0">&lt;=</span><span class="st_h">'$s6'</span></div><br>נוהגים להשתמש באופרטור between<br><br> ב. כמו שאמרתי, יש חשיבות לסדר של המילות השמורות. order by אמור לבוא לפני limit. להבא, תציץ בדוקומנטציה מדי פעם - http://dev.mysql.com/doc/refman/5.0/en/select.html </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

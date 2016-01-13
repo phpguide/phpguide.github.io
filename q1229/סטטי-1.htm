@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה סטטי.">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mtndiv">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>סטטי. | שאלת לימוד PHP</title>
+<meta itemprop="name" content="סטטי. | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה סטטי.">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">9</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="סטטי-1.htm" title="מה זה סטטי? למה זה נועד? איזה פונקציות לדוגמא אמורות להיות סטטיות? תודה.אני מאז ומתמיד משתמש בזה, אני יודע בערך למה זה נועד, אבל לא במדויק. אשמח להסבר, תודה רבה.">סטטי.</a></h2>
+<div class="userinfo">
+פתח
+<a>mtndiv</a>
+,
+<time class="timeago relativetime" datetime="2013-02-01T16:10:59+02:00" style="display:inline-block;">
+01 לפברואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1229'>
+מה זה סטטי? למה זה נועד? איזה פונקציות לדוגמא אמורות להיות סטטיות? תודה.<br>אני מאז ומתמיד משתמש בזה, אני יודע בערך למה זה נועד, אבל לא במדויק. אשמח להסבר, תודה רבה. </div>
+</div>
+<h3>
+<span id="answersCounter">9 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5378">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5378" href="סטטי-1.htm#answer_5378">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>מתודה </strong>סטטית זו מתודה שלא קשורה למופע של מחלקה. כך למשל מתודה של חיפוש משתמשים בבסיס הנתונים תהיה סטטית (כי היא לא קשורה למופע מסוים של המחלקה).<br>אותו רעיון חל על <strong>משתנה </strong>סטטי בפונקציה. הוא לא קשור לקריאה מסוימת של הפונקציה, אלא לפונקציה באופן כללי. (הוא משותף לכל הקריאות לפונקציה.) כך תוכל, למשל, לספור כמה פעמים קראו לפונקציה.<br><div class="php codeblock"><span class="kw2">function</span> foo<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; static <span class="re0">$callsCount</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="sy0">++</span><span class="re0">$callsCount</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$count</span> <span class="sy0">=</span> foo<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$count</span> <span class="sy0">=</span> foo<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$count</span><span class="sy0">;</span> <span class="co1">// prints 2</span></div> </p>
+</div>
+<div class="answer" id="answer5379">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5379" href="סטטי-1.htm#answer_5379">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אף פונקציה לא אמורה להיות סטטית. וכמה שיותר תצמד לכלל הזה, ככה הקוד שלך יהיה טוב יותר. </p>
+</div>
+<div class="answer" id="answer5380">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5380" href="סטטי-1.htm#answer_5380">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה הפונקציות לא צריכות להיות סטטיות ? מה החיסרון בזה ? </p>
+</div>
+<div class="answer" id="answer5381">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>mtndiv</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5381" href="סטטי-1.htm#answer_5381">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה לתגובה הראשונה, ואלכס, התכוונתי למתודות סטטיות במחלקה, אתה מתכוון שעדיף לא להשתמש במתודות סטטיות במחלקה? </p>
+</div>
+<div class="answer" id="answer5382">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5382" href="סטטי-1.htm#answer_5382">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בדיוק. <br>אם יש לך מטודה סטטית זה כנראה אומר שהיא לא אמורה להיות במחלקה. </p>
+</div>
+<div class="answer" id="answer5387">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5387" href="סטטי-1.htm#answer_5387">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה עם הדוגמה שנתתי למעלה, אלכס? אני לא הולך ליצור מחלקה נפרדת של פעולות שונות של User שלא קשורות למופע מסוים של מחלקה. </p>
+</div>
+<div class="answer" id="answer5388">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>mtndiv</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5388" href="סטטי-1.htm#answer_5388">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אלכס מה תגיד על המחלקה הזאת ? שהיא לא טובה לדעתך ?<br>http://pastebin.com/gV7kkyfr<br>אני משער שבשביל לקבל מידע על סשן מסוים לא צריך לקבוע מופע חדש, אלא עדיף לקבל ע&quot;י מטודה סטטית.<br>בוא תסביר לי פה את הטעות ואיך לתקן אותה. תודה. </p>
+</div>
+<div class="answer" id="answer5394">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5394" href="סטטי-1.htm#answer_5394">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בשביל דבר כזה אני אישית דווקא לא הייתי משתמש בסטטי. init() היה בבנאי שלי, ו-destroy() היה בדיסטרקטור שלי.<br><br><strong>עריכה:</strong><br>צודק, זה צריך להיות סינגלטון. </p>
+</div>
+<div class="answer" id="answer5395">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2013 </span>
+<a id="answer_5395" href="סטטי-1.htm#answer_5395">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה באותה מידה יכול לעשות ככה: <a href="http://phpassist.com/7e982#4">http://phpassist.com/7e982#4</a> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

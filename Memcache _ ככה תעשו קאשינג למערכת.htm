@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="עם Memcache נוכל לעשות מערכת יעילה ומהירה יותר, וכאן תלמדו מה זה ואיך לעבוד עם הסרביס.">
+<meta name="keywords" content="memcache, מדריך לעבוד עם memcache, memcache php">
+<meta name="author" content="Michael">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Memcache - ככה תעשו קאשינג למערכת</title>
+<meta itemprop="name" content="Memcache - ככה תעשו קאשינג למערכת">
+<meta itemprop="description" content="עם Memcache נוכל לעשות מערכת יעילה ומהירה יותר, וכאן תלמדו מה זה ואיך לעבוד עם הסרביס.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"165","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Memcache - ככה תעשו קאשינג למערכת</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Michael, </div>
+<div class="right">&nbsp;<time datetime="2011-10-21T22:43:08+02:00" dir="rtl">21 לאוקטובר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.movabletips.com/assets_c/2010/10/memcached-logo-200x152-thumb-75x75-200.png" alt="Memcache - ככה תעשו קאשינג למערכת">
+</div>
+<div class="right post-content">
+עם Memcache נוכל לעשות מערכת יעילה ומהירה יותר, וכאן תלמדו מה זה ואיך לעבוד עם הסרביס. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>Memcache</h2><br><h3>הקדמה</h3><br>Memcached היא מערכת שנועדה לאופטימיזציה של המערכת אשר שומרת מידע בזיכרון ועובדת איתו לפי הצורך. מערכת זו היא Cross-platform (נתמכת ע&quot;י כל מערכות ההפעלה) והיא מופצת חופשית. במדריך זה אנחנו נלמד איך לעבוד עם הAPI של המערכת בPHP.<br>בין האתרים שעובדים עם המערכת נמצאים יוטיוב, פייסבוק, טוויטר ועוד.<br>כנ&quot;ל מערכות כגון דרופל, וורדפרס, וג&#039;ומלה עובדים איתה.<br><br>להבהרה:<br>קיימת ספרייה <a href="http://php.net/manual/en/book.memcached.php">Memcached</a> שמפותחת ע&quot;י יוצר אחר, ואינה קשורה למה שהמדריך מלמד.<br>הבלבול נובע מכך שלסבריס עצמו של Memcache קוראים Memcached ואותו צריך להתקין על מנת לעבוד עם המערכת. אין שום קשר בין הדברים, ומי שמעוניין לקרוא על ההבדלים מוזמן לעשות חיפוש קצר בגוגל.<br><br><h3>התקנה</h3><br>על מנת שנוכל לעבוד עם המערכת קודם נצטרך להתקין אותה.<br>מדריך לוינדוס: <a href="http://pureform.wordpress.com/2008/01/10/installing-memcache-on-windows-for-php/">http://pureform.wordpress.com/2008/01/10/installing-memcache-on-windows-for-php/</a><br>מדריך ללינוקס:<br>- סנטוס/רד-האט/פדורה: <a href="http://www.sohailriaz.com/how-to-install-memcached-with-memcache-php-extension-on-centos-5x/">http://www.sohailriaz.com/how-to-install-memcached-with-memcache-php-extension-on-centos-5x/</a><br>- דביאן (ומבוססיו): <div class="php codeblock">apt<span class="sy0">-</span>get install memcached php5<span class="sy0">-</span>memcache</div><br><br><h3>לעבודה</h3><br>קישור לסיפרייה: <a href="http://www.php.net/manual/en/book.memcache.php">Memcache</a><br><br><strong>התחברות</strong>:<br>כדי שנוכל לעבוד עם הספרייה, קודם נצטרך להתחבר לסרביס עצמו.<br>הפורט בחירת מחדל הוא 11211.<br>נבצע את ההתחברות כך:<br><div class="php codeblock"><span class="re0">$memcache</span> <span class="sy0">=</span> <span class="kw2">new</span> Memcache<span class="sy0">;</span><br>
+<span class="re0">$memcache</span><span class="sy0">-&gt;</span><span class="me1">connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span><span class="st_h">'11211'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// localhost == your server</span></div><br>בדוגמא כאן הדגמנו את הפונקציה <strong>connect</strong>, אשר מחילה 3 פרמטרים. 2 מהם חובה:<br>הראשון השרת - אליו אנחנו נתחבר. בד&quot;כ זה יהיה localhost אלא אם כן אתם יודעים את השרת שאיתו אתם צריכים לעבוד. הפרמטר השני הוא הפורט - הבחירת מחדל הוא 11211, תוכלו בכל עת לשנות אותו בסרביס עצמו. הפרמטר השלישי (שמוגדר כ0 בבחירת מחדל) הוא timeout, כמה זמן לחכות עד שהשרת יגיב. אם מוגדר 0, כנראה שזה ימשיך לנסות להתחבר עד שיצליח או יקבל timeout.<br><br>כמו כן, ניתן להתחבר לכמה שרתים לעבודה איתם.<br>דוגמא:<br><div class="php codeblock"><span class="re0">$memcache</span> <span class="sy0">=</span> <span class="kw2">new</span> Memcache<span class="sy0">;</span><br>
+<span class="re0">$memcache</span><span class="sy0">-&gt;</span><span class="me1">addServer</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span><span class="st_h">'11211'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$memcache</span><span class="sy0">-&gt;</span><span class="me1">addServer</span><span class="br0">&#40;</span><span class="st_h">'other_server'</span><span class="sy0">,</span><span class="st_h">'9090'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>* אם זה אתר קטן, או פרויקט בהתחלה, יספיק שרת אחת. אם תראו שיש כבר עומס באתר אז כמובן לא יזיק להוסיף עוד שרת :)<br><br><strong>add / get / set / replace / get / delete</strong><br>זה הפונקציות המרכזיות שישמשו אותנו בעבודה.<br><br><strong>add - bool Memcache::add ( string $key , mixed $var [, int $flag [, int $expire ]] )</strong><br>הפונקציה מוסיפה ערך חדש לקאשינג, עם מפתח שאנחנו בוחרים.<br>הפונקציה מכילה 4 פרמטרים: מפתח - איתו נוכל לקבל את הערך, ערך - הערך שאותו אנחנו שומרים (אם זה סטרינג או אינטיגר, הוא נשמר כמו שהוא, אחרת הוא Serialized), ושתי הפרמטרים האחרונים: פלאג - על זה נסביר בהמשך, פג - מתי הקאש יפוג.<br>דוגמא:<br><div class="php codeblock"><span class="re0">$memcache</span> <span class="sy0">=</span> <span class="kw2">new</span> Memcache<span class="sy0">;</span> <span class="co1">// creating object</span><br>
+<span class="re0">$memcache</span><span class="sy0">-&gt;</span><span class="me1">connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span><span class="st_h">'11211'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// connnecting to deamon on the server</span><br>
+<span class="re0">$memcache</span><span class="sy0">-&gt;</span><span class="me1">add</span><span class="br0">&#40;</span><span class="st_h">'Hello'</span><span class="sy0">,</span><span class="st_h">'World'</span><span class="sy0">,</span><span class="kw4">false</span><span class="sy0">,</span><span class="nu0">60</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// setting new value (World), with the key &quot;Hello&quot;, with 60 sec untill expire</span></div><br>* אם הוא מצליח לשמור, הוא יחזיר true. אם קיים מפתח כזה, יחזיר false או אם לא יצליח לשמור גם כן יחזיר false.<br><br><strong>set</strong><br>בדיוק כמו add, אך ההבדל היחיד בינהם שadd מחזיר שלישי במידה ומפתח כזה כבר קיים. הפונקציה הזו תדרוס במידה וקיים מפתח כזה, ותיצור מחדש עם הערך החדש.<br><br><strong>get - get ( string $key [, int &amp;$flags ] )</strong><br>פונקציה פשוטה, שולפת ערך לפי המפתח שנתון. אם לא קיים מפתח כזה, יחזיר שלישי.<br><br><strong>replace</strong><br>מקבלת אותם פרמטרים כמו add וset. מעדכנת מפתח קיים עם הערך החדש שניתן והזמן עד לפג החדש.<br>במידה ואין מפתח כזה, יחזיר שלישי.<br><br><strong>delete</strong><br>מקבל פרמטר אחד (השני לפי מה שכתוב במניואל לא בשימוש) והוא מפתח.<br>מוחקת את הערך של אותו מפתח כולל אותו מפתח.<br>אם לא קיים כזה מפתח, מחזירה שלילי.<br><br>עד כאן לפונקציות המרכזיות.<br>אז מה זה ה<strong>flag</strong> הזה? MEMCACHE_COMPRESSED. במידה והוא בשימוש אז הוא עושה קומפרס לכל הערכים ששמורים עם הספירייה zlib. יכול להיות שקיימים עוד פלאגים, חיפוש קצר בגוגל יניב תשובות :)<br><br>בנוסף, יש 2 פונקציות חשובות ליעילות: flush וclose.<br>flush מוחק את כל הערכים הקיימים, וclose סוגר את העבודה עם השרת.<br>חשוב להשתמש בפונקציות האלה בעת הצורך, לפחות בclose, זה יעזור למהר את המערכת.<br><br>עד כאן למדריך.<br>בקצרה, למדנו מה זאת הסיפרייה הזו, איך מתקינים ופונקציות ראשיות.<br>את מה שלא הסברתי נתן להיכנס למיונאל בקישור שנתתי למעלה ושאר הפונקציות מוסברות וקלות להבנה.<br>נתן לקרוא עוד על קאשינג ותוצריו במאמר הנ&quot;ל: <a href="http://arenzon.me/2012/03/18/%D7%A7%D7%90%D7%A9%D7%99%D7%A0%D7%92-%D7%91%D7%A6%D7%93-%D7%A9%D7%A8%D7%AA/">http://arenzon.me/2012/03/18/%D7%A7%D7%90%D7%A9%D7%99%D7%A0%D7%92-%D7%91%D7%A6%D7%93-%D7%A9%D7%A8%D7%AA/</a> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=16&r=g&d=monsterid" alt="Michael">
+<a>Michael</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment876"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/10/2011 04:17</span><br>
+תודה רבה:) מדריך מעולה ומועיל.</div>
+<a id="comment877"></a>
+<div class="blog-comment">
+<span class='comment-author'>Aviway</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/10/2011 11:10</span><br>
+לא הבנתי מה המטרה של הדבר הזה?!!?</div>
+<a id="comment878"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/10/2011 12:59</span><br>
+מה זה cache?</div>
+<a id="comment879"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/10/2011 13:41</span><br>
+תודה רבה! חיפשתי את זה.<br>
+<br>
+אגב, רשום לך מתחת לשם &quot;מתכנת, וסיס אדמין לינוקס&quot; מה הכוונה לסיס?</div>
+<a id="comment882"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/10/2011 15:23</span><br>
+Aviway<br>
+מטרה, לחסוך משאבים ובכךלעשות מערכת יותר מהירה.<br>
+יש לך פה במדריך phpguide.co.il/buffered+file+cache.htm הסבר מצוין למה לעשות קאשינג, וכאן פשוט הסברתי איך לעבוד עם כלי שנועד לקאשינג.<br>
+כנ&quot;ל משתמש_20541<br>
+<br>
+משתמש_35396, קיצור של סיסטם</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מה המשמעות של $this">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="soogo">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מה המשמעות של $this | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מה המשמעות של $this | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מה המשמעות של $this">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מה המשמעות של this-1.htm" title="מה המשמעות של $thisclass Fruts&amp;#123;
+&amp;nbsp; 
+&amp;nbsp; &amp;nbsp; var $name;
+&amp;nbsp; &amp;nbsp; 
+&amp;nbsp; &amp;nbsp; function getName&amp;#40;$text&amp;#41;
+&amp;nbsp; &amp;nbsp; &amp;#123;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; ">מה המשמעות של $this</a></h2>
+<div class="userinfo">
+פתח
+<a>soogo</a>
+,
+<time class="timeago relativetime" datetime="2013-10-09T15:04:38+03:00" style="display:inline-block;">
+09 לאוקטובר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1631'>
+מה המשמעות של $this<br><br><div class="php codeblock"><span class="kw2">class</span> Fruts<span class="br0">&#123;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">var</span> <span class="re0">$name</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">function</span> getName<span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="re0">$text</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7452">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7452" href="מה המשמעות של this-1.htm#answer_7452">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הכוונה היא שזה בתוך האובייקט הזה זאת אומרת המשתנה name מתוך האובייקט Fruts האובייקט זה הclass.<br>אז $this זה אומר הclass הזה ואז -&gt; זה מתוך האובייט ואז אצלך כתוב name אז זה משתנה name. </p>
+</div>
+<div class="answer" id="answer7453">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7453" href="מה המשמעות של this-1.htm#answer_7453">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ככה בעצם אתה יכול לפנות למשתנה או לפונקציה מתוך המחלקה עצמה.<br>ככה בעצם אתה יכול להשתמש לדוגמה במשתנים שהם פרטיים (כלומר שאי אפשר לגשת אליהם ממחלקות אחרות). </p>
+</div>
+<div class="answer" id="answer7454">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7454" href="מה המשמעות של this-1.htm#answer_7454">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה כותבים<br><div class="php codeblock"><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="re0">$text</span><span class="sy0">;</span></div><br>ולא<br><div class="php codeblock"><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="re0">$name</span> <span class="sy0">=</span> <span class="re0">$text</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer7455">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7455" href="מה המשמעות של this-1.htm#answer_7455">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ככה החליטו הבונים של PHP, ואולי בגלל שאף פעם <br>בPHP כשמשתמשים למשל בXML אז יש למשל<br><div class="php codeblock"><span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">l</span></div><br>זה אף פעם לא עם $. </p>
+</div>
+<div class="answer" id="answer7456">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7456" href="מה המשמעות של this-1.htm#answer_7456">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז $this בתוך class זה שווה class עצמו? </p>
+</div>
+<div class="answer" id="answer7458">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7458" href="מה המשמעות של this-1.htm#answer_7458">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ויש אפשרות לכתוב את שם הקלאס במקום? </p>
+</div>
+<div class="answer" id="answer7462">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7462" href="מה המשמעות של this-1.htm#answer_7462">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+רק חושב לציין ש this בתוך מחלקה, זו לא המחלקה עצמה, אלה המופע של אותה מחלקה.<br><div class="php codeblock"><span class="re0">$x</span> <span class="sy0">=</span> <span class="kw2">new</span> clas<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="re0">$y</span> <span class="sy0">=</span> <span class="kw2">new</span> clas<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>במקרה הראשון this יהיה האיקס ובמקרה השני ה-Y<br><br>ולא, אי אפשר לכתוב את שם הקלאס. <br>א. כי יכולים להיות הרבה מופעים של אותה מחלקה<br>ב. כי במקרים מסוימים בתוך המחלקה אתה בכלל לא יודע מה שם המחלקה. למשל אם מדובר בירושה והקוד שלך נמצא בתוך מחלקה האב שממנה יורשים, <br>בתוך מחלקת האב אתה לא יודע מה שם המחלקה היורשת.<br>יש עוד מקרים כאלה, כמו traits למשל. אבל כל זה לא משנה שום דבר. </p>
+</div>
+<div class="answer" id="answer7463">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7463" href="מה המשמעות של this-1.htm#answer_7463">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה<br>דרך אגב קראתי עכשיו מאמר שאומר שבגלל שלכל משתנה אפשר לקרuא רק במתודה שהוא הוגד אז שמים this </p>
+</div>
+<div class="answer" id="answer7464">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 לאוקטובר 2013 </span>
+<a id="answer_7464" href="מה המשמעות של this-1.htm#answer_7464">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא מדויק. this לא מאפשר פתאום לקרוא למשתנים מתוך מטודות אחרות.<br>פשוט יש משתנים שהם חלק ממטודה מסוימת ויש משתנים שהם חלק ממופע מסוים. אל המשתנים ששייכים למופע מסוים אפשר לגשת מתוך כל המטודות. אלו משתנים ששייכים למטודות - אי אפשר לגשת משום מקום חוץ מאותה מטודה. this לא משחק פה שום תפקיד. </p>
+</div>
+<div class="answer" id="answer7465">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 10 לאוקטובר 2013 </span>
+<a id="answer_7465" href="מה המשמעות של this-1.htm#answer_7465">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+this הוא האובייקט שמתוכו מורצת המתודה. </p>
+</div>
+<div class="answer" id="answer7467">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/84bd1a57dc1ffc16e66a8f4eda181d90?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>liorel100</a>
+ב
+<span style="font-size:10px"> 11 לאוקטובר 2013 </span>
+<a id="answer_7467" href="מה המשמעות של this-1.htm#answer_7467">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פסאודו משתנה שמתאר את האובייקט שממנו בוצעה הקריאה למתודה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

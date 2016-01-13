@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מישהו יכול לעזור לי?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="yonikal56">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מישהו יכול לעזור לי? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מישהו יכול לעזור לי? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מישהו יכול לעזור לי?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">10</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מישהו יכול לעזור לי-1.htm" title="עשיתי שמי שלוחץ על השם של מי ששלח את הקוד זה יביא לדף ויקבע את הדף בגט של id למספר הזהות של המשתמש זה עובד אבל לא עובד השליחה של הגט זה הקוד של כל העמוד:&amp;lt;?php
+include&amp;#40;&amp;quot;mysql_connection.txt&amp;quot;&amp;#41;;
+?&amp;gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;e">מישהו יכול לעזור לי?</a></h2>
+<div class="userinfo">
+פתח
+<a>yonikal56</a>
+,
+<time class="timeago relativetime" datetime="2013-05-13T03:28:17+03:00" style="display:inline-block;">
+13 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1447'>
+עשיתי שמי שלוחץ על השם של מי ששלח את הקוד זה יביא לדף ויקבע את הדף בגט של id למספר הזהות של המשתמש זה עובד אבל לא עובד השליחה של הגט <br>זה הקוד של כל העמוד:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">include</span><span class="br0">&#40;</span><span class="st0">&quot;mysql_connection.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang=&quot;en&quot;&gt;<br>
+&nbsp; &nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;meta charset=&quot;utf-8&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;title&gt;לוח מודעות&lt;/title&gt;<br>
+&nbsp; &nbsp; &lt;/head&gt;<br>
+&nbsp; &nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; <span class="kw2">&lt;?php</span> &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="kw1">include</span><span class="br0">&#40;</span><span class="st0">&quot;menu.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'login'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">'&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;text&quot; name=&quot;content&quot; maxlength=&quot;100&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; name=&quot;submit&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/form&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; '</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st_h">'israel'</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$date</span> <span class="sy0">=</span> <span class="kw3">date</span><span class="br0">&#40;</span><span class="st_h">'d/m/o h-i-s'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `comments` (`content`, `date`, `username`, `IP`) VALUES<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ('&quot;</span><span class="sy0">.</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;', '&quot;</span><span class="sy0">.</span><span class="re0">$date</span><span class="sy0">.</span><span class="st0">&quot;', '&quot;</span><span class="sy0">.</span><span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'login'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;', '&quot;</span><span class="sy0">.</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REMOTE_ADDR'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;')&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">'&lt;font color=&quot;red&quot;&gt;לא מילאת את השדה&lt;/font&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">'חייב להיות מחובר בשביל לכתוב הודעה בלוח המודעות'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy1">?&gt;</span> &nbsp;<br>
+&nbsp; &nbsp; &lt;table border=&quot;1&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;שם משתמש&lt;/th&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;תאריך&lt;/th&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;הודעה&lt;/th&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT DISTINCT * FROM &nbsp;`comments` ORDER BY `ID` DESC LIMIT 0 , 50&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `users` WHERE `username` = '&quot;</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$row2</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">'&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;all.php?id='</span><span class="sy0">.</span><span class="re0">$row2</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/a&gt;&lt;/td&gt;&lt;td&gt;'</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'date'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/td&gt;/&lt;td&gt;'</span><span class="sy0">.</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'content'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/td&gt;&lt;/tr&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;/table&gt; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br>שתי הטבלאות הם של comments ללוח עצמו זה עובד אבל הבעיה אולי בשני זה של השם משתמש. מה הבעיה ואיך </div>
+</div>
+<h3>
+<span id="answersCounter">10 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6468">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6468" href="מישהו יכול לעזור לי-1.htm#answer_6468">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה אף אחד לא עוזר לי? </p>
+</div>
+<div class="answer" id="answer6470">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6470" href="מישהו יכול לעזור לי-1.htm#answer_6470">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שמתי לבד למשהו, אתה שלפת פעמיים נתונים, פעם אחד כ query ופעם כsql, למה? </p>
+</div>
+<div class="answer" id="answer6473">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>shlomo120</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6473" href="מישהו יכול לעזור לי-1.htm#answer_6473">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כדי לעבור מprint לecho .<br>ולהתחיל להבריח תווים .<br>ולשנות את קובץ ההתחרות לסיומת PHP כדי ששום גולש לא יראה את הפרטים של המסד. </p>
+</div>
+<div class="answer" id="answer6474">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6474" href="מישהו יכול לעזור לי-1.htm#answer_6474">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שלפתי פעמיים כי צריך 2 טבלאות של משתמשים ושל הודעות שפרסמו אני אישית מעדיף print מecho אם אני ישנה את הmysql לסימות php זה לא יעבוד אותו דבר בדיוק ובזה אי אפשר לראות גם. </p>
+</div>
+<div class="answer" id="answer6475">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6475" href="מישהו יכול לעזור לי-1.htm#answer_6475">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה היא שלא נותן לקישור את הid של מי ששלח ובכלל לא נותן id גם לא של אותו אחד. </p>
+</div>
+<div class="answer" id="answer6479">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 14 למאי 2013 </span>
+<a id="answer_6479" href="מישהו יכול לעזור לי-1.htm#answer_6479">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הסתדרה הבעיה כתבתי אותיות קטנות במקום רישיות </p>
+</div>
+<div class="answer" id="answer6480">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>shlomo120</a>
+ב
+<span style="font-size:10px"> 14 למאי 2013 </span>
+<a id="answer_6480" href="מישהו יכול לעזור לי-1.htm#answer_6480">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון שזה יעבוד אותו הדבר אבל זה יהפוך את האתר שלך לפריץ פי כמה וכמה ! <br>אתה בעצם מנגיש את פרטי ההתחברות לכל אחד שיבקש מהשרת . אם זה סיומת PHP יוצג לו רק דף לבן ולא כל הפרטים...<br>ECHO הרבה יותר מהיר דרך אגב... </p>
+</div>
+<div class="answer" id="answer6481">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 14 למאי 2013 </span>
+<a id="answer_6481" href="מישהו יכול לעזור לי-1.htm#answer_6481">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טוב אני אשנה לphp זה יהיה גם יותר נוח לי מצג המתכנת. אני אישית מעדיף print מכיוון שהמורה שלי השתמש בprint וecho הוא פחות אוהב אז זה הרגל אני אשנה עכשיו.תודה </p>
+</div>
+<div class="answer" id="answer6482">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 למאי 2013 </span>
+<a id="answer_6482" href="מישהו יכול לעזור לי-1.htm#answer_6482">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני אקח ניחוש ואומר שהמורה הזה ישראלי. אלוהים ישמור. </p>
+</div>
+<div class="answer" id="answer6483">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 14 למאי 2013 </span>
+<a id="answer_6483" href="מישהו יכול לעזור לי-1.htm#answer_6483">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון ישראלי. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

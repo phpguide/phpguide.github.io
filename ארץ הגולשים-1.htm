@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="זיהוי ארץ הגולש לפי כתובת IP">
+<meta name="keywords" content="IP, מדינה, מיקום">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>בדיקת ארץ הגולשים</title>
+<meta itemprop="name" content="בדיקת ארץ הגולשים">
+<meta itemprop="description" content="זיהוי ארץ הגולש לפי כתובת IP">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"153","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>בדיקת ארץ הגולשים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-09-08T16:35:07+03:00" dir="rtl">08 לספטמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://upng.info/files/385175_world.jpg" alt="בדיקת ארץ הגולשים">
+</div>
+<div class="right post-content">
+ישראל, אפריקה או קוריאה צפונית? לגלות מאיזה ארץ גולשים באתר לפי ה-IP - אפשר באמצעות קוד קצר. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>לכל מדינה טווח IP משלה</h3><br>ארגון ה-IANA מחלק את טווח כתובות ה-IP לפי ארצות, כך שכל ארץ מתחילה במספרי IP שונים. אם נדע את מספרי ה-IP של כל ארץ - נוכל לדעת את ארץ הגולש.<br><br><h3>MaxMind מספקת טבלת IPים של ארצות</h3><br>הורד את <a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz">הקובץ</a> ופתח את הארכיון לתיקיה כלשהי (geoip, לדוגמה). את <a href="http://www.maxmind.com/download/geoip/api/php/">המחלקה geoip אפשר להוריד מפה</a>.<br><br><h3>קוד למציאת ארץ הגולש</h3><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">include</span><span class="br0">&#40;</span><span class="st0">&quot;geoip/geoip.inc&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$gi</span> <span class="sy0">=</span> geoip_open<span class="br0">&#40;</span><span class="st0">&quot;GeoIP.dat&quot;</span><span class="sy0">,</span> GEOIP_STANDARD<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> geoip_country_code_by_addr<span class="br0">&#40;</span><span class="re0">$gi</span><span class="sy0">,</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REMOTE_ADDR'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+geoip_close<span class="br0">&#40;</span><span class="re0">$gi</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>הפלט: Israel<br>עכשיו אפשר להגביל גישה לאתר עבור גולשים מישראל או גולשים מחוץ לישראל, או סתם לנתח טוב יותר נתונים סטטיסטיים על הגולשים. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment738"></a>
+<div class="blog-comment">
+<span class='comment-author'>NetanelEdri</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/09/2011 20:43</span><br>
+נחמד אלכס , יש לציין שיש גם אתרים שמספקים מידע על הגולש כולל מדינה ע&quot;פי אייפי ומייצאים לך XML שאתה יכול לקרוא.<br>
+ד&quot;א השאלה האם הפונקציות של geoip מובנות ב PHP ? או דורשות התקנה ?</div>
+<a id="comment739"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/09/2011 20:44</span><br>
+תודה רבה על המדריך!<br>
+ידעתי על ה- GeoIP אבל לא ידעתי איך להוריד ולהשתמש.<br>
+תודה רבה!</div>
+<a id="comment740"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/09/2011 21:32</span><br>
+ואוו גאוני!!!!<br>
+זה אפשרי לפי זה לעשות מציאת אזור אוטומטי!</div>
+<a id="comment741"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/09/2011 22:06</span><br>
+וואו, אני עושה את זה בדרך אחרת לגמריי,<br>
+יש לי מסד של 15 מגה עם כל כתובות האייפי שאני שומר כטבלה,<br>
+וככה בודק, זה נראה הרבה יותר קצר.<br>
+השאלה אם זה בטוח והמקור אמין?</div>
+<a id="comment743"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/09/2011 22:50</span><br>
+זה לא תמיד מדויק.</div>
+<a id="comment744"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/09/2011 03:10</span><br>
+בגדול maxmind הם המקור הכי גדול, פופולארי ואמין ל geoip לכן סביר להניח שהמסד שהם מביאים הוא הכי עדכני, למרות שהוא מבוסס על קבצים.</div>
+<a id="comment746"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/09/2011 17:06</span><br>
+רסלין, כדאי כמובן כל כמה זמן לבדוק ולהוריד את הגרסא המעודכנת של הAPI .<br>
+לשאלה, ניתן להרחיב ולהוסיף תמיכה בgeoip (אל תשכחו שPHP היא קוד פתוח (:) .<br>
+מומלץ ויעיל בהרבה מאשר בקשה ועבודה דרך אתרים אחרים (מה גם שאין לדעת אם האתרים עדכניים או אם הם יפעלו בכל שניה ודקה שיש ולא יפלו מתישהו) .<br>
+<br>
+<span dir="ltr"><a href="http://php.net/manual/en/book.geoip.php">http://php.net/manual/en/book.geoip.php</a></span></div>
+<a id="comment749"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/09/2011 18:03</span><br>
+דווקא ההרחבה של geoip לא התעדכנה מאז מרץ 2009<br>
+חוץ מזה שיצרה ומתפעלת את ההרחבה אותה חברת maxmind<br>
+<br>
+מצד שני אחרי שמתקינים את ההרחבה הזו (למי שיש שרת משלו), אפשר להחליף את המסד שלהם באחד יותר עדכני מהאתר ולהשתש בו. ההרחבה תהיה אפקטיבית, מהירה ויעילה יותר.</div>
+<a id="comment775"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/09/2011 18:30</span><br>
+תודה רבה, ממש ממש עזר!</div>
+<a id="comment1355"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/02/2012 21:58</span><br>
+תודה .מדריך מצוין ,אהבתי.<br>
+אם אני רוצה להוסיף עמודה בדף html שמראה לי באיזה דפים באתר אותו משתמש ביקר.<br>
+תוכלו לתת לי הכוונה?<br>
+תודה<br>
+</div>
+<a id="comment1424"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/03/2012 13:46</span><br>
+אבל מאיפה הקובץ הזה?<br>
+<br>
+include(&quot;geoip/geoip.inc&quot;);<br>
+</div>
+<a id="comment1425"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/03/2012 19:23</span><br>
+יש קישור בדיוק באמצע הכתבה :)</div>
+<a id="comment1701"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2012 14:11</span><br>
+הקישור הוא לקובץ Bat ולא לInc ...<br>
+אפשר קישור לקובץ INC ? </div>
+<a id="comment1702"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2012 15:04</span><br>
+הוא לא ל bat<br>
+הוא ל dat.gz וזה ארכיון, בדיוק כמו zip</div>
+<a id="comment1703"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2012 15:13</span><br>
+בתוך dat.gz יש קובץ dat.</div>
+<a id="comment1704"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2012 15:13</span><br>
+בקובץ dat.gz הספציפי הזה.</div>
+<a id="comment1705"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2012 15:19</span><br>
+<span dir="ltr"><a href="http://www.maxmind.com/download/geoip/api/php/">http://www.maxmind.com/download/geoip/api/php/</a></span></div>
+<a id="comment1706"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2012 15:27</span><br>
+זה כבר טוב יותר. :)</div>
+<a id="comment1838"></a>
+<div class="blog-comment">
+<span class='comment-author'>mmh19</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/08/2012 02:47</span><br>
+זה יעזור לי באתר של לקוח, תודה.<br>
+אבל מה אני עושה בנוגע לעדכון רשימות הIP?<br>
+יש איזה קישור שמתעדכן תמיד?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

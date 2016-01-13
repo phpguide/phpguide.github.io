@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חלק ב&apos; של המדריך ל-Yii: איך לבחור איזו פעולה תקרה ובאיזה קונטרולר להשתמש.">
+<meta name="keywords" content="yii, framework">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Yii | כתובות ושימוש ב-Views</title>
+<meta itemprop="name" content="Yii | כתובות ושימוש ב-Views">
+<meta itemprop="description" content="חלק ב&apos; של המדריך ל-Yii: איך לבחור איזו פעולה תקרה ובאיזה קונטרולר להשתמש.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"179","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii | כתובות ושימוש ב-Views</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2011-12-26T17:07:32+02:00" dir="rtl">26 לדצמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/yii2.jpg" alt="Yii | כתובות ושימוש ב-Views">
+</div>
+<div class="right post-content">
+הפעם אני אלמד אתכם עוד כמה דברים: איך לבחור איזו פעולה תקרה ובאיזה קונטרולר להשתמש. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק א.htm">לחץ כאן</a> בכדי להגיע לחלק הראשון של המדריך.<br><br>בחלק הקודם של המדריך דיברנו על התקנת Yii והסברנו מה זה קונטרולרים.<br><br>הפעם אני אלמד אתכם עוד כמה דברים: איך לבחור איזו פעולה תקרה ובאיזה קונטרולר להשתמש.<br>ב-GET זה ישמש בשם r. אם הוא לא קיים, זה יהיה הקונטרולר הראשי + הפעולה הראשית, שזה אומר שאם לא עשינו GET כזה (r), ה-r יהיה שווה ל-main/index. במקרה שלנו - ControllerName/Action.<br><br>עכשיו ניצור בקונטרולר הראשי פעולה שתיקרא hello. כמו שאמרתי בחלק הקודם, שם פעולה הוא action ולאחריו השם שאנחנו רוצים.<br><em><span class="dirleft">protected/controller/MainController.php</span></em><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionIndex<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;hello world&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionHello<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>אם נכנס עכשיו לדף, עדיין נראה hello world, מכיוון שהפעולה הראשית תבוצע אוטומטית כי שלא הגדרנו איזו פעולה לעשות. לכן נוסיף לכתובת את ה-GET בשם r שיכיל main/hello, כלומר: <span dir="ltr">index.php?r=main/hello</span> - שזה אומר שהפעולה hello שנמצאת ב-Controller בשם main תרוץ.<br><br>--- מקווה שהסברתי טוב; אם לא הבנתם - תשאלו, ואשתדל להסביר יותר טוב. ---<br><br>עכשיו נגרום לכך שהפעולה Hello תדפיס גם למי להגיד שלום, זאת לפי ה-GET. אפשר להשתמש ב-<span dir="ltr">$_GET</span>, אבל YII נותנת אפשרות להשתמש ב-GET דרך הפעולה, פשוט מוסיפים משתנה לפונקציה hello בשם של ה-get.<br>נניח שאני רוצה לקרוא מה-get בשם name - אני אוסיף לפונקציה משתנה בשם name.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionIndex<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;hello world&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionHello<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello <span class="es4">$name</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>לדוגמה, הכתובת <span dir="ltr">index.php?r=main/hello&amp;name=David</span> תדפיס Hello David.<br>אבל, אם נוריד את ה-get בשם name נקבל שגיאה, בגלל שה-get בשם name לא קיים. לכן נגרום לכך שאם ה-GET בשם name לא קיים, הוא יכיל את המחרוזת Guest, אז פשוט נכתוב <span dir="ltr">$name=&quot;Guest&quot;</span>, כך:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionIndex<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;hello world&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionHello<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">=</span><span class="st0">&quot;Guest&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello <span class="es4">$name</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>מה שאומר שאם ה-GET בשם name לא קיים, הפונקציה תדפיס Hello Guest, אבל אם הוא קיים הוא ידפיס Hello $name.<br><br>עכשיו אני אלמד אותכם לרנדר; זה נעשה ע&quot;י פונקציה בשם render. כל הקבצי הרנדור יהיו בתיקייה protected/views. לכל controller יש תיקייה של רינדור בשם של ה-controller. לדוגמה, כל קבצי הרינדור של הקונטרולר main נמצאים בתיקייה protected/views/main. עכשיו נדפיס תיבת התחברות, נעשה בפעולה הראשית רנדר ל-login, כך:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionIndex<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st0">&quot;login&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionHello<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">=</span><span class="st0">&quot;Guest&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello <span class="es4">$name</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>אם נריץ את האתר עכשיו נקבל שגיאה, כי הקובץ login.php (כעושים רינדור אין צורך להוסיף <span dir="ltr">.php</span>) לא נמצא.<br><br>אז בואו ניצור את הקובץ login.php בשביל הרינדור.<br><span class="dirleft"><em>protected/views/main/login.php</em></span><br><div class="php codeblock">&lt;h1&gt;Login&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'login'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;admin&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;admin&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Your Wellcome Admin&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;The Details Are Wrong&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;<br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;Username:&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;Password:&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;submit&quot; name=&quot;login&quot; value=&quot;Log In&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &lt;/table&gt;<br>
+&lt;/form&gt;</div><br>אני לא חושב שאני צריך להסביר מה הקוד הזה עושה...<br><br><strong>אני מדגיש עוד פעם: כשמרנדרים, לא לשכוח ליצור תיקייה של הקונטרולר.</strong><br><br>אם נריץ עכשיו את האתר אנחנו נראה את תיבת התחברות.<br>ניתן להוריש משתנה מה-action אל הרנדר. בפונקציה render אנו מורישים את המשתנים במערך. לדוגמה, אני רוצה להוריש את המשתנה date, שהוא יהיה שווה לתאריך. (במקרה הזה זה סתם מטופש, אבל זו הדוגמה היחידה שמצאתי.)<br><div class="php codeblock"><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span> <span class="st0">&quot;login&quot;</span> <span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;date&quot;</span><span class="sy0">=&gt;</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;d/m/Y&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span></div><br>עכשיו המשתנה date קיים ברנדר של ההתחברות, שזה אומר שאפשר להשתמש בו:<br><div class="php codeblock">&lt;h1&gt;Login - <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$date</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'login'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;admin&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;admin&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Your Wellcome Admin&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;The Details Are Wrong&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;<br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;Username:&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;Password:&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;submit&quot; name=&quot;login&quot; value=&quot;Log In&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &lt;/table&gt;<br>
+&lt;/form&gt;</div><br><br>קוד סופי:<br><span class="dirleft"><em>protected/controller/MainController.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionIndex<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span> <span class="st0">&quot;login&quot;</span> <span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;date&quot;</span><span class="sy0">=&gt;</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;d/m/Y&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionHello<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">=</span><span class="st0">&quot;Guest&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello <span class="es4">$name</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br><span class="dirleft"><em>protected/views/main/login.php</em></span><br><div class="php codeblock">&lt;h1&gt;Login - <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$date</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'login'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;admin&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;admin&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Your Wellcome Admin&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;The Details Are Wrong&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;<br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;Username:&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;Password:&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;input type=&quot;submit&quot; name=&quot;login&quot; value=&quot;Log In&quot; /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &lt;/table&gt;<br>
+&lt;/form&gt;</div> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1000"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 21:08</span><br>
+מדהים, כל הכבוד.<br>
+בשורה אחת אפשר לסכם שהקונטרולר והאקשן שיופעלו נבחרים על ידי הערך המועבר ב $_GET[&apos;r&apos;]<br>
+יש מיפוי אוטומתי בין פרמטרים בכתובת שמעבירים ב GET לבין פרמטרים שאותו אקשן מקבל.<br>
+כמובן שבאמצעות ניטוב כתובת עם urlManager אפשר להיסתדר גם בלי להעביר את שם הקונטרוללר והאקשן בעומד חד ישיר בכתובת. אני מקווה שזה יהיה במדריך הבא.<br>
+<br>
+הייתי רק מציין שאת הלוגיקה והבדיקה של האם קיים משתמש או לא והאם הוא אדמין עדיף לשים בקונטרולר, שזה הייעוד שלו, וב view רק להציג את הערך שהועבר לו מהקונטרולר. באופן כללי ל YII יש מנגנון הזדהות, מנגנון חלוקת תפקידים (למשתמשים רגילים ואדמניםי ומפקחים ומאפיה וכל דבר אחר) שעדיף להישתמש בו. <br>
+בורב המקרים אפילו לא תעבירו ל view את שם המשתמש, אלה ישר תרנרדרו view אחר למשתמשים מזוהים ומשתמשים לא מזוהים.</div>
+<a id="comment1001"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 22:56</span><br>
+אני לא מתכונן לדבר על urlManger במדריך הבא כי אפילו לא הגעתי למודלים וכל מה שהארצי הם סתם דוגמאות לא היה לי רעיון לדוגמה נורמלית<br>
+<br>
+תודה על התגובה אני אעשה את המדריך הבא רק אם יהיה תגובות</div>
+<a id="comment1004"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2011 03:07</span><br>
+תלך באיזה סדר שתחשוב לנכון :-)<br>
+אני הייתי ממליץ בכל זאת למחוק את הבדיקה מהווי והלעבירה לקונטרולר, גם יהיה תקני יותר וגם דוגמה נוספת לפרמטרים ברנדר.</div>
+<a id="comment1006"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2011 16:29</span><br>
+אהבתי מאוד, כל הכבוד!<br>
+אופן העבודה בפריימוורק הזה הוא פשוט נוח ומצוין.<br>
+מחכה לבא :)</div>
+<a id="comment1007"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2011 19:19</span><br>
+מדריך ע-נ-ק! D=<br>
+תמשיך ככה! אתה לא מבין כמה חיכיתי למדריך כזה! כל הכבוד על ההשקעה!<br>
+אני מחכה כבר בקוצר רוח למדריך הבא!!!<br>
+<br>
+<br>
+</div>
+<a id="comment1008"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/12/2011 15:52</span><br>
+אתה ענק! יוזמה גדולה , מדריך מצויין ! :)))<br>
+מחכה לבא !</div>
+<a id="comment1009"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/12/2011 00:35</span><br>
+אני רק שאלה.<br>
+מה זה בדיוק אומר לרנדר..?</div>
+<a id="comment1010"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/12/2011 04:01</span><br>
+לדעתי יש למילה הזאת כבר ירוש מילוני והמשמעוט שלה היא להציג תוצר סופי על המסך.<br>
+במקרה שלנו זה לייצר HTML אחרי זה יישלח לדפדפן. </div>
+<a id="comment1020"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/01/2012 19:18</span><br>
+חייב לדעת עוד על YII, מאיפה אפשר ללמוד ?<br>
+איפה אפשר למצוא מידע על מודלים ובעברית ?</div>
+<a id="comment1022"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/01/2012 19:33</span><br>
+בעברית אפשר רק עם מילון. בכלל לדעתי לתכנת בלי לדעת אנגלית אי אפשר.<br>
+מה שכן, יש את האתר <br>
+<span dir="ltr"><a href="http://he.yiiframework.co.il/">http://he.yiiframework.co.il/</a></span><br>
+אם די הרבה חלקים מתורגמים מהאתר המקורי</div>
+<a id="comment1044"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 19:33</span><br>
+מתי יהיה המשך?</div>
+<a id="comment1045"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 20:27</span><br>
+לפי דעתי הפראים ווארק הזה ממש לא מובן!<br>
+<br>
+למה שלא יעשו כמו ב .NET שיש רק framework אחד נורמאלי?<br>
+ויש רק תוכנה אחד שיש בה הכל(קומפלוייר, עורך טקסט - IDE ושרת וואב)?</div>
+<a id="comment1046"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 22:02</span><br>
+זה פרימוורק ממש נוח O.ם<br>
+</div>
+<a id="comment1048"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/01/2012 11:40</span><br>
+@משתמש_75180 ולמה שכן יעשו דבר כזה?<br>
+אתה יוצא מוגבל לגמרי. כאן יש לך חופש בחירה לכל דבר - שרת וואב, פריימוורק, IDE<br>
+אף אחד לא באמת צריך חבילת all-in<br>
+הרבה יותר נוח להחליט לבד מה סביבת העבודה שלך מאשר שמישהו אחר יחליט בשבילך</div>
+<a id="comment1050"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/01/2012 18:13</span><br>
+zend מצעיעים לך פתרון all in <br>
+zend server + zend studio + zend framework + zend cloud + עוד כמה<br>
+וגם המחיר יוצא יותר זול מזה של MS</div>
+<a id="comment1051"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/01/2012 22:36</span><br>
+ההמשך בקרוב :)</div>
+<a id="comment1056"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/01/2012 15:58</span><br>
+@ilikeme תודה ;)<br>
+אתה ממש עוזר</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

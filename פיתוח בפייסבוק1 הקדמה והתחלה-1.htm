@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="סדרת מדריכים שתלמד איך לפתח בפייסבוק ותלמד על ה-SocialGraph, על ה-GraphAPI, על OpenGraph, על FQL , על FacebookSDK לג&apos;אווה-סקריפט ועוד. בפרק הראשון נלמד מה זה social graph ו">
+<meta name="keywords" content="פייסבוק, Social Graph, Open Graph, Graph API, FQL, Facebook, Facebook SDK,">
+<meta name="author" content="dekelyi">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>[פיתוח בפייסבוק][1] הקדמה והתחלה.</title>
+<meta itemprop="name" content="[פיתוח בפייסבוק][1] הקדמה והתחלה.">
+<meta itemprop="description" content="סדרת מדריכים שתלמד איך לפתח בפייסבוק ותלמד על ה-SocialGraph, על ה-GraphAPI, על OpenGraph, על FQL , על FacebookSDK לג&apos;אווה-סקריפט ועוד. בפרק הראשון נלמד מה זה social graph ו">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"321","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>[פיתוח בפייסבוק][1] הקדמה והתחלה.</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">dekelyi, </div>
+<div class="right">&nbsp;<time datetime="2013-04-18T15:10:52+03:00" dir="rtl">18 לאפריל 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://img855.imageshack.us/img855/8301/opengraphsplash1.png" alt="[פיתוח בפייסבוק][1] הקדמה והתחלה.">
+</div>
+<div class="right post-content">
+סדרת מדריכים שתלמד איך לפתח בפייסבוק ותלמד על ה-SocialGraph, על ה-GraphAPI, על OpenGraph, על FQL , על FacebookSDK לג&#039;אווה-סקריפט ועוד.<br>בפרק הראשון נלמד מה זה social graph ונתחיל לעבוד עם FacebookSDK. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שלום לכולם.<br>זו היא סדרת מדריכים שתעסוק בפיתוח בפייסבוק בסביבת צד לקוח עם ג&#039;אווה-סקריפט.<br><br><h3><span style="color:darkblue;">הסוקייל גראף&#039;</span></h3><br>ה<strong>סוקייל גראף&#039; </strong>(Social Graph) הוא מושג בפייסבוק שמתאר את כל המידע באמצעות <strong>קשרים:</strong><br>- לאיש X יש קשר לאיש Y בכך שהוא חבר שלו<br>- לאיש X יש קשר לסטטוס Y בכך שהוא עשה לו לייק<br>- לאיש X יש קשר עם קבוצה Y בכך שהוא חבר בה<br><br><h4>סטורי</h4><br>הסוקייל גראף&#039; מייצג כל קשר כזה כ<strong>סטורי</strong> (story, סיפור):<br>- כשמופיע לך על הניוזפיד &quot;x likes a status&quot; זה סטורי על קשר מסוג לייק שנוצר בין המשתמש X לסטטוס Y.<br>- כשמופיע לך על הניוזפיד סטטוס ש-X כתב זה סטורי מיוחד שמייצג פוסט שפרסמת.<br>- כשמופיע לך על הניוזפיד ש-X עשה לייק לתמונה באינסטגרם זה סטורי מיוחד שמייצג קשר חיצוני שלא קשור לפייסבוק.<br><br><h4>אופן גראף&#039;</h4><br><strong>האופן גראף&#039;</strong> (Open Graph) הוא API שמאפשר לעשות סטוריאס (Stories) שלא תמיד לא בשליטת פייסבוק:<br>- כשמופיע לך על הניוזפיד ש-X קרא מאמר בmakoconnect זה סטורי שאתר מאקו עושה.<br>לסטורי שבא מהאופן גראף&#039; יש שלושה אלמנטים:<br>- <strong>סבג&#039;אקט (subject): </strong>מי שעשה את זה. לדוגמא: X.<br>- <strong>אקשן (action):</strong> מה שקרה. לדוגמא: לייק.<br>- <strong>אובייקט (object):</strong> על מה זה קרה. לדוגמא: סטטוס.<br>&quot;X עשה לייק לסטטוס&quot;<br>סטוריאס שבאו מהאופן גראף&#039; יכולים לעשות צורה מיוחדת שבה הסטורי יראה, והם יכולים להוסיף לו actions שיופיעו ליד כפתורי הלייק והתגובה (כמו See friendship בקשר בין משתמשים).<br>הרבה מהסטוריאס שדווקא כן בשליטת פייסבוק נוצרים ע&quot;י האופן גראף&#039;, בכך שהם לוקחים את הקשר שנוצר והופכים אותו לסטורי בעזרת שלושת האלמנטים.<br>רוב האופן גראף&#039; מבוסס על <strong>פרוטוקול בשם Open Graph</strong> (מן הסתם) או בקיצור og, שעליו מבוססות עוד רשתות כמו גוגל+.<br><br><h4>גראף&#039; אייפיאיי</h4><br>ה-<strong>GraphAPI</strong> הוא הAPI הכי גדול בSDK של פייסבוק והוא מאפשר לקבל, לשלוח או למחוק מידע מהסוקייל גראף&#039;, ולו יש API מיוחד ונוח מאוד.<br>הגראף&#039; אייפיאיי בנוי בצורה של URL כשיש לו נתיב ופרמטרים<br>הגראף&#039;API תמיד מחזיר אובייקט. כווב-סרביס וכJS-SDK הוא יחזיר JSON.<br><br><h3><span style="color:darkblue;">יצירת האפליקציה</span></h3><br>בשביל שנוכל ללהשתמש בSDK אנחנו צריכים שיהיה לנו הרשאות מתאימות כדי שנוכל לגשת לדברים שאנחנו צריכים.<br>בשביל שיהיו לנו איך לקבל הרשאות אנחנו צריכים ליצור אפליקציה:<br>1) ניכנס לפאנל הניהול של האפליקציות בכתובת <a href="https://developers.facebook.com/apps">https://developers.facebook.com/apps</a><br>2) נלחץ על Create New App ונמלא את השדות:<br>- AppName: שם של האפליקציה.<br>- Namespace: שם מיוחד לאפליקציה, בלי רווחים, שמשתמשים בו במיוחד באופן גראף&#039;.<br>- Web Hosting: מאפשר אחסון חינם ע&quot;י heroku עם PHP, רובי, פייתון ו-NodeJS<br>3) תכתבו את קוד האבטחה.<br><br><h3><span style="color:darkblue;">ה-SDK</span></h3><br>סוף סוף נתחיל לעבוד עם הSDK.<br>נעשה את זה עם ג&#039;אווה-סקריפט בצד לקוח.<br>קודם כל נטען את הספריה.<br>נשים דיב עם המזהה fb-root, זה הוא דיב פנימי של הספרייה ואין לגעת בו.<br>נקשר לסקריפט https://connect.facebook.net/en_US/all.js<br>ונקשר לסקריפט שלנו.<br><div class="php codeblock"><span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;fb-root&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">&quot;https://connect.facebook.net/en_US/all.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">&quot;script.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></div><br>הספרייה היא OOP-Based והאובייקט הגלובאלי שלה הוא window.FB.<br>בשביל לאתחל אותה נקרא למתודה init שמקבל אובייקט שבשלב הזה יהיה לו רק ערך אחד:<br>- appId &lt;מחרוזת&gt;: המזהה של האפליקציה כפי שמופיע בפאנל הניהול.<br><div class="php codeblock">FB<span class="sy0">.</span>init<span class="br0">&#40;</span><span class="br0">&#123;</span>appId<span class="sy0">:</span> <span class="st_h">'178452825589067'</span><span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>עכשיו נשתמש בגראף&#039; אייפיאיי כדאי לקבל מידע על משתמש.<br>כדאי להשתמש בגראף&#039; אייפיאיי אנחנו נשתמש במתודה api (מן הסתם) שמקבלת שני פרמטרים בשלב הזה: מחרוזת של הבקשה וקלבק (callback).<br><div class="php codeblock">FB<span class="sy0">.</span>api<span class="br0">&#40;</span><span class="st_h">'/4'</span><span class="sy0">,</span><span class="kw2">function</span><span class="br0">&#40;</span>d<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; alert<span class="br0">&#40;</span>d<span class="sy0">.</span>name<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span></div><br>אצלי בדוגמא קיבלתי את השם של חברנו היקר צוקרברג.<br><br>קוד להרצה: <a href="http://jsfiddle.net/38Gk5/">http://jsfiddle.net/38Gk5/</a><br><br>בפרק הבא של המדריך אני ידבר עוד על האובייקטים השונים בGraphAPI, על התחברות לפייסבוק, ועל כלים ועזרים לעבודה בסביבת ה-SDK. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=16&r=g&d=monsterid" alt="dekelyi">
+<a>dekelyi</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2439"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/04/2013 19:26</span><br>
+כל הכבוד :)! המשך כך</div>
+<a id="comment2440"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/04/2013 10:50</span><br>
+מדריך טוב. תודה רבה. <br>
+<br>
+רק הערה אחת: <br>
+אל תכתוב בעברית דברים שכתובים באנגלית. זה לא נראה טוב. אני מדבר על &quot;אופן גראף&quot; וכל אלה. <br>
+בנוסף גם טעית... כי social זה סושיאל (סוציאלי, חברתי) ולא סוקיאל. <br>
+Stories זה סטוריס ולא סטוריאס.. <br>
+<br>
+בהצלחה ותודה רבה. :-) </div>
+<a id="comment2441"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/04/2013 17:27</span><br>
+אחלה מדריך, תודה רבה. :-)<br>
+<br>
+@iiddaannyy<br>
++1</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

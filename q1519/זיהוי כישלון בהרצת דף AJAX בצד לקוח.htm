@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה זיהוי כישלון בהרצת דף AJAX בצד לקוח">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itamarhadad">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>זיהוי כישלון בהרצת דף AJAX בצד לקוח | שאלת לימוד PHP</title>
+<meta itemprop="name" content="זיהוי כישלון בהרצת דף AJAX בצד לקוח | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה זיהוי כישלון בהרצת דף AJAX בצד לקוח">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="זיהוי כישלון בהרצת דף AJAX בצד לקוח.htm" title="אני מריץ דפים בAJAX שמשתמשים ב&amp;quot;לונג&amp;quot;.והמטרה שלי היא לזהות כשאר הדף מחזיר שגיאת שרת למשל עקב חיבור לאינטרניט או בעיות קליטה שונותאך הבעיה היא שכאשר ניסיתי להשתמש בSTATUSCODE הוא לא החזיר לי שום שגיאה אלא פעל כרגילif&amp;#40;xmlhttp.status&amp;gt;499&amp;#41;alert&amp;#40;">זיהוי כישלון בהרצת דף AJAX בצד לקוח</a></h2>
+<div class="userinfo">
+פתח
+<a>itamarhadad</a>
+,
+<time class="timeago relativetime" datetime="2013-06-17T22:29:33+03:00" style="display:inline-block;">
+17 ליוני 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1519'>
+אני מריץ דפים בAJAX שמשתמשים ב&quot;לונג&quot;.<br>והמטרה שלי היא לזהות כשאר הדף מחזיר שגיאת שרת למשל עקב חיבור לאינטרניט או בעיות קליטה שונות<br>אך הבעיה היא שכאשר ניסיתי להשתמש בSTATUSCODE הוא לא החזיר לי שום שגיאה אלא פעל כרגיל<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>status<span class="sy0">&gt;</span><span class="nu0">499</span><span class="br0">&#41;</span>alert<span class="br0">&#40;</span><span class="st0">&quot;dead&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>וגם כאן לא התקבלה שום התראת DEAD<br><br>ישנה איזו שהיא דרך לזהות כאשר הדף מאבד את התקשרות ,בצד הלקוח (JS)? </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6879">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2013 </span>
+<a id="answer_6879" href="זיהוי כישלון בהרצת דף AJAX בצד לקוח.htm#answer_6879">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה גם צריך לבדוק את הסטטוס של הבקשה, לראות שהיא הושלמה.<br>או בקוד קצר:<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>readyState<span class="sy0">==</span><span class="nu0">4</span> <span class="sy0">&amp;&amp;</span> xmlhttp<span class="sy0">.</span>status<span class="sy0">&gt;</span><span class="nu0">499</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;dead&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>ובכללי יש הרבה יותר <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">סטטוסים</a> מ500..<br>אז תבדוק גם אותם.. AKA:<br><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>readyState<span class="sy0">==</span><span class="nu0">4</span> <span class="sy0">&amp;&amp;</span> xmlhttp<span class="sy0">.</span>status <span class="sy0">!=</span> <span class="nu0">200</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;dead&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>פעם הבאה תקרא <a href="http://www.w3.org/TR/XMLHttpRequest/">תיעוד</a> (documentation) של פונקיות, זה יעזור לך מאוד ויחסוך את זמן ההמתנה לתשובות.. </p>
+</div>
+<div class="answer" id="answer6885">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2013 </span>
+<a id="answer_6885" href="זיהוי כישלון בהרצת דף AJAX בצד לקוח.htm#answer_6885">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני מחפש שגיאות שרת מיכיוון ושגיאות 400 של קבצים ו300 של כיוונון מחדש לא יופיעו לי<br>אבל שגיאות 500+ עלולים להופיע בסבירות גבוהה מאוד.<br><br>גם כשהדף מת כביכול הוא עדיין נכנס לתוך הIF של ה200 כלומר הסטטוס שלו לא משתנה בכלל<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>readyState<span class="sy0">==</span><span class="nu0">4</span><span class="sy0">&amp;&amp;</span>xmlhttp<span class="sy0">.</span>status<span class="sy0">==</span><span class="nu0">200</span><span class="br0">&#41;</span></div><br>ואז הוא מחזיר ERROR בJS אחרי שהוא בפנים </p>
+</div>
+<div class="answer" id="answer6895">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2013 </span>
+<a id="answer_6895" href="זיהוי כישלון בהרצת דף AJAX בצד לקוח.htm#answer_6895">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תעלה את כל הסקריפט שלך, הבעיה היא לא בתנאי. </p>
+</div>
+<div class="answer" id="answer6898">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2013 </span>
+<a id="answer_6898" href="זיהוי כישלון בהרצת דף AJAX בצד לקוח.htm#answer_6898">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">xmlhttp<span class="sy0">.</span>onreadystatechange<span class="sy0">=</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>readyState<span class="sy0">==</span><span class="nu0">4</span><span class="sy0">&amp;&amp;</span>xmlhttp<span class="sy0">.</span>status<span class="sy0">&gt;</span><span class="nu0">499</span><span class="br0">&#41;</span>alert<span class="br0">&#40;</span><span class="st0">&quot;dead&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">else</span> <span class="kw1">if</span><span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>readyState<span class="sy0">==</span><span class="nu0">4</span><span class="sy0">&amp;&amp;</span>xmlhttp<span class="sy0">.</span>status<span class="sy0">==</span><span class="nu0">200</span><span class="br0">&#41;</span>alert<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer6899">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2013 </span>
+<a id="answer_6899" href="זיהוי כישלון בהרצת דף AJAX בצד לקוח.htm#answer_6899">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">xmlhttp<span class="sy0">.</span>onreadystatechange <span class="sy0">=</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; try <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>readyState <span class="sy0">==</span> <span class="nu0">4</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>status <span class="sy0">==</span> <span class="nu0">200</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// all good..</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>status <span class="sy0">&gt;</span> <span class="nu0">499</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;dead&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span> catch <span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; console<span class="sy0">.</span><span class="kw3">log</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>בהצלחה! </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="המדריך מסביר שתי דרכים לשליפת שורות באקראיות ממסד נתונים ומתי להשתמש בכל אחת מהן.">
+<meta name="keywords" content="שליפה רנדומלית, שורה אקראית, order by rand()">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>שליפה אקראית של שורות מטבלת מסד נתונים</title>
+<meta itemprop="name" content="שליפה אקראית של שורות מטבלת מסד נתונים">
+<meta itemprop="description" content="המדריך מסביר שתי דרכים לשליפת שורות באקראיות ממסד נתונים ומתי להשתמש בכל אחת מהן.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"77","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>שליפה אקראית של שורות מטבלת מסד נתונים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-04-13T16:48:16+03:00" dir="rtl">13 לאפריל 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.asktheodds.com/images/icons/random1.png" alt="שליפה אקראית של שורות מטבלת מסד נתונים">
+</div>
+<div class="right post-content">
+המשימה: לשלוף כמה שורות מטבלת מסד נתונים באקראיות. <br>הפתרון: <span style="color:darkblue;"><em>SELECT * FROM `table` ORDER BY RAND() LIMIT 1</em></span><br>התוצאה: נפל השרת. למה, מה קרה, ואיך היה צריך לעשות זאת? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+בפני מפתחים רבים עומדת המשימה לשלוף כמה שורות מטבלה באקראיות. הדרך הנפוצה ביותר היא השאילתה הבאה:<br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM `table` ORDER BY <span class="kw3">RAND</span><span class="br0">&#40;</span><span class="br0">&#41;</span> LIMIT <span class="nu0">1</span></div><br>השאילתה הזו מסוכנת מאוד בטבלאות גדולות, לא יעילה ועשויה לתקוע את השרת לזמן מה.<br><br><h3>הֶסבר השיטה הנפוצה – <span dir="ltr">ORDER BY rand()</span></h3><br><a href="http://dev.mysql.com/doc/refman/5.0/en/mathematical-functions.html#function_rand">הפונקציה rand</a> מחזירה מספר רנדומלי בין אפס לאחד. כאשר משתמשים בה ב-Order By:<br>1. המסד עובר <strong>על כל שורה</strong> בטבלה ומחשב מספר רנדומלי (בין 0 ל-1).<br>2. הוא רושם אותו עבור אותה שורה בעמודה זמנית.<br>3. הוא ממיין את השורות לפי העמודה הזו.<br>4. מהטבלה החדשה והממוינת שנמצאת בזיכרון נשלפות השורות שהתבקשו.<br><br><h4>כלומר – שליפה מאוד כבדה</h4><br>כדי למיין לפי מספר רנדומלי המסד חייב לעבור <strong>על כל השורות בטבלה</strong> ולחשב עבורן מספר רנדומלי. אחר כך המסד שומר בזיכרון טבלה חדשה עם מספרים, ולבסוף עליו למיין אותה ולשלוף ממנה שורה אחת.<br>תחשבו כמה עומס יהיה על המסד אם הפעולה הזו תתבצע עבור כל גולש באתר... ריבוי פעולות שכזה יורגש טוב מאוד לרעה.<br><br><h3>אלטרנטיבה לטבלאות גדולות</h3><br>האפשרות החלופית היא שימוש ב-LIMIT. השתמשנו בה עבור <a href="חלוקה_לעמודים-1.htm">חלוקת פלט לעמודים</a>, זוכרים?<br>LIMIT מקבלת שני ארגומנטים: הראשון הוא מספר השורה שממנה יש להתחיל את החיפוש והשני הוא מספר השורות שיש להחזיר.<br>את הארגומנט הראשון אפשר לנצל לצורך המשימה שלנו. במקום ש-LIMIT תתחיל את השליפה מהשורה הראשונה, נאמר לה שתשלוף בכל פעם שורה אחת ממיקום שרירותי כלשהו בטבלה – קודם כל לשלוף שורה אחת החל מהשורה השנייה, אחר-כך החל מהשורה השבע-עשרה ובסוף החל מהשורה התשיעית.<br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM `table` LIMIT <span class="nu0">2</span><span class="sy0">,</span><span class="nu0">1</span><br>
+SELECT <span class="sy0">*</span> FROM `table` LIMIT <span class="nu0">17</span><span class="sy0">,</span><span class="nu0">1</span><br>
+SELECT <span class="sy0">*</span> FROM `table` LIMIT X<span class="sy0">,</span><span class="nu0">1</span></div><br>בשיטה הזו יש צורך לחשב מספר אקראי אחד בלבד, במקום לחשב מספר אקראי עבור כל שורה בטבלה וליצור טבלה זמנית. אבל עכשיו בעיה אחרת ניצבת לפנינו: המספר האקראי שיוגרל חייב להיות קטן ממספר השורות בטבלה.<br>לכאן מצטרפת שליפה נוספת שתספור את כמות השורות בטבלה:<br><div class="php codeblock">SELECT <span class="kw3">COUNT</span><span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#41;</span> FROM `table`</div><br>השליפה הזו תעזור לנו לבחור מספר אקראי בין 0 לכמות השורות בטבלה, ואותו נעביר ל-Limit. כדי להגריל מספר אקראי כזה נשתמש ב-<span dir="ltr">Rand()</span> עם השאילתה הבאה, שתחזיר מספר אקראי בין אפס לכמות השורות שבטבלה:<br><div class="php codeblock">SELECT <span class="kw3">FLOOR</span><span class="br0">&#40;</span> <span class="kw3">RAND</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">*</span> <span class="kw3">COUNT</span><span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#41;</span><span class="br0">&#41;</span></div><br>את המספר שנקבל נוכל להציב ב-Limit:<br><div class="php codeblock"><span class="re0">$rand_q</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT FLOOR( RAND() * COUNT(*) ) FROM `table` &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$rand</span> <span class="sy0">=</span> <span class="kw3">mysql_result</span><span class="br0">&#40;</span><span class="re0">$rand_q</span> <span class="sy0">,</span><span class="nu0">0</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$result_q</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `table` LIMIT <span class="es4">$rand</span>,1&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>לצערי, MySQL לא מאפשרת להציב תת-שליפה כפרמטר ב-Limit, ולכן הקוד הבא <span style="color:red;">לא עובד</span>:<br><div class="php codeblock">SELECT <span class="sy0">*</span><br>
+FROM `table`<br>
+LIMIT <span class="br0">&#40;</span><br>
+SELECT <span class="kw3">FLOOR</span><span class="br0">&#40;</span> <span class="kw3">RAND</span><span class="br0">&#40;</span> <span class="br0">&#41;</span> <span class="sy0">*</span> <span class="kw3">COUNT</span><span class="br0">&#40;</span> <span class="sy0">*</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><br>
+FROM `table`<br>
+<span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span></div><br><br><h4>החסרונות בשיטה הזאת</h4><br>1. השיטה הזו פחות טובה במקרה שאתם רוצים לשלוף יותר משורה אחת בו זמנית, כיוון ש-Limit תמיד יחזיר שורות עוקבות (אחת אחרי השנייה). אם זו תהיה טבלה ממש גדולה כנראה לא ממש יבחינו בזה, אבל בכל זאת השליפה לא ממש אקראית.<br>אם זה עקרוני וחשוב, אזי ניתן להריץ את אותה שאילתה כמה פעמים ולקבל כמה תוצאות שונות, אבל יש לשמור על כך שלא ייבחרו השורות שכבר נבחרו בעבר.<br>2. יש לזכור תמיד לשנות את השאילתה בשני מקומות אם צריכים לבצע איזשהו שינוי: פעם אחת בשאילתה עצמה, ופעם נוספת בשאילתה שסופרת שורות, אחרת התוצאות יהיו בלתי צפויות.<br><br>למרות שיש כאן שתי שליפות, הדרך הזו הרבה יותר יעילה ומהירה מ-<span dir="ltr">Order By Rand()</span>, בייחוד בטבלאות גדולות עם אלפי שורות. בטבלאות קטנות (עד מאה שורות) לא מרוויחים מכך, ואין צורך ב-Limit ובשתי שליפות. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment50"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2011 14:30</span><br>
+במה עוזרת שליפה רנדומלית?<br>
+תודה.</div>
+<a id="comment53"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2011 20:58</span><br>
+היא לא עוזרת בשום דבר, באיחוד כשאתה לא צריך אותה.<br>
+<br>
+כשאתה צריך אותה לדברים כמו להציג פרסומת רנדומלית, מוצר כלשהו בעמוד הראשי, בדיחה שונה כל פעם ממאגר בדיחות — <br>
+יש לך את הדרך המפורטת מעלה לבצע את השליפה.</div>
+<a id="comment59"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/04/2011 12:18</span><br>
+אני אשתמש בבזה במערכת שלי..<br>
+תודה אלכס..<br>
+</div>
+<a id="comment66"></a>
+<div class="blog-comment">
+<span class='comment-author'>אבי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/04/2011 22:34</span><br>
+תודה על המאמר רק דבר קטן..<br>
+אני לא השתמשתי בRAND בתוך השאילתה אלא ספרתי את השורות שיש במסד והכנסתי לתוך פקודת RAND ב PHP כך:<br>
+rand(1,$rand)<br>
+תודה רבה מאמר מעולה!</div>
+<a id="comment641"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/08/2011 11:02</span><br>
+אבי,מה יקרה אם ערך אחד ימחק ובמקרה תצא הID של הערך המחוק?</div>
+<a id="comment1474"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/04/2012 18:01</span><br>
+בקוד שהבאת בשביל לפתור את העומס בשאילתה - יוצא שאם תשלוף 3 שורות אז הם לא יהיו רנדומלי כשלעצמם, אלא כסדר שהם מופיעות בטבלה (כך גם אמרת בעצמך).<br>
+<br>
+אז אולי יהיה אפשר להוסיף RAND גם ל ORDER BY, ואז יהיה בשאילתה 2 RAND - גם ללימיט (מאיפה שהוא יתחיל את השליפה) בשביל לחסוך בעומס השאילתה,<br>
+וגם יהיה RAND בORDER BY - בשביל שה3 השורות ישלפו בצורה רנדומלית.<br>
+<br>
+??? מה אתה אומר ???</div>
+<a id="comment1476"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/04/2012 22:36</span><br>
+אני אומר שאתה צודק לגמרי ובמקרה הזה יהיה יותר אפקטיבי לעשות שלוש שליפות נפרדות.<br>
+למרות שזה מאוד תלוי בכמות השורות שיש לך במסד.<br>
+<br>
+הבעיה אם איך שתיארת את הרעיון זה ש<br>
+או שהרנדום יחושב רק לשלוש תמונות שעומדות ברצף, ואש תקבל את אותם שלוש תמונות רצופות בסדר שונה<br>
+או שהרנדום יחושב לכל שורה בטלבה ובעצם לא הרווחת הרבה</div>
+<a id="comment1477"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2012 01:03</span><br>
+ניסיתי לעשות 2 רנדום (גם לאורדר ביי וגם ללימיט) והוא באמת מביא לי רנדומלי לגמרי (ולא כמו שחשבת שהרנדום יהיה רק מתוצאות הלימיט)<br>
+השאלה האם זה באמת יותר טוב, או כמו שאמרת שזה עדיין מחשב לכל הטבלה? מה זה עושה איך אני ידע?</div>
+<a id="comment1478"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2012 07:35</span><br>
+לא, אם אתה עושה ORDER BY אז מחושב ערך רנדומלי עבור כל שורה ואז הרנדום ללימיט מיותר.</div>
+<a id="comment1479"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2012 19:10</span><br>
+אז עלה לי רעיון אחר:<br>
+1. לספור את כל השורות שיש בטבלה שבמסד(COUNT)<br>
+<br>
+2. להשתמש בפונקצייה RAND בPHP ושתתחיל מהמספר 1 עד המספר - התוצאה של ספירת השורות שלעיל.<br>
+<br>
+3. להריץ את הRAND בתוך לולאה ל10 סיבובים ולהכניס את המספר הרנדומלי למערך (ובסוף ייצא מערך עם 10 מפתחות).<br>
+<br>
+4. לעשות שאילתת SQL שתשלוף את כל השורות שהID שווה ל&quot;מערך[0]&quot; AND &quot;מערך[1]&quot;...<br>
+(פשוט להשתמש בשאילתה בWHERE..)<br>
+<br>
+איך זה יעיל יותר? רעיון טוב?</div>
+<a id="comment1480"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2012 20:57</span><br>
+זה מעולה וזה בדיוק מה שצריך לעשות :)</div>
+<a id="comment1481"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2012 22:25</span><br>
+&gt;&gt;&gt;זה מעולה...<br>
+כי בכתבה לא רשמת ככה..אלא דרך אחרת(בשאילתה SQL הגרלת מספר רנדומלי והכנסת אותו ללימיט של שאילה נוספת), למה?<br>
+<br>
+שאלה נוספת: לפי הרעיון שלי (תגובה קודמת) אז בשאילתה יש WHERE ID = $ARRAY[0] X..(אל תתיחס לX -הוא שם, רק כדי לסדר את השאילתה בשביל הטקסטרה)<br>
+האם צריך לעשות בחלק של הAND שוב פעם את ID AND = למערך[1], ואז שוב את ID AND = למערך[2]?<br>
+או שאפשר לעשות בAND כך: ID= ARRAY[1] AND ARRAY[2] X<br>
+<br>
+בקיצור: האם לאחר כל AND צריך לרשום שוב את הID שווה ל.. או שמספיק לרשום אותו רק בפעם הראשונה ואז בשאר הAND מספיק רק: שווה ל1,שווה ל2,שווה ל3...<br>
+<br>
+כי אם אני שולף 10 שורות אז השאילתה תהיה יותר ארוכה אם בכל AND יהיה את ID = XXX<br>
+<br>
+זה היה מובן? </div>
+<a id="comment1482"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2012 23:34</span><br>
+משתמש_156408<br>
+אתה מתכוון OR ולא AND, איך עמודה מסוימת תהיה שווה לשני ערכים בו-זמנית?<br>
+אתה יכול להשתמש בפונקציה IN.<br>
+ולמעשה זה:<br>
+&apos;WHERE `column`=&apos;1&apos; OR `column`=&apos;2<br>
+שווה לזה:<br>
+(&apos;WHERE `column` IN(&apos;1&apos;,&apos;2<br>
+<br>
+וכמובן שאתה יכול לשלוח עוד פרמטרים ל-IN.</div>
+<a id="comment1483"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/04/2012 00:58</span><br>
+תודה על ה IN וה OR..<br>
+ומה התכוונת ב&quot;עוד פרמטרים&quot;? ( - אפשר עוד תנאים בתוך הסוגריים?)</div>
+<a id="comment1484"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/04/2012 19:17</span><br>
+&gt;&gt; כי בכתבה לא רשמת ככה..אלא דרך אחרת(בשאילתה SQL הגרלת מספר רנדומלי והכנסת אותו ללימיט של שאילה נוספת), למה?<br>
+<br>
+בכתבה שלפני שורה אחת בלבד. במקרה הזה אין טעם לגרום ל PHP לעשות שני שאילתות נפרדות למסד נתונים ולהגריל מספר, אם אפשר לעשות הכל בשאילתה אחת.<br>
+<br>
+האמת שהרגע קראתי שוב את התגובה הקודמת שלך ואי אפשר לעשות את זה.<br>
+אם בטבלה יש 3 שורות עם id = 1, id = 2 &amp; id = 5 <br>
+אתה יכול להגיר שני מספרים בין אחד לשלוש ותקבל שגיאה בשאילתה.<br>
+<br>
+אתה יכול לכתוב פרוצדורה למסד שפעם אחת תשלוף את מספר השורות במסד ולאחר מכן תבצע X שאילתות בלולאה עם limit @rand, 1 </div>
+<a id="comment1485"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/04/2012 21:25</span><br>
+ע&quot;פ כל הדיון כאן, כתבתי קוד ותגידו לי האם כך באמת שולפים 6 שורות רנדומליות מהמסד בצורה הכי יעילה.<br>
+<span dir="ltr"><a href="phplive-6.htm?code=349">http://phpguide.co.il/phplive?code=349</a></span></div>
+<a id="comment1486"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/04/2012 13:45</span><br>
+^<br>
+ממש לא יעיל. זה רחוק מיעיל.</div>
+<a id="comment1487"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/04/2012 15:57</span><br>
+אני מבולבל, יותר מיומיים אני יושב על ה&quot;שליפה היעילה&quot;, עד שהגעתי לקוד למעלה שאלכס אמר שזה בסדר גמור, ועכשיו אתה אומר שלא.<br>
+בכל מקרה: אשמח לשמוע איך כן יעיל לעשות את זה..תודה.</div>
+<a id="comment1488"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/04/2012 20:30</span><br>
+בשביל מסד עם כמות מידע לא רב זה בסדר. אבל עדיין, יש הרבה מה לשפר.<br>
+- fetch_array בשביל מה להוציא מערך כפול? אם כבר, אז לך על fetch_row<br>
+- זימון של 6 שאילתות מיותרות - אפשר היה לעשות את זה בשאילתה אחת<br>
+- אין בדיקה של כפילויות<br>
+- עוד פעם הוצאה עם array<br>
+בקיצור, קוד רע.</div>
+<a id="comment1489"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/04/2012 20:45</span><br>
+&gt;&gt;&gt;fetch_array בשביל מה להוציא מערך כפול? אם כבר, אז לך על fetch_row<br>
+- האמת שהשתמשתי ב fetch_array עם MYSQL_NUM. ואז הוא שולף רק מערך מספרי, אבל עדיין תודה אני ישתמש row יותר קצר<br>
+<br>
+&gt;&gt;&gt;זימון של 6 שאילתות מיותרות - אפשר היה לעשות את זה בשאילתה אחת<br>
+&gt;&gt;&gt; אין בדיקה של כפילויות<br>
+- אשמח לשמוע איך לעשות את השאילתה ואת הבדיקה כנגד כפילויות.<br>
+<br>
+&gt;&gt;&gt;- עוד פעם הוצאה עם array<br>
+- כמו הראשון..</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

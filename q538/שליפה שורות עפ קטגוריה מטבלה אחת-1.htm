@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שליפה שורות ע&quot;פ קטגוריה מטבלה אחת">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_193087">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שליפה שורות ע&quot;פ קטגוריה מטבלה אחת | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שליפה שורות ע&quot;פ קטגוריה מטבלה אחת | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שליפה שורות ע&quot;פ קטגוריה מטבלה אחת">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">13</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm" title="יש לי טבלה שבה מאוחסנים הפוסטים, יש בטבלה עמודה בשם CAT ששם אני מכניס מספר בשביל להגדיר לפוסט קטגוריה. לדוגמא המספר1 מסמל צד שרת, והמספר2 מסמל צד לקוח.עכשיו אני רוצה לשלוף בדף הראשי שבאתר 3 שורות מכל קטגוריה, ואני רוצה שזה יהיה בצורה יעילה.כי אפשר להשתמש בUNION, אבל מה קורה שיש לי 10 קטגוריות(כמו ב WALLA).. אז זה כבר UNIOU לא נראה יעיל במיוחד.איך לשלוף?נ.ב. אני מחפש על זה המון ועדיין לא מצאתי משהו.">שליפה שורות ע&quot;פ קטגוריה מטבלה אחת</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_193087</a>
+,
+<time class="timeago relativetime" datetime="2012-05-02T12:16:37+03:00" style="display:inline-block;">
+02 למאי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText538'>
+יש לי טבלה שבה מאוחסנים הפוסטים, יש בטבלה עמודה בשם CAT ששם אני מכניס מספר בשביל להגדיר לפוסט קטגוריה. לדוגמא המספר1 מסמל צד שרת, והמספר2 מסמל צד לקוח.<br><br>עכשיו אני רוצה לשלוף בדף הראשי שבאתר 3 שורות מכל קטגוריה, ואני רוצה שזה יהיה בצורה יעילה.<br>כי אפשר להשתמש בUNION, אבל מה קורה שיש לי 10 קטגוריות(כמו ב WALLA).. אז זה כבר UNIOU לא נראה יעיל במיוחד.<br><br>איך לשלוף?<br><br>נ.ב. אני מחפש על זה המון ועדיין לא מצאתי משהו.<br><br> </div>
+</div>
+<h3>
+<span id="answersCounter">13 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2028">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 02 למאי 2012 </span>
+<a id="answer_2028" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2028">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">SELECT x<span class="sy0">.*</span><br>
+&nbsp; FROM <span class="br0">&#40;</span>SELECT t<span class="sy0">.*,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">CASE</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WHEN <span class="sy0">@</span>category <span class="sy0">!=</span> t<span class="sy0">.</span>cat THEN <span class="sy0">@</span>rownum <span class="sy0">:=</span> <span class="nu0">1</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">ELSE</span> <span class="sy0">@</span>rownum <span class="sy0">:=</span> <span class="sy0">@</span>rownum <span class="sy0">+</span> <span class="nu0">1</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw3">END</span> <span class="kw1">AS</span> rank<span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">@</span>category <span class="sy0">:=</span> t<span class="sy0">.</span>cat <span class="kw1">AS</span> var_category<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FROM TABLENAME t<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">JOIN</span> <span class="br0">&#40;</span>SELECT <span class="sy0">@</span>rownum <span class="sy0">:=</span> <span class="kw4">NULL</span><span class="sy0">,</span> <span class="sy0">@</span>category <span class="sy0">:=</span> <span class="st_h">''</span><span class="br0">&#41;</span> r<br>
+&nbsp; &nbsp; &nbsp; ORDER BY cat<span class="br0">&#41;</span> x<br>
+&nbsp;WHERE x<span class="sy0">.</span>rank <span class="sy0">&lt;=</span> <span class="nu0">3</span></div><br><br> </p>
+</div>
+<div class="answer" id="answer2030">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 02 למאי 2012 </span>
+<a id="answer_2030" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2030">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה מה שצריך לשנות בשאילת:<br><br>SELECT x.*<br> FROM (SELECT t.*,<br> CASE <br> WHEN @category != t.<strong><span class="underline">cat</span></strong> THEN @rownum := 1 <br> ELSE @rownum := @rownum + 1 <br> END AS rank,<br> @category := t.<strong><span class="underline">cat</span></strong> AS var_category<br> FROM <span class="underline"><strong>TABLENAME</strong></span> t<br> JOIN (SELECT @rownum := NULL, @category := '') r<br> ORDER BY <strong><span class="underline">cat</span></strong> ASC, date DESC) x<br> WHERE x.rank <= 3=""></=></p>
+</div>
+
+<div class="answer" id="answer2050">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/0c0540a903812fcc1ec882966d370d51?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>משתמש_193187</a>
+		   ב
+		   <span style="font-size:10px"> 03 למאי 2012 </span>
+		   <a id="answer_2050" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2050">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	הקוד לא מובן.<br>תוכל קצת להסביר ?	</p>
+</div>
+
+<div class="answer" id="answer2051">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/4915439dc0c638abbf55106ec40c969d?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>משתמש_193981</a>
+		   ב
+		   <span style="font-size:10px"> 03 למאי 2012 </span>
+		   <a id="answer_2051" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2051">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	איזה חלק של הקוד לא מובן ?	</p>
+</div>
+
+<div class="answer" id="answer2052">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar">		   ענה
+		    <a>iiddaannyy</a>
+		   ב
+		   <span style="font-size:10px"> 03 למאי 2012 </span>
+		   <a id="answer_2052" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2052">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	הסבר: http://www.fxp.co.il/showthread.php?t=10302987&page=2	</p>
+</div>
+
+<div class="answer" id="answer2053">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/0c0540a903812fcc1ec882966d370d51?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>משתמש_193187</a>
+		   ב
+		   <span style="font-size:10px"> 03 למאי 2012 </span>
+		   <a id="answer_2053" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2053">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	עניתי לך שם.<br>וגם פה אני יכתוב קטע קטן: אין אפשרות אחרת לשלוף?<br>חייבים רק ככה?<br><br>אני מחפש דרך אחרת מומלצת-לפחות עד שאהיה מומחה יותר	</p>
+</div>
+
+<div class="answer" id="answer2054">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/4915439dc0c638abbf55106ec40c969d?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>משתמש_193981</a>
+		   ב
+		   <span style="font-size:10px"> 03 למאי 2012 </span>
+		   <a id="answer_2054" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2054">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	ניסית לעשות שליפה בלולאה ?	</p>
+</div>
+
+<div class="answer" id="answer2056">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/0c0540a903812fcc1ec882966d370d51?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>משתמש_193187</a>
+		   ב
+		   <span style="font-size:10px"> 03 למאי 2012 </span>
+		   <a id="answer_2056" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2056">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	זה בדיוק הבעייה, אני משתמש בלולאה. אבל איך לעשות שהיא תשלוף <strong>מכל קטגוריה</strong> את ה3 שורות האחרונות שלה	</p>
+</div>
+
+<div class="answer" id="answer2057">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/4915439dc0c638abbf55106ec40c969d?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>משתמש_193981</a>
+		   ב
+		   <span style="font-size:10px"> 03 למאי 2012 </span>
+		   <a id="answer_2057" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2057">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	לעבור על כל קטגוריה ולבצע שאילת של שליפת שלוש הרשומות האחרונות עבור אותה קטגוריה.<br>איזה שאילתה אתה לא יכול לכתוב? את זאת ששולפת את כל הקטגוריות או את זאת ששולפת 3 שורות עבור קטגוריה מספר 2 ?	</p>
+</div>
+
+<div class="answer" id="answer2219">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/3d2b8897309b177d6e677964cebd1ea7?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>משתמש_218805</a>
+		   ב
+		   <span style="font-size:10px"> 20 למאי 2012 </span>
+		   <a id="answer_2219" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2219">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	שלום<br>אני לא ככ טוב עדיין כדי להבין את זה לגמרי.<br><br>תכלס לא ככ הבנתי איך לשבץ פה את השאילתה שלי.<br><br>מישהו יכול בבקשה לעזור לי עם כתיבת השאילתה שלי.<br><br>אם לטבלה שלי קוראים ART  ויש לי קטגוריות בשם PAINT  ו- DROW ואני רוצה לשלוף מכל אחד את 5 הפוסטים האחרונים.<br><br>אז מה הקוד שאני צריך??<br><br><br>תודה רבה<br>אVי	</p>
+</div>
+
+<div class="answer" id="answer2222">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>intval</a>
+		   ב
+		   <span style="font-size:10px"> 20 למאי 2012 </span>
+		   <a id="answer_2222" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2222">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	איך קוראים לעמודה של הקטגוריות ?	</p>
+</div>
+
+<div class="answer" id="answer2243">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/e1b84cf80cb1bd8ec8d790c57bd513f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>משתמש_214319</a>
+		   ב
+		   <span style="font-size:10px"> 23 למאי 2012 </span>
+		   <a id="answer_2243" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2243">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	בידיוק הייתה לי אותה בעיה שרציתי לשלוף משהו ...<br>מצאתי פתרון יעיל ומהיר<br><br><div class="php codeblock">WITH tmp <span class="kw1">AS</span> <br>
+<span class="br0">&#40;</span><br>
+SELECT ROW_NUMBER<span class="br0">&#40;</span><span class="br0">&#41;</span> OVER <span class="br0">&#40;</span>PARTITION BY art<span class="sy0">.</span>id ORDER BY art<span class="sy0">.</span>id<span class="br0">&#41;</span> <span class="kw1">AS</span> <span class="st_h">'RowNo'</span><span class="sy0">,</span> art<span class="sy0">.</span>paint<span class="sy0">,</span>art<span class="sy0">.</span>draw<br>
+<span class="br0">&#41;</span><br>
+SELECT &nbsp;<span class="sy0">*</span> FROM tmp WHERE RowNo <span class="sy0">&lt;=</span> <span class="nu0">5</span></div>	</p>
+</div>
+
+<div class="answer" id="answer2246">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>intval</a>
+		   ב
+		   <span style="font-size:10px"> 23 למאי 2012 </span>
+		   <a id="answer_2246" href="שליפה שורות עפ קטגוריה מטבלה אחת-1.htm#answer_2246">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	כן... postgresql הרבה יותר טוב מ mysql	</p>
+</div>
+
+</section>
+
+ 
+    </section> <!-- /content -->
+    
+    <section id="sidebar">
+        
+<section id="search_box">
+    <form method="get" action="http://www.google.co.il/search" id="search_form">
+    
+        <input type="hidden" name="hl" value="iw">
+        <input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+        
+        <input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+        <input type="submit" value="" title="לחפש"> 
+        
+    </form>
+</section>
+    
+   
+   <style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+	<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+
+		ספר חינם על MVC
+	</a>
+	שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+
+	<br><br>
+	
+    <a href='page_oopbook.html'>
+        ספר הלימוד - תכנות מונחה עצמים מאפס
+    </a>
+	שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+
+	<br><br>
+	
+    <a href='page_phpunit.html'>
+        קורס בדיקות יחידה phpunit
+    </a>
+	שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+
+	<br><br>
+	
+    <a href='page_mysqlinteractive.html'>
+        קורס mysql אינטרקטיבי
+    </a>
+	שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+	
+	
+	<br><br><br>
+	
+	<small>האתר ב-readonly
+	<br>
+	תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+	orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+	- alex@הדומיין הזה
+	</small>
+	
+</div>
+
+    </section>
+
+</div>
+
+
+
+<footer id='footer'>
+
+</footer>
+
+
+</div> <!-- /container -->
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+
+ 
+
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

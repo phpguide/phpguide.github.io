@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ajax/php/jquery">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_219286">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ajax/php/jquery | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ajax/php/jquery | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ajax/php/jquery">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ajaxphpjquery-1.htm" title="אני רוצה שיקליקו על שדה input יכניסו ערך ושיסיימו יקליקו מחוץ לשדה input ע&quot;י jquery ניתן לראות שיש ערך בשדה input ואז לשלוח את הערך לאותו הקובץ ע&quot;י ajax ללא submit ולקבל את הערך ב php ולהציגו.אני לא יודע איפה הקוד שלי נופל ניראה לי ב ajax  והקוד לא עובד בצורה מלאה אשמח אם תנסו להריץ את הקוד אצלכם או לתת פתרון כדי להבין איפה הבעיה תודה.ajax.php&amp;lt;?php
+&amp;nbsp; if &amp;#40;">ajax/php/jquery</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_219286</a>
+,
+<time class="timeago relativetime" datetime="2012-05-28T18:41:20+03:00" style="display:inline-block;">
+28 למאי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText594'>
+אני רוצה שיקליקו על שדה input יכניסו ערך ושיסיימו יקליקו מחוץ לשדה input ע"י jquery ניתן לראות שיש ערך בשדה input ואז לשלוח את הערך לאותו הקובץ ע"י ajax ללא submit ולקבל את הערך ב php ולהציגו.<br>אני לא יודע איפה הקוד שלי נופל ניראה לי ב ajax והקוד לא עובד בצורה מלאה אשמח אם תנסו להריץ את הקוד אצלכם או לתת פתרון כדי להבין איפה הבעיה תודה.<br>ajax.php<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'dataString'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="br0">&#40;</span><span class="st0">&quot;dataString not empty:= &quot;</span><span class="sy0">.</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'dataString'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;html&gt;<br>
+&nbsp; &nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./public/stylesheets/stylesheets.css&quot; &nbsp;&gt;<br>
+&nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot; src=&quot;./public/js/jquery-1.7.1.min.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot; src=&quot;./public/js/ajax.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=windows-1255&quot;&gt;<br>
+&nbsp; &nbsp; &lt;title&gt;mange panel&lt;/title&gt;<br>
+&nbsp; &nbsp; &lt;/head&gt;<br>
+&nbsp; &nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;br&gt;Type value for test in ajax&lt;input id=&quot;valueforajax&quot; type=text name='ajaxtest'&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;/body&gt;<br>
+&nbsp; &nbsp; &lt;/html&gt;</div><br><br>ajax.js<br><div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="kw2">var</span> dataString<span class="sy0">;</span><br>
+&nbsp; &nbsp;$<span class="br0">&#40;</span><span class="st0">&quot;#valueforajax&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>blur<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;dataString <span class="sy0">=</span> $<span class="sy0">.</span><span class="kw3">trim</span><span class="br0">&#40;</span>this<span class="sy0">.</span>value<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>dataString<span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// until here it works</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="sy0">.</span>ajax<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type<span class="sy0">:</span> <span class="st0">&quot;POST&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dataType<span class="sy0">:</span> <span class="st_h">'html'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;url<span class="sy0">:</span> <span class="st0">&quot;../../ajax.php&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;data<span class="sy0">:</span> <span class="st_h">'dataString='</span> <span class="sy0">+</span> dataString<span class="sy0">,</span> <span class="co1">//{&quot;dataString&quot;: dataString}</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cache<span class="sy0">:</span> <span class="kw4">false</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;success<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span>html<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert<span class="br0">&#40;</span><span class="st0">&quot;There is submited sucsses&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="co1">//ready</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2277">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 למאי 2012 </span>
+<a id="answer_2277" href="ajaxphpjquery-1.htm#answer_2277">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">url<span class="sy0">:</span> <span class="st0">&quot;../../ajax.php&quot;</span><span class="sy0">,</span></div><br>הנטיב הוא יחסי לעמוד שאליו אתה גולש, לא יחסית לאיפה שנמצא קובץ ה JS עצמו<br>פשוט תלחץ F12 ותראה איזה בקשה נשלחת לשרת, לאיזה כתובת ומה התשובה שמתקבלת מהשרת<br>ואז תדע איפה בדיוק הקוד שלך נכשל. </p>
+</div>
+<div class="answer" id="answer2282">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/0cbc3c4f1ddcbc05b8ff79f8bd14174b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225559</a>
+ב
+<span style="font-size:10px"> 30 למאי 2012 </span>
+<a id="answer_2282" href="ajaxphpjquery-1.htm#answer_2282">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה,בודק </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

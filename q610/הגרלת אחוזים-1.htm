@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הגרלת אחוזים.">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_226842">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הגרלת אחוזים. | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הגרלת אחוזים. | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הגרלת אחוזים.">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הגרלת אחוזים-1.htm" title="יש דרך יותר טובה להגריל אחוזים?כאילו שיהיה סיכוי של 10 אחוז שיודפס 10%, סיכוי של 20 אחוז שיודפס 20% וכו&amp;#039;..&amp;lt;?php
+&amp;nbsp; 
+&amp;nbsp; $rand = rand&amp;#40;0,9&amp;#41;;
+&amp;nbsp; 
+&amp;nbsp; ">הגרלת אחוזים.</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_226842</a>
+,
+<time class="timeago relativetime" datetime="2012-06-05T09:37:37+03:00" style="display:inline-block;">
+05 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText610'>
+יש דרך יותר טובה להגריל אחוזים?<br><br>כאילו שיהיה סיכוי של 10 אחוז שיודפס 10%, סיכוי של 20 אחוז שיודפס 20% וכו&#039;..<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$rand</span> <span class="sy0">=</span> <span class="kw3">rand</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span><span class="nu0">9</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">switch</span><span class="br0">&#40;</span><span class="re0">$rand</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/* -- 10% -- */</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">0</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;10%&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/* -- 20% -- */</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">1</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">2</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;20%&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/* -- 30% -- */</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">3</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">4</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">5</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;30%&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/* -- 40% -- */</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">6</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">7</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">8</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">9</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;40%&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2344">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/159cd9a227981eb80192377b4053975c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225728</a>
+ב
+<span style="font-size:10px"> 05 ליוני 2012 </span>
+<a id="answer_2344" href="הגרלת אחוזים-1.htm#answer_2344">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$rand</span> <span class="sy0">=</span> <span class="kw3">rand</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span><span class="nu0">9</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$rand</span><span class="sy0">==</span><span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;10%&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$rand</span><span class="sy0">&gt;</span><span class="nu0">0</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$rand</span><span class="sy0">&lt;</span><span class="nu0">3</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;20%&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$rand</span><span class="sy0">&gt;</span><span class="nu0">2</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$rand</span><span class="sy0">&lt;</span><span class="nu0">6</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;30%&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;40%&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>עוזר לך? </p>
+</div>
+<div class="answer" id="answer2345">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/1d7df3ec8b764b6d6e38f990d85d3c34?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_226842</a>
+ב
+<span style="font-size:10px"> 05 ליוני 2012 </span>
+<a id="answer_2345" href="הגרלת אחוזים-1.htm#answer_2345">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה, בסוף אוסיף למערך עוד כמה אלמנטים וזהו. </p>
+</div>
+<div class="answer" id="answer2347">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 ליוני 2012 </span>
+<a id="answer_2347" href="הגרלת אחוזים-1.htm#answer_2347">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כאילו שיהיה סיכוי של 10 אחוז שיודפס 10%, סיכוי של 20 אחוז שיודפס 20% וכו&#039;..<br><br>אתה יודע מה לא מסתד במשפט הזה?<br>שיש 100% סיכוי שתודפס המחרוזת &quot;100&quot;<br><br>לאומת זאת יהיה די הגיוני שהסיכוי שלמסך יודפס המספר 60 שווה ערך לסיכוי שלמסך יודפס המספר 10. </p>
+</div>
+<div class="answer" id="answer2363">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/572ab4f36db43fd733abb5c5ba605c4b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_231128</a>
+ב
+<span style="font-size:10px"> 06 ליוני 2012 </span>
+<a id="answer_2363" href="הגרלת אחוזים-1.htm#answer_2363">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@intval<br><br>לא כ&quot;כ הבנת, זה עדיין מוגבל:<br>10% שיהיה כתוב 10%<br>20% שיהיה כתוב 20%<br>30% שיהיה כתוב 30%<br>40% שיהיה כתוב 40%<br>זה יוצא:<br>10%+20%+30%+40%=100%<br>אין יותר מ100%..<br><br>הבנת?<br><br>*בכל מקרה מישה עזר לי כבר ועזבתי ת&#039;דרך הזאת, אני עובד עם מערכים כרגע.<br>תודה בכל מקרה. </p>
+</div>
+<div class="answer" id="answer2392">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/1bd16083376b30c74244700a0839a2a1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_232428</a>
+ב
+<span style="font-size:10px"> 07 ליוני 2012 </span>
+<a id="answer_2392" href="הגרלת אחוזים-1.htm#answer_2392">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+&nbsp; <span class="re0">$rand</span> <span class="sy0">=</span> <span class="kw3">rand</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span><span class="nu0">9</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">switch</span><span class="br0">&#40;</span><span class="re0">$rand</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/* -- 10% -- */</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">0</span><span class="sy0">:</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;10%&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/* -- 20% -- */</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">:</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;20%&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/* -- 30% -- */</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">3</span><span class="sy0">..</span><span class="nu0">5</span><span class="sy0">:</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;30%&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/* -- 40% -- */</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> <span class="nu0">6</span><span class="sy0">..</span><span class="nu0">9</span><span class="sy0">:</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;40%&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer2404">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 ליוני 2012 </span>
+<a id="answer_2404" href="הגרלת אחוזים-1.htm#answer_2404">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+באיזה שפה זה ? :) </p>
+</div>
+<div class="answer" id="answer2405">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2ff575af18310e59c1ee1f0b21a6b0ce?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_232205</a>
+ב
+<span style="font-size:10px"> 07 ליוני 2012 </span>
+<a id="answer_2405" href="הגרלת אחוזים-1.htm#answer_2405">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לי גם שאלה<br>יש דרך להגדיר אחוזים מסויימים שיצא מקרה מסויים <br>לדוגמה אני רוצה שיהיה סיכוי של 50 חזור שיצא 40 סיכוי של 25 אחוז שיצא 10 לדוגמה? </p>
+</div>
+<div class="answer" id="answer2406">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b5169ea5725e04e4aeff078f9784ec39?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_232612</a>
+ב
+<span style="font-size:10px"> 07 ליוני 2012 </span>
+<a id="answer_2406" href="הגרלת אחוזים-1.htm#answer_2406">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+משתמש_232205<br>פשוט תגדיל את התווך של rand. מ 1 ל 100 ותשנה ת&#039;תנאים.<br><br><div class="php codeblock"><span class="re0">$rand</span> <span class="sy0">=</span> <span class="kw3">rand</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$rand</span> <span class="sy0">&gt;</span> <span class="nu0">95</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;5%&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">elseif</span><span class="br0">&#40;</span><span class="re0">$rand</span> <span class="sy0">&gt;</span> <span class="nu0">85</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;10%&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">elseif</span><span class="br0">&#40;</span><span class="re0">$rand</span> <span class="sy0">&gt;</span> <span class="nu0">70</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;15%&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">elseif</span><span class="br0">&#40;</span><span class="re0">$rand</span> <span class="sy0">&gt;</span> <span class="nu0">50</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;20%&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">elseif</span><span class="br0">&#40;</span><span class="re0">$rand</span> <span class="sy0">&gt;</span> <span class="nu0">25</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;25%&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">elseif</span><span class="br0">&#40;</span><span class="re0">$rand</span> <span class="sy0">&gt;</span> <span class="nu0">18</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;7%&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><span class="coMULTI">/*if($rand &gt; 0)*/</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;18%&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

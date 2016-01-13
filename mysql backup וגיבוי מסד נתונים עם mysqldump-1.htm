@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="גיבוי מסד נתונים באמצעות mysqldump לענן">
+<meta name="keywords" content="mysql backup, גיבוי, גיבוי מסד">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>mysql backup וגיבוי מסד נתונים עם mysqldump</title>
+<meta itemprop="name" content="mysql backup וגיבוי מסד נתונים עם mysqldump">
+<meta itemprop="description" content="גיבוי מסד נתונים באמצעות mysqldump לענן">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"368","rating":"4","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>mysql backup וגיבוי מסד נתונים עם mysqldump</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2014-04-19T09:47:52+03:00" dir="rtl">19 לאפריל 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://s29.postimg.org/g26ayr0ab/blue_backup.png" alt="mysql backup וגיבוי מסד נתונים עם mysqldump">
+</div>
+<div class="right post-content">
+בעלי אתרים מתחלקים לשני סוגים - אלה שעושים גיבוי ואלה שעדיין לא. במדריך הזה נראה איך לעבור מהקבוצה הראשונה לקבוצה השניה באמצעות הכלי mysqldump וגיבוי מסד נתונים mysql לענן. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>גיבוי באמצעות mysqldump</h2><br>זהו הגיבוי הכי פשוט למסדי נתונים מסוג MySQL. כלי מיוחד שמגיע למחשב שלך יחד עם התקנת mysql הוא התוכנה mysqldump שאופן הפעולה שלה פשוט להפליא. היא עוברת על תוכן הטבלאות ויוצרת קובץ עם פקודות sql. כל תוכן המסד הופך להיות אוסף פקודות sql שהפעלתן תיצור מסד זהה עם טבלאות זהות, פונקציות, פרוצדורות, טריגרים, אינדקסים ותוכן זהה. <br><br><h4>הפעלת mysqldump</h4><br>התוכנה mysqldump היא תוכנה של שורת הפקודה ולכן יש להפעיל אותה מתוך הטרמינל בצורה הבאה:<br><div class="php codeblock">mysqldump <span class="sy0">-</span>u USERNAME <span class="sy0">-</span>pPASSWORD <span class="sy0">&gt;</span> <span class="kw3">file</span><span class="sy0">.</span>sql</div><br><br>username ו-password הם שם המשתמש והסיסמה למסד הנתונים. למשל root או משתמש אחר כלשהו שלו יש גישה למסד שתרצה לגבות. <br>שים לב שאין רווח בין <span dir="ltr">-p</span> לבין הסיסמה עצמה. <br><br>mysqldump תיצור גיבוי מלא של מסד הנתונים עם כל המסדים בפנים, ביניהם גם המסדים mysql, phpmyadmin, test1, test2, test3 וכל מני מסדים שאתה לא באמת צריך בגיבוי שלך. כדי למנוע פקודות מיותרות בקובץ הגיבוי ניתן לרשום אילו מסדים לגבות:<br><br><div class="php codeblock">mysqldump <span class="sy0">-</span>u USERNAME <span class="sy0">-</span>pPASSWORD <span class="sy0">--</span>databases db1 <span class="sy0">&gt;</span> <span class="kw3">file</span><span class="sy0">.</span>sql</div><br><br>ואת קובץ הטקסט שיוצא אפשר לדחוס קצת באמצעות zip או bzip2, לתת לו שם מועיל ואפילו להוסיף את הפקודה הזו לקרון:<br><div class="php codeblock"><span class="nu0">4</span> <span class="sy0">*/</span><span class="nu0">6</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> mysqldump <span class="sy0">-</span>u root <span class="sy0">-</span>pxxx database1 <span class="sy0">|</span> bzip2 <span class="sy0">&gt;</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>$<span class="br0">&#40;</span><span class="kw3">date</span> <span class="sy0">+</span><span class="st_h">'\%F_\%X'</span><span class="br0">&#41;</span>_database1<span class="sy0">.</span>sql<span class="sy0">.</span>bz2</div><br>פקודת הbackup תופעל כל שש שעות ותיצור קבצים עם שעה ותאריך בשם, כדי שיהיה לנו קל יותר להבין מאוחר יותר ממתי הגיבוי.<br><br><br><h4>מעלים את הגיבוי לענן</h4><br>למרות שגיבוי לאותו השרת עדיף על פני חוסר גיבויים, גיבוי למחשב אחר טוב יותר. <br>בתור מחשב אחר יכולים להיות ,dropbox, google drive, s3, azure, skydrive, ya.disk וכל דבר אחר. במקרה שלנו נשתמש ב <a href="https://disk.yandex.com/invite/?hash=5UB09XQH">yandex.disk שנותן 10+1gb חינם</a>, מתופעל על ידי ענקית החיפוש והאינטרנט הרוסית yandex, לא מבקש אישורים בטלפון וכמה שיותר רחוק משירותי הביון האמריקאים.<br><br>אחרי ההרשמה תקבל שני בונוסים מ- yandex.disk: תוכנת סנכרון קבצים למחשב בדיוק כמו דרופבוקס ואפשרות לחבר את דיסק הענן שלך לשרת באמצעות webdav, מה שיאפשר לך לגשת מהשרת אל הדיסק שלך ב-yandex כאילו היה דיסק מחובר ישירות לשרת. האחרון זה מה שמעניין אותנו וננצל אותו כדי לשמור את הגיבויים שלנו שם.<br><br><br><strong><span class="underline">התקנה</span></strong><br>1. כדי לחבר את דיסק הענן לשרת נתקין כמה חבילות בשרת:<br><div class="php codeblock">apt<span class="sy0">-</span>get install davfs2</div><br>עבור centos מ<a href="http://pkgs.repoforge.org/davfs2/">ורידים ומתקינים את הrpm</a> מפה<br><br>2. רושמים את נתוני ההתחברות בקובץ <span dir="ltr"><span style="color:green;">/etc/davfs2/secrets</span></span><br><div class="php codeblock">https<span class="sy0">:</span><span class="co1">//webdav.yandex.com <a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="30454355425e515d557049515e5455481e535f5d">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script> &quot;userpass&quot;</span></div><br>username הוא שם המשתמש שבחרת בהרשמה<br><br>3. קישור הדיסקים<br><div class="php codeblock">mount <span class="sy0">-</span>t davfs https<span class="sy0">:</span><span class="co1">//webdav.yandex.com /media/yandex</span></div><br><br><br><strong><span class="underline">ההתקנה הושלמה, אפשר לנסות</span></strong><br>הפקודה הבאה אמורה ליצור קובץ שיועלה אוטומטית לענן ותוכל לראות אותו דרך ה-web-interface אחרי כמה שניות: <br><div class="php codeblock"><span class="kw1">echo</span> <span class="st0">&quot;hello&quot;</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>media<span class="sy0">/</span>yandex<span class="sy0">/</span>test<span class="sy0">.</span>txt</div><br><br><br>כל מה שנשאר הוא לשנות את הנתיב בפקודת הקרון וכל שש שעות יעלה ישמר בענן גיבוי חדש של מסד הנתונים שלך. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2785"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/04/2014 22:29</span><br>
+היי אלכס. מאמר חשוב מאוד, ובאמת חשוב מאוד להדגיש את זה לכל המתכנתים שהם בתחילת דרכם שחושבים ש&quot;לי זה לא יקרה&quot; כי בסוף לכולם זה קורה. :)<br>
+<br>
+בכל אופן, הייתי ממליץ להוסיף למדריך עוד סעיף לעבודה עם העלאת קבצים לחשבון SSH מרוחק שגם מאוד פשוט, במיוחד שמשתמשים בכלי האדיר rsync.<br>
+<br>
+המשך שבוע נהדר<br>
+יקיר</div>
+<a id="comment2786"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/04/2014 13:07</span><br>
+אני אישיתי מעדיף אחרי הגיבוי להשתמש ב cli של אמאזון ולהעלות את זה ישר ל s3<br>
+<br>
+<span dir="ltr"><a href="https://aws.amazon.com/cli">https://aws.amazon.com/cli</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

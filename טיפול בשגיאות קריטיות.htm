@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="טיפול וטפיסה של שגיאות קריטית fatal errors ב-PHP">
+<meta name="keywords" content="fatal, error, notice, critical, register_shutdown_function">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>טיפול בשגיאות קריטיות</title>
+<meta itemprop="name" content="טיפול בשגיאות קריטיות">
+<meta itemprop="description" content="טיפול וטפיסה של שגיאות קריטית fatal errors ב-PHP">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"184","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>טיפול בשגיאות קריטיות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-01-16T21:22:05+02:00" dir="rtl">16 לינואר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/fatal_error.jpg" alt="טיפול בשגיאות קריטיות">
+</div>
+<div class="right post-content">
+מכירים את המילים בשיר &quot;מה נעשה, מה נע-עשה עם אתר מלא שגיאות כזה&quot;? זה הגרסה של המשתמש המתוסכל כשהוא נכנס וכל מיני notice צצים בכל הכיוונים, ו-warningים חוגגים להם. <a href="טיפול_בשגיאות.htm">בכאלה טיפלנו במדריך הקודם</a>. אבל מה עם שגיאות קריטיות, כמו E_PARSE, E_ERROR ו-out of memory? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שגיאות כדאי לתפוס. שגיאות קריטיות כדאי עוד יותר, כי במקרה של שגיאה קריטית המשתמש לא יראה עמוד יפה ובקשת סליחה על התקלה, אלא הודעות שגיאה טכנית עם מידע על שורות, קבצים ופונקציות פנימיות - זה בטוח לא מה שאנחנו רוצים שהשתמש יראה.<br><br><h5>ב-PHP יש כמה סוגי שגיאות</h5><br>ברובם כבר נתקלנו, אם בקוד שלנו, אם באתרים אחרים.<br>[*] E_NOTICE<br>[*] E_ERROR<br>[*] E_WARNING<br>[*] E_DEPRECATED<br>[*] E_STRICT<br>[*] ...<br><br><h5>שגיאות מסוימות הן קריטיות, שאחריהן הקוד מפסיק לפעול</h5><br>אם בקוד שלכם קורה e_notice שלא טיפלתם בו (<a href="טיפול_בשגיאות.htm">וחבל</a>) - הקוד ימשיך לעבוד הלאה ולא יעצור.<br>שגיאות אחרות עשויות להעיף את כל הסקריפט קיבינימט ולהפסיק באמצע, לא משנה שבדיוק העברתם כסף מחשבון בנק אחד לחשבון בנק אחר.<br><br><h5>בשגיאות הקריטיות מטפלים עם register_shutdown_function</h5><br>והפעם למטרתנו נייעד את הפונקציה <a href="http://php.net/register_shutdown_function">register_shutdown_function</a>.<br>הפונקציה הנ&quot;ל מאפשרת לנו לקחת כל פונקציה שנרצה ולהפעיל אותה אחרי שהסקריפט יסיים לפעול.<br>לדוגמה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">function</span> the_last_function<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'Last thing to happen, <br>
+&nbsp; &nbsp; &nbsp; after the entire script\'s execution is over'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw3">register_shutdown_function</span><span class="br0">&#40;</span><span class="st_h">'the_last_function'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="st_h">'blabla'</span><span class="sy0">;</span></div><br>הפונקציה שלנו, the_last_function, תופעל רק אחרי שכל שאר הסקריפט יסיים לפעול.<br>היא תופעל גם אם הייתה שגיאה קריטית בסקריפט, מה שגרם לו לעצור באמצע:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">function</span> the_last_function<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;br/&gt;Last thing to happen, <br>
+&nbsp; &nbsp; &nbsp; after the entire script\'s execution is over'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw3">register_shutdown_function</span><span class="br0">&#40;</span><span class="st_h">'the_last_function'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="st_h">'Do something &lt;br/&gt;'</span><span class="sy0">;</span><br>
+<span class="kw3">trigger_error</span><span class="br0">&#40;</span><span class="st_h">'some error'</span><span class="sy0">,</span> <span class="kw4">E_USER_ERROR</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'Script stopped. This will not be printed &lt;br/&gt;'</span><span class="sy0">;</span></div><br>שגיאה מסוג E_ERROR או E_USER_ERROR היא שגיאה קריטית (fatal error), מה שאומר שאחריה הסקריפט יפסיק לפעול. במקרה שלנו, ה-echo השני לא ידפיס שום דבר.<br>למזלנו, הפונקציה the_last_function בכל זאת הופעלה.<br><br><h5>הפונקציה שלנו תופעל בכל פעם, גם אם לא הייתה שגיאה</h5><br>עוד בעיה קטנה שעומדת בפנינו: גם אם בקוד לא הייתה אף שגיאה והוא עבד כמו שצריך, פונקציית ה-shutdown בכל זאת תופעל. מה אתם מציעים לעשות? לבדוק האם הייתה שגיאה?<br><br><h5>נבדוק האם הייתה שגיאה בעזרת error_get_last</h5><br>גם כאן PHP מצילה אותנו עם פונקציה מיוחדת, הפעם היא <a href="http://www.php.net/manual/en/function.error-get-last.php">error_get_last</a>, שמחזירה את המידע על השגיאה האחרונה שקרתה בסקריפט. אחד הדברים שהיא מוסרת, זה סוג השגיאה.<br><br>יכול מאוד להיות שבקוד היה לנו גם סתם notice שלא הוצג למסך בגלל @. (וקבלו טיפ: אל תשתמשו אף פעם ב-@.) במקרה זה לא הייתה לנו שגיאה קריטית כלשהי; error_get_last יחזיר אותה, אבל הסקריפט שלנו סיים לעבוד כמו שצריך ופלט למסך את מה שהוא היה צריך, בתבנית המתאימה והכל בסדר. לא צריך להרים מסוקים לאוויר אם זה כל מה שקרה.<br><br><h5>בשביל לא להציג הודעות מפחידות סתם - נבדוק האם השגיאה קריטית</h5><br>תנסו לבד או תמשיכו לקרוא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">function</span> the_last_function<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; static <span class="re0">$haltCodes</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="kw4">E_ERROR</span><span class="sy0">,</span> <span class="kw4">E_PARSE</span><span class="sy0">,</span> <span class="kw4">E_CORE_ERROR</span><span class="sy0">,</span> <span class="kw4">E_COMPILE_ERROR</span><span class="sy0">,</span> <span class="kw4">E_USER_ERROR</span><span class="sy0">,</span> E_RECOVERABLE_ERROR<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$error</span> <span class="sy0">=</span> <span class="kw3">error_get_last</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$error</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">in_array</span><span class="br0">&#40;</span><span class="re0">$error</span><span class="br0">&#91;</span><span class="st_h">'type'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$haltCodes</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'we had a fatal error'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'either we had nor error, or no fatal error bumped'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw3">register_shutdown_function</span><span class="br0">&#40;</span><span class="st_h">'the_last_function'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="st_h">'Do something &lt;br/&gt;'</span><span class="sy0">;</span><br>
+<span class="kw3">trigger_error</span><span class="br0">&#40;</span><span class="st_h">'some error'</span><span class="sy0">,</span> <span class="kw4">E_USER_ERROR</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'Script stopped. This will not be printed &lt;br/&gt;'</span><span class="sy0">;</span></div><br>לא צריך להסביר יותר מדי. יש רשימה של סוגי שגיאות קריטיות; אם נתקלנו באחת כזאת, אנחנו יודעים שהסקריפט שלנו עף באמצע וכדאי להציג הודעה מתאימה כלשהי.<br><br><h5>שגיאה שנמצאת בתוך ה-shutdown function זה כבר מקרה אבוד</h5><br>רצוי שבפונקציה שרושמים לסוף הסקריפט לא יקרו שגיאות; אותם כבר אין למי לטפוס.<br>משאר השגיאות אתם יכולים להרגיש מוגנים.<br><br><span style="color:blue;">שימוש מעניין נוסף שראיתי לדבר הזה מעבר להודעות שגיאה היה מערכת שמורכבת ממודולים. כאשר אחד המודולים נתקל בשגיאה כלשהי, הגרעין של המערכת היה מפעיל את עצמו מחדש עם אותה בקשה אבל עם מודול כבוי, כך שהבקשה הייתה מתבצעת בכל זאת והחלק הלא פעיל נותק.</span><br><br><span style="color:green;">אתם תתנו לגולשים שלכם לשיר את שיר המתוסכלים ולעבור למתחרים אם חס וחלילה נפל המסד?</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1047"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/01/2012 11:37</span><br>
+מדריך מעולה, תודה :)</div>
+<a id="comment1049"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/01/2012 11:50</span><br>
+תודה רבה.<br>
+בפונקציה הייתי ממליץ לרשום E_RECOVERABLE_ERROR במקום 4096, יותר מובן.</div>
+<a id="comment1060"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/01/2012 22:47</span><br>
+לייק!</div>
+<a id="comment1074"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 17:12</span><br>
+שוב תודה! :)<br>
+ו-iiddaannyy, תודה גם לך על ההסבר (לא הבנתי מה זה 4096). :)</div>
+<a id="comment1075"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 17:18</span><br>
+שכחתי להוסיף: לפי מה שהבנתי מהדוקומניטציה, error_get_last מחזירה את פרטי השגיאה ממש כמו ב-set_error_handler, מה שאומר שיש לנו type, message, file ו-line, כך שאנחנו יכולים לעשות איתם מה שאנחנו רוצים, בין השאר לשלוח לעצמנו מייל עם הפרטים?</div>
+<a id="comment1076"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/01/2012 00:01</span><br>
+הבנת נכון :)</div>
+<a id="comment1821"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/08/2012 20:57</span><br>
+מה ה-static עושה שם ליד ה-$haltCodes?</div>
+<a id="comment1822"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/08/2012 21:35</span><br>
+מה שסטטיק עושה בכל פונקציה, קובע שהערך של המשתנה יהיה קבוע בכל הקריאות של הפונקציה .</div>
+<a id="comment1824"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/08/2012 21:15</span><br>
+למה, הוא יכול להשתנות?</div>
+<a id="comment1825"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/08/2012 21:40</span><br>
+משתנה לא סטטי משתנה בהחלט בכל פעם שאתה קורא לפונקציה .<br>
+קח את זה כדוגמא:<br>
+<br>
+[php]function addToMyNum( $add )<br>
+{<br>
+$myNum = 0;<br>
+$myNum += intval($add);<br>
+<br>
+return $myNum;<br>
+}<br>
+<br>
+function addToMyStaticNum( $add )<br>
+{<br>
+static $myNum = 0;<br>
+$myNum += intval($add);<br>
+<br>
+return $myNum;<br>
+}<br>
+<br>
+echo addToMyNum(5); // 5<br>
+echo addToMyNum(5); // 5<br>
+<br>
+echo addToMyStaticNum(5); // 5<br>
+echo addToMyStaticNum(5); // 10[/php]</div>
+<a id="comment1826"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/08/2012 21:42</span><br>
+לעומת זאת משתנה סטטי לא מתאתחל בכל פעם שתקרא לפונקציה .</div>
+<a id="comment1827"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/08/2012 00:57</span><br>
+אה, לא ידעתי. תודה. :)</div>
+<a id="comment1981"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/09/2012 19:47</span><br>
+פעלתי לפי המדריך הזה, ואני עדיין רואה שגיאות קריטיות על המסך (אם כי זה נוסף על כך שמה שכתבתי בפונקציה שלי התבצע גם). איך אני יכול להסתיר את השגיאות האלה?</div>
+<a id="comment1982"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/09/2012 21:41</span><br>
+return true בפונקציה שלך.</div>
+<a id="comment1983"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/09/2012 21:47</span><br>
+ניסיתי, לא עובד.</div>
+<a id="comment1984"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/09/2012 11:09</span><br>
+טעות שלי. אתה צודק לגמרי, זה בכל זאת יציג את השגיאה.<br>
+שמבחינתי זה מעולה. - תכתוב קוד בלי שגיאות :)<br>
+אם במקום מסוים אתה בכל זאת רוצה לאפשר ליצור שגיאות אבל לתפוס אותם במקום אחר - לרשותך עומד מנגנון ה exceptions.<br>
+<br>
+אם אתה משתמש במנגנון הזה בצורה שאני ממליץ - בתור אופציה אחרונה בהחלט לתפוס קוד עם שגיאות שבכל זאת הגיע לפרודאקשן - תוכל לקמבן את האופציה הזו עם שימוש ב output buffering.<br>
+<br>
+<span dir="ltr"><a href="https://gist.github.com/3798792">https://gist.github.com/3798792</a></span></div>
+<a id="comment1985"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/09/2012 11:43</span><br>
+כמובן שאני מנסה לכתוב קוד בלי שגיאות, אבל עדיין יכול להיות שיהיו. :)<br>
+מה שהצעת - זה מוחק גם את הודעת השגיאה של PHP, נכון?</div>
+<a id="comment1986"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/09/2012 12:13</span><br>
+זה מוחק את כל הפלט הקודם. <br>
+לא ניסית להפעיל את הקוד ?</div>
+<a id="comment1987"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/09/2012 12:33</span><br>
+אני לא יכול כרגע, ושכחתי שאפשר לעשות את זה גם פה.<br>
+בכל מקרה, הייתי צריך להבין את זה כבר, כי בניסיונות שלי ראיתי שהקוד שכתבתי בפונקציה הזאת בוצע אחרי הודעת השגיאה של PHP (מה שאומר שזה כן מוחק את זה).<br>
+תודה. :)</div>
+<a id="comment1990"></a>
+<div class="blog-comment">
+<span class='comment-author'>pol292</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2012 18:48</span><br>
+מה הבדל בין זה לset_error_handler? כי בסופו של דבר set_error_handler מזהה את הE_USER_ERROR ועוד כמה</div>
+<a id="comment1991"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2012 18:51</span><br>
+ש set_error_handler לא מזהה שגיאות קריטיות אחרות, כמו פתאום נגמר הזיכרון, נתקעת ב timeout<br>
+או קיבלת וורנינג אחר.</div>
+<a id="comment1992"></a>
+<div class="blog-comment">
+<span class='comment-author'>pol292</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2012 19:05</span><br>
+ואיפו אפשר לברר מה כן מושפע?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

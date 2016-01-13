@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה Jquery ajax - serialize">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nirbe">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>Jquery ajax - serialize | שאלת לימוד PHP</title>
+<meta itemprop="name" content="Jquery ajax - serialize | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה Jquery ajax - serialize">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">1</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="Jquery ajax  serialize-1.htm" title="שלום,התחלתי ללמוד jquery ועכשיו אני בשלב של ה AJAX - serialize.אני מנסה לשאוב את ה value מה input שיש לי בדף שבו אני צריך לקבל את הנתונים ואני לא מצליח.איך בדיוק אני שולף בעזרת PHP בדף היעד?זה הקוד:&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;nbsp; &amp;nbsp; &amp;lt;head&amp;gt;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;meta http-equiv=&amp;quot;Content-Type&amp;quot; content=&amp;quot;text/html; charset=UTF-8&amp;quot;&amp;gt;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;lt;title">Jquery ajax - serialize</a></h2>
+<div class="userinfo">
+פתח
+<a>nirbe</a>
+,
+<time class="timeago relativetime" datetime="2012-07-16T13:56:06+03:00" style="display:inline-block;">
+16 ליולי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText795'>
+שלום,<br>התחלתי ללמוד jquery ועכשיו אני בשלב של ה AJAX - serialize.<br>אני מנסה לשאוב את ה value מה input שיש לי בדף שבו אני צריך לקבל את הנתונים ואני לא מצליח.<br>איך בדיוק אני שולף בעזרת PHP בדף היעד?<br>זה הקוד:<br><div class="php codeblock">&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp; &nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;title&gt;Jquery test&lt;/title&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;script src=&quot;js/jquery-1.7.2.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function resend (){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert (&quot;ok&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $(document).ready(function(){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $(&quot;form&quot;).submit(function(){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var data = $(this).serialize();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $.post(&quot;send.php&quot;, data, resend());<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; })<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/script&gt;<br>
+&nbsp; &nbsp; &lt;/head&gt;<br>
+&nbsp; &nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;form&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Username: &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;a&quot; /&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; name=&quot;send&quot; value=&quot;Send&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/form&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;ret&quot;&gt;&lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$_SESSION</span><span class="br0">&#91;</span><span class="st0">&quot;username&quot;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br>ה session למטה זה מה שאני רוצה לשאוב מה input ולהכניס ב session בקובץ send.php.<br><br>תודה רבה! </div>
+</div>
+<h3>
+<span id="answersCounter">1 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3395">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 16 ליולי 2012 </span>
+<a id="answer_3395" href="Jquery ajax  serialize-1.htm#answer_3395">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא חשוב, זה עובד לי, שחכתי שצריך להוסיף session_start ומשתמשים ב $_REQUEST </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

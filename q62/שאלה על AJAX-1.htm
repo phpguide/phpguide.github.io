@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שאלה על AJAX">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="raz1001">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שאלה על AJAX | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שאלה על AJAX | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שאלה על AJAX">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שאלה על AJAX-1.htm" title="עשיתי ככה:&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+&amp;nbsp; $&amp;#40;document&amp;#41;.ready&amp;#40;function&amp;#40;&amp;#41;&amp;#123;
+&amp;nbsp; &amp;nbsp; $&amp;#">שאלה על AJAX</a></h2>
+<div class="userinfo">
+פתח
+<a>raz1001</a>
+,
+<time class="timeago relativetime" datetime="2011-12-26T20:32:18+02:00" style="display:inline-block;">
+26 לדצמבר 2011 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText62'>
+עשיתי ככה:<br><div class="php codeblock"><span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; $<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#file&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>load<span class="br0">&#40;</span><span class="st_h">'file.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br><br>בקובץ file יש שליפה מהמסד.<br>אם אני משנה את הנתונים במסד הוא לא מעדכן את זה אוטומטית.<br>למה זה ככה? </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer204">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/18ee1c005da09a986dc9668a9719e0f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>אנונימי</a>
+ב
+<span style="font-size:10px"> 26 לדצמבר 2011 </span>
+<a id="answer_204" href="שאלה על AJAX-1.htm#answer_204">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כדי לחסוך משאבים מהדפדפן, תלחץ F5 והכל יסתדר.<br>תוכל גם להוסיף את הכתרים האלה:<br><div class="php codeblock"><span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Cache-Control: no-cache&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// HTTP/1.1</span><br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Expires: Sat, 26 Jul 1997 05:00:00 GMT&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Date in the past</span></div><br>הראשון אומר לדפדפן לא לשמור במטמון.<br>השני אומר לו שהדף פג תוקף ב 1997 ..<br>בהצלחה<br>וככה הדפדפן לא ישמור אותם. </p>
+</div>
+<div class="answer" id="answer205">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>raz1001</a>
+ב
+<span style="font-size:10px"> 26 לדצמבר 2011 </span>
+<a id="answer_205" href="שאלה על AJAX-1.htm#answer_205">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא עובד לי.<br> </p>
+</div>
+<div class="answer" id="answer207">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 לדצמבר 2011 </span>
+<a id="answer_207" href="שאלה על AJAX-1.htm#answer_207">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הפעולה load קוראת רק פעם אחת. אתה מפעיל אותה בטעינת העמוד. אם אחרי שהעמוד עלה והפעולה התבצעה - תשנה משהו במסד, השינויים האלה יוצגו רק בטעינה הבאה, כי load לא קוראת יותר. אם גם אחרי שתלחץ F5 תראה את אותם הנתונים, זה כי הערך שהוחזר נשמר במטמון, או של הדפדפן או של jquery<br>שני השורות בהודעה למעלה עשויות לפתור את זה </p>
+</div>
+<div class="answer" id="answer210">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>raz1001</a>
+ב
+<span style="font-size:10px"> 27 לדצמבר 2011 </span>
+<a id="answer_210" href="שאלה על AJAX-1.htm#answer_210">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איפה לשים אותם בתוך הקובץ הרגיל?<br>או בטוח הקובץ שאותו טוענים? </p>
+</div>
+<div class="answer" id="answer216">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 לדצמבר 2011 </span>
+<a id="answer_216" href="שאלה על AJAX-1.htm#answer_216">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בתוך file.php </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

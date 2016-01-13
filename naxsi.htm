@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הגנה אפליקטיבית לשרת Nginx באמצעות המודול NAXSI.">
+<meta name="keywords" content="naxsi, nginx, server firewall">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>NAXSI – ההגנה האולטימטיבית ל-Nginx</title>
+<meta itemprop="name" content="NAXSI – ההגנה האולטימטיבית ל-Nginx">
+<meta itemprop="description" content="הגנה אפליקטיבית לשרת Nginx באמצעות המודול NAXSI.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"213","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>NAXSI – ההגנה האולטימטיבית ל-Nginx</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-06-15T15:32:02+03:00" dir="rtl">15 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/naxsi.jpg" alt="NAXSI – ההגנה האולטימטיבית ל-Nginx">
+</div>
+<div class="right post-content">
+NAXSI – <strong>N</strong>ginx <strong>A</strong>nti <strong>X</strong>SS &amp; <strong>S</strong>QL <strong>I</strong>njection – זהו פיירוול אפליקטיבי, אחיו של mod_security לשרתי Nginx, שיעזור לכם להגן על האתר שלכם מפני XSS, SQL Injections, CSRF, Local &amp; Remote File Inclusion. עובד מהר וקל בהגדרות. עדיין ב-Apache בגלל mod_security? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>NAXSI</h3><br>ברור שהדרך הכי יעילה להתגונן מפני הבעיות האלה היא לכתוב קוד טוב, אבל במקרים מסוימים כלי מסוג Web Applications Firewall כמו NAXSI ו-mod_security יכול מאוד להועיל:<br>* לאיכות קוד נמוכה כשאין אפשרות לזרוק הכל ולכתוב מחדש<br>* לקוד סגור שאין אפשרות לתקן בו בעיות <br>* לסקריפט לא ברור שאיזה מישהו כתב ושאתם צריכים עכשיו להפעיל אצלכם בשרת<br><br><h4>איך NAXSI עובד</h4><br>NAXSI יודע לסנן בקשות GET, כותרי http headers כמו קוקיז ואת גוף בקשות ה-POST לפי כללים מסוימים.<a href="http://code.google.com/p/naxsi/source/browse/trunk/naxsi_config/naxsi_core.rules">אוסף הפילטרים הבסיסיים</a> מסנן תווים מזיקים ומילים שמורות ב-SQL. התנאים האלה די נוקשים ויכולים להפריע לעבודת אתר תקינה כמו phpguide, שבו כותבים רק תווים מזיקים ושאילתות. בשביל זה ב-NAXSI יש &quot;רשימות לבנות&quot; שמבטלות את הכללים שאתם לא צריכים.<br><br>כשבקשה מגיעה לשרת – היא עוברת דרך אוסף הבדיקות השונות ומקבלת &quot;נקודות רעות&quot; בשש קטגוריות שונות: <span dir="ltr">$SQL</span>, <span dir="ltr">$XSS</span>, <span dir="ltr">$RFI</span>, <span dir="ltr">$TRAVERSAL</span>, <span dir="ltr">$EVADE</span>, <span dir="ltr">$UPLOAD</span>.<br>אם כמות הנקודות עוברת את רמת החסימה – הבקשה נחשבת למסוכנת, והמשתמש נשלח לעמוד DeniedUrl שנקבע מראש בהגדרות. בעמוד הזה אפשר לאסוף סטטיסטיקה על איך מנסים לפגוע בכם וכמה.<br><br>NAXSI יודע לעבוד בשני מצבים – למידה ורמת פעילות א&#039;. במקרה הראשון NAXSI ייצר בעצמו רשימות לבנות לפי פעילותם של המשתמשים, כך שאם במקום מסוים רוב המשתמשים נחסמים עבור קלט תקין – NAXSI תיצור בשבילו כלל לבן. בסוף הלימוד כדאי לעבור על הרשימות האלה ולערוך במידת הצורך.<br>לאחר מכן יש להעביר את NAXSI למצב פעילות, שבו בקשות מזיקות ייחסמו.<br><br><h3>התקנת NAXSI</h3><br>בדביאנים אפשר להתקין כבר מהרפוזיטורים:<br><div class="php codeblock">sudo apt<span class="sy0">-</span>get install nginx<span class="sy0">-</span>naxsi</div><br>להפצות האחרות מקמפלים לבד מ-naxsi.googlecode.com.<br><br><h4>הגדרות</h4><br>בהגדרות הכלליות של Nginx נוסיף את החוקים של NAXSI:<br><div class="php codeblock"><span class="kw1">include</span> <span class="sy0">/</span>etc<span class="sy0">/</span>nginx<span class="sy0">/</span>naxsi_core<span class="sy0">.</span>rules<span class="sy0">;</span></div><br>ובעבור כל virtual host נוסיף את ההגדרות הרצויות:<br><div class="php codeblock">LearningMode<span class="sy0">;</span><br>
+SecRulesEnabled<span class="sy0">;</span><br>
+DeniedUrl <span class="st0">&quot;/RequestDenied&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="co2">#include &quot;/etc/nginx/mynaxsi.rules&quot;;<br>
+</span><br>
+<span class="co2">## check rules<br>
+</span>CheckRule <span class="st0">&quot;<span class="es4">$SQL</span> &gt;= 8&quot;</span> BLOCK<span class="sy0">;</span><br>
+CheckRule <span class="st0">&quot;<span class="es4">$RFI</span> &gt;= 8&quot;</span> BLOCK<span class="sy0">;</span><br>
+CheckRule <span class="st0">&quot;<span class="es4">$TRAVERSAL</span> &gt;= 4&quot;</span> BLOCK<span class="sy0">;</span><br>
+CheckRule <span class="st0">&quot;<span class="es4">$EVADE</span> &gt;= 4&quot;</span> BLOCK<span class="sy0">;</span><br>
+CheckRule <span class="st0">&quot;<span class="es4">$XSS</span> &gt;= 8&quot;</span> BLOCK<span class="sy0">;</span></div><br><br>די ברור מהשם של כל סעיף מה הוא עושה.<br>* SecRulesEnabled מפעילה את NAXSI עבור המיקום הנוכחי. אם באיזושהי תת-תיקייה תרצו לכבות אותו – עבור אותו מיקום נשים SecRulesDisabled.<br>* <span dir="ltr">/etc/nginx/mynaxsi.rules</span><br>שם נמצאת רשימת הכללים שנוצרו בשלב הלימוד. עד שלא נסיים ליצור אותם – השורה נשארת בהערה.<br><br>מידע נוסף על NAXSI אפשר למצוא ב<a href="http://code.google.com/p/naxsi/">וויקי שלהם</a>.<br>זהו צעד חשוב עבור כל מי שהוחזק על ידי mod_security ועדיין לא עבר ל-Nginx.<br>בנוגע ל-Nginx עצמו – אפשר לקרוא את <a href="מגדירים Nginx כFrontend לApache.htm">המדריך של מיכאל ארנזון להגדרת Nginx</a>. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1606"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2012 19:55</span><br>
+מגניב,<br>
+יש משהו דומה ל apache?<br>
+<br>
+כמובן חשוב לציין, אף פעם אל תסתמכו על אבטחה מהסוג הזה באפליקציות שלכם,<br>
+אי אפשר לדעת על איזה שרת זה יהיה בעתיד, ואם השירות נופל גם בעיה,<br>
+וכו&apos;,<br>
+זה אחלה כלי &quot;למקרה ו..&quot; <br>
+<br>
+בנוסף, אני מקווה שהגרמנים יינצחו היורו הזה!</div>
+<a id="comment1607"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2012 20:03</span><br>
+mod_security</div>
+<a id="comment1621"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2012 20:49</span><br>
+זה לא apt-get install nginx-naxsi<br>
+זה sudo apt-get install nginx-naxsi<br>
+ללא sudo זה יראה שגיאה צריך לתת הרשאה</div>
+<a id="comment1622"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2012 20:51</span><br>
+אני יוצא מתוך נקודת הנחה שלמי שיש ubuntu יודע איך להתקין בה דברים :)<br>
+תודה בכל אופן, עדכנתי.</div>
+<a id="comment1623"></a>
+<div class="blog-comment">
+<span class='comment-author'>ניב</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2012 06:58</span><br>
+נשמע טוב, בפועל הכלי הזה יכול ליצור המון בעיות כתוצאה מסינון מילים בסיסיות כדוגמת SELECT, DELETE.<br>
+תודה על השיתוף :)</div>
+<a id="comment1628"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2012 11:56</span><br>
+לא מספיק לכתוב רק select ו delete.<br>
+על כל מילה בעיתית אתה מקבל נקודה. אם אתה עובר שמונה נקודות בקטגורית ה sql רק אז אתה נחסם.<br>
+CheckRule &quot;$SQL &gt;= 8&quot; BLOCK;</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה אבטחה עם CODEIGNITER">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>אבטחה עם CODEIGNITER | שאלת לימוד PHP</title>
+<meta itemprop="name" content="אבטחה עם CODEIGNITER | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה אבטחה עם CODEIGNITER">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="אבטחה עם CODEIGNITER-1.htm" title="היי.במידה והמערכת שלי תעבוד בצורה הבאה:אם אני נכנס לקישור:www.site.com/categories/carsאז המערכת הולכת לדוגמא לטבלה categories ומחפשת את השורה שה title שלה הוא cars ומחזיר לי את כל השורה (קוד למטה) אם במקום cars הייתי כותב abc אז המערכת הייתה מחפשת שורה שיש בה abc (כנל categories).ואין שום קובץ אחד שבודק או מסנן, פשוט כמו שז">אבטחה עם CODEIGNITER</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2015-07-11T19:50:09+03:00" style="display:inline-block;">
+11 ליולי 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2155'>
+היי.<br>במידה והמערכת שלי תעבוד בצורה הבאה:<br><br>אם אני נכנס לקישור:<br><div class="php codeblock">www<span class="sy0">.</span>site<span class="sy0">.</span>com<span class="sy0">/</span>categories<span class="sy0">/</span>cars</div><br><br>אז המערכת הולכת לדוגמא לטבלה categories ומחפשת את השורה שה title שלה הוא cars ומחזיר לי את כל השורה (קוד למטה) אם במקום cars הייתי כותב abc אז המערכת הייתה מחפשת שורה שיש בה abc (כנל categories).<br>ואין שום קובץ אחד שבודק או מסנן, פשוט כמו שזה.<br><br>השאלה שלי האם זה טוב או מהווה סכנה למערכת ?<br><br>הקוד בצורה הבאה בקונטרולר:<br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$category</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">Categories_model</span><span class="sy0">-&gt;</span><span class="me1">get_category_by_url_title</span><span class="br0">&#40;</span><span class="kw3">urldecode</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">uri</span><span class="sy0">-&gt;</span><span class="me1">segment</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$category</span> <span class="sy0">||</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">uri</span><span class="sy0">-&gt;</span><span class="me1">segment</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="st_h">''</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; show_404<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$data</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'template'</span> <span class="sy0">=&gt;</span> <span class="st_h">'categories/index'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'category'</span> <span class="sy0">=&gt;</span> <span class="re0">$category</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="br0">&#40;</span><span class="st_h">'template'</span><span class="sy0">,</span> <span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br>בcategories מודל:<br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> get_category_by_url_title<span class="br0">&#40;</span><span class="re0">$url_title</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">db</span><span class="sy0">-&gt;</span><span class="me1">where</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="st_h">'url_title'</span> <span class="sy0">=&gt;</span> <span class="re0">$url_title</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">db</span><span class="sy0">-&gt;</span><span class="me1">limit</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">db</span><span class="sy0">-&gt;</span><span class="me1">get</span><span class="br0">&#40;</span><span class="st_h">'categories'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">row</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">FALSE</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>ובview אני מציג לדוגמא ככה:<br><div class="php codeblock"><span class="re0">$category</span><span class="sy0">-&gt;</span><span class="me1">title</span><span class="sy0">;</span></div><br><br>יש לי Routing:<br><div class="php codeblock"><span class="re0">$route</span><span class="br0">&#91;</span><span class="st_h">'categories/(:any)'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'categories/index'</span><span class="sy0">;</span></div><br><br>אני מקווה שהבנתם למה אני מתכוון . כשאני מנסה להכניס כל מיני תווים מוזרים במקום cars או categories זה מראה שגיאה שתווים כאלה לא מורשים. האם זה מובנה ב CI ? אני יכול לעשות את מה שאמרתי בלי חשש כלשהו לחור ?<br>* יש טבלת קטגוריות באתר שמכילה את שם הקטגוריה , url_title שזה בעצם מה שיהיה בקישור, ועוד כל מיני דברים של המערכת.<br><br>*לפי כל מה שלמדתי ב PHP זה שפשוט לא לסמוך על מה שאתה מקבל מהגולש, אני אומר את מה שאני אומר בגלל שראיתי את זה במערכת כלשהי ורציתי לדעת. <br><br>אני יודע שיש את ההגנה הזאת ב URI, השאלה האם זה מספיק?:<br><div class="php codeblock">CodeIgniter is fairly restrictive regarding which characters it allows in your URI strings in order to help minimize the possibility that malicious data can be passed to your application<span class="sy0">.</span> URIs may only contain the following<span class="sy0">:</span><br>
+<br>
+Alpha<span class="sy0">-</span>numeric text <span class="br0">&#40;</span>latin characters only<span class="br0">&#41;</span><br>
+Tilde<span class="sy0">:</span> ~<br>
+Percent sign<span class="sy0">:</span> <span class="sy0">%</span><br>
+Period<span class="sy0">:</span> <span class="sy0">.</span><br>
+Colon<span class="sy0">:</span> <span class="sy0">:</span><br>
+Underscore<span class="sy0">:</span> _<br>
+Dash<span class="sy0">:</span> <span class="sy0">-</span><br>
+Space</div> </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9411">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 ליולי 2015 </span>
+<a id="answer_9411" href="אבטחה עם CODEIGNITER-1.htm#answer_9411">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מצד אחד כל הכבוד שאתה מעלה את הנושא<br>מצד שני די על פני השטח מה קורה עם הנתונים שלך. אחרי שאתה מזין משהו בקישור הפריימוורק מחפש את זה בטבלה מאוד ספציפית לפי שדה מאוד מסוים. אין כאן שום דרך להוציא נתונים אחרים מתוך המסד בשום צורה שהיא.<br>לגבי תוים מוזרים בכתובת, אולי אפשר לכבות את זה, אבל בעיקרון מה שיקרה, הוא לא משנה אילו תויים יהיו בכתובת, תתבצע שאילתה למסד שעברה הגנה מפני sql injection, ולכן פשוט לא ימצאו שורות תואמות וכנראה תצטרך להחזיר עמוד 404. אני לא רואה שום בעיות במקרה הזה. יכולה להיות לך בעיה של xss אם למישהו מלבדך יש אפשרות לערוך את הכותרות ולרשום בהם משהו כמו קוד javascript וכאן צריך לזכור להשתמש באיזושהי שטות כמו <br><div class="php codeblock"><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">security</span><span class="sy0">-&gt;</span><span class="me1">xss_clean</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div> </p>
+</div>
+<div class="answer" id="answer9412">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 ליולי 2015 </span>
+<a id="answer_9412" href="אבטחה עם CODEIGNITER-1.htm#answer_9412">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ל- this-&gt;db-&gt;where<br>יש פרמטר שלישי שגם הוא עושה פילטרינג נגד xss </p>
+</div>
+<div class="answer" id="answer9413">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 13 ליולי 2015 </span>
+<a id="answer_9413" href="אבטחה עם CODEIGNITER-1.htm#answer_9413">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אחלה, תודה רבה!<br>אקרא על הפרמטר השלישי.<br>לא ידעתי שהשאילתה עוברת הגנה מפני sql injection, עמוד 404 בהחלט מוחזר.<br>אין אפשרות לאף אחד לערוך שום דבר לכן אין צורך בשטות הזאת.<br>את הפרמטר השלישי ל WHERE אוסיף שיהיה ליתר בטחון זה לא מפריע לאף אחד </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

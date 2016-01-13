@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה nginx - נתיבי גלישה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="PHPDeveloper">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>nginx - נתיבי גלישה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="nginx - נתיבי גלישה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה nginx - נתיבי גלישה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">20</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="nginx  נתיבי גלישה.htm" title="הייאני בניתי לאחרונה פריימוורק בשבילי כדי לבדוק את היכולות שלי בעבודה על פרוייקטים בינוניים.אני עובד על שרת UBUNTU עם NGINX עכשיו לפיירמוורק שלי יש נתיבי גלישה כמו /Master/Do כאשר אני ניכנס לURL הזה (127.0.0.1/Master/Do) זה זורק אותי לשגיאה 404.  לפי מה שאני חושב זה פשוט מחפש תיקיה ולא הולך על פי הקונטרולר.השתמשתי בCONFIG של NGINX בתקווה שזה ישנה את זהhttp://pastebin.com/jbAnPzAmאבל לא קרה כלום">nginx - נתיבי גלישה</a></h2>
+<div class="userinfo">
+פתח
+<a>PHPDeveloper</a>
+,
+<time class="timeago relativetime" datetime="2012-12-08T15:39:15+02:00" style="display:inline-block;">
+08 לדצמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1124'>
+היי<br>אני בניתי לאחרונה פריימוורק בשבילי כדי לבדוק את היכולות שלי בעבודה על פרוייקטים בינוניים.<br>אני עובד על שרת UBUNTU עם NGINX <br><br>עכשיו לפיירמוורק שלי יש נתיבי גלישה כמו /Master/Do כאשר אני ניכנס לURL הזה (127.0.0.1/Master/Do) זה זורק אותי לשגיאה 404. לפי מה שאני חושב זה פשוט מחפש תיקיה ולא הולך על פי הקונטרולר.<br><br>השתמשתי בCONFIG של NGINX בתקווה שזה ישנה את זה<br><br>http://pastebin.com/jbAnPzAm<br><br>אבל לא קרה כלום </div>
+</div>
+<h3>
+<span id="answersCounter">20 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4892">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>shlomo120</a>
+ב
+<span style="font-size:10px"> 09 לדצמבר 2012 </span>
+<a id="answer_4892" href="nginx  נתיבי גלישה.htm#answer_4892">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אולי תרשום משהו כזה בקובץ htaccess ?<br><div class="php codeblock">RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.+</span><span class="br0">&#41;</span>$ index<span class="sy0">.</span>php?fwAction<span class="sy0">=</span>$<span class="nu19">1</span> <span class="br0">&#91;</span>QSA<span class="sy0">,</span>L<span class="br0">&#93;</span></div> </p>
+</div>
+<div class="answer" id="answer4893">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 לדצמבר 2012 </span>
+<a id="answer_4893" href="nginx  נתיבי גלישה.htm#answer_4893">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה ככה:<br><div class="php codeblock">location ~ \<span class="sy0">.</span>php$ <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co2"># Filter out arbitrary code execution<br>
+</span>&nbsp; &nbsp; location ~ \<span class="sy0">..*/.*</span>\<span class="sy0">.</span>php$ <span class="br0">&#123;</span><span class="kw1">return</span> <span class="nu0">404</span><span class="sy0">;</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; try_files <span class="re0">$uri</span> <span class="sy0">=</span><span class="nu0">404</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; fastcgi_split_path_info ^<span class="br0">&#40;</span><span class="sy0">.+</span>\<span class="sy0">.</span>php<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="sy0">/.+</span><span class="br0">&#41;</span>$<span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co2"># NOTE: You should have &quot;cgi.fix_pathinfo = 0;&quot; in php.ini<br>
+</span><br>
+&nbsp; &nbsp; fastcgi_param PATH_INFO <span class="re0">$fastcgi_path_info</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">include</span> fastcgi_params<span class="sy0">;</span> <br>
+&nbsp; &nbsp; set <span class="re0">$memcached_key</span> <span class="st0">&quot;ubuntu:<span class="es4">$request_uri</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; memcached_pass 127<span class="sy0">.</span>0<span class="sy0">.</span>0<span class="sy0">.</span>1<span class="sy0">:</span><span class="nu0">11211</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; fastcgi_param SCRIPT_FILENAME <span class="re0">$document_root</span><span class="re0">$fastcgi_script_name</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; fastcgi_pass 127<span class="sy0">.</span>0<span class="sy0">.</span>0<span class="sy0">.</span>1<span class="sy0">:</span><span class="nu0">9000</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; fastcgi_index index<span class="sy0">.</span>php<span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer4894">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 10 לדצמבר 2012 </span>
+<a id="answer_4894" href="nginx  נתיבי גלישה.htm#answer_4894">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אלכס זה עדיין לא עוזר.<br>404 Not Found<br><br>nginx/1.1.19<br>ביטלתי גם את cgi.fix_pathinfo שהיה אצלי על 1 </p>
+</div>
+<div class="answer" id="answer4895">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 10 לדצמבר 2012 </span>
+<a id="answer_4895" href="nginx  נתיבי גלישה.htm#answer_4895">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אולי הבעיה היא בפריימוורק שלי? יכול להיות שמציאת נתיבים בפריימוורק שלי לא נכונים?<br>זה הקוד שלי, תגידו מה דעתכם:<br><br><div class="php codeblock"><span class="kw2">class</span> Router <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$controller</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$actionMethod</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$baseUrl</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* __construct function;<br>
+&nbsp; &nbsp; &nbsp;* Are there any files in the Main folder<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$files</span> <span class="sy0">=</span> <span class="kw3">glob</span><span class="br0">&#40;</span>Config<span class="sy0">::</span><span class="me2">read</span><span class="br0">&#40;</span><span class="st_h">'controllers'</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'*.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$files</span><span class="br0">&#41;</span> <span class="kw1">throw</span> <span class="kw2">new</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tException<span class="br0">&#40;</span><span class="st0">&quot;Router&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ERROR: can't find any controllers&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$files</span> <span class="kw1">as</span> <span class="re0">$file</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">require_once</span> <span class="re0">$file</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp;<span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* __construct function;<br>
+&nbsp; &nbsp; &nbsp;* Getting data vars from the url<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> pathRouter<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$requestUrl</span> <span class="sy0">=</span> <span class="st_h">'http://'</span> <span class="sy0">.</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_HOST'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REQUEST_URI'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$requestString</span> <span class="sy0">=</span> <span class="kw3">substr</span><span class="br0">&#40;</span><span class="re0">$requestUrl</span><span class="sy0">,</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">baseUrl</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$urlParams</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st_h">'/'</span><span class="sy0">,</span> <span class="re0">$requestString</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">controller</span> <span class="sy0">=</span> <span class="kw3">ucfirst</span><span class="br0">&#40;</span><span class="kw3">array_shift</span><span class="br0">&#40;</span><span class="re0">$urlParams</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">'Controller'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">actionMethod</span> <span class="sy0">=</span> <span class="kw3">strtolower</span><span class="br0">&#40;</span><span class="kw3">array_shift</span><span class="br0">&#40;</span><span class="re0">$urlParams</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">'Action'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;controller&quot;</span><span class="sy0">=&gt;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">controller</span><span class="sy0">,</span> <span class="st0">&quot;action&quot;</span><span class="sy0">=&gt;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">actionMethod</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer4896">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 לדצמבר 2012 </span>
+<a id="answer_4896" href="nginx  נתיבי גלישה.htm#answer_4896">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא משנה מה הקוד שלך.<br>משנה האם כל הבקשות מגיעות ל index.php או לא.<br>מה כתוב באותו index.php פחות מעניין. מצידי שיהיה שם echo &#039;hi&#039;;<br><br>הקונפיג שצירפתי אמור להביא אותך ל index.php בכל בקשה, אבל אם זה לא קורה<br>צריך לראות בלוגים מה nginx חושב שכן קורה.<br>תעיף מבט ב error.log ו access.log של nginx ותצרף לפה את הכמה שורות האחרונות שנכתבות לשם אחרי שאתה גולש לנטיב כלשהו. </p>
+</div>
+<div class="answer" id="answer4900">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4900" href="nginx  נתיבי גלישה.htm#answer_4900">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא צריך את כל הerror-log.<br>צריך שתמחק ממנו הכל, תנסה לגלוש ותצרף לפה רק את מה שקורה אחרי שאתה מנסה לגלוש.<br>מה השרת עשה שבוע שעבר לא באמת מעניין. </p>
+</div>
+<div class="answer" id="answer4901">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4901" href="nginx  נתיבי גלישה.htm#answer_4901">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טוב זה מה שמופיע לי בACCESS LOG:<br><div class="php codeblock">192<span class="sy0">.</span>168<span class="sy0">.</span>0<span class="sy0">.</span>104 <span class="sy0">-</span> <span class="sy0">-</span> <span class="br0">&#91;</span><span class="nu0">10</span><span class="sy0">/</span>Dec<span class="sy0">/</span><span class="nu0">2012</span><span class="sy0">:</span><span class="nu0">21</span><span class="sy0">:</span><span class="nu0">43</span><span class="sy0">:</span><span class="nu0">41</span> <span class="sy0">+</span><span class="nu8">0200</span><span class="br0">&#93;</span> <span class="st0">&quot;GET /dcframework/Master/Do HTTP/1.1&quot;</span> <span class="nu0">404</span> <span class="nu0">200</span> <span class="st0">&quot;-&quot;</span> <span class="st0">&quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11&quot;</span><br>
+192<span class="sy0">.</span>168<span class="sy0">.</span>0<span class="sy0">.</span>104 <span class="sy0">-</span> <span class="sy0">-</span> <span class="br0">&#91;</span><span class="nu0">10</span><span class="sy0">/</span>Dec<span class="sy0">/</span><span class="nu0">2012</span><span class="sy0">:</span><span class="nu0">21</span><span class="sy0">:</span><span class="nu0">43</span><span class="sy0">:</span><span class="nu0">41</span> <span class="sy0">+</span><span class="nu8">0200</span><span class="br0">&#93;</span> <span class="st0">&quot;GET /favicon.ico HTTP/1.1&quot;</span> <span class="nu0">404</span> <span class="nu0">200</span> <span class="st0">&quot;-&quot;</span> <span class="st0">&quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11&quot;</span><br>
+192<span class="sy0">.</span>168<span class="sy0">.</span>0<span class="sy0">.</span>104 <span class="sy0">-</span> <span class="sy0">-</span> <span class="br0">&#91;</span><span class="nu0">10</span><span class="sy0">/</span>Dec<span class="sy0">/</span><span class="nu0">2012</span><span class="sy0">:</span><span class="nu0">21</span><span class="sy0">:</span><span class="nu0">43</span><span class="sy0">:</span><span class="nu0">57</span> <span class="sy0">+</span><span class="nu8">0200</span><span class="br0">&#93;</span> <span class="st0">&quot;-&quot;</span> <span class="nu0">400</span> <span class="nu0">0</span> <span class="st0">&quot;-&quot;</span> <span class="st0">&quot;-&quot;</span></div><br><br>עכשיו לגבי הלוג של השגיאות - במידה ואני ניכנס לתיקיה הראשית של הפריימוורק ללא נתיבים לקונטרולר הוא כותב לי את זה:<br><div class="php codeblock"><span class="nu0">2012</span><span class="sy0">/</span><span class="nu0">12</span><span class="sy0">/</span><span class="nu0">10</span> <span class="nu0">21</span><span class="sy0">:</span><span class="nu0">45</span><span class="sy0">:</span><span class="nu0">39</span> <span class="br0">&#91;</span>error<span class="br0">&#93;</span> <span class="nu0">2538</span><span class="co2">#0: *3 FastCGI sent in stderr: &quot;PHP message: PHP Fatal error: &nbsp;Class 'Http:Controller' not found in /usr/share/nginx/www/dcframework/framework/Routes/Controllers.php on line 15&quot; while reading response header from upstream, client: 192.168.0.104, server: ubuntu, request: &quot;GET /dcframework/ HTTP/1.1&quot;, upstream: &quot;fastcgi://127.0.0.1:9000&quot;, host: &quot;192.168.0.102&quot;</span></div><br><br>ופולט לי בדפדפן את זה - <div class="php codeblock"><span class="kw3">Array</span> <span class="br0">&#40;</span> <span class="br0">&#91;</span>controller<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> Http<span class="sy0">:</span>Controller <span class="br0">&#91;</span>action<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> Action <span class="br0">&#41;</span> Fatal error<span class="sy0">:</span> <span class="kw2">Class</span> <span class="st_h">'Http:Controller'</span> not found in <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nginx<span class="sy0">/</span>www<span class="sy0">/</span>dcframework<span class="sy0">/</span>framework<span class="sy0">/</span>Routes<span class="sy0">/</span>Controllers<span class="sy0">.</span>php on line <span class="nu0">15</span></div><br><br>אבל כשאני ניכנס לנתיב של הקונטרולר /Home אין שום שגיאה למרות שאני מקבל 404. </p>
+</div>
+<div class="answer" id="answer4902">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4902" href="nginx  נתיבי גלישה.htm#answer_4902">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז תיכנס לנטיב שנותן לך את ה-404.<br>אם הבקשה הגיע אל הסקריפט שלך והוא לא עובד - אתה מתקן את הסקריפט.<br>אם הבקשה לא הגיע לסקריפט שלך למרות שהיא הייתה אמורה - אנחנו ביחד מתקנים את קונפיג של השרת.<br><br>אם אתה נמצא במקרה הראשון, השאלה סגורה מבחינתי.<br>אם אתה נמצא במקרה השני, אני צריך את הלוגים של מה שקורה. אחת אנחנו לא יודעים מה באמת השרת חושב שהוא עושה. </p>
+</div>
+<div class="answer" id="answer4904">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4904" href="nginx  נתיבי גלישה.htm#answer_4904">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבקשה לא מגיע לסקריפט. ניסיתי כמה פעמים </p>
+</div>
+<div class="answer" id="answer4906">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4906" href="nginx  נתיבי גלישה.htm#answer_4906">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ומה נרשם בלוגים עבור המקרים שבהם הבקשה שלא מגיעה ? </p>
+</div>
+<div class="answer" id="answer4907">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4907" href="nginx  נתיבי גלישה.htm#answer_4907">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר לנסות להוסיף את התנאי הבא:<br><div class="php codeblock"><span class="co2"># unless the request is for a valid file (image, js, css, etc.), send to bootstrap<br>
+</span> &nbsp; &nbsp;<span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!-</span>e <span class="re0">$request_filename</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; rewrite ^<span class="sy0">/</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ <span class="sy0">/</span>index<span class="sy0">.</span>php?<span class="sy0">/</span>$<span class="nu19">1</span> last<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer4912">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4912" href="nginx  נתיבי גלישה.htm#answer_4912">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">nginx<span class="sy0">:</span> the configuration <span class="kw3">file</span> <span class="sy0">/</span>etc<span class="sy0">/</span>nginx<span class="sy0">/</span>nginx<span class="sy0">.</span>conf syntax is ok<br>
+<span class="nu0">2012</span><span class="sy0">/</span><span class="nu0">12</span><span class="sy0">/</span><span class="nu0">11</span> <span class="nu0">15</span><span class="sy0">:</span><span class="nu0">21</span><span class="sy0">:</span><span class="nu0">41</span> <span class="br0">&#91;</span>emerg<span class="br0">&#93;</span> <span class="nu0">3128</span><span class="co2">#0: open() &quot;/var/run/nginx.pid&quot; failed (13: Permission denied)</span></div> </p>
+</div>
+<div class="answer" id="answer4913">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4913" href="nginx  נתיבי גלישה.htm#answer_4913">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש מצב שזה קשור לפאנל שפתחתי? ISPCONFIG אני מקבל בלוגים בקשות שיוצאות ממערכת של ISPCONFIG.. אין לי קשר אליהן.<br><br>ניסיתי לעשות ריסטרט לNGINX וקיבלתי מה ששלחתי למעלה ^ </p>
+</div>
+<div class="answer" id="answer4914">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 לדצמבר 2012 </span>
+<a id="answer_4914" href="nginx  נתיבי גלישה.htm#answer_4914">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש מצב שזה קשור. אני לא יודע אם הפאנל משנה הרשאות על דברים או לא,<br>אבל אם אתה מתחבר דרך הקונסול, אתה תמיד יכול לעשות ריסטרט לשרת בתור root<br><div class="php codeblock">sudo service nginx restart</div><br>או אם אתה בקונסול כבר בתור root, אז בלי ה sudo </p>
+</div>
+<div class="answer" id="answer4927">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 13 לדצמבר 2012 </span>
+<a id="answer_4927" href="nginx  נתיבי גלישה.htm#answer_4927">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מתברר שגם בAPACHE2 זה לא ממש עובד..<br><br>כתבתי קובץ HTACCESS עם הקודים האלה:<div class="php codeblock">RewriteEngine On<br>
+<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>d<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>f<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>l<br>
+<br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.+</span><span class="br0">&#41;</span>$ index<span class="sy0">.</span>php?url<span class="sy0">=</span>$<span class="nu19">1</span> <span class="br0">&#91;</span>QSA<span class="sy0">,</span>L<span class="br0">&#93;</span></div><br><br>וזה גם כן לא ניגש לשום קונטרולר דרך הINDEX - מוביל אותי לדף 404 בדיוק כמו בNGINX<br><br><br>אגב, הידרתי היום את הקודים של PHP5.5 הגירסה החדשה (לא מומלצת לשימוש לפי הארגון בגלל שהיא אלפא), איך אני יכול לחבר אותה עם אפצ&#039;י? השתמשתי במודל מתאים העניין שהמודל הזה ישן ולא מצאתי באינטרנט שום דבר שקשור להידור מודל חדש בין אפצ&#039;י לPHP </p>
+</div>
+<div class="answer" id="answer4932">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 לדצמבר 2012 </span>
+<a id="answer_4932" href="nginx  נתיבי גלישה.htm#answer_4932">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בוא נלך שלב שלב ונסיים קודם עם מה יש בלוגים של nginx<br>כאשר אתה לא מצליח להגיע לסקריפט שלך. </p>
+</div>
+<div class="answer" id="answer4934">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 14 לדצמבר 2012 </span>
+<a id="answer_4934" href="nginx  נתיבי גלישה.htm#answer_4934">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אחרי שעשיתי פירמוט למחשב שלי והתקנתי הכל מחדש (UBUNTU LTS 12.04) השגיאה שונתה - עכשיו זה 500. יש לי הרגשה שזה קשור לסקריפט שלי? <br><br><div class="php codeblock"><span class="nu0">2012</span><span class="sy0">/</span><span class="nu0">12</span><span class="sy0">/</span><span class="nu0">13</span> <span class="nu0">16</span><span class="sy0">:</span><span class="nu8">01</span><span class="sy0">:</span><span class="nu0">37</span> <span class="br0">&#91;</span>error<span class="br0">&#93;</span> <span class="nu0">3231</span><span class="co2">#0: *11 rewrite or internal redirection cycle while internally redirecting to &quot;/index.html&quot;, client: 192.168.0.104, server: nginx, request: &quot;GET /index.php/controller HTTP/1.1&quot;, host: &quot;192.168.0.100:8080&quot;<br>
+</span><span class="nu0">2012</span><span class="sy0">/</span><span class="nu0">12</span><span class="sy0">/</span><span class="nu0">13</span> <span class="nu0">16</span><span class="sy0">:</span><span class="nu8">01</span><span class="sy0">:</span><span class="nu0">46</span> <span class="br0">&#91;</span>error<span class="br0">&#93;</span> <span class="nu0">3231</span><span class="co2">#0: *14 rewrite or internal redirection cycle while internally redirecting to &quot;/index.html&quot;, client: 192.168.0.104, server: nginx, request: &quot;GET /index.php/Master HTTP/1.1&quot;, host: &quot;192.168.0.100:8080&quot;</span></div> </p>
+</div>
+<div class="answer" id="answer4935">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 14 לדצמבר 2012 </span>
+<a id="answer_4935" href="nginx  נתיבי גלישה.htm#answer_4935">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טוב עכשיו סידרתי בקונפיגורציה שזה יריץ גם קבצי PHP, זה הריץ רק HTML.<br>זה מוביל אותי עכשיו ישירות לINDEX.PHP בכל פעם כשאני ניגש לנתיב כלשהו.. אני חושב שיש לנו התקדמות.<br>אני מקבל ארור של PHP שאומר שהוא לא מזהה את האובייקט של הקונטרולר כי הוא לא קולט אותו משום מה מURL:<br><div class="php codeblock">Fatal error<span class="sy0">:</span> <span class="kw2">Class</span> <span class="st_h">'Http:Controller'</span> not found in <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nginx<span class="sy0">/</span>www<span class="sy0">/</span>framework<span class="sy0">/</span>Routes<span class="sy0">/</span>Controllers<span class="sy0">.</span>php on line <span class="nu0">14</span></div> </p>
+</div>
+<div class="answer" id="answer4936">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לדצמבר 2012 </span>
+<a id="answer_4936" href="nginx  נתיבי גלישה.htm#answer_4936">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מעולה. זה הייתה הבעיה: איך לגרום לכל הבקשות תמיד להגיע ל index.php.<br>הנושא הזה מבחינתי סגור.<br>עכשיו אפשר לפתוח שאלה חדשה שבה תשאל מה שאתה רוצה על הקוד שלך :) </p>
+</div>
+<div class="answer" id="answer4937">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 14 לדצמבר 2012 </span>
+<a id="answer_4937" href="nginx  נתיבי גלישה.htm#answer_4937">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה אלכס! אפתח תכף. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

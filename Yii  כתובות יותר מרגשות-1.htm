@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חלק ז&apos; של המדריך ל-Yii: שינוי כתובות הקבצים שבכניסה דרך צד הלקוח">
+<meta name="keywords" content="yii, php framework">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Yii | כתובות יותר מרגשות</title>
+<meta itemprop="name" content="Yii | כתובות יותר מרגשות">
+<meta itemprop="description" content="חלק ז&apos; של המדריך ל-Yii: שינוי כתובות הקבצים שבכניסה דרך צד הלקוח">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"202","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii | כתובות יותר מרגשות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2012-03-23T12:37:57+02:00" dir="rtl">23 למרץ 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/yii7.jpg" alt="Yii | כתובות יותר מרגשות">
+</div>
+<div class="right post-content">
+נמאס מהכתובות העלובות האלו, לא? index.php?r=account/register זה די עלוב בשביל הרשמה, לא כך?<br><em>המדריך הזה הוא חלק מסדרת המדריכים שכתב אליהו בסה על הפריימוורק Yii של שפת פיתוח האינטרנט PHP.</em> <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+עד עכשיו כדי להשתמש בפעולות וקונטרולרים השתמשנו במשהו כמו <span dir="ltr"><em>?r=account/register</em></span>, וזה די מעצבן, לא?<br>אז למה שלא פשוט נעשה <em>register.php</em> במקום <span dir="ltr"><em>index.php?r=account/register</em></span>?<br>בשביל זה צריך לעשות כמה דברים:<br>ניצור קובץ htaccess בשביל לאפשר ל-Yii גישה לעבודה עם כתובות &quot;לא אמתיות&quot;, כלומר שהקובץ לא קיים, אבל הכתובת קיימת. אפשר לקרוא לזה ניתוב.<br><br><div class="php codeblock">RewriteEngine on<br>
+<br>
+<span class="co2"># if a directory or a file exists, use it directly<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>f<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>d<br>
+<br>
+<span class="co2"># otherwise forward it to index.php<br>
+</span>RewriteRule <span class="sy0">.</span> index<span class="sy0">.</span>php</div><br>את זה תכניסו לקובץ ה-htaccess [שזה קובץ שהשם שלו הוא נקודה (.) ולאחריה הטקסט htaccess] בתיקייה הראשית.<br><br>עכשיו יש ל-Yii גישה לעבוד עם קישור.<br>ניכנס ל-config ונוסיף urlManager (שהוא מערך) למפתח בשם components.<br><span class="dirleft"><em>protected/config/config.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;main&quot;</span><span class="sy0">,</span><br>
+&nbsp; <br>
+&nbsp; <span class="st0">&quot;components&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;db&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;connectionString&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;mysql:host=localhost;dbname=lesson&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;username&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;root&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;password&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;charset&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;utf8&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;urlManager&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <br>
+&nbsp; <span class="st0">&quot;import&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;application.controllers.*&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;application.models.*&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>בתוך urlManager נגדיר את כל הקישורים ומספר הגדרות נוספות.<br>בתוך ה-urlManager ניצור אלמנט בשם urlFormat שהערך שלו יהיה path, כדי ש-Yii תדע באיזו כתובת מדובר.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;main&quot;</span><span class="sy0">,</span><br>
+&nbsp; <br>
+&nbsp; <span class="st0">&quot;components&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;db&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;connectionString&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;mysql:host=localhost;dbname=lesson&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;username&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;root&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;password&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;charset&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;utf8&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;urlManager&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;urlFormat&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;path&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <br>
+&nbsp; <span class="st0">&quot;import&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;application.controllers.*&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;application.models.*&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו אנחנו יכולים להגדיר את הכתובות.<br>אנחנו יכולים להגדיר את הכתובות שיהיו עם כל סיומת שרק נרצה, אפשר גם בלי סיומת.<br>לדוגמה: register.html ,register.php ואפילו register.asp או register.<br>את כל הכתובות אנחנו מכניסים ב-rules שבתוך ה-urlManager.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;main&quot;</span><span class="sy0">,</span><br>
+&nbsp; <br>
+&nbsp; <span class="st0">&quot;components&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;db&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'connectionString'</span><span class="sy0">=&gt;</span><span class="st_h">'sqlite:protected/data/Lesson.db'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;urlManager&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;urlFormat&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;path&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;rules&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;register.php&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;account/register&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <br>
+&nbsp; <span class="st0">&quot;import&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;application.controllers.*&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;application.models.*&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>אני חושב שזה די מובן, אבל אני אסביר.<br>בשם של האיבר במערך אנו כותבים את &quot;הקישור המזויף&quot; - הקישור שרק מקשר לדף האמתי, והערך של האיבר הוא השם של הקונטרולר והשם של הפעולה (אפשר לומר שזה הערך של הִֹ-<span dir="ltr">$_GET[&#039;r&#039;]</span>).<br><br>אם נשמור את הקוד שכתבנו מקודם, כאשר ננסה לגשת לכתובת register.php באתר שלנו, אנו נגיע אל דף ההרשמה.<br><br>עכשיו אנחנו צריכים למנוע מהגולשים לדעת על &quot;הקבצים האמתיים&quot; שלנו.<br>אם ניכנס לתיקייה protected דרך הדפדפן, אנחנו נראה את כל התיקיות, הקבצים והקונטרולרים.<br><br>הפתרון פשוט מאוד: ניכנס לתיקייה protected, ניצור שם קובץ htaccess ונכניס לתוכו את השורה הבאה:<br><span class="dirleft"><em>protected/.htaccess</em></span><br><div class="php codeblock">deny from all</div><br>ועכשיו לא יהיה ניתן לפנות אל התיקייה הזאת דרך צד הלקוח. :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1432"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/03/2012 23:27</span><br>
+תתתתתתתווווווווווווווווווווודדדדדדדדדדדדדדדדדדדדדדהההההההההההההההההההההההה!!!!!!!!!!<br>
+<br>
+לא ידעתי מה לעשות עם הכתובות המסריחות האלה XD<br>
+<br>
+הצלת אותי!<br>
+<br>
+תמשיך להכין מדריכים! זה חשוב D:</div>
+<a id="comment1433"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2012 16:01</span><br>
+thx you helped me so much </div>
+<a id="comment1434"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/03/2012 17:48</span><br>
+כל הכבוד!<br>
+אחלה השקעה.!</div>
+<a id="comment1438"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/03/2012 20:01</span><br>
+תודה לך<br>
+מחכה למדריך הבא</div>
+<a id="comment1441"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/04/2012 19:04</span><br>
+מה קורה עם עוד מדריכים?</div>
+<a id="comment1442"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/04/2012 19:28</span><br>
+אני בטוח שכשאליהו יוכל - הוא יכתוב. אין טעם להציק בעניין... :)</div>
+<a id="comment1445"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/04/2012 22:00</span><br>
+כשאני מוסיף את ה-htaccess אז אין לי גישה לאתר...<br>
+Internal Server Error<br>
+The server encountered an internal error or misconfiguration and was unable to complete your request.<br>
+..................<br>
+<br>
+למה זה קורה?<br>
+</div>
+<a id="comment1914"></a>
+<div class="blog-comment">
+<span class='comment-author'>fcbdaniel</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/08/2012 23:23</span><br>
+הי אנונימי<br>
+זה קצת בדילאי, אבל עדיף מאוחר מאשר אף פעם:<br>
+אתה צריך לאפשר HTACCESS בשרת שלך, אם זה ב WAMP תחפש בגוגל איך לאפשר את זה ב WAMP - זה אכן אפשרי ופשוט.</div>
+<a id="comment1928"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/09/2012 21:34</span><br>
+מוזר אבל זה לא עובד לי .. .:( <br>
+כל הבקשות מובנות לאינדקס בקונרטולר הראשי ... <br>
+יענו על כתובת מגיעה לשמה . </div>
+<a id="comment1929"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/09/2012 07:25</span><br>
+מעולה. עכשיו בקובץ הקונפיגורציה תגדיק ל YII מה לעשות עם &quot;כל כתובת&quot; שמגיעה לשם.</div>
+<a id="comment1931"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/09/2012 21:00</span><br>
+זה הקטע ! שאני מגדיר נגיד לדוגמא שאני ניגש לlogin.html אני אגיע לsite\login וזה כיאלו לא קיים , אני מופנה לאינדקס של הקונטרולר הראשי .</div>
+<a id="comment1932"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/09/2012 21:30</span><br>
+פתח שאלה, תצרף את הקוד של htaccess וקונפיגורציה שלך ונראה מה קורה</div>
+<a id="comment1933"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/09/2012 21:58</span><br>
+סבבה :)</div>
+<a id="comment2217"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/02/2013 20:35</span><br>
+תודה רבה!.<br>
+אשמח מאוד (אני מאמין שלא רק אני, אלא עוד אנשים כמוני שלומדים YII) אם תמשיך לכתוב מדריכים על YII :-).</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

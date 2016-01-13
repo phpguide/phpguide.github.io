@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מה ההבדל בין Repository, Model ו-Provider">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מה ההבדל בין Repository, Model ו-Provider | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מה ההבדל בין Repository, Model ו-Provider | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מה ההבדל בין Repository, Model ו-Provider">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מה ההבדל בין Repository Model וProvider-1.htm" title="הסתבכתי לגמרי. בהתחלה השתמשתי ב-Model. ואז ראיתי שקוראים למחלקה מסוג דומה Repository (אולי זה פשוט סוג של מודל או אולי מודל זה סוג של רפוזיטורי). ואז ראיתי שמשתמשים באותה תוכנה גם בשם Repository וגם בשם Provider.מה ההבדל?נ.ב. תוסיפו גם Service. :-)">מה ההבדל בין Repository, Model ו-Provider</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2014-08-04T13:05:50+03:00" style="display:inline-block;">
+04 לאוגוסט 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1981'>
+הסתבכתי לגמרי. בהתחלה השתמשתי ב-Model. ואז ראיתי שקוראים למחלקה מסוג דומה Repository (אולי זה פשוט סוג של מודל או אולי מודל זה סוג של רפוזיטורי). ואז ראיתי שמשתמשים באותה תוכנה גם בשם Repository וגם בשם Provider.<br><br>מה ההבדל?<br><br>נ.ב. תוסיפו גם Service. :-) </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8952">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2014 </span>
+<a id="answer_8952" href="מה ההבדל בין Repository Model וProvider-1.htm#answer_8952">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הכוונה היא למשהו שונה בכל אחד מהמקרים<br><br>model מייצג נתונים שהקונטרולר מעביר לוויו (או שהוויו קורא, או מאזין לשינויים בהם). כאן עדיין אין שום קשר למסד נתונים או לשפה כלשהי. הכוונה כאן היא נטו לנתונים. המודל מגיע מעולם הMVC ואין לו שום קשר למסד, לכן השימוש במילה מודל בהקשר של מחלקה עם קישור למסד, כפי שעושים את זה היום רוב הפריימוורקים, היא קצת מוטעית. <br><br>בפריימוקים מסוימים, בינהם לאראול, למחלקות שמייצגות טיפוס נתונים הוסיפו קישור למסד, ככה שלמחלקה נוספות פעולות כמו לשמור, לעדכן וכו&apos;. לתבנית העיצוב הזו קוראים active record, כלומר רשומה פעילה שאפשר לשנות והשינוי יגיע ישירות למסד.<br><br>המונח repository יותר פשוט ומתכוון למישהו שמנהל נתונים בתוך אוסף כלשהו ומספק גישה אליהם באמצעות מתודות שונות.. למשל מחלקה שמכילה מערך ומספקת מתודות לגישה אליו תהיה ריפוזיטורי.מחלקה שמייצגת קובץ יכולה להיות ריפוזיטורי שמכיל נתונים, כאשר ברוב המקרים הכוונה היא למחלקה עם פעולות כמו לשלוף נתונים, להכניס נתונים וכו&apos;. כאן יש הבדל עם האקטיב רקורד, לנתונים עצמם אין שום פעולות, הם בסך הכול DTO ולא עושים שום דבר. מצד שני, מחלקה אחרת מספקת מתודות כמו שלוף את כל המשתמשים או את משתמש לפי ID מסוים ושמור משתמש.<br><br>provider זה לפעמים שם מטעה היות שקשה להבין מה זה אומר באופן כללי. זהו לא שם של תבנית עיצוב והוא כנראה ספציפי למקרה שלך, בדיוק כפי שהמילה manager לא אומרת שום דבר על מהות הפעולה של המחלקה. במקרה של database provider הכוונה היא לרוב לחיבור למסד עצמו ובPHP ישנם כמה פרווידרים שונים לחיבורים. פרווידר שמספק חיבור ל mysql, אחד שמספק חיבור ל postgres וכו&apos;. כל אחד מאלו נחשב לפרווידר. לא מוכר לי שום שימוש מקובל בהקשר של נתונים, אבל כנראה שכאן התכוונו לפטרן ריפוזיטורי, בתור משהו שמסוגל להחזיר מידע או לקבל מידע לפי דרישה.<br><br>service גם כן לא קשור לנתונים ובדרך כלל הכוונה היא שוב פעם לריפוזיטורי, לרוב כשהריפוזיטורי איננו לוקאלי, למשל דרך האינטרנט. מחלקה שמטרה שלה היא פשוט לשלוח בקשות rest לשרת אחר לפי פעולות שאתה מפעיל עליה יכולה להיקרא service. </p>
+</div>
+<div class="answer" id="answer8959">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 06 לאוגוסט 2014 </span>
+<a id="answer_8959" href="מה ההבדל בין Repository Model וProvider-1.htm#answer_8959">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\intval-1.htm">@intval</a> תודה רבה על התשובה המפורטת. בלבלו אותי כשלמדתי MVC. בעצם הקונטרולר הוא זה שבוחר את המימוש לרפוזיטורי, שהוא שכבה נפרדת של גישה לבסיס נתונים / קובץ CSV / וואטבר.<br><br>כדי להיות בטוח שאני לא טועה, יש בעיות רעיוניות בקוד הבא?<br><br><div class="php codeblock"><span class="coMULTI">/*<br>
+&nbsp;* User actions logger<br>
+**/</span><br>
+<span class="kw2">interface</span> UserLoggerInterface implements LoggerInterface <span class="br0">&#123;</span> <span class="sy0">...</span> <span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> DatabaseUserLogger implements UserLoggerInterface <span class="br0">&#123;</span> <span class="sy0">...</span> <span class="br0">&#125;</span><br>
+<br>
+&nbsp;<span class="coMULTI">/******** User ********/</span><br>
+<br>
+<span class="kw2">interface</span> UserInterface<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span>UseRepositoryrInterface <span class="re0">$repo</span><span class="sy0">,</span> UserLoggerInterface <span class="re0">$userLogger</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> repository<span class="br0">&#40;</span>UseRepositoryrInterface <span class="re0">$repo</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// get/set repository</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getUserName<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getFullName<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getPassword<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> setUserName<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> setFullName<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> setPassword<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<span class="co1">// $this-&gt;repository()-save($this)</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">abstract</span> <span class="kw2">class</span> AbstractUser implements UserInterface <span class="br0">&#123;</span> <span class="sy0">...</span> <span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> AuthorizedUser <span class="kw2">extends</span> AbstractUser <span class="br0">&#123;</span> <span class="sy0">...</span> <span class="br0">&#125;</span><br>
+<br>
+<span class="coMULTI">/******** Repositories ********/</span><br>
+<br>
+<span class="kw2">interface</span> UserRepositoryInterface<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> posts<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// QueryBuilder</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">&#40;</span>UserInterface <span class="re0">$user</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> find<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">// ...</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> EloquentUserRepository <span class="kw2">extends</span> EloquentRepository implements UseRepositoryrInterface <span class="br0">&#123;</span> <span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer8979">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 לאוגוסט 2014 </span>
+<a id="answer_8979" href="מה ההבדל בין Repository Model וProvider-1.htm#answer_8979">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\intval-1.htm">@intval</a> הגזמתי? :-) </p>
+</div>
+<div class="answer" id="answer8980">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לאוגוסט 2014 </span>
+<a id="answer_8980" href="מה ההבדל בין Repository Model וProvider-1.htm#answer_8980">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא ממש ברור לי מה עושה הריפוזיטורי בתוך מחלקה שמייצגת משתמש, או הלוגר. אם אתה צריך לוגינג, תעשה אותו במקום שבו אתה מפעיל את מתודות שינוי השם, לא מתוך המתודה שמשנה את השם.<br>אם אתה מנסה לעשות active record זה בסדר שיש מתודות אחרות בתוך מחלקת היוזר, אבל ב active record בדרך כלל עובדים בלי ריפוזיטורי. </p>
+</div>
+<div class="answer" id="answer8981">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 לאוגוסט 2014 </span>
+<a id="answer_8981" href="מה ההבדל בין Repository Model וProvider-1.htm#answer_8981">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&gt; אם אתה צריך לוגינג, תעשה אותו במקום שבו אתה מפעיל את מתודות שינוי השם, לא מתוך המתודה שמשנה את השם.<br>וזה אומר שאני אצטרך לעשות את זה בכל מקום בנפרד. בשביל מה?<br><br>&gt; אם אתה מנסה לעשות active record זה בסדר שיש מתודות אחרות בתוך מחלקת היוזר, אבל ב active record בדרך כלל עובדים בלי ריפוזיטורי.<br>להפך, אני מנסה לעבוד עם רפוזיטורים, ולא להתקבע לסוג אחסון נתונים מסוים. אני רוצה להפריד את זה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

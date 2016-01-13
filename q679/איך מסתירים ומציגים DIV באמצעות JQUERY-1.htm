@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך מסתירים ומציגים DIV באמצעות JQUERY">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ניב">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>איך מסתירים ומציגים DIV באמצעות JQUERY | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך מסתירים ומציגים DIV באמצעות JQUERY | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך מסתירים ומציגים DIV באמצעות JQUERY">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">10</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm" title="אהלן,יש לי 3 DIVים מוסתרים, ואני רוצה ליצור כפתור לכל DIV שיציג את התוכן שלו.&amp;lt;div id=&amp;quot;information&amp;quot;&amp;gt;
+&amp;nbsp; &amp;lt;div id=&amp;quot;more_info&amp;quot;&amp;gt;
+&amp;nbsp; &amp;nbsp; תוכן מוסתר1
+&amp;nbsp; &amp;lt;/">איך מסתירים ומציגים DIV באמצעות JQUERY</a></h2>
+<div class="userinfo">
+פתח
+<a>ניב</a>
+,
+<time class="timeago relativetime" datetime="2012-06-19T07:04:35+03:00" style="display:inline-block;">
+19 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText679'>
+אהלן,<br>יש לי 3 DIVים מוסתרים, ואני רוצה ליצור כפתור לכל DIV שיציג את התוכן שלו.<br><div class="php codeblock"><span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;information&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;more_info&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; תוכן מוסתר<span class="nu0">1</span><br>
+&nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;information&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;more_info&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; תוכן מוסתר<span class="nu0">2</span><br>
+&nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;information&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;more_info&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; תוכן מוסתר<span class="nu0">3</span><br>
+&nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br>אני מסתיר ומציג את התוכן בצורה הבאה:<br><div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> &nbsp; &nbsp;$<span class="br0">&#40;</span><span class="st0">&quot;#information #more_info&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+$<span class="br0">&#40;</span><span class="st0">&quot;#Show&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#information #more_info&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+וב<span class="sy0">-</span>HTML ע<span class="st0">&quot;י INPUT:<br>
+&lt;input id=&quot;</span>Show<span class="st0">&quot; type=&quot;</span>button<span class="st0">&quot; value=&quot;</span>ראה עוד<span class="st0">&quot; /&gt;</span></div><br>עכשיו, אני מניח שחלקכם כבר זיהו את הבעיה, כאשר לוחצים על הכפתור, הוא מציג את כל שלושת ה-DIVים המוסתרים. איך אני גורם לו להציג רק את הDIV שדרכו לחצו על הכפתור?<br>אני מניח שאני צריך לתת לו ID מסויים או ליצור 3 פונקציות ובכל פעם לקרוא לפונקציה אחרת, יש דרך יעילה יותר?<br>תודה! </div>
+</div>
+<h3>
+<span id="answersCounter">10 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2803">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2803" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2803">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה לא נותן דרך שתייחס את הכפתור לדיב שאתה רוצה שיפתח בכלל..<br>אבל בכל מקרה תשתמש בסלקטור this או בייחוס אליו. נגיד:<br><div class="php codeblock"><span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+$<span class="br0">&#40;</span><span class="st0">&quot;:button&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+$<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span><span class="kw3">next</span><span class="br0">&#40;</span><span class="st0">&quot;div&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span><br>
+<br>
+<span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;button&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;Button&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;</span>div<span class="sy0">&gt;</span><br>
+text<br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer2804">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/bc359b3e48612fbda99cc258b5d6f1d4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ניב</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2804" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2804">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עשיתי משהו כזה:<br><div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> &nbsp; &nbsp;$<span class="br0">&#40;</span><span class="st0">&quot;#information #more_info1, #more_info2, #more_info3&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;a[id='show1']&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#more_info1&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#small_information1&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;a[id='show2']&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#more_info2&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#small_information2&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;a[id='show3']&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#more_info3&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#small_information3&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>מה דעתך? </p>
+</div>
+<div class="answer" id="answer2805">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2805" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2805">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא יודע בדיוק איך הקוד html שלך נראה, אבל זה לא נראה לי הכי אידיאלי לעשות ככה..<br>ערכתי לפני רגע את ההודעה שלי. תראה מה עשיתי. </p>
+</div>
+<div class="answer" id="answer2806">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/bc359b3e48612fbda99cc258b5d6f1d4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ניב</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2806" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2806">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קצת הסתבכתי בהבנה. למה משמשות הנקודותיים לפני המילה BUTON ? מה עושה הפונקציה NEXT? </p>
+</div>
+<div class="answer" id="answer2807">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2807" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2807">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+:button זה סלקטור לציון input מסוג button. <br>יש גם text , :password: וכו&#039;.<br>הפונקציה next מכוונת לאלמנט הבא שנמצא בקוד מהסוג שביקשת (במקרה שאני עשיתי - div).<br>אתה יכול לקרוא על זה יותר לעומק פה - http://api.jquery.com/next/<br>(: </p>
+</div>
+<div class="answer" id="answer2808">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2808" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2808">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; $<span class="br0">&#40;</span><span class="st_h">'.information &gt; .more_info'</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>siblings<span class="br0">&#40;</span><span class="st_h">'.show'</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span>siblings<span class="br0">&#40;</span><span class="st_h">'.more_info'</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><div class="php codeblock"><span class="sy0">&lt;</span>div <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;information&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>div <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;more_info&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; תוכן <span class="nu0">1</span><br>
+&nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;button&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;ראה עוד&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;show&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>div <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;information&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>div <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;more_info&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; תוכן <span class="nu0">2</span><br>
+&nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;button&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;ראה עוד&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;show&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>div <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;information&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>div <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;more_info&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; תוכן <span class="nu0">3</span><br>
+&nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;button&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;ראה עוד&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;show&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer2810">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/bc359b3e48612fbda99cc258b5d6f1d4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ניב</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2810" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2810">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לי שתי DIVים, אחד מהם מציג תוכן מקוצר ונקרא &lt;div id=&quot;small_information&gt; ואחד מהם מציג את התוכן המלא, והוא מוסתר more_info. כאשר לוחצים על קישור של &quot;קרא עוד&quot; זה מסתיר את SMALL INFORMATION ומציג את MORE INFO<br>לכל DIV כזה צירפתי מספר ID כדי לזהות אותו.<br>עשיתי את הקוד הבא:<br><div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> &nbsp; &nbsp;$<span class="br0">&#40;</span><span class="st0">&quot;#information #more_info1, #more_info2, #more_info3&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;a[id='show1']&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#more_info1&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#small_information1&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;a[id='show2']&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#more_info2&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#small_information2&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;a[id='show3']&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#more_info3&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#small_information3&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="st_h">'slow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>איך אני מייעל אותו למצב של פונקציה אחת שתדע להציג את MORE INFO ולהסתיר את SMALL INFORMATION?<br>תודה רבה וסליחה שאני משגע :) </p>
+</div>
+<div class="answer" id="answer2811">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2811" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2811">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מוזר שאף אחד לא הזיכר .toogle עושה לבד hide וshow </p>
+</div>
+<div class="answer" id="answer2814">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2814" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2814">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+id לא מתאים לדבר הזה. תראה את מה שאני עשיתי, השתמשתי ב-class (אותו קלאס לאלמנטים שונים).<br><br>@Y_Y<br>הוא רוצה רק לעשות show. </p>
+</div>
+<div class="answer" id="answer2824">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/aac1786e1fe0fe332fa2d49215871399?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_243635</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2824" href="איך מסתירים ומציגים DIV באמצעות JQUERY-1.htm#answer_2824">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקוד שלך לא עובד לי אחי. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

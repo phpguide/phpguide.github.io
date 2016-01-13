@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שימוש במספר מחלקות + mysqli">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mmh19">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שימוש במספר מחלקות + mysqli | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שימוש במספר מחלקות + mysqli | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שימוש במספר מחלקות + mysqli">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שימוש במספר מחלקות  mysqli.htm" title="שלום,כאשר משתמשים במספר מחלקות שבהן יש שאילתות,איך הכי כדאי לעבוד עם אובייקט של mysqli?אני חשבתי על כמה אפשרויות:1) שימוש בglobal בכל מחלקה של האובייקט mysqli הגלובלי.2) יצירת מחלקה בשם main שתכיל רק משתנה סטטי בשם $mysqli ופשוט לרשת ממנה בכל המחלקות שבאתר.3) שליחת האובייקט $mysqli (by ref) בכל יצירת אובייקט של כל מחלקה.מה הכי נכון לעשות?תודה.">שימוש במספר מחלקות + mysqli</a></h2>
+<div class="userinfo">
+פתח
+<a>mmh19</a>
+,
+<time class="timeago relativetime" datetime="2013-10-29T16:20:00+02:00" style="display:inline-block;">
+29 לאוקטובר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1649'>
+שלום,<br>כאשר משתמשים במספר מחלקות שבהן יש שאילתות,<br>איך הכי כדאי לעבוד עם אובייקט של mysqli?<br><br>אני חשבתי על כמה אפשרויות:<br>1) שימוש בglobal בכל מחלקה של האובייקט mysqli הגלובלי.<br>2) יצירת מחלקה בשם main שתכיל רק משתנה סטטי בשם $mysqli ופשוט לרשת ממנה בכל המחלקות שבאתר.<br>3) שליחת האובייקט $mysqli (by ref) בכל יצירת אובייקט של כל מחלקה.<br><br>מה הכי נכון לעשות?<br><br>תודה. </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7549">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 30 לאוקטובר 2013 </span>
+<a id="answer_7549" href="שימוש במספר מחלקות  mysqli.htm#answer_7549">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין דרך נכונה (אם כי תגובה של אלכס על שאלה שלי &quot;באתר יש כתבות על כל מיני דברים שצריך בכל דרך אפשרית להימנע מהם, כמו @, die<br>וglobal זה אחד מהם. להימנע מזה אפשר די בקלות, על ידי העברת פרמטרים. &quot;), ככה שאני עשיתי כמו הרעיון של אלכס, יצרתי משתנה בדף האינדקס ושם כל מחלקה שאני מפעיל העברתי לה את המשתנה של הmysqli ובעזרת __construct הפכתי אותו למשתנה של המחלקה ככה שאוכל להשתמש בו כך:<br><div class="php codeblock"><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">con</span><span class="sy0">;</span></div><br><br>הנה התגובה של אלכס:<br>http://phpguide.co.il/q1611/%D7%A7%D7%A8%D7%99%D7%90%D7%94+%D7%9C%D7%9E%D7%97%D7%9C%D7%A7%D7%94+%D7%91%D7%AA%D7%95%D7%9A+%D7%9E%D7%97%D7%9C%D7%A7%D7%94.htm#answer_7359 </p>
+</div>
+<div class="answer" id="answer7550">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5e5b5ba539240e4b83b11a5fbf086309?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmh19</a>
+ב
+<span style="font-size:10px"> 30 לאוקטובר 2013 </span>
+<a id="answer_7550" href="שימוש במספר מחלקות  mysqli.htm#answer_7550">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ישנה גם האפשרות הבאה:<br><div class="php codeblock"><span class="kw2">function</span> getDb<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">global</span> <span class="re0">$config</span><span class="sy0">;</span><br>
+&nbsp; static <span class="re0">$mysqli</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$config</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="st_h">'Error: $config not set yet!'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$mysqli</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> db<br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'database'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'host'</span><span class="br0">&#93;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'database'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'database'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'database'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'database'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'charset'</span><span class="br0">&#93;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$mysqli</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>לקרוא לפונקציה הגלובאלית הזאת בכל קונסטרקטור של מחלקה. </p>
+</div>
+<div class="answer" id="answer7551">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 31 לאוקטובר 2013 </span>
+<a id="answer_7551" href="שימוש במספר מחלקות  mysqli.htm#answer_7551">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+גם אפשרות, רק שים לב שאתה משתמש בglobal וdie למרות שזה לא טוב. </p>
+</div>
+<div class="answer" id="answer7552">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5e5b5ba539240e4b83b11a5fbf086309?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmh19</a>
+ב
+<span style="font-size:10px"> 31 לאוקטובר 2013 </span>
+<a id="answer_7552" href="שימוש במספר מחלקות  mysqli.htm#answer_7552">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\zacharya.htm">@zacharya</a><br>אתה מקובע על משהו כללי מידי,<br>global וdie לא בעיתיות בפני עצמן, אלא הן פשוט רגישות בשימוש שלהן וצריך לשים לב טוב טוב מה עושים,<br>במקרה הזה יש את המשתנה הגלובאלי config שאם הוא לא מוגדר אז גם שום דבר באתר לא יעבוד ככה שזה לא בעיתי..<br>וכנ&quot;ל הdie הוא בודק שהconfig אכן קיים אחרת מפסיק את הקוד עם הודעת שגיאה בהתאם, כי אם אין קונפיג שום דבר באתר לא יעבוד... </p>
+</div>
+<div class="answer" id="answer7554">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 לנובמבר 2013 </span>
+<a id="answer_7554" href="שימוש במספר מחלקות  mysqli.htm#answer_7554">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+global, static &amp; die הם לא סתם בעייתיים, אלה סופר בעיתיים בפני עצמם או ביחד עם דברים אחרים. <br>אין שום סיבה להשתמש בהם וזו דרך מאוד רעה לבדוק או להודיע למשתמש על שגיאות.<br><br>לא צריך להיות שום משתנה גלובאלי קונפיג. כל מחלקה שצריכה את המשתנה קונפיג, צריכה לקבל אותו בתור פרמטר ובפועל יש מחלקה אחת כזאת בלבד. נראה הגיוני לעשות משתנה גלובאלי שרק מחלקה אחת משתמשת בו?<br><br>זכריה צירף קישור לשאלה זהה והתושבה נשארת אותו דבר. כל התלויות של מחלקה חייבות להיות מועברות בתור פרמטרים. בין אם התלות הזאת היא מחלקה אחרת, או בין עם זה קונפיג.<br><br>כל זה נראה בסופו של יום ככה:<br><br><div class="php codeblock"><span class="kw2">class</span> SqlAdapter implements IDbAdapter<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="sy0">,</span> <span class="re0">$dbname</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Query<span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; try<br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connected</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connect</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// don't connect in constructor</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// As I wrote in the book, having side effects in constructor</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// is a very bad thing</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span>&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">..</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="kw2">class</span> Authenticator<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span>IUserDal <span class="re0">$dal</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dal</span> <span class="sy0">=</span> <span class="re0">$dal</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Auth<span class="br0">&#40;</span><span class="re0">$login</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dal</span><span class="sy0">-&gt;</span><span class="me1">CountUsersByLoginAndPass</span><span class="br0">&#40;</span><span class="re0">$login</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="br0">&#41;</span> <span class="sy0">===</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> UserDal implements IUserDal<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span>IDbAdapter <span class="re0">$db</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">db</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> CountUsersByLoginAndPass<span class="br0">&#40;</span><span class="re0">$login</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">db</span><span class="sy0">-&gt;</span><span class="me1">Query</span><span class="br0">&#40;</span><span class="st0">&quot;Select Count(*) &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="sy0">...</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="co1">// all other database user related stuff.</span><br>
+&nbsp; <span class="co1">// only one class actually holds queries.</span><br>
+&nbsp; <span class="co1">// other classes hold references to respective DadaAccessLayer classes (DAL)</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> UpdateLastUsersVisitTime<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="sy0">..</span> <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> GetUserInfo<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span><span class="br0">&#123;</span> <span class="sy0">..</span> <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> SaveUserInfo<span class="br0">&#40;</span><span class="re0">$user</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="sy0">..</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer7556">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 01 לנובמבר 2013 </span>
+<a id="answer_7556" href="שימוש במספר מחלקות  mysqli.htm#answer_7556">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\intval.htm">@intval</a> סטטיות היא נושא בפני עצמו, שלא הצלחתי להבין מה הבעיה בו. אני מציע להעביר את זה ל<a href="..\q1651\חברי מחלקה סטטיים  יתרונות וחסרונות.htm">דיון אחר</a>. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

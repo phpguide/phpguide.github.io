@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="בכתבה נלמד על התקנה ושימוש בתוספים של Yii FrameWork, ובין היתר גם על תוסף בשם ELangUrlManager, הנותן אפשרות להשתמש בשפות באתר.">
+<meta name="keywords" content="Yii, Language, components, תוספים, שפות">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Yii| איפה אפשר למצוא תוספים, ואיך לעבוד איתם?</title>
+<meta itemprop="name" content="Yii| איפה אפשר למצוא תוספים, ואיך לעבוד איתם?">
+<meta itemprop="description" content="בכתבה נלמד על התקנה ושימוש בתוספים של Yii FrameWork, ובין היתר גם על תוסף בשם ELangUrlManager, הנותן אפשרות להשתמש בשפות באתר.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"354","rating":"6","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii| איפה אפשר למצוא תוספים, ואיך לעבוד איתם?</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ArielTador, </div>
+<div class="right">&nbsp;<time datetime="2014-01-02T19:27:18+02:00" dir="rtl">02 לינואר 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://i.imgur.com/D1xZocU.png" alt="Yii| איפה אפשר למצוא תוספים, ואיך לעבוד איתם?">
+</div>
+<div class="right post-content">
+אז.. לאלה שיודעים, ובמיוחד לאלה שלא, לא רק ל - WordPress יש תוספים, תכירו את אפשרות התוספים ל - Yii FrameWork. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+בזמן האחרון לא יצא לי לכתוב לכם מדריך, היום היה לי תחושה טובה לגבי כתיבת מדריך Yii;<br>אז קבלו את המדריך הבא שלי ל - Yii FrameWork - &quot;איפה אפשר למצוא תוספים, ואיך לעבוד איתם?&quot;.<br><br>אז.. לאלה שיודעים, ובמיוחד לאלה שלא, לא רק ל - WordPress יש תוספים, תכירו את אפשרות התוספים ל - Yii FrameWork.<br><br>ישנם אלפי תוספים ל - Yii FrameWork, חלקם פשוטים מאוד לתפעול וחלקם בדיוק ההפך.<br><br>היום אנחנו נקח לדוגמה את התוסף ELangUrlManager, התוסף מאוד שימושי ויעיל כמעט לכל אתר הבנוי מ - Yii FrameWork ההולך להיות בין-לאומי;<br>התוסף בעצם נותן אפשרות למשתמש לבחור את שפתו(ע&quot;פ רשימת השפות שנקבעה), ולשנות בעצם את כל האתר לשפה שנבחרה; לנו, המתכנתים - ישנה אפשרות להוסיף שפות ע&quot;י שינוי שורה בקובץ ה - Config הראשי, וקביעת טקסט לכל שפה.<br><br><h4>אז.. איך מתקינים תוסף?</h4><br><br>ראשית, נפתח את קובץ ה - Config שלנו, ונוסיף את השורה הבאה:<br><br><span class="dirleft">Protected/Config/Config.php</span><br><div class="php codeblock"><span class="st_h">'import'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'application.controllers.*'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'application.models.*'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'application.components.*'</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">,</span></div><br><br>במדריכים הקודמים למדנו, שבמערך &apos;import&apos; אנחנו מעלים לקוד תקיות שלכל אחת מהם תפקיד משלה;<br>לדוגמה נקח את תקיית ה - &apos;Controllers&apos;, שבה בעצם יש לנו את כל הקונטרולרים באתר, בניגוד לכך, &apos;models&apos; נותנת לנו להעלות מודלים של טפסים, וטבלאות מסדי נתונים.<br><br>היום נלמד על &apos;import&apos; חדש, אחד בשם &apos;components&apos; שפרושו &apos;רכיבים&apos;;<br>חוץ מתוספים יש אפשרות להעלות לשם עוד דברים - לא נדבר עליהם במדריך זה.<br><br>לשם בעצם אנחנו מעלים את התוספים שלנו, בואו נוריד את התוסף שלנו ELangUrlManager מכאן:<br>http://www.yiiframework.com/extension/elangurlmanager<br>(בצד ימין יש קטגוריית &quot;Downloads&quot; שפרושה &apos;הורדות&apos;, שם תוכלו להוריד את הגרסאות החדשות, ובין היתר גם הישנות של התוסף).<br><br>[חוץ מהתוסף הספציפי הזה, אנחנו יכולים לראות ולחפש עוד תוספים כאן:<br>http://www.yiiframework.com/extension]<br><br>אוקיי, הורדנו את ה - Zip של התוסף, בתוך ה - Zip יש לנו את הקובץ ELangUrlManager.php, אותו אנחנו נעלה לתקייה components - לאחר שהוספנו את התקייה ב - Config(כנ&quot;ל).<br><br>בכדי ש - Yii ידע שאנחנו רוצים להעלות את התוסף על האתר שלנו, נצטרך להגדיר את התוסף ב - Config;<br>לכל תוסף יש דרך הגדרה משלו, ע&quot;פ המחלקה שהוא אמור לשלוף ממנה בכדי לקבל ולהעביר נתונים, בכל דף של תוסף ב - Yii FrameWork, יש הסבר על התקנת התוסף, במקרה שלנו אנחנו צריכים להשתמש עם המחלקה urlManager של Yii FrameWork, ולכן נגדיר את התוסף בצורה הבאה ב - Config:<br><br><span class="dirleft">Protected/Config/Config.php</span><br><div class="php codeblock"><span class="st_h">'components'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'urlManager'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'class'</span> <span class="sy0">=&gt;</span> <span class="st_h">'ELangUrlManager'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'languages'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'en'</span> <span class="sy0">=&gt;</span> <span class="st_h">'English'</span><span class="sy0">,</span> <span class="st_h">'he'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Hebrew'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'cookieDays'</span> <span class="sy0">=&gt;</span> <span class="nu0">10</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'urlFormat'</span> <span class="sy0">=&gt;</span> <span class="st_h">'path'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'showScriptName'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'rules'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'&lt;controller:\w+&gt;/&lt;id:\d+&gt;'</span><span class="sy0">=&gt;</span><span class="st_h">'&lt;controller&gt;/view'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#41;</span></div><br>(שימו לב ששמתי את זה בתוך המערך &apos;components&apos;, שמכיל את התוספים והמחלקות במערכת).<br><br>קבענו ב - &apos;components&apos; שכרגע אנחנו רוצים להשתמש להוסיף ולשנות את המחלקה urlManager של - Yii FrameWork ע&quot;י כך שקראנו למערך &apos;urlManager&apos;.<br><br>ב - &apos;class&apos; שפרושו &apos;מחלקה&apos;, שם הגדרנו את שם התוסף ממנו אנחנו רוצים לקבל ולהחזיר נתונים ל - &apos;urlManager&apos;;<br>לאחר מכן הגדרנו את השפות בהם אנחנו רוצים להשתמש, במקרה שלנו: עברית ואנגלית(שימו לב, שם השפה[לדוגמה en], צריכה להיות ע&quot;פ רשימת השפות כאן: http://www.inmotionhosting.com/support/website/php/language-code-list).<br><br>ב - &apos;cookieDays&apos; אנחנו מגדירים את זמן שמירת העוגיה של השפה שהמשתמש בחר.<br><br>ב - &apos;rules&apos; קבענו את החוקים ב - htaccess שעל-פיהם ה - url מכוון בכדי לגשת לשפה, לדוגמה אנחנו רוצים לגשת לדף &apos;Home&apos; בקונטרולר &apos;Main&apos; בשפה &apos;en&apos;, אנחנו נצטרך להקליד את הכתובת הזו: http://www.YourDomain.com/en/Main/Home.<br><br><h4>שימוש בתוסף</h4><br><br>לאחר שהגדרנו והתקננו את התוסף, נלמד להשתמש בו.<br><br>לדוגמה: ברצוני לכתוב באתר טקסט, שבעברית יהיה &quot;שלום עולם!&quot; ובאנגלית יהיה &quot;Hello World!&quot;;<br>למעשה זה פשוט מאוד, משתמשים במערך שעושה את הכל:<br><br><span class="dirleft">Protected/Controllers/MainController.php</span><br><br><div class="php codeblock"><span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'en'</span><span class="sy0">=&gt;</span><span class="st_h">'Hello World!'</span><span class="sy0">,</span> <span class="st_h">'he'</span><span class="sy0">=&gt;</span><span class="st_h">'שלום עולם!'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$text</span><span class="br0">&#91;</span>Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">getLanguage</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br><br>המערך מכיל את הטקסט באנגלית ובעברית, אנחנו מדפיסים את הטקסט ע&quot;י שליפה מהמערך, שלוקח את שם השפה מהפונקציה getLanguage.<br><br>בהצלחה (: </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=16&r=g&d=monsterid" alt="ArielTador">
+<a>ArielTador</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2721"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/01/2014 23:27</span><br>
+מגניב :) עכשיו אפשר לעשות את phpguide בין לאומי </div>
+<a id="comment2723"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 10:34</span><br>
+למה לא להשתמש ב-Yii:t שמובנה כבר במערכת?<br>
+<span dir="ltr"><a href="http://www.yiiframework.com/doc/api/1.1/YiiBase#t-detail">http://www.yiiframework.com/doc/api/1.1/YiiBase#t-detail</a></span></div>
+<a id="comment2724"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielTador</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 11:40</span><br>
+יש הבדל בינהם, Yii:t משנה את שפת הפריימוורק בלבד, כלומר שגיאות ושמות בעברית, אך לקבוע טקסט שמשתנה בהתאם לשפה, זה כבר התוסף הזה.</div>
+<a id="comment2725"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 14:00</span><br>
+קראת את כל הפרמטרים שצירפתי בלינק?<br>
+זה בדיוק מה שהוא עושה. אתה כותב פעם אחת באנגלית את הכל, ואז עושה יצא לקובץ תרגום (מערך PHP, GetText או DB). וזהו. הכל מנוהל משמה.<br>
+זה גם לא הגיוני איך שאתה עובד. כל פעם שארצה לרשום טקסט לשני השפות (או ה-100 שפות?), אני אצטרך לבנות כזה מערך מטופש בקוד שלי?<br>
+קשה לי לקבל את זה.</div>
+<a id="comment2726"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 14:24</span><br>
+לפי מה שזה נראה:<br>
+<br>
+yii:t מיועד לתגרום מחרוזות. <br>
+eLangUrlManager מנהל כתובות, לוקח משם את אלמנט השפה site.com/en/bla, שומר את זה פר משתמש בקוקי ודואג ש yii:t תבחר בשפה הנכונה.</div>
+<a id="comment2727"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 14:59</span><br>
+@intval, אני לא מדבר על התוסף. אני מדבר על דוגמת הקוד האחרונה שהוצגה כאן. זה פשוט טעות חמורה לכתוב כזה קוד.</div>
+<a id="comment2728"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 15:08</span><br>
+אני מקווה שאריאל יתקן את זה</div>
+<a id="comment2729"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielTador</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 15:10</span><br>
+@KingYes, יש לך דוגמת קוד אחרת?</div>
+<a id="comment2730"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2014 16:07</span><br>
+<span dir="ltr"><a href="http://www.yiiframework.com/doc/guide/1.1/en/topics.i18n">http://www.yiiframework.com/doc/guide/1.1/en/topics.i18n</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

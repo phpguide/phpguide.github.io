@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה היפוך אופרטור בינארי">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>היפוך אופרטור בינארי | שאלת לימוד PHP</title>
+<meta itemprop="name" content="היפוך אופרטור בינארי | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה היפוך אופרטור בינארי">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">13</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="היפוך אופרטור בינארי-1.htm" title="אולי הכותרת לא ברורה, התכוונתי למשהו כזה:2 | 4; // 6
+something&amp;#40;6&amp;#41; \\ array&amp;#40;2, 4&amp;#41;אני">היפוך אופרטור בינארי</a></h2>
+<div class="userinfo">
+פתח
+<a>iiddaannyy</a>
+,
+<time class="timeago relativetime" datetime="2012-06-27T11:48:59+03:00" style="display:inline-block;">
+27 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText719'>
+אולי הכותרת לא ברורה, התכוונתי למשהו כזה:<br><div class="php codeblock"><span class="nu0">2</span> <span class="sy0">|</span> <span class="nu0">4</span><span class="sy0">;</span> <span class="co1">// 6</span><br>
+something<span class="br0">&#40;</span><span class="nu0">6</span><span class="br0">&#41;</span> \\ <span class="kw3">array</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="sy0">,</span> <span class="nu0">4</span><span class="br0">&#41;</span></div><br>אני מחזיר שגיאה כמספר שהוא חזקה של 2.<br>0 - אין שגיאה.<br>1 - שגיאה a.<br>2 - שגיאה b.<br>4 - שגיאה c.<br>8 - שגיאה d.<br><br>אם לדוגמה התרחשו גם שגיאה b וגם שגיאה c אני מחזיר 6 (שזה 2 + 4, הסכום של השגיאות).<br>לחבר את שהגיאות ולהחזיר זו לא הבעיה.<br>אני מחפש דרך יעילה להפריד את השגיאות, אם לדוגמה זה 6, אז לקבל 2 ו-4. אם זה 11, לקבל 1, 2 ו-8.<br>אני יכול להשתמש בלולאה אבל חיפשתי אולי משהו יותר מובנה בשפה, כמו איזו פונקציה או אולי שילוב של כמה אופרטורים בינאריים כדי לקבל את התוצאה.<br><br>תודה מראש. </div>
+</div>
+<h3>
+<span id="answersCounter">13 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3058">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3058" href="היפוך אופרטור בינארי-1.htm#answer_3058">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כמובן שכל זה בהנחה ששגיאה לא יכולה להתרחש יותר מפעם אחת, אחרת זה לא אפשרי מבחינה מתמטית. </p>
+</div>
+<div class="answer" id="answer3059">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3059" href="היפוך אופרטור בינארי-1.htm#answer_3059">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למי שלא הבין, הנה פונקציה שכתבתי שמבצעת את זה:<br><div class="php codeblock"><span class="kw2">function</span> elements<span class="br0">&#40;</span><span class="re0">$n</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$elements</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">for</span> <span class="br0">&#40;</span><span class="re0">$i</span> <span class="sy0">=</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$n</span> <span class="sy0">=</span> <span class="br0">&#40;</span>string<span class="br0">&#41;</span><span class="kw3">base_convert</span><span class="br0">&#40;</span><span class="re0">$n</span><span class="sy0">,</span> <span class="nu0">10</span><span class="sy0">,</span> <span class="nu0">2</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">-</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="re0">$j</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&gt;=</span> <span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">--,</span> <span class="re0">$j</span><span class="sy0">++</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$n</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$elements</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#40;</span>int<span class="br0">&#41;</span><span class="kw3">base_convert</span><span class="br0">&#40;</span><span class="kw3">pow</span><span class="br0">&#40;</span><span class="nu0">10</span><span class="sy0">,</span> <span class="re0">$j</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> <span class="nu0">10</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$elements</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>הפלט של זה:<br><div class="php codeblock"><span class="kw3">var_dump</span><span class="br0">&#40;</span>elements<span class="br0">&#40;</span><span class="nu0">11</span><span class="br0">&#41;</span><span class="sy0">,</span> elements<span class="br0">&#40;</span><span class="nu0">6</span><span class="br0">&#41;</span><span class="sy0">,</span> elements<span class="br0">&#40;</span><span class="nu0">19</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הוא זה:<br><div class="php codeblock"><span class="kw3">array</span><span class="br0">&#40;</span><span class="nu0">3</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">=&gt;</span><br>
+&nbsp; int<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">=&gt;</span><br>
+&nbsp; int<span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">=&gt;</span><br>
+&nbsp; int<span class="br0">&#40;</span><span class="nu0">8</span><span class="br0">&#41;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw3">array</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">=&gt;</span><br>
+&nbsp; int<span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">=&gt;</span><br>
+&nbsp; int<span class="br0">&#40;</span><span class="nu0">4</span><span class="br0">&#41;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw3">array</span><span class="br0">&#40;</span><span class="nu0">3</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">=&gt;</span><br>
+&nbsp; int<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">=&gt;</span><br>
+&nbsp; int<span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">=&gt;</span><br>
+&nbsp; int<span class="br0">&#40;</span><span class="nu0">16</span><span class="br0">&#41;</span><br>
+<span class="br0">&#125;</span></div><br>אפשר לראות שזה מוצא את הגורמים שהם חזקות של 2. השאלה היא האם יש משהו מובנה בשפה שיעבוד מהר יותר. </p>
+</div>
+<div class="answer" id="answer3060">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3060" href="היפוך אופרטור בינארי-1.htm#answer_3060">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יעזור יותר להבין אם תסביר שוב ובמילים אחרות מה צריך לקבל, כמה דוגמאות לפלט קלט ומה לא עובד בקוד שלך </p>
+</div>
+<div class="answer" id="answer3061">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3061" href="היפוך אופרטור בינארי-1.htm#answer_3061">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מאוד יכול להיות שאתה לא צריך להפריד שום דבר בכלל וסתם כמה תנאים יספיקו לך:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<br>
+<span class="kw2">const</span> A <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+<span class="kw2">const</span> B <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+<span class="kw2">const</span> C <span class="sy0">=</span> <span class="nu0">4</span><span class="sy0">;</span> <br>
+<span class="kw2">const</span> D <span class="sy0">=</span> <span class="nu0">8</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$someValue</span> <span class="sy0">=</span> <span class="nu0">12</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$someValue</span> <span class="sy0">&amp;</span> A<span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'its a A'</span><span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$someValue</span> <span class="sy0">&amp;</span> B<span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'its a B'</span><span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$someValue</span> <span class="sy0">&amp;</span> C<span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'its a C'</span><span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$someValue</span> <span class="sy0">&amp;</span> D<span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'its a D'</span><span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3062">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3062" href="היפוך אופרטור בינארי-1.htm#answer_3062">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נתתי שלוש דוגמאות לפלט ולקלט, בהודעה השניה שלי.<br>הקוד שלי עובד, אני פשוט רוצה לדעת האם קיים משהו זהה מובנה בשפה.<br><br>בנוגע לתגובה השנייה שלך, זה טוב אם אני רוצה לדעת האם שגיאה מסוימת קרתה.<br>מה שאני רוצה זה &quot;לחלץ&quot; את השגיאות שהתרחשו. </p>
+</div>
+<div class="answer" id="answer3065">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3065" href="היפוך אופרטור בינארי-1.htm#answer_3065">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תכניס את התנאים מהתגובה השניה שלי לתוך לולאה שבה תבדוק את כל השגיאות האפשריות האם הם התרחשו </p>
+</div>
+<div class="answer" id="answer3068">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3068" href="היפוך אופרטור בינארי-1.htm#answer_3068">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא תמיד יודע מהן כל השגיאות האפשריות.<br>במסד מוצמדת כל שגיאה (במילים) אל המספר שלה.<br>ככה שלחלץ את השגיאות זו הדרך היחידה, השאלה היא האם יש דרך לחלץ את השגיאות בצורה טובה יותר. </p>
+</div>
+<div class="answer" id="answer3069">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3069" href="היפוך אופרטור בינארי-1.htm#answer_3069">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חוץ מלעבור בלולאה על כל החזקות של שתיים? לא חושב.<br>למה אתה בכלל מחבר אותם ביחד? למה שהפונקציה שלך לא תחזיר מערך של מספרי שגיאות ולא את הביטים שלהן ? </p>
+</div>
+<div class="answer" id="answer3070">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3070" href="היפוך אופרטור בינארי-1.htm#answer_3070">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא צריך לעבור עם לולאה על כל החזקות של 2, זה סתם בזבוז. תראה את הקוד שלי.<br><br>ואני באמת אחזיר מערך. סתם מיותר להתעסק עם זה כשלא צריך. </p>
+</div>
+<div class="answer" id="answer3072">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3072" href="היפוך אופרטור בינארי-1.htm#answer_3072">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בדיוק אותה לולאה, רק שבמקום מספרים אתה עובר על מחרוזות, שזה רעיון קצת יותר גרוע.. מבחינת כמות מעברי הלולאה הם זהים, מבחינת הפעולות שצריך לעשות בתוך הלולאה - המעברים למחרוזת והשוואת מחרוזות נראים לי קצת מיותרים. </p>
+</div>
+<div class="answer" id="answer3073">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3073" href="היפוך אופרטור בינארי-1.htm#answer_3073">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא עובד על כל החזקות של 2.<br>אני רץ על הספרות של המספר.<br><br>לדוגמה 11 שמיוצג בבסיס בינארי על ידי 1011.<br>מתחיל מספרת האחדות, היא 1? כן. j כרגע הוא 0. 10 בחזקת 0 זה 1, נמיר לעשרוני מבינארי, נשאר 1, מוסיפים למערך.<br>ספרת העשרות - 1. j הוא 1 כרגע. 10 בחזקת 1 זה 10, נמיר מבינארי לעשרוני, נקבל 2. מוסיפים 2 למערך.<br>ספרת המאות - 0. j הוא כרגע 2.<br>ספרת האלפים - 1. j הוא כרגע 3. 10 בחזקת 3 זה 1000, נמיר לעשרוני, נקבל 8. נוסיף למערך 8.<br><br>ככה קיבלנו 1, 2, 8. פשוט רצים על הספרות, בודקים מה &quot;דלוק&quot; (1), ממירים אותו לעשרוני ומוסיפים למערך.<br><br>ככה שהלולאה רצה n פעמים, כש-n זה מספר הספרות של הקלט. </p>
+</div>
+<div class="answer" id="answer3079">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3079" href="היפוך אופרטור בינארי-1.htm#answer_3079">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי את הקוד שלך :)<br>במקרה הגרוע - בדיוק אותו n תהיה כמות הפעמים שיהיה עליך להכפיל משהו ב 2 כדי לקבל את החזקה הבאה שלה.<br><br><div class="php codeblock"><span class="kw2">function</span> elements<span class="br0">&#40;</span><span class="re0">$n</span><span class="br0">&#41;</span> <br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$pow</span> <span class="sy0">=</span> <span class="nu19">0.5</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span> <span class="re0">$n</span> <span class="sy0">&gt;=</span> <span class="br0">&#40;</span> <span class="re0">$pow</span> <span class="sy0">*=</span> <span class="nu0">2</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$n</span> <span class="sy0">&amp;</span> <span class="re0">$pow</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$result</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$pow</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$result</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span>elements<span class="br0">&#40;</span><span class="nu0">517</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3082">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2012 </span>
+<a id="answer_3082" href="היפוך אופרטור בינארי-1.htm#answer_3082">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הייתי בטוח שריצה על החזקות של 2 יהיה פחות מהיר -.-<br>שלך מהיר יותר (פי 7-8) וגם עובד במספרים גדולים (שלי לא בגלל base_convert).<br><br>;) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

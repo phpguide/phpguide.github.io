@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה PHP Sessions and Cookies">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ublanktext">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>PHP Sessions and Cookies | שאלת לימוד PHP</title>
+<meta itemprop="name" content="PHP Sessions and Cookies | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה PHP Sessions and Cookies">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="PHP Sessions and Cookies.htm" title="שלום אלכס, בהסברך על עוגיות אתה הסברת שכאשר דפדפן ניגש בפעם הראשונה לשרת השרת מבקש ל&amp;quot;להדביק&amp;quot; על הדפדפן מדבקה(אני הבנתי שזה נכון לגבי sessions בנוסף ל phpsessid) האם זה קורה בכל מקרה (גם בלי הפעלת session_start()) או שרק כאשר באמת כותבים קוד כמו setcookie שמפורש על ידי המנוע ששולח דרך שרת ה HTTP את ה header המתאים לדפדפן ליצירת cookie, תודה.">PHP Sessions and Cookies</a></h2>
+<div class="userinfo">
+פתח
+<a>ublanktext</a>
+,
+<time class="timeago relativetime" datetime="2012-06-21T17:47:58+03:00" style="display:inline-block;">
+21 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText697'>
+שלום אלכס, בהסברך על עוגיות אתה הסברת שכאשר דפדפן ניגש בפעם הראשונה לשרת השרת מבקש ל&quot;להדביק&quot; על הדפדפן מדבקה(אני הבנתי שזה נכון לגבי sessions בנוסף ל phpsessid) האם זה קורה בכל מקרה (גם בלי הפעלת session_start()) או שרק כאשר באמת כותבים קוד כמו setcookie שמפורש על ידי המנוע ששולח דרך שרת ה HTTP את ה header המתאים לדפדפן ליצירת cookie, תודה. </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2924">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2924" href="PHP Sessions and Cookies.htm#answer_2924">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+session_start באחורי הקלעים מדביק לדפדפן מדבקה. למדבקה הזאת קוראים phpsessid.<br>שום דבר מעבר לזה סשנים לא מדביקים וזה קורה רק אם כתבת session_start או אם בקובץ ההגדרות php.ini יש הגדרה שאומרת session.auto_start = 1 </p>
+</div>
+<div class="answer" id="answer2925">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8702d365152f2ccd3e9ea11a5f87988?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ublanktext</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2925" href="PHP Sessions and Cookies.htm#answer_2925">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה לך על תגובתך אלכס, אשמח אם תאשר כמה נתונים.<br> לפי מה שהבנתי ה phpsessid נשמר כ cookie או כמשתנה מסוג GET תלוי בהגדרת session.use_only_cookies.<br><br>ה - phpsessid בין אם הוא מועבר ב GET או ב cookie נעלם ברגע שסוגרים את הדפדפן או בצורה אוטומטית נמחק מהתיקייה הזמנית בשרת תוך 25 דקות תלוי ב session.gc_maxlifetime.<br><br>לגבי cookies אני מבין שלא נוצר שום cookie עם phpsessid או כל מזהה אחר, אלא רק כאשר אנו יוצרים באמצעות הפקודה setcookie שמעובדת על ידי מנוע PHP שמעביר פקודה לשרת ה HTTP בדרך כלל (apache) שמעביר http header מתאים עם המפתח והערך שהגדרנו (כמובן בנוסף להגדרות הנוספות), ושוב תודה, בברכת המשך ערב נעים. </p>
+</div>
+<div class="answer" id="answer2935">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2935" href="PHP Sessions and Cookies.htm#answer_2935">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הכל נכון, חוץ מזה שהפקודה session_start אוטומטית מפעילה את setcookie בלי שאתה עצמך תכתוב משהו. בנוסף, להעביר את מזהה הסשן (phpsessid) בכתובת זה בעיית אבטחה. <a href="..\ככה תגן על קוקי וסשן מפני גניבה.htm">אחד הפוסטים האחרונים</a> דיבר בדיוק על זה. </p>
+</div>
+<div class="answer" id="answer2943">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8702d365152f2ccd3e9ea11a5f87988?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ublanktext</a>
+ב
+<span style="font-size:10px"> 22 ליוני 2012 </span>
+<a id="answer_2943" href="PHP Sessions and Cookies.htm#answer_2943">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה לך אלכס, ברשותך יש לי שאלה אחרונה בנושא,<br>כאשר סשן נוצר,<br>השרת מקבל את המזהה לפרק זמן מסוים שהוגדר,<br>אבל בכדי שיהיה אינטראקציה בין הדפדפן לשרת הדפדפן גם הוא צריך להחזיק את המזהה, השאלה שלי היא לכמה זמן (בלי לצאת מהדפדפן) הדפדפן עצמו מוחק את ה cookie עם המזהה, איך הדפדפן קובע את הזמן (בהתאם לשרת) ואם כן אז האם זה תקף גם למזהה שנשמר במשתנה GET (הדפדפן שומר אותו בזיכרון השרת <strong>&quot;שלו&quot;</strong> בהתאם למה שהוגדר בשרת האתר אליו גלשנו), האם התאוריה שהוא שומר את המזהה לפרק זמן בהתאם לשרת כוללת את רק את השמירה באמצעות cookie או גם GET שוב תודה ושבוע טוב. </p>
+</div>
+<div class="answer" id="answer2947">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 22 ליוני 2012 </span>
+<a id="answer_2947" href="PHP Sessions and Cookies.htm#answer_2947">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הדפדפן מחזיק את הקוקי המזהה עד שיוצאים מהדפדפן. אחרת - הוא לא ימחוק אותו (אלא אם קבענו אחרת).<br>השרת לעומת זאת, מוחק את המזהה ששמור אצלו לאחר X זמן ללא תגובה מהדפדפן (הזמן שנקבע ב-session.gc_maxlifetime).<br><br><br>כך שאם יצאנו מהדפדפן והשרת עוד לא מחק אצלו את המזהה (כי עדיין לא עבר x זמן שהגדרנו), בפעם הבאה שהדפדפן ישלח לשרת בקשה, השרת יראה שאין לדפדפן מזהה וידביק לו מדבקה חדשה.<br><br>במקרה אחר, בו השרת מחק את המזהה לפני שיצאנו מהדפדפן (כלומר עבר כבר x זמן שהגדרנו בלי בקשה מהדפדפן):<br>הדפדפן שולח בקשה לשרת, השרת רואה שיש לדפדפן מזהה והוא משווה את המזהה של הדפדפן עם שאר המזהים ששמורים אצלו, בשרת. הוא מגלה שאין כזה מזהה אצלו, אז הוא מדביק לדפדפן מדבקה (מזהה) חדשה. </p>
+</div>
+<div class="answer" id="answer2954">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8702d365152f2ccd3e9ea11a5f87988?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ublanktext</a>
+ב
+<span style="font-size:10px"> 22 ליוני 2012 </span>
+<a id="answer_2954" href="PHP Sessions and Cookies.htm#answer_2954">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה לך עידן, תודה אלכס, תודה לכם על התשובות המצוינות, המשך שבוע נעים. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

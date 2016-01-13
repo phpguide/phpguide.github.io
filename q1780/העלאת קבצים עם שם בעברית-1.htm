@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה העלאת קבצים עם שם בעברית">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itamar">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>העלאת קבצים עם שם בעברית | שאלת לימוד PHP</title>
+<meta itemprop="name" content="העלאת קבצים עם שם בעברית | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה העלאת קבצים עם שם בעברית">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">12</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="העלאת קבצים עם שם בעברית-1.htm" title="אני בונה דף עם אפשרות העלאת קבצים לפי המדריך הזה (זה חלק אחד מתוך 4):http://www.sitepoint.com/html5-ajax-file-upload/אין בעיה להעלות קבצים עם שם באנגלית, אבל בקבצים בעברית לא נוצרת אפילו בקשת postהשליחה של הקבצים לשרת נעשית ע&amp;quot;י XMLHttpRequest(); ניסיתי לחפש ברשת פתרונות כמו להוסיף קידוד ל header אבל לא הצלחתי בשום נסיון">העלאת קבצים עם שם בעברית</a></h2>
+<div class="userinfo">
+פתח
+<a>itamar</a>
+,
+<time class="timeago relativetime" datetime="2014-01-28T14:11:31+02:00" style="display:inline-block;">
+28 לינואר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1780'>
+אני בונה דף עם אפשרות העלאת קבצים לפי המדריך הזה (זה חלק אחד מתוך 4):<br>http://www.sitepoint.com/html5-ajax-file-upload/<br><br>אין בעיה להעלות קבצים עם שם באנגלית, אבל בקבצים בעברית לא נוצרת אפילו בקשת post<br>השליחה של הקבצים לשרת נעשית ע&quot;י XMLHttpRequest(); <br>ניסיתי לחפש ברשת פתרונות כמו להוסיף קידוד ל header אבל לא הצלחתי בשום נסיון </div>
+</div>
+<h3>
+<span id="answersCounter">12 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8151">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 28 לינואר 2014 </span>
+<a id="answer_8151" href="העלאת קבצים עם שם בעברית-1.htm#answer_8151">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודדת את השם לכתובת URL תקנית? (ב-JS יש לך את encodeURI().) </p>
+</div>
+<div class="answer" id="answer8157">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3366b78c0faf6c8737abfa8c6350a242?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamar</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2014 </span>
+<a id="answer_8157" href="העלאת קבצים עם שם בעברית-1.htm#answer_8157">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה זאת באמת הייתה הבעיה, ועכשיו בעיה חדשה שאני מקבל את שם הקובץ או ככה (ע&quot;י שימוש ב encodeURI):<br>%D7%99%D7%95%D7%98%D7%99%D7%95%D7%91.jpg<br><br>או ככה (ע&quot;י שימוש ב urldecode ב php):<br>׳™׳•׳˜׳™׳•׳‘.jpg </p>
+</div>
+<div class="answer" id="answer8160">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2014 </span>
+<a id="answer_8160" href="העלאת קבצים עם שם בעברית-1.htm#answer_8160">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש בעיה בקידוד. תנסה להוסיף את השורה הזאת בהתחלה:<br><div class="php codeblock"><span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-Type: text/html; charset=utf-8'</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer8161">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3366b78c0faf6c8737abfa8c6350a242?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamar</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2014 </span>
+<a id="answer_8161" href="העלאת קבצים עם שם בעברית-1.htm#answer_8161">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ניסיתי, זה לא עוזר </p>
+</div>
+<div class="answer" id="answer8164">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2014 </span>
+<a id="answer_8164" href="העלאת קבצים עם שם בעברית-1.htm#answer_8164">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שלחת את זה לסקריפט ה-PHP מטופס HTML? אם כן, תסדר את הקידוד שם (meta charset). </p>
+</div>
+<div class="answer" id="answer8169">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3366b78c0faf6c8737abfa8c6350a242?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamar</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2014 </span>
+<a id="answer_8169" href="העלאת קבצים עם שם בעברית-1.htm#answer_8169">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ה Html, js,php הם באותו קובץ ויש את התג &lt;meta charset=&quot;utf-8&quot;&gt;<br><br>כך נראה הבקשה בדפדפן:<br><img src="..\static\images\pixel.png" alt="" title="http://i57.tinypic.com/2ufdcig.jpg" class="content-image-float"><br><br>וגם ניסיתי עכשיו לעשות replace לכל אות ואות ב php למשל <br><div class="php codeblock"><span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%90&quot;</span><span class="sy0">,</span> <span class="st0">&quot;א&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ועדיין זה מחזיר לי סימנים מוזרים, אין לי מושג יש פה כנראה איזו טעות בקידוד של הדף </p>
+</div>
+<div class="answer" id="answer8170">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2014 </span>
+<a id="answer_8170" href="העלאת קבצים עם שם בעברית-1.htm#answer_8170">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+משהו כאן לא בסדר. תוכל להדביק לכאן את קוד ה-PHP? </p>
+</div>
+<div class="answer" id="answer8171">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3366b78c0faf6c8737abfa8c6350a242?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamar</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2014 </span>
+<a id="answer_8171" href="העלאת קבצים עם שם בעברית-1.htm#answer_8171">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw2">function</span> decodeToHebrew<span class="br0">&#40;</span><span class="re0">$filename</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%90&quot;</span><span class="sy0">,</span> <span class="st0">&quot;א&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%91&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ב&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%92&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ג&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%93&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ד&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%94&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ה&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%95&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ו&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%96&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ז&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%97&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ח&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%98&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ט&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%99&quot;</span><span class="sy0">,</span> <span class="st0">&quot;י&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%9B&quot;</span><span class="sy0">,</span> <span class="st0">&quot;כ&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%9A&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ך&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%9C&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ל&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%9E&quot;</span><span class="sy0">,</span> <span class="st0">&quot;מ&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%9D&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ם&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A0&quot;</span><span class="sy0">,</span> <span class="st0">&quot;נ&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7<span class="es6">%9F</span>&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ן&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A1&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ס&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A2&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ע&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A4&quot;</span><span class="sy0">,</span> <span class="st0">&quot;פ&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A3&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ף&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A6&quot;</span><span class="sy0">,</span> <span class="st0">&quot;צ&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A5&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ץ&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A7&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ק&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A8&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ר&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%A9&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ש&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$filename</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;%D7%AA&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ת&quot;</span><span class="sy0">,</span> <span class="re0">$filename</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$filename</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="re0">$fn</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_X_FILENAME'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> ? <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_X_FILENAME'</span><span class="br0">&#93;</span> <span class="sy0">:</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$fn</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// AJAX call</span><br>
+&nbsp; &nbsp; <span class="kw3">file_put_contents</span><span class="br0">&#40;</span><span class="st_h">'./uploads/'</span> <span class="sy0">.</span> decodeToHebrew<span class="br0">&#40;</span><span class="re0">$fn</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="st_h">'php://input'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;<span class="es4">$fn</span> uploaded&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'fileselect'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// form submit</span><br>
+&nbsp; &nbsp; <span class="re0">$files</span> <span class="sy0">=</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'fileselect'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#91;</span><span class="st_h">'error'</span><span class="br0">&#93;</span> <span class="kw1">as</span> <span class="re0">$id</span> <span class="sy0">=&gt;</span> <span class="re0">$err</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$err</span> <span class="sy0">==</span> UPLOAD_ERR_OK<span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$fn</span> <span class="sy0">=</span> <span class="re0">$files</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="re0">$id</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">move_uploaded_file</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#91;</span><span class="st_h">'tmp_name'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="re0">$id</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="st_h">'uploads/'</span> <span class="sy0">.</span> <span class="re0">$fn</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;p&gt;File <span class="es4">$fn</span> uploaded.&lt;/p&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer8172">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2014 </span>
+<a id="answer_8172" href="העלאת קבצים עם שם בעברית-1.htm#answer_8172">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל, תוותר על הפונקציה decodeToHebrew ותשתמש בפונקציה rawurldecode המובנית. הבעיה היא לא שם, כמו שאתה יכול לראות.<br>אני לא רואה כאן את ה-Header של הקידוד. הוספת אותו לפני זה?<br><br>קצת מביך, אבל עבר לא מעט זמן מאז שהתעסקתי בפיתוח אינטרנט. מחיפוש שלי בגוגל על העלאת קבצים באמצעות AJAX לא ראיתי טיפול שונה ב-PHP עם HTTP_X_FILENAME וכל זה. מה הקטע של זה? </p>
+</div>
+<div class="answer" id="answer8173">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3366b78c0faf6c8737abfa8c6350a242?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamar</a>
+ב
+<span style="font-size:10px"> 31 לינואר 2014 </span>
+<a id="answer_8173" href="העלאת קבצים עם שם בעברית-1.htm#answer_8173">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+החלפתי ל rawurlencode אבל זה עדיין מביא לי את הסימנים המוזרים. הקידוד נמצא באמת בראש הדף של ה php <br>את האמת אין לי מושג למה דווקא ב HTTP_X_FILENAME , זה פשוט מה שהיה במדריך </p>
+</div>
+<div class="answer" id="answer8177">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 31 לינואר 2014 </span>
+<a id="answer_8177" href="העלאת קבצים עם שם בעברית-1.htm#answer_8177">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם הקידוד של קובץ ה-PHP ושל קובץ ה-HTML שממנו בוצעה קריאת ה-AJAX זה UTF-8, אני לא יודע מה הבעיה. יכול להיות שאחרים יוכלו לענות על זה.<br>ייתכן שבעיית הקידוד מצומצמת איכשהו לנתון ה-HTTP_X_FILENAME או לקבוצת נתונים מסוימת שהוא כלול בה. חפש בגוגל <a href="http://net.tutsplus.com/tutorials/javascript-ajax/uploading-files-with-ajax/">מדריכים אחרים להעלאת קבצים</a>; אני די בטוח ש-HTTP_X_FILENAME הוא לא חלק מהתהליך הסטנדרטי להעלאת קבצים, ומשום מה אני לא מצליח למצוא שום דבר רשמי על זה. &gt;&lt;<br><br><strong>עריכה:</strong><br>לפי מה שאני מבין (ואני לא כל כך בטוח בזה) הקידוד כנראה יהיה זהה לקידוד של הקובץ שאתה מעלה. כך שאתה יכול להמיר את זה ל-UTF8:<br><div class="php codeblock"><span class="kw3">iconv</span><span class="br0">&#40;</span><span class="kw3">mb_detect_encoding</span><span class="br0">&#40;</span><span class="re0">$fn</span><span class="sy0">,</span> <span class="kw3">mb_detect_order</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st0">&quot;UTF-8&quot;</span><span class="sy0">,</span> <span class="re0">$fn</span><span class="br0">&#41;</span></div><br>או<br><div class="php codeblock"><span class="kw3">mb_convert_encoding</span><span class="br0">&#40;</span><span class="re0">$fn</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="sy0">,</span> <span class="st_h">'UTF-8, ISO-8859-1'</span><span class="br0">&#41;</span></div><br>אבל חייב להיות פתרון טוב יותר (לא שאני בטוח שזה שאמרתי בכלל עובד). אני מקווה שמישהו שמבין בזה יותר יפתור לך את הבעיה. </p>
+</div>
+<div class="answer" id="answer8188">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 01 לפברואר 2014 </span>
+<a id="answer_8188" href="העלאת קבצים עם שם בעברית-1.htm#answer_8188">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קשה לי לדבג את זה ככה. תוכל להעלות את הקובץ לאנשהו ואני אעבור עליו ואדבג אותו?<br>תוכל לשלוח לי לאימייל: <a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="d7b8a5b2bbb5b2b9aeb6bea597b0bab6bebbf9b4b8ba">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>משום מה נורא מבלבל אותי כל הנושא הזה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

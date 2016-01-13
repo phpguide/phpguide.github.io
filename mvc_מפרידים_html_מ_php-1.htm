@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מפרידים את קוד ה-HTML מקוד ה-PHP באמצעות דפוס ה-MVC – Model Viewer Controller">
+<meta name="keywords" content="MVC, Viewer, Controller, Model">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>MVC – מפרידים את קוד ה-HTML מקוד ה-PHP</title>
+<meta itemprop="name" content="MVC – מפרידים את קוד ה-HTML מקוד ה-PHP">
+<meta itemprop="description" content="מפרידים את קוד ה-HTML מקוד ה-PHP באמצעות דפוס ה-MVC – Model Viewer Controller">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"17","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>MVC – מפרידים את קוד ה-HTML מקוד ה-PHP</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-09-30T20:28:30+02:00" dir="rtl">30 לספטמבר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://img28.imageshack.us/img28/5191/mvcd.png" alt="MVC – מפרידים את קוד ה-HTML מקוד ה-PHP">
+</div>
+<div class="right post-content">
+כל מערכת מורכבת משלושה חלקים: הנתונים, העיצוב שבו הם מוצגים והמנגן של התזמורת – זה שמחליט איזה נתונים ובאיזה עיצוב להציג. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<strong><span style="color:darkred;">11.08.2012 המדריך כרגע בעריכה, לכן החלק על המודל חסר בו.<br>עמכם הסליחה</span></strong><br><br>יש משהו קטן ומעצבן שהורס כל קוד והוא דווקא ה-HTML. בגללו יש הרבה סוגריים מסולסלים, פתיחות וסגירות תגי PHP והרבה קטעים מסורבלים ובלתי קשורים שמפריעים לעין ולהבנת הקוד.<br><br>במאמר הזה אני רוצה להכיר לכם את ההפרדה של PHP מכל מה שמסביבו. נראה איך אנחנו מפיקים את המיטב מתבנית העיצוב Model Viewer Controller ומה זה הדינוזאור הזה בכלל.<br><br><h2> מה זה <span dir="ltr">MVC (Model Viewer Controller)</span>?</h2><br>נסתכל לרגע על התוכנית שלנו ונפשט אותה מעט.<br>אנחנו צריכים לקבל נתון מהלקוח, לעשות איתו משהו ולהציג תוצאה כלשהי בתוך עיצוב כלשהו. למשל, כדי להציג את העמוד הספציפי הזה, הסקריפט היה צריך לקבל מאיתנו את שם העמוד המבוקש, לשלוף את תוכנו מהמסד ולהציג אותו בעיצוב של האתר.<br>מה היה קורה אילו היינו מבקשים עמוד אחר? הסקריפט היה צריך לקבל את שם העמוד, לשלוף תוכן שונה הפעם, אבל להציג באותו עיצוב. ואם הייתם מבצעים חיפוש באתר, הפעם היה נכנס לפעולה סקריפט אחר שעושה חיפוש במסד, אבל עדיין מציג את הכל באותו עיצוב.<br><br><h2>view</h2><br>העיצוב הקבוע של האתר הוא ה-<strong>view</strong> – תבנית ה<strong>תצוגה</strong> שבה יראו הנתונים. הנתונים תמיד יראו מתחת לתפריט העליון ובצד אחד של העמוד, כאשר בצד השני יהיה תפריט צד. תבנית התצוגה קבוע לכל האתר ומכילה הרבה קוד html כללי. שלא שייך ספציפית למדריך הזה, או לתוצאות החיפוש או לשום דבר אחר.<br><br>דבר אחד ברור לנו: ה-view חוזר על עצמו בין עמוד לעמוד. <br>גם בעמוד תצוגת מדריך וגם בעמוד תוצאות חיפוש. מה שאומר שעכשיו ניצור שני סקריפטים, שכל אחד מהם מייצר את אותו קוד html סופי עם חלק קטן שונה באמצע. <br><br>סקריפט שמציג מדריך - יציג תפריט עליון, תפריט צד, תפריט תחתון ואת המדריך.<br>סקריפט שמציג חיפוש - יציג תפריט עליון, תפריט צד, תפריט תחתון ואת תוצאות החיפוש.<br><br>רואים את ההבדל? ומה קורה עם יש לנו כמה עמודים שונים באתר שמוצגים באותה תבנית?<br>עמוד ראשי, עמוד שאלונים, עמוד שאלות תשובות, עמוד phplive, עמוד מידע, עמוד יצירת קשר, עמוד..<br>בכל אחד מהם נצטרך לכתוב את אותו ה-html שמציג תפריט עליון, תפריט צד, תפריט תחתון ורק משהו קטן ישתנה באמצע בין עמוד לעמוד.<br><br>עד כאן הכל נראה לנו בסדר - הרי יש כפתור copy paste במקלדת. <br>הבעיה מתחילה ברגע שבו מגיעה הזמן להוסיף עוד סעיף לתפריט העליון. פתאום מסתבר לנו שצריך לערוך 10-15 קבצים בשביל להכניס עוד כפתור לתפריט. וכנראה זה לא השינוי היחיד שצפוי לאתר שיגדל עם הזמן.<br><br><h3>מפרידים את ה view מהקונטרולר</h3><br>הפתרון שעולה פשוט דייו. צריך לקחת את הקוד של התפריט העליון, להוציא אותו לקובץ חיצוני ואת התוכן המשתנה להכניס לתוכו. התוצאה שתתקבל תראה ככה:<br><br><strong>SiteView.php</strong><br><div class="php codeblock">&lt;html&gt;<br>
+&nbsp; &lt;head&gt; ... &lt;/head&gt;<br>
+&nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; &lt;nav&gt; .. &lt;/nav&gt;<br>
+&nbsp; &nbsp; <span class="sy1">&lt;?=</span> <span class="re0">$content</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;aside&gt;...&lt;/aside&gt;<br>
+&nbsp; &lt;/body&gt;<br>
+&nbsp; &lt;footer&gt; ... &lt;/footer&gt;<br>
+&lt;/html&gt;</div><br><br>יצרנו את תבנית התצוגה הראשונה שלנו - siteview על ידי זה שהוצאנו את החלק שחוזר על עצמו (תבנית התצוגה) לקובץ נפרד. עכשיו נשאר לנו רק לגרום לתוכן להיות מוצג בתבנית הזו.<br>שימו לב למשתנה <span style="color:green;">content </span> באמצע התבנית. במקום משתנה זה יופיע התוכן האמיתי של העמוד. את התוכן הזה מישהו צריך להכניס לשם ואת התפקיד הזה מבצע הבקר, או בשמו האנגלי:<br><br><h2>Controller</h2><br>תפקידו של ה-controller הוא לנהל את העניינים. להחליט מה להציג, איך לעשות את זה, מה לחשב ואילו תבניות תצוגה להכליל בתוצאה הסופית. הקונטרולר הוא זה שמבצע את פעולות השליפה מהמסד, זה שעושה את החישובים, זה שמכניס נתונים, זה שבודק הרשאות ושם קוראת כל הלוגיקה של התכנה שלנו.<br><br>במילים פשוטות עליו להחליט מה יהיה התוכן של המשתנה content למעלה. האם זה יהיה תוכן המדריך, האם תוצאת החיפוש או סתם הודעה שהעמוד לא נמצא 404. <br><br>כדי לא לסבך את העניינים יותר מדי נבנה קונטרולר שמציג את השעה הנוכחית ויראה ככה:<br><br><strong>TimeController.php</strong><br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+&nbsp; <span class="re0">$content</span> <span class="sy0">=</span> <span class="kw3">date</span><span class="br0">&#40;</span><span class="st_h">'H:i:s'</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; <span class="kw1">require</span> <span class="st_h">'SiteView.php'</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>הפעולה של הקונטרולר פשוטה מאוד. <br>הקונטרולר מחליט מה יהיה בתוך המשתנה content ואחרי זה מציג את זה בתבנית התצוגה שלנו.<br>הקונטרולר יכול להחליט להציג תבנית תצוגה אחרת או תוכן אחר. הוא שולט על מה יהיה מוצג ובאיזה תבנית.<br><br>דוגמה לקוד של קונטרולר שמציג הודעות שונות בתצוגות שונות יכול להיראות ככה:<br><strong>IndexController.php</strong><br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$content</span> <span class="sy0">=</span> <span class="st_h">'Hi '</span> <span class="sy0">.</span> <span class="kw3">htmlSpecialChars</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="kw4">ENT_QUOTES</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">require</span> <span class="st_h">'SiteView.php'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">require</span> <span class="st_h">'404.php'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>במקרה שהוזן שם כלשהו - הקונטרולר יציג הודעת שלום בתבנית הרגילה של האתר.<br>אם לא - תוצג תבנית של דף 404 בלי הודעות מיוחדות.<br><br>כמו שאנחנו רואים - אין שום דבר על-תבעי בתבנית ה-MVC. <br>עד כאן היו ה <span dir="ltr">(View) V</span> וה- <span dir="ltr">(Controller) C</span> ועוד שלב אחד נשאר לנו במשוואה - הנתונים.<br><br><h2>Model</h2><br><br><br><strong><span style="color:darkred;">11.08.2012 המדריך כרגע בעריכה, לכן החלק על המודל חסר בו.<br>עמכם הסליחה</span></strong> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment132"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/05/2011 17:52</span><br>
+תודה רבה אלכס, חיפשתי מדריך לזה פעם, מזל שיש את האתר שלך :)</div>
+<a id="comment170"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/06/2011 14:09</span><br>
+תודה רבה! מדריך מובן מאוד. אהבתי אותו.</div>
+<a id="comment579"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 21:35</span><br>
+תודה אלכסנדר<br>
+מדריך מאוד יפה :)</div>
+<a id="comment580"></a>
+<div class="blog-comment">
+<span class='comment-author'>xxxxx</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 23:01</span><br>
+אחלה מדריך !!!!!!! D=</div>
+<a id="comment582"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 13:23</span><br>
+שאלה: יש לי דף CSS ואני רוצה לכתוב בו {LOGO} ושהמערכת תשנה את זה לקישור של התמונה של הלוגן: images/logo.jpg. איך אני עושה את זה? לא הצלחתי :/</div>
+<a id="comment583"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 15:06</span><br>
+&lt;img src=&quot;images/logo.jpg&quot; /&gt;</div>
+<a id="comment584"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 15:30</span><br>
+אני רוצה לכתוב <br>
+.logo {<br>
+background:url({LOGO_URL})<br>
+}<br>
+אם לא הבנת :/<br>
+או שאתה סתם מתחכם...</div>
+<a id="comment585"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 15:55</span><br>
+אממ לא, חשבתי שהתכוונת למשו אחר<br>
+וראיתי פעם מישו עשה link לדף PHP שהוא בעצם CSS<br>
+כלומר<br>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;cssCode.php&quot; /&gt;<br>
+בדף PHP תוכל לרשום פונקציית MVC מדף מודל כלשהוא..</div>
+<a id="comment586"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 16:09</span><br>
+תודה. יש עוד דרך? (יותר ישירה - בלי עוד דף PHP אלא CSS שהוא המודל ואותו משנים.<br>
+כמו שכתבתי שזה יהיה בדף CSS:<br>
+<br>
+.logo {<br>
+background:url({LOGO_URL})<br>
+}</div>
+<a id="comment589"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 17:30</span><br>
+כן. <br>
+תוכל להעביר את הסטייל הזה בלבד לתוך חלק מ view כלשהו שלך שעליו כן מופעלות הטרנספורמציות<br>
+<br>
+header.htm:<br>
+<br>
+&lt;html&gt;<br>
+&lt;title&gt;{title}&lt;/title&gt;<br>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;cssCode.php&quot; /&gt; <br>
+&lt;style&gt;<br>
+.logo {<br>
+background:url({LOGO_URL})<br>
+} <br>
+&lt;/style&gt;</div>
+<a id="comment590"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 17:34</span><br>
+ראיתי בPHPBB שיש גם תנאים. לדוגמה:<br>
+&lt;!-- IF S_DISPLAY_BIRTHDAY_LIST --&gt;<br>
+ואח&quot;כ לפי התנאים האלה מוצג התוכן.<br>
+איך הם עושים את זה?</div>
+<a id="comment591"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 17:36</span><br>
+זה משתמש_15228 (אני במקום אחר..)<br>
+אבל אם אני רוצה שזה יהיה בדף CSS?<br>
+אין אפשרות כזאת?</div>
+<a id="comment592"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 17:43</span><br>
+תלחץ על כפתור &quot;בחר שם אחר&quot; ויהיה לך שם זהה בכל מקום.<br>
+-----<br>
+אם אתה רוצה שזה יהיה בקובץ css עמצו אתה צריך שמיהשהו יעבור על התוכן של הקובץ ויכניס לתוכו את הערכים האלה במקום המתאים.<br>
+<br>
+המישהו הזה זה הקוד שלך. ותצטרך להפעיל אותו על קובץ ה css. אני לא יודע עד כמה הלוגו שלך משתנה כל הזמן, אבל אם הוא שונה בכל עמוד אין סיבה שלא תוציא אותו מהקובץ css עצמו ככה שהקובץ תמיד יישמר ב cache של הדפדפן ואילו העמוד עצמו ייטען כל פעם מחדש עם המיקום המתאים</div>
+<a id="comment593"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 17:46</span><br>
+ב PHPBB משתמשים במשהו קצת יותר מתוחכם ממה שהוצג פה. יש פתרונות מוכנים ל Template Engine שמתוארים פה. האתר הזה השתמש ב twig-project.org שהוא מנוע התבניות המהיר ביותר שמצאתי.<br>
+<br>
+הוא תומך גם בלולאות ובתנאים ובמליון דברים אחרים.<br>
+כמובן יש לך גם את smarty שאמנם יותר איטי אבל יותר פופולארי. אליהו בסה כתב עליו אחלה הסבר כאן:<br>
+<span dir="ltr"><a href="Smarty_Template_Engine.htm">http://phpguide.co.il/Smarty_Template_Engine.htm</a></span></div>
+<a id="comment594"></a>
+<div class="blog-comment">
+<span class='comment-author'>שם_חדש</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 17:47</span><br>
+בחרתי שם חדש :)<br>
+_____________________<br>
+אוקי תודה לך על התשובה.</div>
+<a id="comment595"></a>
+<div class="blog-comment">
+<span class='comment-author'>שם_חדש</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 17:58</span><br>
+אני מצטער שאני מעצבן אבל יש לי עוד שאלה P:<br>
+איך הם עושים שהשורה הזאת:<br>
+&lt;!-- INCLUDE overall_header.html --&gt;<br>
+מוסיפה את הדף overall_header.html? או שזה גם יותר מורכב?</div>
+<a id="comment596"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 18:04</span><br>
+זה גם יותר מורכב, אבל כזה לא אמור להיות לך בעיה לעשות לבד. בסה&quot;כ צריך לכתוב ביטוי רגולרי שיימצא מחרוזות שמתחילות במילה אינקלוד, יוציא מההמשך את שם הקובץ ויפעיל את הפונקציה viewer עליו.<br>
+<br>
+שוב, תוכל בתור תרגול לכתוב אחת כזאת משלך. הקוד בכתבה בסה&quot;כ בא להכיר לקורא את התיאוריה וקצת להדגים אותה. כדי לעבוד בשיטה הזאת רצוי שתשתמש ב twig-project.org או smarty</div>
+<a id="comment985"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/12/2011 21:06</span><br>
+אלכס, יש לי משתנה שהוא בעצם מערך שמכיל בתוכו כמה טקסטים איך אני יכול לפלוט את זה לMVC HTML?</div>
+<a id="comment986"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/12/2011 00:18</span><br>
+בשביל מערך אתה צריך מבנה כלשהו שיודע לעבוד בלולאה עם מערך.<br>
+באופן כללי המנוע תבניות המבוסס replaceים שכתבנו כאן היה לצורך הדגמה בלבד. אתה יכול להישתמש ב twig או ב smarty שבהם יש תמיכה להרבה דברים מגניבים שונים בתוך הview, כולל לולאות, תנאים ועוד</div>
+<a id="comment987"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/12/2011 22:10</span><br>
+תוכל לתת לי רעיון איך לעשות את המבנה של הVIEW? אני לא רוצה להתעסק עם מנועים אחרים..</div>
+<a id="comment988"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/12/2011 23:15</span><br>
+אם אתה לא רוצה להתעסק במנועים אחרים, יש לך שני חלופות:<br>
+להעסק בטוקניזציה ופיענוח לקסי של התבנית (הפרדה של הקובץ למילים והרכבת לוגיקה מהם, כמו שמפענח ה PHP עושה על קבצי קוד )<br>
+או להתעסק בביטויים רגולריים ובעיות ביצועים. <br>
+<br>
+הראשון מסתכם בלקרוא 3 עמודים באנגלית, כששניים מהם לא חובה<br>
+שני האופציות האחרות בהרבה שעות של כאב ראש.<br>
+<br>
+רשימת קישורים בהתאם:<br>
+---------------------------<br>
+1. <span dir="ltr"><a href="http://twig-project.org">http://twig-project.org</a></span><br>
+2. <span dir="ltr"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/tokenization.html">http://www.whatwg.org/specs/web-apps/current-work/multipage/tokenization.html</a></span><br>
+3. <span dir="ltr"><a href="ביטויים_רגולריים.htm">http://phpguide.co.il/ביטויים_רגולריים.htm</a></span><br>
+</div>
+<a id="comment1435"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/03/2012 13:58</span><br>
+מדריך מעולה, עזר לי המון! תודה רבה.</div>
+<a id="comment1436"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/03/2012 13:59</span><br>
+רק שאלה אחת:<br>
+&quot;בכתבה הבאה אספר לכם על Twig Project, ה-Template Engine שיצר והציג את העמוד הזה.&quot; - איפה זה? :)</div>
+<a id="comment1803"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/08/2012 01:00</span><br>
+תודה שהחזרת אלכס, אני מחכה לעריכה בנתיים :-)</div>
+<a id="comment2052"></a>
+<div class="blog-comment">
+<span class='comment-author'>soogo</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/11/2012 09:20</span><br>
+תודה רבה, רק חבל שאין Model</div>
+<a id="comment2053"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/11/2012 09:41</span><br>
+עובדים על זה :) אני אפרסם את המדריך מחדש תוך שבועיים.</div>
+<a id="comment2220"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/02/2013 20:10</span><br>
+יעלה model מתישהו :) ?</div>
+<a id="comment2221"></a>
+<div class="blog-comment">
+<span class='comment-author'>mayden</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/02/2013 20:30</span><br>
+יש גם את RainTPL למערכת טמפטלים.. (בנוגע לבחורצ&apos;ק שלא רצה להתשמש בסמארטי).</div>
+<a id="comment2231"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/02/2013 03:21</span><br>
+תזכירו לי מה עושים אלה שלא משתמשים ב-MVC... שכחתי. :-)</div>
+<a id="comment2232"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/02/2013 08:09</span><br>
+אלה שלא משתמשים, לומדים ומחכים לפרק על ה model :-)</div>
+<a id="comment2743"></a>
+<div class="blog-comment">
+<span class='comment-author'>yotamN</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/03/2014 18:38</span><br>
+קצת באיחור אבל מה עם החלק האחרון?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מה יותר מהיר ??">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_242343">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מה יותר מהיר ?? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מה יותר מהיר ?? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מה יותר מהיר ??">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מה יותר מהיר .htm" title="אני עושה ככה לבדיקת משתמש..$check=mysql_query&amp;#40;&amp;quot;SELECT username,password from users WHERE username=&apos;$user&apos; AND password=&apos;$pass&apos; LIMIT 1&amp;quot;&amp;#41;;
+$row=mysql_f">מה יותר מהיר ??</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_242343</a>
+,
+<time class="timeago relativetime" datetime="2012-06-18T00:48:01+03:00" style="display:inline-block;">
+18 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText673'>
+אני עושה ככה לבדיקת משתמש..<br><div class="php codeblock"><span class="re0">$check</span><span class="sy0">=</span><span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT username,password from users WHERE username='<span class="es4">$user</span>' AND password='<span class="es4">$pass</span>' LIMIT 1&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$row</span><span class="sy0">=</span><span class="kw3">mysql_fetch_row</span><span class="br0">&#40;</span><span class="re0">$check</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="re0">$user</span><span class="sy0">&amp;&amp;</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="re0">$pass</span><span class="br0">&#41;</span></div><br>הוספתי IF כדי לבדוק אותיות גדולות וקטנות..<br>אני לא יודע אם כדאי לי להמיר לBIN כל פעם כי זה יאט את הבדיקה שרצה כל פעם..<br>יש אולי משהו אחר?<br><br><br>אני עושה גם בדיקה של הודעות פרטיות..<br><div class="php codeblock">SELECT <span class="kw3">COUNT</span><span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#41;</span> <span class="kw1">as</span> n from <span class="kw2">private</span> WHERE sendto<span class="sy0">=</span><span class="st_h">'$username'</span> AND Visibility<span class="sy0">=</span><span class="st_h">'f'</span></div><br>מה יותר מהיר ובכלל ההבדל:<br><div class="php codeblock">SELECT <span class="kw3">COUNT</span><span class="br0">&#40;</span>id<span class="br0">&#41;</span> <span class="kw1">as</span> n from <span class="kw2">private</span> WHERE sendto<span class="sy0">=</span><span class="st_h">'$username'</span> AND Visibility<span class="sy0">=</span><span class="st_h">'f'</span></div><br>במידה והID הוא PRIMARY (אינו NULL), האם זה יאיץ את ביצועי המסד? </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2735">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2735" href="מה יותר מהיר .htm#answer_2735">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אתה לא עושה שליפה לפי id אז את השליפה לא מעיניין בכלל שה-id הוא primary<br>שנית עם שדה הוא primary זה אוטומטית אומר שאינו null. <br>למה החלטת של bin יאט את השליפה?<br>ורביעית, אתה חייב להפסיק עם זה, עם האופטימיזציות האלה. השאלות האלה הם מסוג<br>האוטו יהיה יותר מהיר אם אני ינפח את הגלגל של האותו ב 31 אטמוספרות או 31.00001 ?<br>אתה צריך להבין שכל מה ששאלת עד עכשיו, פרט לשימוש באינדקסים היה מהסוג הזה.<br><br>מה שאתה עושה עכשיו, זה מתקין xdebug, מוריד WinCacheGrind מפעיל את הסקריפט שלך<br>ורואה לבד כמה מילישניות לוקח לאיזה פונקציה להתבצע, באיזה סדר הם מתבצעות ומה החלקים האיטיים.<br>רק אחרי שאתה מגלה את החלקים האיטיים במערכת - אתה חושב איך ליעל אותם. מכל השאר אתה מתעלים לחלוטין.<br><br>p.s בכלל לא ברור בשביל מה אתה בודק את גודל האותיות. מה איכפת לך ש admin ו aDmin ייחשבו לאותו משתמש<br>ולא יהיו לך שני משתמשים שונים במערכת, אחד admin והשני AdMiN </p>
+</div>
+<div class="answer" id="answer2749">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2749" href="מה יותר מהיר .htm#answer_2749">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אמרתי לך שאני מפחד מדברים שיתקעו לי את האתר..<br>והקוד הזה רץ בקביעות..<br><br>ולגבי האותיות הגדולות זה בגלל שאני רוצה שהשם משתמש יוצג כפי שהוכנס..<br>ועד עכשיו כשאני אני מכניס לשרת אשכול /הודעה /כל דבר אחר אני מכניס את הקוקי בדיוק..<br><br>ולגבי השאלה חחחחח<br><div class="php codeblock">SELECT <span class="kw3">COUNT</span><span class="br0">&#40;</span>id<span class="br0">&#41;</span> <span class="kw1">as</span> n from <span class="kw2">private</span> WHERE sendto<span class="sy0">=</span><span class="st_h">'$username'</span> AND Visibility<span class="sy0">=</span><span class="st_h">'f'</span></div><br>נראה לי שזה יהיה יותר מהיר, מכוון שב* הוא בודק את כל העמודות אם הם קיימות וערכם לא NULL<br>וכאן הוא בודק את ID שהוא בטוח לא NULL<br>מה אתה אומר?<br>ולגבי הBIN זה יאט כי הוא ממיר את זה ולוקח זמן להמיר מTEXT לBIN ..<br>אז נראה לי שIF יהיה הכי מהיר..<br><br>חחח אני יודע שזה שזה שאלות מפגרות אבל זה מפריע לי להוסיף משהו לאתר ובעצם ככה אני מאט את האתר ואז לא הרווחתי כלום ,כמו עם האיפוס ID AUTO INCERMENT שעדיין מפריע לי לראות אותו גדל בלי שהוא מתאפס וככל שהוא גדול יותר צריך לחשב יותר.. </p>
+</div>
+<div class="answer" id="answer2751">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2751" href="מה יותר מהיר .htm#answer_2751">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בנוגע לאותיות גדולות/קטנות, תעשה ככה:<br><div class="php codeblock"><span class="re0">$q</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT `username` FROM `users` WHERE `username`='<span class="es4">$user</span>' AND `password`='<span class="es4">$pass</span>' LIMIT 1&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$r</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_row</span><span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;hello <span class="es4">{$r[0]}</span>&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'wrong!'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>ככה שאתה שולף את המשתמש מהמסד תוך כדי הבדיקה ואתה מקבל ב-[0]r$ את שם המשתמש + אותיות קטנות/גדולות.<br>בנוגע לסיסמה, היא אמורה להיות מוצפנת אצלך במסד. ההצפנה מתייחסת לאותיות גדולות/קטנות. ה-md5 של האות A שונה מזה של האות a. ככה שאל תדאג, אם המשתמש לא הקפיד על אותיות גדולות/קטנות לא תהיה התאמה במסד.<br><br>בנוגע להודעות הפרטיות:<br><div class="php codeblock">SELECT <span class="kw3">COUNT</span><span class="br0">&#40;</span>`id`<span class="br0">&#41;</span> <span class="kw1">AS</span> `n` FROM `<span class="kw2">private</span>` WHERE `sendto`<span class="sy0">=</span><span class="st_h">'$username'</span> AND `Visibility`<span class="sy0">=</span><span class="st_h">'f'</span></div> </p>
+</div>
+<div class="answer" id="answer2752">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2752" href="מה יותר מהיר .htm#answer_2752">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ד&quot;א, אל תשכח להצפין את המשתנה pass לפי ההצפנה שהסיסמה מוצפנת במסד.<br>ואם אתה רוצה להרוויח עוד טיפה, תעשה את ההצפנה בשאילתה עצמה. </p>
+</div>
+<div class="answer" id="answer2755">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2755" href="מה יותר מהיר .htm#answer_2755">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה זה הצפנה?<br>ולמה אני צריך את זה? מה החסרונות? </p>
+</div>
+<div class="answer" id="answer2758">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2758" href="מה יותר מהיר .htm#answer_2758">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא ממש הצפנה, יותר פונקצית גיבוב.<br>היא הופכת את מה שאתה מכניס לה למחרוזת תווים, חסרת משמעות, בעל אורך קבוע לכל קלט ושאינה ניתנת להפיכה (לפחות לא בצורה מעשית).<br>אתה וודאי מכיר פונקציות כאלה, כמו md5, sha וכו&#039;.<br><br>למה להשתמש בזה? כדי שבמקרה ומישהו יצליח להכנס למסד שלך ולראות את כל הפרטים של המשתמשים אז הוא לא יוכל לדעת מה הסיסמאות של כל אחד. הוא יראה רק את המחרוזת לאחר הגיבוב, אבל הוא לא יהיה יכול לגלות את הסיסמאות. </p>
+</div>
+<div class="answer" id="answer2760">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2760" href="מה יותר מהיר .htm#answer_2760">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אהה הבנתי ..<br>אבל סתם שאלה מה ההסתברות שדבר כזה יקרה? הרי זה לא כל כך פשוט<br><br>בכל מקרה חשבתי לעשות את זה לקוקי כי כעושים בדוק מרכיב רואים את הסיסמא לגמרי..<br>אבל שמעתי היום על HTTPONLY ואני חושב שהוא יעזור לבעיה הזאת..<br>http://phpguide.co.il/q675/HTTPONLY.htm<br><br>ולגבי השאילתות שלי שמתי לב שהשתמשת ב&quot; ` &quot; לפני כל עמודה..<br>את האמת בדקתי,וגם בלי זה השאילתה עובדת, מתי היא עושה בעיות כאשר שם העמודה הוא:<br>WHEN<br>WHRE<br>וכו&#039;.. ככה שאין בעיה בלי </p>
+</div>
+<div class="answer" id="answer2762">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2762" href="מה יותר מהיר .htm#answer_2762">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ההסתברות של זה היא לא קטנה. לא חובה שמישהו יגיע לך ישירות למסד. יכול להיות איזה חור אבטחה, לדוגמהsql injection שבעזרתו אפשר לשלוף את כל הסיסמאות מכל המשתמשים.<br>אבל אם לא תכניס את הסיסמאות למסד כמו שהן, אלא אחרי גיבוב, גם אחרי שישלפו אותן לא יהיה מה לעשות איתן.<br><br>עדיין. קודם כל, במקרה שיש כמה משתמשים על אותו מחשב, אחד מהמשתמשים יכול להסתכל בעוגיות של השני ולגלות את הסיסמה שלו. דבר שני, httponly זו אופצייה שקיימת בדפדפנים היותר מודרניים. אם מישהו יכנס לאתר שלך עם דפדפן ישן יותר האופצייה הזו לא חלה עליו.<br><br>זה עובד גם בלי. אבל ככה אתה עוזר למסד.<br>לפי הסינטקס של sql כל שם של עמודה/טבלה צריכה להתחם בגרש הפוכה `.<br>כשאתה עובד לפי הסינטקס שאומר שמחרוזות יהיו בגירשיים ושמות של טבלאות/עמודות בגרש הפוכה, המסד מבין יותר טוב מה אתה רוצה ממנו והוא לא צריך להתחיל &quot;לנחש&quot; למה התכוונת בשאילתה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

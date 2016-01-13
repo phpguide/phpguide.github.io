@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שימוש בסינגלטון ליצירת מחלקה לעבודה עם מסד בהדגמה על mysqli">
+<meta name="keywords" content="סינגלטון, מסד, singleton, mysql, mysqli">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>database singleton</title>
+<meta itemprop="name" content="database singleton">
+<meta itemprop="description" content="שימוש בסינגלטון ליצירת מחלקה לעבודה עם מסד בהדגמה על mysqli">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"90","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>database singleton</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-05-12T18:56:58+03:00" dir="rtl">12 למאי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/singleton.png" alt="database singleton">
+</div>
+<div class="right post-content">
+סינגלטון הוא שם למחלקה שאפשר ליצור רק העתק אחד שלה בכל זמן נתון. באמצעותה אפשר ליצור חיבור קבוע למסד הנתונים ולהפסיק להעביר עשרות פרמטרים בין פונקציות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<span style="color:blue;">שים לב, מדריך זה מיועד להעשרת הידע שלך בלבד. אני ממליץ לא להשתמש בסיגלטונים במערכות שלך, למרות שהמדריך הזה מציג את הצדדים החיוביים של תבנית העיצוב. במקום זה אני מציעה ליצור מופע אחד של המחלקה בצורה ידנית ולהעביר אותו דרך הקונסטרקטור לכל המחלקות הדורשות חיבור למסד נתונים</span> <br><br>יש לכם מחלקה לעבודה עם מסד (<a href="שיפור_ביצועי_מסד_עם_MySQLI.htm">mysqli</a> למשל). כדי להתחבר למסד אתם יוצרים מופע חדש של המחלקה ומשתמשים בו. <br>יש לכם פונקציה שמריצה שאילתה כלשהי. את המופע של המחלקה מעבירים לה כפרמטר?<br><br>יש לכם עוד 5 סקריפטים שמתחברים באינקלוד לסקריפט הנוכחי. חלק מהם מתחברים רק בתנאים מסוימים וחלקם צריכים חיבור למסד כדי לעבוד. המופע של <a href="שיפור_ביצועי_מסד_עם_MySQLI.htm">mysqli</a> נוצר בהם ונדרס שוב בקוד של העמוד הנוכחי? נוצרים כמה חיבורים למסד?<br><br>singlton הוא שם למבנה של מחלקה, שרק מופע אחד שלה יכול להיות קיים במקביל. כדי ללמוד איך לשמור על חיבור יחיד, עובד וזמין למסד בכל מקום בקוד בעזרת siglton למסד — המשיכו לקרוא<br><br><br><h2>Singleton</h2><br><strong>סינגלטון</strong> היא שם למחלקה שאפשר ליצור רק מופע אחד ממנה. אם תנסו ליצור שני מופעים של המחלקה לא תקבלו שגיאה, פשוט תקבלו את אותו אובייקט בזיכרון פעמיים.<br><br>ניצור את המחלקה לניסויים קליניים שלנו, המחלקה dog<br><div class="php codeblock"><span class="co4">/** Sample dog class */</span><br>
+<span class="kw2">class</span> dog<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co4">/** Creates new dog's instance */</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'aww aww &lt;br/&gt;'</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$chappi</span> <span class="sy0">=</span> <span class="kw2">new</span> dog<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$rex</span> <span class="sy0">=</span> <span class="kw2">new</span> dog<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>נוצרו שני מופעים של המחלקה dog. כל מופע בהיווצרותו הדפיס למסך aww aww.<br><br><h4>משתנה סטטי</h4> <br>משתנה סטטי הוא משתנה המשותף לכל המופעים של המחלקה. לכל מחלקה יש את המאפיינים שלה (property). לכלב יכול להיות מאפיין &quot;שם&quot; או &quot;גיל&quot;. כל מופע שומר את הערכים של המאפיינים שלו בתאים משלו בזיכרון.<br><br>משתנה סטטי הוא משתנה שנשמר בתא מסוים בזיכרון וכל המופעים של אותה מחלקה פונים אל אותו תא. מן תא משותף כזה לכל המופעים. <br><br><div class="php codeblock"><span class="co4">/** Sample dog class */</span><br>
+<span class="kw2">class</span> dog<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="re0">$name</span> <span class="sy0">=</span> <span class="st_h">'bob'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co4">/** Creates new dog's instance */</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'aww aww &lt;br/&gt;'</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co4">/** Changes dog's name<br>
+&nbsp; &nbsp; &nbsp;* @param string $name new dog's name &nbsp; &nbsp; */</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> change_name<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$name</span> <span class="sy0">=</span> <span class="re0">$name</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co4">/** Output's dogs name */</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> say_name<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'I am '</span><span class="sy0">,</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$name</span> <span class="sy0">,</span><span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$chappi</span> <span class="sy0">=</span> <span class="kw2">new</span> dog<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$rex</span> <span class="sy0">=</span> <span class="kw2">new</span> dog<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$chappi</span><span class="sy0">-&gt;</span><span class="me1">change_name</span><span class="br0">&#40;</span><span class="st_h">'chappi'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$chappi</span><span class="sy0">-&gt;</span><span class="me1">say_name</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$rex</span><span class="sy0">-&gt;</span><span class="me1">say_name</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הקוד מחזיר <br><span class="dirleft"><br>aww aww<br>aww aww<br>I am chappi<br>I am chappi<br></span><br>תחילה נוצרים שני מופעים של המחלקה.<br>שניהם משתמשים באותו תא בזיכרון כדי לשמור את המשתנה <span dir="ltr">$name</span><br>ברגע שאחד מהם משנה לעצמו את השם, הוא מעדכן את המשתנה המשותף ושני המופעים<br>רואים את אותו ערך.<br><br><br><br>נשתמש בתא הזה כדי לרשום לשם האם כבר נוצר מופע של המחלקה או לא. כל המופעים החדשים של המחלקה לפני ההיווצרות יבדקו האם כבר קיים מופע כזה בזיכרון באמצעות המשתנה המשותף ואם כן — יחזירו מופע קיים, במקום ליצור אחד חדש.<br><br><div class="php codeblock"><span class="co4">/** Sample dog class */</span><br>
+<span class="kw2">class</span> dog<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> static <span class="re0">$the_dog</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co4">/** Creates new dog's instance */</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="st_h">'NEW DOG created &lt;br/&gt;'</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="co4">/** Prevents creating an object by cloning */</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> __clone<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co4">/** Returns singlton instance of a dog */</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> get_dog<span class="br0">&#40;</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;נבדוק האם יש משהו במשתנה המשותף<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;אם אין — ניצור מופע חדש ונכניס אותו למשתנה המשותף<br>
+&nbsp; &nbsp; &nbsp; &nbsp; כדי שהבאים אחרי יוכלו לבדוק את המשתנה הזה ולדעת האם<br>
+&nbsp; &nbsp; &nbsp; &nbsp; כבר קיים מופע של המחלקה, או צריך ליצור אחד חדש<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$the_dog</span> <span class="sy0">===</span> <span class="kw4">null</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$the_dog</span> <span class="sy0">=</span> <span class="kw2">new</span> dog<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$the_dog</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$rex</span> &nbsp; &nbsp; <span class="sy0">=</span> dog<span class="sy0">::</span><span class="me2">get_dog</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$chompie</span> <span class="sy0">=</span> dog<span class="sy0">::</span><span class="me2">get_dog</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$bob</span> &nbsp; &nbsp; <span class="sy0">=</span> dog<span class="sy0">::</span><span class="me2">get_dog</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>רק <em>NEW DOG created</em> אחד יופיע על המסך.<br>כל השלושה הם אותו מופע של כלב.<br><br><br><h2>חיבור עם מחלקה של מסד</h2><br>את הבסיס למחלקה לקחתי מהכתבה <a href="שיפור_ביצועי_מסד_עם_MySQLI.htm">שיפור ביצועי מסד עם mysqli</a><br><div class="php codeblock"><span class="co4">/** Mysqli Wrapper */</span><br>
+<span class="kw2">class</span> db <span class="kw2">extends</span> mysqli<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$connected</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> static <span class="re0">$instance</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co4">/** Returns singleton instance */</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> get_instance<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="re0">$instance</span> <span class="sy0">===</span> <span class="kw4">null</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$instance</span> <span class="sy0">=</span> <span class="kw2">new</span> <span class="kw2">self</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'user'</span><span class="sy0">,</span> <span class="st_h">'pass'</span><span class="sy0">,</span> <span class="st_h">'base1'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$instance</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp; &nbsp;* Performs MySQLI database connection<br>
+&nbsp; &nbsp; &nbsp;* @param string $host the machine/host the database is located at<br>
+&nbsp; &nbsp; &nbsp;* @param string $user database user<br>
+&nbsp; &nbsp; &nbsp;* @param string $pass password for database user<br>
+&nbsp; &nbsp; &nbsp;* @param string $db database's name<br>
+&nbsp; &nbsp; &nbsp;* @param string $charset &nbsp;connection collation charset<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="sy0">,</span> <span class="re0">$db</span><span class="sy0">,</span> <span class="re0">$charset</span> <span class="sy0">=</span> <span class="st_h">'utf8'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; parent<span class="sy0">::</span>__construct<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span> <span class="kw3">die</span><span class="br0">&#40;</span><span class="st0">&quot;Connection Error: &quot;</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">set_charset</span><span class="br0">&#40;</span><span class="re0">$charset</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connected</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="co4">/** Prevents creating an object by cloning */</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> __clone<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="br0">&#125;</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp; &nbsp;* Executes sql query against the database and handles failures<br>
+&nbsp; &nbsp; &nbsp;* @param string $query the SQL to execute<br>
+&nbsp; &nbsp; &nbsp;* @param int $resultmode MYSQLI_STORE_RESULT or MYSQLI_USE_RESULT<br>
+&nbsp; &nbsp; &nbsp;* @return resource result to iterate or dies on error<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> query<span class="br0">&#40;</span><span class="re0">$query</span><span class="sy0">,</span> <span class="re0">$resultmode</span> <span class="sy0">=</span> <span class="kw3">MYSQLI_STORE_RESULT</span> <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$res</span> <span class="sy0">=</span> parent<span class="sy0">::</span><span class="me2">query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="sy0">,</span> <span class="re0">$resultmode</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$res</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">&#41;</span> <span class="kw3">die</span><span class="br0">&#40;</span><span class="st0">&quot;SQL Error: &quot;</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">error</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$res</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="co4">/** Closes the connection to the database */</span><br>
+&nbsp; &nbsp; <span class="kw2">function</span> __destruct<span class="br0">&#40;</span><span class="br0">&#41;</span> &nbsp; <span class="br0">&#123;</span> &nbsp; &nbsp;<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connected</span><span class="br0">&#41;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><strong>השימוש</strong><br><div class="php codeblock"><span class="re0">$db1</span> <span class="sy0">=</span> db<span class="sy0">::</span><span class="me2">get_instance</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$db2</span> <span class="sy0">=</span> db<span class="sy0">::</span><span class="me2">get_instance</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw2">function</span> do_something<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$db3</span> <span class="sy0">=</span> db<span class="sy0">::</span><span class="me2">get_instance</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$db3</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'SELECT `something` FROM `do`'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>למחלקה נוסף משתנה סטטי ששומר מופע אחד של המחלקה. כל פעם שנבקש לקבל מופע חדש בעזרת הפונקציה <span dir="ltr">get_instance()</span> היא תבדוק האם מופע כבר קיים ואם כן - תחזיר את המופע הקיים. אם לא - תיצור מופע חדש ותחזיר אותו.<br><br>עכשיו אין שום בעיה פעם אחת להוסיף את הקובץ db.php באינקלוד בטעינה ולהשתמש בחיבור הקיים למסד (שיוצר רק כשישתמשו בו בפעם הראשונה) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment186"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/06/2011 13:51</span><br>
+כשעושים ככה:<br>
+public function __construct<br>
+<br>
+עדיין אפשר לעשות יותר מעצם אחד, כשפשוט מפעילים את הבנאי מחוץ למחלקה. מקובל להפוך את הבנאי ל private, כדי שרק פונקציה פנימית תוכל ליצור עצם, וככה בטוח לא יהיה יותר מעצם אחד.</div>
+<a id="comment187"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/06/2011 19:46</span><br>
+תודה, הכתבה עודכנה :-)</div>
+<a id="comment1288"></a>
+<div class="blog-comment">
+<span class='comment-author'>pol292</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/02/2012 11:24</span><br>
+לא הבנתי מה הבדל שגורם לזה להבצר פעם אחת</div>
+<a id="comment1506"></a>
+<div class="blog-comment">
+<span class='comment-author'>hafuta</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/04/2012 02:40</span><br>
+אחלה הסבר, תודה!</div>
+<a id="comment1507"></a>
+<div class="blog-comment">
+<span class='comment-author'>hafuta</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/04/2012 02:55</span><br>
+שתי שאלות<br>
+1. אפשר היה לוותר על connected?, יכולה להיות בעיה במקום להשתמש ב-connected פשוט לבדוק את הערך של Instance? במידה ושונה מ-null אני יודע שיש חיבור..?<br>
+<br>
+2. במידה והייתי מנסה ליצור כל פעם אובייקט חדש (עם new), אבל בקונסטרקטור הייתי בודק אם כבר קיים ערך ל-instance, זה אפשרי? (כי instance אמור להיות זהה לכל המופעים)<br>
+<br>
+תודה!</div>
+<a id="comment1508"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/04/2012 08:00</span><br>
+1. במקרה הזה אתה לא תדע אם יש לך חיבור פתוח למסד נתונים שצריך לסגור בסוף הסקריפט או לא. אם החיבור למסד בפועל לא הצליח, אבל אתה בכל זאת תנסה לעשות coonection-&gt;close בסוף ה destructor אתה תקבל עוד שגיאה.<br>
+<br>
+2. אי אפשר להחזיר ערכים מתוך קונסטרקטור, ככה שגם אם תבדוק שם כל מה שאתה רוצה, הערך שיוחזר מהקונסטרקטור יהיה מופע חדש של המחלקה ולא משנה מה תבדוק שם אות תנסה להחזיר.</div>
+<a id="comment1509"></a>
+<div class="blog-comment">
+<span class='comment-author'>hafuta</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/04/2012 00:06</span><br>
+תודה רבה!</div>
+<a id="comment1582"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/06/2012 00:00</span><br>
+שכחת להגדיר את get_instance כסטטית.</div>
+<a id="comment1583"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/06/2012 08:31</span><br>
+צודק. טופל, תודה :)</div>
+<a id="comment1852"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2012 22:51</span><br>
+זה בונה על כך שעושים unset למופעים של המחלקה לפני שיוצרים חיבור חדש למסד אחר וכדו&apos;, כן?</div>
+<a id="comment1853"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2012 22:52</span><br>
+כלומר, אי אפשר פשוט לגשת למתודה close של המופעים של המחלקה כדי לאפס את החיבור ושיהיה אפשר ליצור חיבור חדש?</div>
+<a id="comment1857"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 13:20</span><br>
+תוסיף למחלקה מטודה משלך בשם reset שתסגור את החיבור הקיים ותפתח אחד חדש<br>
+אם אתה ממש בטוח שיש סיבה לעשות את זה, כי אני לא </div>
+<a id="comment1860"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 13:30</span><br>
+לא, זה בסדר. פשוט לקח לי זמן לקלוט שצריך להשמיד את המופעים של המחלקה, ולא רק לגשת ל-close. :)</div>
+<a id="comment2041"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/11/2012 09:21</span><br>
+אני מעדיף לעשות את זה ככה:<br>
+<span dir="ltr"><a href="phplive-24.htm?code=561">http://phpguide.co.il/phplive?code=561</a></span> <br>
+<br>
+במקום כל פעם לקרוא לgetInstance לתוך משתנה ולעבוד דרכו, אפשר פשוט לקרוא לפונקציה (נגיד query) למשתנה (יש מקרים שלא צריך אפילו, כמו UPDATE \ DELETE וכו&apos;..)</div>
+<a id="comment2042"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/11/2012 09:23</span><br>
+יענו:<br>
+DB::query(&quot;DELETE FROM `teble` WHERE 1;&quot;);<br>
+במקום:<br>
+$db = db::get_instance();<br>
+$db-&gt;query(&quot;DELETE FROM `teble` WHERE 1;&quot;);<br>
+וזהו :D</div>
+<a id="comment2043"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/11/2012 17:15</span><br>
+@ldbrgr<br>
++1<br>
+כשעברתי ל-php 5.3 עברתי לצורה הזו.</div>
+<a id="comment2044"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2012 10:48</span><br>
+אמנם query סטטי יותר נחמד, אבל זה אומר שהקוד שלך לא ניתן לבדיקה אוטומטית עם טסטים.<br>
+בכלל שום דבר סטטי לא ניתן ליוניט טסטינג וגורם לעוד יותר בעיות עם מישהו ירצה להרחיב את המחלקה שלך בעתיד. עדיך לכתוב עוד פעם getInstance.<br>
+<br>
+לא מזמן חשבתי איך לתקן את כל הבעיות של PHP ואחד הדברים שעלו לי זה שצריך להעיף מהשפה בכלל את האפשרות לעשות דברים סטטים. לגמרי. להשאיר trait אחד של סינגלטון מובנה על בתוך השפה ולהוציא את הקונספט של הסטטי. <br>
+<br>
+אמנם קוד סטטי חוסך קצת זיכרון למערכת, אבל זיכרון זה לא הבעיה הגדולה של מערכות היום. קוד גרוע, לאומת זאת, זה בהחלט בעיה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

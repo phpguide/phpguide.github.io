@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="jquery 1.8 release">
+<meta name="keywords" content="jquery, sizzle, 1.8">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>jQuery 1.8</title>
+<meta itemprop="name" content="jQuery 1.8">
+<meta itemprop="description" content="jquery 1.8 release">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"239","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>jQuery 1.8</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-08-13T10:15:05+03:00" dir="rtl">13 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://inspirationmind.com/wp-content/themes/igloo_free/lib_frame/thumb.php?src=wp-content/uploads/2012/01/jquery.png&amp;w=75&amp;h=75&amp;zc=1&amp;q=90" alt="jQuery 1.8">
+</div>
+<div class="right post-content">
+אוגוסט נהיה עוד יותר חם עם יציאתה לאור של jQuery 1.8<br>אמנם המספר 8 - חדש, השינויים יותר פנימיים ומעט מאוד בונוסים חדשים. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h4>sizzle משופר</h4><br>מנוע הסלקטורים של jquery עבר שני שכתובים על ידי Timmy Willison ונהיה מהיר מתמיד. ברובו הוא מסתמך על הפונקציונליות המובנית של הדפדפן, איפה שאפשר. אופציות חדשות לא נוספו אליו, אבל יותר מהיר הוא אכן נהיה. ואפילו נשארה התמיכה ב IE6.<br><br><h4>האנימציות שופרו</h4><br>jQuery מתקרבת להוליווד עם שיפורים בקוד האנימציות, שעד עכשיו, לדברי המפתחים, היה פשוט נוראי. גם כאן רוב השינויים מתחת לפני השטח ומכוונים לשיפורי ביצועים וניקוי הקוד. למרות זאת יש גם דברים חדשים, כמו שימוש ב callbacks עם promises. הדוקומנטציה לפיצ&#039;ר הזה עדיין נכתבת. נראה עוד מעט מה ייצא.<br><br><h4>פרפיקסים אוטומטיים לפי הדפדפן</h4><br>מעכשיו jQuery תייצר css תואם לסוג הדפדפן שבו משתמשים, ככה שאם נחליט לתת למשהו פינות עגולות באמצעות הקוד, נקבל תוצאה עם פרפיקסים מתאימים בכל אחד מהדפדפנים.<br><div class="php codeblock">obj<span class="sy0">.</span>css<span class="br0">&#40;</span><span class="st_h">'border-radius'</span><span class="sy0">,</span> <span class="st_h">'3px'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// opera -&gt; border-radius</span><br>
+<span class="co1">// webkit -&gt; -webkit-border-radius</span><br>
+<span class="co1">// mozilla -&gt; -moz-border-radius</span></div><br><br><h4><span dir="ltr">jQuery(html, props);</span> גמיש יותר</h4><br>על אובייקטים שמתקבלים מרישום כזה תתאפשר הפעלה של פלאגינים ופעולות jQuery. בעבר היה אפשר להעפיל רק רשימה לא ארוכה של פעולות על אובייקטים כאלה. נשמע כמו עוד תיקון ארכיטקטורי שהיו צריכים לעשות כבר מזמן.<br><br><h4>160 באגים תוקנו</h4><br>כן, היו ב-jquery כמה באגים. כנראה שעדיין יש עוד כמה והמפתחים במקשים לפתוח bug report אם תמצאו אחד כזה. את הרשימה המלאה יהיה אפשר למצוא ב-changelog המלא. אגב, חלק מהבאגים העתיקים החזיקו מעמד למעלה משנתיים.<br><br><h4>הקוד נהיה קטן יותר ומודולארי</h4><br>לא בהרבה, אבל אכן שיפור. בנוסף אפשר לבחור את הפונקציונליות שאתם צריכים באתר ולבנות את jQuery רק מהמרכיבים שאתם צריכים באמצעות <a href="http://gruntjs.com/">grunt</a>.<br><br><h4>השתנה המספר</h4><br>מספר הגרסה השתנה לא סתם. בדרך כלל עליית מספר מסמלת את זה, שהקוד החדש יכול לשבור משהו בקוד שלכם ו- jQuery 1.8 הכן יכולה לשבור לכם את הסקריפטים הקיימים בגלל שנזרקו ממנה כמה דברים ישנים או לא עובדים.<br><br>רשימת השינויים המלאה ומה נזרק ממנה אפשר למצוא ב <a href="http://blog.jquery.com/2012/08/09/jquery-1-8-released/">jquery 1.8 release note</a> באנגלית. הובכן, הגיע הזמן להתעדכן. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1808"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/08/2012 13:50</span><br>
+נייס לגמרי, תודה על העדכון (:</div>
+<a id="comment1809"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/08/2012 18:59</span><br>
+תודה עלה עידכון אלכס.</div>
+<a id="comment1814"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2012 01:40</span><br>
+אממ<br>
+<span dir="ltr"><a href="AJAX ייבוא קובץ.htm">http://phpguide.co.il/AJAX ייבוא קובץ.htm</a></span></div>
+<a id="comment1815"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2012 01:58</span><br>
+נראה טוב. מה שנשאר זה רק לשנות את ה-source ל-1.8 ולוודא שכל הסקריפטים עובדים כמו שעבדו. :)</div>
+<a id="comment1816"></a>
+<div class="blog-comment">
+<span class='comment-author'>alon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2012 11:14</span><br>
+תודה רבה על העדכון</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

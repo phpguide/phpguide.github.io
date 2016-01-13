@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעיה בעת עידכון מספר שורות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>בעיה בעת עידכון מספר שורות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעיה בעת עידכון מספר שורות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעיה בעת עידכון מספר שורות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">13</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיה בעת עידכון מספר שורות.htm" title="שלום לכולם, לצורך העניין יש לי את הטבלה הבאה:+-----+-----+
+| &amp;#91;u&amp;#93;&amp;#91;b&amp;#93;id&amp;#91;/b&amp;#93;&amp;#91;/u&amp;#93; &amp;nbsp;| ">בעיה בעת עידכון מספר שורות</a></h2>
+<div class="userinfo">
+פתח
+<a>iiddaannyy</a>
+,
+<time class="timeago relativetime" datetime="2012-03-10T16:31:22+02:00" style="display:inline-block;">
+10 למרץ 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText392'>
+שלום לכולם, לצורך העניין יש לי את הטבלה הבאה:<br><div class="php codeblock"><span class="sy0">+-----+-----+</span><br>
+<span class="sy0">|</span> <span class="br0">&#91;</span>u<span class="br0">&#93;</span><span class="br0">&#91;</span>b<span class="br0">&#93;</span>id<span class="br0">&#91;</span><span class="sy0">/</span>b<span class="br0">&#93;</span><span class="br0">&#91;</span><span class="sy0">/</span>u<span class="br0">&#93;</span> &nbsp;<span class="sy0">|</span> <span class="br0">&#91;</span>u<span class="br0">&#93;</span><span class="br0">&#91;</span>b<span class="br0">&#93;</span>num<span class="br0">&#91;</span><span class="sy0">/</span>b<span class="br0">&#93;</span><span class="br0">&#91;</span><span class="sy0">/</span>u<span class="br0">&#93;</span> &nbsp;<span class="sy0">|</span><br>
+<span class="sy0">+-----+-----+</span><br>
+<span class="sy0">|</span> &nbsp; &nbsp;<span class="nu0">5</span> &nbsp;<span class="sy0">|</span> &nbsp; <span class="nu0">1</span> &nbsp; <span class="sy0">|</span><br>
+<span class="sy0">+-----+-----+</span><br>
+<span class="sy0">|</span> &nbsp; &nbsp;<span class="nu0">6</span> &nbsp;<span class="sy0">|</span> &nbsp; <span class="nu0">2</span> &nbsp; <span class="sy0">|</span><br>
+<span class="sy0">+-----+-----+</span><br>
+<br>
+num is unique</div><br><br>אני מציג למשתמש את הטבלה כדי שיבחר אילו שינויים לבצע והוא עורך את הטבלה ומגיש את הטופס.<br>עכשיו במקרה שלדוגמה לשורה הראשונה הוא נתן num=6 ולשורה השנייה נתן num=5, השאילתה שהסקריפט יוצר תהיה כזו:<br><div class="php codeblock">UPDATE `table` SET `num`<span class="sy0">=</span><span class="kw1">CASE</span> `id` WHER <span class="st_h">'1'</span> THEN <span class="st_h">'6'</span> WHEN <span class="st_h">'2'</span> THEN <span class="st_h">'5'</span> <span class="kw3">END</span> WHERE `id` IN<span class="br0">&#40;</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="br0">&#41;</span></div><br>עכשיו הבעיה עם השאילתה היא שהיא נותנת שגיאה כי ברגע שהסקריפט מעדכן את השורה הראשונה ושם בה 6 יש בעיה, כי num הוא unique ואז יש התנגשות עם ה-num של השורה השנייה ומוחזרת שגיאה.<br><br>יש דרך לפתור את זה בלי הרבה שאילתות? </div>
+</div>
+<h3>
+<span id="answersCounter">13 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer1575">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1575" href="בעיה בעת עידכון מספר שורות.htm#answer_1575">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הטבלה:<br><div class="php codeblock"><span class="sy0">+-----+-----+</span><br>
+<span class="sy0">|</span> id &nbsp;<span class="sy0">|</span> num <span class="sy0">|</span><br>
+<span class="sy0">+-----+-----+</span><br>
+<span class="sy0">|</span> &nbsp;<span class="nu0">1</span> &nbsp;<span class="sy0">|</span> &nbsp;<span class="nu0">5</span> &nbsp;<span class="sy0">|</span><br>
+<span class="sy0">+-----+-----+</span><br>
+<span class="sy0">|</span> &nbsp;<span class="nu0">2</span> &nbsp;<span class="sy0">|</span> &nbsp;<span class="nu0">6</span> &nbsp;<span class="sy0">|</span><br>
+<span class="sy0">+-----+-----+</span><br>
+<br>
+num is unique</div> </p>
+</div>
+<div class="answer" id="answer1580">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1580" href="בעיה בעת עידכון מספר שורות.htm#answer_1580">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם למחוק מהטבלה את הערכים שהוא שינה ואז להכניס אותם מחדש.<br><div class="php codeblock">delete from table where id in <span class="re0">$changed_ids</span></div><br><div class="php codeblock">insert into tbl <span class="br0">&#40;</span>id<span class="sy0">,</span> num<span class="br0">&#41;</span> values <span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">6</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="nu0">2</span><span class="sy0">,</span><span class="nu0">5</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="nu0">3</span><span class="sy0">,</span><span class="nu0">7</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="sy0">..</span></div><br>תעשה את זה בטראנזקציה, ככה שאם אחד ה num לא יהיה יוניקי - ישארו לך הערכים הישנים ותוכל לתת על זה הודעת שגיאה. </p>
+</div>
+<div class="answer" id="answer1581">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1581" href="בעיה בעת עידכון מספר שורות.htm#answer_1581">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה היא שה-id מכוון ל-auto increment וכשאני מכניס id ידנית זה דופק את זה וה-id שיכנס אחריו יהיה לא בסדר הנכון.. </p>
+</div>
+<div class="answer" id="answer1582">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1582" href="בעיה בעת עידכון מספר שורות.htm#answer_1582">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+א. זה לא<br>ב. מה הבעיה עם זה שיהיו חורים ברשימת ה id ? </p>
+</div>
+<div class="answer" id="answer1583">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1583" href="בעיה בעת עידכון מספר שורות.htm#answer_1583">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה כן.<br>הייתה לי טבלה עם שתי שורות, ה-idים הם 1 ו-2, כשהכנסתי שורה חדשה עם id=6, השורה הבאה שהכנסתי הייתה עם id=7.<br><br>וכן, נכון שאין בעיה עם חורים ב-id.<br><br><br>בכל מקרה מחקתי את ה-unique, הוא אמנם יכול לעזור במקרים מסוימים, אבל גם אם יהיו שתי שורות עם אותו ערך בעמודה הזו הסקריפט יתמודד. זה עדיף לי במקרה הזה.<br><br><br>תודה רבה. :) </p>
+</div>
+<div class="answer" id="answer1584">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1584" href="בעיה בעת עידכון מספר שורות.htm#answer_1584">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה שוב. auto_increment לא עולה עם אתה מכניס ערך שהוא יותר נמוך מה auto_increment הבא. </p>
+</div>
+<div class="answer" id="answer1587">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1587" href="בעיה בעת עידכון מספר שורות.htm#answer_1587">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, נכון, טעיתי אתה צודק. :)<br><br>בכל מקרה זה כבר לא משנה כי ביטלתי את ה-unique. </p>
+</div>
+<div class="answer" id="answer1588">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1588" href="בעיה בעת עידכון מספר שורות.htm#answer_1588">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חבל :)<br>חוץ מזה לעשות שאילתות עם כל הקייסים האלה זה רעיון לא ממש טוב. </p>
+</div>
+<div class="answer" id="answer1592">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 10 למרץ 2012 </span>
+<a id="answer_1592" href="בעיה בעת עידכון מספר שורות.htm#answer_1592">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל זה עדיף על פני הרבה שאילתות update... </p>
+</div>
+<div class="answer" id="answer1593">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2012 </span>
+<a id="answer_1593" href="בעיה בעת עידכון מספר שורות.htm#answer_1593">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה שאילתת insert אחת בסה&quot;כ. </p>
+</div>
+<div class="answer" id="answer1595">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2012 </span>
+<a id="answer_1595" href="בעיה בעת עידכון מספר שורות.htm#answer_1595">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הטבלה שלי מכילה יותר עמודות, לכן אני צריך:<br>1. שאילתת select ששולפת את יתר העמודות.<br>2. שאילתת delete.<br>3. שאילתת insert.<br><br>בכל מקרה דיברתי על ה-update שעשיתי בהתחלה ושהוא עדיף על פני הרבה updateים.<br>אני אעשה יותר מאוחר בדיקה כדי לראות מה יותר כדאי, 3 שאילתות; select, delete, insert או שאילתת update עם הרבה caseים. </p>
+</div>
+<div class="answer" id="answer1596">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2012 </span>
+<a id="answer_1596" href="בעיה בעת עידכון מספר שורות.htm#answer_1596">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנאים כאלה ממש לא רצויים בשאילתות. צריך לעשות הפרדה בין ה&quot;שכבות הלוגיות&quot; מה שנקרא. אין לזה השפעה ממשית במקרה של משהו נקודתי, ואם אין מערכים גדולים, אבל זה כן יכול להשפיע במקרה ויש לך הרבה מידע והרבה מניפולציות עליו. כמו כן, זה הופך את הקוד לפחות גמיש. זה גם יכול ליצור בעיות תאימות בין מסדים. לכן זה באמת רעיון לא טוב. </p>
+</div>
+<div class="answer" id="answer1598">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2012 </span>
+<a id="answer_1598" href="בעיה בעת עידכון מספר שורות.htm#answer_1598">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עברתי ל-select, delete ו-insert.<br><br>תודה רבה. :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

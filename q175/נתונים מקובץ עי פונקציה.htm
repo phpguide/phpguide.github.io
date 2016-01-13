@@ -1,0 +1,467 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה נתונים מקובץ (ע&quot;י פונקציה)">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Kzrh">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>נתונים מקובץ (ע&quot;י פונקציה) | שאלת לימוד PHP</title>
+<meta itemprop="name" content="נתונים מקובץ (ע&quot;י פונקציה) | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה נתונים מקובץ (ע&quot;י פונקציה)">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">24</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="נתונים מקובץ עי פונקציה.htm" title="היי. יש לי קובץ בשם config.php (בכוונה .php כי אם זה יהיה .txt אז המשתמש יוכל לצפות בתוכן המסמך).בקובץ כתוב לי לדוגמה:username:rootאני רוצה לעשות פונקציה כלשהי שיהיה בה ארגומנט אחד ($val לדוגמה) שבעצם תגיד לי מה שיש אחרי הנקודותיים - במקרה הזה root.איך אני עושה את זה?תודה!">נתונים מקובץ (ע&quot;י פונקציה)</a></h2>
+<div class="userinfo">
+פתח
+<a>Kzrh</a>
+,
+<time class="timeago relativetime" datetime="2012-01-25T21:29:05+02:00" style="display:inline-block;">
+25 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText175'>
+היי. יש לי קובץ בשם config.php (בכוונה .php כי אם זה יהיה .txt אז המשתמש יוכל לצפות בתוכן המסמך).<br>בקובץ כתוב לי לדוגמה:<br><div class="php codeblock">username<span class="sy0">:</span>root</div><br><br>אני רוצה לעשות פונקציה כלשהי שיהיה בה ארגומנט אחד ($val לדוגמה) שבעצם תגיד לי מה שיש אחרי הנקודותיים - במקרה הזה root.<br>איך אני עושה את זה?<br>תודה! </div>
+</div>
+<h3>
+<span id="answersCounter">24 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer679">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_679" href="נתונים מקובץ עי פונקציה.htm#answer_679">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ד&quot;א נראה לי שצריך להשתמש ב REGEX </p>
+</div>
+<div class="answer" id="answer680">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5df2e4c4d77ee7b807c9fb8e1cb2f4ca?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_93144</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_680" href="נתונים מקובץ עי פונקציה.htm#answer_680">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ולמה שלא תעשה בקונפיג שלך:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span> <span class="sy0">=&gt;</span> <span class="st_h">'root'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ואז תעשה לו פשוט <br><div class="php codeblock"><span class="re0">$config</span> <span class="sy0">=</span> <span class="kw1">require</span> <span class="st_h">'config.php'</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer681">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_681" href="נתונים מקובץ עי פונקציה.htm#answer_681">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל לפעמים אני רוצה לשנות את הערכים, אז אני אכתוב על הערך עצמו.<br>אם אני אעשה את זה במשתנה, לא אוכל לשנות את הערך. אולי אשנה, אבל רק כל עוד השינוי נמצא בקוד. זה לא פיזית ישנה את זה, כך שאוכל להיות בטוח.<br>אני מתכוון שאם לדוגמה ארצה דרך הלוח ניהול או משהו לשנות, מבלי לגעת בקוד (config.php) אז אוכל. מכוון שארצה לקבל נתונים מ config.php ואקבל לדוגמה root, שבכלל בדף אחר קבעתי שזה יהיה orel לדוגמה. </p>
+</div>
+<div class="answer" id="answer682">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_682" href="נתונים מקובץ עי פונקציה.htm#answer_682">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם זה פורמט קבוע, אז כך את התוכן של הקובץ ותפעיל explode.<br>אם זה קונפיג, מספיק פשוט ליצור מערך ולאנקלד אותו (לא בהכרח צריך ליצור משתנה חדש כמו שהראו למעלה). </p>
+</div>
+<div class="answer" id="answer683">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_683" href="נתונים מקובץ עי פונקציה.htm#answer_683">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+צודק אחי! אבל איך אוכל לעשות את ה explode רק איפה שאני בוחר? לדוגמה יש לי מספר שורות, ובכל שורה יש ככה: key:val, ואני ארצה רק איפה שה key יהיה host?<br>אבל שוב, לא אוכל לאנקלד את הקונפיג מהסיבה שכתבתי למעלה. אם ארצה לשנות את התוכן של הקובץ וכד&#039;? </p>
+</div>
+<div class="answer" id="answer684">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_684" href="נתונים מקובץ עי פונקציה.htm#answer_684">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נו אז תשנה, אז מה? את הערך אתה יכול לשנות כמה שבא לך. נניח וה&quot;מפתח&quot; שלך זה host והערך הוא הכתובת של השרת. הרי אתה לא תשנה כל פעם את השם של המפתח? וזה כל התפקיד בעצם של הקונפיג. ניתן לשנות את הערך כמה שבא לך כל עוד המפתח נשאר אותו מפתח. אחרת תצטרך לשנות את זה בכל מקום אחר. אם אתה הולך על explode, אז מה הבעיה? תבדוק איזה ערך בדיוק מכילה השורה ותפעיל את הפונקצייה בהתאם. </p>
+</div>
+<div class="answer" id="answer685">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5df2e4c4d77ee7b807c9fb8e1cb2f4ca?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_93144</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_685" href="נתונים מקובץ עי פונקציה.htm#answer_685">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+json_encode / json_encode </p>
+</div>
+<div class="answer" id="answer686">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_686" href="נתונים מקובץ עי פונקציה.htm#answer_686">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא התכוונתי ל json_encode, אבל לא משנה.. נראה לי שאני אלך על השיטה של האינקלוד, אבל יש לי בעיה..<br>זה הקונפיג:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st_h">'host'</span> <span class="sy0">=&gt;</span> <span class="st_h">'localhost'</span><span class="sy0">,</span><br>
+&nbsp; <span class="st_h">'username'</span> <span class="sy0">=&gt;</span> <span class="st_h">'root'</span><span class="sy0">,</span><br>
+&nbsp; <span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="st_h">''</span><span class="sy0">,</span><br>
+&nbsp; <span class="st_h">'dbname'</span> <span class="sy0">=&gt;</span> <span class="st_h">'imgup'</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br>אבל אני מקבל שגיאה:<br><div class="php codeblock">Parse error<span class="sy0">:</span> syntax error<span class="sy0">,</span> unexpected T_STRING in C<span class="sy0">:</span>\wamp\www\imgup\config<span class="sy0">.</span>php on line <span class="nu0">3</span></div><br><br>(שורה 3 זה בדיוק איפה שמתחיל ה &#039;host&#039;). </p>
+</div>
+<div class="answer" id="answer687">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_687" href="נתונים מקובץ עי פונקציה.htm#answer_687">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+json בתור קונפיג זה משהו.<br>אין לך בעיה בקוד. אבל למה שלא תעשה ככה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$config</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'key'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'value'</span><span class="sy0">;</span></div><br>למה ליצור משתנה חדש כל הזמן? </p>
+</div>
+<div class="answer" id="answer688">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2012 </span>
+<a id="answer_688" href="נתונים מקובץ עי פונקציה.htm#answer_688">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אני ארצה להשתמש במשתנה $config הזה בכל מיני דפים כמו sql.class.php, system.class.php, image.class.php, וכו&#039;... כי אם לדוגמה אני עושה את המשתנה הזה ב Index.php וב sql.class.php שזה בתיקייה נפרדת בכלל, אני מנסה לעשות echo למשתנה(לדוגמה ל $config[&#039;host&#039;]) אז זה לא עובד. אבל אם המשתנה נמצא ב index.php ודרך ה Index.php אני עושה echo זה כן עובד.. כאילו אני צריך שזה יהיה מין משתנה כזה לכל המערכת, גלובאלי כזה.<br><br>יכול להיות שהשיטה היא פשוט להשתמש ב $GLOBALS? </p>
+</div>
+<div class="answer" id="answer689">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_689" href="נתונים מקובץ עי פונקציה.htm#answer_689">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ההסבר שלך לא מובן. המשתנה הזה יעבוד בכל דף שבו תאנקלד את הקובץ הנ&quot;ל. זה לא יהיה נגיש בטווחים מסוימים כמו למשל פונקציות, שם תצטרך להפעיל global. ובכל מקרה אתה תצטרך להשתמש בזה (global), גם בשיטה הזאת וגם בשיטה האחרת. אם תספק קוד מדוייק שלא עובד אז ניתן יהיה לאמר מה <strong>אתה</strong> עושה לא נכון. </p>
+</div>
+<div class="answer" id="answer690">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_690" href="נתונים מקובץ עי פונקציה.htm#answer_690">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תן לי להבין נכון. אתה מתכוון כאילו לעשות את המשתנה $config בקובץ האינדקס, או בקובץ שונה בשם config.php שאותו אני אאנקלד לכל דף?<br><br>ואני בעצם תמיד אצטרך להשתמש ב $GLOBALS מכוון שהכל אצלי זה פונקציות (OOP). </p>
+</div>
+<div class="answer" id="answer691">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_691" href="נתונים מקובץ עי פונקציה.htm#answer_691">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני מתכוון לכך שתיצור קובץ נפרד לקונפיג (config.php לדוגמא) שאותו תאנקלד איפה שצריך. ככה כל בן אדם נורמלי עושה וכן מערכות גדולות. </p>
+</div>
+<div class="answer" id="answer692">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_692" href="נתונים מקובץ עי פונקציה.htm#answer_692">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקיי, עשיתי. אבל בשביל להשתמש במשתנים אני אצטרך להשתמש ב $GLOBALS.. אין איזו דרך קלה או טובה יותר?<br><br><strong>רגע, יש בעיה! עשיתי גם קובץ setup.php שבו אוכל להגדיר את האתר (בפעם הראשונה שמתקינים אותו), ואני ארצה שהפרטים שהמשתמש כותב בטופס, יהיו בעצם בקובץ config.php.. אבל אי אפשר לעשות את זה! מה אני עושה?</strong> </p>
+</div>
+<div class="answer" id="answer693">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5df2e4c4d77ee7b807c9fb8e1cb2f4ca?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_93144</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_693" href="נתונים מקובץ עי פונקציה.htm#answer_693">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@ctulhu<br>מה רע ב json בתור קונפיג? XML זה בסדר ו JSON לא? (שגם עובד הרבה יותר מהר).<br><br>@Kzrh<br>ואתה לא יודע איך לכתוב מחרוזת לקובץ? php.net/file_put_contents </p>
+</div>
+<div class="answer" id="answer694">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_694" href="נתונים מקובץ עי פונקציה.htm#answer_694">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אחי עזוב עכשיו את הרעיון עם הקובץ והכל.. אני פשוט רוצה config.php שיהיה בו מערך שבמערך יהיה לדוגמה מפתח בשם host שיהיה שווה ל localhost. לאחר שאבצע בו שינוי באמצעות טופס (setup.php) זה באמת ישתנה. אם אני עושה בקובץ setup.php:<br><div class="php codeblock"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'host'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'hey'</span><span class="sy0">;</span></div><br><br>וב config.php זה בכלל ככה:<br><div class="php codeblock"><span class="re0">$config</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'host'</span> <span class="sy0">=&gt;</span> <span class="st_h">'localhost'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אז כשאני אנסה להדפיס את זה (בעזרת ה index.php לדוגמה ששם זה מאונקלד-require) זה יכתוב לי localhost ולא hey. </p>
+</div>
+<div class="answer" id="answer695">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5df2e4c4d77ee7b807c9fb8e1cb2f4ca?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_93144</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_695" href="נתונים מקובץ עי פונקציה.htm#answer_695">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ב setup.php אתה עורך פיזית את הקובץ config, לא סתם שם ערכים במערך. </p>
+</div>
+<div class="answer" id="answer696">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_696" href="נתונים מקובץ עי פונקציה.htm#answer_696">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואיך אני עורך אותו פיזית? </p>
+</div>
+<div class="answer" id="answer697">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_697" href="נתונים מקובץ עי פונקציה.htm#answer_697">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@משתמש_93144<br>כי אין בזה צורך כאן. בשביל מה להפעיל פונקציות ולעשות מניפולציות עליו כשליצור מערך אחיד זה יהיה מהיר יותר ונוח יותר? חוץ מזה, הפורמט שלו טיפה שונה ממה שהוא רוצה.<br><br>ול-Kzrh - לא ברור לי מה הבעיה שלך. יש קובץ config.php שבו יש את המערך הנ&quot;ל. יש לך את include/require שיכניסו לך את התוכן של הקובץ לקובץ אחר. זה שווה ערך ליצירת מערך באותו קובץ שאתה מאנקלד בו את config. אם זה לא עובד אז הסיבה היא שאתה מוציא איבר ממערך בטווח אחר (לא ב-global scope) או שאתה פשוט עשית משהו לא נכון. </p>
+</div>
+<div class="answer" id="answer698">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5df2e4c4d77ee7b807c9fb8e1cb2f4ca?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_93144</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_698" href="נתונים מקובץ עי פונקציה.htm#answer_698">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&gt;&gt; ואיך אני עורך אותו פיזית? <br>php.net/file_put_contents </p>
+</div>
+<div class="answer" id="answer699">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_699" href="נתונים מקובץ עי פונקציה.htm#answer_699">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה כנראה לא מבין cthulhu.<br>יש לי קובץ config וקובץ setup, אוקיי? בקובץ $config יש לי את זה:<br><div class="php codeblock"><span class="re0">$config</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'host'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'localhost'</span><span class="sy0">;</span></div><br>בקובץ setup יש לי טופס ובו המשתמש צריך לרשום host.. את ה host שהמשתמש רושם אני רוצה לשים למשתנה $config[&#039;host&#039;]. אז בקובץ ה SETUP עשיתי ככה:<br><div class="php codeblock"><span class="kw1">require</span> <span class="st_h">'config.php'</span><span class="sy0">;</span><br>
+<br>
+כאן יש את הטופס והכל<span class="sy0">...</span><br>
+<br>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'host'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'otherhost'</span><span class="sy0">;</span></div><br>יש לי גם את קובץ האינדקס (Index.php) שגם בו יש את ה REQUIRE לקובץ הקונפיג. אז באינדקס עשיתי:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'host'</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br>אבל במקום שיציג לי otherhost זה הציג לי localhost (שזה הערך המקורי מהקובץ קונפיג, שניסיתי בעצם לשנות דרך ה SETUP). </p>
+</div>
+<div class="answer" id="answer701">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_701" href="נתונים מקובץ עי פונקציה.htm#answer_701">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עכשיו תעצור ותחשוב 20 שניות. למה זה קורה. כשתבין, אתה תעשה &quot;אההההה&quot;. </p>
+</div>
+<div class="answer" id="answer702">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>Kzrh</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_702" href="נתונים מקובץ עי פונקציה.htm#answer_702">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני יודע למה, כי המשתנה כבר מוגדר בקונפיג. מה שאני רוצה זה להגדיר אותו מחדש, פיזית. איך אני עושה את זה? </p>
+</div>
+<div class="answer" id="answer704">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/33ab78361085dddefa404eff88e78139?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_94161</a>
+ב
+<span style="font-size:10px"> 26 לינואר 2012 </span>
+<a id="answer_704" href="נתונים מקובץ עי פונקציה.htm#answer_704">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="http://php.net/file_put_contents">http://php.net/file_put_contents</a> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

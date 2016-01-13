@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה mysqli - טיפול בשגיאות sql">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Plural">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>mysqli - טיפול בשגיאות sql | שאלת לימוד PHP</title>
+<meta itemprop="name" content="mysqli - טיפול בשגיאות sql | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה mysqli - טיפול בשגיאות sql">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="mysqli  טיפול בשגיאות sql-1.htm" title="כשאני יוצר שאילתא אז כמעט תמיד - לא משנה מה תוכן השאילתא - לא תחזור לי error.כלומר שאם אני עושה קוד כזה:$msi = // mysql connection
+$msi-&amp;gt;query&amp;#40;&amp;quot;bla bla bla&amp;quot;&amp;#41;;זה לא יצ">mysqli - טיפול בשגיאות sql</a></h2>
+<div class="userinfo">
+פתח
+<a>Plural</a>
+,
+<time class="timeago relativetime" datetime="2012-05-31T08:53:51+03:00" style="display:inline-block;">
+31 למאי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText602'>
+כשאני יוצר שאילתא אז כמעט תמיד - לא משנה מה תוכן השאילתא - לא תחזור לי error.<br>כלומר שאם אני עושה קוד כזה:<br><div class="php codeblock"><span class="re0">$msi</span> <span class="sy0">=</span> <span class="co1">// mysql connection</span><br>
+<span class="re0">$msi</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;bla bla bla&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>זה לא יציג לי שום שגיאה ו-PHP תמשיך לבצע כרגיל את המשך הקוד, פשוט תוך כדי התעלמות<br>מהשאילתא הזאת.<br><br>עכשיו - <br>א. יש אפשרות בהגדרות או בקריאה למתודה כלשהיא שתבדוק שאם ה-query לא מחזיר true<br>אז היא תציג הודעת שגיאה?<br>ב. חשבתי על לעשות פונקציה או אולי אפילו לנסות לעשות מחלקה שלמה שתירש מ-mysqli ושם<br>לעשות את המתודה הזה, שתיראה בערך כך:<br>(זאת הפונקציה)<br><br><div class="php codeblock"><span class="kw2">function</span> doquery<span class="br0">&#40;</span><span class="re0">$sql</span><span class="sy0">,</span><span class="re0">$con</span><span class="br0">&#41;</span> <span class="co1">// $sql = query to perform; $con = the connection to the mysql server.</span><br>
+<span class="br0">&#123;</span><br>
+<span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$con</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="re0">$con</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">return</span> <span class="re0">$query</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>זה יהיה יעיל לעשות ככה? פשוט זה נראה לי לא ממש מקצועי ונוח לרשום אחרי כל <br>שאילתא - &quot;or die(..)&quot;.. </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2291">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 31 למאי 2012 </span>
+<a id="answer_2291" href="mysqli  טיפול בשגיאות sql-1.htm#answer_2291">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+or die אתה בכלל אף פעם לא רוצה לעשות.<br>במקרה הגרוע אתה רוצה להציג למשתמש הודעת שגיאה ש&quot;הי, חלה תקלה במערכת, שלחנו לעצמינו על זה מייל, עוד מעט נתקן&quot;.<br>בשביל לעשות דברים כאלה - אתה לא יכול סתם לעצור את ביצוע הסקריפט עם die<br><br>בעיקרון מה שאתה מחפש נקרא שגיאות <a href="http://il.php.net/exceptions">Exceptions</a><br>והקוד של זה יראה ככה:<br><br><div class="php codeblock"><span class="co1">// $sql = query to perform; </span><br>
+<span class="co1">// $con = the connection to the mysql server.</span><br>
+<span class="kw2">function</span> doquery<span class="br0">&#40;</span><span class="re0">$sql</span><span class="sy0">,</span><span class="re0">$con</span><span class="br0">&#41;</span> <br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$con</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$query</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> Exception<span class="br0">&#40;</span><span class="re0">$con</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$query</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> getsomthing<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; try<br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; doquery<span class="br0">&#40;</span><span class="st0">&quot;Select ..&quot;</span><span class="sy0">,</span> <span class="re0">$con</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'everything succeeded'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; catch<span class="br0">&#40;</span>Exception <span class="re0">$e</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'had an error in sql..'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">// echo $e-&gt;getMessage();</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div><br><br>אגב, למה שלא <a href="..\שיפור_ביצועי_מסד_עם_MySQLI.htm">תעבור לכתוב ב OOP </a>? </p>
+</div>
+<div class="answer" id="answer2292">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 31 למאי 2012 </span>
+<a id="answer_2292" href="mysqli  טיפול בשגיאות sql-1.htm#answer_2292">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+האתר עדיין רק בשלבי פיתוח לכן אני מעדיף שהוא יציג לי את השגיאה כדי שאני אוכל לתקן מהר.<br>ותודה על העזרה בקוד.<br><br>וכשאתה אומר &quot;לעבור לכתוב ב OOP&quot;, אתה מתכוון לכתיבת מחלקה שתרש את mysqli ודרכה לעשות את הפעולות? </p>
+</div>
+<div class="answer" id="answer2293">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 31 למאי 2012 </span>
+<a id="answer_2293" href="mysqli  טיפול בשגיאות sql-1.htm#answer_2293">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון. ככה לא תצטרך להעביר את הפרמטר של הקונקשן מפונקציה לפונקציה.<br>ראה <a href="..\database_singleton.htm">database singleton</a><br><br>---<br>אם אתה רוצה שזה יציג את השגיאה, אין בעיה, בזמן הפיתוח תציג ב catch את השגיאה.<br>תסיים את הפיתוח, תוריד את ההצגה מה-catch וסיימת. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

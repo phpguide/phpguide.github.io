@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שילוב AJAX במערכת התחברות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_107272">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שילוב AJAX במערכת התחברות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שילוב AJAX במערכת התחברות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שילוב AJAX במערכת התחברות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שילוב AJAX במערכת התחברות-1.htm" title="יש לי מערכת התחברות,   אני רוצה שאם אין כזה משתמש אז במקום שירענן את הדף ויכתוב &amp;#039;שגיאה&amp;#039;, שזה יעשה באמצעות AJAX,אני ניסיתי לעשות את זה בעזרת JQUERY(*אני מתחיל בכל העניין של AJAX) וזה לא הולך..בקצרה: הקוד PHP שלי הולך כך-בלחיצה על סובמיט יש תנאי שאם קיים משתמש כזה הוא מעביר אותו דף ואם לא אז הוא כותב לו שגיאה-ואת זה אני רוצה שיהיה בAJAX..?">שילוב AJAX במערכת התחברות</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_107272</a>
+,
+<time class="timeago relativetime" datetime="2012-02-14T16:31:02+02:00" style="display:inline-block;">
+14 לפברואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText269'>
+יש לי מערכת התחברות, אני רוצה שאם אין כזה משתמש אז במקום שירענן את הדף ויכתוב &#039;שגיאה&#039;, שזה יעשה באמצעות AJAX,<br>אני ניסיתי לעשות את זה בעזרת JQUERY(*אני מתחיל בכל העניין של AJAX) וזה לא הולך..<br>בקצרה: הקוד PHP שלי הולך כך-<br>בלחיצה על סובמיט יש תנאי שאם קיים משתמש כזה הוא מעביר אותו דף ואם לא אז הוא כותב לו שגיאה-ואת זה אני רוצה שיהיה בAJAX..? </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer1118">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b21689a6ca2de9a8f08168495041fc56?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>hexdec</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2012 </span>
+<a id="answer_1118" href="שילוב AJAX במערכת התחברות-1.htm#answer_1118">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשתמש ב:<br>http://api.jquery.com/jQuery.post/<br><br>או פשוט ב AJAX </p>
+</div>
+<div class="answer" id="answer1119">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c087134893e2498ede25ccea8daf3140?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_107272</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2012 </span>
+<a id="answer_1119" href="שילוב AJAX במערכת התחברות-1.htm#answer_1119">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, רק איך אני יקח את <span class="underline">הecho &#039;שגיאה&#039;;</span> במקרה ואין כזה משתמש,ולהדפיס את זה עם AJAX?<br>הרי הECHO הזה הוא בתוך קוד PHP </p>
+</div>
+<div class="answer" id="answer1125">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4f858b16f7a9b3af70297093685b634d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_109248</a>
+ב
+<span style="font-size:10px"> 15 לפברואר 2012 </span>
+<a id="answer_1125" href="שילוב AJAX במערכת התחברות-1.htm#answer_1125">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+Ajax success יעשה את העבודה<br> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

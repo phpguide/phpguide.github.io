@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שאלה בSQL Injection">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_96152">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שאלה בSQL Injection | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שאלה בSQL Injection | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שאלה בSQL Injection">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שאלה בSQL Injection.htm" title="איך אפשר לאבטח מפני SQL Injection בPDO כשהקוד הוא:$p = array&amp;#40;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;name&amp;quot; &amp;nbsp;=&amp;gt; mysql_real_escape_string&amp;#40;htmlspecialchars&amp;#40;">שאלה בSQL Injection</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_96152</a>
+,
+<time class="timeago relativetime" datetime="2012-01-29T09:58:45+02:00" style="display:inline-block;">
+29 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText195'>
+איך אפשר לאבטח מפני SQL Injection בPDO כשהקוד הוא:<br><br><div class="php codeblock"><span class="re0">$p</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;name&quot;</span> &nbsp;<span class="sy0">=&gt;</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;prmt_name&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;mida&quot;</span> &nbsp;<span class="sy0">=&gt;</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;prmt_mida&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;after&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;aftr&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;type&quot;</span> &nbsp;<span class="sy0">=&gt;</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;typ&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;tip&quot;</span> &nbsp; <span class="sy0">=&gt;</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;prmt_tip&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;group&quot;</span> &nbsp; <span class="sy0">=&gt;</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;grp&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$p</span><span class="br0">&#91;</span><span class="st0">&quot;after&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;end&quot;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$q</span> <span class="sy0">=</span> <span class="st0">&quot;ALTER TABLE &nbsp;`nbp` ADD `&quot;</span><span class="sy0">.</span> <span class="re0">$p</span><span class="br0">&#91;</span><span class="st0">&quot;name&quot;</span><span class="br0">&#93;</span> <span class="sy0">.</span><span class="st0">&quot;` &quot;</span><span class="sy0">.</span> <span class="re0">$p</span><span class="br0">&#91;</span><span class="st0">&quot;type&quot;</span><span class="br0">&#93;</span> <span class="sy0">.</span><span class="st0">&quot;( 64 ) CHARACTER SET hebrew COLLATE hebrew_general_ci NULL&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">pdo</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;ok:&quot;</span><span class="sy0">;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer793">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_793" href="שאלה בSQL Injection.htm#answer_793">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני ממליץ לך לעבור על <a href="http://www.php.net/manual/en/pdo.prepared-statements.php">הדוגמאות של PDO בדוקומנטציה</a> ולראות איך הם עושים את זה שם.<br>במקרה שלך התוצאה תהיה:<br><br><div class="php codeblock"><span class="re0">$statement</span> <span class="sy0">=</span> <span class="re0">$pdo</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;ALTER TABLE &nbsp;`nbp` ADD :column :type CHARACTER SET hebrew COLLATE hebrew_general_ci NULL&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$statement</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'column'</span> <span class="sy0">=&gt;</span> <span class="st_h">'somename1'</span><span class="sy0">,</span> <span class="st_h">'type'</span> <span class="sy0">=&gt;</span> <span class="st_h">'varchar(64)'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>חוץ מזה שלא בטוח שהשאילתה תעבוד בצורה הזו, אתה עושה משהו ממש ממש ממש לא נכון.<br>1. אין שום סיבה שהיא שיתווספו עמודות לטבלה אחרי הפעלת המערכת. תחשוב שוב על מבנה התוכנה<br>2. ממליץ לך לעבוד עם קידוד utf-8 ולא עם שום דבר אחר.<br>3. בטח שלא לקבל שמות לעמודות וסוגים מהמשתמש. תעשה switch אם אתה רוצה (אבל אתה לא רוצה, כי בטוח משהו במבנה שחשבת עליו לא בסדר בכלל) </p>
+</div>
+<div class="answer" id="answer797">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_797" href="שאלה בSQL Injection.htm#answer_797">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+*אל תמיר את המרוזת עם htmlspecialchars לפני ההכנסה למסד. את זה עושים אחרי השליפה. </p>
+</div>
+<div class="answer" id="answer800">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5003d8438ef1828aa16534d09c192efe?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yehudade</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_800" href="שאלה בSQL Injection.htm#answer_800">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא אכנס אפילו לנושא של מסד הנתונים, אלכס ענה על זה בצורה ברורה.<br>בקוד מבוסס קלט גולשים, השלב הראשון בקלט הוא להעביר את הקלט בדיקות פשטות ולבדוק מול ביטויים רגולריים ורק אחר כך לתת לשאר הקוד לעבוד עם המידע.<br>מעבר לבעיות שזה יפתור לך בצד האבטחתי, מבנה ברור של הקוד, עם תפקידים ברורים של מקטעי הקוד יאפשרו לך לתחזק את הקוד בקלות יתר. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

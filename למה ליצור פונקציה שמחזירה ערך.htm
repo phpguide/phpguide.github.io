@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="למה ליצור פונקציה שמחזירה ערך במקום להשתמש בקבוע או משתנה רגיל">
+<meta name="keywords" content="מחלקה, קבוע, return, פונקציה שמחזירה ערך">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>למה ליצור פונקציה שמחזירה ערך</title>
+<meta itemprop="name" content="למה ליצור פונקציה שמחזירה ערך">
+<meta itemprop="description" content="למה ליצור פונקציה שמחזירה ערך במקום להשתמש בקבוע או משתנה רגיל">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"157","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>למה ליצור פונקציה שמחזירה ערך</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-09-19T16:35:44+03:00" dir="rtl">19 לספטמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/arrow-return.jpg" alt="למה ליצור פונקציה שמחזירה ערך">
+</div>
+<div class="right post-content">
+<div class="php codeblock"><span class="kw2">function</span> getVersion<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="kw1">return</span> <span class="nu19">1.362</span><span class="sy0">;</span><span class="br0">&#125;</span></div><br>ראית פעם משהו כזה ושאלת את עצמך למה זה לא סתם משתנה? קרא את המדריך הזה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<a href="http://netaneledri.net/blog/">נתנאל אדרי</a> הפנה את תשומת לִבי לשאלה הזו לפני כמה ימים.<br>הוא אמר:<br><h3>למה שלא יהיה משתנה או קבוע עם הערך הזה?</h3><br>שלא יהיה פשוט איזה <span dir="ltr"><span style="color:green;">const Version = 123;</span></span>, או לפחות <span dir="ltr"><span style="color:green;">$version = 567;</span></span>?<br>אחרי שעברנו על קוד המקור של Yii Framework הבטחתי לו תשובה, והיא ממש פשוטה:<br><h3>אי אפשר להכניס קבוע לאינטרפייס.</h3><br>יכול להיות שהמשפט הזה נשמע לא כל כך מובן למי שלא עובד עם OOP.<br><br>אם אתה כן עובד אם OOP, דמיין לעצמך שיש לך מערכת כלשהי (<span dir="ltr">phpBB 3.1.0</span> למשל).<br>אתה מחליט לפתח גרסה <span dir="ltr">phpbb 3.1.1</span> ורוצה שתהיה לה תאימות עם הגרסה הקודמת. <br><br>המחלקה הראשית במערכת שלך נקראת PHPBB. אתה יוצר אינטרפייס כדי שיהיה לך קל לשמור על תאימות בין גרסאות שונות של המחלקה, בעיקר כשיש לך כמה מחלקות שונות מהסוג הזה - אחת לאתר אחד ושנייה שעובדת רק דרך שורת הפקודה.<br><br><h3>קבועים שהוגדרו באינטרפייס - הם קבועים</h3><br><a href="phplive-15.htm?code=144">ראו את קוד הדוגמה הזה</a>, שמחזיר שגיאה אם מנסים להגדיר מחדש את ערך הקבוע.<br><br><h5>ואם כבר זה היה משתנה</h5><br>בתור public היה ניתן לשנות אותו מחוץ למחלקה בטעות, או לעשות אותו private ובכל זאת לכתוב מתודה שתחזיר את הערך שלו. כך שאם אתה עובד עם מערכת גדולה, גרסאות שונות שלה שרצות בתנאים שונים או פשוט מתכוון לאפשר להרחיב את המחלקה - תשתמש במתודות הרשומות בתוך אינטרפייסים כדי להחזיר ערכים קבועים. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment837"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/10/2011 23:20</span><br>
+קבוע לא עושים עם define?</div>
+<a id="comment839"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/10/2011 00:23</span><br>
+כשזה אחד ממשתני המחלקה - אז const.<br>
+define היא פונקציה ואי-אפשר לבצע פונקציה בזמן הגדרת המחלקה, אלה רק בזמן ריצה</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

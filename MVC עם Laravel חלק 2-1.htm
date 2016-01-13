@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="בחלק זה נסביר כיצד ליצור טבלאות בלארבל בשימוש עם migration ,יצירת החלק של המודל בשלושת השכבות וכיצד ניתן להוציא את הנתונים מן המודל ע&quot;י שימוש בקו">
+<meta name="keywords" content="Laravel,לראבל,php,php 5,פריימוורק,MVC,migration">
+<meta name="author" content="Splash">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>MVC עם Laravel חלק 2</title>
+<meta itemprop="name" content="MVC עם Laravel חלק 2">
+<meta itemprop="description" content="בחלק זה נסביר כיצד ליצור טבלאות בלארבל בשימוש עם migration ,יצירת החלק של המודל בשלושת השכבות וכיצד ניתן להוציא את הנתונים מן המודל ע&quot;י שימוש בקו">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"380","rating":"5","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>MVC עם Laravel חלק 2</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Splash, </div>
+<div class="right">&nbsp;<time datetime="2015-08-28T15:35:53+03:00" dir="rtl">28 לאוגוסט 2015</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://s11.postimg.org/kmp1zvxhr/laravel.png" alt="MVC עם Laravel חלק 2">
+</div>
+<div class="right post-content">
+בחלק זה נסביר כיצד ליצור טבלאות בלארבל בשימוש עם migration ,יצירת החלק של המודל בשלושת השכבות וכיצד ניתן להוציא את הנתונים מן המודל ע&quot;י שימוש בקונטרולר. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<a href="MVC עם Laravel חלק 1.htm">בחלק 1</a> הסברנו כיצד ליצור את הקונטרולר וכיצד ניתן להעביר מידע ממנו אל ה view שלנו.<br>במדריך זה נלמד כיצד ליצור את החיבור מול המסד נתונים וכיצד ניתן לקבל נתונים מהמודל לקונטרולר.<br>על מנת להתחיל יהיה צורך ב mysql מותקן.[אם כי אפשר גם להשתמש בכל מסד אחר שנתמך ע&quot;י laravel]<br><br><h3>הגדרת המסד</h3><br>אז ניגש לעניינים,נפתח קודם כל את קובץ ההגדרות שלנו [נמצא בתיקייה הראשית - .env] ונשנה את הפרטים הבאים - <br><div class="php codeblock">DB_HOST<span class="sy0">=</span>localhost<br>
+DB_DATABASE<span class="sy0">=</span>homestead<br>
+DB_USERNAME<span class="sy0">=</span>homestead<br>
+DB_PASSWORD<span class="sy0">=</span>secret</div><br><br><br><h3>יצירת טבלה חדשה</h3><br>כעט ניצור את הטבלאות הראשונות,מאחר ו laravel מגיעה כבר עם טבלת משתמשים וטבלת &quot;שכחתי סיסמא&quot; אין צורך ליצור אותם אך במידה ותרצו להוסיף שדות נוספים תמיד אפשר לעשות זאת ע&quot;י שינוי הקובץ - <strong><span class="underline">database\migrations\2014_10_12_000000_create_users_table.php</span></strong><br><br>ניצור אחת משלנו עבור &quot;מוצרים&quot;. נריץ את הפקודה - <br><div class="php codeblock">php artisan make<span class="sy0">:</span>migration create_products_table</div><br><br>במידה והכל עבר כמו שצריך אמור להיווצר לכם קובץ חדש בתיקיה migrations.<br>פונקציית ה up רצה כאשר אנחנו מבצעים את ה migration כלומר בפונקציה up נכניס את הקוד שאנחנו רוצים שייצור את הטבלה \ יבצע את השינויים בטבלה.<br><br>הפונקציה down לעומת זאת תתבצע מתי שנבצע rollback או reset ל migrations . כלומר שם נכניס את הקוד שמבצע את הפעולה ההפוכה למה שעשינו ב up - אם יצרנו טבלה ב up אז ב down אנחנו נמחק אותה.<br>אותו רעיון עובד אם החלטנו להוסיף שדה חדש דרך migration לטבלה מסויימת אז בפונקציה down נדאג למחוק את אותו שדה.<br><br>ניצור את פונקציית ה up -<br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> up<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Schema<span class="sy0">::</span><span class="me2">create</span><span class="br0">&#40;</span><span class="st_h">'products'</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span>Blueprint <span class="re0">$table</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$table</span><span class="sy0">-&gt;</span><span class="me1">increments</span><span class="br0">&#40;</span><span class="st_h">'id'</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="co1">//מפתח ראשי</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$table</span><span class="sy0">-&gt;</span><span class="me1">string</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="co1">//שם המוצר</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$table</span><span class="sy0">-&gt;</span><span class="me1">decimal</span><span class="br0">&#40;</span><span class="st_h">'price'</span><span class="sy0">,</span> <span class="nu0">10</span><span class="sy0">,</span> <span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="co1">//מחיר</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$table</span><span class="sy0">-&gt;</span><span class="me1">softDeletes</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br>ופונקציית down - <br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> down<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Schema<span class="sy0">::</span><span class="me2">drop</span><span class="br0">&#40;</span><span class="st_h">'products'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br><em>*מידע נוסף על יצירת עמודות והסוגים שניתן להוסיף אפשר למצוא <a href="http://laravel.com/docs/5.1/migrations#creating-columns">בתיעוד הרשמי</a></em><br><br>כעט נריץ את ה migrations ע&quot;י הפקודה - <br><div class="php codeblock">php artisan migrate</div><br><br><h3>הכנסת נתונים למסד</h3><br><br>ניצור seeder על מנת להכניס מספר מוצרים לטבלה שלנו.<br><em>*במדריך זה לא אסביר על שימוש ב model factory עם faker אם כי כאשר מדובר בכמות גדולה של נתונים שאנו רוצים לבדוק עליה יהיה עדיף לשלב בין שני אלו מאשר לכתוב ידנית את הנתונים.מידע על כך ניתן למצוא גם כן <a href="http://laravel.com/docs/5.1/testing#model-factories">בתיעוד הרשמי</a></em><br><br>נריץ את הפקודה - <br><div class="php codeblock">php artisan make<span class="sy0">:</span>seeder Add_some_products</div><br>ונפתח את הקובץ שנוצר לנו בתיקייה seeds.<br>נשנה את הפונקציה run שתראה כך - <br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> run<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; DB<span class="sy0">::</span><span class="me2">table</span><span class="br0">&#40;</span><span class="st_h">'products'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">insert</span><span class="br0">&#40;</span><span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Product A'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'price'</span> <span class="sy0">=&gt;</span> <span class="nu19">50.20</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#93;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Product B'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'price'</span> <span class="sy0">=&gt;</span> <span class="nu19">32.90</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#93;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Product C'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'price'</span> <span class="sy0">=&gt;</span> <span class="nu19">5.00</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#93;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Product D'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'price'</span> <span class="sy0">=&gt;</span> <span class="nu19">500.10</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#93;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>על מנת להכניס את הנתונים כעט לטבלה נריץ את ה seeder ע&quot;י הפקודה - <br><div class="php codeblock">php artisan db<span class="sy0">:</span>seed <span class="sy0">--</span><span class="kw2">class</span><span class="sy0">=</span>Add_some_products</div><br><br><h3>יצירת המודל <br></h3><br>ביצירה של הנתונים השתמשנו במחלקה DB על מנת להוסיף את הנתונים אך כעט נכיר כלי אחר של לארבל שמאפשר לנו לבצע פעולות בצורה טיפה נוחה יותר הנקרא Eloquent.<br><br><em>מידע נוסף על eloquent ניתן למצוא <a href="http://laravel.com/docs/5.1/eloquent">בתיעוד הרשמי</a></em><br><br>ניצור את המודל ע&quot;י הפקודה - <br><div class="php codeblock">php artisan make<span class="sy0">:</span>model Product</div><br><br>נפתח כעט את הקובץ שנוצר ב app/Product.php.<br><br>ונכניס את הקוד הנ&quot;ל - <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">namespace</span> App<span class="sy0">;</span><br>
+<br>
+<span class="kw2">use</span> Illuminate\Database\Eloquent\Model<span class="sy0">;</span><br>
+<br>
+<span class="kw2">class</span> Product <span class="kw2">extends</span> Model<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">protected</span> <span class="re0">$table</span> <span class="sy0">=</span> <span class="st_h">'products'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">protected</span> <span class="re0">$fillable</span> <span class="sy0">=</span> <span class="br0">&#91;</span><span class="st_h">'name'</span><span class="sy0">,</span><span class="st_h">'price'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$timestamps</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+<br>
+<span class="br0">&#125;</span></div><br><br>מה שהוגדר כאן הוא קודם כל שם הטבלה - products.<br>לאחר מכן הגדרנו אילו שדות ניתנים למילוי - name,price.<br>ולבסוף הגדרנו שאין את השדות created_at ו updated_at.<br><br><br>כעט נוכל לחזור לקונטולר שלנו ולבצע פעולות מול המסד.<br>נמחק קודם כל את כל הנתיבים שכתבנו בחלק 1 וניצור מחדש נתיב בשם products כך -<br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'products'</span><span class="sy0">,</span><span class="st_h">'MyController@index'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ונשנה את המתודה index שתוציא לנו את כל המוצרים שקיימים - <br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> \App\Product<span class="sy0">::</span><span class="me2">all</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>מכאן תוכלו לשחק עם זה חופשי,אני מקווה שהמדריך עזר לכאלו שרק התחילו להבין את הבסיס לעבודה בין שלושת השכבות ושבעתיד יצא לי לכתוב הסברים לדברים קצת יותר מתקדמים שניתן לעשות עם הפריימוורק.<br><br><br>תודה רבה ל <a href="users\Ben-1.htm">@Ben</a> שהסב את תשומת ליבי על כתיבה של חלק 2 ,לגמרי שכחתי מהמדריך שנכתב לפני יותר משנה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=16&r=g&d=monsterid" alt="Splash">
+<a>Splash</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2836"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/08/2015 20:17</span><br>
+תודה רבה לך, אין על מה :)</div>
+<a id="comment2837"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/09/2015 21:03</span><br>
+תודה על המדריך :)<br>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

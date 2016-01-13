@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מבוא לCodeIgniter חלק  -1 התקנה">
+<meta name="keywords" content="Codeigniter מבוא">
+<meta name="author" content="alon">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>CodeIgniter - פריימוורק לעצלנים</title>
+<meta itemprop="name" content="CodeIgniter - פריימוורק לעצלנים">
+<meta itemprop="description" content="מבוא לCodeIgniter חלק  -1 התקנה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"228","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>CodeIgniter - פריימוורק לעצלנים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">alon, </div>
+<div class="right">&nbsp;<time datetime="2012-07-07T17:52:04+03:00" dir="rtl">07 ליולי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://codeigniter.com/user_guide/images/ci_logo_flame.jpg" alt="CodeIgniter - פריימוורק לעצלנים">
+</div>
+<div class="right post-content">
+CodeIgniter היא פריימוורק מעולה למי שעושה את צעדיו הראשונים בעולם הפריימוורקים לPHP כמו גם למתכנתים שמחפשים פיתוח מהיר על פלטפורמה קלה עם קהילה מאוד גדולה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>CodeIgniter - introduction</h3><br>ברוכים הבאים לפרק הראשון בסדרת מאמרים שתלמד את השימוש בפריימוורק שנקרא CodeIgniter.<br>בסדרה זו אנחנו נלך צעד צעד מההתחלה וההתקנה המאוד קלה של הפריימוורק עד לשימושים מורכבים מאוד שניתן לעשות איתו.<br><br><h4>למה CI</h4><br>CI היא פריימוורק בארכיטקטורת MVC, קלת משקל עם חתימת זכרון קטנה מאוד, והיא נחשבת לפריימוורק המהירה ביותר לPHP.<br>(ולא, אני לא הולך להתווכח על זה, המיקרופון כרגע אצלי ולכן אני קובע!)<br>לCI יש את את התיעוד הטוב ביותר שאני אישית מכיר, ואת מוזמנים לבדוק אותו:<br><a href="http://codeigniter.com/user_guide/">http://codeigniter.com/user_guide/</a><br>מאוד קל להיכנס אל תוכה וללמוד אותה, ואני ממליץ עליה מאוד לאנשים שמתחילים ללמוד שימוש בפריימוורקים לPHP בתור פרייוורק ראשון.<br><br><h4>למי CI לא מתאימה?</h4><br>לאנשים שמחפשים שימוש מוגבר ביכולות של PHP 5. הCI עוברת הסבה כיום לתמיכה מלאה בPHP 5 אבל נכתבה במקור עם תמיכה בPHP4, לצערי חלקים ממנה עדיין לא עברו טרנספורמציה מלאה והיא לא משתמשת במלוא מגוון הכלים של הPHP5. <br>מכיוון שהCI מאפשרת הרחבה מאוד קלה של הפריימוורק, אני אישית הרחבתי ושיכתבתי חלקים מהקוד שלה כך שייתנו יותר פונקציונאליות, כך שמי שרוצה ניתן לעשות זאת.<br><br>הארכיטקטורה של CI היא .MVC ניתן להפוך אותה לHMVC באמצעות הרחבות שיש לה, וישנם לא מעט פרוייקטים שמאפשרים זאת, אבל מי שמחפש HMVC טבעי, זה לא המקום עבורו.<br><br><h4>אז איך מתחילים?</h4><br>CI איננה דורשת קינפוג של סביבת עבודה מורכבת, כדי להפעיל אותה מה שצריך לעשות זה להוריד את <a href="http://codeigniter.com/">הגרסה האחרונה</a> מהאתר, תפתחו תיקייה מתאימה בROOT שלכם (אני משתמש בwamp אז לדוגמא: <br><span class="dirleft">c:\wamp\www\CI</span><br>ותפרשו את התוכן של הקובץ שהורדתם אל תוך התיקייה. <br>ו....הופה!, סיימנו!<br>בשלב זה ההתקנה הסתיימה ואם תגלשו אל http://localhost/CI (או אל התיקייה אליה פרשתם את הZIP)<br>אתם אמורים לראות את המסך הבא:<br><img src="static\images\pixel.png" alt="CodeIgniter - פריימוורק לעצלנים" title="http://books.komunitasweb.com/codeigniter/media/images/ci_welcome_page.png" class="content-image-float"><br><br>אם אתם לא רואים את המסך הזה, כנראה שלא חילצתם את הקבצים למקום המתאים, שימו לב לפרוש ככה שהקובץ Index.php ישב בתיקייה עצמה, ולא בתוך עוד תת תיקייה.<br><br><h4>Post installation</h4><br>הCI מוכנה לעבוד ישירות מהקופסה, אבל ישנם עוד כמה דברים שאני ממליץ לעשות כדי להפוך אותה לבטוחה יותר, ונוחה יותר לעבודה.<br><br>ראשית מומלץ למחוק את תיקיית הuser guide שיורדת עם הCI, זה גם משקל מיותר, וכמובן שתמיד עדיף להשתמש בעותק האונליין, נושא נוסף הוא security אני תמיד אעדיף שתוקף אפשרי לא ידע מהי המערכת שאני מריץ, ולכן אנחנו מוחקים סימנים לזה שמאחורי הקלעים רצה CI.<br><br>שנית מאותה סיבה אני ממליץ להעביר את הlicence לתיקייה שלא קריאה מבחוץ (לדוגמא system).<br><br>בשלב זה אני גם שם קובץ.htaccess שמטפל בראוטינג של הבקשות, אבל עליו נדבר בהמשך כשנבין איך עובד הראוטינג של הCI, בכל מקרה תוודאו שהmod_rewrite פועל בwamp שלכם, וכמובן שבפרודקשן, צריך שהוא יהיה פעיל (הCI יודע לעבוד בלעדיו אבל זה מאוד לא מומלץ!)<br><br><h4>הקשחות security</h4><br>בשיעור הבא נדבר על מבנה הקבצים של הCI ונרחיב עליו, אבל כחלק מההתקנה אני מציע כבר להגדיר את הגדרות הסקיוריטי המתאימות לכם. <br>אחד העקרונות שמנחים את מתכנני הCI הוא ששום דבר לא נטען לבד בלי בקשה מפורשת מהמתכנת, זה גורם למערכת לרוץ מאוד מהר כי היא לא טוענת ספריות מיותרות, אבל זה אומר שהיא מגיעה כשספריות ההבטחה לא פעילות, ודבר ראשון שאנחנו נעשה זה לשנות את זה!<br>קובץ ההגדרות הבסיסי יושבת תחת <strong>application/config/config.php</strong> תפתחו אותו ותשנו את ההגדרות הבאות:<br><div class="php codeblock"><span class="co1">//שימו כאן מפתח רנדומאלי כלשהו באורך של 120 תווים לפחות</span><br>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'encryption_key'</span><span class="br0">&#93;</span> <span class="sy0">=</span><span class="st_h">'SOME RANDOM KEY'</span><br>
+<span class="co1">//תשנו את הקדומת של העוגיות לכל דבר אחר מCI</span><br>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'cookie_prefix'</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="st_h">'XX_'</span><br>
+<span class="co1">//יגרום לניקוי אוטומטי של כל המידע הנכנס &nbsp;מהתקפות XSS &nbsp;</span><br>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'global_xss_filtering'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="co1">//ימנע התקפות של CSRF אבל ייצר לכם בעיה עם AJAX ופייסבוק</span><br>
+<span class="co1">// יש לזה פתרונות ונעבור עליהם בהמשך כשנדבר על אבטחה</span><br>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'csrf_protection'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span></div><br><br><strong>שימו לב הcsrf_protection יעשה לכם בעיות עם קריאות AJAX במתודת POST וכן שימוש בCI כFacebook Tab, כיוון שהוא מחפש token ייחודי בכל POST שנשלח למערכת, אנחנו נפתור זאת בהמשך אך חשוב שתהיו מודעים לכך</strong><br><br><h4>לסיכום</h4><br>CI היא פריימוורק קלה לשימוש ודורשת מעט משאבים, עם התקנה פשוטה.<br>בשיטת הורד - פרוש - השתמש!<br><br>שיעור הבא נלמד איך להשתמש בה </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/4cb7bcf17e326a77aa13e000b6551a84?s=16&r=g&d=monsterid" alt="alon">
+<a>alon</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1739"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/07/2012 22:53</span><br>
+אחלה מאמר, <br>
+מחכה למאמרים הבאים :)</div>
+<a id="comment1740"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2012 01:19</span><br>
+לא הפריימוורק הכי מהיר אבל בהחלט פריימוורק מעולה למתחילים.<br>
+אישית אני עדיין אוהב אותו יותר מכל פריימוורק אחר שניסיתי, רק בגלל הפשטות.<br>
+אבל אם נלך על מהירות, אז Yii או אפילו Yaf.</div>
+<a id="comment1744"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2012 16:27</span><br>
+מחכה למאמר הבא ! <br>
+</div>
+<a id="comment1745"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/07/2012 18:44</span><br>
+יש כאן המשך לחסרי סבלנות -&gt; <span dir="ltr"><a href="http://codeigniter.com/tutorials/">http://codeigniter.com/tutorials/</a></span><br>
+אחלה פריימוורק ! </div>
+<a id="comment1755"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2012 14:11</span><br>
+פריימוורק נחמד לדעתי רק חבל באמת שהוא לא עבר הסבה מלאה לגרסאות 5.x של PHP שמממשות הרבה תכונות יפות וחדשניות .</div>
+<a id="comment1954"></a>
+<div class="blog-comment">
+<span class='comment-author'>Aviway</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/09/2012 21:57</span><br>
+לא הבנתי את המשפט הבא:<br>
+&quot;, וכמובן שבפרודקשן, צריך שהוא יהיה פעיל (הCI יודע לעבוד בלעדיו אבל זה מאוד לא מומלץ!)&quot;<br>
+<br>
+מה זה הפרודקשן?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

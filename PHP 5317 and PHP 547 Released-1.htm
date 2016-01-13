@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="יצאה PHP 5.47 עם תיקוני באגים ושיפורי מהירות">
+<meta name="keywords" content="5.3.17 5.4.7">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>PHP 5.3.17 and PHP 5.4.7 Released</title>
+<meta itemprop="name" content="PHP 5.3.17 and PHP 5.4.7 Released">
+<meta itemprop="description" content="יצאה PHP 5.47 עם תיקוני באגים ושיפורי מהירות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"256","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>PHP 5.3.17 and PHP 5.4.7 Released</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-09-14T11:09:14+03:00" dir="rtl">14 לספטמבר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://cloud.ohloh.net/attachments/42/php_med.png" alt="PHP 5.3.17 and PHP 5.4.7 Released">
+</div>
+<div class="right post-content">
+It happened again <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<span class="dirleft"><br><br><h3>PHP 5.4.7 and PHP 5.3.17 released!</h3><br><br><br>The PHP development team announces the immediate availability of PHP 5.4.7 and PHP 5.3.17. These releases fix over 20 bugs. All users of PHP are encouraged to upgrade to PHP 5.4.7, or at least 5.3.17.<br><br><h4>Key enhancements in these releases include:</h4><br><br>13-September-2012<br><h5>Core</h5><br>Fixed bug (segfault while build with zts and GOTO vm-kind)<br>Fixed bug #62955 (Only one directive is loaded from &quot;Per Directory Values&quot; Windows registry)<br>Fixed bug #62844 (parse_url() does not recognize //)<br>Fixed bug #62829 (stdint.h included on platform where HAVE_STDINT_H is not set)<br>Fixed bug #62763 (register_shutdown_function and extending class)<br>Fixed bug #62725 (Calling exit() in a shutdown function does not return the exit value)<br>Fixed bug #62744 (dangling pointers made by zend_disable_class)<br>Fixed bug #62716 (munmap() is called with the incorrect length)<br>Fixed bug #62358 (Segfault when using traits a lot)<br>Fixed bug #62328 (implementing __toString and a cast to string fails)<br>Fixed bug #51363 (Fatal error raised by var_export() not caught by error handler)<br>Fixed bug #40459 (Stat and Dir stream wrapper methods do not call constructor)<br><h5>CURL</h5><br>Fixed bug #62912 (CURLINFO_PRIMARY_* AND CURLINFO_LOCAL_* not exposed)<br>Fixed bug #62839 (curl_copy_handle segfault with CURLOPT_FILE)<br><h5>DateTime</h5><br>Fixed bug #62852 (Unserialize invalid DateTime causes crash)<br><h5>Intl</h5><br>Fixed Spoofchecker not being registered on ICU 49.1<br>Fix bug #62933 (ext/intl compilation error on icu 3.4.1)<br>Fix bug #62915 (defective cloning in several intl classes)<br><h5>Installation</h5><br>Fixed bug #62460 (php binaries installed as binary.dSYM)<br><h5>PCRE</h5><br>Fixed bug #55856 (preg_replace should fail on trailing garbage)<br><h5>PDO</h5><br>Fixed bug #62685 (Wrong return datatype in PDO::inTransaction())<br><h5>Reflection</h5><br>Fixed bug #62892 (ReflectionClass::getTraitAliases crashes on importing trait methods as private)<br>Fixed bug #62715 (ReflectionParameter::isDefaultValueAvailable() wrong result)<br><h5>Session</h5><br>Fixed bug (segfault due to retval is not initialized)<br>Fixed bug (segfault due to PS(mod_user_implemented) not be reseted when close handler call exit)<br><h5>SPL</h5><br>Fixed bug #62904 (Crash when cloning an object which inherits SplFixedArray)<br>Implemented FR #62840 (Add sort flag to ArrayObject::ksort)<br><h5>Standard</h5><br>Fixed bug #62836 (Seg fault or broken object references on unserialize())<br><h5>FPM</h5><br>Merged PR 121 by minitux to add support for slow request counting on PHP FPM status page<br><br><br></span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1963"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/09/2012 14:23</span><br>
+חוץ אולי מה exit() אין משהו קריטי</div>
+<a id="comment1964"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/09/2012 20:46</span><br>
+דווקא כל מה שגורם ל segfault או crash זה די קריטי. בייחוד במקרים של fcgi / fpm<br>
+שזה המקרה באתר הזה או בכלל ב highload</div>
+<a id="comment1965"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/09/2012 20:47</span><br>
+בטח הייתי צריך לכתוב שלכבוד השנה החדשה zend העניקו לנו איזה מתנה <br>
+עוד גרסה וכאלה.. במקום ה it happened</div>
+<a id="comment1966"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/09/2012 22:09</span><br>
+תודה רבה על העדכון ! </div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

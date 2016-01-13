@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="במדריך הבא נלמד על לוקליזציה, שהיא תהליך של התאמת אתר לשפה ולמיקום גיאוגרפי מסוימים.">
+<meta name="keywords" content="לוקליזציה,קידוד">
+<meta name="author" content="iosolidar">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>לוקליזציה ב-PHP (חלק שני)</title>
+<meta itemprop="name" content="לוקליזציה ב-PHP (חלק שני)">
+<meta itemprop="description" content="במדריך הבא נלמד על לוקליזציה, שהיא תהליך של התאמת אתר לשפה ולמיקום גיאוגרפי מסוימים.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"220","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>לוקליזציה ב-PHP (חלק שני)</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iosolidar, </div>
+<div class="right">&nbsp;<time datetime="2012-06-22T10:56:33+03:00" dir="rtl">22 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://i.imgur.com/yQIdh.jpg" alt="לוקליזציה ב-PHP (חלק שני)">
+</div>
+<div class="right post-content">
+לוקליזציה היא תהליך של התאמת אתר לשפה ולמיקום גיאוגרפי מסוימים. המדריך הבא ידון באלמנטים השונים של התאמת אתר לשפות שונות ובכלים שקיימים ב-PHP לפיתוח אתרים שדוברים יותר משפה אחת. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<a href="לוקליזציה בPHP מדריך ראשון.htm">לחץ כאן כדי להגיע לחלק הראשון של לוקליזציה ב-PHP</a>.<br><br><h3>הערה</h3><br>לקנפג את gettext על מגוון פלטפורמות יכול להיות בעייתי, ישנן פלטפורמות שלא תומכות ב-gettext בברירת מחדל ולכן חלקים במדריך הזה עלולים לא לעבוד. אם אתם נתקלים בבעיה עם הקונפיגרציה של gettext תשאירו תגובה, ואני אשתדל לעזור.<br><br><h3>Poedit</h3><br>בשביל להוסיף תמיכה בלוקליזציה אנחנו צריכים ליצור קבצי תרגום לשפות שבהם אנחנו מעוניינים לתמוך. קבצי התרגום הם קבצים בעלי הסיומת .po שמכילים את המחרוזת המקורית ואת המחרוזת המתורגמת זה לצד זה, ובשביל לערוך אותם ניתן להשתמש ב-poedit.<br><br>קבצי התרגום שלנו צריכים להיות בתוך מבנה תיקיות כזה:<br><br><div class="php codeblock">locale<br>
+&nbsp; &nbsp; &nbsp; &nbsp;he_IL<span class="sy0">.</span>UTF<span class="sy0">-</span><span class="nu0">8</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; LC_MESSAGES</div><br>התיקיה locale מכילה את כל קבצי התרגום של השפות השונות. לאחר מכן ישנה התיקיה של השפה הספציפית שאנחנו מעוניינים לתמוך בה, במקרה הזה he_IL.UTF-8 לעברית. he_IL.UTF-8 היא מחרוזת שמייצגת locale, שהוא בעצם השפה (ולפעמים גם הקידוד כמו במקרה הזה). בתוכה אנחנו יוצרים תיקיית LC_MESSAGES, ובה נשים את קבצי התרגום (קבצי ה-po/mo).<br><br>בשימוש הראשון בתוכנה נתבקש להכניס את השם ואת המייל שלנו, poedit יכניס את הפרטים הללו לקבצי התרגום, אך אין חובה לספק אותם. לאחר מכן נלך ל-file-&gt;new catalog בשביל ליצור קטלוג חדש של מחרוזות. נתבקש להכניס פרטים שונים אודות קובץ התרגום כמו שם הפרוייקט שאותו קובץ שייך לו ושפת התרגום. תמלאו את הפרטים המתאימים כמו בדוגמה.<br><br><img src="static\images\pixel.png" alt="לוקליזציה ב-PHP (חלק שני)" title="http://i.imgur.com/WT5V3.png" class="content-image-float"><br><br>לאחר מכן נלך לטאב paths, שם נשים את המיקום של התיקיה שבה נמצאים קבצי ה-PHP שלנו. כשנלחץ על OK, התוכנה תייצר קובץ po ותשאל אותנו היכן אנחנו מעוניינים לשמור אותו. נלך למבנה התיקיות הקיים שלנו ונשמור את הקובץ בתוך תיקיית ה-LC_MESSAGES של השפה שאנחנו מעוניינים לתרגם (במקרה הזה he_IL.UTF-8 לעברית). אין כרגע מחרוזות לתרגם לכן חלון התוכנה ריק.<br><br>נלך לתיקיה שבה יהיו קבצי ה-PHP שלנו ונשים שם את הקובץ index.php עם התוכן הבא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="kw3">gettext</span><span class="br0">&#40;</span>“My first <span class="kw3">gettext</span> translated string”<span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>נחזור ל-Poedit ונלחץ על הכפתור update catalog (הכפתור עם התמונה של הגלובוס). Poedit תסרוק את התיקיה ותחפש אחרי קריאות לפונקציה gettext. התוכנה תציג לנו את כל המחרוזות שהיא מצאה, נלחץ על OK בשביל לראות את המחרוזת בחלון הראשי של התוכנה. שם נוכל לתרגם את המחרוזות באמצעות בחירת המחרוזת, והכנסת טקסט אלטרנטיבי באזור הטקסט התחתון. לאחר שתרגמנו את המחרוזות נלחץ על ctrl+s בשביל לשמור את הקטלוג.<br><br><h3>gettext וקביעת locale</h3><br><br>הפונקציה gettext עוטפת את המחרוזות שנרצה לתרגם באפליקציה שלנו. לאחר שנאמר ל-getttext באיזה שפה אנחנו מעוניינים להציג את הטקסט, הפונקציה תחפש אחר קובץ mo שמתאים לשפה שביקשנו ואם היא מוצאת אותו היא תחליף את הטקסט בטקסט בשפה שנבחרה מתוך קובץ ה-mo. שם נרדף לפונקציה gettext הוא מקף תחתון (_). מכיוון שפעמים רבות יהיות מחרוזות תרגום רבות בתוך הקוד שלנו, הפונקציה _ היא קיצור נוח.<br><br>בכדי ש-gettext תוכל לתרגם את המחרוזת שלנו, אנחנו צריכים קודם כל לומר לה היכן נמצאים מחרוזות התרגום והשפה שבה אנחנו מעוניינים. שימו את הקוד הבא ב-index.php.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Content-type: text/html; charset=utf-8&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$locale</span> <span class="sy0">=</span> <span class="st0">&quot;he_IL.UTF-8&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$domain</span> <span class="sy0">=</span> <span class="st0">&quot;default&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">putenv</span><span class="br0">&#40;</span><span class="st0">&quot;LANG=<span class="es4">$locale</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">putenv</span><span class="br0">&#40;</span><span class="st0">&quot;LANGUAGE=<span class="es4">$locale</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">putenv</span><span class="br0">&#40;</span><span class="st0">&quot;LC_ALL=<span class="es4">$locale</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">putenv</span><span class="br0">&#40;</span><span class="st0">&quot;LC_MESSAGES=<span class="es4">$locale</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">setlocale</span><span class="br0">&#40;</span>LC_ALL<span class="sy0">,</span> <span class="re0">$locale</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">setlocale</span><span class="br0">&#40;</span>LC_MESSAGES<span class="sy0">,</span> <span class="re0">$locale</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">bindtextdomain</span><span class="br0">&#40;</span><span class="re0">$domain</span><span class="sy0">,</span> <span class="st0">&quot;./locale&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">textdomain</span><span class="br0">&#40;</span><span class="re0">$domain</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> _<span class="br0">&#40;</span><span class="st0">&quot;Hello World&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br><br><br>השורה הראשונה אומרת לדפדפן שהקידוד של הדף הוא utf-8, ניתן להסיר את השורה הזו, אבל יכול להיות שתקבלו ג&#039;בריש כי הדפדפן ינסה להציג את הטקסט בקידוד אחר.<br><br>המשתנה $locale מכיל את השם של ה-locale שאנחנו מעוניינים בו, במקרה הזה he_IL.UTF-8, ה-locale צריך להיות תואם לשם של תיקיית ה-po שלכם.<br><br>המשתנה $domain מכיל את השם של קבצי התרגום (po/mo). במקרה הזה default כי ככה קראנו לקבצים כאשר שמרנו אותם ב-poedit, אך השם יכול להיות שונה.<br><br>השורות שמתחילות ב-putenv או setlocale מגדירות משתני סביבה שמגדירים את ה-locale של הסקריפט. לא חייבים להגדיר את כל המשתנים הללו, אך כדי להבטיח שהפונקציונאליות תעבוד על פלטפורמות שונות בלי כאב ראש מאוד ממליץ להגדיר את כולם.<br><br>הפונקציה bindtextdomain אומרת ל-gettext היכן נמצאים קבצים התרגום. הארגיומנט הראשון הוא השם של קבצי התרגום (במקרה הזה default) שבהם אנחנו מעוניינים להשתמש. הארגיומנט השני הוא המיקום של תיקיית ה-locale שלנו. במקרה הזה בגלל שהיא נמצאת באותו תיקיה שבה נמצא index.php אנחנו מספקים מיקום יחסי.<br><br><br>עד עכשיו רק הגדרנו את gettext ואמרנו לו איפה נמצאים קבצי התרגום, אך כדי לגרום ל-gettext להתחיל לתרגם את המחרוזות נשתמש בפונקציה textdomain עם הדומיין (default). <br><br>ניתן להגדיר מספר קבצי תרגום ולבסוף להשתמש בפונקציה textdomain בשביל לבחור אחד מהם.<br><br>השורה האחרונה מדפיסה את המחרוזת Hello World למסך בברירת מחדל, אך מכיוון שהגדרנו את gettext להשתמש בקובץ התרגום, gettext תחפש אחרי מחרוזות תרגום בתוך קובץ ה-mo ואם היא מוצאת היא תציג אותו במקום.<br><br>נלך ל-poedit ונעדכן את הקטלוג (update catalog). התוכנה תסרוק את התיקיות שמוגדרות ב-paths (שהגדרנו קודם לכן) ותחפש את כל המקומות שבהם מופיעות פונקציות gettext (בעיקר _ ו-gettext).<br><br><img src="static\images\pixel.png" alt="לוקליזציה ב-PHP (חלק שני)" title="http://i.imgur.com/Vos4O.png" class="content-image-float"><br><br>בתמונת המסך למעלה ניתן לראות שהיא מצאה מחרוזת אחת. נלחץ על ok ונתרגם את המחרוזת בתוך חלון התוכנה. לאחר שסיימנו לתרגם את כל המחרוזות נשמור את השינויים שלנו.<br><br><img src="static\images\pixel.png" alt="לוקליזציה ב-PHP (חלק שני)" title="http://i.imgur.com/wMipuh.png" class="content-image-float"><br><br>בדפדפן נפתח את הסקריפט והתוצאה היא מחרוזת מתורגמת:<br><br><img src="static\images\pixel.png" alt="לוקליזציה ב-PHP (חלק שני)" title="http://i.imgur.com/8ICWmh.png" class="content-image-float"><br><br>בחלק השלישי במדריך ניצור דוגמה שלמה יותר עם כפתור לשינוי שפת הממשק. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/577835562fa9e54ea5f73adf6b887062?s=16&r=g&d=monsterid" alt="iosolidar">
+<a>iosolidar</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1690"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2012 14:25</span><br>
+תודה רבה, נראה טוב. :)<br>
+<br>
+דרך אגב, אנחנו משתמשים באותו theme של linux... :)</div>
+<a id="comment1691"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2012 14:27</span><br>
+נשאר רק לחכות בקוצר רוח לחלק השלישי ולהוסיף ש wordpress עובד בדיוק ככה.</div>
+<a id="comment1692"></a>
+<div class="blog-comment">
+<span class='comment-author'>bnayal</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2012 23:52</span><br>
+מדריך יפה מאוד.<br>
+שאלה: אני רוצה לשייך טקסט כדי שהמתרגם \ אני נוכל לזהות לאיזה עמוד שייך הטקסט הזה ואולי ללכת לראות אותו במקור באתר. איך מומלץ לעשות את זה? נניח טקסט של עמוד &quot;מבצעים&quot; יתויג כשייך לעמוד הזה.<br>
+יש לי אתר סטטי (HTML ללא שום מערכת ניהול תוכן וצריך להישאר ככה) מתורגם כרגע ל5 שפות, אני רוצה להכין לו תשתית נוחה יותר לתרגום בעתיד (יש כ130 עמודים בכל שפה). יש רעיון לדרך גישה?</div>
+<a id="comment1693"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2012 07:59</span><br>
+אתה יכול ליצור קובץ po נפרד לכל עמוד. יהיו לך 130 כאלה</div>
+<a id="comment1694"></a>
+<div class="blog-comment">
+<span class='comment-author'>iosolidar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2012 15:07</span><br>
+תסתכל על קובץ ה-po, התוכנה מוסיפה אוטומטית את השורה בקובץ שבו נמצאת מחרוזת התרגום מעל ה-msgid.<br>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הודעת Forbidden!!!">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_83709">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הודעת Forbidden!!! | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הודעת Forbidden!!! | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הודעת Forbidden!!!">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">21</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הודעת Forbidden-1.htm" title="שלום לכולם,בניתי מערכת ניהול ובתוכה יש אפשרות להוסיף לינקים שיוצגו באתר.הבעיה היא שהשרת לא מאפשר לי להכניס לDB קישורים. אני מבין שזו פרצת אבטחה ולכן השרת מונע זאת.אבל מהיא החלופה, איך אני יכול להעלות לינקים דרך המערכת ניהול מבלי שיסורבו ע&amp;quot;י השרת.יש לי גם בעיה דומה עם קוד של פלאש שאני רוצה להעלות לאתר!מודה מראש לעוזרים!">הודעת Forbidden!!!</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_83709</a>
+,
+<time class="timeago relativetime" datetime="2012-01-15T10:18:40+02:00" style="display:inline-block;">
+15 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText124'>
+שלום לכולם,<br>בניתי מערכת ניהול ובתוכה יש אפשרות להוסיף לינקים שיוצגו באתר.<br>הבעיה היא שהשרת לא מאפשר לי להכניס לDB קישורים. אני מבין שזו פרצת אבטחה ולכן השרת מונע זאת.<br>אבל מהיא החלופה, איך אני יכול להעלות לינקים דרך המערכת ניהול מבלי שיסורבו ע&quot;י השרת.<br><br>יש לי גם בעיה דומה עם קוד של פלאש שאני רוצה להעלות לאתר!<br><br>מודה מראש לעוזרים! </div>
+</div>
+<h3>
+<span id="answersCounter">21 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer463">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d9f08e20b975b3c1cbdb6c49a1a46118?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>xzxxx7</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_463" href="הודעת Forbidden-1.htm#answer_463">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מוזר, בד&quot;כ השרת לא צריך להתערב באבטחת הסקריפט.<br>תנסה את זה:<br><div class="php codeblock"><span class="sy0">&lt;</span>form method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;url&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;my_url&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;http://www.foo.ltd&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;test&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div><br>ותגיד אם אתה עדיין מקבל fordidden.. </p>
+</div>
+<div class="answer" id="answer467">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_467" href="הודעת Forbidden-1.htm#answer_467">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+השרת בעצמו לא מונע שום דבר, אלה אם כן מותקן עליו איזשהו תוסף mod כלשהו שעושה את זה, למרות שאני בספק ולא ראיתי כאלה. forbidden בדרך כלל מסמל את זה שאין לקוד הרשאות לקרוא קובץ מסוים או למשתמש לגשת לכתובת מסוימת ולא קשור לא לטפסים ולא לתוכן שלהם.<br>ובטח שלא אם אתה עובד על לוקאל הוסט. <br><br>ככה שאני לא חושב שההבחנה שלך לגבי הסיבה היא מדויקת.<br>תתאר בבקשה את הבעיה, מה אתמה מנסה להזין, באיזה שרת מדובר.<br>יעזור אם תצרף את הקוד שלך ואת התוכן של phpinfo </p>
+</div>
+<div class="answer" id="answer468">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_468" href="הודעת Forbidden-1.htm#answer_468">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עדיין נותן את הודעת ה<br><strong>fordidden<br>You don&#039;t have permission to access /admin/pages/update/add_link.php on this server.</strong> </p>
+</div>
+<div class="answer" id="answer471">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_471" href="הודעת Forbidden-1.htm#answer_471">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בתחתית האתר שני בונה כרגע, יש שורת לינקים שמנהל האתר רוצה לשלוט עליהם.<br>לכן יצרתי לו טופס המאפשר להעלות לינקים לאותה שורה, דרך פאנל ניהול האתר.<br>השרת הוא שרת לינוקס.<br>ניסיתי לשנות את ההרשאות, וזה עדיין לא מעלה. <br>זו לא פעם ראשונה שאני נתקל בזה, גם בשרת הקודם שהייתי, היה אותו סיפור, התמיכה של השרת אמרו שיש להם MOD SECURITY, ושזו החלטה שלי אם להשאיר אותו<br> </p>
+</div>
+<div class="answer" id="answer473">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_473" href="הודעת Forbidden-1.htm#answer_473">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יכול להיות שרעיון טוב יהיה להוריד אותו. יש סיכוי שהוא זה שגורם לך לכל הבעיות. </p>
+</div>
+<div class="answer" id="answer474">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_474" href="הודעת Forbidden-1.htm#answer_474">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא משהו קבוע בכל שרת?<br>אין חשש אבטחתי מלהוריד אותו? </p>
+</div>
+<div class="answer" id="answer475">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_475" href="הודעת Forbidden-1.htm#answer_475">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, השרתים באים בלי זה וזה תוסף שהותקן על ידי חברת האחסון בנפרד.<br>כשמתקינים כזה לשימוש אישי בדרך כלל מקנפגים אותו בעת ההתקנה. חברות האחסון לא שמות כזה כי אי אפשר לקנפג אותו פר משתמש. שלך הראשונים שאני שומע שעושים את זה. </p>
+</div>
+<div class="answer" id="answer477">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_477" href="הודעת Forbidden-1.htm#answer_477">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$query</span><span class="sy0">=</span><span class="st0">&quot;INSERT INTO bottom_links (lin_name ,lin_src, lin_stat) VALUES ('&quot;</span><span class="sy0">.</span><span class="re0">$add_lin_name</span><span class="sy0">.</span><span class="st0">&quot;','&quot;</span><span class="sy0">.</span><span class="re0">$add_lin_src</span><span class="sy0">.</span><span class="st0">&quot;','hide')&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'utf8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$result</span><span class="sy0">=</span><span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$result</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span></div><br>זה הQUERY שמעלה את הקישור לDB.<br>למשתנים אני עושה לפני STR_REPLACE.<br>יש דרך אחרת לעשות את זה? </p>
+</div>
+<div class="answer" id="answer478">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_478" href="הודעת Forbidden-1.htm#answer_478">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כמובן. השבוע זה הפעם ה11 שאני נותן <a href="..\SQL_Injection.htm">קישור לזה</a>.<br>בדיוק באמצע המסך - הגנה מפני sql injection החלק על mysql_real_escape_string </p>
+</div>
+<div class="answer" id="answer479">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d9f08e20b975b3c1cbdb6c49a1a46118?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>xzxxx7</a>
+ב
+<span style="font-size:10px"> 15 לינואר 2012 </span>
+<a id="answer_479" href="הודעת Forbidden-1.htm#answer_479">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אלכס פרוייקט חדש, בו נבנה בוט שעובד בFXP ופה ועונה על שאלות כאלה XD </p>
+</div>
+<div class="answer" id="answer558">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2012 </span>
+<a id="answer_558" href="הודעת Forbidden-1.htm#answer_558">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חברה הבעיה עדיין לא נפתרה, קראתי את המאמר על sql injectio, והוספתי<br><div class="php codeblock"><span class="re0">$add_lin_src</span> <span class="sy0">=</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'add_lin_src'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>לפני השאילתא<br><br><div class="php codeblock"><span class="re0">$query</span><span class="sy0">=</span><span class="st0">&quot;INSERT INTO bottom_links (lin_name ,lin_src, lin_stat) VALUES ('&quot;</span><span class="sy0">.</span><span class="re0">$add_lin_name</span><span class="sy0">.</span><span class="st0">&quot;','&quot;</span><span class="sy0">.</span><span class="re0">$add_lin_src</span><span class="sy0">.</span><span class="st0">&quot;','hide')&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'utf8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$result</span><span class="sy0">=</span><span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$result</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span></div><br><br>למרות זאת עדיין לא עובד!, מראה לי שוב את ההודעה הבאה:<br><div class="php codeblock">Forbidden<br>
+<br>
+You don<span class="st_h">'t have permission to access /admin/***/****/*****.php on this server.<br>
+<br>
+Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.</span></div><br> </p>
+</div>
+<div class="answer" id="answer559">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2012 </span>
+<a id="answer_559" href="הודעת Forbidden-1.htm#answer_559">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וזה קורה תמיד, לא משנה מה אתה כותב בשדות של הטופס?<br>אין שם איזשהו include לאיזה קובץ שאין עליו הרשות? תנסה לשים 777 על כל התיקיות והקבצים בתוכם לצורך בדיקה? לא נראה לי ש mod_security הוא זה שעושה את הבעיות.<br><br>+ הוספת mysql_real_escape_string למשתנה אחד. גם לשני הוספת? </p>
+</div>
+<div class="answer" id="answer563">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2012 </span>
+<a id="answer_563" href="הודעת Forbidden-1.htm#answer_563">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן תמיד זה קורה, ואין שום include.<br>זה הקובץ במלואו:<br>1. טופס:<br><div class="php codeblock"><span class="sy0">&lt;</span>form method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span> action<span class="sy0">=</span><span class="st0">&quot;pages/update/add_link.php&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>td colspan<span class="sy0">=</span><span class="st0">&quot;2&quot;</span><span class="sy0">&gt;</span>שם<span class="sy0">:</span> <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;add_lin_name&quot;</span> <span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>td colspan<span class="sy0">=</span><span class="st0">&quot;2&quot;</span><span class="sy0">&gt;</span>כתובת<span class="sy0">:</span> <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;add_lin_src&quot;</span> <span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>td<span class="sy0">&gt;&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;הוסף קישור&quot;</span><span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div><br>2. add_link.php:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">include</span> <span class="st0">&quot;../../../connect_to_db.php&quot;</span><span class="sy0">;</span><br>
+<span class="kw1">include</span> <span class="st0">&quot;../../../functions.php&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$add_lin_name</span> <span class="sy0">=</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'add_lin_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$add_lin_src</span> <span class="sy0">=</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'add_lin_src'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$insert_result</span> <span class="sy0">=</span> insert_new_link<span class="br0">&#40;</span><span class="re0">$add_lin_name</span><span class="sy0">,</span> <span class="re0">$add_lin_src</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw2">function</span> insert_new_link<span class="br0">&#40;</span><span class="re0">$add_lin_name</span><span class="sy0">,</span> <span class="re0">$add_lin_src</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$query</span><span class="sy0">=</span><span class="st0">&quot;INSERT INTO bottom_links (lin_name ,lin_src, lin_stat) VALUES ('&quot;</span><span class="sy0">.</span><span class="re0">$add_lin_name</span><span class="sy0">.</span><span class="st0">&quot;','&quot;</span><span class="sy0">.</span><span class="re0">$add_lin_src</span><span class="sy0">.</span><span class="st0">&quot;','hide')&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'utf8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$result</span><span class="sy0">=</span><span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$result</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$insert_result</span> <span class="sy0">==</span> <span class="kw4">false</span><span class="br0">&#41;</span><br>
+<span class="kw3">die</span><span class="br0">&#40;</span><span class="st_h">'Something is wrong'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$_SESSION</span><span class="br0">&#91;</span><span class="st_h">'update_link'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'OK'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Location:'</span><span class="sy0">.</span><span class="re0">$last_page</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="sy1">?&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer564">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2012 </span>
+<a id="answer_564" href="הודעת Forbidden-1.htm#answer_564">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+גם עם ההרשאות זה לא עובד! </p>
+</div>
+<div class="answer" id="answer565">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2012 </span>
+<a id="answer_565" href="הודעת Forbidden-1.htm#answer_565">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה לשים<br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'hello'</span></div> בתור כל הקוד.<br>בכל זאת לבקש לנתק את mod_security </p>
+</div>
+<div class="answer" id="answer566">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2012 </span>
+<a id="answer_566" href="הודעת Forbidden-1.htm#answer_566">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה עובד עם הWAMP<br>אבל לא בשרת! </p>
+</div>
+<div class="answer" id="answer567">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2012 </span>
+<a id="answer_567" href="הודעת Forbidden-1.htm#answer_567">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טוב אני אבקש! </p>
+</div>
+<div class="answer" id="answer573">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2012 </span>
+<a id="answer_573" href="הודעת Forbidden-1.htm#answer_573">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה גם להוסיף ל htaccess את השורות<br><div class="php codeblock"><span class="sy0">&lt;</span>IfModule mod_security<span class="sy0">.</span>c<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="co2"># Turn off mod_security filtering.<br>
+</span> &nbsp; &nbsp;SecFilterEngine Off<br>
+<br>
+&nbsp; &nbsp; <span class="co2"># The below probably isn't needed, but better safe than sorry.<br>
+</span> &nbsp; &nbsp;SecFilterScanPOST Off<br>
+<span class="sy0">&lt;/</span>IfModule</div> </p>
+</div>
+<div class="answer" id="answer601">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f28471cc92fe0118fc54d1309801b527?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_90322</a>
+ב
+<span style="font-size:10px"> 22 לינואר 2012 </span>
+<a id="answer_601" href="הודעת Forbidden-1.htm#answer_601">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+גם לא עובד!<br>הזוי הנושא הזה, האם יש חלופות לפעולה הזאת? </p>
+</div>
+<div class="answer" id="answer604">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 22 לינואר 2012 </span>
+<a id="answer_604" href="הודעת Forbidden-1.htm#answer_604">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה את אותם שני שורות בלי ה if ?<br>אבל הבעיה כנראה דווקא ב mod_security </p>
+</div>
+<div class="answer" id="answer735">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Aviway</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_735" href="הודעת Forbidden-1.htm#answer_735">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טוב הדבר היחיד שמצליח לי, זה לשלוח את הטופס בGET, דרך פונקציה של JS.<br>יש בעיית אבטחה עם זה? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

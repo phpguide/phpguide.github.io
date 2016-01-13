@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הצפנה דו כיוונית ב-PHP תוך שימוש בספריית ההצפנה mcrypt">
+<meta name="keywords" content="הצפנה, דו-כיוונית, mcrypt">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>הצפנה דו-כיוונית ב-PHP</title>
+<meta itemprop="name" content="הצפנה דו-כיוונית ב-PHP">
+<meta itemprop="description" content="הצפנה דו כיוונית ב-PHP תוך שימוש בספריית ההצפנה mcrypt">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"91","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>הצפנה דו-כיוונית ב-PHP</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-05-14T16:44:12+03:00" dir="rtl">14 למאי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.thinkgeek.com/images/products/additional/thumb/wrapping_paper-binary.jpg" alt="הצפנה דו-כיוונית ב-PHP">
+</div>
+<div class="right post-content">
+הרבה אנשים קראו את המאמר על <a href="הצפנת_נתונים_ב_mysql-1.htm">הצפנת תוכן ב-MySQL</a> ושאלו אותי אם יש דרך לעשות הצפנה ופענוח דו-כיווני ב-PHP. מסתבר שיש, ואפילו לא צריך להמציא שום דבר. :-) <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>פונקציית הצפנה</h3><br><span style="color:gray;">קודם קוד, אח&quot;כ הסברים:</span><br><div class="php codeblock"><span class="kw2">function</span> encrypt<span class="br0">&#40;</span><span class="re0">$text</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$iv</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">mcrypt_encrypt</span><span class="br0">&#40;</span>MCRYPT_RIJNDAEL_256<span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$text</span><span class="sy0">,</span> MCRYPT_MODE_CBC<span class="sy0">,</span> <span class="re0">$iv</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> decrypt<span class="br0">&#40;</span><span class="re0">$encrypted_text</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$iv</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">mcrypt_decrypt</span><span class="br0">&#40;</span>MCRYPT_RIJNDAEL_256<span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$encrypted_text</span><span class="sy0">,</span> MCRYPT_MODE_CBC<span class="sy0">,</span> <span class="re0">$iv</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$iv</span> <span class="sy0">=</span> <span class="kw3">mcrypt_create_iv</span><span class="br0">&#40;</span><span class="kw3">mcrypt_get_iv_size</span><span class="br0">&#40;</span>MCRYPT_RIJNDAEL_256<span class="sy0">,</span> MCRYPT_MODE_CBC<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$key</span> <span class="sy0">=</span> <span class="st_h">'aoeuaoeuaoeuaoeuaoeaaaaaaaaeeesu'</span><span class="sy0">;</span> <span class="co1">// max 32 bytes</span><br>
+<br>
+<span class="re0">$enc</span> <span class="sy0">=</span> encrypt<span class="br0">&#40;</span><span class="st_h">'Hello from phpguide.co.il'</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$iv</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$dec</span> <span class="sy0">=</span> decrypt<span class="br0">&#40;</span><span class="re0">$enc</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$iv</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="st_h">'encrypted: '</span><span class="sy0">,</span> <span class="re0">$enc</span> <span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;decrypted: '</span><span class="sy0">,</span><span class="re0">$dec</span><span class="sy0">;</span></div><br><br><h3>אלגוריתם הצפנה</h3><br>אלגוריתם ההצפנה, הפעולה שנעשית על הטקסט כדי להפוך אותו למוצפן נקראת <strong>צופן</strong> (cypher). צופן כלשהו יכול להיות החלפה של כל אות באות הבאה אחריה בא&#039;-ב&#039;. בצופן כזה המילה &quot;שלום&quot; תהפוך לערך המוצפן &quot;תמזנ&quot;.<br>mcrypt מכילה כמה אלגוריתמי הצפנה מובנים. הצופן בעל השם rijndael הוא צופן מומלץ, בטיחותי ומהיר לשימוש בימינו.<br>הפרמטר הראשון של הפונקציות mcrypt_encrypt הוא שם הצופן שבו עליה להשתמש כדי להצפין את הטקסט — MCRYPT_RIJNDAEL_256.<br><br><h3>מפתח הצפנה</h3><br>מפתח הצפנה הוא סוג של סיסמא שבה משתמש האלגוריתם בעת ההצפנה. סיסמה אחרת תיתן תוצאות הצפנה שונה. המפענח חייב <strong>לדעת את סיסמת ההצפנה</strong> כדי לפענח את הטקסט המוצפן.<br>לכל אלגוריתם צריך להיות אורך מפתח משלו. rijndael דורש סיסמה באורך 32 byte. סיסמא ארוכה יותר תחזיר שגיאה, סיסמה קצרה יותר תוארך על ידי PHP בעצמה.<br>זהו הפרמטר השני של הפונקציה mcrypt_encrypt. מפתח (סיסמה) כלשהו שאתם יכולים להמציא לבד. רצוי שיהיה שונה בכל הצפנה שתעשו.<br><br><h3>צורת הצפנה</h3><br>רוב אלגוריתמי ההצפנה יודעים לעבוד רק עם מחרוזת באורך מסוים (בלוק). כדי לאפשר הצפנה דו-כיוונית של נתונים באורך משתנה — הקלט מפורק לבלוקים באורך שהאלגוריתם מצפה. כל בלוק מוצפן בנפרד ולאחר מכן הבלוקים מחוברים לתוצאה יחידה.<br><br>אורך הקלט לא תמיד מתחלק לבלוקים מלאים. הבלוק האחרון אינו מלא.<br>לדוגמא, אם אורך בלוק צפוי הוא 64 byte והקלט הוא 70 byte, בבלוק השני יהיו רק 6 byte. עוד 58 יהיו חסרים ויש להשלים אותם כדי שגם הבלוק החסר יעבור הצפנה.<br>יש כמה שיטות השלמה לבלוקים חסרים (ecb, cbc, cfb, ofb ועוד).<br>לא נתמקד באופן הפעולה של כל שיטה, הסבירו את זה טוב יותר <a href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation">בוויקיפדיה</a>.<br><br>צורת ההצפנה (MCRYPT_MODE_CBC) היא הפרמטר הרביעי של mcrypt_encrypt.<br><br><h3>וקטור אתחול - Initialization Vector</h3><br>לא להיבהל מהמילה. אלגוריתם הצפנה דורש קצת רנדומליות. וקטור אתחול זה אוסף ערכים רנדומליים שההצפנה תשתמש בהם. כדי שהפענוח יצליח, פונקציית הפענוח צריכה לדעת בדיוק את אותם הערכים הרנדומליים ששימשו להצפנה, ולכן וקטור זה מועבר כפרמטר ולא נוצר לבד על ידי פונקציית ההצפנה.<br>וקטור אתחול עצמו נוצר על ידי פונקציה ליצירת וקטורי אתחול mcrypt_create_iv. אורך וקטור האתחול חייב להיות באורך שהאלגוריתם דורש. כדי לדעת מה האורך הזה, השתמשנו בפונקציה mcrypt_get_iv_size, שמחזירה את האורך הנדרש עבור האלגוריתם וצורת ההצפנה שבחרנו.<br>זהו הפרמטר האחרון בפונקציה mcrypt_encrypt.<br><br><h3>הפענוח</h3><br>mcrypt_decrypt עושה שימוש באותם פרמטרים כמו encrypt. היא מקבל את שם האלגוריתם, את מפתח ההצפנה, את הטקסט המוצפן, את צורת ההצפנה ואת וקטור האתחול ומשתמשת בהם כדי לשחזר את הערך המוצפן.<br>כל הערכים צריכים להיות זהים לאלו ששימשו בהצפנה. לא ניתן להצפין עם אלגוריתם אחד ולנסות לפענח בעזרת אלגוריתם אחר, להצפין עם מפתח אחד ולפענח עם אחר, להצפין עם וקטור אתחול אחד ולפענח עם אחר.<br><br><h3>אין שום סיבה להצפין</h3><br>אחרי שראינו איך הצפנה עובדת — אגלה לכם סוד: <span style="color:green;">רוב הסיכויים שאתם לא צריכים הצפנה</span>.<br>כנראה שאם אתם קוראים את זה, אתם חושבים על איך לרשום לקוקי של משתמש ערך סודי ביותר. <br><br>הבעיה תהיה שלתוך הקוקי תצטרכו לרשום גם את וקטור האתחול, כיוון שבהרצה הבאה שלכם הפונקציה mcrypt_create_iv תיצור וקטור רנדומלי חדש, והוא לא יתאים לפענוח טקסט שהוצפן עם וקטור אחר.<br><br>מפחדים שהמשתמש יחליף את הערך בקוקי למשהו אחר? תרשמו לקוקי hash לבדיקה.<br><div class="php codeblock"><span class="re0">$value</span> <span class="sy0">=</span> <span class="st_h">'123456'</span><span class="sy0">;</span><br>
+<span class="re0">$salt</span> <span class="sy0">=</span> <span class="st_h">'aoeuscxf0&amp;*)(*)&amp;(*^O)htjhsk'</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'value'</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'validation'</span><span class="sy0">,</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="sy0">.</span><span class="re0">$salt</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// ----------------------------------------</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'value'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="re0">$salt</span><span class="br0">&#41;</span> <span class="sy0">!=</span> <span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'validation'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'bad hacker!'</span><span class="sy0">;</span></div><br>אם המשתמש יחליט לשנות את 123456 למשהו אחר, הוא לא יוכל לשנות את ה-validation לערך נכון, כיוון שאינו יודע את ה-salt שלכם. חמשת השורות האלה ישמרו על בטיחות הערכים שלכם הרבה יותר טוב מכל ההצפנות שתוארו פה.<br>עוד דוגמא תוכלו למצוא <a href="phplive-2.htm?code=249">כאן</a>.<br><br><strong>סיבה שניה להצפין משהו היא כדי לשמור במסד.</strong><br>mysql מכילה <a href="הצפנת_נתונים_ב_mysql-1.htm">פונקציות הצפנה מובנות</a> שמתאימות הרבה יותר טוב למטרות אלו.<br><br><strong>סיבה שלישית להצפין משהו היא כדי לשלוח אותו למחשב אחר ברשת.</strong><br>זה המקרה היחידי שבו כנראה תצטרכו את ההצפנה. פה יהיה צורך להחליף את שיטת ההצפנה ל-MCRYPT_MODE_ECB, שלא משתמשת בווקטור אתחול בכלל, אלא רק במפתח הצפנה, עליו שני הצדדים יצטרכו להחליט מראש.<br><br>בכל שאר המקרים יש סיכוי שאתם עושים משהו שלא הייתם צריכים לעשות.<br>רשמו בתגובות בשביל מה אתם משתמשים בהצפנה. :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment380"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/07/2011 23:07</span><br>
+קודם כל תודה רבה על הרפרנס וההסברים. מאוד עוזר.<br>
+יש לי שאלה קטנה - ניסיתי את האלגוריתם וכשאני מפעילה את פונקציית הפענוח אני מקבלת את המחרוזת המקורית בתוספת של סמלים לא מובנים.<br>
+זו המחרוזת המקורית: qwER1234<br>
+הצפנתי, פיענחתי, ותוצאת הפענוח היא:<br>
+qwER1234������������������������<br>
+<br>
+אשמח אם תוכל להכווין אותי למה אני עושה לא נכון שמוסיפ לי את הסמלים לתוצאה.<br>
+תודה גדולה,<br>
+מור</div>
+<a id="comment381"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/07/2011 23:08</span><br>
+תוכלי להראות את הקוד שהשתמש בו?<br>
+עדיף בתור הודעה בפורום. ובין היתר נסי לבדוק אם הוא מתנהג באופן זהה גם ב <br>
+<span dir="ltr"><a href="phplive-7.htm">http://phpguide.co.il/phplive</a></span></div>
+<a id="comment386"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/07/2011 17:00</span><br>
+נראה לי שהבנתי מה היתה הבעיה. <br>
+המפתח שבו השתמשתי כמו בדוגמה הוא באורך 32.<br>
+ייתכן שכדי להצפין האלגוריתם האריך את מחרוזת הסיסמה שלי?<br>
+בכל מקרה פשוט השתמשתי ב trim($pwd) וקיבלתי את מחרוזת הסיסמה שרציתי.<br>
+<br>
+תודה רבה!<br>
+מאמר מעולה!</div>
+<a id="comment387"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/07/2011 17:01</span><br>
+אני די בטוח שאורך או תוכן המפתח לא צריכים להשפיע על התוכן המוצפן ולדעתי משהו לא בסדר.</div>
+<a id="comment997"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 17:32</span><br>
+אני רוצה להשתמש בזה להמפנת סיסמאות של משתמשים רשומים באתר שלי , הצפנה עם זה תיהיה יעילה ?</div>
+<a id="comment999"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2011 20:42</span><br>
+כן. אבל אין שום סיבה שתצפין סיסמה בצורה דו כיוונית.<br>
+עדיף להצפין סיסמה בצורה חד כיוונית בהרשמה ולשמור אותה, ואז בהשדהות להצפין את מה שהוא הזין שוב ולהשוות את הערכים המוצפנים. במקרה של שכיחת סיסמה תצטרך לשלוח אליו סיסמה חדשה. </div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

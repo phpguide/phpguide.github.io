@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה למה צריכים פונקציות רגילות?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>למה צריכים פונקציות רגילות? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="למה צריכים פונקציות רגילות? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה למה צריכים פונקציות רגילות?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">12</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="למה צריכים פונקציות רגילות-1.htm" title="כבר כמה זמן שאני חושב על השאלה הזאת - למה אנחנו צריכים פונקציות רגילות?אז חשבתי על כמה תשובות:- ב-PHP אולי עדיין רוצים לאפשר תכנות פרוצדורלי.- כדי שלא תיווצר בעיה, כי PHP בנויה באופן פרוצדורלי - יש פונקציות מובנות וכאלה... מה שמעורר את השאלה הבאה: למה, בשם תחתוניו של מרלין, PHP עדיין בנויה באופן פרוצדורלי? וחסר לכם שתגידו לי בגלל שאז זה יהיה API Break (גם אם זה אחד גדול), כי אז לא נתקדם לשום מקום.- אולי עדיין יש שימושים לפונקציות רגילות, רק שזה נסתר ממני.אז כמו שאתם">למה צריכים פונקציות רגילות?</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2013-05-03T14:47:52+03:00" style="display:inline-block;">
+03 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1417'>
+כבר כמה זמן שאני חושב על השאלה הזאת - למה אנחנו צריכים פונקציות רגילות?<br>אז חשבתי על כמה תשובות:<br>- ב-PHP אולי עדיין רוצים לאפשר תכנות פרוצדורלי.<br>- כדי שלא תיווצר בעיה, כי PHP בנויה באופן פרוצדורלי - יש פונקציות מובנות וכאלה... מה שמעורר את השאלה הבאה: למה, בשם תחתוניו של מרלין, PHP עדיין בנויה באופן פרוצדורלי? וחסר לכם שתגידו לי בגלל שאז זה יהיה API Break (גם אם זה אחד גדול), כי אז לא נתקדם לשום מקום.<br>- אולי עדיין יש שימושים לפונקציות רגילות, רק שזה נסתר ממני.<br>אז כמו שאתם רואים... אני אשמח (מאוד) אם מישהו(י) י(ת)וכל להסביר לי את זה אחת ולתמיד. :-) </div>
+</div>
+<h3>
+<span id="answersCounter">12 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6272">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6272" href="למה צריכים פונקציות רגילות-1.htm#answer_6272">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1) אתה צריך מחלקה בשביל פונקציה שעושה מניפולציה על מחרוזת?<div class="php codeblock"><span class="kw2">function</span> add5<span class="br0">&#40;</span><span class="re0">$s</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="kw1">return</span> <span class="re0">$s</span> <span class="sy0">+</span> <span class="st_h">'5'</span><span class="br0">&#125;</span></div><br>2) אלו לא דברים שמחליטים בשנייה - יש לזה המון פרמטרים ל&quot;האם להפוך את PHP לנטו מונחת אובייקטים&quot;.. אולי זה יהיה רק בPHP6.. (לפי ההיגיון, השינוי בין גירסה 5.x לבין גרסה 6 צריך להיות ממש גדול מהשינוי מ5.x ו5.y) </p>
+</div>
+<div class="answer" id="answer6273">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6273" href="למה צריכים פונקציות רגילות-1.htm#answer_6273">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא חושב שזה עובד ככה. כל דבר קשור למשהו. המניפולציה הזאת קשורה למשהו. לא הקרצת אותה משום מקום. תנסה לחשוב באיזה namespace הייתה שם אותה ואז היית יודע לאיזו מחלקה היא שייכת. :-) </p>
+</div>
+<div class="answer" id="answer6275">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6275" href="למה צריכים פונקציות רגילות-1.htm#answer_6275">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפילו בשפות מונחות עצמים כמו סישארפ, הפונקציה כתובה בתוך המחלקה Program (המחלקה הראשית), אך אין קשר כלשהו בין החברים של המחלקה Program כמו שיש קשר בין חברים של מחלקות אחרות. </p>
+</div>
+<div class="answer" id="answer6278">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6278" href="למה צריכים פונקציות רגילות-1.htm#answer_6278">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ורוב הסיכויים שלא תהיה גרסה 6, וגם אם כן php היתה מלכתחילה שפה פרוצדורלית ותשאר כזאת.<br>בסופו של דבר, השפה כן מתפתחת קצת קצת והמפתחים לוקחים השראה מג&#039;וואה וסי שארפ, אבל היא אף פעם לא תהיה oo לחלוטין. אם אתה מחפש להתקדם, ללמוד שפה שהיא נטו oo, אני ממליץ בחום על ג&#039;וואה או סי שארפ. </p>
+</div>
+<div class="answer" id="answer6280">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6280" href="למה צריכים פונקציות רגילות-1.htm#answer_6280">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה שלא תהיה גרסה 6?<br>כן, אבל הן לא לאינטרנט כמו PHP. :-) </p>
+</div>
+<div class="answer" id="answer6283">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6283" href="למה צריכים פונקציות רגילות-1.htm#answer_6283">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מאמר קטן שממליץ לקרוא: http://philsturgeon.co.uk/blog/2013/01/php-6-pissing-in-the-wind<br>php6 היתה אמורה לצאת לפני הרבה זמן, המון זמן. היה הרבה הבטחות שאחרי 5.2 יצא 6. מה שקרה בפועל זה שלקחו כמה מהתכנונים שרצו לעשות, ודחפו ל5.3, ואז ל5.4, ועכשיו גם ל5.5.<br>הפיתוח של השפה לא בשמיים, ולפי איך שזה נראה רוב הסיכויים ש6 גם לא תצא, או לפחות לא בשנים הקרובות </p>
+</div>
+<div class="answer" id="answer6285">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 04 למאי 2013 </span>
+<a id="answer_6285" href="למה צריכים פונקציות רגילות-1.htm#answer_6285">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פונקציות רגילות משמשות לדברים שאפשר לעשות עם מספרים ומשתנים למשל פונקציה שמכפילה פי 2 ואומרת את המספר אם אתה רוצה לעשות להרבה בבת אחת אתה לא תכתוב מלא פעמים הכפלה באופורטר ואז להדפיס תבנה פונקציה שמכפילה פי שתיים ואומרת אותה וכל פעם כשתצטרך תרשום אותה. </p>
+</div>
+<div class="answer" id="answer6286">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 למאי 2013 </span>
+<a id="answer_6286" href="למה צריכים פונקציות רגילות-1.htm#answer_6286">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מיכאל - תודה, אני אקרא את זה.<br>יוני - אני מודע לזה. אולי תקרא את תוכן השאלה ולא רק את הכותרת. :-) </p>
+</div>
+<div class="answer" id="answer6287">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 למאי 2013 </span>
+<a id="answer_6287" href="למה צריכים פונקציות רגילות-1.htm#answer_6287">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, זה שם מסיבות היסטוריות וזה כנראה ישאר שם.<br>וגם אם לא נגיע לשום מקום - זה עדיין ישאר שם.<br><br>חוץ מזה, PHP מיועדת <s>למטומתמים</s> למתחילים ומיועדת בסה&quot;כ קצת להרחיב את אפשריות הקוד HTML שלך, <br>בלי שאתה תצטרך לדעת מה זה מחלקה וכל מה שקשור לזה. </p>
+</div>
+<div class="answer" id="answer6288">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 למאי 2013 </span>
+<a id="answer_6288" href="למה צריכים פונקציות רגילות-1.htm#answer_6288">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אאוץ&#039;. PHP היא לא מושלמת, אבל למה בדיוק אתה מתכוון? </p>
+</div>
+<div class="answer" id="answer6294">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 04 למאי 2013 </span>
+<a id="answer_6294" href="למה צריכים פונקציות רגילות-1.htm#answer_6294">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&quot;למה שלא תהיה גרסה 6?<br>כן, אבל הן לא לאינטרנט כמו PHP. :-)&quot;<br><br>יש לך את האופציה לעבור עם java או c# גם בסביבת ה-web (דוט נט, jsp...) </p>
+</div>
+<div class="answer" id="answer6295">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 למאי 2013 </span>
+<a id="answer_6295" href="למה צריכים פונקציות רגילות-1.htm#answer_6295">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+צודק, טעות שלי. אבל בכל זאת, אני לא הולך לעזוב את PHP. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content=" (Pentest (penetration test - נסיון חדירה למערכת, על מנת לבדוק את רמת הבטיחות שלה.  כולנו מדי פעם רוצים לנסות את הידע התיאורתי שלנו באבטחת מידע על מערכות א">
+<meta name="keywords" content="פנטסט אבטחת מידע חור sql injection xss">
+<meta name="author" content="Cayce">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>מה אפשר לפרוץ מבלי לקבל בעיות?</title>
+<meta itemprop="name" content="מה אפשר לפרוץ מבלי לקבל בעיות?">
+<meta itemprop="description" content=" (Pentest (penetration test - נסיון חדירה למערכת, על מנת לבדוק את רמת הבטיחות שלה.  כולנו מדי פעם רוצים לנסות את הידע התיאורתי שלנו באבטחת מידע על מערכות א">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"286","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מה אפשר לפרוץ מבלי לקבל בעיות?</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Cayce, </div>
+<div class="right">&nbsp;<time datetime="2013-01-22T05:43:38+02:00" dir="rtl">22 לינואר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://boomboom.co.il/images/pentest.jpg" alt="מה אפשר לפרוץ מבלי לקבל בעיות?">
+</div>
+<div class="right post-content">
+(Pentest (penetration test - נסיון חדירה למערכת, על מנת לבדוק את רמת הבטיחות שלה.<br><br>כולנו מדי פעם רוצים לנסות את הידע התיאורתי שלנו באבטחת מידע על מערכות אמיתיות. רק שרוב הפעמים זה לא חוקי, ויכול לגרום לנו לבעיות. במיוחד בשביל אנשים כמונו,אני יציג כמה מקומות בהם אפשר לבצע פנטסט בצורה חוקית לגמרי. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<strong>Mutillidae</strong><br><img src="static\images\pixel.png" alt="מה אפשר לפרוץ מבלי לקבל בעיות?" title="http://chudinov.org/images/1.png" class="content-image-float"><br>Mutillidae זהו פרויקט שמיישם 10 חורים מתוך רשימת <a href="https://www.owasp.org/index.php/Top_10_2010-Main">OWASP Top 10</a>, כשזאת רשימה מתחדשת של 10 חורים הכי נפוצים באתרי אינטרנט. האמת שהרשימה המתחדשת הזאת לא התחדשה מ 2010, אבל ב2013 זה אותם 10 חורים.<br><br><a href="http://www.irongeek.com/i.php?page=mutillidae/mutillidae-deliberately-vulnerable-php-owasp-top-10">קישור להורדה</a><br>כדי להריץ את Mutillidae אתם צריכים שרת שמריץ PHP.<br>כנסו לקובץ: classes/MySQLHandler.php<br>ותכתבו שם את שם המשתמש וסיסמה של אחד המשתמשים שלכם ב MySQL<br><br><br><strong>DVWA</strong><br><img src="static\images\pixel.png" alt="מה אפשר לפרוץ מבלי לקבל בעיות?" title="http://chudinov.org/images/2.png" class="content-image-float"><br>בדומה לפרויקט הקודם, מחלק את השלבים לפי סוגי החורים. בנוסף מציע קישורים עם מידע נוסף על החור, כדי שתוכלו ללמוד בנושא יותר אם לא הצלחתם לעבור את המשימה.<br><br><a href="http://www.dvwa.co.uk/">קישור להורדה</a><br>גם פה אתם צריכים שרת שמריץ PHP. פרטי גישה לMySQL תרשמו בקובץ הזה: config/config.inc.php<br>בנוסף הפרויקט יבקש מכם שם משתמש וסיסמה:<br>שם משתמש: Admin<br>סיסמה: Password<br><br><br><a href="http://hackthissite.org"><strong>hackthissite.org</strong></a><br>כאן אתם כבר לא צריכים להוריד שום דבר למחשב שלכם, אתם עוברים שלבים אונליין, צריך אבל להירשם.<br>השלבים הראשונים קצת פשוטים...<br><img src="static\images\pixel.png" alt="מה אפשר לפרוץ מבלי לקבל בעיות?" title="http://chudinov.org/images/5.png" class="content-image-float"><br><br><br><a href="http://www.enigmagroup.org/"><strong>enigmagroup.org</strong></a><br>עוד אתר כמו למעלה עם משימות לפריצה, גם דורש הרשמה. זה אתר יותר מומלץ.<br><img src="static\images\pixel.png" alt="מה אפשר לפרוץ מבלי לקבל בעיות?" title="http://chudinov.org/images/3.png" class="content-image-float"><br><br><br><strong>XSS</strong><br><a href="http://canyouxssthis.com/HTMLSanitizer/">canyouxssthis.com/HTMLSanitize</a><br><a href="http://html5sec.org/xssme.php">html5sec.org/xssme.php</a><br><a href="http://xssme.html5sec.org/">xssme.html5sec.org</a><br><br><br><strong>לסיכום</strong><br>לסיכום אני יתן חידה שראיתי איפשהו. זאת התחברות באתר כלשהו:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$pass</span> <span class="sy0">=</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'pass'</span><span class="br0">&#93;</span><span class="br0">&#41;</span>?<span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'pass'</span><span class="br0">&#93;</span><span class="sy0">:</span><span class="st_h">''</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">strcasecmp</span><span class="br0">&#40;</span> <span class="re0">$pass</span><span class="sy0">,</span> <span class="st_h">'123456'</span> <span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">0</span> <span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'You successfully logged in.'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>הסיסמה היא 123456, אבל ניתן להתחבר פה גם מבלי לדעת את הסיסמה<br>איך? </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/eae8f99c4b8a7edfc90c2e915ff5c6ec?s=16&r=g&d=monsterid" alt="Cayce">
+<a>Cayce</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2149"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/01/2013 11:54</span><br>
+אחלה כתבה :)<br>
+ה-hackThisSite בהחלט אחד המאתגרים.<br>
+הייתי מנסה גם damn vulnerable web app. השם שלה מגניב .<br>
+על הקוד האחרון צריך לחשוב קצת</div>
+<a id="comment2150"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/01/2013 11:55</span><br>
+אפשר לנסות את הידע התיאורטי שלנו על <span dir="ltr"><a href="http://boomboom.co.il">http://boomboom.co.il</a></span> ? :)</div>
+<a id="comment2151"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/01/2013 12:02</span><br>
+כן חח, אפשר</div>
+<a id="comment2160"></a>
+<div class="blog-comment">
+<span class='comment-author'>dan_barzilay</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2013 08:34</span><br>
+מישהו פתר את החידה בסוף ויכול לתת רמז?</div>
+<a id="comment2163"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2013 14:14</span><br>
+אני פתרתי, תשלחו get בסגנון הזה:<br>
+pass[]=blablabla?<br>
+יתן שגיאה ויחבר אותנו לאתר.</div>
+<a id="comment2164"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/01/2013 02:16</span><br>
+שגיאה זה לא יתן, אבל אתה יכול לנסות להסביר למה זה יעבוד</div>
+<a id="comment2165"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/01/2013 05:40</span><br>
+למה לא כתוב בדוקומנטציה שפונקציה כזאת, שאמורה לקבל מחרוזות, והיא מקבלת מערך - מחזירה null?</div>
+<a id="comment2167"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/01/2013 08:22</span><br>
+לי בוומפ זה נתן שגיאה.<br>
+וזה מחבר אותנו כי הפונקצייה מחזירה 0 כשהיא מבולבלת (נראה לי).<br>
+<br>
+</div>
+<a id="comment2168"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/01/2013 11:26</span><br>
+זה אמור לתת Warning.<br>
+זה בגלל שבתנאי שלנו לא בדקנו שזה גם אותו סוג משתנה (===), ולכן במקרה הזה, כשהוחזר מהפונקציה null - התנאי התקיים. (null == 0.)</div>
+<a id="comment2169"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2013 01:24</span><br>
+כן, כבר רשמו בתגובות את התשובה, אבל אני יכתוב אותה במסודר.<br>
+<br>
+הפונקציה מצפה לקבל משתנה עם ערך אחד, ואם היא מקבלת מערך היא מחזירה NULL, והבדיקה (if(NULL == 0 תחזיר אמת. כדי שזה לא יקרה, צריך או להשתמש ב (===) שיבדוק גם שהמשתנים מאותו סוג, או לבדוק לפני שהמשתנה מסוג מחרוזת(is_string).<br>
+<br>
+באמת צריך להיות רשום בדוקומנטציה שפונקציה מחזירה במקרים מסוימים NULL, שלחתי לגבי זה באג רפורט.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

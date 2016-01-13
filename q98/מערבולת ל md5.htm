@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מערבולת ל md5">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_73338">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מערבולת ל md5 | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מערבולת ל md5 | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מערבולת ל md5">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מערבולת ל md5.htm" title="עבדתי קשה כדי ליצור מערבולת מיוחד לmd5 בשביל האתר שלי.השאלה שאני לא יודע עם זה באמת יכול להקשות על פיצות הסיסמאות.ואם זה נחוץ בכלל?זה הקוד:function rh1&amp;#40;$text&amp;#41;&amp;#123;
+$text = md5&amp;#40;$text">מערבולת ל md5</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_73338</a>
+,
+<time class="timeago relativetime" datetime="2012-01-08T22:24:16+02:00" style="display:inline-block;">
+08 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText98'>
+עבדתי קשה כדי ליצור מערבולת מיוחד לmd5 בשביל האתר שלי.<br>השאלה שאני לא יודע עם זה באמת יכול להקשות על פיצות הסיסמאות.<br>ואם זה נחוץ בכלל?<br>זה הקוד:<br><div class="php codeblock"><span class="kw2">function</span> rh1<span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="st_h">'64'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'22'</span><span class="sy0">,</span><span class="st_h">'68'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">' '</span><span class="sy0">,</span><span class="st_h">'0'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'.'</span><span class="sy0">,</span><span class="st_h">'pic'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'\\'</span><span class="sy0">,</span><span class="st_h">'slass'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'&lt;'</span><span class="sy0">,</span><span class="st_h">'chat'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'&gt;'</span><span class="sy0">,</span><span class="st_h">'tav'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'-'</span><span class="sy0">,</span><span class="st_h">'sdjk'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'_'</span><span class="sy0">,</span><span class="st_h">'line'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'`'</span><span class="sy0">,</span><span class="st_h">'oo4o'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'~'</span><span class="sy0">,</span><span class="st_h">'whkfjh'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="st_h">'2r67'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="st_h">'948c'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="st_h">'54d4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="st_h">'8d37'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">' '</span><span class="sy0">,</span><span class="st_h">'0'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="st_h">'243'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="st_h">'1s11'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="st_h">'uty9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="st_h">'sf5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="st_h">'mb5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'0'</span><span class="sy0">,</span><span class="st_h">'465d'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'a'</span><span class="sy0">,</span><span class="st_h">'c1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'b'</span><span class="sy0">,</span><span class="st_h">'d2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'c'</span><span class="sy0">,</span><span class="st_h">'e3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'d'</span><span class="sy0">,</span><span class="st_h">'f4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'e'</span><span class="sy0">,</span><span class="st_h">'g5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'f'</span><span class="sy0">,</span><span class="st_h">'h6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'g'</span><span class="sy0">,</span><span class="st_h">'i7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'h'</span><span class="sy0">,</span><span class="st_h">'j8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'i'</span><span class="sy0">,</span><span class="st_h">'k9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'j'</span><span class="sy0">,</span><span class="st_h">'l10'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'k'</span><span class="sy0">,</span><span class="st_h">'m11'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'l'</span><span class="sy0">,</span><span class="st_h">'n12'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'m'</span><span class="sy0">,</span><span class="st_h">'013'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'n'</span><span class="sy0">,</span><span class="st_h">'p14'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'o'</span><span class="sy0">,</span><span class="st_h">'q15'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'p'</span><span class="sy0">,</span><span class="st_h">'r16'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'q'</span><span class="sy0">,</span><span class="st_h">'s17'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'r'</span><span class="sy0">,</span><span class="st_h">'t18'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'s'</span><span class="sy0">,</span><span class="st_h">'u19'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'t'</span><span class="sy0">,</span><span class="st_h">'v20'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'u'</span><span class="sy0">,</span><span class="st_h">'w21'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'v'</span><span class="sy0">,</span><span class="st_h">'x22'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'w'</span><span class="sy0">,</span><span class="st_h">'y23'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'x'</span><span class="sy0">,</span><span class="st_h">'z24'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'y'</span><span class="sy0">,</span><span class="st_h">'a25'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'z'</span><span class="sy0">,</span><span class="st_h">'b26'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'.'</span><span class="sy0">,</span><span class="st_h">'pic'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'\\'</span><span class="sy0">,</span><span class="st_h">'slass'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'&lt;'</span><span class="sy0">,</span><span class="st_h">'chat'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'&gt;'</span><span class="sy0">,</span><span class="st_h">'tav'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'-'</span><span class="sy0">,</span><span class="st_h">'sdjk'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'_'</span><span class="sy0">,</span><span class="st_h">'line'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'`'</span><span class="sy0">,</span><span class="st_h">'oo4o'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'~'</span><span class="sy0">,</span><span class="st_h">'whkfjh'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="st_h">'2r67'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="st_h">'948c'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="st_h">'54d4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="st_h">'8d37'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="st_h">'243'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="st_h">'1s11'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="st_h">'uty9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="st_h">'sf5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="st_h">'mb5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'0'</span><span class="sy0">,</span><span class="st_h">'465d'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'a'</span><span class="sy0">,</span><span class="st_h">'c1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'b'</span><span class="sy0">,</span><span class="st_h">'d2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'c'</span><span class="sy0">,</span><span class="st_h">'e3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'d'</span><span class="sy0">,</span><span class="st_h">'f4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'e'</span><span class="sy0">,</span><span class="st_h">'g5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'f'</span><span class="sy0">,</span><span class="st_h">'h6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'g'</span><span class="sy0">,</span><span class="st_h">'i7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'h'</span><span class="sy0">,</span><span class="st_h">'j8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'i'</span><span class="sy0">,</span><span class="st_h">'k9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'j'</span><span class="sy0">,</span><span class="st_h">'l10'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'k'</span><span class="sy0">,</span><span class="st_h">'m11'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'l'</span><span class="sy0">,</span><span class="st_h">'n12'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'m'</span><span class="sy0">,</span><span class="st_h">'013'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'n'</span><span class="sy0">,</span><span class="st_h">'p14'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'o'</span><span class="sy0">,</span><span class="st_h">'q15'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'p'</span><span class="sy0">,</span><span class="st_h">'r16'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'q'</span><span class="sy0">,</span><span class="st_h">'s17'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'r'</span><span class="sy0">,</span><span class="st_h">'t18'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'s'</span><span class="sy0">,</span><span class="st_h">'u19'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'t'</span><span class="sy0">,</span><span class="st_h">'v20'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'u'</span><span class="sy0">,</span><span class="st_h">'w21'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'v'</span><span class="sy0">,</span><span class="st_h">'x22'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'w'</span><span class="sy0">,</span><span class="st_h">'y23'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'x'</span><span class="sy0">,</span><span class="st_h">'z24'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'y'</span><span class="sy0">,</span><span class="st_h">'a25'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'z'</span><span class="sy0">,</span><span class="st_h">'b26'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'22'</span><span class="sy0">,</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'33'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'44'</span><span class="sy0">,</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'55'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'66'</span><span class="sy0">,</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'77'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'88'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'99'</span><span class="sy0">,</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'00'</span><span class="sy0">,</span><span class="st_h">'0'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'12'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'13'</span><span class="sy0">,</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'14'</span><span class="sy0">,</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'15'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'16'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'17'</span><span class="sy0">,</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'18'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'19'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'19'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'22'</span><span class="sy0">,</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'33'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'44'</span><span class="sy0">,</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'zz'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'z6'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'z'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'55'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'66'</span><span class="sy0">,</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'77'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'88'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'99'</span><span class="sy0">,</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'00'</span><span class="sy0">,</span><span class="st_h">'0'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'b1'</span><span class="sy0">,</span><span class="st_h">'n'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'b2'</span><span class="sy0">,</span><span class="st_h">'z'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'z'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'a'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'12'</span><span class="sy0">,</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'13'</span><span class="sy0">,</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'14'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'15'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'16'</span><span class="sy0">,</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'17'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'18'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'19'</span><span class="sy0">,</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'12'</span><span class="sy0">,</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'13'</span><span class="sy0">,</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'14'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'15'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'16'</span><span class="sy0">,</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'17'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'18'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'19'</span><span class="sy0">,</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'12'</span><span class="sy0">,</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'13'</span><span class="sy0">,</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'14'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'15'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'16'</span><span class="sy0">,</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'17'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'18'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'19'</span><span class="sy0">,</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'12'</span><span class="sy0">,</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'13'</span><span class="sy0">,</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'14'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'15'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'16'</span><span class="sy0">,</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'17'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'18'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'19'</span><span class="sy0">,</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'20'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'21'</span><span class="sy0">,</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'22'</span><span class="sy0">,</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'23'</span><span class="sy0">,</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'24'</span><span class="sy0">,</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'25'</span><span class="sy0">,</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'26'</span><span class="sy0">,</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'27'</span><span class="sy0">,</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'28'</span><span class="sy0">,</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'29'</span><span class="sy0">,</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'10'</span><span class="sy0">,</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'11'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="st_h">'2r67'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'2'</span><span class="sy0">,</span><span class="st_h">'948c'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'3'</span><span class="sy0">,</span><span class="st_h">'54d4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'4'</span><span class="sy0">,</span><span class="st_h">'8d37'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'5'</span><span class="sy0">,</span><span class="st_h">'243'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'6'</span><span class="sy0">,</span><span class="st_h">'1s11'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'7'</span><span class="sy0">,</span><span class="st_h">'uty9'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'8'</span><span class="sy0">,</span><span class="st_h">'sf5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'9'</span><span class="sy0">,</span><span class="st_h">'mb5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'0'</span><span class="sy0">,</span><span class="st_h">'465d'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'a'</span><span class="sy0">,</span><span class="st_h">'c1'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'b'</span><span class="sy0">,</span><span class="st_h">'d2'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'c'</span><span class="sy0">,</span><span class="st_h">'e3'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'d'</span><span class="sy0">,</span><span class="st_h">'f4'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'e'</span><span class="sy0">,</span><span class="st_h">'g5'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'f'</span><span class="sy0">,</span><span class="st_h">'h6'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st_h">'g'</span><span class="sy0">,</span><span class="st_h">'i7'</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0"></span>< div="">
+    
+    
+    
+</div>
+
+<h3>
+    <span id="answersCounter">2 </span>
+	תשובות
+</h3>
+
+
+<section class="answers" id="qnaAnswers">
+    <div class="answer" id="answer354">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>PHPDeveloper</a>
+		   ב
+		   <span style="font-size:10px"> 08 לינואר 2012 </span>
+		   <a id="answer_354" href="מערבולת ל md5.htm#answer_354">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	רעיון נחמד אך למה לא השתמשת בלולאה?<br>אני לא ממש יודע עד כמה זה אפקטיבי אבל הרעיון עצמו ניראה מוצלח..	</p>
+</div>
+
+<div class="answer" id="answer355">
+	<div>	
+		<span class="userinfo">
+	            <img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar">		   ענה
+		    <a>intval</a>
+		   ב
+		   <span style="font-size:10px"> 08 לינואר 2012 </span>
+		   <a id="answer_355" href="מערבולת ל md5.htm#answer_355">#</a>
+		</span>
+		
+				
+		<div class="clear"></div>
+
+        
+			</div>
+	
+	<p>
+	
+	אני לא כל כך רואה בשביל מה כל זה.<br>תשתמש במנגנון הצפנה יותר טוב מובנה וזהו, למשל <br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">hash</span><span class="br0">&#40;</span><span class="st_h">'sha512'</span><span class="sy0">,</span> <span class="st_h">'blablabla'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>זה פונקציית הצפנה חד כיוונית שלפי התוצאה אי אפשר לשחזר את המקור, בגלל זה גם לא ברור בשביל מה כל הסיפור הזה, אם מימלא אי אפשר ללכת אחורה. וודקה לשחזר אחורנית את פעולות הפונקציה שלך אפשר בקלות.<br><br>ואגב, str_replace יודעת לקבל בתור פרמטר גם מערך.	</p>
+</div>
+
+</section>
+
+ 
+    </div></div></section> <!-- /content -->
+    
+    <section id="sidebar">
+        
+<section id="search_box">
+    <form method="get" action="http://www.google.co.il/search" id="search_form">
+    
+        <input type="hidden" name="hl" value="iw">
+        <input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+        
+        <input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+        <input type="submit" value="" title="לחפש"> 
+        
+    </form>
+</section>
+    
+   
+   <style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+	<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+
+		ספר חינם על MVC
+	</a>
+	שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+
+	<br><br>
+	
+    <a href='page_oopbook.html'>
+        ספר הלימוד - תכנות מונחה עצמים מאפס
+    </a>
+	שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+
+	<br><br>
+	
+    <a href='page_phpunit.html'>
+        קורס בדיקות יחידה phpunit
+    </a>
+	שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+
+	<br><br>
+	
+    <a href='page_mysqlinteractive.html'>
+        קורס mysql אינטרקטיבי
+    </a>
+	שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+	
+	
+	<br><br><br>
+	
+	<small>האתר ב-readonly
+	<br>
+	תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+	orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+	- alex@הדומיין הזה
+	</small>
+	
+</div>
+
+    </section>
+
+
+
+
+
+<footer id='footer'>
+
+</footer>
+
+
+ <!-- /container -->
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+
+ 
+
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</div></div></body>
+</html>

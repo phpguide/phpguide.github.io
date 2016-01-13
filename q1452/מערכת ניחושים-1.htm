@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מערכת ניחושים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="phpon">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מערכת ניחושים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מערכת ניחושים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מערכת ניחושים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מערכת ניחושים-1.htm" title="ניסתי לעשות מערכת ניחושים-מין משחק חמוד כזה. יש 5 ניסיונות למצוא מספר רנדומלי ולאחר 5 ניסיונות הוא חושף את המספר הרנדומלי שנבחר.השתמשתי בלולאות for ובrand בשביל לעשות מספר רנדומלי ולעשות 5 אפשרויות אבל משהו לא מובן פה.בנוסף אני מתחיל ללמוד עוגיות וסשן בקרוב ועכשיו אני לומד query string והבנתי שמשתמשים בזה במסדי נתונים שבונים מערכות(תקנו ואתי אם אני טועה.) להלן: שני קודיםהראשון מערכת ניחושים:&amp;lt;?php
+">מערכת ניחושים</a></h2>
+<div class="userinfo">
+פתח
+<a>phpon</a>
+,
+<time class="timeago relativetime" datetime="2013-05-15T12:14:37+03:00" style="display:inline-block;">
+15 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1452'>
+ניסתי לעשות מערכת ניחושים-מין משחק חמוד כזה. <br>יש 5 ניסיונות למצוא מספר רנדומלי ולאחר 5 ניסיונות הוא חושף את המספר הרנדומלי שנבחר.<br><br>השתמשתי בלולאות for ובrand בשביל לעשות מספר רנדומלי ולעשות 5 אפשרויות אבל משהו לא מובן פה.<br>בנוסף אני מתחיל ללמוד עוגיות וסשן בקרוב ועכשיו אני לומד query string והבנתי שמשתמשים בזה במסדי נתונים שבונים מערכות(תקנו ואתי אם אני טועה.) להלן: שני קודים<br>הראשון מערכת ניחושים:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$number</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;submitButton&quot;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="re0">$life</span> <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span><br>
+<span class="re0">$random</span> <span class="sy0">=</span> <span class="kw3">rand</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">for</span> <span class="br0">&#40;</span> <span class="re0">$life</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$life</span> <span class="sy0">&lt;</span> <span class="nu0">6</span><span class="sy0">;</span> <span class="re0">$life</span><span class="sy0">--</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$number</span> <span class="sy0">&gt;</span> <span class="re0">$random</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;the number is bigger than your number chose&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span> <span class="re0">$number</span> <span class="sy0">&lt;</span> <span class="re0">$random</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;the number is smoller than your number chose&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$life</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;the random number is:<span class="es4">$random</span>&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;submitButton&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="re0">$random</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;good jub man! &quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+<br>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;<br>
+&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Membership Form&lt;/title&gt;<br>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;common.css&quot; /&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;form action=&quot;randomNumber.php&quot; method=&quot;post&quot;&gt;<br>
+<br>
+&lt;input type=&quot;text&quot; name=&quot;text&quot; id=&quot;text&quot; value=&quot;&quot; /&gt;<br>
+&lt;button type=&quot;submit&quot; name=&quot;submitButton&quot; id=&quot;submitButton&quot; value=&quot;click here!&quot;&gt;&lt;/button&gt;<br>
+&lt;/form&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br>זה משהו מקורי משלי-הרעיון עצמו לא אבל הכנתי אותה לבד אפשר להגיד.<br><br>עבודה עם query <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="re0">$firstName</span> <span class="sy0">=</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st0">&quot;firstName&quot;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="re0">$homePage</span> <span class="sy0">=</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st0">&quot;homePage&quot;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="re0">$favoriteSport</span> <span class="sy0">=</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st0">&quot;favoriteSport&quot;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="st0">&quot;&lt;dl&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;&lt;dt&gt;First name:&lt;/dt&gt;&lt;dd&gt;<span class="es4">$firstName</span>&lt;/dd&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;&lt;dt&gt;Home page:&lt;/dt&gt;&lt;dd&gt;<span class="es4">$homePage</span>&lt;/dd&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;&lt;dt&gt;favorite sport:&lt;/dt&gt;&lt;dd&gt;<span class="es4">$favoriteSport</span>&lt;/dd&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;&lt;/dl&gt;&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>זה אמור לא לעבוד? </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6491">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6491" href="מערכת ניחושים-1.htm#answer_6491">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה צריך לשמור איפשהו את המספר הרנדומלי שהמערכת בחרה בתחילת המשחק<br>ובכל שלב הבא במשחק אתה צריך לקבל נתונים מהמשתש ולהשוות אותם למה שהמערכת זוכרת.<br>בשביל לממש &quot;זיכרון&quot; למערכת - עליך להשתמש בקוקיז. או בסשן. על שניהם יש מדריכים באתר וממליץ להתחיל מהראשון. </p>
+</div>
+<div class="answer" id="answer6494">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6494" href="מערכת ניחושים-1.htm#answer_6494">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני אמור לעשות זאת ללא מסד..אין בעייה עם הרענן, זה יותר כמו ש&quot;ב..בהמשך נשים לזה מסד והכל (:<br>יש לךרעיון? וזה אמור להיות בלי סשן עוגיות ודברים כאלו..רק בעזרת פוסט/גט/ריקוסט ולולאות, פונקציות וכל זה. </p>
+</div>
+<div class="answer" id="answer6495">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6495" href="מערכת ניחושים-1.htm#answer_6495">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקיי רעיון-תבנה משהו שאומר שורש של מספר הפונקציה נקראת sqrt וגם תבנה חזקה הפונקציה נקראת pow ובבדיקה שלהם תבדוק עם קיים המשתנה ואם זה מספר is_numeric זה תרגיל טוב. </p>
+</div>
+<div class="answer" id="answer6497">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6497" href="מערכת ניחושים-1.htm#answer_6497">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ניסיתי להבין אבל לא ממש הצלחתי, תוכל להגיד שוב? </p>
+</div>
+<div class="answer" id="answer6498">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6498" href="מערכת ניחושים-1.htm#answer_6498">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לדעתי הוא הציעה שתבנה מחשבון.<br>איך לממש את המשימה שלך בלי עוגיות וסשנים - תחשוב לבד. אתה צריך לשמור בין בקשה לבקשה את המספר שנבחר.<br>איפה אתה יכול לשמור את המספר הזה?<br>איפה אתה יכול לשמור את מספר הניחושים שהמשתמש עשה עד עכשיו?<br>למזלך, יש לך רק אופציה אחת. אתה צריך להגיע אליה. </p>
+</div>
+<div class="answer" id="answer6500">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6500" href="מערכת ניחושים-1.htm#answer_6500">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תרגיל לאמון-<br>1.חזקה של 2 מספרים עם בדיקה עם הכניסו נתונים ואם הנתונים מספר<br>2.כמו 1 רק במקום חזקה שורש של מספר 1 ואותם בדיקות. </p>
+</div>
+<div class="answer" id="answer6502">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 16 למאי 2013 </span>
+<a id="answer_6502" href="מערכת ניחושים-1.htm#answer_6502">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אלכס יש פתרון לדבר הזה? עם מסד? <br>אמםםם אין שום סיכוי לפתור אתזה ללא מסד, סשן ועוגיות </p>
+</div>
+<div class="answer" id="answer6506">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 16 למאי 2013 </span>
+<a id="answer_6506" href="מערכת ניחושים-1.htm#answer_6506">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה שאני אמרתי זה תרגול למתכנתים בלי מסד מה שמגריל מספר 5 פעמים בחירה חייב מסד אבל לא צריך עוגיות וסשן בכלל אלא אם אתה רוצה להוסיף כסף למי שהצליח למשתמש שלו אז כן צריך אבל מסד תמיד חייב עם זה 5 ניסיונות </p>
+</div>
+<div class="answer" id="answer6507">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 16 למאי 2013 </span>
+<a id="answer_6507" href="מערכת ניחושים-1.htm#answer_6507">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן. התכוונתי שיש ל פתרון אחד בלי סשן, עוגיות ומסד. <br>רמז, תקרא שוב את <a href="מערכת ניחושים.htm#answer_6494">ההודעה </a>של עצמך. </p>
+</div>
+<div class="answer" id="answer6509">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 16 למאי 2013 </span>
+<a id="answer_6509" href="מערכת ניחושים-1.htm#answer_6509">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נשמע לי כמו עבודה ל hidden input, אבל כשאפשר, עדיף לעבוד עם סשנים. </p>
+</div>
+<div class="answer" id="answer6518">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 17 למאי 2013 </span>
+<a id="answer_6518" href="מערכת ניחושים-1.htm#answer_6518">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נשמע הגיוני, בכל מקרה התחלתי לללמוד עוגיות וסשן<br>נעדכן ואתכם בקרוב (:<br>אני גם קרוב מאוד להתחיל לעבוד עם שרת, אבל אני רוצה להמשיך לתרגל את מה שלמדתי, יש לכם רעיונות טובים? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

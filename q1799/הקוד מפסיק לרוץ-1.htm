@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הקוד מפסיק לרוץ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="soogo">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הקוד מפסיק לרוץ | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הקוד מפסיק לרוץ | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הקוד מפסיק לרוץ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הקוד מפסיק לרוץ-1.htm" title="יצרתי כפתור &amp;quot;עריכה&amp;quot; שבלחצה הופך לכפתור &amp;quot;שמירה&amp;quot; ובלחיצה נוספת הופך לכפותר &amp;quot;עריכה&amp;quot;אבל אחרי לחיצה אחת הקוד מפסיק לרוץ$&amp;#40;document&amp;#41;.ready&amp;#40;function&amp;#40;&amp;#41;
+&amp;#123;
+&amp;nbsp; &amp;nbsp; $&amp;#40;">הקוד מפסיק לרוץ</a></h2>
+<div class="userinfo">
+פתח
+<a>soogo</a>
+,
+<time class="timeago relativetime" datetime="2014-02-13T22:35:26+02:00" style="display:inline-block;">
+13 לפברואר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1799'>
+יצרתי כפתור &quot;עריכה&quot; שבלחצה הופך לכפתור &quot;שמירה&quot; ובלחיצה נוספת הופך לכפותר &quot;עריכה&quot;<br>אבל אחרי לחיצה אחת הקוד מפסיק לרוץ<br><div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;.edit&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;.edit&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>replaceWith<span class="br0">&#40;</span><span class="st0">&quot;&lt;a href=<span class="es1">\&quot;</span>#<span class="es1">\&quot;</span> class=<span class="es1">\&quot;</span>save<span class="es1">\&quot;</span>&gt;Save&lt;/a&gt;&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;.save&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;.save&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>replaceWith<span class="br0">&#40;</span><span class="st0">&quot;&lt;a href=<span class="es1">\&quot;</span>#<span class="es1">\&quot;</span> class=<span class="es1">\&quot;</span>edit<span class="es1">\&quot;</span>&gt;Edit&lt;/a&gt;&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8215">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2118ee7a6a5aba7f606abe23bcede72a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>net5basal</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2014 </span>
+<a id="answer_8215" href="הקוד מפסיק לרוץ-1.htm#answer_8215">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עשית פה שתי כפתורים שונים לפי מה שאני רואה<br>בקטע קוד הראשון אתה לוחץ על כפתור אחד ובקטע השני על כפתור אחר<br>תסביר יותר את הבעיה<br>ותשים את הקוד של הHTML גם </p>
+</div>
+<div class="answer" id="answer8217">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2014 </span>
+<a id="answer_8217" href="הקוד מפסיק לרוץ-1.htm#answer_8217">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="sy0">&lt;</span>a href<span class="sy0">=</span><span class="st0">&quot;#&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;edit&quot;</span><span class="sy0">&gt;</span>Edit<span class="sy0">&lt;/</span>a<span class="sy0">&gt;</span></div><br><br>זה כפתור שמשנה את העיצוב שלו בהתאם ללחיצה<br>אבל אחרי שאני מפעיל את הפונקציה הראשונה הפונקציה השנייה לא מתבצעת כשקוראים לה </p>
+</div>
+<div class="answer" id="answer8218">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2014 </span>
+<a id="answer_8218" href="הקוד מפסיק לרוץ-1.htm#answer_8218">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;.edit&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span>replaceWith<span class="br0">&#40;</span><span class="st0">&quot;&lt;a href=<span class="es1">\&quot;</span>#<span class="es1">\&quot;</span> class=<span class="es1">\&quot;</span>save<span class="es1">\&quot;</span>&gt;Save&lt;/a&gt;&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;.save&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span>replaceWith<span class="br0">&#40;</span><span class="st0">&quot;&lt;a href=<span class="es1">\&quot;</span>#<span class="es1">\&quot;</span> class=<span class="es1">\&quot;</span>edit<span class="es1">\&quot;</span>&gt;Edit&lt;/a&gt;&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer8219">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2118ee7a6a5aba7f606abe23bcede72a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>net5basal</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2014 </span>
+<a id="answer_8219" href="הקוד מפסיק לרוץ-1.htm#answer_8219">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תסביר לי משהו אחד כי אני לא מבין<br>בפונקציה השניה אתה קורא לאלמנט עם קלאס של SAVE שאתה לוחץ על האלמנט הזה ואני לא רואה בHTML שלך שום אלמנט כזה<br><br>אה אתה יוצר אותו בלחיצה הראשונה הבנתי בסדר.<br>כן הפתרון שנתנו לך אמור לעבוד </p>
+</div>
+<div class="answer" id="answer8221">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2014 </span>
+<a id="answer_8221" href="הקוד מפסיק לרוץ-1.htm#answer_8221">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הפתרון שנתנו לא עובד<br>זה נשאר אותו דבר </p>
+</div>
+<div class="answer" id="answer8224">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 14 לפברואר 2014 </span>
+<a id="answer_8224" href="הקוד מפסיק לרוץ-1.htm#answer_8224">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה אתה כותב html בJS? ועוד עם jQuery? זאת שיטה מכוערת וממש לא יעילה.<br>תשתמש ב toggle ולא בreplaceWith<br>משהו כזה:<br><div class="php codeblock"><span class="sy0">&lt;!--</span> <span class="coMULTI">/* Style */</span> <span class="sy0">--&gt;</span><br>
+<span class="sy0">&lt;</span>style<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">.</span>toggleable<span class="br0">&#123;</span> display<span class="sy0">:</span>none<span class="sy0">;</span> <span class="br0">&#125;</span><br>
+&nbsp; <span class="sy0">.</span>toggleable<span class="sy0">:</span>first<span class="sy0">-</span>of<span class="sy0">-</span>type<span class="br0">&#123;</span> display<span class="sy0">:</span> block<span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;!--</span> <span class="coMULTI">/* Script */</span> <span class="sy0">--&gt;</span><br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+$<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">var</span> toggleables <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st0">&quot;.toggleable&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; toggleables<span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; e<span class="sy0">.</span>preventDefault<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; toggleables<span class="sy0">.</span>toggle<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span><br>
+<span class="sy0">&lt;!--</span> <span class="coMULTI">/* Elements */</span> <span class="sy0">--&gt;</span><br>
+<span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;toggleables&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>a href<span class="sy0">=</span><span class="st0">&quot;#&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;save toggleable&quot;</span><span class="sy0">&gt;</span>Save<span class="sy0">&lt;/</span>a<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>a href<span class="sy0">=</span><span class="st0">&quot;#&quot;</span> <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;edit toggleable&quot;</span><span class="sy0">&gt;</span>Edit<span class="sy0">&lt;/</span>a<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="למה ללמוד ולהשתמש בספריית Jquery?">
+<meta name="keywords" content="ספריית Jquery">
+<meta name="author" content="zacharya">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מה זה ספריית Jquery ולמה לעבוד איתה?</title>
+<meta itemprop="name" content="מה זה ספריית Jquery ולמה לעבוד איתה?">
+<meta itemprop="description" content="למה ללמוד ולהשתמש בספריית Jquery?">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"337","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מה זה ספריית Jquery ולמה לעבוד איתה?</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">zacharya, </div>
+<div class="right">&nbsp;<time datetime="2013-09-20T23:26:30+03:00" dir="rtl">20 לספטמבר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="" alt="מה זה ספריית Jquery ולמה לעבוד איתה?">
+</div>
+<div class="right post-content">
+ספריית Jquery היא ספרייה מוכרת המשתייכת לשפה JavaScript, אבל למה בכלל להשתמש בה? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+לא מזמן פנה אליי חבר שרק התחיל ללמוד על סביבת הWeb, אחרי שהוא למד html&amp;css הוא התקדם לשפה המוכרת - JavaScript, אבל משום מה, הוא קצת התקשה בה, כמעט כל פעולה שהוא ניסה לעשות הצריכה ממנו לכתוב קוד לא קצר, בסופו של דבר קצת נמאס לו והוא שאל אותי אם יש דרך יותר קצרה לעשות את כל הפעולות האלו, תנחשו מה הייתה התשובה שלי? כן - Jquery.<br><br>אני רוצה להתחיל בהברה, JQ היא לא שפה מפני עצמה (למרות שיש לה דוקומנטציה משלה), אלא היא ספרייה שנבנתה על מנת להקל על המתכנת, למה אני מתכוון?<br>הספרייה (שמתם לב שקראתי לה ספרייה ולא שפה כן?) נבנתה על השפה JavaScript בצורה כזאת שאם נשתמש בה נוכל לחסוך זמן רב של עבודה, היא ספרייה של פונקציות שהוכנו להקלה על העבודה, רוצים לראות דוגמה?<br><div class="php codeblock"><span class="sy0">&lt;!</span>DOCTYPE html<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+<br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">function</span> <span class="kw3">date</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;dateHere&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>innerHTML<span class="sy0">=</span><span class="kw3">Date</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;/script&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp;<span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">&lt;</span>p id<span class="sy0">=</span><span class="st0">&quot;dateHere&quot;</span><span class="sy0">&gt;&lt;/</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">&lt;</span>button type<span class="sy0">=</span><span class="st0">&quot;button&quot;</span> onclick<span class="sy0">=</span><span class="st0">&quot;date()&quot;</span><span class="sy0">&gt;</span>get date<span class="sy0">&lt;/</span>button<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br>קוד די קצר נכון? אני מניח שכולכם מבינים מה הקוד עושה - ברגע הלחיצה על הכפתור, הפסקה עם הID dateHere תקבל את התאריך של היום.<br>אבל מה אם יש לנו מאות של כפתורים? נעבור אחד אחד ונעשה onclick?<br>שימו לב לקוד הבא:<br><div class="php codeblock"><span class="sy0">&lt;!</span>DOCTYPE html<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+<br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;body&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>find<span class="br0">&#40;</span><span class="st0">&quot;button&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#dateHere&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>text<span class="br0">&#40;</span><span class="kw3">Date</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;/script&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+<br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>p id<span class="sy0">=</span><span class="st0">&quot;dateHere&quot;</span><span class="sy0">&gt;&lt;/</span>p<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>button type<span class="sy0">=</span><span class="st0">&quot;button&quot;</span><span class="sy0">&gt;</span>get date<span class="sy0">&lt;/</span>button<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br>הקוד יחזיר לנו אותה תוצאה, אבל הוא יחפש את כל הכפתורים שבדף, ועל לחיצה עליהם הוא יחזיר את התאריך לפסקה. וזו רק דוגמה אחת מתוך מאות שמקצרת ועושה את העבודה קלה יותר.<br><br><span style="color:darkblue;"><strong><h3>אז ללמוד רק JQ?</h3></strong></span><br>ברור שלא, עד כמה שהספרייה עושה את העבודה קצרה יותר, היא לא מושלמת, יש דברים שאין בה וחייבים להשתמש בJavaScript, למשל כמו לולאות, או תנאים, וכדו&#039;, כמובן שאתם גם צריכים להבין את השפה ואת דרך העבודה שלה על מנת ללמוד JQ בצורה יעילה.<br><br>זה היה מדריך קצר והראשון שלי תאמת, אשמח לשמוע קצת תגובות:) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=16&r=g&d=monsterid" alt="zacharya">
+<a>zacharya</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2587"></a>
+<div class="blog-comment">
+<span class='comment-author'>yonikal56</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/09/2013 12:08</span><br>
+מדריך נחמד, אבל הייתי מציע לך לעשות רק onclick ולא לפני זה find זה לא דרוש.<br>
+דבר שני כדאי תעבוד עם הזחות בjQuery כי יותר נוח עם הזחות ורוב האתרים שמלמדים jQuery אם לא כולם משתמשים בהזחות.<br>
+בהצלחה במדריכים הבאים שלך.</div>
+<a id="comment2588"></a>
+<div class="blog-comment">
+<span class='comment-author'>zacharya</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/09/2013 06:00</span><br>
+אני מודע לכך רק שאם עושים onclick בJquery בלי find הוא יעשה רק על האלמנט הראשון שעונה לid/class המדובר, ולשם ההדגמה הייתי צריך את זה על כל הכפתורים בדף.<br>
+ואני יודע בנוגע להזחות, אני תמיד משתמש אם כי כאן רשמתי את הקוד בתוך העורך של האתר וטאבים לא בדיוק עובדים כאן בצורה שאנו מעוניינים לה.<br>
+<br>
+תודה!</div>
+<a id="comment2589"></a>
+<div class="blog-comment">
+<span class='comment-author'>yonikal56</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/09/2013 10:35</span><br>
+זה נכון שהfind זה להכל.<br>
+דבר שני tab = 8 רווחים.</div>
+<a id="comment2590"></a>
+<div class="blog-comment">
+<span class='comment-author'>yonikal56</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/09/2013 03:14</span><br>
+*טאב = 4 רווחים לא 8 התבלבלתי.</div>
+<a id="comment2591"></a>
+<div class="blog-comment">
+<span class='comment-author'>zacharya</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/09/2013 06:40</span><br>
+אתה זה לא ידעתי אני פשוט משתמש במקש טאב כשאני בנוטפד++XD<br>
+תודה אני אדע מעכשיו.</div>
+<a id="comment2592"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/09/2013 06:57</span><br>
+תכתוב בנוטפאד ופשוט תעתיק לפה.</div>
+<a id="comment2593"></a>
+<div class="blog-comment">
+<span class='comment-author'>yonikal56</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/09/2013 10:44</span><br>
+עכשיו הקוד קבל צורה יפה:) </div>
+<a id="comment2594"></a>
+<div class="blog-comment">
+<span class='comment-author'>zacharya</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/09/2013 02:19</span><br>
+אלכס במדריך הבא אני אעשה את זה תודה.<br>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

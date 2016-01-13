@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="בדיקת תקינות אימייל באמצעות PHP - פונקציה שבודקת אם כתובת האימייל תקינה וקיימת, ומסנן פשוט המובנה ב-PHP.">
+<meta name="keywords" content="email, mail validation, בדיקת אימייל, אימייל, תקינות, אימייל תקין">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>בדיקת תקינות אימייל ב-PHP</title>
+<meta itemprop="name" content="בדיקת תקינות אימייל ב-PHP">
+<meta itemprop="description" content="בדיקת תקינות אימייל באמצעות PHP - פונקציה שבודקת אם כתובת האימייל תקינה וקיימת, ומסנן פשוט המובנה ב-PHP.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"21","rating":"36","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>בדיקת תקינות אימייל ב-PHP</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-10-08T05:38:33+02:00" dir="rtl">08 לאוקטובר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.websitemagazine.com/images/blog/gmail-mini.gif" alt="בדיקת תקינות אימייל ב-PHP">
+</div>
+<div class="right post-content">
+כמו כל נתון אחר שהמשתמש שולח לנו, לא נסתמך על כתובות אימייל. נצטרך לבדוק לא רק אם כתובת האימייל תקנית, אלא גם אם האימייל באמת קיים. PHP באה לעזרתנו, ומספקת מסנן מובנה לבדיקת תקינות אימייל. לפני שנראה איך להשתמש בו, ננסה לכתוב פונקציה כזאת בעצמנו. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+תיקוף אימייל מתבצע בשני שלבים:<br>1. בדיקה שמבנה כתובת האימייל שנשלחה תקין (הכתובת מכילה שטרודל, דומיין וכו&apos;).<br>2. בדיקה שהאימייל הזה באמת קיים בטבע.<br><br><h2>הפונקציה</h2><br><div class="php codeblock"><span class="kw2">function</span> isValidEmail<span class="br0">&#40;</span><span class="re0">$mail</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">strpos</span><span class="br0">&#40;</span><span class="re0">$mail</span><span class="sy0">,</span> <span class="st_h">'@'</span><span class="br0">&#41;</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$host</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st0">&quot;@&quot;</span><span class="sy0">,</span><span class="re0">$mail</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">$mxarr</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$regexp</span> <span class="sy0">=</span> <span class="st_h">'/^[-!#$%&amp;\'*+\\.\/0-9=?A-Z^_`{|}~]+@([-0-9A-Z]+\.)+([0-9A-Z]){2,4}$/i'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$regexp</span><span class="sy0">,</span> <span class="re0">$mail</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">getmxrr</span><span class="br0">&#40;</span><span class="re0">$host</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="re0">$mxarr</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><h2>כתובת האימייל תקינה?</h2><br>כתובת אימייל תקינה מורכבת משלושה חלקים: שם, דומיין וסיומת הדומיין (<span dir="ltr"><a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="211061130f12">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script></span>).<br>השם יכול להיות מורכב:<br>1. מאותיות אנגלית (גדולות וקטנות).<br>2. מספרות.<br>3. מנקודה - אם היא לא ראשונה ולא אחרונה, וגם לא מופיעה פעמיים ברצף.<br>4. מכל אחד מהתווים הבאים: <span dir="ltr">! # $ % &amp; &apos; * + - / = ? ^ _ ` { | } ~</span><br>את הבדיקה הזו מבצע הביטוי הרגולרי בפונקציה למעלה, שתחזיר false עם כתובת האימייל לא תקינה.<br><br><h2>נוותר גם על אימיילים לא קיימים</h2><br>אימייל כמו <a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="2f4e404a4a5a6f4b47405b4147565b414b4b57475b41475b415a475b014c4042">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script> כנראה לא קיים בכלל, אבל תקין מבחינת התווים שיש בו, וסביר להניח שניתקל באחד כזה אצל הנרשמים לאתר. במקרה הזה באה לעזרתנו הפונקציה המובנית getmxrr, שבודקת אם יש <span dir="ltr">MX Record</span> - &rlm;(<span dir="ltr">Mail Exchanger Record</span>) עבור הדומיין הזה.<br><br><h3>מהן רשומות MX?</h3><br>כאשר אנחנו שולחים אימייל ל<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="614c120e0c040e0f04210419000c110d044f020e0c">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>, תוכנת האימייל שלנו בודקת לאן מוביל הדומיין example.com, כלומר לאיזו כתובת IP לשלוח את האימייל. אותו דבר עושה בעצם הדפדפן כאשר אנחנו גולשים לאתר כלשהו; לפי שם הדומיין הוא מגלה לאיזה שרת לשלוח את הבקשה.<br><br>ניתן להגדיר לכל דומיין יעדים שונים עבור שרת הדואר או שרת האינטרנט, ולכן לכל דומיין יש כמה רשומות שונות מסוגים שונים, וביחד הן נקראות DNS Records. יש רשומה שמנתבת דוא&quot;ל, רשומה שמנתבת גלישה לאתר, שורה שאליה סתם מכניסים טקסט אודות הדומיין...<br><br><h3>הפונקציה getmxrr</h3><br>הפונקציה getmxrr בודקת האם יש לדומיין הנתון רשומת MX. אם היא קיימת, אזי הדואר שנשלך אל הדומיין הזה כנראה מגיע לאיפשהו; אם היא לא קיימת, אזי אין שרת דואר שאליו יגיע האימייל, או שדומיין כזה פשוט לא קיים. לכן אין סיבה בכלל לשלוח לשם את האימייל שלנו, ויכול להיות שזה רק יזיק לציוני הספאם שלנו.<br><br>לסיכום, בדיקת תקינות האימייל מסתפקת בשני שלבים: בדיקה האם פורמט האימייל תקין ואם יש מען בכתובת שנמסרה.<br><br><h2>תיקוף באמצעות מסנן מובנה</h2><br>הביטוי הרגולרי למעלה נראה לנו מושלם, אך הוא רחוק מזה; ישנם כללים מסובכים יותר מאלה שכתבנו. לאור זאת, אפשר ורצוי להחליף אותו במסנן מובנה שיבדוק את תקינותה של כתובת האימייל. הנה הפונקציה הסופית:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<br>
+<span class="kw2">function</span> isValidEmail<span class="br0">&#40;</span><span class="re0">$mail</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">filter_var</span><span class="br0">&#40;</span><span class="re0">$mail</span><span class="sy0">,</span> FILTER_VALIDATE_EMAIL<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$host</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st0">&quot;@&quot;</span><span class="sy0">,</span><span class="re0">$mail</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">$mxarr</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">getmxrr</span><span class="br0">&#40;</span><span class="re0">$host</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$mxarr</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+&nbsp;isValidEmail<span class="br0">&#40;</span><span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="c6b2a3b5b286b6aeb6a1b3afa2a3e8a5a9e8afaa">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// true</span><br>
+&nbsp;isValidEmail<span class="br0">&#40;</span><span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="7f0b1a0c0b3f0f170f180a161b1a4b4b4b4b4b4b511c10511613">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// false</span></div><br><br><h3>גם התיקוף הזה לא מושלם</h3><br>קודם כול, לפי <a href="http://www.faqs.org/rfcs/rfc2821">RFC 2821</a>, כשאין רשומות MX ב-DNS (שזה מה שהפונקציה getmxrr בודקת), שם המארח עצמו אמור לשמש כ-MX היחיד. אותנו זה לא אמור לעניין, כי כל המשתמשים שלנו ישתמשו בשירות דוא&quot;ל נורמלי מספיק כדי לספק רשומות MX ב-DNS.<br><br>אם זו לא בעיה, מה כן? ובכן, יכול להיות שכתובת האימייל תקינה, ושבאמת קיים אימייל כזה, אבל מי אמר שזה באמת האימייל הנכון? אולי המשתמש שלנו טעה בהקלדה? או אולי הוא הזין כתובת אימייל של מישהו אחר בכוונה (כי הוא ספאמר)? לכן נצטרך גם לשלוח <strong>אימייל אימות</strong>, שבו נבקש מהמשתמש ללחוץ על קישור הפעלה עם ערך רנדומלי ארוך, ועד שלא תישלח בקשה כזאת לאתר שלנו - המשתמש יהיה מוקפא. (מובן שנצטרך גם לעבוד עם בסיס נתונים.)<br><br><em>נערך לאחרונה ב-18.1.2014 על ידי <a href="users\OrelBeY.htm">אוראל</a>.</em> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment145"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/05/2011 12:24</span><br>
+gfdh</div>
+<a id="comment171"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/06/2011 10:46</span><br>
+יפה מאוד</div>
+<a id="comment230"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2011 14:13</span><br>
+תודה , זה עזר לי :)</div>
+<a id="comment382"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/07/2011 02:23</span><br>
+מדריך לא כל כך טוב אין פרוט על כל פונקצייה <br>
+לא מובן =\</div>
+<a id="comment385"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/07/2011 08:22</span><br>
+אין פה מה להבין. המטרה היא שתראה את הפונקציה, תלמד מהקוד שאפשר לבדוק לא רק האם האימייל נראה תקין מבחינה וויזואלית, אלה אפילו לבדוק אם הוא באמת קיים, לדוגמה<br>
+<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="a7c6cbc2dfe7d7cfd7c0d2cec3c289c4c889cecb">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script> קיים<br>
+<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="4b2a272e330b3b233b2c3e222f2e65282426652227">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script> לא קיים<br>
+למרות שמבחינה תחבירית שניהם תקינים.<br>
+<br>
+להסביר את התפקיד של הפונקציות הפנימיות זה עבודה של הדוקומנטציה, לא שלי. אם אין לך מושג מה עושה explode, filter_var, getmxrr - תפתח את הדוקומנטציה ותקרא.</div>
+<a id="comment659"></a>
+<div class="blog-comment">
+<span class='comment-author'>objet</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2011 09:27</span><br>
+הי אלכס,<br>
+מה שלומך?<br>
+<br>
+שאתה מדבר על &quot;בדיקה שהאימייל הזה באמת קיים בטבע&quot;,<br>
+אם אני מבין אותך נכון אתה מדבר אך ורק על צורה תחבירית ולא על קיום של כתובת מייל כמו <a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="d1b0bdb4a991a1b9a1b6a4b8b5b4ffb2bebcffb8bd">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>
+שהיא לא קיימת נכון ?</div>
+<a id="comment660"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2011 10:19</span><br>
+גם בדיקה כזו הוא מבצע .</div>
+<a id="comment661"></a>
+<div class="blog-comment">
+<span class='comment-author'>objet</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2011 10:24</span><br>
+טוב לדעת.<br>
+תודה!</div>
+<a id="comment664"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2011 14:25</span><br>
+עוד יותר טוב לבדוק :)</div>
+<a id="comment1023"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2012 20:08</span><br>
+מוזר...<br>
+חסר פה החלק של האם קיים כזה אימייל................</div>
+<a id="comment1024"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/01/2012 21:12</span><br>
+יש על זה 5 פסקאות שלמות עם הכותרת<br>
+נוותר גם על אימיילים לא קיימים: <a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="8cede3e9e9f9cce8e4e3f8e2e4f5f8e2e8e8f4e4f8e2e4f8e2f9e4f8a2efe3e1">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script></div>
+<a id="comment1025"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/01/2012 13:21</span><br>
+מה עדיף:<br>
+לעשות ביטוי מעצמי?<br>
+או להשתמש בפילטר הקיים?<br>
+אם עדיף פילטר - אפשר לראות את הביטוי שעומד מאחוריו?<br>
+<br>
+כי אני משתמש בזה:<br>
+/^([a-zA-Z\d]+_?)+$/ - והבעייה היא שיש נקודה בהתחלה אז אפשר להכניס כל מיני סימנים לא רצויים<br>
+(מצד שני לשים הגבלה רק לאותיות ומספרים זה לא טוב כי יש ספקים שמשתמשים בסימנים נוספים<br>
+<br>
+מה לעשות?</div>
+<a id="comment1026"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/01/2012 13:23</span><br>
+** הערה*<br>
+הביטוי הוא:<br>
+/.+@\w+(\.\w+)+$/ <br>
+(משום מה האתר פה מראה את זה הפוך,אז תקראו את זה מימין לשמאל[מתחיל בנקודה)]</div>
+<a id="comment1028"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhuil</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/01/2012 18:26</span><br>
+תמיד תשתמשו בפילטרים. הם מהירים יותר, חוסכים כאב ראש מיותר ועושים את העבודה כמו שצריך.</div>
+<a id="comment1030"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/01/2012 23:46</span><br>
+אני יחזק את מה ש ctulhu אמר.<br>
+את הביטוי מאחורי הפילטר אפשר לראות פה:<br>
+<span dir="ltr"><a href="https://github.com/php/php-src/blob/master/ext/filter/logical_filters.c">https://github.com/php/php-src/blob/master/ext/filter/logical_filters.c</a></span><br>
+שורה 525</div>
+<a id="comment1031"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/01/2012 23:46</span><br>
++ למה אתה ממציא את האופניים? הפונקציה כתובה למעלה. קח ותשתמש.</div>
+<a id="comment1034"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/01/2012 14:25</span><br>
+זה הפונקצייה שבודקת אם קיים כזה אימייל?<br>
+או שבודקת את התחביר?<br>
+<br>
+אם נשתמש בפונקציות אז הביטויים הרגולרים יוזנחו..לא כך?</div>
+<a id="comment1035"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/01/2012 16:32</span><br>
+המדריך כולל בערך 4 שורות פונקציה ועוד הרבה פיסקאות שמסבירות בדיוק מה היא עושה.<br>
+שזה גם בדיקה של תקינות תחבירית (עם ביטוי רגולרי או פילט, תלוי באיזה מהקוביות הכחולות אתה בוחר)<br>
+וגם קיימות רישום MX עבור אותה כתובת, כדי לבדוק שהיא הכן קיימת</div>
+<a id="comment1036"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/01/2012 22:41</span><br>
+ובקישור שהבאת(שחושף מה מאחורי הפילטר),זה נראה לי היה זאת שבודקת אם המייל קיים.(שורה 525)<br>
+ואני מחפש את הביטוי שמאחורי הפילטר שבודק תחביר של אימייל...<br>
+<br>
+</div>
+<a id="comment1037"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/01/2012 23:30</span><br>
+או שאני לא מבין אותך,<br>
+<br>
+אני יעשה לך סדר. כדי לבדוק שאימייל כתוב גם בצורה תחבירית נכונה _וגם_ קיים - אתה לוקח את ארבעת השורות במלבן בכחול בסוף המדריך ומעתיק לקוד שלך. זהו.<br>
+<br>
+הביטוי הרגולרי שעומד מאחורי הפילטר, *שבודק את _התחביר_*, נמצא בשורה 525.<br>
+המדריך לביטויים רגולריים באתר עשוי לעזור לך להבין את הביטוי ההוא.<br>
+זה הכל.</div>
+<a id="comment1038"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 00:06</span><br>
+אשמח לדעת איך שורה כזאת,בודקת רק תחביר אימייל:<br>
+/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD<br>
+&quot;צוטט משורה מס&apos; 525&quot;</div>
+<a id="comment1040"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 01:02</span><br>
+אני יכול רק להמליץ לך על מדריך ביטויים רגולריים או אפילו ספר.<br>
+<br>
+יש כללים מסוימים של תקינות כתובת אימייל, המתוארים במסמך שנקרא RFC 2822<br>
+(הקישור הראשון בגוגל לפי השם הזה)<br>
+<br>
+הביטוי הרגולרי הזה בודק בדיוק את מה שכתוב במסמך הזה, לא פחות ולא יותר</div>
+<a id="comment1041"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 01:27</span><br>
+לא הבנתי מילה.<br>
+שאני עושה ביטוי רגולרי (לתחביר אימייל)הוא נראה כך:<br>
+/.+@\w+(\.\w+)+$/ <br>
+ממילא הפילטר שבודק תחביר אימייל צריך להיות דומה (פלוס מינוס)<br>
+אז למה זה כל השורות שהובא בהודעה קודמת??<br>
+**ואני מדבר רק עלתחביר אימייל.[ולא על &apos;קיים בטבע&apos;]</div>
+<a id="comment1042"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 01:32</span><br>
+בקיצור:<br>
+איך נראה הביטוי הרגולרי &quot;שמסתתר&quot; מאחורי הפילטר FILTER_VALIDATE_EMAIL<br>
+[הבודק האם האימייל נכון מבחינה תחבירית]<br>
+זה הכל-</div>
+<a id="comment1043"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 03:23</span><br>
+זה /.+@\w+(\.\w+)+$/ שטויות.<br>
+והביטוי בשורה 525 הוא הביטוי שבודק את כל הכללים המתאימים. למה הוא יותר ארוך מהביטוי שאתה הבאת? כי הביטוי שאתה הבאת לא בדוק עשירית מהכללים שחלים על תחביר של כתובת דואר אלקטרונית נכונה. למה הביטוי שאתה הבאת כזה גרוע אני לא מתכוון להסביר. יש כללים, RFC 2822, יש מדריך ביטויים רגולריים. כל השאר לבד.</div>
+<a id="comment1068"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 14:30</span><br>
+2 דברים<br>
+א.[קצת באיחור אבל בכל זאת] רק תגיד בערך למה הביטוי שלי לא טוב בשביל לבדוק תחביר לאימייל(תנסה ותראה שזה עובד)<br>
+_*_*_*_**_*_*_*_*_**_*_*#_#*_*_#<br>
+<br>
+ב.[וזה העיקרי] אז אני יכול להשתמש רק בפילטר שבודק אם האימייל קיים בטבע וזהו!(כי אם זה קיים בטבע אז ממילא זה תחביר נכון..:)<br>
+?</div>
+<a id="comment1069"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 14:46</span><br>
+אין פילטר כזה שבודק &quot;רק אם קיים בטבע&quot;. את זה עושה פונקציית ה MX וכל מה שהיא בודקת זה שקיים דומיין וקיימת לו רשומת MX. כלומר מבחינת גם $$$@gmail.com יעבור.<br>
+<br>
+הפילטר הוא בסה&quot;כ ביטוי רגולרי פנימי שמנוע ה PHP עושה, לא שום דבר אחר.<br>
+הפילטר לא יודע אם <a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="1273707152465a575d5a465c5747465a5c57475d465a5c57475d465a5c5747465a5c5747465a5c5d57475a5c463c717d7f">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>
+קיים או לא. <br>
+<br>
+בגלל זה אתה צריך את שניהם.<br>
+<br>
+למשל הביטוי שלך יעביר <a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="38555d785f555951540a165b5755">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script></div>
+<a id="comment1070"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 15:24</span><br>
+מה הבעייה להריץ את זה: FILTER_VALIDATE_EMAIL על אינפוט בעזרת filter_input??</div>
+<a id="comment1071"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/01/2012 15:26</span><br>
+ועוד משהו:<br>
+ברגע שיש בדיקה של אימייל קיים בטבע<br>
+אז אם הוא קיים ממילא הוא גם תקין...ואז הבדיקה התחבירית מיותרת<br>
+ואם הוא לא קיים אז לא!</div>
+<a id="comment1119"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 23:08</span><br>
+ניסיתי את הקוד על האימייל שלי וזה מחזיר FALSE אחרי השורה:<br>
+$regexp = &apos;/^[-!#$%&amp;\&apos;*+\\.\/0-9=?A-Z^_`{|}~]+@([-0-9A-Z]+\.)+([0-9A-Z]){2,4}$/i&apos;;<br>
+if (!preg_match($regexp, $mail)) return false;<br>
+בטוח שהקוד נכון?</div>
+<a id="comment1120"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 23:44</span><br>
+כן. תצרף קישור לקוד ב phplive</div>
+<a id="comment1121"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/01/2012 09:24</span><br>
+<span dir="ltr"><a href="phplive.htm?code=246">http://phpguide.co.il/phplive?code=246</a></span> </div>
+<a id="comment1122"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/01/2012 12:10</span><br>
+אני לא צריך קישור ל copy paste של הקוד ל phplive<br>
+אני צריך את הקוד שלא עובד לך.<br>
+<br>
+<span dir="ltr"><a href="phplive-1.htm?code=247">http://phpguide.co.il/phplive?code=247</a></span> </div>
+<a id="comment1356"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/02/2012 22:05</span><br>
+לא עדיף להשתמש בפילטר או בביטוי רגולרי??</div>
+<a id="comment1371"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/02/2012 12:01</span><br>
+יופי טופי</div>
+<a id="comment1510"></a>
+<div class="blog-comment">
+<span class='comment-author'>hafuta</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/04/2012 00:49</span><br>
+מהתיעוד של PHP לגבי getmxrr:<br>
+<br>
+This function should not be used for the purposes of address verification. Only the mailexchangers found in DNS are returned, however, according to » RFC 2821 when no mail exchangers are listed, hostname itself should be used as the only mail exchanger with a priority of 0. <br>
+<br>
+ממה שאני מבין כאן הפונקציה תחזיר לך שרתי mx במידה וקיימים כאלו ב-DNS אבל זה לא אומר שאם לא מוגדרים אז בהכרח לא קיים שרת מייל לדומיין, אלא המיילים ינותבו ל-hostname. מה דעתך?<br>
+<br>
+</div>
+<a id="comment1514"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/04/2012 19:50</span><br>
+שב 99.9999 אחוז מהמקרים זה כנראה אומר שאין שרת מייל לדומיין ואף אחד לא הולך לקבל את המייל הזה שנשלך ל .hostname<br>
+<br>
+אם אני לא טועה, gmail אפילו לא שולח מיילים לדומיינים שאין להם mx ואתה מקבל הודעה על <br>
+mail delivery failure</div>
+<a id="comment1515"></a>
+<div class="blog-comment">
+<span class='comment-author'>hafuta</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/04/2012 22:35</span><br>
+מעולה, תודה</div>
+<a id="comment1588"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/06/2012 16:41</span><br>
+לא טוב</div>
+<a id="comment1844"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 09:47</span><br>
+יכול להיות שבשרתים מסויימים הפונקציה האחרונה לא תעבוד?</div>
+<a id="comment2756"></a>
+<div class="blog-comment">
+<span class='comment-author'>ישראל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/03/2014 16:54</span><br>
+העתקתי את הפונקציה אבל זה מדפיס לי שגיאה <br>
+Fatal error: Call to undefined function isValidEmailmail() <br>
+אשמח לעזרה תודה רבה ויום טוב </div>
+<a id="comment2757"></a>
+<div class="blog-comment">
+<span class='comment-author'>ישראל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/03/2014 16:55</span><br>
+תודה זה יסתדר לי <br>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעיה php sdk כנסו לראות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="gnhg">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>בעיה php sdk כנסו לראות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעיה php sdk כנסו לראות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעיה php sdk כנסו לראות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיה php sdk כנסו לראות-1.htm" title="עשיתי שכל מי שמחובר לאפליקצייה יכול לראות סרטון וזה מפרסם לו על הקיר.עכשיו יש שתי שלבים להתחברות של האפליקציה.הראשון לאשר תאפליקציה ואז זה מוביל לאישור נוסף שבו כתוב את ההרשאות שאני אוכל לפרסם לו על הקיר. ושמה יש 2 אפשריות (אשר ודלג)אם הוא לוחץ אשר הוא יוכל לראות את הסרטון וזה יפרסם לו על הקיר.אם הוא לוחץ דלג הוא יוכל גם לראות את הסרטון עם שגיאת קוד למטה וזה לא יפרס לו על הקיר!עכשיו איך אני עושה שיהיו חייבים ללחוץ אשר? אם הוא לוחץ דלג שלא יוכל לראות א הסירטון.. או ש">בעיה php sdk כנסו לראות</a></h2>
+<div class="userinfo">
+פתח
+<a>gnhg</a>
+,
+<time class="timeago relativetime" datetime="2012-08-28T11:51:29+03:00" style="display:inline-block;">
+28 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText976'>
+עשיתי שכל מי שמחובר לאפליקצייה יכול לראות סרטון וזה מפרסם לו על הקיר.<br>עכשיו יש שתי שלבים להתחברות של האפליקציה.<br>הראשון לאשר תאפליקציה ואז זה מוביל לאישור נוסף שבו כתוב את ההרשאות שאני אוכל לפרסם לו על הקיר. ושמה יש 2 אפשריות (אשר ודלג)<br>אם הוא לוחץ אשר הוא יוכל לראות את הסרטון וזה יפרסם לו על הקיר.<br>אם הוא לוחץ דלג הוא יוכל גם לראות את הסרטון עם שגיאת קוד למטה וזה לא יפרס לו על הקיר!<br>עכשיו איך אני עושה שיהיו חייבים ללחוץ אשר? אם הוא לוחץ דלג שלא יוכל לראות א הסירטון.. או שאם הוא לוחץ דלג זה פשוט לא ידלג לו זה ישאיר אותו עד שילחץ אשר...<br>הבנתם.??.<br>הנה הקוד המלא:<br><div class="php codeblock"><span class="sy1">&lt;?</span><br>
+<span class="kw1">include</span> <span class="br0">&#40;</span><span class="st0">&quot;config.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">session_start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$select_dafs</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM sirtonim WHERE id = '&quot;</span><span class="sy0">.</span><span class="kw3">intval</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;'&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span> <span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$r_daf</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span> <span class="br0">&#40;</span><span class="re0">$select_dafs</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;he&quot; lang=&quot;he&quot; dir=&quot;rtl&quot;&gt;<br>
+&lt;head&gt;<br>
+<br>
+<br>
+<br>
+&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;<br>
+<br>
+&lt;link rel=&quot;image_src&quot; href=&quot;<span class="sy1">&lt;?</span> <span class="kw1">echo</span> <span class="re0">$r_daf</span><span class="br0">&#91;</span><span class="st_h">'url'</span><span class="br0">&#93;</span><span class="sy1">?&gt;</span>&quot; /&gt;<br>
+<br>
+&lt;script src=&quot;http://connect.facebook.net/en_US/all.js#xfbml=1&quot;&gt;&lt;/script&gt;<br>
+&lt;script src=&quot;http://static.ak.fbcdn.net/connect.php/js/FB.Share&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; type=&quot;text/javascript&quot;&gt;<br>
+&lt;/script&gt;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;script src=&quot;http://code.jquery.com/jquery-1.5.1.min.js&quot;&gt;&lt;/script&gt;<br>
+<br>
+&nbsp;<br>
+&nbsp;<br>
+<br>
+<br>
+&lt;/head&gt;<br>
+&lt;body oncontextmenu=&quot;return false&quot; ondragstart=&quot;return false&quot; onselectstart=&quot;return false&quot;&gt; &nbsp; &nbsp;<br>
+<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+<span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">require_once</span><span class="br0">&#40;</span><span class="st_h">'facebook.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// Create our Application instance.</span><br>
+<span class="re0">$facebook</span> <span class="sy0">=</span> <span class="kw2">new</span> Facebook<span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; <span class="st_h">'appId'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'216303111831629'</span><span class="sy0">,</span><br>
+&nbsp; <span class="st_h">'secret'</span> <span class="sy0">=&gt;</span> <span class="st_h">'ee8קקק4c77'</span><span class="sy0">,</span><br>
+&nbsp; <span class="st_h">'cookie'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><br>
+<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$id</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">getUser</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="re0">$loginUrl</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">getLoginUrl</span><span class="br0">&#40;</span> <span class="co1">//קישור לחיבור + ההרשאות המבוקשות</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'scope'</span> <span class="sy0">=&gt;</span> <span class="st_h">'publish_stream,offline_access,publish_actions'</span> <span class="co1">//לרשום את כל ההרשאות שאתה צריך</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; try <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$user</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">api</span><span class="br0">&#40;</span><span class="st_h">'/me'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> catch <span class="br0">&#40;</span>FacebookApiException <span class="re0">$e</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$e</span><span class="sy0">-&gt;</span><span class="me1">getMessage</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp;<span class="sy1">&lt;?</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$user</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$user_profile</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">api</span><span class="br0">&#40;</span><span class="st_h">'/me'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$access_token</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">getAccessToken</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `users` (`id`,`access_token`) VALUES('&quot;</span> <span class="sy0">.</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">.</span> <span class="st0">&quot;','&quot;</span> <span class="sy0">.</span><span class="re0">$access_token</span><span class="sy0">.</span> <span class="st0">&quot;')&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$logoutUrl</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">getLogoutUrl</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;iframe src=&quot;'</span><span class="sy0">.</span><span class="kw3">stripslashes</span><span class="br0">&#40;</span><span class="re0">$r_daf</span><span class="br0">&#91;</span><span class="st_h">'tohen'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&quot; width=609 height=420 frameborder=0&gt;&lt;/iframe&gt;'</span><span class="sy0">;</span><br>
+&nbsp;<span class="re0">$fbme</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">api</span><span class="br0">&#40;</span><span class="st_h">'/me'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$attachment</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'link'</span> <span class="sy0">=&gt;</span> <span class="st_h">''</span><span class="sy0">.</span><span class="kw3">stripslashes</span><span class="br0">&#40;</span><span class="re0">$r_daf</span><span class="br0">&#91;</span><span class="st_h">'takzhir'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">''</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">api</span><span class="br0">&#40;</span><span class="st_h">'/me/feed/'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'post'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$attachment</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;a href='<span class="es4">$loginUrl</span>'&gt;Login&lt;/a&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4314">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a5ec422824e134a3f03759f54c73624a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>gnhg</a>
+ב
+<span style="font-size:10px"> 28 לאוגוסט 2012 </span>
+<a id="answer_4314" href="בעיה php sdk כנסו לראות-1.htm#answer_4314">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מישהו </p>
+</div>
+<div class="answer" id="answer4438">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef381d5754ac814d0c2fe7f8abed768c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dani3l</a>
+ב
+<span style="font-size:10px"> 03 לספטמבר 2012 </span>
+<a id="answer_4438" href="בעיה php sdk כנסו לראות-1.htm#answer_4438">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+להבא - תציין בכותרת שמדובר בפייסבוק!<br>אתה צריך להשתמש ב try catch כמו בקוד שהעתקת למעלה..<br><br><div class="php codeblock">try<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">api</span><span class="br0">&#40;</span><span class="st_h">'/me/feed/'</span><span class="sy0">,</span> <span class="st_h">'post'</span><span class="sy0">,</span> <span class="re0">$attachment</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<span class="br0">&#125;</span><br>
+catch <span class="br0">&#40;</span>FacebookApiException <span class="re0">$e</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// שגיאה רבותיי</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

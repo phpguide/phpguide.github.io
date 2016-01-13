@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="highQuery - פריימוורק עיצובי חזק ומהיר ! מעכשיו לעצב את כל האתר במינימום קוד ! (ללא ידע מוקדם בשפות צד שרת \ JS)  ובמדריך הנ&quot;ל : עבודה עם טפסים חלק א&apos; . נ">
+<meta name="keywords" content="שלמה אלבז,עיצוב טפסים,כפתורים,form,post,input,highQuery, shlomo120, css3, html5, jquery. UI">
+<meta name="author" content="shlomo120">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>HighQuery - פריימוורק עיצוב המתלבש על כל אתר! (טפסים - חלק א&apos;) #3</title>
+<meta itemprop="name" content="HighQuery - פריימוורק עיצוב המתלבש על כל אתר! (טפסים - חלק א&apos;) #3">
+<meta itemprop="description" content="highQuery - פריימוורק עיצובי חזק ומהיר ! מעכשיו לעצב את כל האתר במינימום קוד ! (ללא ידע מוקדם בשפות צד שרת \ JS)  ובמדריך הנ&quot;ל : עבודה עם טפסים חלק א&apos; . נ">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"257","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>HighQuery - פריימוורק עיצוב המתלבש על כל אתר! (טפסים - חלק א&apos;) #3</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">shlomo120, </div>
+<div class="right">&nbsp;<time datetime="2012-09-19T17:24:20+03:00" dir="rtl">19 לספטמבר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://up351.siz.co.il/up3/idwg55zi4mmn.jpg" alt="HighQuery - פריימוורק עיצוב המתלבש על כל אתר! (טפסים - חלק א&apos;) #3">
+</div>
+<div class="right post-content">
+highQuery - פריימוורק עיצובי חזק ומהיר ! מעכשיו לעצב את כל האתר במינימום קוד ! (ללא ידע מוקדם בשפות צד שרת \ JS) <br>ובמדריך הנ&quot;ל : עבודה עם טפסים חלק א&#039; . ניגע בנושאים הבאים : select, radio ו-switch. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אהלן.<br><br><a href="HighQuery  פריימוורק עיצוב המתלבש על כל אתר הקדמה 1.htm">מדריך ראשון : הקדמה</a><br><a href="HighQuery  פריימוורק עיצוב המתלבש על כל אתר תפריטי ניווט עליון 2.htm">מדריך שני : תפריט ניווט עליון</a><br><br><br>בואו נתחיל ישר לעבוד . <br><br>כמו שדיברנו במדריכים הקודמים , השימוש כאן הוא בעיקר ולרוב במעטפת Div .<br>גם האלמנטים שירכיבו בסופו של תהליך את הטפסים יהיו מורכבים מDivים . <br><br><span style="color:orange;"><strong>אל דאגה! הטפסים ימשיכו להשתייך לPHP על ידי המשתנה הגלובאלי $_POST ממש כמו אינפוט רגיל</strong></span><br>נבדוק זאת בהמשך על ידי הקוד הבסיסי הבא :<br><div class="php codeblock"><span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">//או</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#41;</span><span class="sy0">;</span></div> <br><br><h3> select :</h3><br>נגדיר את ה<strong>data-roll</strong> כselect (הסבר על התכונה הזו קיים במדריך הקודם - #2) .<br>נגדיר את הערך <strong>scroll </strong>(שמקבל רק true\false) כדי לקבל \ לא לקבל פס גלילה (הפס גלילה מעוצב, ממש כמו פס גלילה בJQuery רגיל )<br>נגדיר את ה<strong>name</strong> (השם) כדי שנוכל בעתיד לשייך אותו למשתנה הגלובאלי <span style="color:green;">$_POST</span> .<br>נגדיר את ה<strong>placeholder</strong> שהוא גם כמו באינפוט רגיל , הטקסט שיוצג למשתמש על הסלקט . הוא לא אפשרות ( ואם יבחר או שהמשתמש השאיר את זה כברירת מחדל הערך של הפוסט שלו יהיה null כי לא הוגדר לו דבר . )<br><br>עד כאן המעטפת . <br>אנו צריכים לקבל קוד כזה בערך : <br><div class="php codeblock"><span class="sy0">&lt;</span>div data<span class="sy0">-</span>roll<span class="sy0">=</span><span class="st0">&quot;select&quot;</span> scroll<span class="sy0">=</span><span class="st0">&quot;false&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;selector&quot;</span> placeholder<span class="sy0">=</span><span class="st0">&quot;Choose ...&quot;</span><span class="sy0">&gt;</span> <br>
+<br>
+<br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>עכשיו כדי להוסיף אפשרויות נפתח תג ul ובתוכו כמה תגי li שכל תג מסמל שורה לבחירה .<br>נגדיר לכל li את ה<strong>rel </strong>שלה כלומר את הערך שלה , במקרה שנרצה לעבוד עם PHP .<br><br>הקוד שלנו אמור להיראות עכשיו ככה :<br><div class="php codeblock"><span class="sy0">&lt;</span>div data<span class="sy0">-</span>roll<span class="sy0">=</span><span class="st0">&quot;select&quot;</span> scroll<span class="sy0">=</span><span class="st0">&quot;false&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;selector&quot;</span> placeholder<span class="sy0">=</span><span class="st0">&quot;Choose ...&quot;</span><span class="sy0">&gt;</span> <br>
+&nbsp; <span class="sy0">&lt;</span>ul<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>li rel<span class="sy0">=</span><span class="st0">&quot;Option 1&quot;</span><span class="sy0">&gt;</span>Option <span class="nu0">1</span><span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>li rel<span class="sy0">=</span><span class="st0">&quot;Option 2&quot;</span><span class="sy0">&gt;</span>Option <span class="nu0">2</span><span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>li rel<span class="sy0">=</span><span class="st0">&quot;Option 3&quot;</span><span class="sy0">&gt;</span>Option <span class="nu0">3</span><span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>ul<span class="sy0">&gt;</span> <br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>נפתח את הדפדפן ונקבל את התוצאה הבאה : <br><span class="dirleft"><img src="static\images\pixel.png" alt="HighQuery - פריימוורק עיצוב המתלבש על כל אתר! (טפסים - חלק א&#039;) #3" title="http://www.fastup.co.il/images/83199877.png" class="content-image-float"></span><br>(האפור על האפשרות השלישית זה העכבר שעומד עליה , אבל המחשב שלי לא מכניס אותו לצילום מסך .. (: )<br><br>ואם ניתן ל<strong>scroll</strong> ערך true - כלומר שיהיה ניתן לגלול <br>זה יראה בערך ככה (אני נותן את השורה הראשונה כי היא היחידה שמשתנה כאן .)<br><div class="php codeblock"><span class="sy0">&lt;</span>div data<span class="sy0">-</span>roll<span class="sy0">=</span><span class="st0">&quot;select&quot;</span> scroll<span class="sy0">=</span><span class="st0">&quot;true&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;selector&quot;</span> placeholder<span class="sy0">=</span><span class="st0">&quot;Choose ...&quot;</span><span class="sy0">&gt;</span> <br>
+<br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br>והתוצאה כזאת :<br><span class="dirleft"><img src="static\images\pixel.png" alt="HighQuery - פריימוורק עיצוב המתלבש על כל אתר! (טפסים - חלק א&#039;) #3" title="http://www.fastup.co.il/images/4374885.png" class="content-image-float"></span><br>(שוב : העכבר נמצא על הפס הגלילה ולכן הוא נראה . שהעכבר לא עליו הפס גלילה נעלם . )<br><br><h3>radio :</h3><br>לאחר שהעיקרון הובן , נוכל להריץ כאן קצת את הקצב .<br><br>נגדיר את ה<strong>data-roll</strong> כ-radio-group .<br>נגדיר את ה<strong>name</strong> כדי שנוכל לשייך את זה לPHP .<br>יראה ככה : <br><br><div class="php codeblock"><span class="sy0">&lt;</span>div data<span class="sy0">-</span>roll<span class="sy0">=</span><span class="st0">&quot;radio-group&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;radiogroup&quot;</span><span class="sy0">&gt;</span><br>
+<br>
+<br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>נפתח בתוך הDiv תג ul שבתוכו נפתח כמה תגי li - אחד לכל כפתור רדיו . <br>נגדיר לli את ה-<strong>rel</strong> (כמו מקודם , הערך שלו במידה ונירצה לעבוד עם PHP)<br><span class="underline">ועוד דבר חשוב : </span><br>נגדיר <strong>class</strong> בתור checked לכפתור רדיו שנרצה שיסומן כברירת המחדל . (דומה לכפתור רדיו בHTML רגיל...)<br><br>בשילוב של כל הקוד הנ&quot;ל נקבל דבר כזה : <br><div class="php codeblock"><span class="sy0">&lt;</span>div data<span class="sy0">-</span>roll<span class="sy0">=</span><span class="st0">&quot;radio-group&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;radiogroup&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>ul<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>li <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;checked&quot;</span> rel<span class="sy0">=</span><span class="st0">&quot;one&quot;</span><span class="sy0">&gt;</span>Option <span class="nu0">1</span><span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>li rel<span class="sy0">=</span><span class="st0">&quot;two&quot;</span><span class="sy0">&gt;</span>Option <span class="nu0">2</span><span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>li rel<span class="sy0">=</span><span class="st0">&quot;three&quot;</span><span class="sy0">&gt;</span>Option <span class="nu0">3</span><span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>ul<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>והתוצאה היא : <br><span class="dirleft"><img src="static\images\pixel.png" alt="HighQuery - פריימוורק עיצוב המתלבש על כל אתר! (טפסים - חלק א&#039;) #3" title="http://www.fastup.co.il/images/98487362.png" class="content-image-float"></span><br><br><h3>switch :</h3><br><br>נגדיר את ה<strong>data-roll</strong> כ-switch.<br>נגדיר את ה<strong>name</strong> כדי שנוכל לשייך את זה לPHP .<br>יראה ככה : <br><div class="php codeblock"><span class="sy0">&lt;</span>div data<span class="sy0">-</span>roll<span class="sy0">=</span><span class="st0">&quot;switch&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;switcher&quot;</span><span class="sy0">&gt;</span><br>
+<br>
+<br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>נפתח בתוך הDiv תג ul שבתוכו נפתח <strong><span style="color:orange;">2</span></strong> תגי li בלבד - אחד לכל אפשרות . <br>נגדיר לli את ה-<strong>rel</strong> (כמו מקודם , הערך שלו במידה ונירצה לעבוד עם PHP)<br><span class="underline">ועוד דבר חשוב : </span><br>נגדיר <strong>class</strong> בתור checked ללחצן שנרצה שיסומן כברירת המחדל . <br>ונגדיר גם ב<strong>class </strong>את הצבע . אפשר blue\gray בלבד (לפחות בינתיים...) . <strong><span style="color:orange;">חובה</span></strong> להוסיף את הצבע לקלאס ! (אחרת יצא משהו ממש מכוער ... )<br><br>הקוד המלא יראה ככה : <br><div class="php codeblock"><span class="sy0">&lt;</span>div data<span class="sy0">-</span>roll<span class="sy0">=</span><span class="st0">&quot;switch&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;switcher&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>ul<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>li <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;blue checked&quot;</span> rel<span class="sy0">=</span><span class="st0">&quot;y&quot;</span><span class="sy0">&gt;</span>Yes<span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>li <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;gray&quot;</span> rel<span class="sy0">=</span><span class="st0">&quot;n&quot;</span><span class="sy0">&gt;</span>No<span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>ul<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>והתוצאה אמורה לצאת ככה : <br><span class="dirleft"><img src="static\images\pixel.png" alt="HighQuery - פריימוורק עיצוב המתלבש על כל אתר! (טפסים - חלק א&#039;) #3" title="http://www.fastup.co.il/images/7898823.png" class="content-image-float"></span><br>(פעם אחת הכחול נלחץ , ובפעם השניה האפור נלחץ . )<br><br>חשוב לציין שהמעבר בswitch קורה בדרך ממש יפה , בשילוב JQuery ממש כמו לחצן אמיתי :) <br>תנסו ותראו :)<br><br>עד כאן המדריך השלישי על הפריימוורק HighQuery . <br><strong>בהצלחה . </strong><br><br>ובמדריך הבא : חלק ב&#039; של טפסים . נעבוד על range, אינפוטים חכמים למיניהם וכפתורים . </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=16&r=g&d=monsterid" alt="shlomo120">
+<a>shlomo120</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1968"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/09/2012 22:29</span><br>
+מדהים :))<br>
+כל הכבוד על הפרסומים, על פסקאות ועיצוב נוח לקריאה<br>
+וכמובן על המידע השימושי :)<br>
+</div>
+<a id="comment1969"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/09/2012 15:27</span><br>
+@intval<br>
+תודה רבה ! <br>
+במדריך הבא ידבר על אינפוטים . וישנם פיצ&apos;רים כמו לבדוק האם אינפוט כלשהוא שווה לאינפוט אחר (בשביל אימות סיסמא לדוגמא), לקבוע שאינפוט מסויים יהיה חייב להכיל טקסט לפני שהטופס ישלח ,אינפוט של סיסמא שמראה רק את התו האחרון שהוכנס לרגע ואז הופך אותו לכמו באינפוט סיסמא רגיל (קורה לי המון שאני מכניס סיסמא ולא בטוח אם הקפס-לוק דלוק \ לא . ובעזרת הפיצ&apos;ר הזה זה אפשרי ... ) ועוד ועוד :)</div>
+<a id="comment1976"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/09/2012 14:00</span><br>
+אני לא יודע אם זה כזה נכון לכתוב ככה טפסים..<br>
+כאילו פריימוורקים של טפסים, צריכים לקחת את ה-select האורגינל, ולעצב אותו.. ולא שצריכים לרשום HTML והוא יהפוך ל-SELECT... וכן הדבר ב-checkbox, radio...</div>
+<a id="comment1977"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/09/2012 15:23</span><br>
+KingYes +1</div>
+<a id="comment2405"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/04/2013 14:27</span><br>
+אני חייב לציין, אני מת על הFRAMEWORK הזה :)<br>
+חוסך הרבה מאוד זמן עבודה</div>
+<a id="comment2412"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/04/2013 17:53</span><br>
+אולי אני אחזור וימשיך לפרסם לו עוד מדריכים ...</div>
+<a id="comment2413"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/04/2013 18:17</span><br>
+לבנתיים עד שתחזור להמשיך את המדריכים שלך<br>
+מי שרוצה יש פה דוגמאות מעולות <span dir="ltr"><a href="http://itv-keepfree.com/jQuery/">http://itv-keepfree.com/jQuery/</a></span></div>
+<a id="comment2418"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 01:52</span><br>
+כמה שאני שונא פריימו&apos;ורק צד לקוח שלוקח את הסמנטיקה של HTML וזורק אותה לפח.</div>
+<a id="comment2419"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 01:56</span><br>
+@LighTo273 לא חבל לבזבז את זמן ולהשתמש במשהו שיחסוך זמן?</div>
+<a id="comment2420"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 10:53</span><br>
+@LighTo273 נכון! 1+<br>
+@ilikeme עדיף לעשות משהו שפשוט יקח לדוגמא כל אלמנט select קיים ויהפוך אותו למה שהוא ירצה..<br>
+ככה הרוב עושים</div>
+<a id="comment2421"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 11:18</span><br>
+@dekelyi, אבל למה שאני אעשה אחד משלי אם יש כבר אחד מוכן? לא חבל על הזמן? :P</div>
+<a id="comment2422"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 11:21</span><br>
+אני (אם זה היה כל כך חשוב לי/אם לא היו אחרים יותר טובים) הייתי עושה שכבה שמוצאת את כל אלמנטי הselect ומחליפה אותם בתגים של הhighquery</div>
+<a id="comment2423"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 12:31</span><br>
+גם זה לא נבון. זה לעבוד על עצמך. :-)<br>
+רק לעתים רחוקות אני חושב שמותר (לפחות בגרסת HTML הנוכחית) &quot;לעבוד&quot; על עצמך. (דברים כמו שורות קוד, אבל גם אז זה משתמש במשהו סמנטי, רק לא ב-&lt;code&gt;, שהוא המתאים ביותר.)<br>
+<br>
+@ilikeme, זה בדיוק למה האינטרנט של היום נראה כמו שהוא נראה. אנשים רואים דברים מוכנים - לוקחים אותם. הם לא עוצרים לחשוב - רגע, האם זה עוקב אחר התקן? האם זה סמנטי? האם זה באמת טוב? האם אני יכול לשפר את זה?</div>
+<a id="comment2424"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 13:28</span><br>
+אני פשוט רואה את זה כ-UI כמו JQUERY<br>
+פשוט אפשר גם לא להשתמש בJQUERY ולכתוב רק קוד JS בלי משהו מוכן...<br>
+והאמת היא שזה נראה משהו שחוסך עבודה (מבחינה של עיצוב...)</div>
+<a id="comment2425"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 14:06</span><br>
+סליחה, אני לא רואה את JQUERY כ-UI זה לא מה שניסתי להגיד...<br>
+אני פשוט רואה את זה ככלי שימושי כמו JQUERY</div>
+<a id="comment2426"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 14:38</span><br>
+@ilikeme עדיף כבר להשתמש בJQUERY UI</div>
+<a id="comment2427"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 16:35</span><br>
+@dekelyi למה עדיף?</div>
+<a id="comment2428"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 18:22</span><br>
+דקל איך משלבים Twitter Boostrap עם jQuery UI?</div>
+<a id="comment2429"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 20:31</span><br>
+@ilikeme משתלב טוב עם JQ, יש לו API טוב ומתאים מאוד להתאמה אישית<br>
+@liorel100 איך אתה בידיוק רוצה לשלב אותו? אני לא מבין באיזה צורה בידיוק...<br>
+ואני בטוח שעם קוד ק</div>
+<a id="comment2430"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 20:32</span><br>
+ואני בטוח שעם קוד קטן ופשוט אפשר לתפור כל בעיה</div>
+<a id="comment2431"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 20:43</span><br>
+@dekelyi גם הפריימוורק הזה משתמש בJQuery והוא גם די נוח! (למרות שיש בעיה עם שפות RIGHT TO LEFT)</div>
+<a id="comment2432"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 20:47</span><br>
+שילוב ביניהם, כלומר שהם לא יסתרו אחד את השני בענייני כפתורים וכו&apos;.</div>
+<a id="comment2433"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 22:21</span><br>
+@liorel100 פשוט קוד קצר שיתאים את JQ-UI לtheme של bootstrap<br>
+@ilikeme רק שתדע שJQ-UI הוא פריימוורק גדול ועצום בכח שלו ובלי שום בעיות של RTL/LTR ועם הרבה אפשרויות customization </div>
+<a id="comment2435"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 23:16</span><br>
+מה הקוד?</div>
+<a id="comment2436"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/04/2013 00:12</span><br>
+@dekelyi זה לא כזה משנה :P הם שני אלו בסדר... רק ש-UI יותר גדול<br>
+כמו שאפשר להשתמש בספריה אחרת של JS לדוגמה dojo toolkit<br>
+<br>
+דרך אגב, באמת ב-UI יש יותר אפשרויות מאשר HIGHQUERY אבל גם הספריה HIGHTQUERY מעולה :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

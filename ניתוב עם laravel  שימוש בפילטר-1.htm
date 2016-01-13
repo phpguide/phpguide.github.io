@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מדריך למימוש מערכת הניתוב ב laravel ">
+<meta name="keywords" content="laravel,routing,route,ניתוב בלראבל,ניתוב">
+<meta name="author" content="Splash">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>ניתוב עם laravel + שימוש בפילטר</title>
+<meta itemprop="name" content="ניתוב עם laravel + שימוש בפילטר">
+<meta itemprop="description" content="מדריך למימוש מערכת הניתוב ב laravel ">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"369","rating":"3","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>ניתוב עם laravel + שימוש בפילטר</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Splash, </div>
+<div class="right">&nbsp;<time datetime="2014-05-21T00:37:33+03:00" dir="rtl">21 למאי 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://s11.postimg.org/kmp1zvxhr/laravel.png" alt="ניתוב עם laravel + שימוש בפילטר">
+</div>
+<div class="right post-content">
+במדריך זה נלמד כיצד לבצע ניתוב לכתובת ולהוסיף פילטרים לאותו נתיב <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+בעבר היה מישהו שניסה לעשות סדרת מדריכים לפריימוורק אך מסיבה כל שהיא הפסיק,החלטתי לכתוב על הנושא על מנת להציג לאנשים שעדיין לא מכירים את הפריימוורק קצת מהאפשרויות שהיא כוללת ואת הפשטות שהיא מאפשרת לעשות אותן.<br>אני לא יכול להבטיח שאני ימשיך לכתוב אך כל עוד יהיה לי זמן אני ינסה להוסיף עוד מדריכים.<br><br>טוב אז נתחיל,מערכת הניתוב נמצאת בקובץ app/routes.php ומחולקת לסוגי מתודות,כמו שאנחנו מכירים מהטפסים ב HTML -<br><div class="php codeblock"><span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">&quot;myform&quot;</span> method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div><br>במקרה הזה המתודה היא POST אך יש עוד מספר מקרים -<br><br>any - מתייחס לכל סוגי המתודות<br>match - מקבל מערך של מתודות אפשריות.<br>get - מתייחס רק לבקשות GET<br>post - מתייחס רק לבקשות POST<br>put - מתייחס רק לבקשות PUT<br>delete - מתייחס רק לבקשות DELETE<br><br>יכול להיות ששכחתי כמה,אך אלה העיקריות.<br><br>לדוגמא הקוד הנ&quot;ל - <br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'my_route'</span><span class="sy0">,</span> <span class="st_h">'MyRouteController@show'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הקוד מפנה לקונטולר MyRoute למתודה show אך הוא יתייחס רק לבקשות get שהכתובת היא &quot;my_route&quot; ,במידה וננסה לבצע POST לכתובת הוא לא יתייחס אליה.[ובמידה ולא אפשרנו מקרה של POST הוא יחזיר שהעמוד לא נמצא]<br><br>אוקי למדנו איך ליצור ניתוב בסיסי,אך מה קורה כאשר אנחנו רוצים להוסיף גם פרמטרים לכתובת כמו ה id של כתבה ?<br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'article/{id}'</span><span class="sy0">,</span> <span class="st_h">'ArticleController@show'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>במקרה הזה נפנה ל ArticleController@show רק כאשר id הוא מספר כלומר אם ננסה לגשת ל<br>article/abc<br>הוא לא יתייחס לבקשה מאחר ולא מדובר במספר ויחזיר 404.<br>ב laravel קיימים עוד מספר תבניות כגון any שמאפשר את כל סוגי התווים.<br><br>אך מה קורה אם אנחנו רוצים ליצור תבנית משלנו ?<br>גם על המקרה הזה חשבו המתכנתים של laravel ונבצע את זה בצורה הזאת - <br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'article/{my_slug}'</span><span class="sy0">,</span><span class="st_h">'ArticleController@show'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">where</span><span class="br0">&#40;</span><span class="st_h">'my_slug'</span><span class="sy0">,</span> <span class="st_h">'[a-z0-9_-א-ת]+'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>יאפשר את כל התווים בעברית+כל התווים באנגלית ,מספרים ,קו תחתון ומינוס [-]<br><br>במידה ונרצה ליצור את התבנית למספר כתובות ולאפשר גמישות בעתיד נשתמש במתודה הסטטית pattern על מנת ליצור את התבנית.<br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">pattern</span><span class="br0">&#40;</span><span class="st_h">'my_slug'</span><span class="sy0">,</span> <span class="st_h">'[a-z0-9_-א-ת]+'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'article/{my_slug}'</span><span class="sy0">,</span> <span class="st_h">'ArticleController@show'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אחרי שלמדנו איך יוצרים תבניות מה קורה אם נרצה לבצע מספר בדיקות על חלק מהנתיבים האלה ? למשל לבדוק האם המשתמש מחובר?<br>בעבר היינו מוסיפים בדיקה כמו <br><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_SESSION</span><span class="br0">&#91;</span><span class="st_h">'logged_in'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//is logged in code..</span><br>
+<span class="br0">&#125;</span></div><br>או משהו בסגנון לכל קובץ שאנחנו רוצים לבדוק.<br>ב laravel ניתן להוסיף פילטרים לנתיבים.<br>כל הפילטרים נמצאים תחת<br>app/filters.php<br>קיימים כמה פילטרים מובנים כמו auth שבודק האם המשתמש מחובר ו csrf שמוודא שהטופס נשלח מהאתר ולא באמצעות צד שלישי.<br><br>במידה ונרצה ליצור פילטר חדש בשם &apos;my_fiter&apos; נבצע זאת כך - <br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">filter</span><span class="br0">&#40;</span><span class="st_h">'my_filter'</span><span class="sy0">,</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="co1">//filter code </span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ועל מנת לגרום לנתיב להשתמש בפילטר נבצע זאת כך -<br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'article/{my_slug}'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'before'</span> <span class="sy0">=&gt;</span> <span class="st_h">'my_filter'</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="st_h">'ArticleController@show'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>במידה ונרצה יותר מפילטר אחד על אותו נתיב,נפריד אותם עם התו &quot;|&quot; כך -<br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'article/{my_slug}'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'before'</span> <span class="sy0">=&gt;</span> <span class="st_h">'my_filter|another_filter'</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="st_h">'ArticleController@show'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אם יש לנו מספר נתיבים שמשתמשים באותם פילטרים ניתן לבצע זאת כך -<br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">group</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'before'</span> <span class="sy0">=&gt;</span> <span class="st_h">'auth'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'users_only'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// code goes here...</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'users_only2'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// code goes here</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ולהימנע מלרשום before על כל נתיב.<br>בנוסף ניתן להוסיף prefix לאותה קבוצה ולהימנע מלרשום את תחילת הנתיב ,לדוגמא במקרה בעמוד של מנהל במקום לכתוב כך -<br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">group</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'before'</span> <span class="sy0">=&gt;</span> <span class="st_h">'admin_auth'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'admin/admin_only'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// code goes here...</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'admin/admin_only2'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// code goes here</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ניתן לכתוב כך -<br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">group</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'prefix'</span> <span class="sy0">=&gt;</span> <span class="st_h">'admin'</span><span class="sy0">,</span><span class="st_h">'before'</span> <span class="sy0">=&gt;</span> <span class="st_h">'admin_auth'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'admin_only'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// code goes here...</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'admin_only2'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// code goes here</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <br>
+<br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אוקי אני חושב שסיימנו,אם שכחתי חשוב [אני יודע שיש כמה חלקים שהשמטתי אבל אני חושב שהם קצת מיותרים לאנשים שרק מתחילים להתעסק עם הפריימוורק והעדפתי לא לציין] אשמח אם תציינו בתגובות.<br><br>במדריך הבא אני יסביר על איך ליצור קונטרולר על מנת באמת לממש את המערכת ניתוב. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=16&r=g&d=monsterid" alt="Splash">
+<a>Splash</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2789"></a>
+<div class="blog-comment">
+<span class='comment-author'>nikolai</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/05/2014 16:43</span><br>
+מדריך מעולה, מועיל מאוד!! ממליץ על laravel לכולם פשוט פריימוורק פנטסטי :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

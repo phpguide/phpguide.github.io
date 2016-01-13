@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="משרד האוצר מדפיס כסף עם PHP">
+<meta name="keywords" content="כסף">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP</title>
+<meta itemprop="name" content="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP">
+<meta itemprop="description" content="משרד האוצר מדפיס כסף עם PHP">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"362","rating":"2","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2014-04-01T16:11:07+03:00" dir="rtl">01 לאפריל 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP">
+</div>
+<div class="right post-content">
+לישראלים תמיד הייתה יד בפיתוח שפת PHP. אנחנו מכירים את שגיאות ה-T_PAAMAYIM_NEKUDOTAYIM ואת הפונקציות לעבודה עם עברית hebrev ו-hebrevc. אלו הם לא הפונקציות היחידות שהישראלים הכניסו לשפה. בדיוק כמו שה-NSA דאגו להכניס פונקציות למערכות ההפעלה - גם השב&quot;כ הכניס פונקציות משלהם לשפות התכנות. לצערי לא אוכל לספר עליהם היום, אבל על פונקציה אחת שנחספה לי מתוך סיור במשרד העוצר בחמישי האחרון אשמח לספר. הרבה תמונות מהסיור בהמשך. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שבוע שעבר אני והצוות שלי סיימנו את פיתוח המערכת הבנקאית הישראילת החדשה ב-PHP. כמו שמקובל במקרים כאלה, משרד האוצר אירח כנס מכובד במעמד שר האוצר, נגיד בנק ישראל ובעלי הבנקים הנסחרים. לאחר הכנס יצא לנו להיכנס לתוך המפעל המוגן ולראות את המערכת בפועל מדפיסה את שטרות ה-50 שקלים החדשים שיכנסו לשימוש בשנה הקרובה:<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://img.mako.co.il/2014/03/10/474083pic_C.jpg" class="content-image-float"><br>תמונות מהכנס<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://bostonherald.com/sites/default/files/styles/full/public/media/2014/01/06/010614evansce002.jpg?c=ab91f1809960f2a455af6145f8a072d1" class="content-image-float"><br>אנשי האבטחה בכניסה למפעל (ביקשו להשאיר את הטלפונים בחוץ)<br><br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://habr.habrastorage.org/post_images/c34/0ab/ee0/c340abee0d71f8f62b3cf55a7aa66632.jpg" class="content-image-float"><br>חוות השרתים נעולה והגישה לפי סיסמה שמתחלפת כל שש שעות. עדיין ריקה לפני ההתקנה.<br><br>מטעמי אבטחה לא הייתה לנו גישה לכל תהליך התקנת השרתים והמערכת ובכל שלב רק האנשים הקשורים הייתה גישה לאיזור. בחלק מהשלבים איפשרו לנו להשגיח מרחוק על התהליך, למשל ראינו את שלב יבוא השרתים:<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://habr.habrastorage.org/post_images/389/00f/db1/38900fdb13a7fec8d02c08d02f388f78.jpg" class="content-image-float"><br>מיבאים את השרתים מ Foxxcon טאייפיי (מאותו המפעל שמייצרים בו איפונים וגלקסים)<br><br>בתוך כל שרת נמצאת צלחת התבנית של השטר. מחיר תבנית כזו נע בין 60 ל 80 אלף שקל, תלוי במשפחה המוכרת. לצערי לא איפשרו לנו לגעת או לצלם את תבניות של שטרות השקלים החדשים ובמהלך העבודה נאלצנו לדאבג על שטרות של 100$. כרגע יש לי בבית 7 תבניות כאלה ואני מתכוון למכור אותם (כפתור קניה בהמשך)<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://img3.wikia.nocookie.net/__cb20100515093759/chuck/images/thumb/a/a8/Printingplate.jpg/1000px-Printingplate.jpg" class="content-image-float"><br>לוח תבנית של שטרות אמריקאים<br><br><br>השרתים עצמם מגיעים עם מעבדים בעלי 14 ליבות על בסיס 22 ננומטר (דרוש לחישוב מהיר של rand() בשביל המספר הסידורי של השטר). בכל שרת 64 גיגה של זיכרון מטמון וארבעה כרטיסי רשת. קונפיגורציה כזו עומדת בעומס של עד <span dir="ltr">2^16</span> שקלים בשניה. לפי החישובים שלנו השרתים יוכלו לעמוד בעומס המתוכנן עד אוקטובר 2018 ולאחר מכן נצטרך להחליף אותם בשרתים על בסיס 16 ננומטר המפותחים במעבדת הפיתוח של אינטל דרומית לבאר שבע. <br><br>השרתים עצמם מחוברים בסיב אופטי לכספומטים ברחבי הארץ ברשת שעורכה הכולל כ-2700 ק&quot;מ עם רוחב פס מירבי של <span dir="ltr">2^16</span> שקלים בשניה וגם להם מתוכנן שדרוג עד סוף 2018. (עבודות השדרוג על הקו הראשי נס צינה - קריית מלאכי התחילו כבר בתחילת השנה)<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://habrastorage.org/getpro/habr/post_images/240/0e5/f91/2400e5f919effefe97f34d314367875d.jpg" class="content-image-float"><br>הצד האחורי של בנקומט פתוח המחובר למערכת<br><br><br><h2>החלק המעניין, הטכני</h2><br>כל אחד מהשרתים מריץ php מגירסה 4.3.8 מסיבות אבטחה: הגירסה מספיק ישנה, מה שמקשה למצוא את קוד המקור שלה או לפתח מתקפות נגדה, בנוסף, זו הגירסה היחידה שרצה על אקספלורר 5, שמותקן אצל מנהל המתקן. החיסרון הבולט הוא כמובן המחסור ב-OOP, אבל זו לא בעיה, אחרי הכל OOP זה סתם דרך לסבך את הקוד ולעשות אותו לא מובן לצד שלישי.<br><br>אני חייב להודות שפיתוח לגירסאות ישנות מרגיש קצת מוזר, אבל במגזר הממשלתי אין עם זה בעיה. להיפך, אצלנו מקובל לא לתמוך בדפדפנים חדשים, לפתח קוד בשפות תכנות ישנות ולכתוב בצורה פרוצדורלית. למזלנו, הפונקציות להדפסת שטרות הופיעו ב-PHP כבר אז:<br><br><h3>הפונקציה sprintfm</h3><br>ב-php 3.1 נוספה לשפה הפונקציה exit, אך שבוע מאוחר יותר הולטת לשנות את שמה לפונקציה die. תוך אותו שבוע רבים הספיקו להוריד את הגירסה החדשה ולכתוב אלפי שורות קוד שהשתמשו בפונקציה exit הוחלט להשאיר גם אותה וגם die.<br><br>אותו דבר קרה גם לפונקציה <a href="http://php.net">sprintfm</a>. בעבר היא נקראה <a href="http://php.net">s_kesef_adpes</a> והוחלט לשנות את שמה. בגלל שהפונקציה שמורה ומלבד משרד האוצר אף אחד לא השתמש בה - שינוי השם עבר בלי בעיה, אמנם הפונקציה החדשה נשארה חבויה מהדוקומנטציה ולולא מופעלת עם פרמטרים נכונים - היא תמיד מחזירה שגיאה: call to undefined function sprintfm<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://i.imgur.com/M2M31D7.png" class="content-image-float"><br>סקרינשוט מהדוקמנטציה הפרטית<br><br>אני מאמין שעבור שפת קוד מקור פתוחה כל מתכנת רשאי לדעת על הפונקציות בשפה שלו כמו שנגר מכיר את הכלים שלו. מה גם, שמישהו פתאום יתחיל להדפיס כסף על השרת שלכם כמו שמנסים לעשות את זה היום אנשי הביטקויין. כדי שלא תגיעו למצב הזה - אני אראה איך להשתמש בפונקציה הזו ולפתוח סטארטאפ להדפסת כסף בבית.<br><br><br><h2>סקריפט לסטארטאפ להדפסת כסף בבית</h2><br>הסקריפט המדובר הוא אחד ממרכיבי המערכת הבנקאית החדשה שפיתחנו ולכן מוגן בזכויות יוצרים. <br><br><em><strong>legal note:</strong></em><br><em>אין להעתיק, לשכפל, לקרוא, להיסתכל או לרפרף, להקליד מתצלום או מהזיכרון, להקריא, להכתיב, להרטיב או להפנים את הסקריפט בכל צורה שהיא.</em><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="re0">$password</span> <span class="sy0">=</span> <span class="kw3">md5</span><span class="br0">&#40;</span><span class="kw3">sha1</span><span class="br0">&#40;</span><span class="kw3">md5</span><span class="br0">&#40;</span><span class="kw3">sha1</span><span class="br0">&#40;</span><span class="kw3">md5</span><span class="br0">&#40;</span><span class="kw3">sha1</span><span class="br0">&#40;</span><span class="kw3">md5</span><span class="br0">&#40;</span><span class="kw3">sha1</span><span class="br0">&#40;</span><span class="st_h">'bibi'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">print</span><span class="br0">&#40;</span>sprintm<span class="br0">&#40;</span><span class="st_h">'/var/spool/print/4\ floor/printer\ 14'</span><span class="sy0">,</span> <span class="nu0">100</span>$ <span class="sy0">*</span> <span class="nu0">30</span><span class="sy0">,</span> <span class="re0">$password</span> <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שים לב לפרמטר הראשון: הנתיב של המדפסת. את הנתיב אפשר לבדוק בחלון ההדפס של מערכת ההפעלה.<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://i.imgur.com/jzYimPV.png" class="content-image-float">. שים לב שיש להבריח רווחים בנתיב למדפסת (גרסה ישנה של PHP).<br><br>הפרמטר השני הוא שטרות וכמות. בדרך כלל נהוג לשים את סימן הדולר בתחילת המשתנה. המקרה הייחודי הזה הפוך כדי להקשות על מציאת הדרך הנכונה בטעות.<br>הפרמטר האחרון - הסיסמה היא הצפנה חזקה ביותר לשמו של ראש הממשלה הנוכחי באותיות קטנות. הפונקציה תשלח סמס לראש הממשלה הנבחר לאישור הדפסת השטרות. <br><br>את החלק האחרון ניתן לעקוף על ידי התקנת שרת אפאצ&apos;י לוקאלי. בהפעלה לוקאלית הסמסים ישלחו אליך ותוכל לאשר את ההדפסה בעצמך.<br>השטרות שיצאו לי (בתמונה למטע) נראים אמיתיים לחלוטין. חשוב רק לזכור לבחור מספרים סידוריים רנדומליים לשטרות, אחרת יש סיכוי שתיתפסו.<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="תמונות ממשרד האוצר - איך ממשלת ישראל מדפיסה כסף עם פונקציות PHP" title="http://www.businessdailyafrica.com/image/view/-/1623598/highRes/101456/-/maxw/600/-/11yntrxz/-/dollar.jpg" class="content-image-float"><br><br>בשבוע הבא הסביר איך לפתוח בבית סטארטאפ לטביעת מטבעות עם מדפסת תלת מימד. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2758"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2014 19:42</span><br>
+קודם כל,<br>
+אתה רציני? באמת פרסמת הסבר איך השרתים של המדינה מדפיסים כסף?<br>
+חוץ מזה לא הבנתי למה צריך שהכספומטים יהיו מחוברים בקבל אופטי לשרתים..</div>
+<a id="comment2759"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2014 19:43</span><br>
+חח לא הסתכלתי על התמונות <br>
+הבנתי כמה דברים.........<br>
+<br>
+אחד באפריל</div>
+<a id="comment2760"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielSafari</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2014 21:08</span><br>
+חחח אהבתי!<br>
+<br>
+&quot;מערכת הבנקים של ישראל כתובה ב-PHP.&quot;...<br>
+זה כמעט כמו להגיד שגוגל שומרת את הנתונים בקובץ TXT... :)<br>
+<br>
+האחד באפריל D:</div>
+<a id="comment2761"></a>
+<div class="blog-comment">
+<span class='comment-author'>vu47678</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2014 21:34</span><br>
+לפחות היית מתאמץ יותר ולא שם תמונה עם משאית עם לוגו בסינית ושתי סינים או מה שזה לא יהיה פורקים את הסחורה חחח</div>
+<a id="comment2762"></a>
+<div class="blog-comment">
+<span class='comment-author'>YardSodM</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2014 21:41</span><br>
+מחכה למדריך של שבוע הבא...</div>
+<a id="comment2763"></a>
+<div class="blog-comment">
+<span class='comment-author'>mat</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/04/2014 01:00</span><br>
+דווקא במדינה המפגרת הזאת זה יכול להיות סיפור אמיתי.<br>
+</div>
+<a id="comment2764"></a>
+<div class="blog-comment">
+<span class='comment-author'>zacharya</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/04/2014 02:08</span><br>
+1 באפריל שמח גם לך אלכס:)</div>
+<a id="comment2766"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/04/2014 15:30</span><br>
+מצחיק, אבל גם עצוב: &quot;אני חייב להודות שפיתוח לגירסאות ישנות מרגיש קצת מוזר, אבל במגזר הממשלתי אין עם זה בעיה. להיפך, אצלנו מקובל לא לתמוך בדפדפנים חדשים, לפתח קוד בשפות תכנות ישנות ולכתוב בצורה פרוצדורלית.&quot;<br>
+:-)</div>
+<a id="comment2818"></a>
+<div class="blog-comment">
+<span class='comment-author'>cobi carmel</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/10/2014 10:47</span><br>
+אהבתי!!</div>
+<a id="comment2855"></a>
+<div class="blog-comment">
+<span class='comment-author'>uriah318</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/12/2015 13:22</span><br>
+פוסט ישן, אבל גאוני ללא ספק.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

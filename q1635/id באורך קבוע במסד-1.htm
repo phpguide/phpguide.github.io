@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה id באורך קבוע במסד">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mmm">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>id באורך קבוע במסד | שאלת לימוד PHP</title>
+<meta itemprop="name" content="id באורך קבוע במסד | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה id באורך קבוע במסד">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">20</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="id באורך קבוע במסד-1.htm" title="אני מעוניין לקבוע לכל שורה במסד ID, באורך מסוים.נניח 5 מספרים, Auto Increment.זה אפשרי? איך?">id באורך קבוע במסד</a></h2>
+<div class="userinfo">
+פתח
+<a>mmm</a>
+,
+<time class="timeago relativetime" datetime="2013-10-12T17:11:56+03:00" style="display:inline-block;">
+12 לאוקטובר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1635'>
+אני מעוניין לקבוע לכל שורה במסד ID, באורך מסוים.<br>נניח 5 מספרים, Auto Increment.<br>זה אפשרי? איך? </div>
+</div>
+<h3>
+<span id="answersCounter">20 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7473">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 לאוקטובר 2013 </span>
+<a id="answer_7473" href="id באורך קבוע במסד-1.htm#answer_7473">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול להתחיל את ה autoincrement מ 9999 וכל השורות הבאות יהיו בעורך של חמש.<br>רק שאתה לא יכול להגביל את זה לא לעבור את 99999. זה יעבור וימשיך כרגיל.<br><br><div class="php codeblock">ALTER TABLE tbl AUTO_INCREMENT <span class="sy0">=</span> <span class="nu0">9999</span><span class="sy0">;</span></div><br><br>אחרי זה השורה הבאה תהיה 10000 </p>
+</div>
+<div class="answer" id="answer7475">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 12 לאוקטובר 2013 </span>
+<a id="answer_7475" href="id באורך קבוע במסד-1.htm#answer_7475">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איך מערכת VB יוצרת ID באורך קבוע, אקראי? </p>
+</div>
+<div class="answer" id="answer7477">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 לאוקטובר 2013 </span>
+<a id="answer_7477" href="id באורך קבוע במסד-1.htm#answer_7477">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה ליצור אותם באורך קבוע בכלל? </p>
+</div>
+<div class="answer" id="answer7479">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 12 לאוקטובר 2013 </span>
+<a id="answer_7479" href="id באורך קבוע במסד-1.htm#answer_7479">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה? זה משמעותי לאתר חדש, כשרואים שהכתבה העדכנית ביותר היא q?id=8 זה יוצר תחושה של אתר ריק.<br>אמנם רוב האנשים לא מסתכלים על זה, אבל יש גולשים ששמים לב, ומבינים בזה. </p>
+</div>
+<div class="answer" id="answer7480">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7480" href="id באורך קבוע במסד-1.htm#answer_7480">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תעשה משהו בסגנון<br><div class="php codeblock">q?title<span class="sy0">=</span>id<span class="sy0">+</span>באורך<span class="sy0">+</span>קבוע<span class="sy0">+</span>במסד</div><br>וככה גם לקדם את האתר וגם לנמוע תחושה של &quot;ריק&quot;<br>(כאילו תשלוף את המידע לפי שם ולא לפי ID, כדי למנוע כפילויות עדיף גם וגם..)<br>בהצלחה. </p>
+</div>
+<div class="answer" id="answer7481">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7481" href="id באורך קבוע במסד-1.htm#answer_7481">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואם כבר מדברים על זה, כדאי לך להשתמש במקפים במקום בפלוסים. נוח יותר, מקובל יותר. </p>
+</div>
+<div class="answer" id="answer7482">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7482" href="id באורך קבוע במסד-1.htm#answer_7482">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כבר השתמשתי בזה בעבר, זה קצת בעייתי באתר הספציפי הזה כי אני מנסה ליצור קישורים קצרים ככל האפשר, זה מאד מאריך את הקישורים בגלל הURL ENCODE. </p>
+</div>
+<div class="answer" id="answer7484">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7484" href="id באורך קבוע במסד-1.htm#answer_7484">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לדעתי אתה מתעסק בתפל.<br>אם מישה יראה ID=8 במקום 8000 אז הוא מיד ייצא מהאתר שלך ולא יקרא את התוכן המעולה שלך או את מה שהוא חיפוש בגוגל?<br>או אם הקישור ארוך מדי אז הוא לא ילחץ עליו בכל מקרה בתוצאות החיפוש?<br>כל אלו משחקים תפקיד כל כך כל כך מזערי שאני בספק אם תאבד בגלל זה גולש אחד מתוך מאה אלף, כל עוד האתר שלך מציעה משהו מועיל לגולשים<br><br>במקום זה תוכל להשקיע את הזמן בהזנת תכנים באתר, כדי שלא יראה ריק. שגם זה בכלל לא בעיה. </p>
+</div>
+<div class="answer" id="answer7485">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7485" href="id באורך קבוע במסד-1.htm#answer_7485">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל, כן, זה מאד מעצבן אנשים להעתיק קישור ארוך כל כך שהוא תופס 8-9 שורות בצאט ממוצע.<br><br>בנוגע לID, זו הבעיה, שהתכנים הם של המשתמש, לא שלי, מה שמונע ממני התערבות.<br>ולהעלות 300 תכנים ראשוניים בשמות שונים זה לא פשוט... </p>
+</div>
+<div class="answer" id="answer7486">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7486" href="id באורך קבוע במסד-1.htm#answer_7486">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זו בהחלט בעיה, אבל זה שווה את זה. כתובת של עמוד אינטרנט צריכה להיות מובנת לגולש (בניגוד לעוגיות וכדו&#039;), אחרת היא לא הייתה מוצגת, ולא הייתה משמשת תפקיד חשוב כל כך בהגשת העמוד לגולש.<br>את הבעיה שהצגת אפשר לעקוף. אני הייתי ממליץ על יצירת שני מבני כתובות:<br>1. ID בלבד.<br>2. כותרת שאנשים יבינו (אני הייתי ממליץ לעשות היררכיה של קטגוריות אם זה רלוונטי), נוסף על ID (כדי שאחזור המידע לא יגזול הרבה משאבים).<br>אתה מרוויח מהכתובת השנייה - מנועי חיפוש ונוחות גלישה. את הכתובת הראשונה ספק בתור קישור קבוע (Permalink) שיהיה בעמוד. על מנת למנוע כפילות תוכן השתמש בתגית קנוניקל (Canonical) ותגדיר את הכתובת השנייה ככתובת הראשית. </p>
+</div>
+<div class="answer" id="answer7487">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7487" href="id באורך קבוע במסד-1.htm#answer_7487">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חברים אתם סוטים מהנושא, ביקשתי פתרון קיבלתי יעוץ אישי.<br>תאמינו לי, אני מודע לכל התועלת של קישורים כאלו, וזה פשוט לא מדבר אלי, מהסיבה הפשוטה, שאני לא צריך לקדם את האתר בגוגל.<br>אני כן צריך קישור קצר ואסטטי.<br>אתם יכולים לעזור לי? </p>
+</div>
+<div class="answer" id="answer7488">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7488" href="id באורך קבוע במסד-1.htm#answer_7488">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אנחנו כאן מנסים להסתכל מעבר לפרטים שמבקשים, ולהרחיב. אני מתנצל אם זה היה יותר מדי ועל כך שלא עניתי קודם על השאלה.<br><br>MySQL מאפשר לך לקבוע מהיכן להתחיל את הספירה האוטומטית. הוא מאפשר לך לקבוע גם כמה מספרים לקפוץ בכל פעם. הוא לא מאפשר לך להשתמש באלגוריתם שימצא מספרים רנדומליים; זה פשוט לא התפקיד שלו.<br>אם אתה בכל זאת רוצה לעשות את זה, אתה יכול להעביר את האחריות על זה ל-PHP עצמה. כתוב פונקציה שתעשה לך את זה (קח מגוגל אם אתה רוצה; לא חסר), רק אל תשכח שכל פעם תצטרך לבדוק שהמפתח לא בשימוש כבר. </p>
+</div>
+<div class="answer" id="answer7489">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7489" href="id באורך קבוע במסד-1.htm#answer_7489">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא צריך להתנצל, אתה לא חייב לי משהו.<br>בכל אופן תודה רבה על התשובה, עזרת לי מאד :) </p>
+</div>
+<div class="answer" id="answer7490">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7490" href="id באורך קבוע במסד-1.htm#answer_7490">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בשמחה. :) </p>
+</div>
+<div class="answer" id="answer7492">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 13 לאוקטובר 2013 </span>
+<a id="answer_7492" href="id באורך קבוע במסד-1.htm#answer_7492">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה גם יכול להמיר מבסיס 10 לבסיס 62 (כמו יוטיוב אם אני לא טועה) וככה לא רואים 1..2..3 אלה אותיות באנגלית שנראות &quot;רנדיומליות&quot; אבל למעשה הם בסדר מסוים.<br>זה עדיף כי ברגע שאתה יוצר מחרוזת רנדיאמאלית אתה צריך לבדוק במסד עם המפתח הזה קיים וזה סוג של בזבוז..<br><br><a href="..\phplive-33.htm?code=859">משהו כזה</a> (זה פסודו קוד, הוא לא באמת יעבוד אבל זאת הלוגיקה בראש שלי.. אם לא הבנת משהו, שאלנה..) </p>
+</div>
+<div class="answer" id="answer7494">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 לאוקטובר 2013 </span>
+<a id="answer_7494" href="id באורך קבוע במסד-1.htm#answer_7494">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+רעיון מצוין, ובאמת טוב יותר. :) </p>
+</div>
+<div class="answer" id="answer7495">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 14 לאוקטובר 2013 </span>
+<a id="answer_7495" href="id באורך קבוע במסד-1.htm#answer_7495">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+באמת רעיון מצויין, אני איישם אותו. </p>
+</div>
+<div class="answer" id="answer7497">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 14 לאוקטובר 2013 </span>
+<a id="answer_7497" href="id באורך קבוע במסד-1.htm#answer_7497">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+רק בעיה אחת: יש &quot;מחלוקת&quot; בין מגוון פתרונות המרה מבסיס 10 לבסיס 62, חלקן טוענות ש-&#039;122555&#039; בבסיס 10, שווה ל Vsh בבסיס 62, וחלקן טוענות ששווה ל- &#039;vSH&#039;... </p>
+</div>
+<div class="answer" id="answer7498">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 14 לאוקטובר 2013 </span>
+<a id="answer_7498" href="id באורך קבוע במסד-1.htm#answer_7498">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא משנה, הבנתי את החשבון. </p>
+</div>
+<div class="answer" id="answer7499">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 14 לאוקטובר 2013 </span>
+<a id="answer_7499" href="id באורך קבוע במסד-1.htm#answer_7499">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+.. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

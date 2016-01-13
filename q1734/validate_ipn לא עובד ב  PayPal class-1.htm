@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה validate_ipn לא עובד ב - PayPal class">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>validate_ipn לא עובד ב - PayPal class | שאלת לימוד PHP</title>
+<meta itemprop="name" content="validate_ipn לא עובד ב - PayPal class | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה validate_ipn לא עובד ב - PayPal class">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="validate_ipn לא עובד ב  PayPal class-1.htm" title="היי,לאחרונה עשיתי אפשרות תשלום ב PP לאתר, והשתמשתי ב PayPal class, והייתה לי בעיה עם validate_ipn.כשאני לא מציב את התנאי שבודק עם validate_ipn חיובי, אז הוא מבצע את הפוקציה, במידה ואני מציב את התנאי, הוא פשוט לא עושה כלום.ה PayPal class:&amp;lt;?php
+/*******************************************************************************
+&amp;nbsp;* &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;">validate_ipn לא עובד ב - PayPal class</a></h2>
+<div class="userinfo">
+פתח
+<a>ArielTador</a>
+,
+<time class="timeago relativetime" datetime="2013-12-26T10:17:12+02:00" style="display:inline-block;">
+26 לדצמבר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1734'>
+היי,<br><br>לאחרונה עשיתי אפשרות תשלום ב PP לאתר, והשתמשתי ב PayPal class, והייתה לי בעיה עם validate_ipn.<br>כשאני לא מציב את התנאי שבודק עם validate_ipn חיובי, אז הוא מבצע את הפוקציה, במידה ואני מציב את התנאי, הוא פשוט לא עושה כלום.<br><br>ה PayPal class:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="coMULTI">/*******************************************************************************<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PHP Paypal IPN Integration Class<br>
+&nbsp;*******************************************************************************<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;Author: &nbsp; &nbsp; Micah Carrick<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;Email: &nbsp; &nbsp; &nbsp;<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="badfd7dbd3d6fad7d3d9dbd2d9dbc8c8d3d9d194d9d5d7">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>
+&nbsp;* &nbsp; &nbsp; &nbsp;Website: &nbsp; &nbsp;http://www.micahcarrick.com<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;File: &nbsp; &nbsp; &nbsp; paypal.class.php<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;Version: &nbsp; &nbsp;1.00<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;Copyright: &nbsp;(c) 2005 - Micah Carrick <br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;You are free to use, distribute, and modify this software <br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;under the terms of the GNU General Public License. &nbsp;See the<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;included license.txt file.<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;<br>
+&nbsp;*******************************************************************************<br>
+&nbsp;* &nbsp;VERION HISTORY:<br>
+&nbsp;* &nbsp;<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;v1.0.0 [04.16.2005] - Initial Version<br>
+&nbsp;*<br>
+&nbsp;*******************************************************************************<br>
+&nbsp;* &nbsp;DESCRIPTION:<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;This file provides a neat and simple method to interface with paypal and<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;The paypal Instant Payment Notification (IPN) interface. &nbsp;This file is<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;NOT intended to make the paypal integration &quot;plug 'n' play&quot;. It still<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;requires the developer (that should be you) to understand the paypal<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;process and know the variables you want/need to pass to paypal to<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;achieve what you want. &nbsp;<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;This class handles the submission of an order to paypal aswell as the<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;processing an Instant Payment Notification.<br>
+&nbsp;* &nbsp;<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;This code is based on that of the php-toolkit from paypal. &nbsp;I've taken<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;the basic principals and put it in to a class so that it is a little<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;easier--at least for me--to use. &nbsp;The php-toolkit can be downloaded from<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;http://sourceforge.net/projects/paypal.<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;To submit an order to paypal, have your order form POST to a file with:<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$p = new paypal_class;<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$p-&gt;add_field('business', '<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="d3a0bcbeb6b1bcb7aa93b7bcbeb2babdfdb0bcbe">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>');<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$p-&gt;add_field('first_name', $_POST['first_name']);<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;... (add all your fields in the same manor)<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$p-&gt;submit_paypal_post();<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;To process an IPN, have your IPN processing file contain:<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$p = new paypal_class;<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if ($p-&gt;validate_ipn()) {<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;... (IPN is verified. &nbsp;Details are in the ipn_data() array)<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp;*<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;In case you are new to paypal, here is some information to help you:<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;1. Download and read the Merchant User Manual and Integration Guide from<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; http://www.paypal.com/en_US/pdf/integration_guide.pdf. &nbsp;This gives <br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; you all the information you need including the fields you can pass to<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; paypal (using add_field() with this class) aswell as all the fields<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; that are returned in an IPN post (stored in the ipn_data() array in<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; this class). &nbsp;It also diagrams the entire transaction process.<br>
+&nbsp;*<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;2. Create a &quot;sandbox&quot; account for a buyer and a seller. &nbsp;This is just<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; a test account(s) that allow you to test your site from both the <br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; seller and buyer perspective. &nbsp;The instructions for this is available<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; at https://developer.paypal.com/ as well as a great forum where you<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; can ask all your paypal integration questions. &nbsp;Make sure you follow<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; all the directions in setting up a sandbox test environment, including<br>
+&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; the addition of fake bank accounts and credit cards.<br>
+&nbsp;* <br>
+&nbsp;*******************************************************************************<br>
+*/</span><br>
+<br>
+<span class="kw2">class</span> paypal_class <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp;<span class="kw2">var</span> <span class="re0">$last_error</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// holds the last error encountered</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;<span class="kw2">var</span> <span class="re0">$ipn_log</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// bool: log IPN results to text file?</span><br>
+&nbsp; &nbsp;<span class="kw2">var</span> <span class="re0">$ipn_log_file</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// filename of the IPN log</span><br>
+&nbsp; &nbsp;<span class="kw2">var</span> <span class="re0">$ipn_response</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// holds the IPN response from paypal &nbsp; </span><br>
+&nbsp; &nbsp;<span class="kw2">var</span> <span class="re0">$ipn_data</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// array contains the POST values for IPN</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;<span class="kw2">var</span> <span class="re0">$fields</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// array holds the fields to submit to paypal</span><br>
+<br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;<span class="kw2">function</span> paypal_class<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// initialization constructor. &nbsp;Called when class is created.</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">paypal_url</span> <span class="sy0">=</span> <span class="st_h">'https://www.paypal.com/cgi-bin/webscr'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">last_error</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_log_file</span> <span class="sy0">=</span> <span class="st_h">'ipn_log.txt'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_log</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_response</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// populate $fields array with a few default values. &nbsp;See the paypal</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// documentation for a list of fields and their data types. These defaul</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// values can be overwritten by the calling script.</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'rm'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// Return method = POST</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'cmd'</span><span class="sy0">,</span><span class="st_h">'_xclick'</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;<span class="kw2">function</span> add_field<span class="br0">&#40;</span><span class="re0">$field</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// adds a key=&gt;value pair to the fields array, which is what will be </span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// sent to paypal as POST variables. &nbsp;If the value is already in the </span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// array, it will be overwritten.</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">&#91;</span><span class="st0">&quot;<span class="es4">$field</span>&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$value</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp;<span class="kw2">function</span> submit_paypal_post<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// this function actually generates an entire HTML page consisting of</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// a form with hidden elements which is submitted to paypal via the </span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// BODY element's onLoad attribute. &nbsp;We do this so that you can validate</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// any POST vars from you custom form before submitting to paypal. &nbsp;So </span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// basically, you'll have your own form which is submitted to your script</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// to validate the data, which in turn calls this function to create</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// another hidden form and submit to paypal.</span><br>
+&nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// The user will briefly see a message on the screen that reads:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// &quot;Please wait, your order is being processed...&quot; and then immediately</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// is redirected to paypal.</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;html&gt;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;head&gt;&lt;title&gt;Processing Payment...&lt;/title&gt;&lt;/head&gt;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;body onLoad=<span class="es1">\&quot;</span>document.form.submit();<span class="es1">\&quot;</span>&gt;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;center&gt;&lt;h3&gt;Please wait, your order is being processed...&lt;/h3&gt;&lt;/center&gt;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;form method=<span class="es1">\&quot;</span>post<span class="es1">\&quot;</span> name=<span class="es1">\&quot;</span>form<span class="es1">\&quot;</span> action=<span class="es1">\&quot;</span>&quot;</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">paypal_url</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\&quot;</span>&gt;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">fields</span> <span class="kw1">as</span> <span class="re0">$name</span> <span class="sy0">=&gt;</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;&lt;input type=<span class="es1">\&quot;</span>hidden<span class="es1">\&quot;</span> name=<span class="es1">\&quot;</span><span class="es4">$name</span><span class="es1">\&quot;</span> value=<span class="es1">\&quot;</span><span class="es4">$value</span><span class="es1">\&quot;</span>&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/form&gt;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/body&gt;&lt;/html&gt;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;<span class="kw2">function</span> validate_ipn<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// parse the paypal URL</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$url_parsed</span><span class="sy0">=</span><span class="kw3">parse_url</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">paypal_url</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp;<br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// generate the post string from the _POST vars aswell as load the</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// _POST vars into an arry so we can play with them from the calling</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// script.</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$post_string</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span> &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$_POST</span> <span class="kw1">as</span> <span class="re0">$field</span><span class="sy0">=&gt;</span><span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_data</span><span class="br0">&#91;</span><span class="st0">&quot;<span class="es4">$field</span>&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$value</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$post_string</span> <span class="sy0">.=</span> <span class="re0">$field</span><span class="sy0">.</span><span class="st_h">'='</span><span class="sy0">.</span><span class="kw3">urlencode</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&amp;'</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$post_string</span><span class="sy0">.=</span><span class="st0">&quot;cmd=_notify-validate&quot;</span><span class="sy0">;</span> <span class="co1">// append ipn command</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// open the connection to paypal</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$fp</span> <span class="sy0">=</span> <span class="kw3">fsockopen</span><span class="br0">&#40;</span><span class="re0">$url_parsed</span><span class="br0">&#91;</span><span class="st_h">'host'</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="st_h">'443'</span><span class="sy0">,</span><span class="re0">$err_num</span><span class="sy0">,</span><span class="re0">$err_str</span><span class="sy0">,</span><span class="nu0">30</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$fp</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// could not open the connection. &nbsp;If loggin is on, the error message</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// will be in the log.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">last_error</span> <span class="sy0">=</span> <span class="st0">&quot;fsockopen error no. <span class="es4">$errnum</span>: <span class="es4">$errstr</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">log_ipn_results</span><span class="br0">&#40;</span><span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span> <br>
+&nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// Post the data back to paypal</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw3">fputs</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="sy0">,</span> <span class="st0">&quot;POST <span class="es4">$url_parsed[path]</span> HTTP/1.1<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw3">fputs</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="sy0">,</span> <span class="st0">&quot;Host: <span class="es4">$url_parsed[host]</span><span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw3">fputs</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="sy0">,</span> <span class="st0">&quot;Content-type: application/x-www-form-urlencoded<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw3">fputs</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="sy0">,</span> <span class="st0">&quot;Content-length: &quot;</span><span class="sy0">.</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$post_string</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw3">fputs</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="sy0">,</span> <span class="st0">&quot;Connection: close<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw3">fputs</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="sy0">,</span> <span class="re0">$post_string</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// loop through the response from the server and append to variable</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">while</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">feof</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_response</span> <span class="sy0">.=</span> <span class="kw3">fgets</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="sy0">,</span> <span class="nu0">1024</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#125;</span> <br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw3">fclose</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// close connection</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">&quot;/VERIFIED/i&quot;</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_response</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// Valid IPN transaction.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">log_ipn_results</span><span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// Invalid IPN transaction. &nbsp;Check the log for details.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">last_error</span> <span class="sy0">=</span> <span class="st_h">'IPN Validation Failed.'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">log_ipn_results</span><span class="br0">&#40;</span><span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;<span class="kw2">function</span> log_ipn_results<span class="br0">&#40;</span><span class="re0">$success</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_log</span><span class="br0">&#41;</span> <span class="kw1">return</span><span class="sy0">;</span> &nbsp;<span class="co1">// is logging turned off?</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// Timestamp</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$text</span> <span class="sy0">=</span> <span class="st_h">'['</span><span class="sy0">.</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st_h">'m/d/Y g:i A'</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'] - '</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// Success or failure being logged?</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$success</span><span class="br0">&#41;</span> <span class="re0">$text</span> <span class="sy0">.=</span> <span class="st0">&quot;SUCCESS!<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">else</span> <span class="re0">$text</span> <span class="sy0">.=</span> <span class="st_h">'FAIL: '</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">last_error</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// Log the POST variables</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$text</span> <span class="sy0">.=</span> <span class="st0">&quot;IPN POST Vars from Paypal:<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_data</span> <span class="kw1">as</span> <span class="re0">$key</span><span class="sy0">=&gt;</span><span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$text</span> <span class="sy0">.=</span> <span class="st0">&quot;<span class="es4">$key</span>=<span class="es4">$value</span>, &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// Log the response from the paypal server</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$text</span> <span class="sy0">.=</span> <span class="st0">&quot;<span class="es1">\n</span>IPN Response from Paypal Server:<span class="es1">\n</span> &quot;</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_response</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// Write to log</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$fp</span><span class="sy0">=</span><span class="kw3">fopen</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ipn_log_file</span><span class="sy0">,</span><span class="st_h">'a'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">fwrite</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="sy0">,</span> <span class="re0">$text</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\n</span><span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">fclose</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<span class="co1">// close file</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp;<span class="kw2">function</span> dump_fields<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// Used for debugging, this function will output all the field/value pairs</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// that are currently defined in the instance of the class using the</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// add_field() function.</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;h3&gt;paypal_class-&gt;dump_fields() Output:&lt;/h3&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;table width=<span class="es1">\&quot;</span>95%<span class="es1">\&quot;</span> border=<span class="es1">\&quot;</span>1<span class="es1">\&quot;</span> cellpadding=<span class="es1">\&quot;</span>2<span class="es1">\&quot;</span> cellspacing=<span class="es1">\&quot;</span>0<span class="es1">\&quot;</span>&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;td bgcolor=<span class="es1">\&quot;</span>black<span class="es1">\&quot;</span>&gt;&lt;b&gt;&lt;font color=<span class="es1">\&quot;</span>white<span class="es1">\&quot;</span>&gt;Field Name&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;td bgcolor=<span class="es1">\&quot;</span>black<span class="es1">\&quot;</span>&gt;&lt;b&gt;&lt;font color=<span class="es1">\&quot;</span>white<span class="es1">\&quot;</span>&gt;Value&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;&quot;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">ksort</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">fields</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;&lt;tr&gt;&lt;td&gt;<span class="es4">$key</span>&lt;/td&gt;&lt;td&gt;&quot;</span><span class="sy0">.</span><span class="kw3">urldecode</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/table&gt;&lt;br&gt;&quot;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>ה paypal.php:<br><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw1">require</span><span class="br0">&#40;</span><span class="st_h">'../Site/Source/global.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">require</span><span class="br0">&#40;</span><span class="st_h">'paypal.class.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$p</span> <span class="sy0">=</span> <span class="kw2">new</span> paypal_class<span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">paypal_url</span> <span class="sy0">=</span> <span class="st_h">'https://www.paypal.com/cgi-bin/webscr'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">validate_ipn</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `pays`(`id`, `userid`, `message_id`, `service_id`, `shortcode`, `keyword`, `message`, `sender`, `operator`, `country`, `custom`, `points`, `price`, `currency`) VALUES ('1', '', '', '', '', '', '', '', '', '', '', '', '', '')&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>ה POST של החיוב:<br><br><div class="php codeblock"><span class="re0">$packs</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'30'</span> <span class="sy0">=&gt;</span> <span class="st_h">'10'</span><span class="sy0">,</span> <span class="st_h">'70'</span> <span class="sy0">=&gt;</span> <span class="st_h">'20'</span><span class="sy0">,</span> <span class="st_h">'150'</span> <span class="sy0">=&gt;</span> <span class="st_h">'40'</span><span class="sy0">,</span> <span class="st_h">'350'</span> <span class="sy0">=&gt;</span> <span class="st_h">'99'</span><span class="sy0">,</span> <span class="st_h">'700'</span> <span class="sy0">=&gt;</span> <span class="st_h">'170'</span><span class="sy0">,</span> <span class="st_h">'990'</span> <span class="sy0">=&gt;</span> <span class="st_h">'220'</span><span class="sy0">,</span> <span class="st_h">'1200'</span> <span class="sy0">=&gt;</span> <span class="st_h">'300'</span><span class="sy0">,</span> <span class="st_h">'1500'</span> <span class="sy0">=&gt;</span> <span class="st_h">'350'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$num</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'1'</span> <span class="sy0">=&gt;</span> <span class="st_h">'30'</span><span class="sy0">,</span> <span class="st_h">'2'</span> <span class="sy0">=&gt;</span> <span class="st_h">'70'</span><span class="sy0">,</span> <span class="st_h">'3'</span> <span class="sy0">=&gt;</span> <span class="st_h">'150'</span><span class="sy0">,</span> <span class="st_h">'4'</span> <span class="sy0">=&gt;</span> <span class="st_h">'350'</span><span class="sy0">,</span> <span class="st_h">'5'</span> <span class="sy0">=&gt;</span> <span class="st_h">'700'</span><span class="sy0">,</span> <span class="st_h">'6'</span> <span class="sy0">=&gt;</span> <span class="st_h">'990'</span><span class="sy0">,</span> <span class="st_h">'7'</span> <span class="sy0">=&gt;</span> <span class="st_h">'1200'</span><span class="sy0">,</span> <span class="st_h">'8'</span> <span class="sy0">=&gt;</span> <span class="st_h">'1500'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$x</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><span class="re0">$x</span> <span class="sy0">&lt;=</span> <span class="nu0">8</span><span class="sy0">;</span><span class="re0">$x</span><span class="sy0">++</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'pp-'</span><span class="sy0">.</span><span class="re0">$x</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$num</span><span class="br0">&#91;</span><span class="re0">$x</span><span class="br0">&#93;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this_script</span> <span class="sy0">=</span> <span class="st_h">'http://www.xxx.co.il/pay/paypal.php'</span><span class="sy0">;</span> <span class="co1">// link to ipn file</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'business'</span><span class="sy0">,</span> <span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="3c4b5d4e5944494f7c4b5d4e5944125f53125550">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// your paypal username (where the money will be send)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'return'</span><span class="sy0">,</span> <span class="st_h">'http://www.xxx.co.il/pay/succes.php'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// the path to where the user will return after pay</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'cancel_return'</span><span class="sy0">,</span> <span class="st_h">'http://www.xxx.co.il/packs'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// the path to where the user will return after he cancel</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'notify_url'</span><span class="sy0">,</span> <span class="re0">$this_script</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// the url that paypal will send the ipn</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'item_name'</span><span class="sy0">,</span> <span class="re0">$num</span><span class="br0">&#91;</span><span class="re0">$x</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">' Diamonds'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// the title that the user will see in the payment page</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'amount'</span><span class="sy0">,</span> <span class="re0">$packs</span><span class="br0">&#91;</span><span class="re0">$num</span><span class="br0">&#91;</span><span class="re0">$x</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// the amount of the money that the user will be pay</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'currency_code'</span><span class="sy0">,</span><span class="st_h">'ILS'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// the currency of payment. In our case it 100 SHEKEL</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">submit_paypal_post</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br><br><br><br>מה עושים?! בבקשה חברה, תענו מהר.. אני צריך את זה למחר! </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7866">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 26 לדצמבר 2013 </span>
+<a id="answer_7866" href="validate_ipn לא עובד ב  PayPal class-1.htm#answer_7866">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עברו כנראה יותר משנתיים מאז שכתבתי את המאמר הזה, מאז המון דברים יכלו לקרות וקראו - הקלאס הזה מאוד מיושן, וצריך לעשות ריפקטור. קודם להתחיל לעשות דיבאגינג לראות מה בכלל ה$this-&gt;ipn_response מכיל - איך בכלל הריספונס נראה, לבדוק ששום דבר באמת לא השתנה בapi של פייפל מאז שהמאמר הזה נכתב בנוגע לבדיקת validation ולהעיף/לשנות דברים שלא צריך (כמו אולי לשנות את הבקשה לcurl).<br><br>אז יש לך שתי אופציות: תתחיל לעשות דיבאג ולהבין בעצמך מה לא בסדר פה, או להתחיל לחפש בגוגל מחלקה יותר עדכנית בגיטהאב </p>
+</div>
+<div class="answer" id="answer7867">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 26 לדצמבר 2013 </span>
+<a id="answer_7867" href="validate_ipn לא עובד ב  PayPal class-1.htm#answer_7867">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין סיכוי אתה מנסה לעדכן את המאמר שלך, או לנסות לעשות מחלקה עדכנית יותר? </p>
+</div>
+<div class="answer" id="answer7868">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 26 לדצמבר 2013 </span>
+<a id="answer_7868" href="validate_ipn לא עובד ב  PayPal class-1.htm#answer_7868">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מאז לא קרה שום דבר. חודש שעבר עשיתי הכל לפי ההוראות של מיכאל :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

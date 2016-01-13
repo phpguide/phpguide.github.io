@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה אבטחה למערכת הצבעות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="yotamN">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>אבטחה למערכת הצבעות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="אבטחה למערכת הצבעות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה אבטחה למערכת הצבעות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="אבטחה למערכת הצבעות-1.htm" title="אני עובד על מערכת תחרות שיהיה ניתן להצביע לכל מועמד, לא אכפת לי אם הם יצביעו לכמה מועמדים אבל השאלה שלי היא איך אני יכול לדאוג שהם יצביעו רק פעם ביום, חשבתי על Cookies אבל אז הם יוכלו למחוק את ה Cookies ולהצביע שוב, אז איזה דרך הכי טובה?">אבטחה למערכת הצבעות</a></h2>
+<div class="userinfo">
+פתח
+<a>yotamN</a>
+,
+<time class="timeago relativetime" datetime="2014-01-04T10:32:59+02:00" style="display:inline-block;">
+04 לינואר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1746'>
+אני עובד על מערכת תחרות שיהיה ניתן להצביע לכל מועמד, לא אכפת לי אם הם יצביעו לכמה מועמדים אבל השאלה שלי היא איך אני יכול לדאוג שהם יצביעו רק פעם ביום, חשבתי על Cookies אבל אז הם יוכלו למחוק את ה Cookies ולהצביע שוב, אז איזה דרך הכי טובה? </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7926">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 לינואר 2014 </span>
+<a id="answer_7926" href="אבטחה למערכת הצבעות-1.htm#answer_7926">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם מדובר במערכת שאסור שתהיה רמאות בכלל - יש צורך לדרוש מכל המצביעים להירשם לאתר. ועכשיו זה הרבה יותר קל בשבילך לשלוט בזה. בהנחה שיש לך טבלת מסד נתונים לסקר וטבלה למשתמשים. צור טבלה עם השדות הבאים: ID של משתמש, ID של סקר, תאריך הצבעה אחרון (של אותו המשתמש בסקר הזה).<br>עכשיו, בכל פעם שמשתמש ינסה להצביע:<br>בדוק אם קיימת רשומה בטבלה עם הערכים של המשתמש והסקר הספציפיים האלה.<br>1. אם לא - אין שום בעיה. רשום את ההצבעה שלו והכנס גם רשומה לטבלה שיצרת מקודם, ובה רשום את זמן ההצבעה (כולל שעה ודקות...).<br>2. אם כן, סימן שהוא כבר הצביע בעבר בסקר הזה. בדוק את ההפרש בין התאריך הנוכחי לתאריך ההצבעה.<br>2.1. אם ההפרש גדול מ-24 שעות (או שווה ל-24 שעות, נניח), רשום את ההצבעה שלו, ושנה את תאריך ההצבעה האחרון בטבלה שיצרת מקודם.<br>2.2. אחרת - אם ההפרש קטן מ-24 שעות - מנע מהמשתמש להצביע שוב.<br><br>אם מדובר במערכת שלא כדאי לדרוש מהמצביעים להירשם, ורוצים שזה יהיה קליל יותר - אין באמת דרך לכפות את זה, אבל אפשר לעשות את אותו התהליך שפירטתי עם עוגיות במקום עם מסד נתונים. מובן שתמיד יהיה אפשר לרמות, אבל לא כולם ידעו את זה. (דרך נוספת לרמות, שפחות או יותר כולם ידעו, היא פשוט להיכנס ממחשב אחר.) </p>
+</div>
+<div class="answer" id="answer7927">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e0b8b9acad94326e5e03c69eb1381d45?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yotamN</a>
+ב
+<span style="font-size:10px"> 04 לינואר 2014 </span>
+<a id="answer_7927" href="אבטחה למערכת הצבעות-1.htm#answer_7927">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\OrelBeY-1.htm">@OrelBeY</a> האמת שלא כל כל חשוב אם יצביעו עוד פעם, לא ברמה שצריך ליצור משתמש וטבלה בשביל זה, חשבתי על דרך אבל היא מעמיסה על השרת מאוד, ליצור session לכל יום עם ID מיוחד ליום ואז לבדוק אם ה Session קיים אבל כנראה שאני ישאר עם ה Cookies </p>
+</div>
+<div class="answer" id="answer7928">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 לינואר 2014 </span>
+<a id="answer_7928" href="אבטחה למערכת הצבעות-1.htm#answer_7928">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שכחתי להזכיר שכדאי יהיה לנקות את הטבלה כל כמה זמן, כי אין צורך לשמור את תאריך ההצבעה האחרון אם הוא אחרי 24 שעות. אם תחשוב על זה יותר תגלה שזו דווקא שיטה אפקטיבית ביותר, שלא תיקח יותר מדי תמורת מה שהיא מציעה. אבל אם זה באמת לא חשוב - פשוט תישאר עם עוגיות.<br>ואגב, סשן לא יחזיק כל היום. (קרא את הקטע תחת הכותרת &quot;אורך החיים של <a href="..\SESSION.htm">סשן</a>&quot;.) </p>
+</div>
+<div class="answer" id="answer7930">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 04 לינואר 2014 </span>
+<a id="answer_7930" href="אבטחה למערכת הצבעות-1.htm#answer_7930">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בעקרון בד&quot;כ בתחרויות מהסוג הזה משתמשים באייפי. בודקים אם האייפי מופיע במסד ואם הוא מופיע האם הוא הצביע באותו היום\24 שעות אחרונות [תלוי בך].<br>אך ניתן לעקוף זאת בקלות ע&quot;י שינוי האייפי.<br>אני מציע לך להגביל את כמות ההצבעות לפרק זמן מסוים כלומר שלא יהיה ניתן להצביע לאותו מתמודד יותר מ X פעמים בפרק זמן של 10 דקות על מנת למנוע רמאויות. <br>ובנוסף תנסה לחשוב על טריקים נוספים כמו בנוסף לבדיקה במסד להוסיף גם סשן למשתמש ככה שאם הוא שכח למחוק ושינה אייפי אז זה עדיין לא יתן לו להצביע,לבדוק אם אותו אדם מנסה להצביע תחת פרוקסי וכו&apos; </p>
+</div>
+<div class="answer" id="answer7956">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5e5b5ba539240e4b83b11a5fbf086309?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmh19</a>
+ב
+<span style="font-size:10px"> 07 לינואר 2014 </span>
+<a id="answer_7956" href="אבטחה למערכת הצבעות-1.htm#answer_7956">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש כאן באתר <a href="..\טופס_יצירת_קשר_שליחת_אימייל.htm">מדריך לטופס יצירת קשר</a>,<br>בחלק החמישי שלו יש קטע להגנה מפני ספאם, תשמש בזה לצרכים שלך. </p>
+</div>
+<div class="answer" id="answer8027">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 11 לינואר 2014 </span>
+<a id="answer_8027" href="אבטחה למערכת הצבעות-1.htm#answer_8027">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\mmh19-1.htm">@mmh19</a> זה בדיוק מה שאמרתי, מלבד החלק של שימוש בכתובות IP במקום מערכת משתמשים. כמו ש-Splash כבר אמר, אפשר לעקוף את זה בקלות. את הפתרון היעיל ביותר כבר אמרתי. (הדרך היחידה לעקוף אותו היא באמצעות רישום משתמשים נוספים השייכים לאותו אדם, וזו כבר בעיה אחרת.) רק צריך לחשוב - האם זה יותר מדי לבקש ממצביעים להירשם? עקרונית כל דף הוא דף נחיתה פוטנציאלי, וכך גם עמוד ההצבעה (אלא אם כן הוא חסום לכניסה ציבורית), אבל השאלה היא - האם ההצבעה מיועדת למשתמשים של האתר, או סתם לגולשים? במקרה השני קרוב לוודאי שלא נרצה לדרוש מהם יותר מכמה לחיצות (אחרת יש הרבה סיכויים שהם פשוט יעזבו), ואז צריך לבחור בין דרכי אבטחה שונות. צריכים לזכור שדרכים אחרות אמנם לא יגנו על המערכת ב-100%, אבל לפעמים אפשר וכדאי לוותר על <strong>רמת</strong> האבטחה בהתאם לצורך.<br><br>נ.ב. ערכתי את הכותרת של הדיון (&quot;אבטחה למערכת הצבעות&quot;) במטרה לשקף את הדיון שהתפתח כאן, ולא להתמקד במקרה ספציפי (&quot;הצבעה פעם ביום&quot;). </p>
+</div>
+<div class="answer" id="answer8029">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>raslin</a>
+ב
+<span style="font-size:10px"> 12 לינואר 2014 </span>
+<a id="answer_8029" href="אבטחה למערכת הצבעות-1.htm#answer_8029">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מניסיון ארוך שנים במיוחד בנושא הזה, של למנוע הרשמה כפולה,<br>אין דרך מוחלטת!! כל מה שתעשה אפשר לרמות ויחסית בקלות,<br>אפשר להיות יצירתי ולהוסיף עוד שכבות, אבל ל100% זה לא יגיע, ולא קרוב לזה,<br><br>כמה פתרונות,<br>תוכל לעשות הצבעה דרך מספר טלפון, או אימות טלפוני בסמס, ואז כמה כבר טלפונים כל אדם מחזיק? אז פה זה איפשהו מגביל אותם,<br>או התחברות מול פייסבוק, ולאשר בהרשמה רק חשבונות פייסבוק <strong>מאומתים</strong><br><br>ואז פייסבוק יעשו בשבילך את העבודה, וכך תמנע 99.9% מהבעיות האלה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

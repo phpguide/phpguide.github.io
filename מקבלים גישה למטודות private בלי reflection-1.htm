@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="דרך מעניינת לגשת למאפיינים ומטודות פרטיות של מחלקה מבחוץ">
+<meta name="keywords" content="clojure, reflection, private">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>מקבלים גישה למטודות private בלי reflection</title>
+<meta itemprop="name" content="מקבלים גישה למטודות private בלי reflection">
+<meta itemprop="description" content="דרך מעניינת לגשת למאפיינים ומטודות פרטיות של מחלקה מבחוץ">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"331","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מקבלים גישה למטודות private בלי reflection</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-07-17T02:16:46+03:00" dir="rtl">17 ליולי 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="" alt="מקבלים גישה למטודות private בלי reflection">
+</div>
+<div class="right post-content">
+אם אתה יודע את שני הדברים האלה על closures - אתה יכול לקבל גישה למטודות ומאפיינים חבויים של מחלקות. מצד שני, אם אין לך מושג מה זה <a href="http://php.net/manual/en/class.closure.php">closure ופונקציות אנונימיות</a> - לא נורא. יש עוד מדריכים מעניינים באתר.<br><br><span style="color:brown;"><strong>שים לב</strong>: הדוגמאות מובאות להרחבת הידע הכללי בלבד. אם אתה מוצא סיבה טובה להשתמש בקוד כזה בפועל - ספר לי בתגובה.</span> <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אני הולך לספר לך על דרך מעניינת לקבל גישה למטודות ומאפיינים פרטיים של מחלקות. אבל לפני שאני מראה לך איך בדיוק אפשר לעשות את זה, בו ניישר קו על הדברים הבסיסיים.<br><br>פונקציות אנונימיות שעוטפות ערכים (או &quot;<strong>סוגרות</strong>&quot; ערכים) - נקראות closures.<br>כדי לסגור ערכים מסוימים - אנחנו מכניסים אותם לבלוק use.<br><br><div class="php codeblock"><span class="re0">$x</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+<span class="re0">$addOne</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="re0">$p</span><span class="br0">&#41;</span> <span class="kw2">use</span> <span class="br0">&#40;</span><span class="re0">$x</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">return</span> <span class="re0">$p</span> <span class="sy0">+</span> <span class="re0">$x</span><span class="sy0">;</span> <span class="br0">&#125;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$addOne</span><span class="br0">&#40;</span><span class="nu0">5</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>עד כאן אני מקווה שלא הפתעתי אותך וכתבת קוד כזה בעצמך.<br><br>ההפתעה הראשונה תהיה עוד משתנה אחד שתמיד נסגר על יד closure גם אם לא רשמת אותו בפירוש בתוך בלוק ה-use. כמה שזה נשמע מפתיע מצד אחד - זה די לגיטימי כשמסתכלים על זה:<br><br><strong>closure שנמצא בתוך מחלקה תמיד סוגר את המשתנה <span dir="ltr">$this</span>, כדי שתוכל להשתמש בו בתוך הקלוז&#039;ור</strong><br>גם אם לא רשמת את זה בפירוש בבלוק use של אותו קלוז&#039;ור. הנא דוגמה:<br><br><div class="php codeblock"><span class="kw2">class</span> my<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$increment</span> <span class="sy0">=</span> <span class="nu0">9</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> GetAddFunc<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="re0">$x</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">return</span> <span class="re0">$x</span> <span class="sy0">+</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">increment</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$my</span> <span class="sy0">=</span> <span class="kw2">new</span> my<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$addFunc</span> <span class="sy0">=</span> <span class="re0">$my</span><span class="sy0">-&gt;</span><span class="me1">GetAddFunc</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$addFunc</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>מה לדעתך סוג המשתנה <span dir="ltr">$addFunc</span> ?<br>אם ענית משהו אחר מ<strong><a href="http://php.net/manual/en/class.closure.php">מחלקה מסוג Closure</a></strong> - פספסת כמה פסקאות בדוקומנטציה.<br><br>מה המשמעוט של מחלקה? זה אומר שיש לה מטודות שאפשר להפעיל. מעניין אילו? בוא נראה:<br><br>למחלקה closure מטודה בשם <a href="http://www.php.net/manual/en/closure.bind.php">bind</a> שמאפשרת ליצור closure חדש מתוך closure קיים ולחבר אליו <span dir="ltr">$this</span> כלשהו.<br><div class="php codeblock"><span class="kw2">class</span> Five <span class="br0">&#123;</span> <span class="kw2">public</span> <span class="re0">$num</span> <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="kw2">class</span> Six <span class="br0">&#123;</span> <span class="kw2">public</span> <span class="re0">$num</span> <span class="sy0">=</span> <span class="nu0">6</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$five</span> <span class="sy0">=</span> <span class="kw2">new</span> Five<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<span class="re0">$six</span> <span class="sy0">=</span> <span class="kw2">new</span> Six<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// A closure without $this;</span><br>
+<span class="re0">$getNum</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">num</span><span class="sy0">;</span> <span class="br0">&#125;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Copies getNum and Sets $this inside the new closure to be $fiveInstance</span><br>
+<span class="re0">$getNum5</span> <span class="sy0">=</span> Closure<span class="sy0">::</span><span class="me2">bind</span><span class="br0">&#40;</span><span class="re0">$getNum</span><span class="sy0">,</span> <span class="re0">$five</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$getNum6</span> <span class="sy0">=</span> Closure<span class="sy0">::</span><span class="me2">bind</span><span class="br0">&#40;</span><span class="re0">$getNum</span><span class="sy0">,</span> <span class="re0">$six</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="re0">$getNum5</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st_h">' '</span><span class="sy0">,</span> <span class="re0">$getNum6</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ומטודה נוספת, bindTo שעושה בדיוק אותו דבר, אבל על מופע קיים של closure:<br><div class="php codeblock"><span class="re0">$myInstance</span> <span class="sy0">=</span> <span class="kw2">new</span> whatever<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$myClosure</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="br0">&#125;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Creates a copy of myClosure and binds it</span><br>
+<span class="re0">$newBound</span> <span class="sy0">=</span> Closure<span class="sy0">::</span><span class="me2">bind</span><span class="br0">&#40;</span><span class="re0">$myClosure</span><span class="sy0">,</span> <span class="re0">$myInstance</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Eventually the same as above</span><br>
+<span class="re0">$anotherbound</span> <span class="sy0">=</span> <span class="re0">$myClosure</span><span class="sy0">-&gt;</span><span class="me1">bindTo</span><span class="br0">&#40;</span><span class="re0">$myInstance</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>בצורה כזו אפשר לעשות הרבה דברים מעניינים. למשל יצירה דינמית של מטודות חדשות בתוך מחלקה על הדרך או גישה למאפיינים פרטיים. הנא דוגמא:<br><br><div class="php codeblock"><span class="kw2">class</span> Chocolate<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$amount</span> <span class="sy0">=</span> <span class="st0">&quot;15kg&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$myChocolate</span> <span class="sy0">=</span> <span class="kw2">new</span> Chocolate<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+<span class="re0">$sweetsThief</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'There was '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">amount</span><span class="sy0">,</span> <span class="st_h">' but only '</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">amount</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">amount</span> <span class="sy0">-</span> <span class="nu0">1</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;kg&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">amount</span><span class="sy0">,</span> <span class="st_h">' left'</span><span class="sy0">,</span> PHP_EOL<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$goGetMeChocolate</span> <span class="sy0">=</span> Closure<span class="sy0">::</span><span class="me2">bind</span><span class="br0">&#40;</span><span class="re0">$sweetsThief</span><span class="sy0">,</span> <span class="re0">$myChocolate</span><span class="sy0">,</span> <span class="st_h">'Chocolate'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$goGetMeChocolate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$goGetMeChocolate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2515"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2013 09:24</span><br>
+אפשר לציין שגישה למאפיינים ומטודות פרטיות ברפלקסיה איטיים פי שניים מקלוז&apos;ורים.</div>
+<a id="comment2516"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2013 17:52</span><br>
+תודה רבה. שימוש מעניין. :)<br>
+<br>
+ההוספה של this לתוך ה-closure כשאתה בתוך מחלקה לא נוספה באחת הגירסאות האחרונות שיצאו? כי זכור לי שפעם הייתה בעיה עם זה. ואם היית עושה use $this אז הייתה שגיאה. ולכן הייתי יוצר משתנה חדש בשם that ששווה ל-this ומשתמש בו ב-closure.</div>
+<a id="comment2517"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2013 18:54</span><br>
+@iiddaannyy<br>
+ב PHP 5.4.0</div>
+<a id="comment2519"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/07/2013 23:27</span><br>
+התכוונת שאין סיבה להשתמש ב closure?</div>
+<a id="comment2520"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/07/2013 00:27</span><br>
+שאין סיבה לגשת למאפיינים ומטודות פרטיות של מחלקה</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

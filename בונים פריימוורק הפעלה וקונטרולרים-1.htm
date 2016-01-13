@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הסבר איך לכתוב MVC framework מאפס.">
+<meta name="keywords" content="ליבנות MVC Framework">
+<meta name="author" content="pol292">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>בונים פריימוורק - הפעלה וקונטרולרים</title>
+<meta itemprop="name" content="בונים פריימוורק - הפעלה וקונטרולרים">
+<meta itemprop="description" content="הסבר איך לכתוב MVC framework מאפס.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"237","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>בונים פריימוורק - הפעלה וקונטרולרים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">pol292, </div>
+<div class="right">&nbsp;<time datetime="2012-08-10T21:18:41+03:00" dir="rtl">10 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="" alt="בונים פריימוורק - הפעלה וקונטרולרים">
+</div>
+<div class="right post-content">
+הסבר איך ליצור סביבת פיתוח אישית שעובדת על בסיס MVC. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+בזמן האחרון עבדתי על Framework משלי , אז החלטתי לשתף במדריך על בניית MVC Framework פשוט<br>בחלק הראשון של המדריך אני יסביר את המבנה הבסיסי של התיקיות ויציג איך עובד הMVC.<br><br>בתור התחלה נסביר על MVC:<br>(מתוך ויקיפדיה)<br>תבנית Model-View-Controller (בקיצור MVC) היא תבנית עיצוב בהנדסת תוכנה המשמשת להפשטת יישום כלשהו. התבנית מתארת טכניקה לחלוקת היישום לשלושה חלקים, מודל, מבט ובקר, המחוברים ביניהם בצימוד רפוי מונחה אירועים. בדרך זו, התלות הדדית בין ממשק המשתמש לשאר חלקי התוכנה פוחתת, ואת החלקים השונים ניתן לפתח באופן בלתי-תלוי. בנוסף, קל יותר לתחזק את התוכנה וכן לעשות שימוש חוזר בחלקי היישום שהופרדו.<br><br>מבנה הMVC:<br><img src="static\images\pixel.png" alt="בונים פריימוורק - הפעלה וקונטרולרים" title="http://www.endlick.com/wp-content/uploads/2012/02/mvc.png" class="content-image-float"><br><br>הקבצים שצריך:<br><img src="static\images\pixel.png" alt="בונים פריימוורק - הפעלה וקונטרולרים" title="http://up351.siz.co.il/up1/nazmd50mjynm.png" class="content-image-float"><br>הסבר על קבצים ותיקיות:<br>application-שומר קבצים של היישום (אין גישה למשתמש)<br> models-אחרי על בדיקת טפסים ועבודה אם מסד נתונים.<br> views-קבצי תצוגה של המערכת.<br> controllers-מבצע ניתובים בין המודלים לתצוגות וההפך.<br>public-שומר קבצים שניתנים לגישה לכלל המשתמשים.<br> התת תיקיות כאן מאוד מובנות קבצי CSS,JS,תמונות,FLASH,קבצים שהמשתמש מעלה וכו&#039;.<br>temp-קבצים שהמערכת יוצרת לדוגמה log,cache וכו&#039;.<br>library-התיקיה הכי חשובה בעצם זאת ליבת המערכת.<br> תיקית framework-כל המחלקות שאחריות על הפעולה נמצאות בא<br> controller.php-מחלקה שכל הקונטרוליירים שלנו יורישו<br> view.php-מחלקה שאחריאית על המראה<br> model.php-מחלקה שהמודלים יורישו <br> Bootstrap.php-קובץ שמריץ את הMVC<br>index.php-קובץ הרצת המערכת הוא מפעיל את הBootstrap.php<br>.htaccess-קובץ שהיתן קצת מראה יפה יותר לכתובת האתר.<br><br>אוקי אז עכשיו לעבודה:<br><span class="underline">index.php</span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'DS'</span><span class="sy0">,</span> <span class="kw4">DIRECTORY_SEPARATOR</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'ROOT'</span><span class="sy0">,</span> __DIR__<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">//require the bootfile</span><br>
+<span class="kw1">require_once</span> ROOT<span class="sy0">.</span>DS<span class="sy0">.</span><span class="st_h">'library'</span><span class="sy0">.</span>DS<span class="sy0">.</span><span class="st_h">'Bootstrap.php'</span><span class="sy0">;</span><br>
+<span class="co1">//boot the appliction</span><br>
+<span class="re0">$appliction</span> <span class="sy0">=</span> <span class="kw2">new</span> Bootstrap<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אין כאן יותר מידי מה להסביר פשוט מריץ את האפליקציה<br><span class="underline">Bootstrap.php</span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> Bootstrap <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* this function get url and run the aplliction with <br>
+&nbsp; &nbsp; &nbsp;* controller and action<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* autoloader run framework files<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">spl_autoload_register</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">,</span> <span class="st_h">'loader'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param array $url <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param string $url[0] controller<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param string $url[1] action<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$url</span> <span class="sy0">=</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'url'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> ? <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'url'</span><span class="br0">&#93;</span> <span class="sy0">:</span> <span class="kw4">null</span><span class="sy0">;</span> <span class="co1">//cheak if isset url</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$url</span> <span class="sy0">=</span> <span class="kw3">rtrim</span><span class="br0">&#40;</span><span class="re0">$url</span><span class="sy0">,</span> <span class="st0">&quot;/&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp;<span class="co1">//remove over slashs (/)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$url</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st0">&quot;/&quot;</span><span class="sy0">,</span> <span class="re0">$url</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<span class="co1">//explode by slash to controller and action</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$url</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//if url empty the boot run default controller</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">runController</span><span class="br0">&#40;</span><span class="st0">&quot;main&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">FALSE</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$url</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//if action set run controller and use action</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">runController</span><span class="br0">&#40;</span><span class="re0">$url</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$url</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//else action not set run controller only</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">runController</span><span class="br0">&#40;</span><span class="re0">$url</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* @param string $name function or class name<br>
+&nbsp; &nbsp; &nbsp;* this function load the file with class or functions<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> loader<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//file dir and name</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$file</span> <span class="sy0">=</span> ROOT <span class="sy0">.</span> DS <span class="sy0">.</span> <span class="st_h">'library'</span> <span class="sy0">.</span> DS <span class="sy0">.</span> <span class="st0">&quot;SiDoX&quot;</span> <span class="sy0">.</span> DS <span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;Sidox_&quot;</span><span class="sy0">,</span> <span class="kw4">null</span><span class="sy0">,</span> <span class="re0">$name</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;.php&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//cheak if file exist</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">file_exists</span><span class="br0">&#40;</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">require</span><span class="br0">&#40;</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//file require</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* @param string $name controller name<br>
+&nbsp; &nbsp; &nbsp;* @param string $method method name<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> runController<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="re0">$method</span> <span class="sy0">=</span> <span class="kw4">NULL</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* cheak if controller exists<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* TRUE:(controller not exists)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* run diagnostics<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* go to error page -&gt; move to default page<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$Controller</span> <span class="sy0">=</span> <span class="kw3">ucfirst</span><span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;Controller&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$dirController</span> <span class="sy0">=</span> APPLICATION <span class="sy0">.</span> <span class="st_h">'controllers'</span> <span class="sy0">.</span> DS <span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$Controller</span> <span class="sy0">.</span> <span class="st_h">'.php'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="br0">&#40;</span><span class="kw3">file_exists</span><span class="br0">&#40;</span><span class="re0">$dirController</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//if file not exists it's 404 page</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;404&quot;</span><span class="sy0">;</span> <span class="co1">//you can make 404 page controller or header...</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">FALSE</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* run contoller<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">require</span> <span class="re0">$dirController</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$Controller</span> <span class="sy0">=</span> <span class="kw2">new</span> <span class="re0">$Controller</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//cheak if meathod exists</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="br0">&#40;</span><span class="kw3">method_exists</span><span class="br0">&#40;</span><span class="re0">$Controller</span><span class="sy0">,</span> <span class="re0">$method</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$method</span> <span class="sy0">=</span> <span class="st0">&quot;Main&quot;</span><span class="sy0">;</span> &nbsp; <span class="co1">//method not exist set defualt</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$Controller</span><span class="sy0">-&gt;</span><span class="br0">&#123;</span><span class="re0">$method</span><span class="br0">&#125;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; <span class="co1">//run action</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div><br>הקובץ הזה אחרי על עיבוד הקלט שמתקבל בשורת הכתובת (GET) <br>ואז הוא מבצע ניתוב לcontroller הרצוי ולaction<br>כידי להיכנס לcontroller צריך להקליד בשורת הכתובות:<br>index.php?url=Controller/Action<br><br>טוב עכשיו אם הbootstrap סיימנו<br>וכרגע אם אנחנו ניצור קובץ בנתיב appliction/controllers/MainController.php<br>ונכתוב מחלקה כזאת:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> Main<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;it's your main controller&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>משאנחנו רוצים שיקרה שהקונטרולייר שיצרנו יוריש ממחלקת controller<br>ויוכל לבצע שימוש בכל מיני כלים שמוגדרים במערכת אם זה מחלקת הVIEW או כל כלי אחר שנוסיף בהמשך<br>על זה אני יסביר בחלק הבא </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=16&r=g&d=monsterid" alt="pol292">
+<a>pol292</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1800"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2012 11:44</span><br>
+מדריך מגניב. תודה :)<br>
+יש מקומות שאפשר לשפר בהם את רמת הקוד, אבל הרעיון והמימוש של הפרינציפ נכון. <br>
+יש מה ללמוד מהמדריך ואפשר להבין ממנו איך בדיוק הפריימוורקים הגדולים עושים את אותן הפעולות. </div>
+<a id="comment1801"></a>
+<div class="blog-comment">
+<span class='comment-author'>pol292</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2012 11:54</span><br>
+זה כל הרעיון שאני מנשה להסביר ממש בסיסית וכל שיפור וכל רעיון חדש המשתמש עצמו יוסיף לפי הנוחות שלו.</div>
+<a id="comment1802"></a>
+<div class="blog-comment">
+<span class='comment-author'>PHPDeveloper</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2012 14:22</span><br>
+עבודה יפה, תודה</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

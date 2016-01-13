@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="scalar type hinting ב-PHP על ידי טיפול בשגיאות">
+<meta name="keywords" content="type hinting, scalar">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Scalar Type Hinting</title>
+<meta itemprop="name" content="Scalar Type Hinting">
+<meta itemprop="description" content="scalar type hinting ב-PHP על ידי טיפול בשגיאות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"339","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Scalar Type Hinting</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-10-09T18:51:39+03:00" dir="rtl">09 לאוקטובר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://i.picresize.com/images/2013/10/07/F6jSO.jpg" alt="Scalar Type Hinting">
+</div>
+<div class="right post-content">
+במהלך כתיבת <a href="http://phpguide.co.il/oopbook/">הספר שמסביר oop למתחילים מאפס</a> לא השארתי בצד גם את נושא ה-Type Hinting. אבל נכון לגרסת php 5.5 עדיין אין לשפה תמיכה ב-type hints למשתנים סקאלאריים, כלומר ל- bool, int ו-string. אבל אם אין תמיכה כזאת בשפה, אנחנו יכולים לתכנת אחת כזאת משלנו והנא כיצד: <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+bool, string ו-int הם לא בדיוק מילים שמורות ואנחנו יכולים לקרוא ככה למשתנים, פונקציות ומחלקות. <br>בגלל זה, כאשר php נתקלת בקוד כזה <br><div class="php codeblock"><span class="kw2">function</span> a<span class="br0">&#40;</span>int <span class="re0">$b</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="br0">&#125;</span></div><br>היא חושבת ש-int זה סוג של מחלקה כלשהי. <br>ומה היא עושה אם משתנה b הוא בכלל לא מהסוג של אותה המחלקה?<br><br><h3>תפיסת שגיאות</h3><br>php ידועה בעשרות רמות והודעות שגיאות למיניהם. לא פחות חשוב מזה, היא ידועה גם באפשרות לתפוס שגיאות בכל מני דרכים וצורות. אנחנו בעבר כבר דיברנו על <a href="טיפול_בשגיאות.htm">טיפול בשגיאות</a>.<br><br>שגיאה מסוג &quot;טיפוס לא מתאים&quot; היא עוד אחת המשגיאות של PHP שמטרתן לומר שמשתנה b בכלל לא היה int כמו שציפינו. הטקסט המלא של השגיאה נראה ככה:<br><br><span class="dirleft">Catchable fatal error: Argument 1 passed to function a() must be an instance of int, string given</span><br><br><h4>catchable</h4><br>המילה הראשונה בהודעת השגיאה היא מילת המפתח.<br>היא אומרת שזו שגיאה שאפשר לטפל בה, לתקן אותה ולהמשיך בתוכנה כאילו לא קרתה. זה בדיוק מה, שננסה לעשות.<br><br>מה שנעשה הוא נגדיר פעולה לטיפול בשגיאות שתבדוק האם המשתנה שהועבר הוא באמת מהסוג המתאים ואם כן, נמשיך בתוכנה כמו שתיכננו: <br><br><div class="php codeblock"><span class="kw3">set_error_handler</span><span class="br0">&#40;</span><span class="st_h">'handleTypehint'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw2">function</span> handleTypehint<span class="br0">&#40;</span><span class="re0">$errorLevel</span><span class="sy0">,</span> <span class="re0">$errorMessage</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; static <span class="re0">$map</span> <span class="sy0">=</span> <br>
+&nbsp; <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; <span class="st_h">'int'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'integer'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'bool'</span> <span class="sy0">=&gt;</span> <span class="st_h">'boolean'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'str'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'string'</span><br>
+&nbsp; <span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// handle only recoverable errors</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$errorLevel</span> <span class="sy0">!==</span> E_RECOVERABLE_ERROR<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// Check this is the right error message we are trying to handle</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'/^Argument (\d)+ passed to (?:(\w+)::)?(\w+)\(\) must be an instance of (\w+), (\w+) given/'</span><span class="sy0">,</span> <span class="re0">$errorMessage</span><span class="sy0">,</span> <span class="re0">$match</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; <span class="re0">$expectedType</span> <span class="sy0">=</span> <span class="re0">$match</span><span class="br0">&#91;</span><span class="nu0">4</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$givenType</span> <span class="sy0">=</span> <span class="re0">$match</span><span class="br0">&#91;</span><span class="nu0">5</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$expectedType</span> <span class="sy0">===</span> <span class="re0">$givenType</span> <span class="sy0">||</span> <span class="re0">$map</span><span class="br0">&#91;</span><span class="re0">$expectedType</span><span class="br0">&#93;</span> <span class="sy0">===</span> <span class="re0">$givenType</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span> <br>
+&nbsp; <span class="br0">&#125;</span> <br>
+&nbsp; <br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span> <br>
+<span class="br0">&#125;</span></div><br><br><br><h4>בוא נבין מה הקוד הזה עושה</h4><br><br>ראשית התופס שגיאות האוניברסלי שלנו הולך לתפוס את כל השגיאות. גם כאלה שנבעו בכלל לא מהעניין עם טיפוסי הנתונים או כאלה שאנחנו בכלל לא יכולים לטפל בהם. בשביל לא לבזבז סיבובי מעבד אנחנו נדלג עליהם.<br><br>שנית, באמצעות <a href="ביטויים_רגולריים.htm">ביטוי רגולרי</a> אנחנו נהרוג שני ציפורים במקה:<br><br>גם נוודא שהשגיאה שנתפסה קשורה לבעיית הטיפוסים הלא נכונים<br>וגם נקבל לתוך שני משתנים את הסוג שהפונקציה מצפה לקבל ואת הסוג שהפונקציה קיבלה בפועל.<br><br>לנו נשאר רק להשוות את שני המשתנים האלה ולבדוק האם הסוג שהועבר זהה לסוג שציפו לקבל ואם כן, להמשיך הלאה על ידי החזרת true. אם לא, יוחזר false וphp תדע שמשהו הלך לא כמו שצריך.<br><br><strong>בתור בונוס</strong>: היות וברוב שפות התכנות משתמשים בקיצורים, כמו int במקום integer ו-bool במקום boolean וב-php לא — אנחנו נמפה את הקיצורים אל שמם המלא בשביל ההשוואה. ואם בהודעת השגיאה כתוב expected int, given integer אנחנו בכל זאת נוכל לתפעל את המצב.<br><br>והנא <a href="phplive-8.htm?code=855">דוגמה ב-phplive</a><br><br><br><h4>disclosure</h4><br>כמו שמיכאל ויהב כתבו למטה (ובצדק מוחלט) יש לגישה הזו שני חסרונות:<br>א. יש ירידה בביצועים (עד כמה היא משמעוטית אתה מוזמן להחליט לבד)<br>ב. לממש &quot;הרחבות&quot; לשפה בתוך הקוד שלך זה רעיון רע מאוד. גם מבחינת תאימות של עורכים למיניהם שלא יידעו איך לאכול את זה ובכל זאת יציגו שגיאות, גם מבחינת תאימות לגרסאות באות / קודמות ובכלל קונצפטואלית זה לא רעיון נכון. <br><br><span style="color:darkred;">הפוסט הזה מיועד יותר להרחבת אופקים מאשר להכנסת הקוד לפרוייקט שלך. אם אתה לא מבין עד הסוף מה בדיוק הולך פה ואיך PHP תתנהג במקרים שונים, אני לא ממליץ להשתמש בקוד הזה בפורדאקשן.</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2610"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/10/2013 17:34</span><br>
+it does a cool hack, but its pretty much useless in real life applications<br>
+nice tutorial =)</div>
+<a id="comment2611"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/10/2013 19:40</span><br>
+Thx.<br>
+Do you see a reason not to use it in production or real life apps?<br>
+It definitely has a certain small penalty on performance, but so does a normal class based type hinting, while this one has only a slight overhead on top.<br>
+</div>
+<a id="comment2612"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/10/2013 22:14</span><br>
+first of all, yeah, the performance penalty.<br>
+<span dir="ltr"><a href="phplive-9.htm?code=858">http://phpguide.co.il/phplive?code=858</a></span><br>
+second I (at least) believe that you shouldn&apos;t try to re-invent php with adding stuff like this.<br>
+plus your ide will annoy you for using undefined class when you write scalar type hint or when calling some method it will say that the argument is not instance of int/string/bool<br>
+<br>
+its the same as:<br>
+<span dir="ltr"><a href="https://github.com/nikic/scalar_objects">https://github.com/nikic/scalar_objects</a></span><br>
+making scalars act like object seems pretty nice, like ruby &amp; python does,<br>
+but you won&apos;t really compile this extension in production.<br>
+<br>
+in nutshell it is a cool helper, but I don&apos;t see myself adding this to my applications, I prefer that php will support it natively (yeah, right)</div>
+<a id="comment2613"></a>
+<div class="blog-comment">
+<span class='comment-author'>yahav.g.b</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/10/2013 13:06</span><br>
+The idea is great, though I, too, believes that this is not a good idea to use it.<br>
+Firstly, this way of hack will have much impact on performance. That&apos;s since a huge-scale application will use this hack at least 100 times in a page and each time you&apos;ll send them to the PHP error mechanism.<br>
+Secondly, You&apos;re using a hack, a &quot;magic&quot;, to solve things and it may confuse other developers. Regards to that, even the IDE won&apos;t accept this kind of thing.<br>
+Finally, I don&apos;t believe that feature should be implemented in userland and... to be honest, I don&apos;t think that it should be implemented at all in PHP since it doesn&apos;t follow the concepts behind PHP. Thats being said, as a .NET developer (and so ASP.NET particulary) - I do agree that there&apos;re pros to scalar-type-hinting and they can avoid some confusions for developers.</div>
+<a id="comment2619"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/10/2013 22:45</span><br>
+בתור פתרון זה פתרון נחמד, אבל בלתי שימושי בעליל, ואף מזיק. לא מומלץ בכלל, אבל מחשבה יפה :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

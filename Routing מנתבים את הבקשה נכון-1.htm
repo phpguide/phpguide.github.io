@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="איך להעביר את כל המערכת routing שיש לנו ב.htaccess לתוך האפליקציה">
+<meta name="keywords" content="php routing, ראוטינג, .htaccess">
+<meta name="author" content="Michael">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Routing: מנתבים את הבקשה נכון</title>
+<meta itemprop="name" content="Routing: מנתבים את הבקשה נכון">
+<meta itemprop="description" content="איך להעביר את כל המערכת routing שיש לנו ב.htaccess לתוך האפליקציה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"322","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Routing: מנתבים את הבקשה נכון</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Michael, </div>
+<div class="right">&nbsp;<time datetime="2013-04-21T22:32:33+03:00" dir="rtl">21 לאפריל 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://wirelesstown.co.nz/images/categories/routers.jpg" alt="Routing: מנתבים את הבקשה נכון">
+</div>
+<div class="right post-content">
+מאמר קצר שמסביר על אופן הבקשה של הלקוח ואיך לנתב אותו נכון, או במילים אחרות - לעשות לו &quot;rewrite&quot; נכון. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+רובנו מכירים את הסיטואציה הבאה:<br>יש לי קובץ בשם members.php, שמקבל בget אידי או כל פרמטר אחר, ובסוף נוצר לנו קומבינה כזאת:<br>members.php?id=10&amp;someOtherStuff=Y<br>ואנחנו אומרים וואלה, לא מתאים, בואו נשנה ל: <span dir="ltr">/users/{id}/{otherOptionalStuff}</span> ואז נכנס כל העיניין של<br>ה.htacces, ששם אנחנו מוסיפים את הrule המתאים.<br>הכל טוב ויפה, אבל מה אם יש לי גם קובץ search.php, וגם thread.php, וגם verycoolcode.php ולכל קובץ<br>אנחנו מוסיפים rule עד שיש פאסטה ענקית בקובץ.<br>בשביל להמנע מזה, הפיתרון מאוד פשוט: ביצוע routing ברמת האפליקציה.<br><br><h3>wtf is that</h3><br>כאמור לסיטואציה, האנשים מאיתנו שעדיין לא עברו לפריימוורק כלשהו בסוף מוצאים את עצמם במקרים כאלה ועם .htaccess עם מליון ואחת שורות. הנושא של routing ברמת האפליקציה הוא מעביר את כל הניהול של הבקשה לקוד php מאשר לעשות הכל עם .htaccess. כל העיניין הזה מקל עלינו גם מבחינת גמישות, גם מבחינת מערכת יותר נקייה וזה די יותר אסתטי. אלה שכן עברו להשתמש בפריימוורק כלשהו, מכירים את כל העיניין בצורה של או מערכים שמנהלים את כל הנושא, או מטודות סטטיות שאנחנו קוראים לקייסים שונים, או אפילו קובץ xml/yaml, וכל מה שלנו נשאר זה ליצור את הקונטרולרים ולכתוב את הrule.<br><br>אחרי שנממש את העיניין הזה, זה כל השורות שיהיו לכם ב.htaccess:<br><div class="php codeblock"><span class="sy0">&lt;</span>IfModule mod_rewrite<span class="sy0">.</span>c<span class="sy0">&gt;</span><br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>f<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>d<br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ index<span class="sy0">.</span>php<span class="sy0">/</span>$<span class="nu19">1</span> <span class="br0">&#91;</span>L<span class="br0">&#93;</span><br>
+<span class="sy0">&lt;/</span>IfModule<span class="sy0">&gt;</span></div><br><br>לשם דוגמה, אם יש לנו קובץ בשם members.php, ואנחנו רוצים לבצע הפניה ש <span dir="ltr">/users/{id}/{otherOptionalStuff}</span> יפנה אותנו לקובץ הזה, אפשר לעשות בסגנון כזה:<br><div class="php codeblock"><span class="re0">$routes</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+<br>
+&nbsp; &nbsp; <span class="st_h">'users'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'controller'</span> <span class="sy0">=&gt;</span> <span class="st_h">'members.php'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'params'</span> <span class="sy0">=&gt;</span> <span class="st_h">'/:id/?extraStuff/?secondExtraStuff'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'valid'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'id'</span> <span class="sy0">=&gt;</span> <span class="st_h">'^[0-9]+$'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>נראה יותר מגניב, לא?<br>כאן &#039;מימשנו&#039; מעין ערך של ראוטר בסיסי שמקבל את הurl היפה יותר שאנחנו רוצים כמפתח למערך שמכיל את הקובץ שאנחנו עובדים מולו, איזה פרמטרים אנחנו רוצים שיהיו חובה או אופצינלים, ואפילו אפשרות לעשות וולידציה רג&#039;קסית לאחד מהפרמטרים.<br><br>איך זה יראה מהצד של המחלקה שאחראית לכל זה?<br>קודם נראה שה.htaccess מפנה לנו את כל הסטרינג של הבקשה לאינדקס, ומשם אנחנו יכולים להתחיל לעשות את המניפולציות שאנחנו רוצים על אותו סטרינג בקשה שאפשר למצוא ב <span dir="ltr">$_SERVER[&#039;REQUEST_URI&#039;]</span>.<br>לצורך העיניין נתחיל מהוצאת הבסיס שלנו, ה&#039;קונטרולר&#039; שאנחנו נרצה לעבוד מולו. כשאנחנו יודעים שהבקשה שלנו מחולקת לצורה הבאה: <span dir="ltr">/page/param1/param2/param3..</span> אנחנו יכולים להתחיל מזה שנשבור את הסטרינג הזה בסלאש ונבדוק אם קיים עמוד כזה בכלל (לצורך הדוגמה מפתח בשם &#039;users&#039;), משם אנחנו נבדוק איזה פרמטרים הראוטר שלנו רוצה, ונבדוק אם הם קיימים בקישור (<span dir="ltr">&#039;/:id/?extraStuff/?secondExtraStuff&#039;</span>).<br>אחרי שראינו שקיימים כאלה, נבדוק אם קיים מפתח של validation. אם כן, הבדיקה נורא פשוטה: עושים בדיקת preg_match לפי הרג&#039;קס שהגדרנו לפרמטר, אם הוא תקין אז הכל בסדר וממשיכים. לאחר כל הבדיקות והשבירות והמניפולציות, על מנת שנשאיר את המערכת שתעבוד כמו שהיא נכניס פשוט לתוך מערך $_GET את הפרמטרים החדשים שלנו שיראה בצורה כזאת פחות או יותר:<br><span dir="ltr">print_r($_GET); // array(&#039;id&#039; =&gt; 3, &#039;extraStuff&#039; =&gt; &#039;showPosts&#039;);</span><br><br>אחרי שהבנו את החלק התאורטי, נעבור לקוד עצמו:<br>אפליקציה עם הקוד: <a href="http://phpassist.com/f0811">http://phpassist.com/f0811</a><br>הקלאס של הראוטר: <a href="http://pastebin.com/VYTvMGtv">http://pastebin.com/VYTvMGtv</a><br>(מצטער על חוסר הקומנטים :))<br><br>כמו שאפשר לראות שם, זה PoC נורא פשוט - מקבלים סטרינג, עושים מניפולציה קטנה, בודקים שהכל תקין, וטוענים את הקובץ הנכון.<br><br><h3>אבל אני יותר מגניב ואני משתמש בmvc</h3><br>העיקרון עדיין נשאר אותו דבר. רק שבמקום שכאן תעשו require_once כמוני, תשנו קצת את הסגנון:<br>פרמטר ראשון ישאר הקונטרולר, פרמטר שני יהיה הaction, וכל השאר זה יהיה המידע.<br>אחרי זה יוצרים instance חדש של הקונטרולר שלנו, בודקים עם reflection אם המטודה קיימת ומעבירים לה את הפרמטרים (<span dir="ltr">$id, $whatever</span>) במקום השיטה של להכניס למשתנה הגלובאלי $_GET.<br><br><h3>אז מה למדנו?</h3><br>המאמר נועד להסביר את העיקרון המועד מאחורי ביצוע routing בצד של האפליקציה, על מנת לקדם אותנו שלב בפיתוח של האפליקציה שלנו ואולי בפיתוח של הפריימוורק שלנו. המבנה שתיארתי מתייחס לקונטרולים כאל קבצים בפני עצמם, אך בעתיד כשנשתמש בפריימוורק קיים כלשהו אנחנו נראה שכל עמוד כזה הוא בעצם קונטולר אמיתי, וגם נראה שם איך המערכת יודעת להתמודד מול routing בצורה יותר מגניבה וגמישה (ראה ערך הראוטינג של laravel או האמת כל פריימוורק נחמד).<br><br>דוגמאות לראוטינג בפריימוורקים:<br>Laravel - http://laravel.com/docs/routing<br>Yii - http://www.yiiframework.com/doc/guide/1.1/en/topics.url<br>Symfony - http://symfony.com/doc/2.0/book/routing.html<br>סתם קלאס לראוטינג שמישהו אחר כתב - https://github.com/samwho/PHP-Routing/<br><br>תציצו, אולי תקבלו השראה לכתיבת הrouting קלאס שלכם :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=16&r=g&d=monsterid" alt="Michael">
+<a>Michael</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2442"></a>
+<div class="blog-comment">
+<span class='comment-author'>mmh19</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/04/2013 19:52</span><br>
+אחלה מדריך!<br>
+אני יעבור עליו בפרטני יותר מאוחר ;)</div>
+<a id="comment2443"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/04/2013 22:12</span><br>
+מדריך מעולה, אני בטוח שהוא יעזור להרבה אנשים. תודה :-)</div>
+<a id="comment2444"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/04/2013 17:45</span><br>
+מאמר נחמד על מה זה..<br>
+אבל רוב הבעיות זה לא במה זה אלא באיך בונים את זה</div>
+<a id="comment2445"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/04/2013 18:02</span><br>
+מאמר נחמד מאד :)<br>
+דקל מה הבעיה לבנות דבר כזה?</div>
+<a id="comment2446"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/04/2013 18:32</span><br>
+@liorel100 כל הקטע במדריך זה שמראים איך בונים.<br>
+רוצ שאני יגיד לך מה זה REGEX אבל לא יסביר לך בכלל איך להשתמש בזה?</div>
+<a id="comment2447"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/04/2013 18:42</span><br>
+זה שונה... <br>
+ואם אתה עוקץ על השאלה ששאלתי על regex לא יפה מצדך.</div>
+<a id="comment2448"></a>
+<div class="blog-comment">
+<span class='comment-author'>dekelyi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/04/2013 18:53</span><br>
+@liorel100 לא קשור, זה הדוגמא היחידה שהייתה לי בראש.. (אחרי זה חשבתי על PDO)<br>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה פונקציה כמו empty, הפועלת על אובייקט">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>פונקציה כמו empty, הפועלת על אובייקט | שאלת לימוד PHP</title>
+<meta itemprop="name" content="פונקציה כמו empty, הפועלת על אובייקט | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה פונקציה כמו empty, הפועלת על אובייקט">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">24</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="פונקציה כמו empty הפועלת על אובייקט.htm" title="איך אני יכול ליצור פונקציה  שתיקח אובייקט בתור פרמטר (stdClass), ותבדוק אם אין בו ערכים חוץ מ-false, ונוסף על כך, שלא תחזיר שגיאה אם ה-stdClass לא קיים?">פונקציה כמו empty, הפועלת על אובייקט</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2012-08-15T11:25:03+03:00" style="display:inline-block;">
+15 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText904'>
+איך אני יכול ליצור פונקציה שתיקח אובייקט בתור פרמטר (stdClass), ותבדוק אם אין בו ערכים חוץ מ-false, ונוסף על כך, שלא תחזיר שגיאה אם ה-stdClass לא קיים? </div>
+</div>
+<h3>
+<span id="answersCounter">24 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3852">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3852" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3852">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כתבתי את זה, אבל יש בזה שתי בעיות (1 - תהיה שגיאה אם המשתנה בפרמטר לא מוגדר. 2 - משום מה זה לא עובד לי. לא מצאתי את הבעיה.):<br><div class="php codeblock"><span class="kw2">function</span> e<span class="br0">&#40;</span><span class="re0">$a</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">is_object</span><span class="br0">&#40;</span><span class="re0">$a</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$a</span> <span class="sy0">=</span> <span class="kw3">get_object_vars</span><span class="br0">&#40;</span><span class="re0">$a</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="br0">&#40;</span><span class="kw3">sizeof</span><span class="br0">&#40;</span><span class="re0">$a</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$a</span> <span class="kw1">as</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">is_object</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="kw3">is_array</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; e<span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$bla</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$bla</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$bla</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span>e<span class="br0">&#40;</span><span class="re0">$bla</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;bla&quot;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3853">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3853" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3853">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+א. לא הבנתי מה זאת אומרת לבדוק שאין כל הערכים ב stdClass הם false.<br>אולי הכוונה למאפיינים? אם כן, התשובה לשאלה שלך תהיה:<br><br>ב. אתה כנראה עושה משהו לא נכון.<br>יש לך בעיה, המצאת לה איזה פתרון מוזר ועכשיו אתה שואל איך לממש אותו.<br>אין באמת אף סיבה לעבור כל המאפיינים של stdClass. אם אתה מאוד רוצה, צור מחלקה מסוג מסוים כלשהו שתהיה לה רשימת מאפיינים שהיא בעצמה תבדוק. אבל שוב פעם, לי, כרגע, זה נשמע כמו נסיון לממש פתרון לא נכון לבעיה כלשהי. </p>
+</div>
+<div class="answer" id="answer3858">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3858" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3858">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, התכוונתי למאפיינים כנראה.<br>מה שרציתי לעשות זה לכתוב פונקציה שלוקחת אובייקט/מערך בתור פרמטר, ומחזירה:<br>true - אם באובייקט/מערך אין אובייקטים/מערכים/מאפיינים/ערכים בכלל, או שיש, אבל יש בהם false וכדו&#039; (כמו ()empty על כל מאפיין/ערך).<br>false - להפך. </p>
+</div>
+<div class="answer" id="answer3860">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3860" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3860">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בשביל מה אתה צריך פונקציה כזו?<br>סתם בשביל התרגול? תתרגל. תנסה עוד פעם. אתה בכיוון. אם נכתוב לך את התשובה זה יאבד את הפואנטה </p>
+</div>
+<div class="answer" id="answer3861">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3861" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3861">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כי יש לי מערך רב ממדי בשם $errors, שאני מכניס אליו כל מיני שגיאות, כמו שגיאות בטפסים.<br>במקום שזה יהיה מערכים, רציתי לעשות את זה אובייקטים... ואני צריך מדי פעם לבדוק אם אובייקט/מאפיין מוגדר והוא לא מכיל false או מאפיין שמכיל false וכדו&#039;, אז חשבתי לכתוב פונקציה שתעשה לי את זה. ואם כבר אני כותב את זה, למה שהפונקציה הזאת לא תעשה את זה גם למערכים? (כי גם ככה זה ממיר את האובייקט למערך...)<br>בהחלט. אני אנסה שוב. :) </p>
+</div>
+<div class="answer" id="answer3864">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3864" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3864">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה אתה רוצה להחליף את המערך באובייקט?<br>אתה מבין את ההבדל ביניהם ולמה כל אחד מהם מיועד? </p>
+</div>
+<div class="answer" id="answer3865">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3865" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3865">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\q898\יצירת אוביקט JSON באמצעות PHP.htm">http://phpguide.co.il/q898/%D7%99%D7%A6%D7%99%D7%A8%D7%AA+%D7%90%D7%95%D7%91%D7%99%D7%A7%D7%98+JSON+%D7%91%D7%90%D7%9E%D7%A6%D7%A2%D7%95%D7%AA+PHP.htm</a> </p>
+</div>
+<div class="answer" id="answer3866">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3866" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3866">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקישור הזה לא עונה על השאלה למה להחליף מערך של מחרוזות באובייקט עם מספר לא ברור של מאפיינים שיכולים להיות ויכולים לא להיות.<br>json_encode עובד יופי גם על מערכים. </p>
+</div>
+<div class="answer" id="answer3867">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3867" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3867">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אני רוצה להמשיך להרחיב את ה-JSON אחרי שאני יוצר אותו, ולא ליצור בהתחלה סט מערכים ולהמיר אותם ל-JSON. </p>
+</div>
+<div class="answer" id="answer3868">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3868" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3868">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+o.O<br>תרחיב את המערך כמה שאתה רוצה ובסוף תפעיל עליו json_encode<br>אני לא מבין את הבעיה (הפסיכולוגית?) של זה. </p>
+</div>
+<div class="answer" id="answer3869">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3869" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3869">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני משנה אותו לכל אורך הסקריפט... אני לא יכול כל שנייה לשנות אותו ל-JSON, ואז למערך ואז שוב ל-JSON.<br>אם כי כשחושבים על זה, אני מניח שעדיף לי להישאר עם מערכים במקום עם אובייקטים כאן; שיניתי לגמרי את הפונקציה, ואני חושב שאני קרוב לסיום, אבל זה יצא ארוך מכדי לשמש כפונקציה שאשתמש בה לעתים קרובות (זה כולל פונקציית עזר שמצאתי ברשת). </p>
+</div>
+<div class="answer" id="answer3870">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3870" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3870">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עד סוף הסקריפט אתה ממשיך או עם אובייקט או עם מערך.<br>פעם אחת בסוף הסקריפט אתה מפעיל על זה את json_encode והופך את האובייקט או המערך שלך למחרוזת.<br>אני לא רואה שום סיבה למה שתעשה את כל הסיפור הזה עם אובייקט ולא עם מערך. </p>
+</div>
+<div class="answer" id="answer3871">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3871" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3871">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואז אני כבר לא יכול להשתמש בו בצורת אובייקט, כי הסקריפט נגמר. :)<br>זה לא שאני רוצה לשלוח אותו ב-AJAX או משהו כזה. </p>
+</div>
+<div class="answer" id="answer3872">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3872" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3872">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בסוף הסקריפט - זה בסוף הסקריפט.<br>אם אתה עדיין רוצה להשתמש בו בתור לא משנה מה, זה עוד לא סוף הסקריפט. </p>
+</div>
+<div class="answer" id="answer3873">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3873" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3873">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון, אבל אני רציתי להשתמש בו בתור אובייקט לכל אורך הסקריפט. :) </p>
+</div>
+<div class="answer" id="answer3874">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3874" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3874">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כנראה שאין טעם לשאול מה הקשר של json לכל הסיפור הזה אם אתה לא מתכנן לשלוח את זה לדפדפן. כי גם לך אין באמת מושג. נכון ? </p>
+</div>
+<div class="answer" id="answer3875">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3875" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3875">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא ידעתי שיש דבר כזה stdClass. :) </p>
+</div>
+<div class="answer" id="answer3880">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d5489318b0ce990d7ea29e0cffd43110?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>JBStyle</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3880" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3880">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה רוצה לעשות את זה כאובייקט ?<br>אתה יכול להשתמש בArrayObject ואז פשוט לגשת אל זה כמו סינטקס של אובייקט . </p>
+</div>
+<div class="answer" id="answer3881">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 15 לאוגוסט 2012 </span>
+<a id="answer_3881" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3881">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא ידעתי שזה קיים. :)<br>תודה. ^^<br>אבל עדיין יש את הבעיה שמבחינת הפונקציה empty, אובייקט וכל שכן אובייקט שמכיל אובייקט, גם אם הם ריקים או מכילים false וכדו&#039; - הוא יחזיר false אם יש אותם. </p>
+</div>
+<div class="answer" id="answer3885">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3885" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3885">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין לי תשובה טובה לשאלה &quot;למה אני לא מצליח לחצות את המדבר על אופניים&quot;. </p>
+</div>
+<div class="answer" id="answer3887">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3887" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3887">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז אולי יש לך תשובה טובה לשאלה &quot;איך לחצות את המדבר&quot;. :) </p>
+</div>
+<div class="answer" id="answer3888">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3888" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3888">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לקחת מערך ולאורך כל הדרך להכניס אליו דברים </p>
+</div>
+<div class="answer" id="answer3889">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3889" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3889">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקיי. :)<br>תודה. ^^ </p>
+</div>
+<div class="answer" id="answer3907">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 16 לאוגוסט 2012 </span>
+<a id="answer_3907" href="פונקציה כמו empty הפועלת על אובייקט.htm#answer_3907">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בכל מקרה, אם מישהו רוצה, כתבתי פונקציית empty שמקבלת יותר מפרמטר אחד. אם יש פרמטר שהוא מערך או אובייקט, השיטה אצלו מעט שונה מ-empty רגיל, בכך שגם מערך דו ממדי (כנ&quot;ל לגבי אובייקטים) נחשב empty, ולא רק מערך חד ממדי (ובמקרה הזה גם אובייקט).<br>הבדל נוסף בין הפונקציה הזו ל-empty: אם חלק מהפרמטרים לא הוגדרו - יש שגיאה... (מה שמבחינתי די הורס את הפונקציה הזו. :-))<br><div class="php codeblock"><span class="kw2">function</span> m_empty<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$args</span> <span class="sy0">=</span> <span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$args</span> <span class="kw1">as</span> <span class="re0">$arg</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">is_object</span><span class="br0">&#40;</span><span class="re0">$arg</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="kw3">is_array</span><span class="br0">&#40;</span><span class="re0">$arg</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">is_object</span><span class="br0">&#40;</span><span class="re0">$arg</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$arg</span> <span class="sy0">=</span> <span class="kw3">get_object_vars</span><span class="br0">&#40;</span><span class="re0">$arg</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$arg</span> <span class="kw1">as</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">is_object</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$value</span> <span class="sy0">=</span> <span class="kw3">get_object_vars</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$arg</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="5 מיתוסים על md5 ואיך לשמור סיסמאות במסד נתונים">
+<meta name="keywords" content="md5, גיבוב, הצפנה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>5 מיתוסים על md5</title>
+<meta itemprop="name" content="5 מיתוסים על md5">
+<meta itemprop="description" content="5 מיתוסים על md5 ואיך לשמור סיסמאות במסד נתונים">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"93","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>5 מיתוסים על md5</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-05-23T13:52:50+03:00" dir="rtl">23 למאי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/md5lock.png" alt="5 מיתוסים על md5">
+</div>
+<div class="right post-content">
+הנא חמש מיתוסים על md5 או למה כדאי לא להשתמש בו.<br><br>1. md5 זו הצפנה.<br>2. אפשר לפרוץ md5.<br>3. פרצו את md5. צריך להפסיק להשתמש בו.<br>4. שתי מחרוזות שונות יכולות להיות עם hash זהה.<br>5. sha1 יותר מאובטח, עדיף להשתמש בו. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>1. md5 זו הצפנה</h2><br>מיתוס ראשון ולא מדויק. <strong>md5 היא לא הצפנה</strong>. נכון שהפלט שלה מוזר ושונה מהקלט ואפילו אי אפשר להבין אותו, אבל התוצאה של הפלט לא ניתנת לשחזור ולא ניתן לקבל את המקור ההתחלתי.<br>md5 היא <a href="http://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%A0%D7%A7%D7%A6%D7%99%D7%99%D7%AA_%D7%92%D7%99%D7%91%D7%95%D7%91_%D7%A7%D7%A8%D7%99%D7%A4%D7%98%D7%95%D7%92%D7%A8%D7%A4%D7%99%D7%AA">פונקציית גיבוב</a>, או בעברית פשוטה, פונקציה חד-כיוונית שאורך הפלט שלה קבוע (ותמיד שווה ל-32 תווים) והיא אינה תלויה באורך הקלט. היא מחשבת עבור הקלט חותמת ייחודית המאפיינת אותו. רק לקלט הזה תהיה את אותה החותמת. עבור כמעט כל קלט אחר התוצאה תהיה שונה. תכף נראה מתי לא.<br><br><h2>2. אפשר לפרוץ md5</h2><br><strong>אי אפשר לפרוץ md5.</strong> היא פונקציה חד-כיוונית שלא ניתנת להפיכה (הוכח מתמטית).<br>אם תגידו לי: &quot;מה פתאום, ראיתי את האתר <a href="http://md5crack.com/">md5crack.com</a>, הוא פורץ md5&quot;, אתם תהיו צודקים, אבל במעט.<br>במקום לפרוץ אותה, האתרים האלה עושים דבר חכם אחר. הם יוצרים טבלה חדשה עם שתי שדות text ו-its_hash. לאחר מכן לוקחים כמה מחשבים ומריצים עליהם לולאות אין-סופיות שמבצעות את הפונקציה md5 על קלטים שונים. תחילה על מילים ממילון, ואחר-כך על צירופי אותיות שרירותיים.<br>לאחר כמה חודשים יש להם טבלה גדולה מאוד שמכילה זוגות של חותמות md5 וערכים התחלתיים שישתמשו בהם לקבלת אותה החתימה <span dir="ltr">(hash)</span>.<br><span style="color:gray;">אגב, טבלאות כאלו נקראות rainbow tables.</span><br><br><h2>3. פרצו את md5. צריך להפסיק להשתמש בו.</h2><br><strong>לא נכון ונכון.</strong> נכון שאם יש לכם את הסיסמה 123456, החתימה (hash) שלה כבר מזמן רשומה בטבלאות של הפורצים. בשביל לפתור בעיה זו נהוג לשמור את הסיסמאות של המשתמשים במסד בצירוף טקסט רנדומלי כלשהו.<br>במקום לשמור במסד תוצאה של <span style="color:darkblue;"><em><span dir="ltr">md5(123456)</span></em></span> אנחנו שומרים תוצאה של<br> <span style="color:darkblue;"><span dir="ltr">md5(123456 + thjkrc7$%^*0)</span></span>. סביר להניח שאת החתימה (hash) של <span dir="ltr"><span style="color:darkblue;">123456 + thjkrc7$%^*0</span></span> עדיין אין להם בטבלאות.<br><br>כדי לקבל את ה-hash של כל סיסמה אפשרית באורך 15 תווים המורכבת מ-52 אותיות אנגליות גדולות וקטנות, עוד 10 ספרות ועוד 10 תווים מוזרים כמו דולר - יהיה צורך בטבלה בגודל 72 בחזקת 15 רשומות (7244150201408990671659859968). נניח שהמחשב שלכם מסוגל לחשב 3000 רשומות בשניה. כדי לקבל טבלה עם רשימה כזאת של אפשרויות יהיה צורך בכמה שנים.<br><br>עם זאת, לא הייתי ממליץ להשתמש ב-md5 וגם לא במשהו מתקדם יותר כמו sha1 לגיבוב סיסמאות, מכייון שראשית, מעטים משתמשים בסיסמאות בנות 15 תווים ושנית, ל-md5 יש בעיה קריטית אחת.<br><br><h2>4. שתי מחרוזות שונות יכולות להיות עם hash זהה.</h2><br><strong>הפעם נכון.</strong> יותר מזה, מתמטיקאי סיני אחד הוכיח (והראה) שלמחרוזות מסוימות אפשר למצוא את המחרוזת המקבילה שתייצר את אותו ה-hash בכמה שניות. האם זה עוזר לפורצים? יכול, בהחלט.<br><br>ל-md5 יש בעיה קריטית אחת - החישוב שלה מהיר מדי. איך זו בעיה? היום כרטיס גרפי אחד שמותקן במחשב מסוגל לעשות עבודה של 120 מעבדים רגילים. קופסת מחשב אחת בלבד מסוגלת להוציא כמות נסיונות מטורפת בשניה. קופסה עם כמה כרטיסים גרפיים או כמה כופסאות מחשב כאלו הופכות מציאת מחרוזת שתייצר hash מסוים לתהליך לא ארוך במיוחד.<br><br>גם אם המחרוזת שתימצא לא תהיה בדיוק הסיסמה והמלח שלך, באמצעות האלגוריטם הסיני ימצאו עוד כמה מחרוזות שמייצרות את אותו ה-hash ואחת מהן בהחלט תהיה הסיסמה וה-hash שלך. אם הפורץ רשום למערכת שלך ויודע את הסיסמה שלו ואת ה-hash המיוצר ממנה - הוא יכול להקל על עצמו עוד יותר. מספיק לו למצוא את המלך שיתווסף לסיסמה שלו ומשם למצוא סיסמה של כל משתמש אחר לא תהיה בעיה גדולה.<br><br>את הבעיה האחרונה אפשר לפתור על ידי שימוש בhash שונה עבור כל משתמש. את הבעיה הראשונה אפשר לפתור על ידי שימוש באלגוריטם אחר, איטי יותר.<br><br><br><h2>5. עדיף להשתמש ב-sha1 במקום</h2><br><strong>לא נכון</strong>. <br>למען הדיוק, נכון חלקית. sha1 עדיפה על פני md5, אבל נשארת עם בעיות זהות. sha1 לא מספיק איטית או קשה לחישוב ויש פונקציות אחרות שעדיפות הרבה יותר, לדוגמה bcrypt. מעבר לזה, החל מגרסת php 5.5 הוספו לשפה שני פונקציות חדשות שמיועדות לגיבוב ואבטחת סיסמאות.<br><br><strong><span style="color:green;"><a href="sha1 pass and salt are not secure.htm">תוכל ללמוד על עבודה נכונה עם סיסמאות במדריך הזה.</a></span></strong> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment133"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 20:50</span><br>
+MD5 היא באמת &quot;שיטת גיבוב&quot; טובה מאוד! לא ידעתי על המיתוסים האלה, וה-salt חדש לי...</div>
+<a id="comment134"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 20:51</span><br>
+שמח שעזרתי לך :-)</div>
+<a id="comment135"></a>
+<div class="blog-comment">
+<span class='comment-author'>אבי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 20:53</span><br>
+1. איך שלא תקרא לזה, סופו של דבר זה משבש את המחרוזת = מצפין,<br>
+- אתה יכול לקרוא לזה משבש מחרוזות מבחינתי.<br>
+2. אף אחד לא אמר שאפשר לפרוץ את זה,<br>
+- אבל קיימים היום מאגרים גדולים מאד של סיסמאות נפוצות &quot;פרוצות&quot; (זו מילה לא מדוייקת).<br>
+3. עיין ערך 2.<br>
+4. רעיון שלא חשבתי עליו אני אתחיל להשתמש בסלט בנוסף לSHA1.<br>
+5.אני לא יודע איך מדדת מהירויות, אבל מי אני שאחלוק עליך,<br>
+פלט קצר יותר - לא בהכרח טוב יותר או יעיל יותר.<br>
+<br>
+אשמח לתשובות, ותודה על המאמר והאתר בכלל.</div>
+<a id="comment136"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 21:04</span><br>
+היי אבי. תודה על התגובה<br>
+<br>
+א. הצפנה היא &quot;שיבוש מחרוזת&quot; בעזרת צופן כלשהו עם מפתח שמיועד להיות מתורגם עד ידי המקבל לטקסט קריא. המטרה הייתה להדגיש ש-md5 לא ניתנת להיפוך ושחזור המקור.<br>
+<br>
+ב. הכן קיימים מאגרים גדולים. כמה שנים צריך כדי ליצור מאגר שמכיל כל מחרוזת אפשרית המורכבת מ-15 תווים ראית לבד. רק שים לב, מאגרים זהים קיימים גם עבור sha1<br>
+<br>
+ג. פלט קצר יותר לוקח פחות מקום במסד, פחות זמן להעברה ברשת ובכלל פחות תעבורה. <br>
+מהירות הmd5 טובה יותר כיוון שפחות חישובים מתמטיים ולולאות משמשות לחישוב ה-hash של md5 (לפי וויקי 64 שלבים) לאומת sha1 (סהכ 80 שלבים)</div>
+<a id="comment137"></a>
+<div class="blog-comment">
+<span class='comment-author'>אבי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 21:22</span><br>
+1. אז אולי זה לא השם המדוייק אבל מי שקורה לזה הצפנה לא<br>
+- טועה, כי ברוב המקרים הוא פשוט לא חשב על ההבדלים<br>
+- (שכרגע אני מסכים איתם לאחר שנתת חומר למחשבה)<br>
+2. ברור שהמאגרים לא מושלמים אבל תחשוב על ה&quot;משתמש<br>
+- הטיפש&quot; שיכתוב &apos;123456&apos;, והמאגרים של SHA1<br>
+- קטנים בהרבה (לעניות דעתי)<br>
+3. זה רלוונטי רק עבור אתרים גדולים מאד שכל בייט שווה<br>
+- נפח עצום בתעבורה ביום אתרים כמו &apos;גוגל&apos; &apos;פייסבוק&apos; ואפילו<br>
+- &apos;FXP&apos; אבל בהחלט לא כל אתר,<br>
+4. האם אתה משתמש בMD5? כמה זמן? והאם בעבר השתמשת <br>
+- בSHA1? מה גרם לך לעבור?<br>
+<br>
+תודה, אבי.</div>
+<a id="comment138"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 21:31</span><br>
+2. זה לא המשתמש הטיפש אשם, אלה המתכנת הטיפש אשם, שלא רשם את הסיסמה במסד ביחד עם salt.<br>
+<br>
+המאגרים של sha1 לא בהרבה יותר קטנים, אבל אתה יכול להיות בטוח שהם כוללים את כל המילים של השפה האנגלית ואת כל המספרים מאחד עד 999 999 999 לפחות. <br>
+<br>
+sha1 של 123456 נמצא שם גם :)<br>
+<br>
+3. האמת היא שלא ממש רק לאתרים גדולים. גם עבור אתר קטן עם מעט רשומות בכל זאת שליפות לפי מחרוזות קצרות יותר יתבצעו מהר יותר. אפילו אם לא תיקח בחשבון את הנפח, כיוון שהמחירים של נפח דיסק, בימינו, מזעריים.<br>
+<br>
+4. אני משתמש ב md5 לשמירת נתונים אצלי, כיוון שגם אם תקבל העתק של המסד שלי, כל הסיסמאות שם עם salt ואין לך מה לעשות איתם.<br>
+<br>
+אולם דברים שאני שולח ברשת לשירותים אחרים, או כאימות נתונים, אני מעדיף את sha1 כיוון שבמקרה הזה אני כן עשוי להיות חשוף למקרים שבהם הסיניים ימצאו זוג מחרוזות שנותנות את אותו ה-hash.</div>
+<a id="comment139"></a>
+<div class="blog-comment">
+<span class='comment-author'>אבי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 22:52</span><br>
+תודה על התגובה,<br>
+מדבריך אני מסיק שבתקשורת בין שרתית עדיף<br>
+להשתמש בSHA1, הבנתי נכון?<br>
+אני פשוט בפרוייקט קטן כזה,<br>
+תודה רבה.</div>
+<a id="comment140"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 23:02</span><br>
+הכוונה היא לא לתקשורת בין שרתית, אלה לאימות נתונים גלויים.<br>
+למשל שנינו מסכימים על סיסמה סודית בינינו: <br>
+pass = 12345<br>
+עכשיו אתה יכול לעביר לי מידע באופן גלוי בצורה הזאת:<br>
+<br>
+something=value&amp;checksum=md5(value.pass); //e<br>
+<br>
+כשאני יקבל את הטקסט הזה אני יוכל לקרוא את value, ואחרי זו אוכל לוודא שאף אחד לא שינה את הערך ואתה הייתה זה שכתבת אותו כשאני יבדוק האם<br>
+md5(_GET[value].pass) == _GET[checksum] //e<br>
+<br>
+כיוון שליצור checksum נכון יכול רק מי, שיודע את הpass</div>
+<a id="comment141"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/05/2011 23:20</span><br>
+אתה רוצה להעביר לי את המילה שלום,<br>
+אתה שולח לי את הנתונים הבאים: data=hello<br>
+אני מקבל אותם וקורא את המילה. אבל,<br>
+אין לי דרך לוודא שאתה הייתה זה, ששלח אותה ושאף אחד לא שינה אותה בדרך<br>
+<br>
+<br>
+כדי שאני יוכל לדעת שאף אחד לא שינה את הטקסט והוא נוצר על ידך<br>
+אתה יכול לשלוח לי ביחד עם הטקסט עצמו גם hash של הנתונים<br>
+<br>
+data=hello&amp;hash=sha1(hello) //e<br>
+<br>
+אבל זה לא מספיק, כיוון שאם משהו ירצה לשנות את זה, ישנה גם את ה-hash בהתאם.<br>
+<br>
+כדי שלא תהיה לו האפשרות לעשות את זה, את ה-hash תיצור מהנתונים ומסיסמה שרק אני ואתה יודעים.<br>
+<br>
+data=hello&amp;hash=sha1(hello + secret1) //e<br>
+<br>
+אדם חיצוני יוכל לשנות את ה-data אך לא יוכל לשנות את ה-hash למשהו לגיטימי, כיוון שאינו יודע את הסיסמה.<br>
+<br>
+אני, בתורי, כשאקבל את הנתונים האלה, ייצור מהם hash בעצמי עם הסיסמה שאני מכיר ויבדוק אם הוא תואם ל-hash שאתה יצרת. <br>
+<br>
+אם כן, אף אחד לא שינה את הנתונים ואתה שלחת אותם.<br>
+אם לא, משהו מנסה לפברק אותם. נו-נו-נו!</div>
+<a id="comment142"></a>
+<div class="blog-comment">
+<span class='comment-author'>אבי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/05/2011 04:26</span><br>
+וואלה, אף פעם לא חשבתי על זה.. רעיון גדול :)...<br>
+יש לך אולי דוגמה למה זה שימושי?<br>
+תודה רבה, וסליחה על ההטרדה :).</div>
+<a id="comment143"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/05/2011 08:43</span><br>
+שימושי לרשום נתונים לקוקי ולוודא אחר כך שהמשתמש לא שינה אותם.</div>
+<a id="comment144"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/05/2011 08:01</span><br>
+וואו אלכס, תודה רבה, לימדת אותי משהו חדש. :)</div>
+<a id="comment148"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/05/2011 20:39</span><br>
+ממש נחמד! :]</div>
+<a id="comment150"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/05/2011 05:33</span><br>
+יפה מאוד ,<br>
+תודה על הפרסום.:)</div>
+<a id="comment160"></a>
+<div class="blog-comment">
+<span class='comment-author'>yolei</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/06/2011 19:25</span><br>
+תודה רבה לך,<br>
+למדתי כמה דברים שלא ידעתי :)</div>
+<a id="comment175"></a>
+<div class="blog-comment">
+<span class='comment-author'>eshk</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/06/2011 12:25</span><br>
+בסך הכל חשיבה יצירתית ואתם תגיעו לתוצאות גדולות בהרבה <br>
+סה&quot;כ נחמד ביותר.</div>
+<a id="comment266"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 17:41</span><br>
+לגבי sha1 - צחקתי. אז מה שזה יותר איטי? ממתי מעדיפים מהירות על פני ביטחון? כמובן ש-md5 יתאים לאתר של ילד בחטיבת ביניים. ניתן לראות בנצ&apos;מארקים ע&quot;י חיפוש מהיר בגוגל של עמידות סוגי ההצפנות הללו לאורך השנים. תגלו ש-md5 זה לא האס.<br>
+לגבי ה&quot;מלח&quot; (salt). אתה יכול להשתמש אפילו בהליט - זה לא ישנה כלום. ה&quot;מלח&quot; חסר אונים מול התקפות &quot;כוח גס&quot; ו&quot;התקפות מילוניות&quot;. בנוסף לכך, זה לא ישפיע כלל במצב שלפורץ יש גישה למסד נתונים.<br>
+לסיכום, לפרויקטים רציניים השתמשו ב-bcrypt.</div>
+<a id="comment267"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 17:44</span><br>
+אגב סרברים מודרניים כיום יכולים לחשב בערך 330 מגה בשנייה מה שאומר שסיסמאות בתווח של 6 תווים ניתנים לפריצה ב-40 שניות פחות או יותר.</div>
+<a id="comment268"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 17:47</span><br>
+כמובן שבכללי שימוש במלח מומלץ אך זה לא פתרון לכל הבעיות.</div>
+<a id="comment269"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 19:23</span><br>
+בגדול אתה צודק וזה נכון למקרה שלא מדובר ב web.<br>
+<br>
+מול התקפות כוח גם (וביניהם התקפות מילון) כל הצפנה שהיא תעמוד באופן זהה. או שהסיסמה תמצא במילון, או שהיא לא תמצא. <br>
+<br>
+נכון שעבור md5 יותר קל למצוא קוליזיה (שני קלטים שנותנים אותו פלט) מאשר ל sha1. העניין הוא שגם אם תמצא אחת כזאת - לא תוכל להזדהות עם הקוליזיה בתור סיסמה באתר.<br>
+<br>
+לדוגמה נניח ששני המחרוזות הבאות נותנות את אותו md5:<br>
+abcmysupersalt<br>
+xyz12345678901<br>
+<br>
+המשתמש בוחר לו בטור סיסמה את האותיות abc<br>
+הסקריפט מוסיף לזה את mysupersalt ומכניס למסד.<br>
+<br>
+אתה מקבל העתק של המסד, מוצא שהקלט xyz12345678901 זהה לזה שרשום במסד ומנסה להתחבר איתו לאתר. הסקריפט בעת הבדיקה מוסיף לזה את mysupersalt ובודק האם<br>
+md5(qyz1234567890mysupersalt) t שווה למה, שרשום במסד — ומסתבר שלא. ההזדהות לא הצליחה. חבל.<br>
+<br>
+בנוגע לזמן החישוב, אתה צודק לגמרי בזה שמחשבים של היום די מהירים. כדי שנדבר על אותם סרברים ויחידות מדידה של פעולות בשניה - בו ניקח את מחשב העל Tianhe-1A<br>
+שמסוגל לבצע 2.556e15 פעולות בשניה.<br>
+<br>
+חישוב md5 זה בערך 70 פעולות.<br>
+כלומר הוא מסוגל לחשב 36514285714285 חשים בשניה.<br>
+<br>
+סיסמה של 15 תווים זה 7244150201408990671659859968 חשים לבדוק (כשידוע שזה בדיוק 15 והוא לא יבדוק לפני את האם זה אולי סיסמה של 14 תווים).<br>
+<br>
+כלומר ייקח למחשב העל למצוא את הסיסמה שלך ב brute force בערך 6290976 שנים. <br>
+ונכון של sha1 יש טיפה יותר אפסים בכמות השנים, אבל מה זה משנה :-)<br>
+<br>
+אתה גם צודק בזה שהרבה חוקרים, מתמטיקאים ואנשים אחרים מנסים, מציאים פרסים וכסף ואפילו שוברים פה ושם את md5. האם היא נשברה עד הסוף - עוד לא.<br>
+<br>
+האם אתה מאמין בזה שישברו אותה? אתה יכול בשמחה להשתמש בכל דבר אחר. הרי אחרי זמן מסוים והתפחות המחשבים גם את sha1 ישברו מכיוונים מסוימים וגם לה ימצאו קוליזיות או preimageים וגם לbcrypt ולכל דבר אחר מתישהו גם ימצאו.</div>
+<a id="comment271"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 19:45</span><br>
+כמובן שישברו. זה בודאות עניין של זמן. אותם המחשבים של אי-בי-אם - פשוט מכונות אל. העיין הוא, שעם ההתקדמות הטכנולוגית, יש צורך גם בקידום בטחון המשתמשים. אז בוא נתחיל לפחות מזה ש-sha1 עדיף על md5. זה למתכנתים שאינם יודעים על כך שקיימים דברים יפים כמו bcrypt שכוללים בתוכם כבר את אותו ה&quot;מלח&quot; שהזכרת. אני לא מנסה לומר ש-md5 זה גרוע. אך בוא נאמר, שהאווירה שיצרת בכתבה שלך היא אווירה של ביטחון רב וזה לא לצערי. כפי שכבר אמרתי, למתחילים וגם לאנשים שבונים אתרים לא רציניים זה בסדר לגמרי להשתמש במה שכתבת. אך יחד עם זאת, צריך להעלות את המודעות של האנשים לשיטות אחרות, יותר בטוחות למקרה שהם ירצו לבנות פרוייקטים גדולים יותר.</div>
+<a id="comment272"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 20:18</span><br>
+הפוסט הזה נוצר כתגובה לקריאות רבות בכל מיני פורומים בסגנון &quot;פרצו הכל&quot;,&quot;לשמור את הסיסמה בארנק יותר מאובטח מ md5&quot; והפניקה המיותרת מסביב.<br>
+<br>
+מבחינתי הכתבה הכן עונה על הטענה שmd5 כבר נפרצה ועל הטענה ש sha1 בהרבה יותר בטוחה. זה לא ככה _כרגע_. אמנם מי שיקרא גם את התגובות האלה יקבל את התמונה יותר המלאה.<br>
+<br>
+אני מסכים אתך לגמרי ואין ספק שבסוף ישברו הכל ועם התקדמות הטכנולוגית יש להתקדם גם באלגוריתמי ההצפנה. עדכנתי מעט את הכתבה והוספתי לה עוד פיסקה.<br>
+<br>
+<br>
+נ.ב. לא בטוח עד כמה זה נכון, אבל שמעתי משני מקורות שונים ש blowfish עם הצפנה של יותר מ128 ביט נופלת תחת הגבלות מסוימות ואיסורים בחוק בעולם.</div>
+<a id="comment1159"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2012 01:50</span><br>
+כיום ניתן גם לשלב כמה מחשבי על . על מנת לפרוץ האש .. עכשיו תחשב שאם הfbi השתמשו במחשב העל שציינת כפול אלף</div>
+<a id="comment1466"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/04/2012 18:07</span><br>
+כמה שאלות:<br>
+1. מתכנת פשוט, לא יכול ליצור הצפנה מסוג כזאת? אני מניח שיש תבנית לאיך שבנו את זה, אז פשוט אם משנים אות או מספר זה יכול לגרום לכול העיניין ליצור סוג הצפנה חדש, ובעצם כמעט שום מאגר בעולם לא יוכל לפענח את הסיסמה... מכיוון שזה נעשה אישי<br>
+2. החברות הגדולות (גוגל, יאהו, פייסבוק וכו&apos;) במה משתמשות?<br>
+3. כדי ליצור את זה, המחשב/ השרת קורא את זה מאיזה ספרייה מסויימת (נניח קובץ DLL?) אם אינני טועה. אז למה עדין לא הצליחו למצוא בזה פירצה? הרי אם היו רואים את הקוד מקור של זה (ואני מאמין שכבר ראו) למה אי אפשר לעשות פעולות הפוכות לזה?</div>
+<a id="comment1468"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/04/2012 18:38</span><br>
+1. תלוי מה זה מתכנת פשוט. צריך קצת נסיון וקצת ידע במתמטיקה.<br>
+2. באותו דבר. אולי ב sha256 <br>
+3. האלגוריטם הוא חד כיווני בגלל הפעולות המתמטיות שלו. למשל הפעולה &quot;חזקה&quot; היא פעולה בלתי הפיכה. אין פעולה כזאת בטבע - שורש. הפעולה &quot;שורש&quot; היא פעולה של חיפוש מספר. המחשב לא יודע לחשב שורש מ 10. הוא מנסה את את 3, זה יוצא מעט מדי, הוא מנסה את 4, זה יוצא הרבה מדי, הוא מנסה 3.5.<br>
+וככה עד שהוא יימצא.<br>
+באלגוריטמים הלאה משתמשים בהרבה פעולות מתמטיות בלתי הפיכות, ככה שלמצוא את הערך המקורי שיביא לאותה תוצאה מאוד קשה מבחינה חישובית וזה לוקח המון זמן.</div>
+<a id="comment1471"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/04/2012 19:32</span><br>
+בתגובה לאלכס מעליי:<br>
+מציאת שורש ריבועי למספר, גדול ככל שיהיה, היא פעולה קלה שניתנת לביצוע באמצעות דף ועט.<br>
+אני לא יודע אם גם קיימות שיטות יעילות גם למציאת שורש מסדר גדול מ-2, בלי להתחיל לחפש את המספר, אבל רק רציתי להבהיר. :)</div>
+<a id="comment1472"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/04/2012 23:43</span><br>
+שורש דווקא לא פעולה כזאת מסובכת. היא דוגמה לפעולה שלא באמת קיימת בטבע ומצריכה רצף של פעולות מתמטיות אחרות כדי לחשב אותה,<br>
+<br>
+ככה שנוצר מצב שפעולה מסוימת לוקחת X זמן והפעולה ההפוכה שלה לוקחת הרבה יותר. על זה מבוססת כל הקריפטוגרפיה המודרנית.</div>
+<a id="comment1812"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2012 01:31</span><br>
+האם אפשר להצפין סיסמאות עם מה שlulzsec הציע ? (פונקציה crypt).</div>
+<a id="comment1818"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2012 23:51</span><br>
+כמובן, תקרא בדוקומנטציה .</div>
+<a id="comment1820"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/08/2012 16:49</span><br>
+לא רק אפשר, אלה צריך ויש דוגמה בסוף המדריך איך לעשות את זה.</div>
+<a id="comment1823"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/08/2012 23:15</span><br>
+מצויין, תודה :)</div>
+<a id="comment2704"></a>
+<div class="blog-comment">
+<span class='comment-author'>Splash</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/12/2013 13:51</span><br>
+יש כאן טעות קטנה כי זה לא נכון להגיד שלצורך פענוח יש צורך בטבלה בגודל 72 בחזקת 15 רשומות<br>
+<br>
+בפועל יש רק 16 תווים בהקסדצימלי ו md5 יוצרת מחרוזת בעלת 32 תווים<br>
+כך שלמעשה לא ניתן לספק יותר מ 32^16 מחרוזות יחודיות ופשוט יהיו מחרוזות מסוימות שיחזרו על עצמן</div>
+<a id="comment2705"></a>
+<div class="blog-comment">
+<span class='comment-author'>yonikal56</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/12/2013 19:07</span><br>
+אני משתמש בשניהם עם slat כדי שיהיה יותר קשה לזהות כי צריך לנחש מה ראשון מה שני וכו&apos; וגם עם salt ככה שיותר קשה אפילו.</div>
+<a id="comment2706"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/12/2013 22:08</span><br>
+שנתיים וחצי אחרי, שום דבר ממה שכתוב פה לא אקטואלי ויש בעיות קריטיות גם עם md5 או משהו יותר קשה כמו sha1/256. גם אם אתה משתמש במלח.</div>
+<a id="comment2707"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/12/2013 00:26</span><br>
+ערכתי קצת</div>
+<a id="comment2708"></a>
+<div class="blog-comment">
+<span class='comment-author'>yonikal56</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/12/2013 15:07</span><br>
+מה הבעיה הקריטית שלה?</div>
+<a id="comment2709"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/12/2013 15:40</span><br>
+&quot;ל-md5 יש בעיה קריטית אחת - החישוב שלה מהיר מדי&quot;</div>
+<a id="comment2710"></a>
+<div class="blog-comment">
+<span class='comment-author'>yonikal56</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/12/2013 16:06</span><br>
+אה, למה זה בעיה?</div>
+<a id="comment2711"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/12/2013 16:18</span><br>
+&gt;&gt;<br>
+ל-md5 יש בעיה קריטית אחת - החישוב שלה מהיר מדי. איך זו בעיה? היום כרטיס גרפי אחד שמותקן במחשב מסוגל לעשות עבודה של 120 מעבדים רגילים. קופסת מחשב אחת בלבד מסוגלת להוציא כמות נסיונות מטורפת בשניה. קופסה עם כמה כרטיסים גרפיים או כמה כופסאות מחשב כאלו הופכות מציאת מחרוזת שתייצר hash מסוים לתהליך לא ארוך במיוחד.<br>
+&lt;&lt;</div>
+<a id="comment2713"></a>
+<div class="blog-comment">
+<span class='comment-author'>idodaniel</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/12/2013 09:15</span><br>
+קודם כל, אחלה של הסבר! ממש אהבתי!<br>
+חשבתי על פתרון קטן - למה לא להשתמש בשתי המגובבים? כאילו להכניס פלט ל-md5 ואז להעביר את התוצר של ה-md5 דרך sha1? אני לא חושב שאתר הצפנה יוכל לעקוף את זה... (תקן אותי אם אני טועה).<br>
+<br>
+בכל מקרה, תודה על ההסבר!</div>
+<a id="comment2714"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/12/2013 21:37</span><br>
+במקרה הזה באתר rainbow tables אחד אתה מחפש את המקור שהכניסו לפונקציה החיצונית<br>
+ואחרי זה באתר אחר אתה מחפש את המקור שהכניסו לפונקציה הפנימית כשאתה יודע את התוצאה שלה.<br>
+אבל למה להסתבך? יש קישור גדול בסוף הכתבה שמוביל להסבר טוב למה md5 ו sha1 לא שוות משהו וגם מה לעשות עם זה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

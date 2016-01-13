@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="פתרון בעיית קידוד דפי האינטרנט וקידוד המסד - עברית ושאר השפות על ידי שימוש בקידוד UTF-8.">
+<meta name="keywords" content="קידוד, ג&apos;יבריש, סימני שאלה, utf-8">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>קידוד UTF-8: הסוף לג&apos;יבריש, לסימני שאלה ולסמלים מוזרים במקום עברית ושפות נוספות</title>
+<meta itemprop="name" content="קידוד UTF-8: הסוף לג&apos;יבריש, לסימני שאלה ולסמלים מוזרים במקום עברית ושפות נוספות">
+<meta itemprop="description" content="פתרון בעיית קידוד דפי האינטרנט וקידוד המסד - עברית ושאר השפות על ידי שימוש בקידוד UTF-8.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"20","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>קידוד UTF-8: הסוף לג&apos;יבריש, לסימני שאלה ולסמלים מוזרים במקום עברית ושפות נוספות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-10-07T12:03:15+02:00" dir="rtl">07 לאוקטובר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://cdn.instructables.com/FNV/Q7RA/FDYPTDBD/FNVQ7RAFDYPTDBD.SQUARE.jpg" alt="קידוד UTF-8: הסוף לג&apos;יבריש, לסימני שאלה ולסמלים מוזרים במקום עברית ושפות נוספות">
+</div>
+<div class="right post-content">
+אם באתרכם הופיעו סימני שאלה וציורים סיניים במקום עברית, או אם אתם לא יודעים מה זה קידוד (Encoding) או UTF-8, קראו את המדריך הזה וטפלו אחת ולתמיד במושג שנקרא &quot;קידוד&quot;. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<strong>מה יש לו? למה הוא מציג לי ג&#039;יבריש במקום עברית?</strong><br>הסיבה לסימני השאלה והג&#039;יבריש האלה טמונה במילה אחת, והיא קידוד. קידוד הוא האופן שבו המחשב שומר אצלו את תווי הטקסט שמהם מורכבת המחרוזת. לפעמים הוא לא כל כך מצליח, ולכן אנחנו צריכים לעזור לו.<br><br><h3>מה לי ולקידוד?</h3><br>הרבה מאוד שפות קיימות בכדור הארץ, וכמעט כל אחת מהן מוצאת את עצמה על גבי מסכי המחשב. בכל שפה אותיות שונות הנראות שונה, נכתבות באופן שונה ויוצרות בעיות שמירה שונות.<br><br>בעבר כל תו (אות) נשמר כ-byte (בַּית - <em>יש פה ניקוד, הגדילו את המסך בכדי לראות אותו.</em>) אחד בזכרון. מכיוון שכל byte היה מורכב משמונה bitים (bit, בִּיט - <em>גם פה יש ניקוד.</em>), היו בסה&quot;כ 255 אותיות איתם המחשב ידע לעבוד. לאחר מכן נכנסה להיסטוריה המצאה גאונית שנקראה &quot;קִידוּד&quot;. קידוד היה אוסף של 255 אותיות שאיתו המחשב היה עובד.<br><br>באחד הקידודים את 255 התווים הללו תפסו אנגלית, רוסית וספרות (cp1251).<br>קידוד אחר היה מורכב מ-255 תווים שהיו באנגלית, צרפתית וספרות (cp1252).<br>קידוד נוסף היה אנגלית, עברית וספרות (cp1255).<br><br>כל הבעיות מתחילות אם יש לנו מחרוזת שמורכבת מכמה שפות או אם הקידוד הנבחר לא מכיל את האותיות בשפה איתה אנו עובדים. אז מה, אי אפשר לעבוד בשתי שפות?<br><br><h3>UTF-8</h3><br>UTF-8 זהו קידוד שמורכב מיותר מ-byte אחד לתו (בין 1 ל-4 בתים), מה שמרחיב את כמות התווים שהוא מסוגל לשמור. הקידוד מסוגל לשמור תווים של הרבה מאוד שפות, והוא בדיוק מה שאנחנו צריכים.<br><br><h4>להגדיר קידוד בחמישה מקומות</h4><br><h5>1. בקובץ שאיתו אנחנו עובדים</h5><br>כאן נכנס לפעולה עורך הטקסט שלנו. בכל עורך טקסט אפשר להגדיר את קידוד הקובץ בחלון ההגדרות או בחלון השמירה. ב-Notepad יש את שם הקובץ, מתחתיו סוג הקובץ ומתחתיו קידוד (Encoding), אותו צריך להגדיר כ-&quot;<span dir="ltr">Unicode (UTF-8)</span>&quot;. זה נראה כך:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="קידוד UTF-8: הסוף לג&#039;יבריש, לסימני שאלה ולסמלים מוזרים במקום עברית ושפות נוספות" title="http://s14.postimage.org/7bz2lx5k1/notepad_saveas.png" class="content-image-float"><br>בעת שימוש ב-File Managerים שונים של האחסון שלכם יש להקפיד שהקידוד הוא UTF-8. במספר File Managerים זה נקרא &quot;English UTF-8&quot;.<br><br><h5>2. ליידע את PHP באיזו שפה הוא מדבר</h5><br>השורה הראשונה שאמורה להימצא בקוד שלכם מתוך הרגל:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-Type: text/html; charset=utf-8'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br><h5>3. ליידע את הדפדפן באיזה קידוד עליו להציג את הטקסט</h5><br>כאן עלינו להגדיר תג מטא בתוך דף ה-html (בחלק ה-head) עבור הדפדפן.<br><div class="php codeblock"><span class="sy0">&lt;</span>meta http<span class="sy0">-</span>equiv<span class="sy0">=</span><span class="st0">&quot;Content-Type&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;text/html; charset=utf-8&quot;</span> <span class="sy0">/&gt;</span></div><br>ואם אנחנו משתמשים ב-HTML 5:<br><div class="php codeblock"><span class="sy0">&lt;</span>meta charset<span class="sy0">=</span><span class="st0">&quot;utf-8&quot;</span> <span class="sy0">/&gt;</span></div><br><br><h5>4. ליידע את חיבור המסד עם PHP באיזה קידוד עליו להשתמש</h5><br>כאן יהיה עלינו להגדיר את קידוד ההתחברות אל מסד הנתונים, כדי שהתעבורה בין תוכנת מסד הנתונים והסקריפט שלכם לא תאבד לכם אותיות באמצע.<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="re0">$db</span> <span class="sy0">=</span> <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span><span class="st_h">'1'</span><span class="sy0">,</span><span class="st_h">'2'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st_h">'mydb'</span><span class="sy0">,</span><span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'utf8'&quot;</span><span class="sy0">,</span><span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h5>5. לדאוג שהמסד שומר נתונים בקידוד הנכון</h5><br>כאשר אנחנו יוצרים טבלה, יש לנו אפשרות להגדיר את הקידוד של כל שדה בטבלה בנפרד. הקידוד שאנחנו רוצים (UTF-8) נקרא utf8_general_ci. יש לבחור בו בעת היצירה, והוא ידאג לתקינות הנתונים שלנו לתמיד.<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="קידוד UTF-8: הסוף לג&#039;יבריש, לסימני שאלה ולסמלים מוזרים במקום עברית ושפות נוספות" title="http://s14.postimage.org/3kld58jfl/varchar_length.png" class="content-image-float"><br><br><br>זהו זה, בעיית הקידוד נפתרה.<br>יכול להיות שלאחר מעבר ל utf-8 תתקלו ב<a href="Can not send session cookie  headers already sent.htm">בעיית ה-Can not send session cookie - headers already sent</a>. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment18"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/03/2011 15:10</span><br>
+במידה ו set names לא עזר ובכל זאת נשלפים סימני שאלה מהמסד — אפשר לנסות את הקוד הבא: <br>
+<br>
+mysql_query(&quot;set character_set_client=&apos;utf8&apos;&quot;);<br>
+mysql_query(&quot;set character_set_results=&apos;utf8&apos;&quot;);<br>
+mysql_query(&quot;set collation_connection=&apos;utf8&apos;&quot;);<br>
+x<br>
+<br>
+אם הפעולה הזו עדיין לא תעזור, כנראה שהנתונים הוכנסו בעבר למסד באופן לא תקין (בקידוד פגום) ונשמרו שם כך. יש צורך להזין את הנתונים האלו מחדש כאשר השדות והקידוד מוגדרים נכון - שוב.</div>
+<a id="comment274"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 20:57</span><br>
+במקום כל מה שכתבת אפשר בהחלט להסתדר עם פונקציה אחת - mysql_set_charset.</div>
+<a id="comment275"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2011 21:27</span><br>
+מה ש mysql_set_charset עושה זה בדיוק את שאילתת ה set names (שהיא עצמה עושה את כל מה ששלושת השאילתות האלה עושות) לכן לרוב אין בהם צורך.<br>
+<br>
+קרו מקרים שלי זה לא הפסיק מסיבות לא ברורות בלי שלושת השאילתות האחרונות באופן מפורש. אין לי הסבר למה, יש לי רק את הפתרון. יכול להיות שזהו באג של גרסאות ישנות.</div>
+<a id="comment623"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/08/2011 15:49</span><br>
+תודה</div>
+<a id="comment649"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/08/2011 00:54</span><br>
+כאשר אני שולף תוכן מהמסד, שמוגדר כUTF-8 וגם<br>
+כל הדפים UTF-8 ללא BOM כמובן .....<br>
+ואני משתמש בSUBSTR כדי לקצץ את הסטרינג,<br>
+האות האחרונה או הכמה אותיות האחרונות שיש במחרוזת החדשה, התהפכו פתאום לסימני שאלה ...<br>
+לא סימני שאלה כמו אלה ???<br>
+אלא עם רקע שחור מאחורה בצורה של יהלום.<br>
+<br>
+מה לעשות ?</div>
+<a id="comment650"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/08/2011 00:55</span><br>
+substr לא תומכת ב utf-8 ובכלל עד PHP 6 כל פונקציות המחרוזות לא מסתדרות עם utf-8 בצורה טובה. בשביל זה יש את ההרחבה multibyte ובה פונקציות כמו mb_substr שבאות לפתור בדיוק את הבעה הזו.</div>
+<a id="comment651"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/08/2011 01:01</span><br>
+אני משתמש עכשיו עם mb_substr וזה עדיין לא עובד......<br>
+פתר לי את זה באופן חלקי .<br>
+<br>
+יש אפשרות להמיר את המחרוזת לקידוד אחר, ואז לבצע SUBSTR<br>
+בלי כל הסימני םהאלה ?</div>
+<a id="comment652"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/08/2011 01:02</span><br>
+יש אפשרות להעביר את השאלה לפורום ולהראות את הקוד.<br>
+אין את הבעיה הזו אצל mb_substr כשמעבירים לה את כל הפרמטרים.</div>
+<a id="comment653"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/08/2011 01:17</span><br>
+לא צריך כאן אפילו קוד, אין בשביל מה כי זה ממש קצת .<br>
+אני שולף מהמסד קטע בעברית שכולל מספרים וסימנים וגם מילים בעברית .<br>
+<br>
+מה שקורה אני חותך את זה עם SUBSTR ולפעמים בסוף זה מציג לי את הסימן שאלה הזה, הכל מקודד אצלי UTF-8 וראיתי שאני צריך לשים בפרמטר האחרוןקידוד, איזה לבחור ?</div>
+<a id="comment654"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/08/2011 01:17</span><br>
+צריך. תגובות לכתבה זה לא מקום לפתור בעיות פרטניות.<br>
+הקידוד שצריך הוא הקידוד של הנתונים. utf-8 במקרה שלך.</div>
+<a id="comment670"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/08/2011 00:37</span><br>
+כתוב בצורה בהירה ומובנת.</div>
+<a id="comment944"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/11/2011 14:07</span><br>
+וואו, תודה רבה!. שעות נברתי בגוגלוחיפשתי פיתרון, לקח לי זמן להגיע לעמוד הזה, אבל תודה תודה!! סידרת לי את התחת.</div>
+<a id="comment950"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/11/2011 23:09</span><br>
+להגדיר קידוד בחמישה מקומות.<br>
+<br>
+^^^^^<br>
+כתבתה רק 4 מקומות</div>
+<a id="comment951"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/11/2011 13:40</span><br>
+כתבתי רק 4 ספרות, אבל חמישה מקומות. בוא נראה כמה מהר אתה מוצא איפה יש שני מקומות תחת מיספור אחד.</div>
+<a id="comment952"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/11/2011 23:55</span><br>
+פה?<br>
+&lt;?php header(&apos;Content-Type: text/html; charset=utf-8&apos;); ?&gt;<br>
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</div>
+<a id="comment953"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/11/2011 03:29</span><br>
+בדיוק. אתה יכול לשים את שתי השורות האלה אחת אחרי השניה, אבל זה לא קורה בדרך כלל.<br>
+לפחות בגלל שתאורטית ביניהם אמורים להיות תגי html אחרים.</div>
+<a id="comment1525"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 11:11</span><br>
+אני מבצע בחיבור setname לut8 ועדיין כל מה שאני מקבל הוא <br>
+ž×¤×¨×¥<br>
+<br>
+עשיתי גם סט לוקל כלום לא עוזר...זו בעיה שפתאום צצה לפני כמה דקות הכל עבד רגיל..<br>
+<br>
+תודה</div>
+<a id="comment1526"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 11:21</span><br>
+תנסה <br>
+<br>
+mysql_query(&quot;set character_set_client=&apos;utf8&apos;&quot;);<br>
+mysql_query(&quot;set character_set_results=&apos;utf8&apos;&quot;);<br>
+mysql_query(&quot;set collation_connection=&apos;utf8&apos;&quot;);<br>
+<br>
+</div>
+<a id="comment1527"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 11:38</span><br>
+תודה אלכס..<br>
+מסתבר שמה שהייתה הבעיה היא הכנסה של תווים למערך בצורה כזאת<br>
+$a=array(name=&gt;$name)<br>
+כאשר אני מכניס בצורה כזאת זה מסתדר..<br>
+$a[name]=&quot;$name&quot;..<br>
+<br>
+עוד משהו .. איך יכול להיות שמחלקה שרצה ללא unset של המשתנים לוקחת פחות זכרון מuset ..<br>
+<br>
+תודה</div>
+<a id="comment1528"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 11:39</span><br>
+*לוקחת פחות זכרון מאותה המחלקה שבה אני דואג לעשות unset לכל משתנה לא נחוץ</div>
+<a id="comment1529"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 11:41</span><br>
+הרי למחשב לוקח זמן לעשות unset<br>
+אם אתה לא עושה unset בעצמך - PHP תעשה אותו בעצמה אחרי שתסיים את הסקריפט (אבל זה כבר קורה אחרי שהטיימר שלך מפסיק לרוץ)</div>
+<a id="comment1530"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 11:50</span><br>
+הגיוני אחלה</div>
+<a id="comment1550"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/05/2012 23:28</span><br>
+אחי , יפה כול הכבוד</div>
+<a id="comment1551"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/05/2012 17:34</span><br>
+על איזה פורום מדברים כאן בתגובות כל הזמן?! תפוז?</div>
+<a id="comment1552"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/05/2012 17:59</span><br>
+פעם באתר הזה היה פורום. היום מחליפה אותו מערכת שאלות-תשובות.</div>
+<a id="comment1599"></a>
+<div class="blog-comment">
+<span class='comment-author'>itamarhadad</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/06/2012 22:18</span><br>
+אני באתר שלי משתמש בקידוד ANSI אבל העורך עושה לי הצגה בUTF8 ככה שהוא ממיר את העיברית לANSI אוטומטית..<br>
+עדיף להישאר ככה או לעבור לUTF8</div>
+<a id="comment1600"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/06/2012 22:52</span><br>
+כמו שאומרים - עדיף לא לגעת במה שעובד.<br>
+ברגע שזה יפסיק לעבוד - יהיה עדיף לעבור ל utf-8</div>
+<a id="comment1726"></a>
+<div class="blog-comment">
+<span class='comment-author'>liana19909</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2012 09:14</span><br>
+יש לי בעיה באתר י ש לי דף אינטרנט מסוים שכל יומיים נהפך לסימני שאלה במקום מילים ואני לא יודעת כבר מה לעשות יש לי את התגים של עברית אבל זה לא עוזר</div>
+<a id="comment1727"></a>
+<div class="blog-comment">
+<span class='comment-author'>liana19909</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2012 09:15</span><br>
+אני כל יומיים מכניסה לשרת את הדף הספציפי הזה וכל יומיים זה חוזר לעצמו אשמח לעזרה אני עובדת עצות</div>
+<a id="comment1806"></a>
+<div class="blog-comment">
+<span class='comment-author'>dudusa1</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/08/2012 02:37</span><br>
+רסקין, יא מלך. <br>
+ועוד לחשוב שפעם רצית לוותר על האתר הזה ולמסור (לי) אותו.<br>
+</div>
+<a id="comment2273"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/03/2013 22:21</span><br>
+מצטט שאלה של מישהו אחר, &quot;מה ההבדל בין header של קידוד לבין תגית meta ב-HTML?&quot;</div>
+<a id="comment2274"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/03/2013 16:51</span><br>
+מצאתי את התשובה:<br>
+charset, כלומר זה של HTML - סט של תווים שאפשר לראות.<br>
+קידוד, כלומר זה של PHP - הדרך שבה התווים האלה מאוחסנים בזיכרון.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה האם יש דרך לקצר את הקריאת נתונים ב- COUNT">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itzik">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>האם יש דרך לקצר את הקריאת נתונים ב- COUNT | שאלת לימוד PHP</title>
+<meta itemprop="name" content="האם יש דרך לקצר את הקריאת נתונים ב- COUNT | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה האם יש דרך לקצר את הקריאת נתונים ב- COUNT">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="האם יש דרך לקצר את הקריאת נתונים ב COUNT-1.htm" title="עלי להציג את מספר הפוסטים ברענון און ליין, והאם הקוד הבא אפשר לקצר אותו כדי שיקרא את הנתונים יותר מהר ויציג אותם או שאיך שזה מוצג למטה זה הכי קצר שאפשר&amp;lt;?php
+&amp;nbsp; define&amp;#40;&apos;D&apos;,true&amp;#41;;
+&amp;nbsp; require_once">האם יש דרך לקצר את הקריאת נתונים ב- COUNT</a></h2>
+<div class="userinfo">
+פתח
+<a>itzik</a>
+,
+<time class="timeago relativetime" datetime="2015-05-19T18:25:25+03:00" style="display:inline-block;">
+19 למאי 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2143'>
+עלי להציג את מספר הפוסטים ברענון און ליין, והאם הקוד הבא אפשר לקצר אותו כדי שיקרא את הנתונים יותר מהר ויציג אותם או שאיך שזה מוצג למטה זה הכי קצר שאפשר<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'D'</span><span class="sy0">,</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">require_once</span><span class="br0">&#40;</span><span class="st_h">'../include/config.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">require_once</span><span class="br0">&#40;</span><span class="st_h">'../include/connect.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$link</span> <span class="sy0">=</span> <span class="kw3">mysql_connect</span><span class="br0">&#40;</span>D_SERVER<span class="sy0">,</span> D_USERNAME<span class="sy0">,</span> D_PASSWORD<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_select_db</span><span class="br0">&#40;</span>D_DATABASE<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_set_charset</span><span class="br0">&#40;</span><span class="st0">&quot;utf8&quot;</span><span class="sy0">,</span><span class="re0">$link</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">&quot;SELECT COUNT(*) as totalno FROM &quot;</span><span class="sy0">.</span>D_PREFIX<span class="sy0">.</span><span class="st0">&quot;Post WHERE Stat = '1'&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$data</span><span class="sy0">=</span><span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$count</span> <span class="sy0">=</span> <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'totalno'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="kw1">echo</span> <span class="re0">$count</span><span class="sy0">;</span> &nbsp;<br>
+<span class="sy1">?&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9367">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 20 למאי 2015 </span>
+<a id="answer_9367" href="האם יש דרך לקצר את הקריאת נתונים ב COUNT-1.htm#answer_9367">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל יש כאן כמה בעיות בסיסיות -<br>1.אתה משתמש בדריבר שכבר כמה שנים לא נתמך באופן רשמי,אני לא רואה שום סיבה להשתמש בוא ועוד יותר לא מצליח להבין מדוע אנשים שלמדו ב 2-3 שנים אחרונות עדיין עובדים דרכו.<br>2.הלולאה הזאת מיותרת לגמרי,הרי זה ברור שהשאילתה תציג תוצאה אחת או אפס כך שאתה יכול פשוט לוותר על הלולאה ולהשתמש ישר ב fetch_array.<br>3.אין לך כאן שום טיפול בשגיאות ואתה מסתמך על זה שזה תמיד יעבוד. אתה לא בודק אם המסד הצליח להתחבר,אם קיימת הטבלה או אם השאילתה החזירה נתונים.<br>---------------------------------------------<br><br>מבחינת יעילות כמובן שאם זאת שאילתה שרצה הרבה פעמים והכמות עדכונים מועטה יהיה עדיף לשמור את הנתונים במטמון ולרענן אותם כל X שניות\דקות. </p>
+</div>
+<div class="answer" id="answer9369">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 20 למאי 2015 </span>
+<a id="answer_9369" href="האם יש דרך לקצר את הקריאת נתונים ב COUNT-1.htm#answer_9369">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקוד שהבאתי עובד ולוקח לו שנייה כדי להציג נתונים, השאילה היא אםאני יוותר על הלולאה זה יקצר את מהלך הצגת הנתונים.<br><br>ומבחינת יעילות אתה צודק זה רץ הרבה פעמים, ואין המון עדכונים והורדות (מדובר על פרוייקט התחלתי.<br><br>אבל כל מה שרציתי שבכניסה לדף הוא יציג ישר את מספר הנתונים ולא יקח לו כמה שניות אחרי טעינת הדף כדי להציג את הנתונים.<br><br><div class="php codeblock"><span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>setInterval<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>$<span class="sy0">.</span>get<span class="br0">&#40;</span><span class="st_h">'../pkg_nb-dw.php'</span><span class="sy0">,</span><span class="kw2">function</span><span class="br0">&#40;</span>response<span class="br0">&#41;</span><span class="br0">&#123;</span>$<span class="br0">&#40;</span><span class="st_h">'.dwn'</span><span class="br0">&#41;</span><span class="sy0">.</span>html<span class="br0">&#40;</span>response<span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="sy0">,</span><span class="nu0">2000</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer9370">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 20 למאי 2015 </span>
+<a id="answer_9370" href="האם יש דרך לקצר את הקריאת נתונים ב COUNT-1.htm#answer_9370">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אי אפשר למדוד יעילות ככה,אתה צריך לבדוק מה בדיוק לוקח לו זמן יכול להיות שברמת התשתית לוקח לבקשה המון זמן להגיע ובמקרה כזה אין לך מה לעשות חוץ מלהחליף חברת אחסון.<br>הדבר היחיד שאתה יכול לעשות ברמת הקוד זה לוודא שיש ל stat אינדקס </p>
+</div>
+<div class="answer" id="answer9372">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 20 למאי 2015 </span>
+<a id="answer_9372" href="האם יש דרך לקצר את הקריאת נתונים ב COUNT-1.htm#answer_9372">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בדיוק החלפתי Vps ואני רואה שינוי מהותי בקשר לטעינת נתונים והצגתם. </p>
+</div>
+<div class="answer" id="answer9383">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2015 </span>
+<a id="answer_9383" href="האם יש דרך לקצר את הקריאת נתונים ב COUNT-1.htm#answer_9383">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="co1">// Set up ..</span><br>
+<span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'D'</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">require</span> <span class="st_h">'../include/config.php'</span><span class="sy0">;</span><br>
+<span class="kw1">require</span> <span class="st_h">'../include/connect.php'</span><span class="sy0">;</span><br>
+<br>
+try <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// lets connect to our database ..</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$dns</span> <span class="sy0">=</span> <span class="st_h">'mysql:host='</span> <span class="sy0">.</span> D_SERVER <span class="sy0">.</span> <span class="st_h">';dbname='</span> <span class="sy0">.</span> D_DATABASE <span class="sy0">.</span> <span class="st_h">';charset=utf8'</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$dbh</span> <span class="sy0">=</span> <span class="kw2">new</span> PDO<span class="br0">&#40;</span><span class="re0">$dns</span><span class="sy0">,</span> D_USERNAME<span class="sy0">,</span> D_PASSWORD<span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; PDO<span class="sy0">::</span><span class="me2">MYSQL_ATTR_INIT_COMMAND</span> <span class="sy0">=&gt;</span> <span class="st_h">'SET NAMES utf8'</span><span class="sy0">,</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> catch<span class="br0">&#40;</span>PDOException <span class="re0">$e</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="re0">$e</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// for debug only, we need to use our custom message</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="co1">// lets count the rows in our table</span><br>
+<br>
+<span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">&quot;SELECT COUNT(1) AS `count` FROM `&quot;</span><span class="sy0">.</span>D_PREFIX<span class="sy0">.</span><span class="st0">&quot;Post` WHERE Stat = '1';&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">fetchObject</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="kw3">count</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// good bye my lover :D</span></div><br><br>-תשתמש ב <div class="php codeblock"><span class="kw3">COUNT</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span></div> הוא יותר מהיר.<br>-אל תעבוד עם MySQL, כמו ש@Splash הזכיר כרב למעלה, הדרייבר הזה מיושן ואין לו כבר תמיכה.<br>-תוסיף <a href="..\מפתחות primary unique index.htm">אינדקס</a> לטבלה.<br><br>המממ בהצלחה בונבונירה שלי D: </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

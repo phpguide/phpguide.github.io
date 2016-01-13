@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה העגלת שבר">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="zacharya">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>העגלת שבר | שאלת לימוד PHP</title>
+<meta itemprop="name" content="העגלת שבר | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה העגלת שבר">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="העגלת שבר.htm" title="יש לי מספר שבר, איך אני עושה שלא משנה מתי, וכמה השבר, הוא תמיד יעגל כלפי מטה? כלומר נגיד 3.555555 או 3.99999 או 3.22222 יהפוך ל 3 ולא 4? ניסיתי intval וזה לפעמים למעלה ולפעמים למטה, כי פשוט עשיתי חלוקה לעמודים ואני רוצה שאחרי העמודים הוא יציג את העמוד האחרון אבל אז הוא מציג לי 3.666544848">העגלת שבר</a></h2>
+<div class="userinfo">
+פתח
+<a>zacharya</a>
+,
+<time class="timeago relativetime" datetime="2013-05-19T15:09:35+03:00" style="display:inline-block;">
+19 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1459'>
+יש לי מספר שבר, איך אני עושה שלא משנה מתי, וכמה השבר, הוא תמיד יעגל כלפי מטה? כלומר נגיד 3.555555 או 3.99999 או 3.22222 יהפוך ל 3 ולא 4? ניסיתי intval וזה לפעמים למעלה ולפעמים למטה, כי פשוט עשיתי חלוקה לעמודים ואני רוצה שאחרי העמודים הוא יציג את העמוד האחרון אבל אז הוא מציג לי 3.666544848 </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6547">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 20 למאי 2013 </span>
+<a id="answer_6547" href="העגלת שבר.htm#answer_6547">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$number</span> <span class="sy0">=</span> <span class="nu19">3.335262635</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="kw3">floor</span><span class="br0">&#40;</span><span class="re0">$number</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer6549">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 למאי 2013 </span>
+<a id="answer_6549" href="העגלת שבר.htm#answer_6549">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה אומר שאתה צריך לעגל למעלה, אחרת העמוד האחרון לא יופיע בכלל. <br>round - לעגל לאן שמחשבון מעגל<br>floor - לעגל למעטה<br>ceil - לעגל למעלה </p>
+</div>
+<div class="answer" id="answer6569">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 21 למאי 2013 </span>
+<a id="answer_6569" href="העגלת שבר.htm#answer_6569">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הכל מעגל לי למעלה, ואז נוצר לי כפתור לעמוד האחרון שבכלל לא קיים. </p>
+</div>
+<div class="answer" id="answer6572">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/84bd1a57dc1ffc16e66a8f4eda181d90?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>liorel100</a>
+ב
+<span style="font-size:10px"> 21 למאי 2013 </span>
+<a id="answer_6572" href="העגלת שבר.htm#answer_6572">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+העלגת זה צורת סמיכות של העגלה, שהיא השם פעולה של הפועל &quot;עגל&quot;. אין כזה פועל, אני מניח שאתה מתכוון לפועל &quot;עיגל&quot;, ששם הפעולה שלו הוא עיגול. לכן אמור &quot;עיגול שבר&quot;.<br>ולנושא, כדי לעגל מספר ממשי x בn ספרות אחרי הנקודה העשרונית תשתמש בפונצקייה הזאת :<br><div class="php codeblock"><span class="kw2">function</span> <span class="kw3">Round</span><span class="br0">&#40;</span><span class="re0">$x</span><span class="sy0">,</span><span class="re0">$n</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="re0">$p</span> <span class="sy0">=</span> <span class="kw3">pow</span><span class="br0">&#40;</span><span class="nu0">10</span><span class="sy0">,</span><span class="re0">$n</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">return</span> <span class="kw3">floor</span><span class="br0">&#40;</span><span class="re0">$x</span><span class="sy0">*</span><span class="re0">$p</span><span class="br0">&#41;</span><span class="sy0">/</span><span class="re0">$p</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer6574">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 21 למאי 2013 </span>
+<a id="answer_6574" href="העגלת שבר.htm#answer_6574">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ליאור, זה לא פורום לשון. אבל אם אתה כבר מזכיר את העניין, אז אתה טועה: &quot;העגלה&quot; היא שם הפעולה של הפועל &quot;העגיל&quot; (בבניין הפעיל), ולא &quot;עגל&quot; (בבניין קל).<br><br>וכדי לעגל שבר, תשתמש באחת מהפונקציות ceil, floor, round. <a href="העגלת שבר.htm#answer_6549">אלכס כתב מה כל אחת עושה</a>.<br>בוא נחשוב רגע בנושא של העמודים.<br>אם יש לנו 21 פריטים, ואנחנו רוצים 10 פריטים בעמוד. נעשה 21 חלקי 10 ונקבל 2.1. כלומר אנחנו צריכים לעגל כלפי מעלה (ceil) כי אנחנו רוצים 3 עמודים (עשה בעמוד הראשון, עשרה בשני ועוד פריט אחד בעמוד השלישי).<br><br>ככה שנקבל:<br><div class="php codeblock"><span class="re0">$itemsPerPage</span> <span class="sy0">=</span> <span class="nu0">10</span><span class="sy0">;</span><br>
+<span class="re0">$items</span> <span class="sy0">=</span> <span class="nu0">21</span><span class="sy0">;</span><br>
+<span class="re0">$pages</span> <span class="sy0">=</span> <span class="kw3">ceil</span><span class="br0">&#40;</span><span class="re0">$items</span> <span class="sy0">/</span> <span class="re0">$itemsPerPage</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer6578">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/84bd1a57dc1ffc16e66a8f4eda181d90?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>liorel100</a>
+ב
+<span style="font-size:10px"> 21 למאי 2013 </span>
+<a id="answer_6578" href="העגלת שבר.htm#answer_6578">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טעות שלי. וחשוב שאנשים ידעו לדבר עברית נכונה. השם פעולה של &quot;עגל&quot; זה &quot;עגילה&quot;. </p>
+</div>
+<div class="answer" id="answer6588">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 22 למאי 2013 </span>
+<a id="answer_6588" href="העגלת שבר.htm#answer_6588">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אז נוצר מצב שנוצר לי כפתור לעמוד האחרון שבכלל לא קיים. </p>
+</div>
+<div class="answer" id="answer6589">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 22 למאי 2013 </span>
+<a id="answer_6589" href="העגלת שבר.htm#answer_6589">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה עמוד אחרון שלא קיים? תביא דוגמה למספר הפריטים שיש לך, כמה פריטים אתה רוצה בעמוד, כמה עמודים אתה רוצה לקבל וכמה עמודים אתה באמת מקבל. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

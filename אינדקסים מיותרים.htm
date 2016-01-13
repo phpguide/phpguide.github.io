@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="אינדקסים לא תמיד מועילים ולפעמים פוגעים בביצועים">
+<meta name="keywords" content="אינדקס, מפתח, יעילות">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>אינדקסים לא תמיד מצילים חיים ולפעמים מיותרים</title>
+<meta itemprop="name" content="אינדקסים לא תמיד מצילים חיים ולפעמים מיותרים">
+<meta itemprop="description" content="אינדקסים לא תמיד מועילים ולפעמים פוגעים בביצועים">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"164","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>אינדקסים לא תמיד מצילים חיים ולפעמים מיותרים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-10-19T14:15:49+02:00" dir="rtl">19 לאוקטובר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.build.com/imagebase/resized/75x75/baldwinimages/extra_baldwin_key.jpg" alt="אינדקסים לא תמיד מצילים חיים ולפעמים מיותרים">
+</div>
+<div class="right post-content">
+אחרי שלמדנו <a href="מפתחות primary unique index.htm">מהם אינדקסים</a> וכמה הם חיוניים לביצועים של המסד שלנו - אני יספר לך מה שאנשים אחרים לא מספרים. מוכן? <strong>אינדקסים לא תמיד מועילים.</strong> <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אינדקסים הם כמו תוכן העניינים של ספר. כשאתה מחפש משהו בספר אתה יכול או לקרוא את כל הספר מהתחלה ועד הסוף, או ללכת לתוכן העניינים, לאתר את המקום המדויק של מה שאתה מחפש ולקרוא רק אותו. אינדקסים מעלים את מהירות הקריאה אבל מורידים את מהירות הכתיבה ושינוי הנתונים. כשאתה משנה משהו בספר, אתה צריך לעדכן בהתאם גם את תוכן העניינים. כשאתה משנה או מוסיף הרבה דברים לספר, תוכן העניינים משתנה הרבה וזוהי פעולה לא קלה לחשב מחדש את מיקומו של כל דבר בספר.<br><br>רוצה לדעת מתי עדיף להימנע מאינדקסים?<br><br><h4>אתה לא צריך אינדקסים במקרים</h4><br><br>[*] כאשר שליפות הם מסוג <span class="underline">לא</span> שווה <span dir="ltr"><em>column<span style="color:darkred;">!</span>=&#039;value&#039;</em></span>. כאן אינדוקס לא עוזר.<br><br>[*] שליפה עם LIKE שבה ה-% הוא בתחילת השורה. <span dir="ltr"><em><span style="color:indigo;">column LIKE &#039;<strong>%</strong>abc&#039;</span></em></span> חסר תועלת.<br>במקרים של <span dir="ltr"><em><span style="color:green;">column LIKE &#039;abc%&#039;</span></em></span> החיפוש דווקא נעזר באינדקס.<br><br>[*] ב- join לטבלה אחרת כאשר<strong> סוגי השדות שונים</strong> - האינדקס מיותר. כנ&quot;ל עם שדה אחד הוא unsigned ובטבלה השניה הוא גם מספר אבל לא unsigned. שימו לב ששדות שלפיהם עושים join יהיו מאותו סוג נתונים.<br><br>[*] כאשר על השדה מפעילים פונקציה כלשהי <span dir="ltr"><em>md5(column) = </em></span><br>במקרה הזה המסד בכל זאת עובר על כל שורה שורה ומחשב עבורה את הפונקציה. עדיף לעשות את החישוב בעת ההכנסה ובשדה לשמור את התוצאה של הפונקציה.<br><br>[*] אם חשבת ליעל את order by עם אינדקס - המסד לא ישתמש בו אם בשליפה יש where<br><br>[*] אינדקס על עמודות עם ערכים שחוזרים הרבה (עמודות שהערכים בה הם כן/לא, זכן/נקבה)<br>במקרים האלה אינדקס לא עוזר הרבה. כנראה שאין טעם לתת אינדקסים ל<a href="Enum vs Set.htm">שדות מסוג enum &amp; set</a><br><br><br><span style="color:green;"><br>קח את הדברים האלה בחשבון כשאתה יוצר טבלאות<br>ואל תפחד, עדיך לשים אינדקס מיותר פה ושם, מאשר לא לשים אינדקסים במסד בכלל.</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment870"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/10/2011 22:15</span><br>
+מדריך מובן ומעולה, תודה :)</div>
+<a id="comment871"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/10/2011 23:51</span><br>
+ובכול זאת מתי כן כדי?<br>
+אני חושב כאשר אתה משמתמש בפלאש ופלאש אין לו אפשרות לקידום אתרים,כמו אתר טקסט .<br>
+כאן האינדקס אני חושב שהוא עוזר לקדם את האתר<br>
+תקן אותי אם אני טועה.<br>
+תודה על המדריך.</div>
+<a id="comment872"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/10/2011 01:26</span><br>
+מדובר באינדקסים של מסדי נתונים, לא באינדקס דפי זהב און ליין.<br>
+<span dir="ltr"><a href="מפתחות primary unique index.htm">http://phpguide.co.il/מפתחות primary unique index.htm</a></span></div>
+<a id="comment884"></a>
+<div class="blog-comment">
+<span class='comment-author'>amitdar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/10/2011 11:26</span><br>
+מדריך מעולה<br>
+במקרה של פונקציה מסוימת מומלץ להפעיל את הפונקציה על הצד עם התוצאה, כך החישוב של הפונקציה ייעשה פעם אחת בלבד והחישוב יתבצע מול התוצאה המוכנה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

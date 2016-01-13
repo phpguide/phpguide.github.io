@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="למד כיצד להשתמש בפריימוורק Laravel באופן מעשי">
+<meta name="keywords" content="laravel,mvc,controller">
+<meta name="author" content="Splash">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>MVC עם Laravel חלק 1</title>
+<meta itemprop="name" content="MVC עם Laravel חלק 1">
+<meta itemprop="description" content="למד כיצד להשתמש בפריימוורק Laravel באופן מעשי">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"371","rating":"3","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>MVC עם Laravel חלק 1</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Splash, </div>
+<div class="right">&nbsp;<time datetime="2014-05-24T12:49:24+03:00" dir="rtl">24 למאי 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://s11.postimg.org/kmp1zvxhr/laravel.png" alt="MVC עם Laravel חלק 1">
+</div>
+<div class="right post-content">
+למד כיצד להשתמש בפריימוורק Laravel באופן מעשי <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<a href="ניתוב עם laravel  שימוש בפילטר.htm">במדריך הקודם</a> הסברתי איך להשתמש במערכת הניתוב של הפריימוורק,במדריך זה נלמד איך ליצור קונטרולר ולשלב אותו עם מערכת הניתוב.<br><br>אך לפני שנתחיל קצת רקע.<br>Laravel מבוססת על מודל שלוש השכבות [MVC - Model,View,Controller] תבנית ידועה בתחום ההנדסת תכנה והמטרה שלה היא להפריד בין שלושת השכבות<br>למידע נוסף על התחום ניתן לקרוא במדריך כאן - <a href="mvc_מפרידים_html_מ_php.htm">MVC</a><br><br><br>על מנת ליצור קונטרולר חדש נבצע את הפקודה -<br><div class="php codeblock">php artisan controller<span class="sy0">:</span>make MyController</div><br><br>כעט יצרנו קונטרולר חדש בשם MyController והוא ממוקם תחת app/Http/Controllers.<br><br>הפקודה make יצרה לנו כבר את הבסיס לקונטרולר,אם הכל עבד כמו שצריך אמור להיות לכם קובץ בסגנון הזה -<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> MyController <span class="kw2">extends</span> \BaseController <span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Display a listing of the resource.<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @return Response<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Show the form for creating a new resource.<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @return Response<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> create<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Store a newly created resource in storage.<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @return Response<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> store<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Display the specified resource.<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @param &nbsp;int &nbsp;$id<br>
+&nbsp; &nbsp;* @return Response<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> show<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Show the form for editing the specified resource.<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @param &nbsp;int &nbsp;$id<br>
+&nbsp; &nbsp;* @return Response<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> edit<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Update the specified resource in storage.<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @param &nbsp;int &nbsp;$id<br>
+&nbsp; &nbsp;* @return Response<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> update<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Remove the specified resource from storage.<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @param &nbsp;int &nbsp;$id<br>
+&nbsp; &nbsp;* @return Response<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> destroy<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="br0">&#125;</span></div><br><br>אני לא חושב שיש יותר מידי מה להסביר משום שהכל כבר מצוין בתיעוד.כמובן שלא חובה להשתמש בסגנון הנ&quot;ל אך מאוד מומלץ לדבוק כמה שיותר לסטנדרטים של הפריימוורק ככה שיהיה יותר נוח לקרוא את הקוד שלכם.<br><br><br><br>אחרי שיצרנו את הבקר ניצור עכשיו את הקובץ תצוגה שמבוסס על המנוע blade.<br>נלך אל resources/templates ונוסיף קובץ בשם hello.blade.php<br>חשוב מאוד לכלול את ה .blade אחרת הוא לא ידע לפענח את הקובץ כמו שצריך.<br><br>ונכניס אליו את התוכן - <br><br><div class="php codeblock"><span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span>Hello World<span class="sy0">&lt;/</span>h1<span class="sy0">&gt;</span></div><br><br>כעט יש לנו שני דברים נוספים לעשות על מנת לראות את ה hello world.<br>1.לתת כתובת לנתיב<br>2.לכלול את הקובץ view בתוך הבקר.<br><br><br>אז בוא נתחיל לתת כתובת לנתיב,נפתח את app/route.php ונכניס אליו -<br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'hello'</span><span class="sy0">,</span><span class="st_h">'MyController@index'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>כעט נחזיר מהמתודה index את הקובץ view שלנו בצורה הזאת -<br><br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> View<span class="sy0">::</span><span class="me2">make</span><span class="br0">&#40;</span><span class="st_h">'my_view'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>במידה ונפנה אל hello אנחנו אמורים לקבל על המסך Hello World.<br><br><br>כעט אנחנו רוצים להציג שם כל שהוא שאנחנו מקבלים מהכתובת.<br>אז נוסיף ל route.php -<br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'hello/{any}'</span><span class="sy0">,</span><span class="st_h">'MyController@index'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>או שאפשר גם לקצר את הנתיב לשורה אחת בצורה הזאת -<br><br><div class="php codeblock">Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'hello/{any?}'</span><span class="sy0">,</span><span class="st_h">'MyController@index'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>כעט נשנה את המתודה index ל -<br><br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="re0">$user</span> <span class="sy0">=</span> <span class="st_h">'Guest'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> View<span class="sy0">::</span><span class="me2">make</span><span class="br0">&#40;</span><span class="st_h">'my_view'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">with</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span><span class="re0">$user</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br>בקוד אנחנו מקבלים את המשתנה $user מהכתובת,במידה והוא לא קיים אז אנחנו מכניסים לו Guest.<br><br><br>ניתן לכתוב גם בצורה הזאת -<br><br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="re0">$user</span> <span class="sy0">=</span> <span class="st_h">'Guest'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> View<span class="sy0">::</span><span class="me2">make</span><span class="br0">&#40;</span><span class="st_h">'my_view'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="re0">$user</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br>במידה ואתם מעבירים הרבה פרמטרים לפי דעתי עדיף ליצור מערך ובסוף לשלוח אותו בפרמטר כך -<br><br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="re0">$user</span> <span class="sy0">=</span> <span class="st_h">'Guest'</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$user</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> View<span class="sy0">::</span><span class="me2">make</span><span class="br0">&#40;</span><span class="st_h">'my_view'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">with</span><span class="br0">&#40;</span><span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br><br>כעט נחליף את הקוד שיש ב my_view ל -<br><br><div class="php codeblock"><span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span>Hello <span class="br0">&#123;</span><span class="br0">&#123;</span><span class="br0">&#123;</span> <span class="re0">$name</span> <span class="br0">&#125;</span><span class="br0">&#125;</span><span class="br0">&#125;</span><span class="sy0">&lt;/</span>h1<span class="sy0">&gt;</span></div><br><br>אם נכנס ל hello נקבל Hello Guest<br>וכאשר נכנס דרך hello/laravel נקבל Hello laravel.<br><br><br>אוקי זה הכל להיום,במדריך הבא אני יסביר איך לשלב את המודל בתוך הקוד. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=16&r=g&d=monsterid" alt="Splash">
+<a>Splash</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2793"></a>
+<div class="blog-comment">
+<span class='comment-author'>dennis</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/05/2014 09:16</span><br>
+כל הכבוד על המדריך, מה שמפריע לי זה שיצרת resource controller אבל כל מה שקשור בראוטינג אתה מסביר כאילו על קונטרולר בסיסי. אין התייחסות לאיך להשתמש ב resource controller בראוטינג. <br>
+<br>
+לדעתי היה ברור יותר אם היית מסביר על קונטרולר רגיל והשימוש בראוטינג, מציין שיש אפשרות ליצור רסאורס קונטרולר ומראה איך להשתמש בניתוב נכון עבורו. זה היה מסדר טוב מאוד את הראש לכאלו שרק מתחילים לעבוד עם לארבל.</div>
+<a id="comment2794"></a>
+<div class="blog-comment">
+<span class='comment-author'>Splash</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/05/2014 13:32</span><br>
+המטרה של המדריך היא להסביר על שלושת השכבות ובשביל לעשות את זה צריך ליצור resource controller.<br>
+על השימוש בראוטינג הסברתי כאן - <span dir="ltr"><a href="ניתוב עם laravel  שימוש בפילטר.htm">http://phpguide.co.il/ניתוב עם laravel שימוש בפילטר.htm</a></span> <br>
+<br>
+נכון שאין שם משהו יותר מידי מתקדם,הסברתי על הבסיס ומי שהבין את המדריך כמו שצריך יוכל ללכת לתיעוד הרשמי ולהבין משם את היתר.</div>
+<a id="comment2833"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/07/2015 20:10</span><br>
+מתי יהיה חלק 2 ?</div>
+<a id="comment2835"></a>
+<div class="blog-comment">
+<span class='comment-author'>Splash</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/08/2015 11:19</span><br>
+אני מקווה אולי עוד כמה ימים יצא לי לכתוב אותו אבל קודם אני יצטרך לסדר את הנוכחי כדי שיתאים ל laravel 5 מבחינת התיקיות.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

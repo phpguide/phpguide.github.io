@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="CI - תוכנית ראשונה Hello world">
+<meta name="keywords" content="CI,תוכנית ראשונה,Hello world">
+<meta name="author" content="alon">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>3) CI - תוכנית ראשונה Hello world וראוטינג</title>
+<meta itemprop="name" content="3) CI - תוכנית ראשונה Hello world וראוטינג">
+<meta itemprop="description" content="CI - תוכנית ראשונה Hello world">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"230","rating":"32","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>3) CI - תוכנית ראשונה Hello world וראוטינג</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">alon, </div>
+<div class="right">&nbsp;<time datetime="2012-07-09T16:59:39+03:00" dir="rtl">09 ליולי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://codeigniter.com/user_guide/images/ci_logo_flame.jpg" alt="3) CI - תוכנית ראשונה Hello world וראוטינג">
+</div>
+<div class="right post-content">
+בפרק זה נלמד איך לכתוב את התוכנית הכי נפוצה בעולם (Hello world) וכן איך לנתב את הCI כך שיפעיל את הבקשות שלנו. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>Hello World</h3><br>בשני הפרקים הקודמים למדנו איך אנחנו מתקינים את הCI ומה זה MVC.<br>בשלב הזה אנחנו מוכנים לכתוב את התוכנים הראשונה שלנו.<br><br><h4>hello.php - הקונטרולר שלנו</h4><br>הקונטרולר הוא החלק הראשון שהמערכת שלנו תפעיל והוא זה שמנהל את התוכנית שלנו ומעביר את המידע בין החלקים שלה.<br>כדי לייצר Controller כנסו לתיקיית application/controllers ותחתיה צרו את הקובץ hello.php (אותיות קטנות בלבד!)<br>הקובץ צריך להראות כך:<br><div class="php codeblock"><span class="kw2">class</span> Hello <span class="kw2">extends</span> CI_Controller<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;hello world&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>ראשית: הקונטרולרים כולם הם קלאסים שהCI מפעיל עבורנו, ולכן יצרנו קלאס.<br><strong>שם הקונטרולר</strong> - צריך להיות כמו השם של הקובץ בCamel Letters ובמילים אחרות, אם לקובץ קוראים hello אז לקלאס נקרא Hello, חשוב מאוד שתקפידו על זה אחרת הCI לא יעבוד כמו שצריך, ולכל החכמולוגים שמנסים את זה על windows ושם הכל עובד, חכו חכו שתעלו גירסא לפרודקשן בארבע לפנות בוקר, ואז תגלו שחצי מהמערכת לא עובדת כי יש לכם בעיה עם שמות קבצים.<br><br><strong>extend CI_Controller</strong> - כאשר אנחנו יורשים את הCI_Controller אנחנו נותנים לקונטרולר שלנו את כל האפשרויות והיכולות של הCI.<br><br><strong>פונקציית הindex</strong> - בדיוק כמו שאם שמים קובץ index בתוך תיקייה אז הapache מפעיל אותו אוטומטית, כך גם לגבי מתודת index, הCI יפעיל אותה אוטומטית אם לא נגדיר מתודה אחרת.<br>שימו לב שעשיתי מעשה אסור והוצאתי Output מהקונטרולר ישירות למשתמש, אסור לעשות זאת בMVC, וכל הפלט של המערכת צריך לשבת בview. אבל את זה נלמד בהמשך.<br><br><h4>ועכשיו להרצה של התוכנית הראשונה שלנו!</h4><br>כדי להריץ את התוכנית עליכם לרשום בשורת הכתובת של הדפדפן את הכתובת הבאה:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/CI/index.php/hello</span></div><br><br>ואם הכל עבר כמו שצריך אתם אמורים לקבל את הפלט <strong>hello world</strong><br><br>מזל טוב! כתבנו את התוכנית הראשונה שלנו!<br><br><h3>routing</h3><br>לאחר שאנחנו כותבים קונטרולר, אנחנו רוצים להפעיל אותו, למי שמעולם לא התשמש בפריימוורקים, מצפה הפתעה, עד היום התרגלנו להפעיל כל קובץ בנפרד. לדוגמא אם הייתה לנו חנות אז היו לנו הקבצי הרצה:<br>index.php<br>products.php<br>categories.php<br>cart.php<br>order.php<br>וכו&#039;...<br><br>כאשר אנחנו עוברים לפריימוורק, יש לנו קובץ אחד שאליו בלבד קוראים, וזהו הdispatcher שלנו, הוא זה שמעלה את כל הפריימוורק, ומתחיל את הפעולה של המערכת, אצלנו זהו הindex,php<br>ולרוב כל קובץ מוחלף בקונטרולר.<br>כך שיהיו לנו את הקונטרולרים home,products,cart וכו&#039;...<br><br><h4>הפעלת קונטרולר</h4><br>כיוון שאנחנו רוצים להפעיל קונטרולר מסויים אנחנו קוראים לindex.php ומצמידים לו את שם הקונטרולר שאותו אנחנו רוצים להריץ, ולכן בדוגמא לפנינו זה יהיה:<br><span class="dirleft">http://localhost/CI/index.php/hello</span><br><br>בהמשך אנחנו נלמד איך &quot;להעלים&quot; את הindex.php כך שתהיה לנו כתובת יפה ונקייה שתראה כך:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/CI/hello</span></div><br><br>בעצם אמרנו לCI להפעיל את הקונטרולר שנקרא hello ובתוכו הCI הפעיל אוטומטית את המתודה שנקראת Index.<br><strong>שימו לב - אם לא תהיה מתודת index יתקבל דף 404</strong><br><br><h4>הפעלת מתודה ספציפית</h4><br>בתוכנית נורמאלית יהיו לנו הרבה מתודות תחת אותו קונטרולר, לדוגמא הקונטרולר product יכיל בתוכו את המתודות, add,delete,show_all וכו&#039;..<br>כדי לקרוא למתודה ספציפית תחת קונטרולר אנחנו פשוט כותבים את השם שלה אחרי שם הקונטרולר לדוג&#039;:<br><br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/CI/index.php/hello/byname</span></div><br><br><div class="php codeblock"><span class="kw2">class</span> Hello <span class="kw2">extends</span> CI_Controller<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello world&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">function</span> byname<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello Alon&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br><h4>שליחת פרמטרים</h4><br>הCI מאפשר לנו לשלוח פרמטרים אל המתודות דרך הURL, באמצעות שירשור שלהם אחרי המתודה.<br>לדוגמא:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/CI/index.php/hello/byname/alon</span></div><br><br><div class="php codeblock"><span class="kw2">class</span> Hello <span class="kw2">extends</span> CI_Controller<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello world&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">function</span> byname<span class="br0">&#40;</span><span class="re0">$userName</span><span class="sy0">=</span><span class="st_h">''</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello <span class="es4">$userName</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>שימו לב שאנחנו נותנים ערך ברירת מחדל למשתנה של המתודה, אחרת אנחנו נקבל ERROR אם לא נשלח ערך בURL.<br><br>עם הנסיון והזמן אני אישית מצאתי שליחת ערכים ישירות למתודה כלא נוחה ולא גמישה מספיק ואני מעדיף להעביר פרמטרים דרך הGET.<br>לדוגמא:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/CI/index.php/hello/byname/?name=Alon</span></div><br>ולמשוך את המידע ממערך ה<span dir="ltr">$_GET</span>...<br><br><h4>סיכום</h4><br>מבנה הURL כאשר משתמשים בCI נראה כדלקמן:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//example.com/[contoroller]/[method]/[param1]/[param2]/...</span></div><br><br><h3>הסתרת הindex.php</h3><br>כדי להסתיר את הindex.php בURL אנחנו צריכים להשתמש בתוספת של הapache שנקראת mod_rewrite בשילוב עם <span dir="ltr">.htaccess</span>, התוספת הזאת היא סטנדרטית בכל איחסון שטיפה מכבד את עצמו וניתן להפעיל אותה בקלות בwamp על ידי סימון התפריט:<br> apache-&gt;apache modules-&gt;rewrite_module<br><br>אני לא הולך להיכנס כאן לעובי הקורה של הmod_rewrite והhtaccess גם כי זה נושא גדול בפני עצמו, גם כי זה יכריח אותי ללמד regular expressions וגם כי אני כבר עייף ויש לי מחר עבודה..<br><br>אבל על רגל אחת: בתיקייה של הCI ליד הindex.php צרו קובץ בשם<span dir="ltr"> .htaccess </span><br>(תחת windows תפתחו ++Notepad ובעת שמירת הקובץ תשמרו אותו כ<span dir="ltr">.htaccess</span>, נסיון ליצור את הקובץ בצורה אחרת יביא להודעת שגיאה של הווינדווס)<br>והכניסו לתוכו את התוכן הבא:<br><div class="php codeblock">RewriteEngine On<br>
+RewriteCond $<span class="nu19">1</span> <span class="sy0">!</span>^<span class="br0">&#40;</span>index\<span class="sy0">.</span>php<span class="sy0">|</span>robots\<span class="sy0">.</span>txt<span class="sy0">|</span>favicon\<span class="sy0">.</span>ico<span class="sy0">|</span>uploads<span class="sy0">|</span>media<span class="br0">&#41;</span><br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ index<span class="sy0">.</span>php?<span class="sy0">/</span>$<span class="nu19">1</span> <span class="br0">&#91;</span>L<span class="br0">&#93;</span></div><br><br>הקובץ הזה נותן הוראה לapache שכל קריאה לתוכן כלשהו מתוך התיקייה בה אנחנו יושבים תנותב אל index.php למעט אם מבקשים את הindex.php עצמו או את robots.txt,favicon.ico או תוכן מתוך התיקיות uploads או media.<br><br>כיוון שההוראה הזאת היא ברמת הapache אם תשימו תוכן סטטי כלשהו מחוץ לuploads או media הבקשה תנותב אל הindex.php<br><br>לדוגמא אם אני אבקש את http://localhost/CI/logo.gif האפאצ&#039;י יפרש את זה כhttp://localhost/CI/index.php/logo.gif<br><br>ולכן אנחנו מייצרים תיקיית media שכל התוכן הסטטי יושב בתוכה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/4cb7bcf17e326a77aa13e000b6551a84?s=16&r=g&d=monsterid" alt="alon">
+<a>alon</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1749"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/07/2012 09:49</span><br>
+אחלה מאמר כמו קודמיו :)</div>
+<a id="comment2799"></a>
+<div class="blog-comment">
+<span class='comment-author'>morwin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2014 15:54</span><br>
+יפה מאוד <br>
+רק לא ברור כל כך הסוף..</div>
+<a id="comment2824"></a>
+<div class="blog-comment">
+<span class='comment-author'>ישראל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/12/2014 13:02</span><br>
+תודה רבה סוף סוף משהו מסודר בMVC</div>
+<a id="comment2828"></a>
+<div class="blog-comment">
+<span class='comment-author'>mmm</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/01/2015 19:40</span><br>
+חבל שאין קישור לפוסטים הקודמים.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

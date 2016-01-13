@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעיות עם הפעלת MySQL על Ubuntu">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>בעיות עם הפעלת MySQL על Ubuntu | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעיות עם הפעלת MySQL על Ubuntu | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעיות עם הפעלת MySQL על Ubuntu">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיות עם הפעלת MySQL על Ubuntu.htm" title="כנראה זו הייתה טעות לעבור ל-VPS.התקנתי, הכול עבד, ועכשיו פתאום אני רואה שהאתר לא עולה. ניסיתי להתחבר לבסיס הנתונים, ומה הפלא?ERROR 2002 &amp;#40;HY000&amp;#41;: Can&apos;t connect to local MySQL server through socket &apos;/var/run/mysqld">בעיות עם הפעלת MySQL על Ubuntu</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2013-06-10T15:42:09+03:00" style="display:inline-block;">
+10 ליוני 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1502'>
+כנראה זו הייתה טעות לעבור ל-VPS.<br>התקנתי, הכול עבד, ועכשיו פתאום אני רואה שהאתר לא עולה. ניסיתי להתחבר לבסיס הנתונים, ומה הפלא?<br><div class="php codeblock">ERROR <span class="nu0">2002</span> <span class="br0">&#40;</span>HY000<span class="br0">&#41;</span><span class="sy0">:</span> Can<span class="st_h">'t connect to local MySQL server through socket '</span><span class="sy0">/</span><span class="kw2">var</span><span class="sy0">/</span>run<span class="sy0">/</span>mysqld<span class="sy0">/</span>mysqld<span class="sy0">.</span>sock<span class="st_h">'</span></div><br>חיפשתי וחיפשתי, וקובץ ה-socket קיים במקום ההוא, והכול בסדר. אוקיי, אז מנסים לעשות restart ל-MySQL. ומה מקבלים?<br><div class="php codeblock">start<span class="sy0">:</span> Job failed to start</div><br>אפשר עזרה בבקשה? :\ </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6762">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 ליוני 2013 </span>
+<a id="answer_6762" href="בעיות עם הפעלת MySQL על Ubuntu.htm#answer_6762">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תסתכל מה כתוב בקובץ הלוג.<br>זה כנראה<br><span dir="ltr"><br> /var/log/mysql/error.log<br></span><br><br>אף אחד לא אמר שיהיה פשוט בהתחלה.<br>או שאתה משלם ועושים הכל בשבילך - או שאתה עושה.<br>אחרי זמן מסוים לומדים ולתפעל שרת נהיה פחות ופחות מסובך. </p>
+</div>
+<div class="answer" id="answer6767">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 11 ליוני 2013 </span>
+<a id="answer_6767" href="בעיות עם הפעלת MySQL על Ubuntu.htm#answer_6767">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ניסיתי, שום דבר עם ERROR חוץ מ-UNKNOWN VARIABLE ב-cnf. הלכתי לבדוק...<br><br>נכון... פשוט לא נראה לי שזה היה נבון מצדי לעשות את זה לפרודאקשן...<br><br><strong>עריכה:</strong><br>הבעיה הייתה ב-my.cnf. בזמנו, כשניסיתי לעבור ל-UTF-8, הוספתי לסעיף ה-mysqld משהו על default-character-set ועל collation, ומתברר שזה כבר לא נתמך. (או שזה בכלל לא היה קיים מלכתחילה; קצת פחות סביר...)<br>עכשיו זה עובד...<br>למדתי עוד משהו חדש; תודה. :-) </p>
+</div>
+<div class="answer" id="answer6769">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 ליוני 2013 </span>
+<a id="answer_6769" href="בעיות עם הפעלת MySQL על Ubuntu.htm#answer_6769">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה היה קיים ב 5.1 ויצא משימוש ב 5.5 </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שליפת כל הID&apos;s שקיימים.">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ToMeRiKo">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שליפת כל הID&apos;s שקיימים. | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שליפת כל הID&apos;s שקיימים. | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שליפת כל הID&apos;s שקיימים.">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">19</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שליפת כל הIDs שקיימים-1.htm" title="אני בודק אם ID מסויים קיים, ואם הוא קיים אז אני שולף אותו, עשיתי &amp;quot;שאלה&amp;quot; אבל מלא עשו שמה בלאגן, אז החלטתי לפתוח חדש.ככה עשיתי משתנה $quary שמתבצע בו שליפת נתונים.ואז תנאי שמכיל mysql num rows.הבעיה שלי שרק אם השאילתה שווה ל0 הוא מדפיס אין תוכן חדש. כל מספר אחר הוא מדפיס את התוכן שבעים.אני רוצה שהוא יבדוק אם ID 70 קיים ואם הוא קיים שישלוף.$query = mysql">שליפת כל הID&apos;s שקיימים.</a></h2>
+<div class="userinfo">
+פתח
+<a>ToMeRiKo</a>
+,
+<time class="timeago relativetime" datetime="2013-05-12T17:07:11+03:00" style="display:inline-block;">
+12 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1445'>
+אני בודק אם ID מסויים קיים, ואם הוא קיים אז אני שולף אותו, עשיתי &quot;שאלה&quot; אבל מלא עשו שמה בלאגן, אז החלטתי לפתוח חדש.<br>ככה עשיתי משתנה $quary שמתבצע בו שליפת נתונים.<br>ואז תנאי שמכיל mysql num rows.<br>הבעיה שלי שרק אם השאילתה שווה ל0 הוא מדפיס אין תוכן חדש. כל מספר אחר הוא מדפיס את התוכן שבעים.<br>אני רוצה שהוא יבדוק אם ID 70 קיים ואם הוא קיים שישלוף.<br><br><br><div class="php codeblock"><span class="re0">$query</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `newpost` WHERE `id`='70'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">2</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'אין תוכן חדש'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><span class="br0">&#123;</span><br>
+<span class="re0">$r</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;The new page create: &lt;/br&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;Name: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span> <span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; Title: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span><span class="br0">&#91;</span><span class="st_h">'title'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; Subject: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span> <span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; to contact with the author: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">19 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6450">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 12 למאי 2013 </span>
+<a id="answer_6450" href="שליפת כל הIDs שקיימים-1.htm#answer_6450">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תוסיף בphp <br>אם משתנה r של id שווה ל-70 אז ..... </p>
+</div>
+<div class="answer" id="answer6455">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dc24bb23b8b736c5ab31e2643c5a5b71?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ToMeRiKo</a>
+ב
+<span style="font-size:10px"> 12 למאי 2013 </span>
+<a id="answer_6455" href="שליפת כל הIDs שקיימים-1.htm#answer_6455">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה? לא הבנתי.<br>אתה יכול להדגים. </p>
+</div>
+<div class="answer" id="answer6459">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/76da963178ade0f2235a9ec90fa7061b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>hafuta</a>
+ב
+<span style="font-size:10px"> 12 למאי 2013 </span>
+<a id="answer_6459" href="שליפת כל הIDs שקיימים-1.htm#answer_6459">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הניסוח של השאלה שלך &quot;קצת&quot; לא ברור, תתאר קצת מה אתה בדיוק רוצה לעשות.<br>שאילתה לא שווה ל-0, שאילתה מחזירה תוצאה, יכול להיות שה-num_rows (מספר השורות שחזרו) יהיה שווה 0. </p>
+</div>
+<div class="answer" id="answer6460">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6460" href="שליפת כל הIDs שקיימים-1.htm#answer_6460">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קבעת את משתנה r ל mysql_fetch_array של משתנה query עכשיו עם משתנה <div class="php codeblock">r <span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span></div> שווה ל70 אז יעשה את הכל. </p>
+</div>
+<div class="answer" id="answer6461">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6461" href="שליפת כל הIDs שקיימים-1.htm#answer_6461">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הצלחתי להכנס לראש שלך כל כך, עשית שאם יש יותר משני נתונים בשליפה כאשר ID שווה ל70 אז אין תוכן חדש, למה? </p>
+</div>
+<div class="answer" id="answer6463">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6463" href="שליפת כל הIDs שקיימים-1.htm#answer_6463">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה מבלבל כמה דברים.<br>תקרא את הקוד שלך ותנסה להבין מה הקוד עושה.<br><br>SELECT * FROM `newpost` WHERE `id`=&#039;70&#039;<br>לקחת את השורה מהטבלה שבה ID שווה ל 70. השורה הזו או שהיא קיימת ויש אחת כזאת, או שהיא לא קיימת. ואז יש אפס שורות כאלה.<br>הבדיקה שבא אחרי<br>mysql_num_rows($query) &gt; 2<br>נראית טפשית. השורה הזאת או שהיא קיימת - או שהיא לא קיימת. איך יכול להיות 3 כאלה?<br><br>מה בדיוק אתה רוצה לעשות בכלל לא ברור. השאלה ששאלת מכילה מילים בעברית אבל לא באמת אפשר להרכיב מהם משפט. </p>
+</div>
+<div class="answer" id="answer6466">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dc24bb23b8b736c5ab31e2643c5a5b71?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ToMeRiKo</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6466" href="שליפת כל הIDs שקיימים-1.htm#answer_6466">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני ינסח את זה ככה:<br>אני רוצה לבדוק אם ID מסויים קיים, אם הוא קיים לשלוף אותו אם הוא לא קיים שיציג הודעת שגיאה.<br>נגיד אני בודק אם ID 70 קיים אם הוא קיים שישלוף אותו אם לא שיציג הודעה. </p>
+</div>
+<div class="answer" id="answer6467">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6467" href="שליפת כל הIDs שקיימים-1.htm#answer_6467">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני עוד מעט יקח את כל הקוד וישנה למה שצריך על מנת לבדוק עם id 70 קיים ואם קיים יציג אם לא לא יציג. </p>
+</div>
+<div class="answer" id="answer6472">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dc24bb23b8b736c5ab31e2643c5a5b71?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ToMeRiKo</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6472" href="שליפת כל הIDs שקיימים-1.htm#answer_6472">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה.. </p>
+</div>
+<div class="answer" id="answer6476">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6476" href="שליפת כל הIDs שקיימים-1.htm#answer_6476">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$query</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `newpost` WHERE `id`='70'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="nu0">70</span><br>
+<span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#91;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><span class="br0">&#123;</span><br>
+<span class="re0">$r</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;The new page create: &lt;/br&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;Name: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span> <span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; Title: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span><span class="br0">&#91;</span><span class="st_h">'title'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; Subject: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span> <span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; to contact with the author: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer6477">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6477" href="שליפת כל הIDs שקיימים-1.htm#answer_6477">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שיניתי רק את ההתחלה ואת השאר לא שיניתי תמחק מזה גם את הקביעה של משתנה r ואת הelse פשוט תרשום echo הID לא קיים במסד. </p>
+</div>
+<div class="answer" id="answer6486">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dc24bb23b8b736c5ab31e2643c5a5b71?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ToMeRiKo</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6486" href="שליפת כל הIDs שקיימים-1.htm#answer_6486">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הבנתי איך הקוד עובד, אבל בכל זאת הרצתי אותו, בלי לדעת מהו עושה עם השינויים והוא לא עובד..<br>מישהו יכול להסביר לי ? במה להשתמש ? </p>
+</div>
+<div class="answer" id="answer6487">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6487" href="שליפת כל הIDs שקיימים-1.htm#answer_6487">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל מאיפה למדת php אולי הבעיה באתר שדרכו למדת שלא מלמדים הכל. </p>
+</div>
+<div class="answer" id="answer6496">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dc24bb23b8b736c5ab31e2643c5a5b71?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ToMeRiKo</a>
+ב
+<span style="font-size:10px"> 15 למאי 2013 </span>
+<a id="answer_6496" href="שליפת כל הIDs שקיימים-1.htm#answer_6496">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא שלא מלמדים הכל הקוד לא הגיוני וגם לא עובד. </p>
+</div>
+<div class="answer" id="answer6536">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dc24bb23b8b736c5ab31e2643c5a5b71?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ToMeRiKo</a>
+ב
+<span style="font-size:10px"> 19 למאי 2013 </span>
+<a id="answer_6536" href="שליפת כל הIDs שקיימים-1.htm#answer_6536">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עזרה?&lt;?? </p>
+</div>
+<div class="answer" id="answer6537">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/76da963178ade0f2235a9ec90fa7061b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>hafuta</a>
+ב
+<span style="font-size:10px"> 19 למאי 2013 </span>
+<a id="answer_6537" href="שליפת כל הIDs שקיימים-1.htm#answer_6537">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם תסביר בדיוק לאיזה תוצאה אתה רוצה להגיע נוכל להדריך אותך איך לעשות את זה. </p>
+</div>
+<div class="answer" id="answer6538">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 19 למאי 2013 </span>
+<a id="answer_6538" href="שליפת כל הIDs שקיימים-1.htm#answer_6538">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$query</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `newpost` WHERE `id`='70'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'אין תוכן חדש'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><span class="br0">&#123;</span><br>
+<span class="re0">$r</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;The new page create: &lt;/br&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;Name: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span> <span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; Title: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span><span class="br0">&#91;</span><span class="st_h">'title'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; Subject: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span> <span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/br&gt; to contact with the author: &quot;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$r</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>אני מקווה שהבנתי אותך נכון. </p>
+</div>
+<div class="answer" id="answer6541">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dc24bb23b8b736c5ab31e2643c5a5b71?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ToMeRiKo</a>
+ב
+<span style="font-size:10px"> 19 למאי 2013 </span>
+<a id="answer_6541" href="שליפת כל הIDs שקיימים-1.htm#answer_6541">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תותח אתה!! תודה רבה הבנת אותי.<br>שבוע טוב :) </p>
+</div>
+<div class="answer" id="answer6544">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 19 למאי 2013 </span>
+<a id="answer_6544" href="שליפת כל הIDs שקיימים-1.htm#answer_6544">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא מבין למה בדקת אם מספר השורות גדול מ 2, זה אומר שיש תוכן. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="זריקה ותפיסה של שגיאות עם try, catch, finally">
+<meta name="keywords" content="try, catch, finally, exception">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>try catch finally</title>
+<meta itemprop="name" content="try catch finally">
+<meta itemprop="description" content="זריקה ותפיסה של שגיאות עם try, catch, finally">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"348","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>try catch finally</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-12-09T19:52:37+02:00" dir="rtl">09 לדצמבר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="" alt="try catch finally">
+</div>
+<div class="right post-content">
+זריקה, תפיסה וטיפול בחריגים<br>ובכלל, למה לי להשתמש ב- try, catch, finally<br><br><img src="static\images\pixel.png" alt="try catch finally" title="http://s24.postimg.org/b8sw864ad/download.jpg" class="content-image-float"> <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>אקספשנים (או חריגים) הם הדרך שלך לספר למתכנתים אחרים שמשהו הולך לא כפי שציפית ולעשות עם זה משהו </h2><br><br>כדי להבין את המשפט למעלה נעבור צעד צעד. כשאני אומר <strong>מתכנתים אחרים</strong>, אני מתכוון לא רק לחברים לצוות במשרד שלך, אלא גם למי שיראה את הקוד שלך באינטרנט וגם אליך של בעוד חודש, ואפילו אליך של בעוד חמש דקות. <br><br><strong>למה לספר להם משהו</strong>? אחת המטרות של <a href="http://phpguide.co.il/oopbook/">תכנות מונחה עצמים</a> שדיברנו עליה רבות, היא לעשות את הקוד ברור יותר וקל יותר להבנה. חריגים הם כלי נוסף לעשות את התקשורת בין מתכנתים לקלה יותר.<br><br>אז מה כבר יכול <strong>ללכת לא בסדר</strong>? נניח שכתבת מתודה או פונקציה שקוראת תוכן של קובץ. היא מקבלת נתיב ומחזירה מחרוזת. באמצעות חריגים תוכל לספר למי שהפעיל את המתודה שמשהו לא בסדר, למשל: הנתיב שגוי וקובץ כזה לא קיים, או שהקובץ קיים אבל נעול על ידי תוכנה אחרת.<br><br>ברגע שמפעיל המתודה ידע על חגירה ממהלך הביצוע הרגיל של התוכנה הוא יוכל <strong>להחליט איך להמשיך</strong> הלאה. הוא יכול לבחור ליצור קובץ כזה, יכול לחכות או יכול להציג שגיאה למשתמש ולסיים את הביצוע. <br><br><strong>המתרה של חריגים היא לתקן או לשנות כיוון במקרה של חריגה מתהליך הביצוע המתוכנן.</strong><br><br><br><br><br><h3>זריקת אקספשנים</h3><br><h4>אקספשן הוא בסך הכול מחלקה</h4> <br>מחלקת אקספשן היא מחלקה רגילה לחלוטין שמובנית בשפת PHP, ולה יש כמה מאפיינים וכמה מתודות משלה. הדוקומנטציה מביאה את מבנה המחלקה במלואה.<br><br><img src="static\images\pixel.png" alt="try catch finally" title="http://i.imgur.com/hfXc968.png" class="content-image-float"><br><br>מההגדרה של המחלקה אפשר לראות שלמחלקת אקספשן יש כמה חלקים חשובים:<br>- הודעת שגיאה<br>- מספר שגיאה <br>- שגיאה קודמת<br><br>כמה מאפיינים נוספים PHP מכניסה בעצמה בעת יצירת מופע של המחלקה הזו, כמו: מספר שורה, שם הקובץ שבו השגיאה נוצרה ומחסנית הביצוע (רשימת הקריאות למתודות ופונקציות). באמצעות המתודות שמחזירות את המידע הזה, ניתן לדעת בוודאות מה, איפה ובאיזה קובץ הלך לא בסדר.<br><a href="phplive-3.htm?code=885">דוגמה לשימוש במחלקת אקספשן.</a><br><br>לאחר שיצרנו מופע של מחלקת אקספשן, שכולל את כל המידע על הבעיות, עלינו לזרוק אותו למעלה, כדי שמישהו יטפל בו.<br><br><h4>זריקת אקספש מתבצעת באמצעות הפקודה throw </h4><br>אקספשנים, או חריגים, מסמנים חריגה מהליך הביצוע הרגיל של התוכנה. זריקת אקספשן מפסיקה את ביצוע התוכנה איפה שהיא, עד אשר השגיאה תיתפס. אם אף אחד לא יתפוס את השגיאה - השגיאה תפסיק את הביצוע של התוכנה כולה.<br><br><div class="php codeblock"><span class="kw1">throw</span> <span class="kw2">new</span> \Exception<span class="br0">&#40;</span><span class="st0">&quot;Huston, we have a &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>השורה הזו תפסיק מיד את ביצוע הקוד איפה שהיא ותעלה למעלה במחסנית הביצוע עד אשר תיתפס.<br><br>מחסנית היא אוסף הקריאות והפונקציות המופעלות. הקוד הראשי של התוכנה main קורא לפונקציה a, פונקציה a קוראת לפונקציה b, שבתורה, קוראת לפונקציה c. זוהי מחסנית הקריאות: <span dir="ltr">main -&gt; a -&gt; b -&gt; c</span>. חריג שנזרק מתוך פונקציה c יעצור אותה, יעלה למעלה במחסנית הביצוע ויעצור גם את פונקציה b, לאחר מכן יעלה שוב למעלה ויעצור גם את פונקציית a ואת הביצוע הכללי של הסקריפט. אלא אם כן השגיאה תיתפס. <a href="phplive-4.htm?code=886">דוגמה לשגיאה שלא נתפסת ועוצרת את כל המחסנית</a><br><br><br><h3>תפיסת אקספשנים</h3><br>לפני הכול, מה עושים עם אקספשן שנתפס? יש לא הרבה אפשרויות שונות: לתקן את המצב אם אפשר או לסיים את ביצוע התוכנה. במקרה הראשון נוכל ליצור קובץ שלא קיים, להתחבר מחדש למסד נתונים או ליצור חיבור רשת מחודש. במקרה השני, נעדיף להציג למשתמש הודעת שגיאה ואולי, ובמקרה האידאלי, גם הסבר איך לתקן אותה.<br><br><h4>תפיסת שגיאות מתבצעת באמצעות הפקודות try catch</h4><br>בלוק try catch עוטף ביצוע של קוד ומאפשר לטפל בשגיאות בלי שיצאו מכל מחסנית הביצוע. אקספשן שנזרק ימשיך לעלות במחסנית הביצוע עד אשר ייתפס או עד שיצא מהתוכנה כולה. יציאה מהתוכנה כולה היא לא תוצאה רצויה, לעומת זאת הצגת הודעת שגיאה סבירה תהיה עדיפה בהרבה.<br><br><div class="php codeblock">try<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> \Exception<span class="br0">&#40;</span><span class="st0">&quot;Oh noez&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+catch<span class="br0">&#40;</span>\Exception <span class="re0">$ex</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'oi, an exception has happened: '</span><span class="sy0">,</span> <span class="re0">$ex</span><span class="sy0">-&gt;</span><span class="me1">getMessage</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>בפועל, הקוד שיהיה בתוך פקודת ה-try יהיה קצת יותר מסובך מהקוד בדוגמה. בדרך כלל הוא יכיל קריאות לפונקציות, הפעלה של מתודות שיפעילו מתודות אחרות, או כל דבר אחר. שגיאה שתיזרק מתוך עמקי הקוד שעטוף ב-try בסופו של דבר תגיע אל בלוק ה-catch.<br><br>בתוך קוד ה-catch אפשר לעשות פעולות שונות: להפעיל את אותה הפעולה מחדש ברקורסיה, לתקן משהו, או פשוט לרשום ללוג שמשהו הלך לא בסדר ולסיים את הביצוע. יכול להיות שהשגיאה לא קריטית ואפשר להמשיך הלאה.<br><br>בלוק ה-catch מכיל בסוגריים את סוג השגיאה שאמורה להיתפס. עד עכשיו זרקנו מופע של מחלקת <span dir="ltr">\Exception</span>. היות שזו היא בסה&quot;כ מחלקה - אפשר לרשת אותה וליצור תת-מחלקות שלה עם שגיאה מדויקת יותר או פירוט מתאים יותר.<br><br><h4>הרחבת מחלקת אקספשן</h4><br>את מחלקת אקספשן ניתן לרשת. יותר מזה, ב-PHP קיימות כמה מחלקות מובנות שיורשות את מחלקת <span dir="ltr">\Exception</span>. <strong>במקרה של אקספשנים המטרה של ירושה היא הוספת דיוק וספציפיות</strong>. במקרה של הקובץ שלא נמצא, נוכל ליצור תת-מחלקה שמייצגת שגיאה של קובץ שלא נמצא. תת-מחלקה כזו יכולה להכיל מאפיין של נתיב הקובץ במקום הודעת השגיאה. <br><br><div class="php codeblock"><span class="kw2">class</span> FileNotFoundException <span class="kw2">extends</span> \Exception<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$path</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$path</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">path</span> <span class="sy0">=</span> <span class="re0">$path</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; parent<span class="sy0">::</span>__construct<span class="br0">&#40;</span><span class="st0">&quot;File <span class="es4">$path</span> was not found&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> GetPath<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">path</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>המטרה העיקרית של מחלקה הזו היא לא הוספת מאפניינים, אלא דיוק בסוג השגיאה. קוד שיתפוס או מתכנת שיראה מופע של מחלקת FileNotFoundException מיד יבין בצורה הרבה יותר מדויקת מה היא השגיאה. מעבר לזה, <strong>קוד אחד יכול להחזיר כמה שגיאות שונות והטיפול בהם יכול להיות שונה</strong>, לכן רצו להחזיר מופע של מחלקה כמה שיותר ספציפית.<br><br>בוא נראה איך לתפוס שגיאה מסוג מסוים:<br><div class="php codeblock"><span class="kw2">class</span> NumberTooBig <span class="kw2">extends</span> \Exception <span class="br0">&#123;</span><span class="br0">&#125;</span><br>
+<span class="kw2">class</span> NumberTooSmall <span class="kw2">extends</span> \Exception <span class="br0">&#123;</span><span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> Boo<span class="br0">&#40;</span><span class="re0">$number</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$number</span> <span class="sy0">&lt;</span> <span class="nu0">100</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> NumberTooSmall<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$number</span> <span class="sy0">&gt;</span> <span class="nu0">2000</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw1">throw</span> <span class="kw2">new</span> NumberTooBig<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'Great number'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+try<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$number</span> <span class="sy0">=</span> <span class="nu0">4300</span><span class="sy0">;</span> <span class="co1">// _GET[]</span><br>
+&nbsp; Boo<span class="br0">&#40;</span><span class="re0">$number</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+catch<span class="br0">&#40;</span>NumberTooBig <span class="re0">$ex</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;You've given a number too big.&quot;</span><span class="sy0">;</span> <br>
+<span class="br0">&#125;</span><br>
+catch<span class="br0">&#40;</span>NumberTooSmall <span class="re0">$ex</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Your number is way to small&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+catch<span class="br0">&#40;</span>\Exception <span class="re0">$ex</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Unknown error&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>שים לב לטיפול השונה בשני המקרים. ביצוע אותו הקוד יכול להחזיר שגיאות שונות, בעיה בחיבור למסד נתונים, קלט לא תקין, נגמר הזיכרון בשרת וכו&#039;. תת-מחלקות שונות של מחלקת אקספשן מאפשרות לעשות את הקוד יותר מדויק ולטפל בצורה שונה בבעיות שונות. <br><br>שים לב לבלוק ה-catch האחרון בדוגמה הזו. כל שגיאה שלא נתפסה לפני כן, תיתפס על ידי הבלוק הזה. אם השגיאה שנזרקה היא לא מאף טיפוס ספציפי שאנחנו מנסים לתפוס, הבלוק האחרון יתפוס אותה.<br><br><br><br><h4>לבסוף finally</h4><br>קוד שזורק שגיאה מופסק באמצע. ברוב המקרים הפסקת קוד באמצע יכולה להשאיר אותנו במצב לא תקין, חיבור רשת או מסד פתוח, רק חצי תוכן שנרשם לקובץ או מצב לא נוח אחר. בלוק finally הוא בלוק קוד שמובטח להתבצע בכל מקרה, בין אם קרתה שגיאה או בין אם הכל הלך בסדר. בלוק קוד כזה צריך להביא את המערכת למצב סופי כלשהו (על כן השם finally), כמו סגירת חיבור, שמירת קובץ או ניקוי משאבים אחרים.<br><br><strong>השימוש העיקרי של finally הוא ניקוי משאבים</strong> והוא נוסף לשפת php החל מגרסת 5.5. בהרבה מקרים אין צורך בניקוי משאבים, היות ש-PHP תנקה את המשאבים אחרי הסקריפט בכל מקרה, אבל עדיף לכתוב קוד תקין מאשר להסתמך על PHP ועל זה, שמישהו אחר ישתמש בקוד שלך באתר ולא כחלק מתוכנת שורת פקודה אינסופית.<br><br>דוגמה ל-finally: <br><div class="php codeblock">try<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$fp</span> <span class="sy0">=</span> <span class="kw3">fsockopen</span><span class="br0">&#40;</span><span class="st0">&quot;phpguide.co.il&quot;</span><span class="sy0">,</span> <span class="nu0">80</span><span class="sy0">,</span> <span class="re0">$errno</span><span class="sy0">,</span> <span class="re0">$errstr</span><span class="sy0">,</span> <span class="nu0">30</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="co1">// ...</span><br>
+<span class="br0">&#125;</span><br>
+catch<span class="br0">&#40;</span>\Exception <span class="re0">$ex</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'Bad day for socketing'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+finally<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">is_resource</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="kw3">fclose</span><span class="br0">&#40;</span><span class="re0">$fp</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>בדוגמה הזו בלוק ה-finally וניתוק החיבור יתבצעו תמיד, בין אם הייתה שגיאה ובין אם לא.<br><br><h2>Best Practices</h2><br>הנה רשימה קצרה של best practices שאני מוצא לנכון לשמור עליהם כשאתה כותב קוד שאתה בעצמך הולך להשתמש בו, ולשמור עליהם עוד יותר כשאתה כותב ספריה שמיועדת לשימוש על ידי מתכנתים אחרים.<br><br><h4>צור והחזר שגיאות ספציפיות ככל האפשר</h4><br>צור תת-מחלקות של מחלקת אקספשן עבור כל סוג שגיאה אפשרי שהקוד שלך יכול להחזיר. ככל שיהיו לך יותר טיפוסים שונים, ככה הם יהיו יותר ברורים ויהיה קל יותר לטפל בהם. אין שום בעיה אם במערכת שלך מוגדרות 50 מחלקות שגיאות שונות. רק אחת מהן תיטען ותיזרק במקרה שמשהו ילך לא בסדר.<br><br><h4>החזר בהודעת השגיאה גם מידע איך לתקן אותה</h4><br>הודעה לא ברורה:<br> Invalid API key<br><br>הודעה ברורה:<br> <span dir="ltr">Invalid API key. Please make sure the parameter $apiKey passed is correct. You have passed the string &quot;&quot;, but expected at least 15 characters. You can obtain your api key from example.com/keys<br></span><br><br><br><h4>עטוף את כל הקוד שלך ב-try catch</h4><br>גם אם אתה לא רוצה לבצע נתיב פעולות חלופי במקרה של שגיאה, עדיף לך להציג הודעת שגיאה יפה למשתמש שלא כוללת פרטי התחברות למסד, ולא לשכוח ליידע את המתכנתים על זה, שמשהו הלך לא כשורה. במדריכים אחרים כבר דיברנו על חשיבות של טיפול בשגיאות וחריגים הם שגיאות לכל דבר.<br><br><br><h4>תפוס אקספשן בשלב הכי מוקדם שאפשר</h4><br>אקספשן שלא נתפס עולה למעלה במחסנית. ככל שיותר מוקדם תתפוס אותו, כך פחות קוד אקספשן ימנע מלהתבצע. במקרה שבו אתה יכול לתקן את הליך הביצוע - תרצה לעשות את זה ברמה הכי פנימית של מחסנית הביצוע, בלי שהאקספשן יחלחל למעלה ויפסיק חלקים אחרים של התוכנה, כמו הצגת עמוד. כלומר, בעיה עם קובץ שלא קיים תעדיף לפתור בתוך בלוק try/catch שנמצא בפונקציה לקריאת קבצים ולא ב-try/catch הכללי שנמצא ב-index.php.<br><br><br><h4>רשום אקספשן ללוג רק פעם אחת</h4><br>רישום של אקספשן ללוג צריך להתבצע רק פעם אחת במקום שבו התוכנה מחליטה מה לעשות איתו, לתקן או להפסיק את הביצוע לגמרי. אקספשן שנזרק על קובץ לא קיים צריך להירשם ללוג במקום, שבו התוכנה מחליטה מה לעשות איתו, למשל במחלקת העבודה עם קבצים, ולא במחלקת ההרשמה שמפעילה עבודה עם קבצים.<br><br><br><h4>הפרד טיפול בשגיאות מלוגיקה</h4><br>האות S שמשמעה Single Responsibilily בעיקרון ה-SOLID שאנחנו מדברים עליו ב<a href="http://phpguide.co.il/oopbook/">ספר תכנות מונחה עצמים מאפס</a> אומר שלכל מחלקה ולכל מתודה צריכה להיות דאגה אחת או עיסוק אחד בלבד. העיקרון הזה נכון גם עבור אקספשנים. טיפול בשגיאות וביצוע ביזנס לוגיקה הם דברים שונים ולכן כדאי להפריד אותם. מתודה שבה תשים try/catch צריכה להפעיל מתודה אחרת שבה קורית הביזנס לוגיקה. אין צורך לערבב את כל הקוד בפונקציה אחת. <a href="phplive-5.htm?code=888">הנה דוגמה להפרדת של מתודות</a>. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2701"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/12/2013 22:26</span><br>
+יישר כוח על המדריך. לא יצא לי עדיין לראות את הנושא הנ&quot;ל מכוסה בעברית.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה עזרה בפריצת קוד JS בסיסי">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>עזרה בפריצת קוד JS בסיסי | שאלת לימוד PHP</title>
+<meta itemprop="name" content="עזרה בפריצת קוד JS בסיסי | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה עזרה בפריצת קוד JS בסיסי">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="עזרה בפריצת קוד JS בסיסי-1.htm" title="זה תרגיל...function checkPass&amp;#40; password &amp;#41;
+&amp;#123;
+&amp;nbsp; var count1 = 3, count2 = 5;
+&amp;nbsp; ">עזרה בפריצת קוד JS בסיסי</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2013-01-24T15:58:03+02:00" style="display:inline-block;">
+24 לינואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1211'>
+זה <a href="http://www.enigmagroup.org/missions/basics/js/10/">תרגיל</a>...<br><br><div class="php codeblock"><span class="kw2">function</span> checkPass<span class="br0">&#40;</span> password <span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">var</span> count1 <span class="sy0">=</span> <span class="nu0">3</span><span class="sy0">,</span> count2 <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">var</span> sumof1 <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> sumof2 <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">var</span> charlist <span class="sy0">=</span> <span class="st0">&quot;BHFE8&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">for</span><span class="br0">&#40;</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> i <span class="sy0">&lt;</span> password<span class="sy0">.</span>length<span class="sy0">;</span> <span class="sy0">++</span>i <span class="br0">&#41;</span> <span class="br0">&#123;</span> sumof1 <span class="sy0">+=</span> <span class="br0">&#40;</span> password<span class="sy0">.</span>charCodeAt<span class="br0">&#40;</span> i <span class="br0">&#41;</span> <span class="sy0">*</span> count1 <span class="br0">&#41;</span><span class="sy0">;</span> count1<span class="sy0">++;</span> <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">for</span><span class="br0">&#40;</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> i <span class="sy0">&lt;</span> charlist<span class="sy0">.</span>length<span class="sy0">;</span> <span class="sy0">++</span>i <span class="br0">&#41;</span> <span class="br0">&#123;</span> sumof2 <span class="sy0">+=</span> <span class="br0">&#40;</span> charlist<span class="sy0">.</span>charCodeAt<span class="br0">&#40;</span> i <span class="br0">&#41;</span> <span class="sy0">*</span> count2 <span class="br0">&#41;</span><span class="sy0">;</span> count2<span class="sy0">++;</span> <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="br0">&#40;</span>sumof1 <span class="sy0">==</span> sumof2<span class="br0">&#41;</span> ? setTimeout<span class="br0">&#40;</span> <span class="st0">&quot;location.replace( 'http://www.enigmagroup.org/missions/basics/js/10/index.php?password=&quot;</span> <span class="sy0">+</span> encodeURI<span class="br0">&#40;</span>password<span class="br0">&#41;</span> <span class="sy0">+</span> <span class="st0">&quot;' );&quot;</span><span class="sy0">,</span> <span class="nu0">0</span> <span class="br0">&#41;</span> <span class="sy0">:</span> alert<span class="br0">&#40;</span> <span class="st0">&quot;Sorry, but the password was incorrect.&quot;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>גיליתי מה sumof1 אמור להיות, אבל לא הצלחתי לחשוב על דרך לכתוב קוד שיחשב לי את האותיות של הסיסמה לפי זה. אפשר רמז? (קראתי בפורומים שלהם. לא עזר בכלל.) </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5302">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2013 </span>
+<a id="answer_5302" href="עזרה בפריצת קוד JS בסיסי-1.htm#answer_5302">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תתחיל מלברר מה זה charCodeAt<br>ואחרי זה תחשוב מה ההבדל בין 2+3 לבין 3+2 </p>
+</div>
+<div class="answer" id="answer5303">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2013 </span>
+<a id="answer_5303" href="עזרה בפריצת קוד JS בסיסי-1.htm#answer_5303">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+את זה אני יודע.<br>אוי ואבוי. איך פספסתי את זה. D:<br>אני אנסה להשתמש בזה.<br>תודה. :-) </p>
+</div>
+<div class="answer" id="answer5304">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2013 </span>
+<a id="answer_5304" href="עזרה בפריצת קוד JS בסיסי-1.htm#answer_5304">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הצלחתי להיעזר בזה. המונים של המכפלה שונים.<br>אבל בסופו של דבר כן מצאתי מחרוזת מתאימה. יש המון כאלה. :)<br>אם למישהו יש רעיון לכתיבת תוכנית שתוכל למצוא את זה בלי לנסות ידנית, אשמח אם תשתפו את זה. ^_^ </p>
+</div>
+<div class="answer" id="answer5305">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2013 </span>
+<a id="answer_5305" href="עזרה בפריצת קוד JS בסיסי-1.htm#answer_5305">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+sumof1 / 3 = sumof2 / 5<br>את sum1 אתה יודע, אם ל sum2 תקרא X זה יהיה בדיוק כמו משוואות מכתה ו&#039;<br>אתה צריך למצןא רצף של מספרים שהסכום שלהם יהיה X </p>
+</div>
+<div class="answer" id="answer5306">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2013 </span>
+<a id="answer_5306" href="עזרה בפריצת קוד JS בסיסי-1.htm#answer_5306">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה היא שזו משוואה עם מספר לא ידוע של משתנים, נוסף על כך שאני לא יכול לבחור במספרים כמו 8, כי הם מסמנים ישויות מסוימות, וזה לא משהו שאני יכול לכתוב... </p>
+</div>
+<div class="answer" id="answer5309">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2013 </span>
+<a id="answer_5309" href="עזרה בפריצת קוד JS בסיסי-1.htm#answer_5309">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה כמה משתנים? זה משנתה אחד. X.<br>אם sum1 שווה ל 900 אז יוצא לך ש<br><br><div class="php codeblock"><span class="nu0">900</span> <span class="sy0">/</span> <span class="nu0">3</span> <span class="sy0">=</span> X <span class="sy0">/</span> <span class="nu0">5</span><br>
+X <span class="sy0">=</span> <span class="nu0">900</span> <span class="sy0">/</span> <span class="nu0">3</span> <span class="sy0">*</span> <span class="nu0">5</span><br>
+X <span class="sy0">=</span> <span class="nu0">1500</span></div><br><br>ועכשיו נשאר לך למצוא כל רצף מספרים בכל כמות ואורך שאתה רוצה שהסכום שלהם זה 1500<br>זה יכול להיות מספר אחד שהערך שלו 1500, או 700 + 800 או 1+2+3+1494 או כל דבר אחר שבא לך. </p>
+</div>
+<div class="answer" id="answer5310">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 25 לינואר 2013 </span>
+<a id="answer_5310" href="עזרה בפריצת קוד JS בסיסי-1.htm#answer_5310">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+החילוק (3, 5) עולה באחד בכל סיבוב. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

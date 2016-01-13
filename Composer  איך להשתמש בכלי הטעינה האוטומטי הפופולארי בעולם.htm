@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מדריך לעבודה עם Composer, הכולל התקנה, הסבר ועבודה. Composer הוא כלי לטעינה אוטומטית של מחלקות ולהורדה/עדכון אוטומטי של ספריות ועבודה איתן.">
+<meta name="keywords" content="מדריך Composer, Composr, מלחין">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Composer - איך להשתמש בכלי הטעינה האוטומטית הפופולארי בעולם?</title>
+<meta itemprop="name" content="Composer - איך להשתמש בכלי הטעינה האוטומטית הפופולארי בעולם?">
+<meta itemprop="description" content="מדריך לעבודה עם Composer, הכולל התקנה, הסבר ועבודה. Composer הוא כלי לטעינה אוטומטית של מחלקות ולהורדה/עדכון אוטומטי של ספריות ועבודה איתן.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"378","rating":"4","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Composer - איך להשתמש בכלי הטעינה האוטומטית הפופולארי בעולם?</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ArielTador, </div>
+<div class="right">&nbsp;<time datetime="2014-12-25T13:16:19+02:00" dir="rtl">25 לדצמבר 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="https://getcomposer.org/img/logo-composer-transparent.png" alt="Composer - איך להשתמש בכלי הטעינה האוטומטית הפופולארי בעולם?">
+</div>
+<div class="right post-content">
+בזמן האחרון Composer - כלי הטעינה האוטומטית, הפך פופולארי יותר ויותר.<br><br>עם זאת, Composer מאפשר לנו להוריד ספריות מהאינטרנט, לעדכן אותם בכל פעם שיוצאת גרסה חדשה, לעבוד איתם בצורה נוחה יותר ולשלב אותם בקוד כחלק ממנו.<br><br>Composer גם מביא לנו כלי לטעינה אוטומטית של מחלקות בפרוייקט שלנו ללא שימוש ב- include או require.<br><br>אז, איך משתמשים ב- Composer? מיד נגלה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<strong>יצא לכם פעם לעבוד עם ספריות? לעצלנים שבינינו, אני מבין עד כמה מעצבן זה להוריד את הספריה מחדש בכל פעם שיוצאת גרסה חדשה;<br>אבל מה אם אני יגיד לכם שיש לכם אפשרות לעשות זאת בצורה אוטומטית?<br>ויותר מכך, לטעון את כל המחלקות בפרוייקט שלכם ללא שימוש ב- include, require או כל פונקציית יבוא אחרת!</strong><br><br><h2>התקנה</h2><br><em>ראשית, על מנת שנוכל לעבוד עם Composer, כמובן שנצטרך להוריד ולהתקין אותו במחשב כי במידה ולא,<br>גם אם נצפה לטעינה האוטומטית בקוצר רוח, היא ככל הנראה לא תפעל.</em><br><br>את Composer ניתן להוריד מהאתר הראשי שלו: <a href="https://getcomposer.org">https://getcomposer.org</a> או שפשוט <a href="https://getcomposer.org/Composer-Setup.exe">לחצו כאן</a> כדי לעבור להורדה ישירה של Compoer בגרסה מעודכנת ביותר למערכת ההפעלה Windows.<br>בכדי להתקין על מערכת ההפעלה Linux או על השרת שלכם, קראו את ההוראות באתר Composer.<br><br>לאחר שהורדתם את Composer, לחצו על קובץ ההתקנה והתחילו להתקין.<br>מעבר לזה, אני מניח שאני לא צריך להסביר לכם איך להתקין ואפשר להתחיל לחגוג. להביא פיצה?<br><br><strong>רק דבר אחד חשוב, באחד השלבים בהתקנה יהיה עליכם לבחור האם ברצונכם להתקין Shell Menus יחד עם ה- Composer,<br>התקנת Shell Menus מקנה לכם גישה מהירה יותר מתקיית הפרוייקט אל שורת הפקודה של Composer. *מומלץ*</strong><br><br><h2>עבודה עם Composer</h2><br>הורדנו והתקנו Composer, הבנו שמומלץ להתקין גם Shell Menus של Composer והכל בסדר גמור עד כאן (ואם עדיין לא, כנראה שתצטרך לחזור לכיתה ג&apos;).<br><br><h4>התקנת Composer בתקיית הפרוייקט שלנו</h4><br><em>תהליך התקנת Composer בפרוייקט שלנו הינו תהליך פשוט במיוחד, אך באותה מידה גם חשוב.</em><br><br><strong>במידה והתקנתם את Shell Menus יחד עם Composer, נכנס לתקיית הפרוייקט, נלחץ מקש ימני בעכבר ואז על Composer init ותפתח לנו שורת הפקודה; במידה ולא התקנתם Shell Menus, עקבו אחר ההוראות הבאות:</strong><br>1. פתחו את שורת הפקודה של מערכת ההפעלה (CMD/DOS).<br>2. כתבו &quot;cd&quot; ולאחריו הנתיב המדוייק לתקיית הפרוייקט (לדוגמה: &quot;cd C:/wamp/www/myProject&quot;).<br>3. לאחר מכן, כתבו &quot;composer init&quot;.<br><br>לאחר שלחצתם/כתבתם &quot;composer init&quot;, חלון הפקודה ירשום לכם כך:<div class="php codeblock">Package name <span class="br0">&#40;</span><span class="sy0">&lt;</span>vendor<span class="sy0">&gt;/&lt;</span>name<span class="sy0">&gt;</span><span class="br0">&#41;</span><span class="sy0">:</span> <span class="br0">&#91;</span>vagrant<span class="sy0">/</span>oop<span class="br0">&#93;</span></div>בעצם, הוא מבקש ממכם לרשום את <span class="underline">שם החברה או את שמכם הפרטי</span> במקום &lt;vendor&gt; ואת <span class="underline">שם הפרוייקט</span> במקום &lt;name&gt;.<br>זה אומר, שבמידה ואני ירצה ליצור פרוייקט בשם &quot;myProject&quot;, אצטרך לרשום לשורת הפקודה כך:<div class="php codeblock">ArielTador<span class="sy0">/</span>myProject</div> קודם רשמתי את שמי ואת שם המשפחה שלי, ולאחר הסלאש כתבתי את שם הפרוייקט שלי.<br><br>מיד לאחר שכתבתם את שמכם ואת שם הפרוייקט שלכם, שורת הפקודה של Composer תבקש ממכם לרשום את <span class="underline">תיאור הפרוייקט</span> כך:<div class="php codeblock">Description<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span></div> אין צורך להסביר על התיאור יותר מדיי, בסך-הכל לרשום את תיאור הפרוייקט שלכם.<br><br>אחרי שרשמתם את התיאור, שורת הפקודה תבקש ממנו לרשום את <span class="underline">שם המפתח או את שם מתקין ה- Composer</span> בצורה הבאה:<div class="php codeblock">Author<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span></div> אני לדוגמה יצטרך לרשום: <div class="php codeblock">Ariel Tador <span class="sy0">&lt;</span>myMail<span class="sy0">@</span><span class="kw3">mail</span><span class="sy0">.</span>com<span class="sy0">&gt;</span></div> שימו לב שרשמתי את &quot;המייל שלי&quot;, Composer מקבל את המייל שרשום בתוך &lt;&gt; ומוסיף אותו לרשימת הפרטים של הפרוייקט שלנו.<br><br>עכשיו שורת הפקודה מבקשת ממנו משהו מעניין, לכתוב את מצב או &quot;סטטוס&quot; הפרוייקט שלנו כך: <div class="php codeblock">Minimum Stability<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span></div><br>בעצם, אנחנו נצטרך לכתוב באיזה שלב בבניית הפרוייקט אנחנו נמצאים, הנה רשימת השלבים הניתנים לכתיבה: <div class="php codeblock">dev <span class="sy0">=</span> הפרוייקט נמצא בבנייה<span class="sy0">.</span><br>
+alpha <span class="sy0">=</span> הפרוייקט נמצא בשלב אלפא<span class="br0">&#40;</span>בדיקות על ידי מתכנתים וטסטרים<span class="br0">&#41;</span><span class="sy0">.</span><br>
+beta <span class="sy0">=</span> הפרוייקט נמצא נמצא בשלב בטא<span class="br0">&#40;</span>הספרייה<span class="sy0">/</span>הפרוייקט עלה ונבדקת על ידי משתמשים אמיתיים<span class="br0">&#41;</span><span class="sy0">.</span><br>
+stable <span class="sy0">=</span> הפרוייקט גמור ומוכן לשימוש<span class="sy0">.</span></div><br><br>לאחר שכתבתם באיזה מצב נמצא הפרוייקט שלכם, שורת הפקודה תבקש ממכם לרשום את רישיון הפרוייקט כך: <div class="php codeblock">License<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">:</span></div>זה לא חשוב - לא צריך לרשום כלום, פשוט ללחוץ אנטר ולהמשיך.<br><br>עכשיו שורת הפקודה של Composer שואלת אותנו האם אנחנו מעוניינים להתקין כבר מעכשיו את ה-&quot;תלויים&quot; שלנו, כך: <div class="php codeblock">Would you like defende your dependencies <span class="br0">&#40;</span><span class="kw1">require</span><span class="br0">&#41;</span> interactively? <span class="br0">&#91;</span>yes<span class="br0">&#93;</span></div> בהמשך אנחנו נבין מה הם &quot;תלויים&quot;, אך כעת נרשום &quot;no&quot; ונדלג על השלב הזה ועל השלב שבא אחריו שבו בעצם שורת הפקודה שואלת אותנו האם אנחנו רוצים להתקין את התלויים של הפיתוח.<br><br>עכשיו שורת הפקודה מציגה לנו את קובץ composer.json שלנו, אותו יצרנו במהלך כתיבת הפקודות בשורת הפקודה של Composer.<br>קובץ ה- composer.json הינו הקובץ המכיל את כל ההגדרות של הפרוייקט שלנו ואת התלויים שלנו;<br>שורת הפקודה שואלת האם הפרטים בקובץ composer.json שמוצג הינם נכונים.<br>במידה והקובץ composer.json נראה טוב בשורת הפקודה, והמאפיינים בו הינם נכונים - נרשום &quot;yes&quot;.<br><br>בתקיית הפרוייקט שלנו נוצר קובץ בשם composer.json שהוא בעצם מכיל את פרטי הפרוייקט שלנו;<br>מלבד זאת, נוצרה תקייה חדשה בשם vendor ובתוכה קובץ בשם autoloader.php ותקייה נוספת בשם composer המכילה מחלקות מיוחדות של ה-composer.<br><br><h4>תלויים = ספריות</h4><br><em>הכלי Composer מאפשר לנו להוריד ספריות מהאינטרנט ולעדכן אותם בצורה אוטומטית.</em><br><br>מפתחי Composer הביאו לנו אתר נוסף, בו ניתן לחפש ספריות לשילוב בקוד שלנו;<br>את האתר ניתן למצוא בכתובת הבאה: <a href="https://packagist.org">https://packagist.org</a> וכבר עכשיו אתם מוזמנים לחפש ספריות.<br><br>הספריות שאנו מורידים על-ידי Composer נשמרות בתקייה vendor בעוד הם בתקייה עם שם המחלקה.<br>אם נפתח את הקובץ composer.json, אנחנו נראה את הקוד שהיה רשום לנו בשורת הפקודה כשהתקנו את composer על הפרוייקט שלנו.<br>רואים את &quot;<span dir="ltr"><strong>require&quot;: {}</strong></span>&quot; בקובץ composer.json? שם אנו נכניס את הספריות שאנו רוצים להשתמש בהם, כן זה כזה פשוט.<br><br>לצורך הדוגמה אני יראה לכם כיצד להכניס ספריות אל &quot;<span dir="ltr"><strong>require&quot;: {}</strong></span>&quot;, עושים זאת כך:<div class="php codeblock"><span class="st0">&quot;require&quot;</span><span class="sy0">:</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;vendor/name&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;PHPguide/composer&quot;</span><br>
+<span class="br0">&#125;</span></div> בעוד vendor הוא שם המפתח/החברה שפיתחו את הספרייה, ו- name הוא שם הספרייה.<br><br>מיד לאחר מכן, נכנס שוב פעם אל שורת הפקודה של Composer, ניגש אל תקיית הפרוייקט באמצעות &quot;cd&quot; ונרשום: &quot;composer update&quot;;<br>הפקודה הזו, לוקחת את הספריות שרשמנו בקובץ composer.json ומורידה אותם לתקייה vendor. במידה וישנם ספריות שהורדנו כבר, הפקודה הזו מורידה את הגרסה העדכנית ביותר לאותן ספריות!<br><br><h4>הטוען האוטומטי של Composer</h4><br><em>אם אתם יודעים כבר לעבוד עם תכנות מונחה עצמים, לעבוד עם namespace ועם מחלקות - אני הולך להסביר כאן משהו שיקל עליכם מאוד את העבודה.</em><br><br>תארו לכם שייבוא מחלקות וספריות אל תוך הקוד שלנו היה כל כך פשוט, עד כדי כך שנוכל לגשת אל מחלקה בשם myClass שנמצאת בתקייה example בצורה הבאה: <div class="php codeblock"><span class="re0">$myClass</span> <span class="sy0">=</span> <span class="kw2">new</span> \myProject\example\myclass<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> וללא שימוש בפונקציות ייבוא כגון include ו- require;<br>מעכשיו - אנחנו יכולים לעשות זאת באמצעות הטוען האוטומטי של Composer!<br><br><strong>Composer מביא לנו כלי בשם autoloader(טוען אוטומטי) שאיתו ניתן לגשת למחלקות אחרות ולספריות שונות ללא שימוש בפונקציות include או require!</strong><br><br>זוכרים את הקובץ autoloader.php בתקייה vendor שנוצר בעת כתיבת הפקודה &quot;composer update&quot;?<br>בואו נייבא אותו אל הקובץ הראשי של הפרוייקט שלנו ונתחיל להשתמש בו, כך:<br><span class="dirleft">myProject/index.php:</span><div class="php codeblock"><span class="re0">$loader</span> <span class="sy0">=</span> <span class="kw1">require</span> __DIR__ <span class="sy0">.</span> <span class="st0">&quot;vendor/autoloader.php&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$loader</span><span class="sy0">-&gt;</span><span class="me1">add</span><span class="br0">&#40;</span><span class="st0">&quot;myProject&quot;</span><span class="sy0">,</span> __DIR__ <span class="sy0">.</span> <span class="st_h">'/../'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$loader</span><span class="sy0">-&gt;</span><span class="me1">register</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><strong>מה עשינו כאן?</strong><br>1. ראשית, עשינו ייבוא לקובץ autoloader.php של Composer.<br>2. אנחנו משתמשים בפונקצייה add, הפרמטר הראשון הוא שם ה- namespace הראשי שלנו, במקרה של פרוייקט הדוגמה שלי הוא myProject;<br> *. בפרמטר השני, הכנסנו את הנתיב לתקייה בה נמצא הפרוייקט שלנו, לדוגמה: אם הפרוייקט שלנו נמצא בנתיב הבא: &quot;C:\wamp\www\myProject&quot;,<br> *. הנתיב שהכנסנו בפרמטר היה &quot;C:\wamp\www&quot;, בכדי שנוכל לקרוא למחלקה שלנו על-פי סדר התקיות שלנו.<br>3. רשמנו את הטוען האוטומטי באמצעות הפקודה register.<br><br>בשביל הספורט, בואו ניצור מחלקה בשם myClass בתוך תקייה בשם example בפרוייקט שלנו, ונסה לגשת אליה בלי לייבא אותה באמצעות include או require בצורה הבאה:<div class="php codeblock"><span class="re0">$myClass</span> <span class="sy0">=</span> \myProject\example\myClass<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> מגניב נכון?<br><br><h4>שימוש בספריות שהורדנו עם Composer</h4><br><em>לפי דעתי, הדבר הכי יפה ב- Composer הוא שאפשר להשתמש בספריות בצורה הכי פשוטה שיש, כאילו הם חלק רגיל חלוטין מקוד הפרוייקט!</em><br><br>כעת אתן לכם דוגמה לשימוש בספריות שהורדנו עם Composer, נניח שהורדנו ספרייה בשם example, נוכל לגשת אליה ואל המתודות שלה כך:<div class="php codeblock"><span class="re0">$library</span> <span class="sy0">=</span> <span class="kw2">new</span> \example\libraryClass<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> כן, כן! פשוט מאוד, במקום שם ה- namespace הראשי של הפרוייקט שלנו, אנחנו רושמים את שם הספרייה, ומשם ניתן לגשת לכל המחלקות בספרייה.<br><br><h4>סיום</h4><br>קודם כל, כל הכבוד על כך שסיימת את המדריך הזה! אם לא הבנת משהו, כדאי מאוד לחזור ולקרוא כי Composer זה אחד הכלים שיכולים לעזור לך ולפרוייקט שלך הכי הרבה. אשמח במידה ותפרגן לי בתגובה נחמדה וגם אם היא שלילית, אשמח לשמוע מה היה שלא בסדר במדריך שלי ואנסה לתקן זאת.<br><br>אגב, איך הייתה הפיצה? </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=16&r=g&d=monsterid" alt="ArielTador">
+<a>ArielTador</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2825"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/12/2014 10:17</span><br>
+מדריך מעולה, וגם הפיצה. תודה :)</div>
+<a id="comment2826"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2014 16:51</span><br>
+תודה על המדריך ! :)</div>
+<a id="comment2827"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/12/2014 19:40</span><br>
+תודה :-)</div>
+<a id="comment2831"></a>
+<div class="blog-comment">
+<span class='comment-author'>alexs3</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/05/2015 20:26</span><br>
+היי<br>
+עם אני עובד על המחשב עם composer ובסיום אני רוצה לעלות את הקבצים לשרת אחסון העם גם על השרת אחסון צריך להתקין composer לפני ?</div>
+<a id="comment2832"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/06/2015 11:23</span><br>
+לא. מספיק שתבצע התקנה של הספריות (תפעיל את קומפוזר) על המחשב שלך<br>
+ולאחר מכן תעלה את כל הקבצים, כולל אלו שנוספו בסיום תהליך ההרצה, לשרת.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

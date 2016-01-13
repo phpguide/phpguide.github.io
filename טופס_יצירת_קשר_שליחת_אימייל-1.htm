@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="בניית טופס יצירת קשר ושליחת אימייל ב-php">
+<meta name="keywords" content="טופס יצירת קשר, שליחת אימייל, אימייל, טופס, קשר">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>טופס יצירת קשר — שליחת אימייל</title>
+<meta itemprop="name" content="טופס יצירת קשר — שליחת אימייל">
+<meta itemprop="description" content="בניית טופס יצירת קשר ושליחת אימייל ב-php">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"34","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>טופס יצירת קשר — שליחת אימייל</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-12-05T10:12:56+02:00" dir="rtl">05 לדצמבר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://i.dell.com/images/global/solution_station/en/email_setup_BW_75x75_off.png" alt="טופס יצירת קשר — שליחת אימייל">
+</div>
+<div class="right post-content">
+מדריך ליצירת טופס לשליחת אימייל מהאתר עם הסברים ודוגמאות קוד<br>+ בונוס הגנה על תיבת המייל מפני ספאם והודעות חוזרות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+נעבור יחד שלב שלב ונתמקד בבניית טופס יצירת קשר ושליחת אימייל ב-<span dir="ltr">php</span><br><br>1. בניית טופס<br>2. קבלה ואימות נתונים<br>3. איך לשלוח אימייל<br>4. שליחת הטופס באימייל<br>5. הגנה על תיבת הדואר<br><br><br><br><h2>טופס יצירת קשר</h2><br>השלב הראשון שנדרש לבניית טופס יצירת קשר זהו הטופס עצמו.<br>בסיס לטופס יצירת קשר שתוכלו לעצב מאוחר יותר יראה כך:<br><div class="php codeblock"><span class="sy0">&lt;</span>form method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span><span class="sy0">&gt;</span><br>
+<br>
+&nbsp; Subject<span class="sy0">:</span> <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;subject&quot;</span><span class="sy0">&gt;</span> <span class="sy0">&lt;</span>br<span class="sy0">&gt;</span><br>
+&nbsp; Content<span class="sy0">:</span> <span class="sy0">&lt;</span>br<span class="sy0">&gt;</span> <span class="sy0">&lt;</span>textarea name<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> rows<span class="sy0">=</span><span class="st0">&quot;10&quot;</span> cols<span class="sy0">=</span><span class="st0">&quot;25&quot;</span><span class="sy0">&gt;&lt;/</span>textarea<span class="sy0">&gt;</span> <span class="sy0">&lt;</span>br<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;contact&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;Send us a message&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div><br><br><h3>2. יש קשר עם השרת?</h3><br>בשרת יהיה עלינו לבדוק שהטופס הגיע, הגיע לא ריק ולא כתבו לנו הרבה רווחים במקום טקסט. <br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> &nbsp;<span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'contact'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> &nbsp;<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$subject</span> <span class="sy0">=</span> <span class="kw3">trim</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">trim</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$subject</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">3</span> <span class="sy0">||</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">3</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'Text is too short'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+<br>
+&nbsp; Subject: &lt;input type=&quot;text&quot; name=&quot;subject&quot;&gt; &lt;br&gt;<br>
+&nbsp; Content: &lt;br&gt; &lt;textarea name=&quot;text&quot; rows=&quot;10&quot; cols=&quot;25&quot;&gt;&lt;/textarea&gt; &lt;br&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; name=&quot;contact&quot; value=&quot;Send us a message&quot;&gt;<br>
+&nbsp; <br>
+&lt;/form&gt;</div><br><br>הפונקציה <a href="http://php.net/isset">isset</a> בודקת האם המשתנה מוגדר. <br>סוד קטן שלא כולם יודעים הוא ש-isset מסוגלת לבדוק בבת אחת כמה משתנים.<br>במידה והמשתמש לא שלח את הטופס או שלח טופס אחר — אחד מהשדות הללו יהיה לא מוגדר ולכן isset תחזיר false<br><br>לאחר שווידאנו שהטופס אכן התקבל בשרת - נבדוק את תוכנו.<br>הפונקציה <a href="http://php.net/trim">trim</a> גוזרת את כל הרווחים מתחילת וסוף השורה, לכן הודעה שהתוכן שלה הוא אך ורק רווחים תהיה הודעה פסולה. לאחר גזירת הרווחים בתחילתם וסופם של נושא ותוכן ההודעה נבדוק את אורכם.<br><br><h4>המשתמש המיסכן</h4><br>כמה פעמים קרה לכם שכתבתם משהו ארוך, לחצתם שמור/שלח, קיבלתם הודעת שגיאה וחזרתם לעמוד עם טופס ריק כדי להקליד הכל שוב פעם?<br>כדי שזה לא יקרה יהיה עלינו, במקרה של שגיאה, להציג למשתמש את הנתונים שלו שוב באופן הבא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> &nbsp;<span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'contact'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> &nbsp;<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$subject</span> <span class="sy0">=</span> <span class="kw3">trim</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">trim</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$subject</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">3</span> <span class="sy0">||</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">3</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'Text is too short'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+<br>
+&nbsp; Subject: &lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;<span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="sy1">?&gt;</span>&quot;&gt; &lt;br&gt;<br>
+&nbsp; Content: &lt;br&gt; &lt;textarea name=&quot;text&quot; rows=&quot;10&quot; cols=&quot;25&quot;&gt;<span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="sy1">?&gt;</span>&lt;/textarea&gt; &lt;br&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; name=&quot;contact&quot; value=&quot;Send us a message&quot;&gt;<br>
+&nbsp; <br>
+&lt;/form&gt;</div> <br><br>שימו לב שהקוד הזה בודק האם מוגדרים המשתנים (כלומר האם המשתמש הרגע שלח את הטופס). במידה וכן - נציג לו את תוכן הנושא וההודעה בשדות המתאימים.<br><br><h2>3. שליחת אימייל</h2><br>שליחת אימייל באמצעות php הוא עניין של שורה אחת בלבד <br>באמצעות פונקציית שליחת <span dir="ltr"><a href="http://php.net/manual/en/function.mail.php">mail()</a></span><br><br>בואו נראה קוד פשוט לשליחת אימייל: <br>הקוד הזה שולח אימייל עם הנושא Subject והתוכן Message לכתובת הנ&quot;ל.<br><div class="php codeblock"><span class="kw3">mail</span><span class="br0">&#40;</span><span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="32735e574a72574a535f425e571c515d5f">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'Subject'</span><span class="sy0">,</span> <span class="st_h">'Message'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><br><strong>שימו לב</strong>, wamp, xamp וכל שרת ביתי אחר אינו תומך בשליחת אימייל<br>לכן לא ניתן לשלוח אימייל מהשרת הביתי שלכם. <br>במידה ויש לכם חברת אחסון כלשהי נסו לשחק עם הקוד הזה שם. <br><br><h3>פונקציית mail</h3><br>אימייל מורכב משני חלקים: תוכן (נושא וטקסט) וכותרים (headers)<br>בדיוק כמו תקשורת בין דפדפן לשרת. בכותרים הללו ניתן להגדיר הגדרות או להוסיף פרטים לאימייל שלנו. לדוגמה, ניתן לשלוח באימייל html במקום טקסט רגיל אם נרשום זאת בכותרים. <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="re0">$message</span> <span class="sy0">=</span> <span class="st_h">'<br>
+&lt;html&gt;<br>
+&nbsp; &lt;head&gt;&lt;title&gt;test&lt;/title&gt;&lt;/head&gt;<br>
+&nbsp; &lt;body&gt;&lt;b&gt;hi there&lt;/b&gt;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+'</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$headers</span> &nbsp;<span class="sy0">=</span> <span class="st_h">'MIME-Version: 1.0'</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$headers</span> <span class="sy0">.=</span> <span class="st_h">'Content-type: text/html; charset=utf-8'</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">mail</span><span class="br0">&#40;</span><span class="st0">&quot;<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="b0f1dcd5c8f0d5c8d1ddc0dcd59ed3dfdd">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Subject&quot;</span><span class="sy0">,</span> <span class="re0">$message</span><span class="sy0">,</span> <span class="re0">$headers</span><span class="br0">&#41;</span><span class="sy0">;</span></div> <br><br>שני הכותרים מופרדים במעבר שורה <span dir="ltr">\r\n</span> (ראו עוד על סימנים מיוחדים) ובעזרתם תוכנת קריאת האימיילים תדע להציג את ההודעה שלנו. <br><br>במידה ותרצו לשלוח אימייל בעברית תוכלו לשלוח כותר עם קידוד במידה ויהיו בעיות תצוגה.<br><br><strong>חשוב לדעת:</strong> פונקציית mail מעבירה את ההודעה לתוכנה אחרת, הנקראת SMTP, שאחראית לשליחה בפועל. במחשב הביתי שלכם כנראה אינה מותקנת תכנה כזו ולכן אין אפשרות לשלוח אימייל מהמחשב הביתי.<br><br>לכן, אם פונקציית mail החזירה true, הדבר אינו אומר שהדואר אכן נשלח, אלה רק שההודעה הועברה בהצלחה לשרת ה-smtp בהצלחה ונשאר לקוות שמשם היא תגיע ליעד ללא שגיאות.<br><br><br><div class="php codeblock">Warning<span class="sy0">:</span> <span class="kw3">mail</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">:</span> <span class="st0">&quot;sendmail_from&quot;</span> not set in php<span class="sy0">.</span>ini or custom <span class="st0">&quot;From:&quot;</span> <span class="kw3">header</span> missing</div><br>יכול מאוד להיות שתקבלו את השגיאה הזו. <br>אימייל, כמו דואר רגיל, חייב להכיל כותר &quot;מאת&quot; (מוען).<br>במידה והוגדר בקובץ php.ini מוען כלשהו, php תוסיף את הכותר הזה לבד בכל שליחת אימייל. במידה ואינו מוגדר, רצוי להגדיר אותו או להעביר ככותר נפרד לפונקציית mail<br> <br><div class="php codeblock"><span class="re0">$header</span> <span class="sy0">=</span> <span class="st_h">'From: Moshe Levi &lt;<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="014c6e726964416479606c716d642f626e6c">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&gt;'</span><span class="sy0">;</span><br>
+<span class="kw3">mail</span><span class="br0">&#40;</span><span class="st0">&quot;<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="84c5e8e1fcc4e1fce5e9f4e8e1aae7ebe9">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">,</span><span class="st0">&quot;Subject&quot;</span><span class="sy0">,</span><span class="st0">&quot;Message&quot;</span><span class="sy0">,</span> <span class="re0">$header</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ניתן להזין כל אימייל במוען ולגרום לנמען לחשוב שהאימייל הגיע ממקום אחר.<br>אך אל תתפטו לשלוח אימיילים זדוניים לכל כיוון. לא משנה מה יהיה כתוב בכותר, לא תהיה שום בעיה לגלות מאיזה שרת בפועל הגיע הדואר ולאתר את השולח האמיתי. <br><br><br><h2>4. חיבור בין הטופס לשליחה</h2><br>כעת נחבר בין הטופס לשליחה ונקבל את הקוד הבא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> &nbsp;<span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'contact'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> &nbsp;<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$subject</span> <span class="sy0">=</span> <span class="kw3">trim</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">trim</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$subject</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">3</span> <span class="sy0">||</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">3</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'Text is too short'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span> <span class="kw3">mail</span><span class="br0">&#40;</span><span class="st0">&quot;<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="ce8fa2abb68eabb6afa3bea2abe0ada1a3">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">,</span> <span class="re0">$subject</span><span class="sy0">,</span> <span class="re0">$text</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'Error sending mail'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span> <span class="kw1">echo</span> <span class="st_h">'Mail sent successfully.'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+<br>
+&nbsp; Subject: &lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;<span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="sy1">?&gt;</span>&quot;&gt; &lt;br&gt;<br>
+&nbsp; Content: &lt;br&gt; &lt;textarea name=&quot;text&quot; rows=&quot;10&quot; cols=&quot;25&quot;&gt;<span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="sy1">?&gt;</span>&lt;/textarea&gt; &lt;br&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; name=&quot;contact&quot; value=&quot;Send us a message&quot;&gt;<br>
+&nbsp; <br>
+&lt;/form&gt;</div><br><br><h4>איך זה עובד</h4><br>נציב את המשתנים בפונקציית mail ונוודא שהיא מצליחה לבצע את שלה.<br>אם היא לא מצליחה ומחזירה false — נציג הודעה כי השליחה נכשלה. <br><br><h2>5. הגנה מפני ספאם</h2><br><em>(החלק הזה אינו חובה לקריאה ועבודה)</em><br><br>יכול מאוד להיות שלמישהו יתחשק להציף את תיבת הדואר שלכם בהודעות.<br>כדי שזה לא יקרה נציב הגבלה על כמות ההודעות המירבית. <br>לא יותר מהודעה אחת למשתמש (ip) בדקה ולא יותר מ-20 הודעות ביום.<br><br><em>אפשרות נוספת להגנה היא הצבת תמונת captcha שלא מהווה שום קושי לפיענוח על ידי מכונה ומתרידה את הציבור.</em><br><br>עלינו <strong>לשמור נתונים</strong> — מי שלח אימייל ומתי שלח אימייל.<br>הדרך היעילה ביותר תהינה מסד נתונים mysql<br><br>ניצור טבלה mail_log עם שני שדות <br>ip - varchar(15)<br>time - timestamp<br><br><div class="php codeblock">CREATE TABLE <span class="kw1">IF</span> NOT EXISTS `mail_log` <span class="br0">&#40;</span><br>
+&nbsp; `ip` varchar<span class="br0">&#40;</span><span class="nu0">15</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; `<span class="kw3">time</span>` timestamp NOT <span class="kw4">NULL</span> <span class="kw1">DEFAULT</span> CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP<span class="sy0">,</span><br>
+&nbsp; <span class="kw3">KEY</span> `ip` <span class="br0">&#40;</span>`ip`<span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span> ENGINE<span class="sy0">=</span>InnoDB <span class="kw1">DEFAULT</span> CHARSET<span class="sy0">=</span>utf8<span class="sy0">;</span></div><br><br>עם כל שליחת אימייל יהיה עלינו תחילה לבדוק שלא עברנו את המגבלה, <br>ולאחר השליחה לרשום בטבלה שהשליחה התבצעה.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> &nbsp;<span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'contact'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> &nbsp;<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$subject</span> <span class="sy0">=</span> <span class="kw3">trim</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">trim</span> <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$subject</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">3</span> <span class="sy0">||</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">3</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'Text is too short'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="re0">$db</span> <span class="sy0">=</span> <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st0">&quot;localhost&quot;</span><span class="sy0">,</span> <span class="st0">&quot;user&quot;</span><span class="sy0">,</span><span class="st0">&quot;password&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st0">&quot;database&quot;</span><span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'UTF8'&quot;</span><span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="re0">$ip</span> <span class="sy0">=</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REMOTE_ADDR'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="re0">$queryR</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><span class="st0">&quot;<br>
+&nbsp; &nbsp; &nbsp; SELECT COUNT(*), UNIX_TIMESTAMP(MAX(`time`)) <br>
+&nbsp; &nbsp; &nbsp; FROM `mail_log` WHERE `ip`='<span class="es4">$ip</span>' AND <br>
+&nbsp; &nbsp; &nbsp; `time` &gt; DATE_SUB(NOW(), INTERVAL 1 DAY)<br>
+&nbsp; &nbsp; &quot;</span><span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$results</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_row</span><span class="br0">&#40;</span><span class="re0">$queryR</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$results</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">&gt;</span> <span class="nu0">20</span> <span class="sy0">||</span> <span class="re0">$results</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">+</span><span class="nu0">60</span> <span class="sy0">&gt;</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'SPAAAM!!!!'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">elseif</span><span class="br0">&#40;</span><span class="sy0">!</span> <span class="kw3">mail</span><span class="br0">&#40;</span><span class="st0">&quot;<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="31705d5449715449505c415d541f525e5c">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">,</span> <span class="re0">$subject</span><span class="sy0">,</span> <span class="re0">$text</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'Error sending mail'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span> <br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `mail_log` (`ip`,`time`) <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;VALUES ('<span class="es4">$ip</span>', CURRENT_TIMESTAMP())&quot;</span><span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Mail sent successfully.'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+<br>
+&nbsp; Subject: &lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;<span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="sy1">?&gt;</span>&quot;&gt; &lt;br&gt;<br>
+&nbsp; Content: &lt;br&gt; &lt;textarea name=&quot;text&quot; rows=&quot;10&quot; cols=&quot;25&quot;&gt;<span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="sy1">?&gt;</span>&lt;/textarea&gt; &lt;br&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; name=&quot;contact&quot; value=&quot;Send us a message&quot;&gt;<br>
+&nbsp; <br>
+&lt;/form&gt;</div><br><br><h4>איך זה עובד?</h4><br>רק במידה והגיע אלינו טופס מלא — נבצע חיבור למסד.<br>לאחר ההתחברות נכניס למשתנה את ה-ip<br><br><strong>ip</strong>- הוא מזהה ייחודי למחשב ברשת שניתן על ידי ספק האינטרנט בעת ההתחברות לאינטרנט, לכן לכל גולש יהיה ip ייחודי משלו שבו נשתמש. <br><br><div class="php codeblock">SELECT <span class="kw3">COUNT</span><span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#41;</span><span class="sy0">,</span> UNIX_TIMESTAMP<span class="br0">&#40;</span><span class="kw3">MAX</span><span class="br0">&#40;</span>`<span class="kw3">time</span>`<span class="br0">&#41;</span><span class="br0">&#41;</span></div> <br>מהטבלה נשלפים שני נתונים: <br>א. כמות השורות בה (שעונות לדרישות where)<br>ב. הרך זמן השליחה המירבי לאותו משתמש (זמן השליחה האחרון)<br><br>הזמן נשמר בטבלה בצורת 2010-12-05 12:34:30 <br>אשר אותו מעבירה הפונקציה unix_timestamp לערך מספרי 1288953270<br>שזוהי כמות השניות שעברה מאז 01/01/1970 עד התאריך הנ&quot;ל.<br><br><div class="php codeblock">WHERE `ip`<span class="sy0">=</span><span class="st_h">'$ip'</span> AND `<span class="kw3">time</span>` <span class="sy0">&gt;</span> DATE_SUB<span class="br0">&#40;</span>NOW<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> INTERVAL <span class="nu0">1</span> DAY<span class="br0">&#41;</span></div> את השליפה אנחנו מבצעים רק בעבור השורות שבהם המשתמש הוא המשתמש שהנוכחי (עם אותו ip) ורק בשורות שזמן השליחה שלהם היה ביום האחרון.<br><em>= זמן שליחה גדול מ(עכשיו פחות יום)</em><br><br>אם יש יותר מ20 שורות שעונות לתנאי - כלומר יותר מ20 שליחות אימייל ביום האחרון - הרי זה ספאם. <br><br>אם השליחה האחרונה התבצעה לפני פחות מ60 שניות (לפני פחות מדקה),<br>גם אז לא ניתן לשולח לשלוח לנו אימייל.<br><br><br><h4>סיכום:</h4><br>ראינו באופו סכמטי את מהלך בניית טופס יצירת קשר ושליחת אימייל ולא התמקדנו בעיצוב והודעות שגיאות. רצוי מאוד שהטופס שתבנו ידאג לומר למשתמש מה הייתה השגיאה, באיזה שדה, כמה זמן יש לחכות בין שליחת הודעה להודעה ולספר לו על המגבלה של 20 הודעות ביום.<br><br>כמו כן צעד נבון יהיה <strong>לא</strong> להציג למשתמש את הטופס במידה וההודעה נשלחה,<br>לבקש ממנו אימייל לחזרה אליו ולא לשכוח לבדוק את תיבת הדואר :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment101"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/04/2011 13:09</span><br>
+שימו לב:<br>
+אם משום מה outlook או gmail מציגים לכם את נושא האימייל בג&apos;יבריש או את נושא המייל כסימני שאלה אנא רוא דוגמה לתיקון כאן:<br>
+<span dir="ltr"><a href="http://phpguide.co.il/forum/index.php/topic,14.0.html">http://phpguide.co.il/forum/index.php/topic,14.0.html</a></span></div>
+<a id="comment663"></a>
+<div class="blog-comment">
+<span class='comment-author'>sagive</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2011 08:22</span><br>
+תודה אלכס על העדכון.</div>
+<a id="comment799"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/09/2011 12:25</span><br>
+&lt;?php<br>
+<br>
+if( isset($_POST[&apos;contact&apos;], $_POST[&apos;subject&apos;], $_POST[&apos;text&apos;]) )<br>
+{<br>
+$subject = trim ($_POST[&apos;subject&apos;]);<br>
+$text = trim ($_POST[&apos;text&apos;]);<br>
+<br>
+if(strlen($subject) &lt; 3 || strlen($text) &lt; 3) echo &apos;Text is too short&apos;;<br>
+}<br>
+?&gt;<br>
+<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+<br>
+Subject: &lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;&lt;?php<br>
+if(isset($_POST[&apos;subject&apos;])) echo htmlspecialchars($_POST[&apos;subject&apos;]);<br>
+?&gt;&quot;&gt; &lt;br&gt;<br>
+Content: &lt;br&gt; &lt;textarea name=&quot;text&quot; rows=&quot;10&quot; cols=&quot;25&quot;&gt;&lt;?php<br>
+if(isset($_POST[&apos;text&apos;])) echo htmlspecialchars($_POST[&apos;text&apos;]);<br>
+?&gt;&lt;/textarea&gt; &lt;br&gt;<br>
+&lt;input type=&quot;submit&quot; name=&quot;contact&quot; value=&quot;Send us a message&quot;&gt;<br>
+<br>
+&lt;/form&gt;<br>
+<br>
+לא עובד..</div>
+<a id="comment800"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/09/2011 12:27</span><br>
+הקוד הזה זה רק הקוד של הטופס. הוא לא שולח שום דבר לאף אחד עדיין. השליחה בהמשך. הקוד עצמו הכן עובד (בזכותך נבדק שנית) </div>
+<a id="comment821"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2011 00:30</span><br>
+אני עשיתי פשוט ככה:<br>
+<br>
+&lt;?php<br>
+<br>
+if (isset($_POST[&apos;submit&apos;])) {<br>
+$subject =$_POST[&apos;subject&apos;];<br>
+$text = $_POST[&apos;text&apos;];<br>
+<br>
+}<br>
+echo &lt;&lt;&lt;Print<br>
+&lt;form method=&quot;post&quot;&gt;<br>
+<br>
+Subject: &lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;&lt;?php<br>
+if(isset($_POST[&apos;subject&apos;])) echo htmlspecialchars($_POST[&apos;subject&apos;]);<br>
+?&gt;&quot;&gt; &lt;br&gt;<br>
+Content: &lt;br&gt; &lt;textarea name=&quot;text&quot; rows=&quot;10&quot; cols=&quot;25&quot;&gt;&lt;?php<br>
+if(isset($_POST[&apos;text&apos;])) echo htmlspecialchars($_POST[&apos;text&apos;]);<br>
+?&gt;&lt;/textarea&gt; &lt;br&gt;<br>
+&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Send us a message&quot;&gt;<br>
+<br>
+&lt;/form&gt; <br>
+Print;<br>
+?&gt;<br>
+<br>
+<br>
+וזה לא עובד..<br>
+למה?</div>
+<a id="comment822"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2011 14:01</span><br>
+מהסיבה שהשתמש ב heredoc <br>
+ובתוכו לא יכולים להיות תגי פתיחה, סגירה ותנאים<br>
++ המילה השתמשת בה, Print היא מילה שמורה (פקודה ב PHP)<br>
++ תסתכל איך עובד הפלט בקוד בכתבה ואתה תראה שאין שם echo</div>
+<a id="comment824"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2011 19:15</span><br>
+אוקי,יש עכשיו עוד בעיה.<br>
+אחרי שליחת הטופס,הטופס עדיין מלא,איך מרוקנים אותו?</div>
+<a id="comment825"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2011 21:39</span><br>
+שאלות בפורום בבקשה.<br>
+צריך לדעת html כדי להצליח לנקות את הטופס.</div>
+<a id="comment833"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/10/2011 10:44</span><br>
+תודה!</div>
+<a id="comment834"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/10/2011 11:58</span><br>
+אני מעוניין</div>
+<a id="comment860"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/10/2011 19:05</span><br>
+יש למישהו פתרון לשליחת מייל ב mailer.php משרת ביתי?</div>
+<a id="comment861"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/10/2011 20:21</span><br>
+אולי זה<br>
+<span dir="ltr"><a href="שליחת אימייל לוקאלי wamp.htm">http://phpguide.co.il/שליחת אימייל לוקאלי wamp.htm</a></span><br>
+או זה<br>
+<span dir="ltr"><a href="שליחת_מייל_מ_php_דרך_gmail_smtp.htm">http://phpguide.co.il/שליחת_מייל_מ_php_דרך_gmail_smtp.htm</a></span><br>
+אבל אין סיבה שתתרך. פשוט תעלה את האתר שלך לאחסון כלשהו והכל יהיה בסדר</div>
+<a id="comment1729"></a>
+<div class="blog-comment">
+<span class='comment-author'>WishMonster</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2012 16:59</span><br>
+תודה </div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

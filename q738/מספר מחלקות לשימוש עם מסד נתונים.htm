@@ -1,0 +1,583 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מספר מחלקות לשימוש עם מסד נתונים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Plural">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מספר מחלקות לשימוש עם מסד נתונים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מספר מחלקות לשימוש עם מסד נתונים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מספר מחלקות לשימוש עם מסד נתונים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">26</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מספר מחלקות לשימוש עם מסד נתונים.htm" title="לדוגמה אם אני בונה מערכת של משתמשים עם תגובות וכו&amp;#039;,אז אני מתאר שזה יהיה מאוד מסורבל ולא כדאי לעשות מחלקה אחת ממש גדולהשתכיל בתוכה את כל המתודות לחיבור למסד נתונים, בדיקת התחברות משתמשים,התנתקות, הוספת תגובה חדשה וכו&amp;#039;, אלא לעשות את זה בקלאסים נפרדים.אבל הבעיה היא שאם אני יוצר יותר מקלאס אחד לחיבור עם מסד נתונים אז זה לא נראהלי ממש יעיל שיהיו לי 2 חיבורים לאותו מסד כשאני יכול להשתמש באחד..לדוגמה:">מספר מחלקות לשימוש עם מסד נתונים</a></h2>
+<div class="userinfo">
+פתח
+<a>Plural</a>
+,
+<time class="timeago relativetime" datetime="2012-06-29T19:52:39+03:00" style="display:inline-block;">
+29 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText738'>
+לדוגמה אם אני בונה מערכת של משתמשים עם תגובות וכו&#039;,<br>אז אני מתאר שזה יהיה מאוד מסורבל ולא כדאי לעשות מחלקה אחת ממש גדולה<br>שתכיל בתוכה את כל המתודות לחיבור למסד נתונים, בדיקת התחברות משתמשים,<br>התנתקות, הוספת תגובה חדשה וכו&#039;, אלא לעשות את זה בקלאסים נפרדים.<br>אבל הבעיה היא שאם אני יוצר יותר מקלאס אחד לחיבור עם מסד נתונים אז זה לא נראה<br>לי ממש יעיל שיהיו לי 2 חיבורים לאותו מסד כשאני יכול להשתמש באחד..<br><br>לדוגמה:<br><br><div class="php codeblock"><span class="kw2">class</span> user <span class="kw2">extends</span> mysqli<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$host</span> <span class="sy0">,</span> <span class="re0">$user</span> <span class="sy0">,</span> <span class="re0">$pass</span> <span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; parent<span class="sy0">::</span>__construct<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span><span class="re0">$user</span><span class="sy0">,</span><span class="re0">$pass</span><span class="sy0">,</span><span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">function</span> login<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// log in code..</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">function</span> logout<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// log out code..</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> forum <span class="kw2">extends</span> mysqli<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$host</span> <span class="sy0">,</span> <span class="re0">$user</span> <span class="sy0">,</span> <span class="re0">$pass</span> <span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; parent<span class="sy0">::</span>__construct<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span><span class="re0">$user</span><span class="sy0">,</span><span class="re0">$pass</span><span class="sy0">,</span><span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">function</span> addComment<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// add comment code..</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+<span class="br0">&#125;</span></div><br><br>פה אני צריך להשתמש ב-2 חיבורים שונים לאותו מסד נתונים בשביל המחלקות השונות.<br><br>מה האפשרות הכי טובה במצב כזה? ;-) </div>
+</div>
+<h3>
+<span id="answersCounter">26 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3137">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 29 ליוני 2012 </span>
+<a id="answer_3137" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3137">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה שתוריש מ-mysqli? איך האובייקטים הללו קשורים ל-mysqli מלבד העובדה שיש לך צורך להשתמש בפעולות של mysqli? יש הבדל בין הורשה לבין include/require.<br><br>וגם כשתצמצם הכול לחיבור אחד, לא הייתי ממליץ לך לעשות סינגלטון כי זה לא באמת מועיל מאוד. </p>
+</div>
+<div class="answer" id="answer3140">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3140" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3140">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אה הבנתי למה אתה מתכוון, באמת אין צורך.<br><br>ורק כדי שאני אהיה בטוח, זה הדבר הנכון לעשות?:<br><div class="php codeblock"><span class="kw2">class</span> user<br>
+<span class="br0">&#123;</span><br>
+&nbsp; static <span class="re0">$con</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$host</span> <span class="sy0">,</span> <span class="re0">$user</span> <span class="sy0">,</span> <span class="re0">$pass</span> <span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$con</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span><span class="re0">$user</span><span class="sy0">,</span><span class="re0">$pass</span><span class="sy0">,</span><span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">function</span> login<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$con</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT...&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">function</span> logout<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// log out code..</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$db</span> <span class="sy0">=</span> <span class="kw2">new</span> user<span class="br0">&#40;</span><span class="st_h">'localhost'</span> <span class="sy0">,</span> <span class="st_h">'root'</span> <span class="sy0">,</span> <span class="st_h">''</span> <span class="sy0">,</span> <span class="st_h">'database'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">login</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// סתם לדוגמה</span></div> <br><br>ובקשר לשאלה שלי, עדיין לא לגמרי הבנתי מה כדאי לעשות. אשמח אם תסביר שוב. (-: </p>
+</div>
+<div class="answer" id="answer3141">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3141" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3141">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא.<br>למה user צריכה לקבל פרטי חיבור למסד?<br><div class="php codeblock"><span class="kw2">class</span> user <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$id</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$age</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">id</span> <span class="sy0">=</span> <span class="re0">$id</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> doSomething<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="sy0">....</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$q</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;query...&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>אצלי פרטי הכניסה שמורים כמאפיינים במחלקה עצמה של mysqli, ככה שאני לא צריך להזין אותם בכל חיבור.<br>*שים לב שבכל מתודה שמתקשרת עם המסד, תצטרך להתחבר מחדש. אני משתמש ב-<a href="..\database_singleton.htm">singleton</a> כדי <a href="..\q608\הרבה חיבורים קצרים למסד או חיבור אחד ארוך.htm">למנוע המון חיבורים</a>. </p>
+</div>
+<div class="answer" id="answer3142">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3142" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3142">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&quot;*שים לב שבכל מתודה שמתקשרת עם המסד, תצטרך להתחבר מחדש. אני משתמש ב-singleton כדי למנוע המון חיבורים.&quot;<br><br>למה? לא הבנתי מה הבעיה ליצור תכונה של החיבור למסד במחלקה (כמו שעשיתי - con$), ואז בכל מתודה להשתמש בחיבור הקיים?<br>ובקשר לסינגלטון - אני אבדוק את זה לעומק. תודה על התגובה. (: </p>
+</div>
+<div class="answer" id="answer3143">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3143" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3143">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ד&quot;א, אם אני יוצר מופע mysqli אחד, ואז מעביר אותו (או מצביע אליו) לכל קלאס כפרמטר (אפשר גם להגיע אליו כמשתנה גלובלי) ואז להשתמש בו, זה יהיה יעיל? </p>
+</div>
+<div class="answer" id="answer3144">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3144" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3144">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין בעיה ליצור תכונה סטטית של החיבור למסד. אבל זה לא אמור להיות שם.<br>מחלקה של משתמש אמורה להכיל רק מה שקשור למשתמש. החיבור לא קשור אליו.<br><br>ואם אתה כבר יוצר מופע mysqli אחד, פשוט תשתמש ב-singleton. ככה אתה לא תצטרך לשלוח אותו כל פעם כפרמטר.<br>בכל מקום תוכל לקבל את החיבור ולעשות איתו מה שתרצה. </p>
+</div>
+<div class="answer" id="answer3145">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3145" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3145">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+סינגלטון מגביל אותך בכמה חיבורים, וזה לא דבר חכם, כי לפעמים יש צורך להתחבר למסדים שונים. תצור מופע אחד ותשתמש בו. </p>
+</div>
+<div class="answer" id="answer3146">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3146" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3146">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+האמת שראיתי באינטרנט הרבה שלא ממליצים על סינגלטון..<br>אבל מהסיבה הזאת כרגע זה לא בעיה עבורי, כי יש לי רק מסד אחד.<br><br>- תצור מופע אחד ותשתמש בו.<br>איך להשתמש בו? לעשות הכל בקלאס אחד יהיה ממש מסורבל וארוך..\: </p>
+</div>
+<div class="answer" id="answer3147">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3147" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3147">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@cthulhu<br>נכון. אבל אם יש מסד אחד (כמו כאן) אז זה מצוין.<br>חוץ מזה שאתה תמיד יכול להרחיב את זה ליותר ממסד אחד בכך שתעביר כפרמטר לפונקציה הסטטית (זאת שמחזירה את המופע) את המסד שאליו אתה רוצה את החיבור, והיא תחזיר לך את המופע המתאים. משהו כזה:<br><div class="php codeblock"><span class="kw2">class</span> database <span class="kw2">extends</span> mysqli <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> static <span class="re0">$connection</span><span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> static <span class="kw2">function</span> connection<span class="br0">&#40;</span><span class="re0">$db</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">array_key_exists</span><span class="br0">&#40;</span><span class="re0">$db</span><span class="sy0">,</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$connection</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$connection</span><span class="br0">&#91;</span><span class="re0">$db</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw2">new</span> <span class="kw2">self</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span><span class="st_h">'un'</span><span class="sy0">,</span><span class="st_h">'pw'</span><span class="sy0">,</span><span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$connection</span><span class="br0">&#91;</span><span class="re0">$db</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$db1</span> <span class="sy0">=</span> database<span class="sy0">::</span><span class="me2">connection</span><span class="br0">&#40;</span><span class="st_h">'database1'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$db2</span> <span class="sy0">=</span> database<span class="sy0">::</span><span class="me2">connection</span><span class="br0">&#40;</span><span class="st_h">'database2'</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3148">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3148" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3148">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<span class="underline"><strong>בינתיים</strong></span> יש לו מסד אחד. כשהוא ירצה להוסיף מסד, הוא יצטרך לשנות חיבורים במקומות רבים. להשתמש בסינגלטון בעבודה עם מסדים - לא נכון. </p>
+</div>
+<div class="answer" id="answer3149">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3149" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3149">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם הוא ישתמש במה שהראיתי למעלה הוא יוכל להוסיף כמה מסדים שירצה בלי שום בעיה. </p>
+</div>
+<div class="answer" id="answer3150">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3150" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3150">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא רק עניין של מס&#039; חיבורים למסדים שונים. זה גם עניין של מבנה קוד רע. זה שווה ערך ל-global במבנה. בגלל המבנה שלו אי אפשר לאפשר סאבקלאסים. וכן, object pool זה דבר נחמד, אך עדיין אין כאן צורך בזה. </p>
+</div>
+<div class="answer" id="answer3151">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3151" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3151">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא רואה בזה שום בעיה.<br>המתודה הסטטית פשוט מחזירה לך את החיבור למסד ואתה יכול לגשת אליה ולקבל את החיבור מכל מקום.<br>ואם בסאבקלאס אתה מתכוון לירושה, אני לא רואה סיבה לרשת מהמעטפת של mysqli.<br>ובנוגע להדמות שלו ל-global, אולי זה טיפה מזכיר, אבל אל תשכח שב-global אתה לא יודע בוודאות שהמשתנה החיצוני קיים ואתה הופך תלותי בו. כאן זה לא המקרה, אתה מקבל את החיבור, ואם אין חיבור כזה, אז הוא נוצר ואז אתה מקבל אותו. </p>
+</div>
+<div class="answer" id="answer3152">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3152" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3152">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה הקשר למה שאמרתי? ולגבי &quot;תלותי&quot; - סינגלטון מסתיר תלויות, ככה שעדיף כאן לעשות di. </p>
+</div>
+<div class="answer" id="answer3153">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3153" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3153">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+סינגלטון הוא לא תלותי, הוא לא מסתיר גם כלום. אתה לא תלוי בחיבור, אתה תמיד תקבל אותו.<br>למעט במקרה בו יש שגיאה, ובמקרה כזה אין הבדל בין singleton לבין כל דרך אחרת. </p>
+</div>
+<div class="answer" id="answer3155">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3155" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3155">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי איך סינגלטון פועל, ואין לי בעיה לממש אותו על אותו הקלאס ש&quot;בונה&quot; אותו,<br>אבל עדיין לא הבנתי לגמרי איך אני ממש אותו על קלאסים אחרים. (זאת המטרה שפתחתי את הנושא הזה)<br>אז אני אשמח שתביאו לי קוד לדוגמה של מימוש סינגלטון על יותר מקלאס אחד. </p>
+</div>
+<div class="answer" id="answer3156">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3156" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3156">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וד&quot;א cthulhu,<br>הבנתי שאתה לא ממליץ על סינגלטון, אבל על מה אתה <span class="underline">כן</span> ממליץ עדיין לא ענית לי.. </p>
+</div>
+<div class="answer" id="answer3157">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3157" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3157">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אתה עושה סינגלטון על המעטפת של mysqli אתה מממש אותו פעם אחת. אתה לא צריך להפוך את כל המחלקות שמשתמשות בו לסינגלטון. </p>
+</div>
+<div class="answer" id="answer3159">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3159" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3159">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם לדעתך סינגלטון לא מסתיר תלות אז אתה ככל הנראה לא מבין עד הסוף מהו סינגלטון. כל התהליך של יצירת אובייקט מתנהל במתודה סטטית, כך שהשליטה עליו בלתי אפשרית. וכשתרצה לעשות קצת unit testing תופתע לגלות שזה לא יהיה נחמד כ&quot;כ עם סינגלטון ותצטרך להשתמש ב-di כמו שאמרתי קודם לכן. </p>
+</div>
+<div class="answer" id="answer3160">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3160" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3160">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תראה, אני אחזור על הסיבה שפתחתי את הנושא הזה - <br>אני רוצה לאפשר כמה קלאסים עם <strong>אותו</strong> חיבור למסד נתונים.<br><br>אז כמו שאמרתי, אני אשמח לקוד קצר שרק יגרום לי להבין את הרעיון לאיך לעשות את זה. </p>
+</div>
+<div class="answer" id="answer3161">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3161" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3161">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תעביר לכל קלאס את המופע היחיד שיש לך בקוד. או שתעשה את זה בקונסטרוקטור או במתודה נפרדת. זה עבודה של 2 שניות. ואתה בכל מקרה תצטרך ליצור את המופע של האובייקטים הללו איכן שהוא בקוד. </p>
+</div>
+<div class="answer" id="answer3162">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3162" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3162">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@cthulhu<br>יכול להיות שאני לא מבין עד הסוף מהו סינגלטון. אשמח אם תסביר מה הבעיות איתו.<br>אני לא רואה בעיה ביצירת והחזרה של אובייקט במתודה סטטית. </p>
+</div>
+<div class="answer" id="answer3163">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3163" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3163">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+cthulhu,<br>אתה מתכוון להעביר את המופע באמצעות פרמטר למחלקות?<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> user<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">private</span> static <span class="re0">$msi</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$con</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$msi</span> <span class="sy0">=</span> <span class="re0">$con</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">function</span> show<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$msi</span> <span class="sy0">=</span> <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$msi</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$msi</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT ...&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$con</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="st_h">'localhost'</span> <span class="sy0">,</span> <span class="st_h">'root'</span> <span class="sy0">,</span> <span class="st_h">''</span> <span class="sy0">,</span> <span class="st_h">'db'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$msi</span> <span class="sy0">=</span> <span class="kw2">new</span> user<span class="br0">&#40;</span><span class="re0">$con</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$msi</span><span class="sy0">-&gt;</span><span class="me1">show</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ככה לדוגמה?<br><br>וד&quot;א, אני יודע שבשפת C במקרה כמו זה להעביר מצביע כפרמטר יהיה הרבה יותר יעיל וחסכוני ,<br>מכיוון שמצביע שוקל רק 4 בתים, ביחס למשאב כמו זה שיכול לתפוס יותר מקום בזיכרון.<br>אז השאלה שלי היא האם גם ב-php זה יהיה אותו דבר? כלומר, שעדיף יהיה לי לעשות את המתודה הקונסטרקטית ככה:<br><br><div class="php codeblock"><span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="sy0">&amp;</span><span class="re0">$con</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">::</span><span class="re0">$msi</span> <span class="sy0">=</span> <span class="re0">$con</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>? </p>
+</div>
+<div class="answer" id="answer3164">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3164" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3164">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, דרך הקונסטרוקטור. רק בשביל מה לעשות את זה סטטי?<br><div class="php codeblock"><span class="kw2">class</span> User <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$currentConnection</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$dbConnection</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">currentConnection</span> <span class="sy0">=</span> <span class="re0">$dbConnection</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#125;</span></div><br>אלא אם כן אתה באמת צריך ליצור מיליון מופעים.<br><br>לגבי העברה &quot;by reference&quot; - אין כל צורך להעביר ככה חיבור, כי חיבור ב-php כבר בעצמו אוטומטית מועבר כקישור (reference) ולא כערך. במקרים מסוימים זה אפילו יהיה איטי יותר. </p>
+</div>
+<div class="answer" id="answer3165">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a9104a5a7f9287866002276e15d50885?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Plural</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3165" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3165">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חשבתי שכדאי לעשות את זה סטטי כדי שלא ייוצרו חיבורים שונים למחלקה, אלא אותו חיבור כל הזמן.<br>ותודה רבה לגבי ההסבר! סוף סוף אני יכול ליישם את מה שרציתי. :) </p>
+</div>
+<div class="answer" id="answer3166">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 ליוני 2012 </span>
+<a id="answer_3166" href="מספר מחלקות לשימוש עם מסד נתונים.htm#answer_3166">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לי זה עדיין מוזר להעביר כפרמטר למחלקה משהו שלא קשור למחלקה.<br><div class="php codeblock"><span class="re0">$user</span> <span class="sy0">=</span> <span class="kw2">new</span> User<span class="br0">&#40;</span><span class="re0">$mysqli</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>נראה לי מוזר. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

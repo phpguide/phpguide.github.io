@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="במדריך הבא נלמד על לוקליזציה, שהיא תהליך של התאמת אתר לשפה ולמיקום גיאוגרפי מסוימים.">
+<meta name="keywords" content="לוקליזציה,קידוד">
+<meta name="author" content="iosolidar">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>לוקליזציה ב-PHP (חלק ראשון)</title>
+<meta itemprop="name" content="לוקליזציה ב-PHP (חלק ראשון)">
+<meta itemprop="description" content="במדריך הבא נלמד על לוקליזציה, שהיא תהליך של התאמת אתר לשפה ולמיקום גיאוגרפי מסוימים.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"210","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>לוקליזציה ב-PHP (חלק ראשון)</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iosolidar, </div>
+<div class="right">&nbsp;<time datetime="2012-05-18T04:55:45+03:00" dir="rtl">18 למאי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://i.imgur.com/yQIdh.jpg" alt="לוקליזציה ב-PHP (חלק ראשון)">
+</div>
+<div class="right post-content">
+לוקליזציה היא תהליך של התאמת אתר לשפה ולמיקום גיאוגרפי מסוימים. המדריך הבא ידון באלמנטים השונים של התאמת אתר לשפות שונות ובכלים שקיימים ב-PHP לפיתוח אתרים שדוברים יותר משפה אחת. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<a href="לוקליזציה בPHP חלק שני.htm">לוקליזציה ב-PHP (חלק שני).</a><br><br><h3>הקדמה</h3><br>המדריך הזה הוא החלק הראשון של מדריך בעל שני חלקים על gettext ועל לוקליזציה באתר. בגלל אילוצים של זמן המדריך מחולק לשניים. החלק הראשון יעסוק בקידוד וייתן הסבר קצר על מה זה ואיך זה עובד, והחלק השני ידון בשימוש בפונקציות <a href="http://php.net/manual/en/function.gettext.php">gettext</a> ו-<a href="http://www.poedit.net/download.php">Poedit</a> על מנת לנהל קטלוגים של מחרוזות תרגום.<br><br>נסתכל לרגע על העמוד <a href="https://support.google.com/websearch/bin/answer.py?hl=en&amp;answer=142143&amp;topic=1221265&amp;ctx=topic">הבא</a> מתוך דפי העזרה של גוגל. אם נרד לתחתית העמוד נראה אלמנט select שמאפשר לנו לבחור את השפה של העמוד. אם נבחר מן הרשימה בעברית, לדוגמה, גוגל תציג את הדף מתורגם לעברית. במדריך הבא אנחנו נממש פונקציונאליות דומה באמצעות PHP ונסביר בתהליך מושגים מתחום הלוקליזציה. <br><br><h3>קידוד</h3><br>המחשב עובד באמצעות מספרים. המספרים האלה מייצגים את כל הפעולות שאותם מבצע המחשב ואת כל המידע שבו הוא משתמש. בני אדם, לעומת זאת, נוטים להעדיף טקסט; יש לנו היסטוריה ארוכה של שימוש בסימנים שונים לייצוג מידע, סימנים שאנו קוראים להם אותיות. מכיוון שהמחשב מייצג הכל בתור מספרים, גם אותיות מיוצגות בתור מספרים. בכדי לייצג למשל את האות A באנגלית, המחשב ישתמש במספר 65, ולייצוג האות B הוא ישתמש במספר 66. הטבלה שממירה מספר לאות ספיציפית נקראת קידוד. הקידוד הבסיסי ביותר נקרא ASCII והוא מכיל את כל האלף-בית האנגלי (כולל אותיות רישיות ואותיות קטנות), את הספרות 0 עד 9, תווי בקרה מיוחדים (כמו תו שמרמז על סיומו של קובץ) ותווים שימושיים אחרים, כמו @ או ~.<br><br>למרות ש-ASCII יכולה להיות מאוד שימושית אם השפה היחידה שבה משתמשים היא אנגלית, היא הופכת למוגבלת מאוד ברגע שרוצים להוסיף שפות נוספות. לצורך הזה פיתחו קידודים נוספים שתומכים בעוד תווים, כמו windows-1255, שמכילה תמיכה בעברית והיא אחד הקידודים הנפוצים באתרים דוברי עברית. אך מה קורה אם רוצים לייצג גם תווים בעברית וגם תווים ביפנית? מהר מאוד מגלים שהקידודים השונים מוגבלים מאוד. לכן פיתחו את Unicode, שהוא סטנדרט לקידוד שמכיל כמות אדירה של סמלים. בין השאר הוא תומך ברוב שפות הכתיבה ובכמות גדולה של סמלים שונים, כמו הסמל של השקל ושל הסמיילי. ישנם מספר קידודים שמשתמשים ב-Unicode, הנפוץ ביותר וזה שהמדריך יתרכז בו הוא UTF-8.<br><br>עורך הטקסט שבו משתמשים צריך להיות מוגדר לכתיבה עם הקידוד UTF-8. עכשיו יהיה זמן טוב להבטיח שזה המקרה, הדרך הספיציפית לעשות את זה תלויה בעורך הטקסט. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/577835562fa9e54ea5f73adf6b887062?s=16&r=g&d=monsterid" alt="iosolidar">
+<a>iosolidar</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1559"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2012 10:07</span><br>
+מחכה לראות את ההמשך אחרי האינטריגה :)<br>
+---<br>
+כדי שהיה ברור, המדריך לא מציעה לכם להישתמש ב windows-1255, אלה רק מזכיר את קיומו.<br>
+להישתמש באתר שלכם עדיף ב utf-8.<br>
+<br>
+בנוסף, אתרים עם הבדלי כתיבה (ימין לשמאל ושמאל לימין) דורשים קצת יותר שינויים.<br>
+הסקריפט ltr2rtl יכול לעזור לכם לתרגם עיצוב מאנגלית (שמאל לימין) לעברית (ימין לשמאל)<br>
+או הפוך.<br>
+<span dir="ltr"><a href="https://github.com/intval/ltr2rtl">https://github.com/intval/ltr2rtl</a></span></div>
+<a id="comment1560"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2012 10:42</span><br>
+לא היה לי זמן להמשיך את המדריך, אז במקום לחכות פשוט פירסמתי, מקווה שזה לא בעיה :-).<br>
+<br>
+iosolidar<br>
+</div>
+<a id="comment1561"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2012 10:54</span><br>
+windows-1255 עובד גם במקינטוש?</div>
+<a id="comment1562"></a>
+<div class="blog-comment">
+<span class='comment-author'>NaseemIB96</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2012 13:29</span><br>
+מחכה בקוצר רוח לחלק השני ;)<br>
+תודה רבה לך.</div>
+<a id="comment1563"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2012 14:21</span><br>
+תודה. :)<br>
+המאמר כתוב נהדר. ^_^</div>
+<a id="comment1568"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/05/2012 23:05</span><br>
+מעניין.<br>
+תודה רבההה :)</div>
+<a id="comment1569"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/05/2012 23:06</span><br>
+^_______________________________^</div>
+<a id="comment1578"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/05/2012 09:02</span><br>
+מחקה בקוצר רוח לראות את החלק הבא. תודה</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

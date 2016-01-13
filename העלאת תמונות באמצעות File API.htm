@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הכתבה עוסקת בהעלאת תמונות באמצעות ה-API החדש של HTML5">
+<meta name="keywords" content="HTML5, File Upload API">
+<meta name="author" content="cthulhuil">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>העלאת תמונות באמצעות File API</title>
+<meta itemprop="name" content="העלאת תמונות באמצעות File API">
+<meta itemprop="description" content="הכתבה עוסקת בהעלאת תמונות באמצעות ה-API החדש של HTML5">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"180","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>העלאת תמונות באמצעות File API</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">cthulhuil, </div>
+<div class="right">&nbsp;<time datetime="2011-12-30T21:17:17+02:00" dir="rtl">30 לדצמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://i43.tinypic.com/epq92p.png" alt="העלאת תמונות באמצעות File API">
+</div>
+<div class="right post-content">
+במדריך נלמד על האפשרויות ש-File API של HTML5 מציע. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+כידוע, ב-HTML5 יש הרבה דברים חדשים ומגניבים, וביניהם File API.<br>FIle API, כמו שניתן להסיק מהשם, זהו ממשק תכנות יישומים הנועד לעבודה עם קבצים. במדריך הזה נראה איך ניתן לשלב את File API במערכת העלאת תמונות.<br><br><h4>היתרונות של FIle API</h4><br>• אפשרות לבחור מספר קבצים דרך שדה הבחירה הרגיל.<br>• הוא אינו תלוי בשום פלאגין חיצוני.<br>• אפשרות שליטה על תהליך העלאה והצגת מידע עליו, כלומר ניתן ליצור &quot;פס מצב&quot;.<br>• אפשרות לקרוא קובץ ולגלות את גודלו עוד לפני תחילת העלאה.<br>• אפשרות להשתמש בממשק Drag and Drop בכדי לבחור את הקבצים, כלומר, ניתן לגרור את הקבצים הישר משולחן העבודה.<br><br><h4>שני החסרונות הגדולים של FIle API</h4><br>הוא נתמך רק בדפדפן <span dir="ltr">Firefox 3.6+</span> ובדפדפן <span dir="ltr">Chrome 6.0+</span>. בנוסף לכך, בעת שימוש בו, קבצים גדולים נטענים לתוך הזיכרון, מה שעלול לתקוע את הדפדפן וכמובן לתפוס מקום נאה בזכרון. FormData יותר חכם במקרה כזה.<br><br><br>נתחיל בקוד html:<br><div class="php codeblock"><span class="sy0">...</span><br>
+<span class="sy0">&lt;</span>div<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;file&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;file&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;upload_input&quot;</span> multiple<span class="sy0">=</span><span class="st0">&quot;true&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<br>
+<span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;imageContainer&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>ul id<span class="sy0">=</span><span class="st0">&quot;imageList&quot;</span><span class="sy0">&gt;&lt;/</span>ul<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">...</span></div><br><br>אין פה משהו מסובך. בסך הכול יצרנו שדה רגיל מסוג file וקונטיינר (מכולה) שלתוכו נגרור את הקבצים. חשוב לציין שהמאפיין multiple עם הערך true, כמו במקרה הזה, מאפשר לבחור יותר מקובץ אחד בבחירה הרגילה.<br><br>הגיע הזמן לקצת JavaScript. השתמשתי ב-jQuery בכדי להקל על עבודה עם ה-DOM, וזה גם נראה יפה יותר ומסודר יותר, לא?<br>בהתחלה נשמור במשתנים את הקישור לאלמנטים שבדף. לאחר מכן נגדיר את המטפלים באירועים של שדה ההעלאה הרגיל ושל הקונטיינר שלתוכו נגרור את הקבצים.<br><div class="php codeblock"><span class="kw2">var</span> fInput <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st0">&quot;#upload_input&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">var</span> imgList <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st0">&quot;ul#imageList&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">var</span> dropArea <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st0">&quot;#imageContainer&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// עדכון פס המצב</span><br>
+&nbsp; <span class="kw2">function</span> updateProgressBar<span class="br0">&#40;</span>bar<span class="sy0">,</span> value<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">var</span> barWidth <span class="sy0">=</span> bar<span class="sy0">.</span>width<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">var</span> bVal <span class="sy0">=</span> <span class="sy0">-</span>barWidth <span class="sy0">+</span> <span class="br0">&#40;</span>value <span class="sy0">*</span> <span class="br0">&#40;</span>width <span class="sy0">/</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; bar<span class="sy0">.</span>attr<span class="br0">&#40;</span><span class="st_h">'rel'</span><span class="sy0">,</span> value<span class="br0">&#41;</span><span class="sy0">.</span>css<span class="br0">&#40;</span><span class="st_h">'background-position'</span><span class="sy0">,</span> bVal <span class="sy0">+</span> <span class="st_h">'px center'</span><span class="br0">&#41;</span><span class="sy0">.</span>text<span class="br0">&#40;</span>value <span class="sy0">+</span> <span class="st_h">'%'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="co1">// טיפול באירוע של בחירת הקבצים דרך שדה סטנדרטי</span><br>
+&nbsp; fInput<span class="sy0">.</span>bind<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; change<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; showImgs<span class="br0">&#40;</span>this<span class="sy0">.</span>files<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; dropArea<span class="sy0">.</span>bind<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; dragenter<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span>addClass<span class="br0">&#40;</span><span class="st_h">'highlightedBorder'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// נוסיף איזה בורדר יפה</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; dragover<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span> <span class="br0">&#125;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; dragleave<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span>removeClass<span class="br0">&#40;</span><span class="st_h">'highlightedBorder'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// הוא כבר לא יפה</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; drop<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">var</span> dTransfer <span class="sy0">=</span> e<span class="sy0">.</span>originalEvent<span class="sy0">.</span>dataTransfer<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; showImgs<span class="br0">&#40;</span>dTransfer<span class="sy0">.</span>files<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// טיפול בכפתור העלאה</span><br>
+&nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#uploadMyImages&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>click<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; imgList<span class="sy0">.</span>find<span class="br0">&#40;</span><span class="st_h">'li'</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="kw3">each</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">var</span> upItem <span class="sy0">=</span> this<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">var</span> pBar <span class="sy0">=</span> $<span class="br0">&#40;</span>upItem<span class="br0">&#41;</span><span class="sy0">.</span>find<span class="br0">&#40;</span><span class="st_h">'.progress'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">new</span> uploaderObject<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">file</span><span class="sy0">:</span> &nbsp; &nbsp; &nbsp; upItem<span class="sy0">.</span><span class="kw3">file</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; url<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="st_h">'./uploader.php'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fieldName<span class="sy0">:</span> &nbsp;<span class="st_h">'myPic'</span><span class="sy0">,</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onprogress<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span>percents<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; updateProgress<span class="br0">&#40;</span>pBar<span class="sy0">,</span> percents<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; oncomplete<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span>done<span class="sy0">,</span> data<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>done<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; updateProgress<span class="br0">&#40;</span>pBar<span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// בדיקה האם הדפדפן שלכם גרוע</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>window<span class="sy0">.</span>FileReader <span class="sy0">==</span> <span class="kw4">null</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">log</span><span class="br0">&#40;</span><span class="st0">&quot;הדפדפן שבו אתה משתמש לא תומך File API&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>אנחנו מקבלים כאן גישה לאובייקט FileList, שהוא בעצם מערך של אובייקטים מסוג File. את המערך הזה אנחנו מעבירים לפונקציה ()showImgs:<br><div class="php codeblock"><span class="co1">// הצגת התמונות שבחרנו ויצירת מיניאטורות</span><br>
+<span class="kw2">function</span> showImgs<span class="br0">&#40;</span>files<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">var</span> imgType <span class="sy0">=</span> <span class="sy0">/</span>image<span class="sy0">.*/;</span><br>
+&nbsp; <span class="kw2">var</span> num <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; $<span class="sy0">.</span><span class="kw3">each</span><span class="br0">&#40;</span>files<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>i<span class="sy0">,</span> <span class="kw3">file</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// סינון תמונות</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">file</span><span class="sy0">.</span>type<span class="sy0">.</span>match<span class="br0">&#40;</span>imgType<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; num<span class="sy0">++;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">// ניצור אלמנט של פריט רשימה ונשים בתוכו את השם, מיניאטורה ופס מצב</span><br>
+&nbsp; &nbsp; <span class="kw2">var</span> li <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st_h">'&lt;li/&gt;'</span><span class="br0">&#41;</span><span class="sy0">.</span>appendTo<span class="br0">&#40;</span>imgList<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st_h">'&lt;div/&gt;'</span><span class="br0">&#41;</span><span class="sy0">.</span>text<span class="br0">&#40;</span><span class="kw3">file</span><span class="sy0">.</span>name<span class="br0">&#41;</span><span class="sy0">.</span>appendTo<span class="br0">&#40;</span>li<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">var</span> img <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st_h">'&lt;img/&gt;'</span><span class="br0">&#41;</span><span class="sy0">.</span>appendTo<span class="br0">&#40;</span>li<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st_h">'&lt;div/&gt;'</span><span class="br0">&#41;</span><span class="sy0">.</span>addClass<span class="br0">&#40;</span><span class="st_h">'progress'</span><span class="br0">&#41;</span><span class="sy0">.</span>attr<span class="br0">&#40;</span><span class="st_h">'rel'</span><span class="sy0">,</span> <span class="st_h">'0'</span><span class="br0">&#41;</span><span class="sy0">.</span>text<span class="br0">&#40;</span><span class="st_h">'0%'</span><span class="br0">&#41;</span><span class="sy0">.</span>appendTo<span class="br0">&#40;</span>li<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">var</span> readerObj <span class="sy0">=</span> <span class="kw2">new</span> FileReader<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; readerObj<span class="sy0">.</span>onload <span class="sy0">=</span> <span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span>ltImage<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw2">function</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; ltImage<span class="sy0">.</span>attr<span class="br0">&#40;</span><span class="st_h">'src'</span><span class="sy0">,</span> e<span class="sy0">.</span>target<span class="sy0">.</span>result<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; ltImage<span class="sy0">.</span>attr<span class="br0">&#40;</span><span class="st_h">'width'</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="br0">&#40;</span>img<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; reader<span class="sy0">.</span>readAsDataUrl<span class="br0">&#40;</span><span class="kw3">file</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>האובייקט File מכיל מטא-דטא אודות הקובץ, כמו השם שלו, גודלו וסוגו (תקן MIME לדוגמה) במאפיינים name, size, type בהתאמה. בכדי לגשת לתוכן הקובץ עצמו, קיים אובייקט מיוחד הנקרא FileReader.<br><br>בפונקציה ()showImgs אנחנו עוברים על המערך ומסננים את הקבצים שהם אינם תמונות. לאחר מכן, עבור כל תמונה אנחנו יוצרים אלמנט li חדש, ולתוכו מכניסים את האלמנט img שהינו ריק לבינתיים. לאחר מכן, אנו יוצרים עותק FileReader ובשבילו מוגדר מטפל באירוע onload שבו הנתונים מועברים ישר למאפיין src של האלמנט img שיצרנו מקודם. מתודה ()readAsDataURL של האובייקט FileReader מקבלת כפרמטר את האובייקט File ומפעילה קריאת מידע מתוכו. כתוצאה מכך, לכל התמונות שגררנו אל תוך הדפדפן או שבחרנו דרך השדה הסטנדרטי, אנו רואים מיניאטורה.<br><br>נשאר רק להעלות לשרת את כל הקבצים שבחרנו. לשם כך, ניצור כפתור או לחלופין קישור, שבלחיצה עליו נפעיל מנגנון שירוץ על כל האלמנטים של li שיצרנו, יקרא את המאפיינים שלהם ויעבירם לאובייקט uploaderObject.<br><div class="php codeblock"><span class="kw2">var</span> uploaderObject <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span>params<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span>params<span class="sy0">.</span><span class="kw3">file</span> <span class="sy0">||</span> <span class="sy0">!</span>params<span class="sy0">.</span>url<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; this<span class="sy0">.</span>xhr <span class="sy0">=</span> <span class="kw2">new</span> XMLHttpRequest<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>reader <span class="sy0">=</span> <span class="kw2">new</span> FileReader<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; this<span class="sy0">.</span>progress <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>uploaded <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>successful <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>lastError <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">var</span> <span class="kw2">self</span> <span class="sy0">=</span> this<span class="sy0">;</span> &nbsp; &nbsp;<br>
+<br>
+&nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>reader<span class="sy0">.</span>onload <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>upload<span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;progress&quot;</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>e<span class="sy0">.</span>lengthComputable<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>progress <span class="sy0">=</span> <span class="br0">&#40;</span>e<span class="sy0">.</span>loaded <span class="sy0">*</span> <span class="nu0">100</span><span class="br0">&#41;</span> <span class="sy0">/</span> e<span class="sy0">.</span>total<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>params<span class="sy0">.</span>onprogress instanceof <span class="kw2">Function</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; params<span class="sy0">.</span>onprogress<span class="sy0">.</span>call<span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">,</span> Math<span class="sy0">.</span><span class="kw3">round</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">.</span>progress<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">,</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>upload<span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;load&quot;</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>progress <span class="sy0">=</span> <span class="nu0">100</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>uploaded <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">,</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>upload<span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;error&quot;</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>lastError <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; code<span class="sy0">:</span> <span class="nu0">1</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text<span class="sy0">:</span> <span class="st_h">'Error uploading on server'</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">,</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>onreadystatechange <span class="sy0">=</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">var</span> callbackDefined <span class="sy0">=</span> params<span class="sy0">.</span>oncomplete instanceof <span class="kw2">Function</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>this<span class="sy0">.</span>readyState <span class="sy0">==</span> <span class="nu0">4</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>this<span class="sy0">.</span>status <span class="sy0">==</span> <span class="nu0">200</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw2">self</span><span class="sy0">.</span>uploaded<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>callbackDefined<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; params<span class="sy0">.</span>oncomplete<span class="sy0">.</span>call<span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">,</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>successful <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>callbackDefined<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; params<span class="sy0">.</span>oncomplete<span class="sy0">.</span>call<span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">,</span> <span class="kw4">true</span><span class="sy0">,</span> this<span class="sy0">.</span>responseText<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>lastError <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; code<span class="sy0">:</span> this<span class="sy0">.</span>status<span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text<span class="sy0">:</span> <span class="st_h">'HTTP response code is not OK ('</span><span class="sy0">+</span>this<span class="sy0">.</span>status<span class="sy0">+</span><span class="st_h">')'</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>callbackDefined<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; params<span class="sy0">.</span>oncomplete<span class="sy0">.</span>call<span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">,</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>open<span class="br0">&#40;</span><span class="st0">&quot;POST&quot;</span><span class="sy0">,</span> params<span class="sy0">.</span>url<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">var</span> boundary <span class="sy0">=</span> <span class="st0">&quot;xxxxxxxxx&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>setRequestHeader<span class="br0">&#40;</span><span class="st0">&quot;Content-Type&quot;</span><span class="sy0">,</span> <span class="st0">&quot;multipart/form-data; boundary=&quot;</span><span class="sy0">+</span>boundary<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>setRequestHeader<span class="br0">&#40;</span><span class="st0">&quot;Cache-Control&quot;</span><span class="sy0">,</span> <span class="st0">&quot;no-cache&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">var</span> body <span class="sy0">=</span> <span class="st0">&quot;--&quot;</span> <span class="sy0">+</span> boundary <span class="sy0">+</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; body <span class="sy0">+=</span> <span class="st0">&quot;Content-Disposition: form-data; name='&quot;</span><span class="sy0">+</span><span class="br0">&#40;</span>params<span class="sy0">.</span>fieldName <span class="sy0">||</span> <span class="st_h">'file'</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="st0">&quot;'; filename='&quot;</span> <span class="sy0">+</span> params<span class="sy0">.</span><span class="kw3">file</span><span class="sy0">.</span>name <span class="sy0">+</span> <span class="st0">&quot;'<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; body <span class="sy0">+=</span> <span class="st0">&quot;Content-Type: &quot;</span> <span class="sy0">+</span> params<span class="sy0">.</span><span class="kw3">file</span><span class="sy0">.</span>type <span class="sy0">+</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span><span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; body <span class="sy0">+=</span> <span class="kw2">self</span><span class="sy0">.</span>reader<span class="sy0">.</span>result <span class="sy0">+</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; body <span class="sy0">+=</span> <span class="st0">&quot;--&quot;</span> <span class="sy0">+</span> boundary <span class="sy0">+</span> <span class="st0">&quot;--&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>sendAsBinary<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>sendAsBinary<span class="br0">&#40;</span>body<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>xhr<span class="sy0">.</span>send<span class="br0">&#40;</span>body<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">self</span><span class="sy0">.</span>reader<span class="sy0">.</span>readAsBinaryString<span class="br0">&#40;</span>params<span class="sy0">.</span><span class="kw3">file</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span></div><br><br>כאן נוצר עותק של האובייקט FileReader, בדיוק כמו קודם. אליו אנחנו מצרפים את המטפל באירוע onload שבתוכו נוצר אובייקט XMLHttpRequest. בגרסה השנייה של XMLHttpRequest נוסף המאפיין upload, שמכיל אובייקט העלאה, שיכול לעבד ולטפל באירועים progress, load ו-error. לאחר מכן, נצרף את המטפל באירוע סיום הבקשה, שנשלחת ל-request עצמו. נוסיף 2 כותרות ונגדיר את תוכן הבקשה תוך כדי קריאה של נתונים מהמאפיין result של האובייקט FileReader. לאחר מכן, ההעלאה מתחילה. חשוב לציין שלפי הספציפיקציה של W3C, המתודה ()send של האובייקט XMLHttpRequest יכולה לקבל כפרמטר נתונים בינארים, ואכן כך זה ממומש ב-Chrome, אך לא ב-Firefox. הבחורים החליטו לעשות את זה בדרך שלהם (like a boss), דרך מתודה ()sendAsBinary. לכן צריך לבדוק האם המתודה הזאת מוגדרת באובייקט של הפנייה, ואם כן, אז להשתמש בה.<br><br>בשרת מקבלים את התמונה בדרך הבאה:<br><div class="php codeblock"><span class="re0">$file</span> <span class="sy0">=</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st_h">'myPic'</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br><br>וזהו זה. :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=16&r=g&d=monsterid" alt="cthulhuil">
+<a>cthulhuil</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1015"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/12/2011 01:10</span><br>
+בעבר ניסיתי לגרום לכרום לקרוא קובץ מהמחשב הלוקאלי, לפענח אותו ולעשות איתו משהו אבל זה בלתי אפשרי עקב הגבלות בטיחות שכרום מפעילה בשביל שאתרים לא יגנבו למשתמשים קבצים. אז זה לא אפשרי למעט גרסאות אחרונות של כרום.<br>
+<br>
+היום זה יותר פשוט בהנחה שהמשתמש בעצמו בוחר את הקובץ דרך שדה בחירה כזה והנונים מגיעים אל fileapi, ככה שאפשר לקרוא את תוכן הקובץ עצמו ולעשות איתו מה שבה לכם. למשל לעשות באתר הזדהות לפי קבצים או עוד משהו משוכע אחר.<br>
+<br>
+נכון שהטכנולוגיה הזו עוד לא גמורה סופית וכנראה במייקרוסופט בכלל לא שמעו עליה, אבל לעשות פעולות על תוכן הקובץ עד עכשיו היה בלתי אפשרי בצד של הלקוח.<br>
+<br>
+לשלוח ב ajax היה אפשר גם לפני, אבל לקבל פרוגרס באר מזה היה הרבה יותר קשה.<br>
+תודה על המריך, ctulhuil, ננסה את זה בהזדמנות הקרובה.</div>
+<a id="comment1016"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/12/2011 03:49</span><br>
+מדריך מעולה. נוסח מצוין ומוסבר היטב, וגם הקוד קריא :)<br>
+תודה רבה.</div>
+<a id="comment1017"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/12/2011 10:40</span><br>
+אחלה מדריך!</div>
+<a id="comment1018"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/12/2011 17:12</span><br>
+תודה</div>
+<a id="comment1019"></a>
+<div class="blog-comment">
+<span class='comment-author'>amitdar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/01/2012 10:53</span><br>
+כל הכבוד על המדריך... בהחלט אנסה לעבוד עם FILE API<br>
+משהו קטן שהייתי מוסיף זה בתחילת המדריך קישור לדמו קטן שמראה את זה בפעולה</div>
+<a id="comment1021"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhuil</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/01/2012 19:21</span><br>
+דמו יש אבל הוא ממומש בצורה אחרת. למי שמעוניין, קוד שלם ניתן לראות ברפו:<br>
+<span dir="ltr"><a href="https://github.com/cthulhu25/File-API-based-Image-Upload">https://github.com/cthulhu25/File-API-based-Image-Upload</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

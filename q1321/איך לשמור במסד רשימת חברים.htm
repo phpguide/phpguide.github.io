@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך לשמור במסד רשימת חברים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="SSD">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>איך לשמור במסד רשימת חברים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך לשמור במסד רשימת חברים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך לשמור במסד רשימת חברים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך לשמור במסד רשימת חברים.htm" title="נניח ויש לי אתר כמו פייסבוק שיש שם אפשרות ליצור חברים,איך להכניס את המידע למסד?אם נעשה טבלה עם 2 עמודות שבעמודה A יהיה את השם של מציע החברות, ובעמודה B יהיה את השם של המשתמש שהציעו לו חברות,אז מה קורה ויש 50,000 משתמשים באתר ולכל אחד יש 200 חברים = 10,000,000 (עשר מליון) שורות במסד! ומה קורה שיש יותר מ50000 משתמשים..ואם המערכת עובדת שהחבר צריך להסכים לחברות(כמו בפייסבוק) אז מכפילים את השורות כי אם דן חבר של בר, אז גם בר חבר של דן - 2 שורות במסד.יש רעיונו">איך לשמור במסד רשימת חברים</a></h2>
+<div class="userinfo">
+פתח
+<a>SSD</a>
+,
+<time class="timeago relativetime" datetime="2013-03-20T20:40:19+02:00" style="display:inline-block;">
+20 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1321'>
+נניח ויש לי אתר כמו פייסבוק שיש שם אפשרות ליצור חברים,<br>איך להכניס את המידע למסד?<br><br>אם נעשה טבלה עם 2 עמודות שבעמודה A יהיה את השם של מציע החברות, ובעמודה B יהיה את השם של המשתמש שהציעו לו חברות,<br>אז מה קורה ויש 50,000 משתמשים באתר ולכל אחד יש 200 חברים = 10,000,000 (עשר מליון) שורות במסד! ומה קורה שיש יותר מ50000 משתמשים..<br>ואם המערכת עובדת שהחבר צריך להסכים לחברות(כמו בפייסבוק) אז מכפילים את השורות כי אם דן חבר של בר, אז גם בר חבר של דן - 2 שורות במסד.<br><br>יש רעיונות? </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5815">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 21 למרץ 2013 </span>
+<a id="answer_5815" href="איך לשמור במסד רשימת חברים.htm#answer_5815">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה לעשות, אין פתרונות קסם לאחסון נתונים כמו באגדות. זו המציאות, וזה אכן ידרוש יותר אופטימיזציה של צד השרת ככל שהמסד יגדל. כמו הרבה דברים אחרים.<br>ואני לא רואה שום סיבה להכפיל את השורות. זה יהיה <a href="http://stackoverflow.com/questions/1009025/facebook-database-design">דו-צדדי</a>. </p>
+</div>
+<div class="answer" id="answer5816">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 למרץ 2013 </span>
+<a id="answer_5816" href="איך לשמור במסד רשימת חברים.htm#answer_5816">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ומה לעשות אם יש לך לא רק 50000 משתמשים אלה הרבה מליונים, כמו לפייסבוק?<br>אז יהיה לך הרבה מאוד שורות במסד. ויהיה לך לא מסד אחד אלה הרבה מאוד.<br>ולא במקום אחד בעולם אלה בהרבה מאוד. </p>
+</div>
+<div class="answer" id="answer5817">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 21 למרץ 2013 </span>
+<a id="answer_5817" href="איך לשמור במסד רשימת חברים.htm#answer_5817">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה לא להשתמש במונגו? או בקסנדרה? או בביג טייבל של גוגל שמוצע בקוד פתוח? </p>
+</div>
+<div class="answer" id="answer5819">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8b1e60c838d01aa0f2c529dde3ea0066?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ssdd</a>
+ב
+<span style="font-size:10px"> 21 למרץ 2013 </span>
+<a id="answer_5819" href="איך לשמור במסד רשימת חברים.htm#answer_5819">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+OrelBeY :<br>ובמקרה של מערכת כמו טוויטר, שבה לא צריך לאשר בקשת חברות (כלומר אני יכול להיות חבר/לעקוב אחרי מי שבא לי)<br>אז כן צריך להכפיל את השורות - במקרה ששני אנשים עוקבים אחד אחרי השני..<br><br>לגבי מונגו וקסנדרה זה פתרונות NOSQL שאין לי מושג איך לעבוד (זה פשוט כמו SQL? זה מותקן על השרתים, או שצריך להתקין ולהסתבך?)<br><br>ואלכס: כנראה מה שאמרת זה הפתרון, לפחות בהתחלה </p>
+</div>
+<div class="answer" id="answer5820">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 21 למרץ 2013 </span>
+<a id="answer_5820" href="איך לשמור במסד רשימת חברים.htm#answer_5820">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@ssdd, בהחלט נכון. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

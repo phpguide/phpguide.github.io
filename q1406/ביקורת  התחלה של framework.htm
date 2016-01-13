@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ביקורת - התחלה של framework">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>ביקורת - התחלה של framework | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ביקורת - התחלה של framework | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ביקורת - התחלה של framework">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ביקורת  התחלה של framework.htm" title="קישור ל-framework ב-github.זו התחלה כמובן. אין עוד עבודה עם database, מערכת של משתמשים וכו&amp;#039;.הקונטרולר שיש שם כרגע עובד עם model שמייצג טופס הרשמה.אפשר לראות שממש ממש קל ונוח לטפל בטפסים והעבודה ב-view מאוד נוחה. על זה אני מתכוון לשים את הדגש.אני יודע שאני מפסיד בביצועים, אבל המטרה שלי כאן היא כתיבת קוד קלה.דברים מרכזיים:1. ה-action מקבל כפרמטרים את הפרמטרים שנשלחו בבקשה (get/post) (שליחת הפרמטרים ">ביקורת - התחלה של framework</a></h2>
+<div class="userinfo">
+פתח
+<a>iiddaannyy</a>
+,
+<time class="timeago relativetime" datetime="2013-04-28T16:23:58+03:00" style="display:inline-block;">
+28 לאפריל 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1406'>
+<a href="https://github.com/iiddaannyy/WL">קישור ל-framework ב-github</a>.<br><br>זו התחלה כמובן. אין עוד עבודה עם database, מערכת של משתמשים וכו&#039;.<br>הקונטרולר שיש שם כרגע עובד עם model שמייצג טופס הרשמה.<br>אפשר לראות שממש ממש קל ונוח לטפל בטפסים והעבודה ב-view מאוד נוחה. על זה אני מתכוון לשים את הדגש.<br>אני יודע שאני מפסיד בביצועים, אבל המטרה שלי כאן היא כתיבת קוד קלה.<br><br>דברים מרכזיים:<br>1. ה-action מקבל כפרמטרים את הפרמטרים שנשלחו בבקשה (get/post) (שליחת הפרמטרים היא לפי השמות שלהם ולא לפי הסדר, מה שנוח מאוד).<br>2. יש מיפוי של הפרמטרים לאובייקטים. אפשר לראות ב-action היחיד שיש לי שם כרגע, שאני מקבל אובייקט מסוג RegisterForm. מה שקורה הוא שנוצר אובייקט RegisterForm חדש ושהפרמטרים (get/post) ממלאים את ה-properties שלו. ובכך אנחנו מקבלים ל-action אובייקט RegisterForm.<br>3. ניתוח של ה-phpdoc במאפיינים של models. אם ניכנס ל-RegisterForm אפשר לראות שלכל מאפיין יש דוקומנטציה שבסופו של דבר משפיעה על האפליקציה באופן ישיר. אני קובע דרך שם חוקי ואלידציה, הודעות שגיאה, שמות תצוגה וכו&#039;.<br>4. כהמשך ל-3, יש namespace בשם Validators שמכיל בתוכו את כל הואלידטורים. כרגע יש שם רק את הואלידאטור הבסיסי, שהוא משמש כברירת מחדל.<br>5. מחלקת HtmlHelper לטיפול נוח בפקדי html. המחלקה הזו מתואמת עם המאפיינים של המודל ואפשר ליצור איתה פקדי html שמקושרים או לא מקושרים למאפיינים של ה-model בצורה נוחה מאוד. אפשר לראות שימוש שלה בשני ה-views שיש לי שם.<br><br><br>אשמח לקבל ביקורת טובה/רעה, הצעות לשיפור.<br>ודבר נוסף - לא סתם זה ב-github. אם מישהו רוצה להצטרף לפיתוח הוא תמיד מוזמן. </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6223">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2013 </span>
+<a id="answer_6223" href="ביקורת  התחלה של framework.htm#answer_6223">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל - שאפו על השימוש הנכון בניימספייס.<br>אני רואה קיבלת השראה פה ושם מכל מיני פריימוורקים, שזה רעיון חכם :)<br>השימוש בלייזי לואדינג (aka autoload) הוא שימוש רצוי, אך יש (מהרפרוף שלי) קצת הרבה שימוש בincludeים<br>מיותרים, שלדעתי אפשר להפיל על הautoloader ולחסוך עוד כמה שורות של קוד<br>השימוש שוב הוא בסדר גמור, וכמובן שיש מקרים שהקבצים שאתה רוצה לאנקלד לא תואמים לתקן psr-0 ככה שחייב לרשום<br>את הנתיב לקובץ, אבל לפי מה שאני ראיתי לא היה לך בעיות של תאימות ולדעתי אתה יכול אפילו לכתוב קלאס שישמש נטו לאאטולואדינג יותר מתוחכם. אני אישית כשעבדתי על פרויקט קטן לאחרונה פשוט לקחתי את הautoloader של לרבל, והתלבשתי עליו. לא חייב להתלבש עליו, אבל הוא יכול להווה אחלה מקור לרעיונות.<br><br>קונטרולרים:<br>עשית שם עבודה בסדר לחלוטין, רק הערה קטנה בנוגע לקובץ הראשי (Controller.php):<br>יש שם המון מטודות של setTitle, setAuthor וכו&#039;. לדעתי האישית זה design לא נכון, כי קונטרולר לא אמור להיות אחראי לצד של הנתוני view האלה אלא דווקא הקלאס view שלך ששם זה בהחלט לגיטימי לשים את כל זה וכמובן שאת addJs, addCss וכו&#039;. אם בכלל הולכים על design נכון יותר אפשר להפריט את הנושאים - כל החלק של הקבצים הסטטים אפשר ליצור lib נפרד שיקרא assets וינהל את כל העיניין של הקבצים הסטטים הנ&quot;ל, ובאותה מידה אולי lib ל-&quot;html&quot; שיהווה לא בהכרח בניית forms וכדומה אלא גם יאפשר ניהול טאגים בסיסים כמו שציינת שם.<br>בסופו של דבר כשאתה מתכנן מערכת זה די חשוב להפריט ולראות האם באמת הדברים האלה קשורים למה שצריך.<br><br>בקובץ view שוב חוזרת הנקודה של האאוטולואדינג, אבל חוץ מזה נראה בסדר. מה שכן ראיתי יש לך את התנאי <div class="php codeblock"><span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'/^[a-z\d]+$/iu'</span><span class="sy0">,</span> <span class="re0">$viewName</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div> - אני לא בטוח עד כמה הוא שימושי.<br>נגיד ויש לי סטייל של שמות כאלה: register_index.php, register_step1.php, register_last.php ולפי מה שאני רואה התנאי שלך יזרוק אותי פשוט החוצה. אלא אם כן באמת חשוב לך מסיבה כלשהי שקשורה למערכת שיהיה את הסטנדרט הזה, אני לא חושב שיש סיבה להחזיק בתנאי הזה.<br><br>חוץ מזה יש עוד כמה נקודות:<br>error &amp; exception handler - דבר שדי רצוי לממש, להקל על ניהול השגיאות בצורה יותר יעילה וגם לאפשר לזרוק לתוך קובץ לוגים ולהדפיס שגיאה יפה ללקוח הסופי.<br>מחלקת request היא מחלקה בהחלט נחמדה, ומקיפה דברים, אבל כמו כן יש סיפרייה ממש נחמדה של סימפוני בשם HttpFoundation, שהיא קלה להטמעה וכמו כן לשימוש. הסיפרייה מקיפה ברמות את כל מה שקשור לעבודה מול Request וResponse בצורות שמכסות ממש את הכל. בכל פעם שיש לי צורך בשימוש בדברים האלה - אני לא חושב פעמיים ומשתמש בה.<br>כמו כן שוב design, העיצוב שעשית הוא בסדר גמור, אבל לדעתי צריך להסתכל יותר לכיוון האם זה באמת קשור למחלקה הנוכחית, האם המבנה של התיקיות נכון, האם באמת צריך פה traits, האם הקלאס הזה הוא בכלל צריך להיות משהו אבסטרקטי, אולי צריך לדחוף פה אינטרפייס איפשהו, האם התשתית הזאת מספיק גמישה לפרויקטים קצת יותר מסובכים. יש קצת בלבול עם הקבצים לדעתי, ברמת הסידור של המבנה תיקיות אבל זה לא משהו קריטי במיוחד.<br>בסופו של דבר OO הוא דבר מופלא, ויש לו המון אפשרויות של deisgn, צריך רק לקרוא וללמוד :)<br><br>חוץ מזה בתור התחלה עשית פה אחלה בסיס, אחלה עבודה ובאמת שאפו על זה.<br><br>כמו כן אשמח לקבל תמיד את דעתך על התגובה שלי, ותמיד יכול להיות שאני טועה אז לא לקחת אותי כמובן מאליו בכל דבר </p>
+</div>
+<div class="answer" id="answer6224">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2013 </span>
+<a id="answer_6224" href="ביקורת  התחלה של framework.htm#answer_6224">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עוד משהו שרציתי לציין, עמוד הindex.php<br>לדעתי גם שם הdesign הוא לא הכי נכון - הגדרת הקונטרולר הדיפולטי וכמו כן הגדרת הaction הדפילוטי לא אמורה להיות מוגדרת שם. הrewrite שעשית הוא בסדר לחלוטין, אבל אני רואה מכאן איך אפשר לעשות את זה יותר גמיש ולהוסיף גם מחלקת ניתוב שתאפשר אפילו יותר גמישות. בכל מקרה יש המון לאן לזרום מכאן, פשוט צריך לראות איך פריימוורקים אחרים מטפלים בכל העיניין הזה ולתת לרעיונות לזרום :) </p>
+</div>
+<div class="answer" id="answer6226">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 29 לאפריל 2013 </span>
+<a id="answer_6226" href="ביקורת  התחלה של framework.htm#answer_6226">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל, דעתי על התגובה שלך: תודה רבה, מעריך מאוד תגובות מושקעות. זו מסוג התגובות שלקרוא ולהבין את כולן ולהסיק את כל המסקנות מהן לוקח הרבה יותר מקריאה אחת. באמת תודה רבה! :)<br><br><br>autoloader:<br>כרגע זה משהו בסיסי ביותר שמסתמך על הרעיון שמבנה הקבצים והתיקיות זהה למבנה של ה-namespaceים.<br>אבל אני בהחלט מסכים איתך שיהיה ראוי למממש autoloader מקיף יותר. אני אסתכל בזה של לרבל.<br><br>קונטרולרים:<br>אתה צודק. בהתחלה לא הייתה בכלל מחלקת View ונוצר מצב שהרבה דברים ששייכים ל-view הופיעו בקונטרולר (כן, גם המתודה render).<br><br>View:<br>התנאי הזה הוא יותר עניין אבטחתי מאשר סטנדרט קבוע. לא רציתי לאפשר מצבים שאני מקבל view כזה: System/App.php/.. ויוצא שאני טוען את App במקום איזשהו view.<br>ככה שכדי להמנע מהשטויות האלה, בדקתי שהוא מכיל תווים מסוימים. אני אוסיף לשם עוד תווים (קו תחתון, מספרים וכו&#039;).<br><br>error &amp; exception handler:<br>תוכל לראות ב-index שהכל עטוף ב-try.. catch. מה שאני כן מתכנן הוא תפיסה של כל ה-errorים ש-php זורקת (לא Exceptions) ולהמיר אותם ל-Exceptions.<br><br>request:<br>אני גם אבדוק את HttpFoundation, אולי אני אבחר באמת להטמיע אותה אצלי, או שאולי אני רק אקח רעיונות.<br>תודה, לא ההכרתי את זה.<br><br>index.php:<br>האמת היא שאני מתכוון די להעיף אותו. אם מישהו משתמש בפריימוורק אני לא רוצה לקבע אותו ל-index ספציפי.<br>אני מתכוון למממש מחלקת Bootstrap או משהו בסגנון, ככה שב-index יהיה אפשר פשוט להפעיל אותה וזה הכל.<br>בנוגע להגדרות של הדיפולטים - אני אעביר את זה ל-config.<br><br><br>תודה רבה, גם לשאר ההערות שלא הגבתי עליהן אני לקחתי לתשומת לבי ואני אשתדל לשפר.<br>שוב תודה. :) </p>
+</div>
+<div class="answer" id="answer6231">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 29 לאפריל 2013 </span>
+<a id="answer_6231" href="ביקורת  התחלה של framework.htm#answer_6231">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עשיתי <a href="https://github.com/iiddaannyy/WL/commit/8b990916be9315bd73516695af2b1063a7d31273">שינויים</a>.<br>יש עכשיו תמיכה הרבה הרבה יותר טובה ב-annotations.<br>ושיפרתי את ה-validators. </p>
+</div>
+<div class="answer" id="answer6232">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 30 לאפריל 2013 </span>
+<a id="answer_6232" href="ביקורת  התחלה של framework.htm#answer_6232">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1) לא אהבתי את הצורה של הטפסים שעשית (שאותה ראיתי ב-View/register).<br><div class="php codeblock"><span class="sy1">&lt;?=</span> <span class="re0">$html</span><span class="sy0">-&gt;</span><span class="me1">labelFor</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="br0">&#41;</span> <span class="sy1">?&gt;</span> <br>
+<span class="sy1">&lt;?=</span> <span class="re0">$html</span><span class="sy0">-&gt;</span><span class="me1">textBoxFor</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="br0">&#41;</span> <span class="sy1">?&gt;</span></div><br>הפונקציות האלו לא עוזרות ממש כאשר אתה עדיין צריך לכתוב כל מה שאתה רוצה בנפרד.<br>תעשה אפשרות שתתן לך ליצור פונקציות משלך ליצירת אלמנטים, שתוכל לדוגמא לעשות פונקציה משלך שמאפשר יצירה של אינפוט ושל לבל ביחד.<br><div class="php codeblock"><span class="re0">$html</span><span class="sy0">-&gt;</span><span class="me1">addHelper</span><span class="br0">&#40;</span>string <span class="re0">$name</span><span class="sy0">,</span><span class="kw3">array</span> <span class="re0">$params</span><span class="sy0">,</span>callable <span class="re0">$func</span><span class="br0">&#91;</span><span class="sy0">,</span><span class="kw3">array</span> <span class="re0">$funcParams</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// $html-&gt;addHelper('input',['string $name','string $value','string $text','array $attrs'],'createInput');</span><br>
+<span class="co1">// $html-&gt;addHelper('input',['string $name','string $value','string $text'],'createInput',['attrs'=&gt;[]]);</span><br>
+<span class="co1">// $html-&gt;addHelper('input',['string $name','string $value'],'createInput',['attrs'=&gt;[],'withoutLabel'=&gt;true]);</span></div><br>(בדוגמא הצהרה לפונקציה - כאשר פרמטר מוקף בהצרה בסוגריים מרובעות זה אומר שהוא לא חובה)<br>(הקוד שיש שם הוא ההצהרה, וכל מה שנמצא בתוך הערה אלו דוגמאות למימוש)<br>(יש פה העמסת פונקציות עפ&quot;י הפרמטרים שהפונקציה addHelper צריכה לעשות בעזרת הפרמטר $params)<br>(זה לא מבוצע פה עד הסוף, זה סה&quot;כ דוגמא ואים עליה ממש עקביות איך זה יבוצע מבחינת הפונקציה addHelper)<br>($funcParams מאפשר לשלוח לפונקציה $func פרמטרים שלא נמצאים ב$params)<br>2) בקונטרולר, באקשיין: למה לבדוק את המתודה ואת הטופס בפונקציה אם אפשר לשדרג קצת את המערכת כדי לעשות ככה (עם קצת שדרוג של ה-validator):<br><div class="php codeblock"><span class="co4">/**<br>
+* The Index action.&lt;br /&gt;<br>
+* @url: GET /Index/Index<br>
+*/</span><br>
+<span class="kw2">public</span> <span class="kw2">function</span> IndexFormAction<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="coMULTI">/* form */</span><span class="br0">&#125;</span><br>
+<span class="co4">/**<br>
+* The Index action.&lt;br /&gt;<br>
+* @url: POST /Index/Index<br>
+* @validator use($form-&gt;isValid()) <br>
+* @else: GET /Index/Index<br>
+*/</span><br>
+<span class="kw2">public</span> <span class="kw2">function</span> IndexFormAction<span class="br0">&#40;</span>RegisterForm <span class="re0">$form</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="coMULTI">/* show */</span><span class="br0">&#125;</span></div><br>(כאשר ב-validator, הפונקציה use מאפשרת להמשיך כאשר תנאי כלשהו שווה ל-true, תוך כדי שימוש בפרמטרים שפונקציית האקשן מקבלת (לפני שהיא מופעלת))<br>(כאשר @else מציין פקודה שצריך לעשות אם ה-validator לא נכון. </p>
+</div>
+<div class="answer" id="answer6240">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 30 לאפריל 2013 </span>
+<a id="answer_6240" href="ביקורת  התחלה של framework.htm#answer_6240">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. האמת היא שהרעיון הזה לא שלי, זה סגנון של דוט נט והוא מאוד נפוץ.<br>ולא הבנתי מה המטרה של addHelper, מה זה נותן לי?<br><br>2. אין method-overloading ב-php לצערי. ולכן תקבל שגיאה כשתיצור שתי מתודות עם אותו השם. אם זה היה קיים (כמו ב-c# למשל), אז סביר לראות שהיית רואה בפריימוורק דבר כזה:<br><br><div class="php codeblock"><span class="co4">/**<br>
+&nbsp;* @RequestMethod POST<br>
+&nbsp;*/</span><br>
+<span class="kw2">public</span> <span class="kw2">function</span> IndexAction<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">public</span> <span class="kw2">function</span> IndexAction<span class="br0">&#40;</span>RegisterForm <span class="re0">$form</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="br0">&#125;</span></div><br>כמו בדוט נט.<br><br><br>תודה רבה על ההצעות, אבל את הראשונה לא כל כך הבנתי ואת השניה אי אפשר לממש (בצורה נורמלית, בלי לשנות את הקוד בזמן ריצה). </p>
+</div>
+<div class="answer" id="answer6243">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d05d6cb41828db40fede3cc4e91e98ad?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>dekelyi</a>
+ב
+<span style="font-size:10px"> 01 למאי 2013 </span>
+<a id="answer_6243" href="ביקורת  התחלה של framework.htm#answer_6243">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1.1.1) בדוטנט האלמנט מופיע כאלמנט HTML עם ניימספייס ASP, מה שהופך את הקוד ליותר מובן הרי אנחנו בטוחים שזה יציג לנו אלמנט שבצד לקוח.<br>1.1.2) בדוטנט, הדבר המרכזי שבגללו יש את זה הוא כי בעזרת הדברים האלו אפשר לעשות קשר בין אלמנטי הצד לקוח שכתובים עם ניימספייס asp לקוד C#/VB.NET, ובכך לשלוט בצד לקוח דרך הצד שרת.<br>1.2) זה מעיין אפשרות ליצור &quot;תגים&quot; משלך שיעשו מה שאתה רוצה.<br>תאר לך שהיית יכול בעזרת תג &lt;panel&gt; ותג &lt;tab&gt; ליצור אלמנט משלך שיעשה פאנל של טאבים, בלי התעסקות בקוד עצמו של הפאנל שכתוב בHTML.<br>במילים אחרות: הקוד שאתה כותב עם התגים שיצרת יהפוך לקוד HTML מבלי שתצטרך לכתוב את כולו.<br><div class="php codeblock"><span class="sy0">&lt;!--</span> in html<span class="sy0">/</span>xml tags with a <span class="kw2">namespace</span> <span class="sy0">--&gt;</span><br>
+<span class="sy0">&lt;</span>x<span class="sy0">:</span>panel<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>x<span class="sy0">:</span>tab title<span class="sy0">=</span><span class="st0">&quot;tab 1&quot;</span><span class="sy0">&gt;</span>content of tab <span class="nu0">1</span><span class="sy0">&lt;/</span>x<span class="sy0">:</span>tab<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>x<span class="sy0">:</span>tab title<span class="sy0">=</span><span class="st0">&quot;tab 2&quot;</span><span class="sy0">&gt;</span>content of tab <span class="nu0">2</span><span class="sy0">&lt;/</span>x<span class="sy0">:</span>tab<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>x<span class="sy0">:</span>panel<span class="sy0">&gt;</span></div><br><div class="php codeblock"><span class="co1">// in PHP Server-side</span><br>
+<span class="re0">$html</span><span class="sy0">-&gt;</span><span class="me1">xPanel</span><span class="br0">&#40;</span><br>
+&nbsp; <span class="re0">$html</span><span class="sy0">-&gt;</span><span class="me1">xTab</span><span class="br0">&#40;</span><span class="st_h">'tab 1'</span><span class="sy0">,</span><span class="st_h">'content of tab 1'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; <span class="re0">$html</span><span class="sy0">-&gt;</span><span class="me1">xTab</span><span class="br0">&#40;</span><span class="st_h">'tab 2'</span><span class="sy0">,</span><span class="st_h">'content of tab 2'</span><span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span></div><br>הדבר הזה קיים בהרבה פריימוורקים של צד לקוח והוא מאוד שימושי.<br><br>2) טעות שלי - התכוונתי לכתוב את המתודות בשמות שונים (IndexFormAction, IndexShowAction) וככה למנוע דריסה של מתודות.<br>התכוונתי שהפריימוורק יפענח את הדרישות של האקשן ויבחר בעצמו איזו מתודה להריץ. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

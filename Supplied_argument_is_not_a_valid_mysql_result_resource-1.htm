@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="פתרון שגיאת Supplied argument is not a valid .. resource">
+<meta name="keywords" content="Supplied argument is not a valid mysql result resource">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Supplied argument is not a valid mysql result resource</title>
+<meta itemprop="name" content="Supplied argument is not a valid mysql result resource">
+<meta itemprop="description" content="פתרון שגיאת Supplied argument is not a valid .. resource">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"22","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Supplied argument is not a valid mysql result resource</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-10-11T06:43:59+02:00" dir="rtl">11 לאוקטובר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://cdn.instructables.com/FHS/UTL4/GD2JC9I9/FHSUTL4GD2JC9I9.SQUARE.jpg" alt="Supplied argument is not a valid mysql result resource">
+</div>
+<div class="right post-content">
+שגיאה מאוד מעצבנת בזמן שליפה ממסד שנגרמת בגלל <strong>טעות בשאילתה</strong>. כדי לברר מה השגיאה יש את <span dir="ltr"><strong>echo mysql_error();</strong></span>, לא? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h4> משאב (Resource) הוא מצביע, קישור למשהו חיצוני.</h4><br><br>תארו לעצמכם מוסך גדול עם עשרות חניות. מפינת הרחוב בחריקה מטורפת יוצאת לה פררי אדומה יפהפיה, עוצרת לה בחניה מספר חמש של המוסך ויוסי, הבעלים של הפררי יוצא וצועק לעבר המוסכניק: מלא לי 10 ליטר שמן במכונית. החניתי אותו בחניה מספר חמש ומראה לכיוונה עם האגודל. <br><br>העובד שלנו קיבל מהנהג שני דברים. <br>א. מספר (כמות ליטרי השמן) <br>ב. מזהה ייחודי (מצביע) של מיקום המכונית בחניית המוסך. <br><br>הוא לא קיבל את המכונית עצמה, אלה קישור למיקום בו נמצאת המכונית. <br>קישור זה למשהו חיצוני נקרא משאב.<br><br><br><h4>הארגומנט המועבר אינו תקין</h4><br><br>לרוב נראה את השגיאה הזו בשורה דוגמאת <br><div class="php codeblock"><span class="kw1">while</span><span class="br0">&#40;</span> <span class="re0">$a</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$b</span><span class="br0">&#41;</span> <span class="br0">&#41;</span></div><br>הפונקציה היחידה שמקבלת כאן ארגומנט (פאראמטר) היא הפונקציה mysql_fetch_assoc. <br>php אומר שהפאראמטר הזה לא תקין. נסתכל רגע מאיפה הוא מגיע<br><br>הפאראמטר הזה מגיע אלינו מתוצאת הפונקציה mysql_query שכנראה מחזירה לנו משאב לא תקין, או בעצם בפועל היא לא מחזירה משאב כלל, אלה מחזירה false<br><br><h4>מתי mysql_query מחזירה משאב לא תקין?</h4><br>בדוקומנטציה כתוב שבמקרה ויש שגיאה בשאילתת ה-sql הפונקציה תחזיר false במקום משאב. כלומר אם הפונקציה לא החזירה משאב יש לנו שגיאה בשאילתה.<br><br>לראות מה השגיאה אפשר באמצעות הפונקציה <span dir="ltr">mysql_error()</span> .<br>כמו כן רצוי לוודא שהשאילתה החזירה לפחות שורה אחת, כלומר בטבלה יש לפחות שורה אחת שעונה על התנאי של השאילתה.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="re0">$res</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;BLABLA FROM `table`&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// We have an error here</span><br>
+<span class="co1">// $res = false</span><br>
+<br>
+<span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$r</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$res</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+<span class="co1">// Supplied argument is not a valid .. resource</span></div><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="re0">$res</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;BLABLA FROM `table`&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// We have an error here</span><br>
+<span class="co1">// if res === false or 0 rows returned</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$res</span> <span class="sy0">||</span> <span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$res</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span><span class="nu0">1</span> <span class="br0">&#41;</span> <br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'Query returned 0 results'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$r</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$res</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+<span class="br0">&#125;</span></div> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

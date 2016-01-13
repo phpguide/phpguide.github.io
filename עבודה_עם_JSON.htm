@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מה זה JSON ? איך משתמשים בJSON ? איך ניתן לשלב עבודה עם JSON ביחד עם PHP או AJAX ועוד ..">
+<meta name="keywords" content="JSON, עבודה עם JSON ועם PHP, מה זה JSON, JSON עם AJAX">
+<meta name="author" content="JBStyle">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>עבודה עם JSON</title>
+<meta itemprop="name" content="עבודה עם JSON">
+<meta itemprop="description" content="מה זה JSON ? איך משתמשים בJSON ? איך ניתן לשלב עבודה עם JSON ביחד עם PHP או AJAX ועוד ..">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"104","rating":"32","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>עבודה עם JSON</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">JBStyle, </div>
+<div class="right">&nbsp;<time datetime="2011-06-14T18:50:17+03:00" dir="rtl">14 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/json.gif" alt="עבודה עם JSON">
+</div>
+<div class="right post-content">
+במדריך זה נכיר ונלמד על JSON ובין היתר על העבודה עם JSON בPHP ואף שילובו עם JS ועם AJAX . <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שלום לכל הגולשים, במדריך הבא אלמד ואסביר מעט על JSON ועל עבודה עם JSON בPHP ואף באופן שניתן לשלבו בJS ובAJAX .<br><br><h3>מה זה JSON ?</h3><br>JSON הינו פורמט להעברת נתונים בצורה מאוד קלילה ונוחה .<br>JSON אלו הם ראשי התיבות של <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation ולכן ישר מבינים שזה קשור בצורה כלשהי לJavaScript .<br>ובכן, JSON הוא אובייקט JS המכיל מפתחות עם ערכים מסוימים הקשורים להם .<br><br><br><h3>מתחילים לעבוד עם JSON</h3><br>ובכן, כמו שציינתי בהסבר, JSON הינו אובייקט JS הבנוי ממפתחות שמשויכים להם ערכים משלהם .<br><br>ובכן, בואו נראה דוגמה לאובייקט JSON:<br><div class="php codeblock"><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;name&quot;</span><span class="sy0">:</span> <span class="st0">&quot;Asaf&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;lastName&quot;</span><span class="sy0">:</span> <span class="st0">&quot;Goldstein&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>האובייקט הנ&quot;ל מתאר לנו שני מפתחות אשר להם יש ערכים .<br>בעוד שהמפתח name מחזיק בערך Asaf, המפתח lastName מחזיק בערך Goldstein .<br>כך מתארים אובייקט JSON !<br>כמו שניתן לשים לב, ראשית אנו מתחילים בסוגריים מסולסלות ולאחר מכן אנו רושמים שם של מפתח, לאחריו נקודתיים ואז את ערכו .<br>כמו כן ניתן להמשיך ולרשום עוד ועוד מפתחות וערכים כל עוד נפריד אותם בפסיק (כמו בדוגמה) .<br><br>נשאלת השאלה, כיצד ניתן לאחסן בתוך מפתח אחד מספר ערכים ?<br>ובכן, פשוט מאוד, נעשה זאת כך:<br><div class="php codeblock"><span class="br0">&#123;</span><br>
+<span class="st0">&quot;name&quot;</span> &nbsp;<span class="sy0">:</span> <span class="st0">&quot;Asaf&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;phone&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;mobilePhone&quot;</span> &nbsp; <span class="sy0">:</span> <span class="st0">&quot;0500000000&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;officePhone&quot;</span> &nbsp; <span class="sy0">:</span> <span class="st0">&quot;030000000&quot;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>ראוי להדגיש, אם איננו מתכוונים לתת מפתחות לערכים הפנימיים שבתוך המפתח (במקרה הזה Mobile, Office במפתח Phone), אז עלינו לעשות זאת בצורת מערך ללא מפתחות, כך:<br><div class="php codeblock"><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;name&quot;</span> &nbsp;<span class="sy0">:</span> <span class="st0">&quot;Asaf&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;phone&quot;</span> <span class="sy0">:</span> <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;0500000000&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;030000000&quot;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#93;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br><br><h3>פונקציות עזר בPHP לעבודה עם JSON</h3><br>ובכן, כדי לנתח ולהפוך JSON למערך וכן להפוך מערך למחרוזת JSON יש לנו שני כלים:<br><strong><a href="http://www.php.net/json_encode">json_encode</a></strong> - הופכת מערך למחרוזת של אובייקט JSON .<br>הפונקציה מקבלת שני ארגומנטים, הראשון הינו חובה ואילו השני אופציונלי .<br>הראשון (חובה) יכיל את המערך שברצוננו להפוך למחרוזת של אובייקט JSON;<br>השני (אופציונלי) מכיל קבועים מסוגים שונים, שמטרתם היא להפוך תווים מסויימים (תלוי באיזה קבוע מדובר) להקסדצימלים .<br><br><strong><a href="http://www.php.net/json_decode">json_decode</a></strong> - הופכת מחרוזת של אובייקט מסוג JSON לאובייקט/ מערך .<br>הפונקציה מקבלת ארבעה ארגומנטים, הראשון הינו חובה ואילו כל השאר הינם ארגומנטים אופציונליים .<br>הראשון (חובה) יכיל את מחרוזת הJSON שברצוננו להמיר למערך/ אובייקט .<br>השני (אופציונלי) יכיל TRUE אם ברצוננו שיוחזר לנו מערך אסוציאטיבי או FALSE (שזוהי ברירת המחדל במקרה שלא נמלא ארגומנט זה) במקרה שנרצה לקבל אובייקט .<br>השלישי (אופציונלי) יכיל מספר המסמל את העומק הרקורסיבי שבה הפונקציה תנתח את המחרוזת ותהפוך אותו לאובייקט/ מערך .<br>הרביעי (אופציונלי) יכיל קבוע מסוים; נכון להיום, אך ורק הקבוע JSON_BIGINT_AS_STRING נתמך (הופך מספרים גדולים (כדוגמת 12345678901234567890) למחרוזות .<br><br><br><h3>דוגמאות שימוש בפונקציות השונות לJSON בPHP</h3><br>נחזור לדוגמה הראשונה שהבאנו בדף, כעת בואו ננתח את המחרוזת הנ&quot;ל ונהפוך אותה לאובייקט ולאחר מכן נדפיס את המפתחות שלנו:<br><div class="php codeblock"><span class="re0">$foo</span> <span class="sy0">=</span> <span class="st_h">'<br>
+&nbsp; &nbsp; {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;name&quot;: &quot;Asaf&quot;,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;lastName&quot;: &quot;Goldstein&quot;<br>
+&nbsp; &nbsp; }'</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$foo</span> <span class="sy0">=</span> <span class="kw3">json_decode</span><span class="br0">&#40;</span> <span class="re0">$foo</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'My Name is '</span> <span class="sy0">.</span> <span class="re0">$foo</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">.</span> <span class="st_h">' '</span> <span class="sy0">.</span> <span class="re0">$foo</span><span class="sy0">-&gt;</span><span class="me1">lastName</span><span class="sy0">;</span> <span class="co1">// outputs 'My Name is Asaf Goldstein';</span></div><br><br>כעת, בואו נחזור לדוגמה השנייה שלנו והפעם נהפוך את מחרוזת אובייקט הJSON שם למערך ונדפיס אותו (עם כמה תוספות כמו מקודם):<br><div class="php codeblock"><span class="re0">$foo</span> <span class="sy0">=</span> <span class="st_h">'<br>
+&nbsp; &nbsp; {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;name&quot; &nbsp;: &quot;Asaf&quot;,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;phone&quot; : {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;mobilePhone&quot; &nbsp; : &quot;0500000000&quot;,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;officePhone&quot; &nbsp; : &quot;030000000&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; }'</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$foo</span> <span class="sy0">=</span> <span class="kw3">json_decode</span><span class="br0">&#40;</span> <span class="re0">$foo</span><span class="sy0">,</span> <span class="kw4">TRUE</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'My Name is '</span> <span class="sy0">.</span> <span class="re0">$foo</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span> <span class="co1">// outputs 'My name if Asaf&lt;br /&gt;';</span><br>
+<span class="kw1">echo</span> <span class="st_h">'My mobile phone number is '</span> <span class="sy0">.</span> <span class="re0">$foo</span><span class="br0">&#91;</span><span class="st_h">'phone'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'mobilePhone'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span> <span class="co1">// outputs 'My mobile phone number is 0500000000&lt;br /&gt;'</span><br>
+<span class="kw1">echo</span> <span class="st_h">'My office phone number is '</span> <span class="sy0">.</span> <span class="re0">$foo</span><span class="br0">&#91;</span><span class="st_h">'phone'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'officePhone'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="co1">// outputs 'My office phone number is 030000000'</span></div><br><br>ובואו נראה למה תהפוך לנו מחרוזת אובייקט הJSON הבאה (ללא מפתחות):<br><div class="php codeblock"><span class="re0">$foo</span> <span class="sy0">=</span> <span class="st_h">'<br>
+&nbsp; &nbsp; {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;name&quot; &nbsp;: &quot;Asaf&quot;,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;phone&quot; : [<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;0500000000&quot;,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;030000000&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; ]<br>
+&nbsp; &nbsp; }'</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$foo</span> <span class="sy0">=</span> <span class="kw3">json_decode</span><span class="br0">&#40;</span> <span class="re0">$foo</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'My Name is '</span> <span class="sy0">.</span> <span class="re0">$foo</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">.</span> <span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span> <span class="co1">// outputs 'My name if Asaf&lt;br /&gt;';</span><br>
+<span class="kw1">echo</span> <span class="st_h">'My mobile phone number is '</span> <span class="sy0">.</span> <span class="re0">$foo</span><span class="sy0">-&gt;</span><span class="me1">phone</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span> <span class="co1">// outputs 'My mobile phone number is 0500000000&lt;br /&gt;'</span><br>
+<span class="kw1">echo</span> <span class="st_h">'My office phone number is '</span> <span class="sy0">.</span> <span class="re0">$foo</span><span class="sy0">-&gt;</span><span class="me1">phone</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="co1">// outputs 'My office phone number is 030000000'</span></div><br><br>כעת, לאחר שהבאתי דוגמאות לשימוש בפונקציה json_decode נבחן ונראה דוגמאות ושימושים בפונקציה json_encode .<br><br>בואו נהפוך את המערך הבא למחרוזת JSON (שתציג לנו בדיוק מה שעשינו בדוגמה הראשונה:<br><div class="php codeblock"><span class="re0">$foo</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'name'</span> &nbsp; &nbsp; &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'Asaf'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'lastName'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'Goldstein'</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="kw3">json_encode</span><span class="br0">&#40;</span><span class="re0">$foo</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// outputs {&quot;name&quot;:&quot;Asaf&quot;,&quot;lastName&quot;:&quot;Goldstein&quot;}</span></div><br><br>כעת, בואו ונלך לדוגמה השנייה שהראנו והפעם נהפוך את המערך הבא למחרוזת מסוג אובייקט JSON:<br><div class="php codeblock"><span class="re0">$foo</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'name'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'Asaf'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'phone'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'mobilePhone'</span> &nbsp; <span class="sy0">=&gt;</span> <span class="st_h">'0500000000'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'officePhone'</span> &nbsp; <span class="sy0">=&gt;</span> <span class="st_h">'030000000'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="kw3">json_encode</span><span class="br0">&#40;</span><span class="re0">$foo</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// outputs {&quot;name&quot;:&quot;Asaf&quot;,&quot;phone&quot;:{&quot;mobilePhone&quot;:&quot;0500000000&quot;,&quot;officePhone&quot;:&quot;030000000&quot;}}</span></div><br><br>וכעת, בואו נראה מה קורה כאשר למערך הנמצא בתוך המפתח phone אין מפתחות, אלא רק ערכים:<br><div class="php codeblock"><span class="re0">$foo</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'name'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'Asaf'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'phone'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'0500000000'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'030000000'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="kw3">json_encode</span><span class="br0">&#40;</span><span class="re0">$foo</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// outputs {&quot;name&quot;:&quot;Asaf&quot;,&quot;phone&quot;:[&quot;0500000000&quot;,&quot;030000000&quot;]}</span></div><br><br><br><h3>שילוב של JSON ביחד עם AJAX</h3><br>כעת, אסביר לכם כיצד ניתן לשלב JSON בJS בעזרת AJAX .<br>נכין את דף הPHP שלנו שאמור לנתח לנו את הנתונים:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="co4">/**<br>
+&nbsp;* Get user data with JSON and AJAX<br>
+&nbsp;* <br>
+&nbsp;* @author JBStyle<br>
+&nbsp;* @copyright 2011<br>
+&nbsp;*/</span><br>
+<br>
+<span class="re0">$foo</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="nu0">1</span> &nbsp; <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'name'</span> &nbsp; &nbsp; &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'Daniel'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'lastName'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'Levi'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="nu0">2</span> &nbsp; <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'name'</span> &nbsp; &nbsp; &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'Joey'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'lastName'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'Scott'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="kw3">json_encode</span><span class="br0">&#40;</span> <span class="re0">$foo</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// {&quot;1&quot;:{&quot;name&quot;:&quot;Daniel&quot;,&quot;lastName&quot;:&quot;Levi&quot;},&quot;2&quot;:{&quot;name&quot;:&quot;Joey&quot;,&quot;lastName&quot;:&quot;Scott&quot;}}</span><br>
+<span class="sy1">?&gt;</span></div><br><br>כעת נכין את סקריפט הAJAX שינתח ויציג לנו את השם ושם המשפחה של כל אחד מהאנשים שבמחרוזת האובייקט ששלחנו לו בדף הPHP- (Joey, Daniel)<br><div class="php codeblock">$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; $<span class="sy0">.</span>getJSON<span class="br0">&#40;</span> <span class="st_h">'userNamesJSON.php'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>jsonData<span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span> jsonData<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">.</span>lastName <span class="br0">&#41;</span> <span class="co1">// Levi</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span> jsonData<span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">.</span>name <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Joey</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>בדוגמה למעלה השתמשתי בפונקציה הקיימת בספריית JS הנקראת JQUERY (באופן אישי אני ממליץ בחום על הספרייה, יש לה נוחות וגמישות נהדרת למפתח) .<br><br>כמו כן ניתן לעשות זאת בצורה רגילה כך:<br><div class="php codeblock"><span class="kw2">var</span> xmlHttpConnection<span class="sy0">,</span> jsonData<span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">//===========================================</span><br>
+&nbsp; &nbsp; <span class="co1">// &nbsp;For Firefox, Chrome, Safari, Opera, IE7+</span><br>
+&nbsp; &nbsp; <span class="co1">//===========================================</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> window<span class="sy0">.</span>XMLHttpRequest <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; xmlHttpConnection <span class="sy0">=</span> <span class="kw2">new</span> XMLHttpRequest<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">//===========================================</span><br>
+&nbsp; &nbsp; <span class="co1">// &nbsp;For IE5, IE6 and some other old browsers</span><br>
+&nbsp; &nbsp; <span class="co1">//===========================================</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; xmlHttpConnection <span class="sy0">=</span> <span class="kw2">new</span> ActiveXObject<span class="br0">&#40;</span><span class="st_h">'Microsoft.XMLHTTP'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="co1">//===========================================</span><br>
+&nbsp; &nbsp; <span class="co1">// &nbsp;Displays the names</span><br>
+&nbsp; &nbsp; <span class="co1">//===========================================</span><br>
+&nbsp; &nbsp; <span class="kw2">function</span> showNames<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> xmlHttpConnection<span class="sy0">.</span>readyState <span class="sy0">==</span> <span class="nu0">4</span> <span class="sy0">&amp;&amp;</span> xmlHttpConnection<span class="sy0">.</span>status <span class="sy0">==</span> <span class="nu0">200</span> <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jsonData <span class="sy0">=</span> JSON<span class="sy0">.</span>parse<span class="br0">&#40;</span>xmlHttpConnection<span class="sy0">.</span>responseText<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span> jsonData<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">.</span>lastName <span class="br0">&#41;</span> <span class="co1">// Levi</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span> jsonData<span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">.</span>name <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Joey</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; xmlHttpConnection<span class="sy0">.</span>open<span class="br0">&#40;</span><span class="st_h">'POST'</span><span class="sy0">,</span> <span class="st_h">'userNamesJSON.php'</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; xmlHttpConnection<span class="sy0">.</span>setRequestHeader<span class="br0">&#40;</span> <span class="st_h">'Content-Type'</span><span class="sy0">,</span> <span class="st_h">'application/json'</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; xmlHttpConnection<span class="sy0">.</span>send<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; xmlHttpConnection<span class="sy0">.</span>onreadystatechange <span class="sy0">=</span> showNames<span class="sy0">;</span></div><br><br><br><h3>סקירות ויעילויות</h3><br>- רצוי להשתמש רק ב<strong>פרמטר אחד</strong> בjson_decode (ואז לקבל אובייקט), פונקציה זו עובדת יותר מהר עם פרמטר אחד .<br>- JSON נמצא מהיר יותר מאשר XML .<br>- JSON נעים לקרוא ולכתוב .<br>- JSON פשוט וקל ללמוד .<br><br>מקווה שלמדתם והשכלתם מעט על JSON וכעת תתחילו להשתמש בו :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/d5489318b0ce990d7ea29e0cffd43110?s=16&r=g&d=monsterid" alt="JBStyle">
+<a>JBStyle</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment207"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/06/2011 23:01</span><br>
+ראשית, תודה רבה על המדריך.<br>
+<br>
+אני יוסיף שדי מזמן עברתי להשתמש ב json כדי לשמור הגדרות מערכך במקום xml לדברים או רשומים ישירות בקוד.<br>
+<br>
+גם עקב מהירותו הרבה יותר, גודלו הקטן יותר ונוחות השימוש הענקית שלו.<br>
+<br>
+שוב תודה, יהונתן :)</div>
+<a id="comment208"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/06/2011 23:03</span><br>
+אכן נכון הדבר והזכרתי אותו גם בתחתית המאמר .<br>
+JSON הוא דבר נהדר לעשיית דברים מעין אלו :)</div>
+<a id="comment209"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/06/2011 23:07</span><br>
+יפה מאוד!</div>
+<a id="comment214"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2011 20:36</span><br>
+תודה על המאמר..<br>
+האם אתה היית בעבר כותב ב-VB-DR?<br>
+<br>
+KingYes.</div>
+<a id="comment215"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2011 21:47</span><br>
+לא, זוהי הכתבה הראשונה שלי בנוגע לתכנות ברשת ח .</div>
+<a id="comment219"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2011 13:53</span><br>
+נחמד מאוד :]</div>
+<a id="comment221"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2011 10:19</span><br>
+ראשית תודה על המאמר הנוכחי, ועל כל המאמרים באתר.<br>
+<br>
+תיקון טעות: במקום &quot;אובייקט אסוציאטיבי&quot;<br>
+צריך להופיע &quot;מערך אסוציאטיבי&quot;.<br>
+<br>
+שוב תודה</div>
+<a id="comment223"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2011 11:34</span><br>
+תודה על ההערה, לא שמתי לב (מרוב שכתבתי יותר מדי אובייקט בפסקה שם ח) .<br>
+אני חושב שהבינו אבל את הכוונה לא ?</div>
+<a id="comment283"></a>
+<div class="blog-comment">
+<span class='comment-author'>idan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/06/2011 18:13</span><br>
+בעבר פרסמתי מדריך קטן על json: <span dir="ltr"><a href="Javacscript_כותבים_OOP_בעזרת_JSON.htm">http://phpguide.co.il/Javacscript_כותבים_OOP_בעזרת_JSON.htm</a></span><br>
+<br>
+אני לא ידעתי שיש את זה גם ב-php,<br>
+תודה רבה. :)</div>
+<a id="comment915"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/11/2011 18:00</span><br>
+יש לי את הJSON הבא:<br>
+<br>
+{<br>
+&quot;1&quot;:{<br>
+&quot;name&quot;:&quot;111&quot;,<br>
+&quot;longName&quot;:&quot;2222&quot;,<br>
+}<br>
+<br>
+&quot;2&quot;:{<br>
+&quot;name&quot;:&quot;asa&quot;,<br>
+&quot;longName&quot;:&quot;2342&quot;,<br>
+}<br>
+}<br>
+<br>
+<br>
+איך אני ניגש לשם של אינדקס 1 עם PHP?</div>
+<a id="comment916"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/11/2011 18:01</span><br>
+אם תשאל את אותה שאלה בפורום, שבו אי אפשרות עיצוב קוד - יהיה לנו הרבה יותר קל להבין מה הולך שום ולתת לך תשובה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

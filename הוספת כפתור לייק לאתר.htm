@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הוספת כפתור לייק לאתר הכתוב בשפת PHP">
+<meta name="keywords" content="לייק, like, פייבסוק, button">
+<meta name="author" content="Aviway">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>הוספת כפתור לייק לאתר</title>
+<meta itemprop="name" content="הוספת כפתור לייק לאתר">
+<meta itemprop="description" content="הוספת כפתור לייק לאתר הכתוב בשפת PHP">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"135","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>הוספת כפתור לייק לאתר</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Aviway, </div>
+<div class="right">&nbsp;<time datetime="2011-07-29T11:56:19+03:00" dir="rtl">29 ליולי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/howtoaddlikebutton.png" alt="הוספת כפתור לייק לאתר">
+</div>
+<div class="right post-content">
+הוספת כפתור ה&quot;לייק&quot; לאתרים הכתובים בשפת PHP, ולא מבוססים מערכות CMS מתקדמות (Wordpress, Joomla ועוד...). <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+ניתן למצוא ברשת מס&#039; רב של מדריכים המסבירים כיצד יש להוסיף את הפונקציה ובנוסף לקבל מידע מפייסבוק, אך במדריך זה מוסבר כיצד להוסיף את כפתור ה&quot;לייק&quot; לאתרים שלא מבוססים על מערכות CMS מתקדמות (Wordpress, Joomla ועוד...). <br>רעיון ה&quot;לייק&quot; מבוסס על פונקציה ששואבת את כתובת המיקום של הדף אותו מעוניינים לפרסם.<br>אם כך, בשלב ראשוני נציב פונקציה השואבת את מיקום הדף ברשת:<br><div class="php codeblock"><span class="kw2">function</span> curPageURL<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="re0">$pageURL</span> <span class="sy0">=</span> <span class="st_h">'http'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;HTTPS&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;on&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="re0">$pageURL</span> <span class="sy0">.=</span> <span class="st0">&quot;s&quot;</span><span class="sy0">;</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp;<span class="re0">$pageURL</span> <span class="sy0">.=</span> <span class="st0">&quot;://&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;SERVER_PORT&quot;</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st0">&quot;80&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$pageURL</span> <span class="sy0">.=</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;SERVER_NAME&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;:&quot;</span><span class="sy0">.</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;SERVER_PORT&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;REQUEST_URI&quot;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$pageURL</span> <span class="sy0">.=</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;SERVER_NAME&quot;</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;REQUEST_URI&quot;</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="br0">&#125;</span><br>
+&nbsp; &nbsp;<span class="kw1">return</span> <span class="re0">$pageURL</span><span class="sy0">;</span></div><br><br>את הקוד יש להוסיף בדף בו אתם שומרים את כל הפונקציות של האתר או בדפים הדינמיים שלכם.<br>בעזרת הקוד אנו מקבלים משתנה $pageURL שבעצם מכיל את כתובת הדף אותו נדרש לפרסם.<br>לאחר שקיבלנו את כתובת URL נוסיף אותו לקוד שניתן לקבל באתר פייסבוק או בכל מדריך אחר:<br><div class="php codeblock">&lt;iframe src=&quot;http://www.facebook.com/plugins/like.php?href=<span class="kw2">&lt;?php</span> curPageURL<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy1">?&gt;</span>&quot; BORDER=&quot;0&quot; MARGINWIDTH=&quot;0&quot; MARGINHEIGHT=&quot;0&quot; HSPACE=&quot;0&quot;<br>
+FRAMEBORDER=&quot;0&quot; SCROLLING=&quot;no&quot; width=&quot;600&quot; height=&quot;65&quot;&gt;&lt;/iframe&gt;</div><br><br>קוד זה יוסיף לאתרכם כפתור &quot;לייק&quot;. השיטה מתייחסת לדף עם סיומת PHP.<br>חשוב להדגיש, הפונקציה לא נבדקה באתרים מבוססים Wordpress או Joomla. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/b6c4f3d6763639180ccaa9186da1da9d?s=16&r=g&d=monsterid" alt="Aviway">
+<a>Aviway</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment487"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/07/2011 17:27</span><br>
+אני עושה את אותה פעולה עם javascript באופן הבא:<br>
+<br>
+var loc = window.location.protocol + &apos;//&apos; + window.location.hostname + &apos;/&apos; + window.location.pathname;<br>
+</div>
+<a id="comment490"></a>
+<div class="blog-comment">
+<span class='comment-author'>xxxxx</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/07/2011 18:39</span><br>
+לא יותר קל לעשות ככה:<br>
+$address = &apos;<span dir="ltr"><a href="http://&apos;.$_SERVER[&apos;SERVER_NAME&apos;].$_SERVER[&apos;REQUEST_URI&apos">http://&apos;.$_SERVER[&apos;SERVER_NAME&apos;].$_SERVER[&apos;REQUEST_URI&apos</a></span>;];<br>
+<br>
+&lt;iframe src=&quot;<span dir="ltr"><a href="http://www.facebook.com/plugins/like.php?href=&lt;?php">http://www.facebook.com/plugins/like.php?href=&lt;?php</a></span> echo $address; ?&gt;&quot; BORDER=&quot;0&quot; MARGINWIDTH=&quot;0&quot; MARGINHEIGHT=&quot;0&quot; HSPACE=&quot;0&quot;<br>
+FRAMEBORDER=&quot;0&quot; SCROLLING=&quot;no&quot; width=&quot;600&quot; height=&quot;65&quot;&gt;&lt;/iframe&gt;</div>
+<a id="comment494"></a>
+<div class="blog-comment">
+<span class='comment-author'>mosheii9</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 12:57</span><br>
+תודה רבה !!, לא בידיוק הבנתי למה הקוד הזה?<br>
+כלומר לא יותר קל לקחת פשוט את המדריך הלייק מהאתר של פיסבוק ?</div>
+<a id="comment495"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 12:58</span><br>
+הקוד שאתה יוצר בעמוד של פייסבוק הוא קוד של כפתור לייק לכלל האתר או לכתובת אחת ספציפית. אם אתה צריך כפתור לייק נפרד לכל עמוד (כמו שיש פה אחד לכל האתר ואחד לכל כתבה בנפרד) אז אתה צריך את הקוד הזה.</div>
+<a id="comment496"></a>
+<div class="blog-comment">
+<span class='comment-author'>Aviway</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 12:59</span><br>
+הקוד הרגיל מהאתר של פייסבוק לא נותן מענה לאתר שבנוי בPHP</div>
+<a id="comment498"></a>
+<div class="blog-comment">
+<span class='comment-author'>xxxxx</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 18:07</span><br>
+אז אם אני רוצה לכל האתר אז אפשר לעשות:<br>
+<br>
+<br>
+$address = &apos;<span dir="ltr"><a href="http://&apos;.$_SERVER[&apos;SERVER_NAME&apos">http://&apos;.$_SERVER[&apos;SERVER_NAME&apos</a></span>;];<br>
+<br>
+&lt;iframe src=&quot;<span dir="ltr"><a href="http://www.facebook.com/plugins/like.php?href=&lt;?php">http://www.facebook.com/plugins/like.php?href=&lt;?php</a></span> echo $address; ?&gt;&quot; BORDER=&quot;0&quot; MARGINWIDTH=&quot;0&quot; MARGINHEIGHT=&quot;0&quot; HSPACE=&quot;0&quot;<br>
+FRAMEBORDER=&quot;0&quot; SCROLLING=&quot;no&quot; width=&quot;600&quot; height=&quot;65&quot;&gt;&lt;/iframe&gt;</div>
+<a id="comment499"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 18:07</span><br>
+ואם גולשים אליך ב https או השרת שלך לא ממוקם על פורט 80 ?</div>
+<a id="comment500"></a>
+<div class="blog-comment">
+<span class='comment-author'>xxxxx</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 18:08</span><br>
+אתה צודק :P</div>
+<a id="comment501"></a>
+<div class="blog-comment">
+<span class='comment-author'>xxxxx</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 18:30</span><br>
+יש לי שגיאה בשורה: <br>
+if($_SERVER[&quot;HTTPS&quot;] == &quot;on&quot;) {$pageURL .= &quot;s&quot;;}<br>
+השגיאה:<br>
+( ! ) Notice: Undefined index: HTTPS in C:\wamp\www\minerva-books.co.il\variables.php on line 10</div>
+<a id="comment502"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 18:33</span><br>
+תחליף ב <br>
+if( strpos(&apos;https&apos;, $_SERVER[&quot;SERVER_PROTOCOL&quot;]) !== false) ...</div>
+<a id="comment503"></a>
+<div class="blog-comment">
+<span class='comment-author'>xxxxx</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 18:40</span><br>
+תודה D:</div>
+<a id="comment504"></a>
+<div class="blog-comment">
+<span class='comment-author'>mosheii9</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 19:16</span><br>
+אוקיי, תודה רבה על התשובה !, ותגידו אני יכול לעשות את זה גם למשחקים כלומר כל משחק לייק ?</div>
+<a id="comment505"></a>
+<div class="blog-comment">
+<span class='comment-author'>mosheii9</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 19:16</span><br>
+באתר משחקים און ליין הכוונה</div>
+<a id="comment506"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/07/2011 20:20</span><br>
+כן, כל עוד לכל עמוד יש כתובת משלו אתה יכול להשתמש בקוד הזה כדי לשים כפתור לייק לאותו עמוד.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

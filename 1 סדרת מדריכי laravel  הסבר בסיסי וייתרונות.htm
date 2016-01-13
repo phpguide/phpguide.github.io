@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="המדריך הראשון שלי, על laravel. יבואו בעז&quot;ה עוד :)">
+<meta name="keywords" content="laravel, פריימוורק, PHP, framework, לארבל">
+<meta name="author" content="ArielSafari">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>1# סדרת מדריכי laravel - הסבר בסיסי, וייתרונות</title>
+<meta itemprop="name" content="1# סדרת מדריכי laravel - הסבר בסיסי, וייתרונות">
+<meta itemprop="description" content="המדריך הראשון שלי, על laravel. יבואו בעז&quot;ה עוד :)">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"361","rating":"11","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>1# סדרת מדריכי laravel - הסבר בסיסי, וייתרונות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ArielSafari, </div>
+<div class="right">&nbsp;<time datetime="2014-03-17T20:54:27+02:00" dir="rtl">17 למרץ 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://s11.postimg.org/kmp1zvxhr/laravel.png" alt="1# סדרת מדריכי laravel - הסבר בסיסי, וייתרונות">
+</div>
+<div class="right post-content">
+אז למה להשתמש דווקא ב-laravel? ומה עוד אני אצטרך ללמוד בהמשך?<br>כל זאת, ועוד במדריך ה-1# שלי בפריימוורק laravel. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שלום לכולם!<br>אני פותח בזאת, בסדרת מדריכים על הפריימוורק laravel שאני מאוד אוהב!<br><br>ובמדריך היום, נדבר על:<br>● אז למה להשתמש דווקא ב-laravel? או - מה היתרונות?<br>● דברי סיום. או - הקדמה למדריכים הבאים בסדרה.<br><br>אז בואו נתחיל!<br><br><h2>אז למה לי להשתמש דווקא ב-laravel?</h2><br><br>התשובה טמונה בשאלה. למה לי באמת? בגלל העדפה אישית.<br>אני לא יכול להגיד לך ש-laravel הוא הפריימוורק הכי טוב, כמו שמישהו אחר לא יכול להגיד לך את זה על Yii או ZEND.<br>יש אנשים שיגידו שפריימוורק כזה או אחר טוב יותר מהשני, והם צודקים ב-100%.<br>כי איך אומרים? על טעם וריח - אין להתווכח! כל אחד והטעם שלו.<br>יש מי שיגיד שהוא אוהב פריימוורק פשוט, כמו codeigniter, ויש כאלה שאוהבים פרימוורק וותיק וטוב, כמו Yii או ZEND.<br>אבל בכל מקרה, ב-laravel עדיין יש דברים שהופכים אותו לפריימוורק הכי טוב שאני מכיר. <br>רוצים שאני אספר לכם מה?<br><br>אז ככה:<br><h3>1. ה-routing שלו. </h3><br>בכל פריימוורק שהשתמשתי עד עכשיו, היה קשה לי שם כל הקטע של ה-routing. <em>מה זה routing</em> אתם שואלים?<br>routing זה האפשרות שיש ברוב הפריימוורקים, שמאפשרת לנו לקבוע תבניות מוכנות מראש של לינקים באתר.<br>ואני אתן דוגמה.<br>אתם רוצים ליצור באתר שלכם מערכת משתמשים.<br>אין שום בעיה.<br>אתם יוצרים מחלקה שמטפלת במשתמשים, יוצרים כמובן אינטרפייס וכן הלאה.<br>עכשיו, אתם רוצים שכמישהו ייכנס ללינק הבא: www.example.com/user/UserName<br>הוא ייראה את הפרופיל של UserName. איך אתם עושים את זה?<br>אתם מגדירים route בצורה הבאה: (ככה זה ב-laravel)<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+Route<span class="sy0">::</span><span class="me2">get</span><span class="br0">&#40;</span><span class="st_h">'user/{name}'</span><span class="sy0">,</span> <span class="st_h">'UserController@showProfile'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>כמו שניתן להבין, מה שנמצא בתוך הסוגריים של המתודה הסטטית &quot;get&quot;, זה הלינק של ה-&quot;user/UserName&quot;.<br>ומה שבפרמטר השני, זה הקונטרולר שאליו יופנה כל משתמש שייכנס לדף www.example.com/user/UserName.<br>וכמו שכנראה הבנתם כבר, מה שבא אחרי ה-@, זו המתודה שתטפל בבקשה.<br>מה ש-laravel מאפשרת לנו, זה לקחת את מה שנמצא בסוגריים המסולסלות, (name) ולהמיר אותו למשתנה באותו השם שניתן לשימוש בתוך הקונטרולר.<br>כמובן שיש עוד דרכים לקבוע משתנים בroute, אבל עליהם נלמד במדריכים הבאים.<br><br><h3>2. מערכת הטמפלטים שלה.</h3><br>בהרבה פרימוורקים קיימת האופציה הזו, אבל לדעתי ב-laravel זו מערכת הטמפלטים הכי טובה.<br><em>אז מה זה מערכת טמפלטים?</em><br>דמיינו לכם שאתם עובדים על פרוייקט גדול. הפייסבוק הבא.<br>יש לכם כמה מתכנתים, וכמה מעצבי צד-לקוח.<br>המעצב, שאין לו טיפת ידע ב-PHP או בתכנות בכלל, נכנס לקובץ ה-HTML, שכמובן ע&quot;פ עיקרון ה-MVC נמצא בתיקיית views, ומה הוא רואה?<br><div class="php codeblock">&lt;ul&gt;<br>
+&nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$people</span> <span class="kw1">as</span> <span class="re0">$p</span><span class="br0">&#41;</span> <span class="sy0">:</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$p</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/li&gt;<br>
+&nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">endforeach</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&lt;/ul&gt;</div><br>ומה שעובר לו בראש זה בערך מה שעבר לכם בראש כשהתחלתם ללמוד OOP - <em>מה לעזאזל המתכנת הזה רוצה ממני???</em><br>ועכשיו, תדמיינו שהוא ייראה את זה:<br><div class="php codeblock"><span class="sy0">&lt;</span>ul<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">@</span><span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$people</span> <span class="kw1">as</span> <span class="re0">$p</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>li<span class="sy0">&gt;&lt;/</span>li<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">@</span><span class="kw1">endforeach</span><br>
+<span class="sy0">&lt;/</span>ul<span class="sy0">&gt;</span></div><br>עכשיו הוא יכול להתעסק בעיצוב, מבלי להפריע לכם, ומבלי לפתוח אין-סוף issues ב-github.<br>וסוף סוף, אתם יכולים להיות כמו מארק צוקרברג - להתחתן עם יפנית, ולנהל את הפרוייקט שלכם בשלווה.<br><br><h3>3. מערכת validation (אימות)</h3><br>בעזרת מערכת האימות, (validation) אתם יכולים לבדוק אם מה שקיבלתם מהטופס של ההרשמה / התחברות / צור קשר / או סתם &quot;פרסם פוסט חדש&quot; עומד בתנאים שלכם.<br>התנאים שלכם יכולים להיות - רק מספרים, באורך של כך-וכך תווים, רק אותיות גדולות, וכו&apos;.<br>דמיינו לכם את המצב הבא:<br>אתם בונים טופס הרשמה לאתר, שמכיל 10 שדות.<br>אתם רוצים לבדוק את הקלט שבא מהמשתמש כדי ליצור משתמש חדש, או להציג הודעת שגיאה.<br>אז כדי לעשות את זה, אתם יוצרים עשרות perg_matchים, ועץ ענק של ifים,<br>ולבסוף, אחרי שסיימתם עם כל הבדיקות, סוף סוף הגיע הזמן ל........ elseים והודעות שגיאה כמובן!<br>ואז, אתם חוזרים מותשים מהמערכה עם ניצחון של 1:0 ל-PHP.<br>אז ל-laravel יש את הפתרון.<br>אז laravel ייצרה מחלקה מאוד מאוד מאוד נוחה וטובה, שמאפשרת אימות נתונים בצורה פשוטה:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$validator</span> <span class="sy0">=</span> Validator<span class="sy0">::</span><span class="me2">make</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Dayle'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="st_h">'lamepassword'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'email'</span> <span class="sy0">=&gt;</span> <span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="0a6f676b63664a6f726b677a666f24696567">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'required'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="st_h">'required|min:8'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'email'</span> <span class="sy0">=&gt;</span> <span class="st_h">'required|email|unique:users'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span></div><br>וכמו שבטח הבנתם לבד, המערך הראשון, הוא רשימה של שדות הטופס, והערך שלהם (שאותו אתם משיגים בעזרת $_GET או $_POST),<br>והמפתח של כל ערך הוא ה-name שנתתם לשדה בטופס.<br>ובמערך השני, אתם קובעים את כללי האימות של הטופס, ו-laravel מכיל כמעט 40 כללים בילט-אין.<br>כלל האימות יכול להיות אורך הטקסט, אורך מינימלי/מקסימלי, שדה חובה, וכו&apos;.<br>וכמובן שיש כללים שבודקים בבסיס הנתונים (במקרה שלנו - בטבלת ה-users) שהאימייל שהמשתמש מסר לנו לא קיים בבסיס נתונים.... וכו&apos;.<br>וגם, אתם לא חייבים לעשות אימות לכל השדות בטופס, אלא רק לאלו שאתם רוצים.<br><br>אז זו בהחלט אפשרות שימושית.<br><br><h2>דברי סיום</h2><br>אז זה היה הפרק הראשון בסדרת המדריכים שלי על laravel.<br>ובפרקים הבאים נדבר עוד על:<br><br>● איך להתקין.<br>● הגדרת קונטרולרים, מתודות ומאפיינים.<br>● עוד על routing, ועל האפשרויות המתקדמות שלו.<br>● מודלים ו-viewים (כחלק ממודל ה-MVC).<br>● שגיאות ולוגים. (logs)<br>● שליחת אימייל.<br>● סאשנים, ועוגיות.<br>● עוד על טמפלטים.<br>● על טפסים, ואימותם.<br>● אבטחה.<br>● Helpers (עזרים).<br>● ועוד ועוד....<br><br>אז לילה טוב, ומקווה שאהבתם :)<br>(ומה אכפת לך? פרגן :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/b63b77698327e388d5fbd7b307545ab1?s=16&r=g&d=monsterid" alt="ArielSafari">
+<a>ArielSafari</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2746"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/03/2014 11:59</span><br>
+מעולה, תודה :)</div>
+<a id="comment2747"></a>
+<div class="blog-comment">
+<span class='comment-author'>NaseemIB96</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/03/2014 13:09</span><br>
+ישר כוח, תודה ומחכה בקוצר לרוח למדריכים הבאים. מקווה שתמשיך את הסדרה עד הסוף כי זה באמת חסר בקהילה הישראלית לפי דעתי.</div>
+<a id="comment2748"></a>
+<div class="blog-comment">
+<span class='comment-author'>yehuda4ee</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/03/2014 13:41</span><br>
+מוסבר באופן מצויין! כל הכבוד ותודה.</div>
+<a id="comment2749"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielSafari</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/03/2014 16:52</span><br>
+תודה רבה :)</div>
+<a id="comment2750"></a>
+<div class="blog-comment">
+<span class='comment-author'>yotamN</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/03/2014 09:15</span><br>
+עשה לי חשק להשתמש בזה, מקווה שתמשיך עם המדריכים</div>
+<a id="comment2751"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/03/2014 17:00</span><br>
+מדהים! גם לי עשה חשק להתחיל עם laravel. מחכה לשאר המדריכים :)</div>
+<a id="comment2752"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielSafari</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/03/2014 18:00</span><br>
+תודה רבה רבה!!! D=</div>
+<a id="comment2753"></a>
+<div class="blog-comment">
+<span class='comment-author'>Splash</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/03/2014 01:05</span><br>
+התחלתי לעבוד עם laravel לפני כמה שבועות ובאמת פריימוורק מאוד נוח למתכנת.<br>
+<br>
+כל הכבוד על היוזמה של כתיבת המדריכים,בהחלת יעזור לפיתוח הקהילה.<br>
+</div>
+<a id="comment2754"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielSafari</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/03/2014 11:36</span><br>
+אני אשתדל לפרסם מדריך נוסף פעם או פעמיים בשבוע.... :)</div>
+<a id="comment2755"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/03/2014 18:34</span><br>
+יש לי שאלה<br>
+צריך להתקין את זה על השרת או שאפשר להשתמש בזה ככה כמו הפריימוורק הרגילים?</div>
+<a id="comment2765"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi787</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/04/2014 11:22</span><br>
+תודה רבה, מחכה למדריך הבא :)</div>
+<a id="comment2767"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/04/2014 15:38</span><br>
+@razand עברו יותר משבועיים מאז שפרסמת את השאלה הזאת. בכל מקרה, עדיף מאוחר מאשר לעולם לא. :-)<br>
+לארוול עובד עם Composer, ולכן יש צורך להתקין את Composer על השרת, להוריד את הגרסה האחרונה של לארוול (אפשר גם באמצעות Composer), ואז להשתמש בו כדי להתקין את כל הספריות שלארוול תלוי בהן.<br>
+<span dir="ltr"><a href="http://laravel.com/docs/installation">http://laravel.com/docs/installation</a></span><br>
+<br>
+@ArielSafari תודה רבה! :-)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

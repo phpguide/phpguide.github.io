@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה סידור מערך PHP לפי מספרים יורדים וה-A, B, C">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_73747">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>סידור מערך PHP לפי מספרים יורדים וה-A, B, C | שאלת לימוד PHP</title>
+<meta itemprop="name" content="סידור מערך PHP לפי מספרים יורדים וה-A, B, C | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה סידור מערך PHP לפי מספרים יורדים וה-A, B, C">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">15</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="סידור מערך PHP לפי מספרים יורדים והA B C.htm" title="יש לי מערך ב-PHP, שהמפתחות שלו הם מספרים (בעצם תאריך) - יכול להיות שיהיו 2 מפתחות זהים או יותר, והערכים שלו לא כל כך משמעותיים לשאלה, אך לא יכולים להיות 2 זהים.עכשיו, אני רוצה להציג את ערכי המערך לפי סדר יורד של המפתחות (למעלה - מפתח הכי גבוה; למטה - מפתח הכי נמוך), אבל אני רוצה שאם יהיו כמה מפתחות זהים - הם יסתדרו לפי ה-a, b, c של הערכים (בתוך סידור המפתחות).לאחר מכן, הפכתי את זה, כך שהמפתחות הקודמים (המספרים) הם הערכים החדשים, והערכים הישנים הם המפתחות החדשים.לדוגמא, ננ">סידור מערך PHP לפי מספרים יורדים וה-A, B, C</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_73747</a>
+,
+<time class="timeago relativetime" datetime="2012-01-09T06:49:27+02:00" style="display:inline-block;">
+09 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText101'>
+יש לי מערך ב-PHP, שהמפתחות שלו הם מספרים (בעצם תאריך) - יכול להיות שיהיו 2 מפתחות זהים או יותר, והערכים שלו לא כל כך משמעותיים לשאלה, אך לא יכולים להיות 2 זהים.<br>עכשיו, אני רוצה להציג את ערכי המערך לפי סדר יורד של המפתחות (למעלה - מפתח הכי גבוה; למטה - מפתח הכי נמוך), אבל אני רוצה שאם יהיו כמה מפתחות זהים - הם יסתדרו לפי ה-a, b, c של הערכים (בתוך סידור המפתחות).<br>לאחר מכן, הפכתי את זה, כך שהמפתחות הקודמים (המספרים) הם הערכים החדשים, והערכים הישנים הם המפתחות החדשים.<br><br>לדוגמא, נניח שיש לי מערך כזה (מפתח - ערך):<br>93 - abc<br>82 - gnj<br>109 - fjn<br>93 - pdo<br>57 - dksm<br><br>אני רוצה שהוא יסתדר כך (ולאחר מכן אהפוך את המפתחות לערכים ואת הערכים למפתחות):<br>109 - fjn<br>93 - abc<br>93 - pdo<br>82 - gnj<br>57 - dksm<br><br>ולא ששני ה-93 יסתדרו באקראיות ביניהם.<br><br><br>השתמשתי, כמובן, ב-arsort().<br>אשמח לעזרה.<br>תודה מראש.<br> </div>
+</div>
+<h3>
+<span id="answersCounter">15 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer361">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 לינואר 2012 </span>
+<a id="answer_361" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_361">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כלומר במילים פשוטו אתה רוצה לסדר מערך לפי המפתחות שלו בסדר יורד, אבל אם לשני ערכים יש את אותו מפתח - לסדר לפי הערך שלהם?<br>עכשיו אני צריך רק להבין איך זה שיש לך שני אלמנטים במערך עם אותו מפתח כי זה בלתי אפשרי. </p>
+</div>
+<div class="answer" id="answer364">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/faddbba402334879dd7f2d4b706b9a1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_73747</a>
+ב
+<span style="font-size:10px"> 09 לינואר 2012 </span>
+<a id="answer_364" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_364">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן. :)<br><div class="php codeblock"><span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st_h">'Asia/Jerusalem'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$files_array</span><span class="sy0">=</span><span class="kw3">glob</span><span class="br0">&#40;</span><span class="st0">&quot;{*.php,*.html}&quot;</span><span class="sy0">,</span>GLOB_BRACE<span class="sy0">|</span>GLOB_NOSORT<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$files_array</span> <span class="kw1">as</span> <span class="re0">$file_path</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;pie.php&quot;</span><span class="sy0">&amp;&amp;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;index.php&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="re0">$files</span><span class="br0">&#91;</span><span class="re0">$file_path</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="kw3">filectime</span><span class="br0">&#40;</span><span class="re0">$file_path</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<span class="kw3">arsort</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">arsort</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$filesnames</span><span class="sy0">=</span><span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$filesnames</span> <span class="kw1">as</span> <span class="re0">$file</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;'</span><span class="sy0">.</span><span class="re0">$file</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$file</span><span class="sy0">.</span><span class="st_h">'&lt;/a&gt; - עודכן לאחרונה ב-'</span><span class="sy0">.</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;d.n.Y H:i:s.&quot;</span><span class="sy0">,</span> <span class="kw3">filectime</span><span class="br0">&#40;</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="sy1">?&gt;</span></div><br><br>יש שם פעמיים arsort($files); בגלל שזה עזר לי פעם, אבל עכשיו לא... </p>
+</div>
+<div class="answer" id="answer370">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 לינואר 2012 </span>
+<a id="answer_370" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_370">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי מה אתה רוצה לעשות. אין לך פה שני אלמנטים אם אותו מפתח. כל אופן, יש את הפונקציה array_multisort<br>בה אתה יכול למיין מערך לפי סדר של מערכים אחרים. &quot;המערכים האחרים&quot; זה רשימה לפי הסדר קודם של זמנים, ואחר כך של שמות. יוצא משהו כזה:<br><br><div class="php codeblock"><span class="re0">$new</span> <span class="sy0">=</span> <span class="kw3">array_multisort</span><span class="br0">&#40;</span><span class="kw3">array_values</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">,</span> SORT_DESC<span class="sy0">,</span> <span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">,</span> SORT_ASC<span class="sy0">,</span> <span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br> </p>
+</div>
+<div class="answer" id="answer375">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/faddbba402334879dd7f2d4b706b9a1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_73747</a>
+ב
+<span style="font-size:10px"> 09 לינואר 2012 </span>
+<a id="answer_375" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_375">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה. :)<br>לא הצלחתי להבין... יש סיכוי שתוכל לכתוב את הקוד המלא כמו שכתבתי למעלה לפי מה שאמרת? </p>
+</div>
+<div class="answer" id="answer386">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 לינואר 2012 </span>
+<a id="answer_386" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_386">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st_h">'Asia/Jerusalem'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$files_array</span><span class="sy0">=</span><span class="kw3">glob</span><span class="br0">&#40;</span><span class="st0">&quot;{*.php,*.html}&quot;</span><span class="sy0">,</span>GLOB_BRACE<span class="sy0">|</span>GLOB_NOSORT<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$files_array</span> <span class="kw1">as</span> <span class="re0">$file_path</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;pie.php&quot;</span><span class="sy0">&amp;&amp;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;index.php&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="re0">$files</span><span class="br0">&#91;</span><span class="re0">$file_path</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="kw3">filectime</span><span class="br0">&#40;</span><span class="re0">$file_path</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$new</span> <span class="sy0">=</span> <span class="kw3">array_multisort</span><span class="br0">&#40;</span><span class="kw3">array_values</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">,</span> SORT_DESC<span class="sy0">,</span> <span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">,</span> SORT_ASC<span class="sy0">,</span> <span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$filesnames</span> <span class="kw1">as</span> <span class="re0">$file</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;'</span><span class="sy0">.</span><span class="re0">$file</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$file</span><span class="sy0">.</span><span class="st_h">'&lt;/a&gt; - עודכן לאחרונה ב-'</span><span class="sy0">.</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;d.n.Y H:i:s.&quot;</span><span class="sy0">,</span> <span class="kw3">filectime</span><span class="br0">&#40;</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="sy1">?&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer387">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 לינואר 2012 </span>
+<a id="answer_387" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_387">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+את ה foreach האחרון צריך לעשות על המערך new לא על filenames<br>ואני צריך לעשות עריכת תשובות כאן :) </p>
+</div>
+<div class="answer" id="answer392">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/faddbba402334879dd7f2d4b706b9a1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_73747</a>
+ב
+<span style="font-size:10px"> 09 לינואר 2012 </span>
+<a id="answer_392" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_392">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+XDDD<br><br>Warning: Invalid argument supplied for foreach() in /home/u710538374/public_html/index.php on line 26 </p>
+</div>
+<div class="answer" id="answer395">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 לינואר 2012 </span>
+<a id="answer_395" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_395">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טעות שלי, array_multisort לא מחזירה ערך, אלה משנה את הערכים שמעבירים אליה.<br>זה אמור להיות ככה:<br><div class="php codeblock"><span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st_h">'Asia/Jerusalem'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$files_array</span><span class="sy0">=</span><span class="kw3">glob</span><span class="br0">&#40;</span><span class="st0">&quot;{*.php,*.html}&quot;</span><span class="sy0">,</span>GLOB_BRACE<span class="sy0">|</span>GLOB_NOSORT<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$files_array</span> <span class="kw1">as</span> <span class="re0">$file_path</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;pie.php&quot;</span><span class="sy0">&amp;&amp;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;index.php&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="re0">$files</span><span class="br0">&#91;</span><span class="re0">$file_path</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="kw3">filectime</span><span class="br0">&#40;</span><span class="re0">$file_path</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<br>
+<span class="kw3">array_multisort</span><span class="br0">&#40;</span><span class="kw3">array_values</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">,</span> SORT_DESC<span class="sy0">,</span> <span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">,</span> SORT_ASC<span class="sy0">,</span> <span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$files</span> <span class="kw1">as</span> <span class="re0">$file</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;'</span><span class="sy0">.</span><span class="re0">$file</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$file</span><span class="sy0">.</span><span class="st_h">'&lt;/a&gt; - עודכן לאחרונה ב-'</span><span class="sy0">.</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;d.n.Y H:i:s.&quot;</span><span class="sy0">,</span> <span class="kw3">filectime</span><span class="br0">&#40;</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span><span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer400">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c825708f84bcae26f4ff74f768877f17?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_77356</a>
+ב
+<span style="font-size:10px"> 10 לינואר 2012 </span>
+<a id="answer_400" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_400">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל, תודה ענקית לך! (כרגיל)<br>עכשיו, מה שכתבת לא עשה מה שהוא צריך לעשות...<br>הקוד הבא כן עושה את זה:<br><div class="php codeblock"><span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st_h">'Asia/Jerusalem'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$files_array</span><span class="sy0">=</span><span class="kw3">glob</span><span class="br0">&#40;</span><span class="st0">&quot;{*.php,*.html}&quot;</span><span class="sy0">,</span>GLOB_BRACE<span class="sy0">|</span>GLOB_NOSORT<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$files_array</span> <span class="kw1">as</span> <span class="re0">$file_path</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;pie.php&quot;</span><span class="sy0">&amp;&amp;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;index.php&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="re0">$files</span><span class="br0">&#91;</span><span class="re0">$file_path</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="kw3">filectime</span><span class="br0">&#40;</span><span class="re0">$file_path</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<span class="kw3">array_multisort</span><span class="br0">&#40;</span><span class="kw3">array_values</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">,</span> SORT_DESC<span class="sy0">,</span> <span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">,</span> SORT_ASC<span class="sy0">,</span> <span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$files</span> <span class="kw1">as</span> <span class="re0">$file</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;'</span><span class="sy0">.</span><span class="kw3">key</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">.</span><span class="kw3">key</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&lt;/a&gt; - עודכן לאחרונה ב-'</span><span class="sy0">.</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;d.n.Y H:i:s.&quot;</span><span class="sy0">,</span> <span class="re0">$file</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span> <span class="kw3">next</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><span class="sy1">?&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer401">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c825708f84bcae26f4ff74f768877f17?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_77356</a>
+ב
+<span style="font-size:10px"> 10 לינואר 2012 </span>
+<a id="answer_401" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_401">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש בעיה קטנה.<br>את הקובץ האחרון הוא מציג לי כך:<br>&quot;- עודכן לאחרונה ב-05.1.2012 22:39:06&quot;. כלומר, הוא מציג את תאריך העדכון האחרון שלו כמו שצריך, אבל לא את הקובץ עצמו... </p>
+</div>
+<div class="answer" id="answer402">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c825708f84bcae26f4ff74f768877f17?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_77356</a>
+ב
+<span style="font-size:10px"> 10 לינואר 2012 </span>
+<a id="answer_402" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_402">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טעות שלי, זה לא עובד כמו שצריך. </p>
+</div>
+<div class="answer" id="answer403">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c825708f84bcae26f4ff74f768877f17?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_77356</a>
+ב
+<span style="font-size:10px"> 10 לינואר 2012 </span>
+<a id="answer_403" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_403">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ועכשיו כן! :)<br>לא השתמשתי נכון ב-key() ו-next(). כנראה זה לא השימוש שלהם.<br>פשוט הוספתי שורה קצרה לפני ה-foreach:<br><div class="php codeblock"><span class="re0">$files</span><span class="sy0">=</span><span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אבל בכל זאת אשמח לדעת איך לגשת למפתח של האיבר הנוכחי במערך בתוך לולאת foreach. :) </p>
+</div>
+<div class="answer" id="answer404">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c825708f84bcae26f4ff74f768877f17?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_77356</a>
+ב
+<span style="font-size:10px"> 10 לינואר 2012 </span>
+<a id="answer_404" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_404">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וגם במקום השורה<br><div class="php codeblock"><span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;pie.php&quot;</span><span class="sy0">&amp;&amp;</span><span class="re0">$file_path</span><span class="sy0">!=</span><span class="st0">&quot;index.php&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div><br>ליצור מערך שיכיל את כל הקבצים שאין ברצוני להציג, ושהם לא יוצגו.<br>(הידע שלי ב-PHP לא משהו לבינתיים). </p>
+</div>
+<div class="answer" id="answer435">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לינואר 2012 </span>
+<a id="answer_435" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_435">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה <a href="http://il.php.net/manual/en/control-structures.foreach.php">foreach</a><br><div class="php codeblock">foeach<span class="br0">&#40;</span><span class="re0">$array</span> <span class="kw1">as</span> <span class="re0">$elKey</span> <span class="sy0">=&gt;</span> <span class="re0">$elValue</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'key is '</span><span class="sy0">,</span> <span class="re0">$elKey</span><span class="sy0">,</span> <span class="st_h">' value is '</span><span class="sy0">,</span> <span class="re0">$elValue</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>ובמקרה השני <a href="http://php.net/in_array">in_array</a><br><div class="php codeblock"><span class="re0">$skip</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'pie.php'</span><span class="sy0">,</span> <span class="st_h">'index.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">in_array</span><span class="br0">&#40;</span><span class="re0">$current_file</span><span class="sy0">,</span> <span class="re0">$skip</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">continue</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer436">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c9f6940b77fd264edaa36b01fe774c25?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_79245</a>
+ב
+<span style="font-size:10px"> 12 לינואר 2012 </span>
+<a id="answer_436" href="סידור מערך PHP לפי מספרים יורדים והA B C.htm#answer_436">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה. :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

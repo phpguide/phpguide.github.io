@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה פעם ראשונה ב OOP ויש לי בעיות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="yotamN">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>פעם ראשונה ב OOP ויש לי בעיות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="פעם ראשונה ב OOP ויש לי בעיות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה פעם ראשונה ב OOP ויש לי בעיות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="פעם ראשונה ב OOP ויש לי בעיות-1.htm" title="זה כנראה משהו טיפשי שלא שמתי לב/אני לא יודע אבל אני לא מצליח להבין מה, יש לי את הקוד הזה:&amp;lt;?php
+&amp;nbsp; $mysqli = new mysqli&amp;#40;&apos;yncoinfo.ipagemysql.com&apos;, &apos;socialn&apos;, &apos;1234&apos;, ">פעם ראשונה ב OOP ויש לי בעיות</a></h2>
+<div class="userinfo">
+פתח
+<a>yotamN</a>
+,
+<time class="timeago relativetime" datetime="2014-04-28T14:03:52+03:00" style="display:inline-block;">
+28 לאפריל 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1885'>
+זה כנראה משהו טיפשי שלא שמתי לב/אני לא יודע אבל אני לא מצליח להבין מה, יש לי את הקוד הזה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="st_h">'yncoinfo.ipagemysql.com'</span><span class="sy0">,</span> <span class="st_h">'socialn'</span><span class="sy0">,</span> <span class="st_h">'1234'</span><span class="sy0">,</span> <span class="st_h">'socialn'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">class</span> users <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> get_id<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$id</span> <span class="sy0">=</span> <span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'login-id'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$compile</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st_h">'-'</span><span class="sy0">,</span><span class="re0">$id</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="re0">$compile</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$return</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> get_info<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM users WHERE id='<span class="es4">$id</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">fetch_array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$return</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> set_cookie<span class="br0">&#40;</span><span class="re0">$username</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT id FROM users WHERE username='<span class="es4">$username</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$oid</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">fetch_array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$oid</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$id</span> <span class="sy0">=</span> <span class="re0">$oid</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'login-id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$return</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$return</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'login-id'</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">.</span><span class="st_h">'-'</span><span class="sy0">.</span><span class="kw3">hash</span><span class="br0">&#40;</span><span class="st_h">'sha256'</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">.</span><span class="re0">$id</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">60</span><span class="sy0">*</span><span class="nu0">60</span><span class="sy0">*</span><span class="nu0">24</span><span class="sy0">*</span><span class="nu0">30</span><span class="sy0">*</span><span class="nu0">12</span><span class="sy0">*</span><span class="nu0">10</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">==</span> <span class="nu0">3</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$return</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="re0">$users</span> <span class="sy0">=</span> <span class="kw2">new</span> users<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$users</span><span class="sy0">-&gt;</span><span class="me1">set_cookie</span><span class="br0">&#40;</span><span class="st_h">'admin'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ואני לא מצליח להבין מה לא נכון, האם בכלל עשיתי את זה כמו שצריך? </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8499">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8499" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8499">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא קראתי את כל הקוד, אבל הגעתי לשורה השלישית ולא הבנתי משהו:<br><div class="php codeblock"><span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">mysqli_connect_errno</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;Connect failed: <span class="es6">%s</span><span class="es1">\n</span>&quot;</span><span class="sy0">,</span> <span class="kw3">mysqli_connect_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br>אתה יצרת מופע של המחלקה mysqli ולא משתמש בה כאן? </p>
+</div>
+<div class="answer" id="answer8500">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e0b8b9acad94326e5e03c69eb1381d45?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yotamN</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8500" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8500">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\zacharya-1.htm">@zacharya</a> את הקוד הזה ספציפית העתקתי מאיפה שהוא שניסיתי למצוא פתרון ולא הצלחתי, זאת שורה לא חשובה ואני ימחק אותה </p>
+</div>
+<div class="answer" id="answer8501">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8501" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8501">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול לשים פשוט:<br><div class="php codeblock"><span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp;<span class="kw3">exit</span><span class="br0">&#40;</span><span class="st0">&quot;Connect failed: <span class="es1">\n</span>&quot;</span><span class="sy0">.</span> mysqli<span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>עכשיו אני די בטוח שהבעיה היא פשוט שאתה יוצר את המחלקה mysqli מחוץ למחלקה users ככה כשאתה יוצר מופע של המחלקה ומפעיל את המתודה set_cookie אין לה שמץ מזה המשתנה הזה $mysqli, פשוט תעביר את המשתנה $mysqli ביצירה של המופע ובעזרת הconstruct תכניס אותו למאפיין של המחלקה. </p>
+</div>
+<div class="answer" id="answer8502">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e0b8b9acad94326e5e03c69eb1381d45?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yotamN</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8502" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8502">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\zacharya-1.htm">@zacharya</a> ניסיתי את זה, זה הגיע עכשיו כאשר היה קיים לי cookie ל-2 במשתנה return (כלומר הוא מצליח להגיע) אבל כאשר מחקתי את העוגיה וניסיתי שהוא יעשה set מחדש זה לא עבד </p>
+</div>
+<div class="answer" id="answer8503">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8503" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8503">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הצלחתי להבין את הבעיה. </p>
+</div>
+<div class="answer" id="answer8505">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8505" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8505">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למחלקה users אין בכלל גישה למשתנה mysqli<br>אם העתקת את הקוד מהאתר - שלח לי קישור. הגיע הזמן למחוק את זה, אחרת עוד מישהו יעתיק את זה. </p>
+</div>
+<div class="answer" id="answer8506">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e0b8b9acad94326e5e03c69eb1381d45?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yotamN</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8506" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8506">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\zacharya-1.htm">@zacharya</a> טעות שלי, הצלחתי על המשתנים גלובלים, תודה רבה :) </p>
+</div>
+<div class="answer" id="answer8507">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8507" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8507">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\q1611\קריאה למחלקה בתוך מחלקה.htm#answer_7359">תקרא את התשובה הזאת</a>. </p>
+</div>
+<div class="answer" id="answer8508">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e0b8b9acad94326e5e03c69eb1381d45?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yotamN</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8508" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8508">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\zacharya-1.htm">@zacharya</a> , <a href="..\users\intval-1.htm">@intval</a><br>עכשיו הקוד בסדר?<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw2">class</span> users <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> get_id<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$id</span> <span class="sy0">=</span> <span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'login-id'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$compile</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st_h">'-'</span><span class="sy0">,</span><span class="re0">$id</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="re0">$compile</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$return</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> get_info<span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> this<span class="sy0">-&gt;</span><span class="me1">mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM users WHERE id='<span class="es4">$id</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">fetch_array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$return</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> set_cookie<span class="br0">&#40;</span><span class="re0">$username</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$query</span> <span class="sy0">=</span> this<span class="sy0">-&gt;</span><span class="me1">mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT id FROM users WHERE username='<span class="es4">$username</span>'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$oid</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">fetch_array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$oid</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$id</span> <span class="sy0">=</span> <span class="re0">$oid</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$id</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'login-id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$return</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$return</span> <span class="sy0">!=</span> <span class="nu0">1</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'login-id'</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">.</span><span class="st_h">'-'</span><span class="sy0">.</span><span class="kw3">hash</span><span class="br0">&#40;</span><span class="st_h">'sha256'</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">.</span><span class="re0">$id</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">60</span><span class="sy0">*</span><span class="nu0">60</span><span class="sy0">*</span><span class="nu0">24</span><span class="sy0">*</span><span class="nu0">30</span><span class="sy0">*</span><span class="nu0">12</span><span class="sy0">*</span><span class="nu0">10</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$return</span> <span class="sy0">==</span> <span class="nu0">3</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$return</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> __construct<span class="br0">&#40;</span><span class="re0">$mysqli</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">mysqli</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer8509">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8509" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8509">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+רשמת this במקום $this, וזה גם צריך להיות function __construct ולא רק __construct (אני די בטוח בזה. למרות שבתשובה שלו אלכס כתב אחרת ככה שאני לא בטוח לגמרי).<br>בעיקרון אני לא רואה בעיה בקוד.<br>או חוץ מזה שלא יצרת מאפיין בכלל של mysqli - ככה (מחוץ למתודה):<br><div class="php codeblock"><span class="kw2">private</span> <span class="re0">$mysqli</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer8510">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e0b8b9acad94326e5e03c69eb1381d45?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yotamN</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8510" href="פעם ראשונה ב OOP ויש לי בעיות-1.htm#answer_8510">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\zacharya-1.htm">@zacharya</a> כן אתה צודק, עובד עכשיו וגם בלי גלובלים </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="סקריפט JS אחד מתאים לכל העמודים באתר - חוסך תעבורה ומקצר זמן טעינה">
+<meta name="keywords" content="סקריפט אחד, הרבה עמודים">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>סקריפט משותף לכמה עמודים או איך לדחוף את כל האתר לקובץ JS אחד</title>
+<meta itemprop="name" content="סקריפט משותף לכמה עמודים או איך לדחוף את כל האתר לקובץ JS אחד">
+<meta itemprop="description" content="סקריפט JS אחד מתאים לכל העמודים באתר - חוסך תעבורה ומקצר זמן טעינה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"292","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>סקריפט משותף לכמה עמודים או איך לדחוף את כל האתר לקובץ JS אחד</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2013-02-13T01:11:59+02:00" dir="rtl">13 לפברואר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="https://github.com/images/modules/download/zip.png" alt="סקריפט משותף לכמה עמודים או איך לדחוף את כל האתר לקובץ JS אחד">
+</div>
+<div class="right post-content">
+היתרון הברור של אתר שמוריד רק קובץ סקריפט אחד הוא עליה יותר מהירה וחסכון גדול יותר בתעבורה.<br>החיסרון הלא ברור הוא - <strong>איך עושים את זה</strong> כשעמוד אחד זה גלריה ועמוד אחר זה בלוג והקוד שלהם בכלל שונה לגמרי <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>פחות בקשות לשרת - יותר מהר</h3><br>כל כלי ושירות שמודד ביצועים של אתר (<a href="https://developers.google.com/speed/pagespeed/">pagespeed</a>, <a href="http://developer.yahoo.com/yslow/">yslow</a>) ממליץ בחום להוריד את כמות הבקשות שהדפדפן עושה אל השרת. אחד הגורמים לבקשות רבות אל השרת הוא מכלול הסקריפטים שהעמוד צריך.<br><br>רק בעמוד הזה נמצאים לפחות חמישה סקריפטים וספריות כמו jquery, כמה פלאגינים, סקריפטים של כפתורי לייק וגוגל ועוד כמה דברים שמגיבים ללחיצות על כפתורים למיניהם. כל סקריפט כזה דורש זמן להיטען במשך זמן לא נורמלי, בממוצע <strong>כחצי שניה</strong>. זה מטורף.<br><br>למזלנו דפדפנים הם תוכנות חכמות מספיק ששומרות את הסקריפטים ב-cache. במקום לקחת את הסקריפט מהשרת בכל פעם מחדש, הם לוקחים את הגרסה השמורה אצלכם במחשב ורק מאמתים עם השרת ששום דבר בה לא השתנה. התהליך הזה יותר מהיר וכאן לוקח כ-0.2 שניות שנובעים מהעבודה שהדפדפן בכל זאת צריך להגיע לשרת, לבקש ממנו את הסקריפט ולוודא שהוא לא השתנה מאז הפעם הקודמת.<br><span style="color:indigo;"><strong>וככה בשביל כל סקריפט בכל עמוד.</strong></span><br><br><h3>להכניס את כל הסקריפטים לקובץ אחד</h3><br>נוכל לנצל את יתרונות ה-cache עד הסוף ולהסוף את כל הסקריפטים של כל העמודים לתוך קובץ JS אחד.<br>הבעיה היחידה שתישאר לנו היא איך להפעיל קוד מתאים לכל עמוד, הרי בעמוד אחד צריך להפעיל סקריפט של גלריה ובעמוד אחר סקריפט שבודק נתונים בטופס צור קשר. קצת מאתגר, אבל בכלל לא קשה.<br><br><h4> אטריביות (מאפיין) מיוחד בתגית ה-body יגיד איזה קוד להפעיל</h4><br><div class="php codeblock"><span class="sy0">&lt;</span>body data<span class="sy0">-</span>scriptOnPage<span class="sy0">=</span><span class="st0">&quot;blog&quot;</span> <span class="sy0">&gt;</span></div><br>כדי שכל המערכת שלנו תפעל נעשה שני שינויים קטנים:<br>1. נשנה את מבנה הקוד שלנו למודולים שלא קשורים או תלויים אחד בשני<br>2. נוסיף קצת קוד שמתייחס לאטריביות הזה ומפעיל את המודול המתאים שלנו<br><br><h4>מודולים</h4><br>מודולים נראים בצורת משתנה פשוט שמכיל בתוכו פונקציות של עמוד שבתוכן נמצא כל הקוד שלך.<br><div class="php codeblock"><span class="kw2">var</span> SiteModules <span class="sy0">=</span> <br>
+<span class="br0">&#123;</span><br>
+&nbsp; blog <span class="sy0">:</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st_h">'this will alert on blog page'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; gallery <span class="sy0">:</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">var</span> div <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st_h">'div'</span><span class="br0">&#41;</span><span class="sy0">.</span>html<span class="br0">&#40;</span><span class="st0">&quot;This will appear on gallery page&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>append<span class="br0">&#40;</span>div<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; ANOTHER_PAGE_NAME <span class="sy0">:</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// YOUR CODE GOES HERE</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>תוכל לעצור לרגע ולקפוץ למדריך של iiddaannyy על <a href="Javacscript_כותבים_OOP_בעזרת_JSON.htm">אובייקטים ב javascript עם json</a><br>אם כל מה שהולך פה נראה לך יותר מדי מוזר.<br><br>מה שקורה כאן בפועל הוא שיצרנו<br>משתנה בשם SiteModules שמכיל אוסף של פונקציות, שכל אחת תתאים לעמוד אחר באתר.<br><br><h4>הפעלת מודול לפי האטריביות</h4><br>חתיכת קוד נוספת שנצטרך להוסיף לקוד שלנו, זה את הקוד שקורא את האטריביות מהתג body<br>ומפעיל את הפונקציה המתאימה לאותו עמוד.<br><br><div class="php codeblock"><span class="kw2">var</span> Loader <span class="sy0">=</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">var</span> ns <span class="sy0">=</span> <span class="st0">&quot;SiteModules&quot;</span><span class="sy0">;</span> <span class="co1">// &lt;-- The name of the variable above</span><br>
+&nbsp; <span class="kw2">var</span> attr <span class="sy0">=</span> <span class="st0">&quot;data-scriptOnPage&quot;</span><span class="sy0">;</span> <span class="co1">// &lt;-- the name of the attribute in the body tag</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="kw2">var</span> pagename <span class="sy0">=</span> document<span class="sy0">.</span>body<span class="sy0">.</span>getAttribute<span class="br0">&#40;</span>attr<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span> <br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; pagename <span class="sy0">!==</span> <span class="st0">&quot;&quot;</span> <span class="sy0">&amp;&amp;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; window<span class="br0">&#91;</span>ns<span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; window<span class="br0">&#91;</span>ns<span class="br0">&#93;</span><span class="br0">&#91;</span>pagename<span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; typeof window<span class="br0">&#91;</span>ns<span class="br0">&#93;</span><span class="br0">&#91;</span>pagename<span class="br0">&#93;</span> <span class="sy0">===</span> <span class="st0">&quot;function&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> window<span class="br0">&#91;</span>ns<span class="br0">&#93;</span><span class="br0">&#91;</span>pagename<span class="br0">&#93;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span><br>
+<br>
+jQuery<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span>Loader<span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>הקוד הזה מוסיף עוד פונקציה אחת לקובץ שלנו.<br>ברגע שהעמוד נטען, jQuery מפעילה את הפונקציה Loader.<br>הפונקציה בתורה קוראת את האטריביות מהתג body ובודקת האם מוגדר משתנה בשם SiteModules<br>והאם יש בתוכו פונקציה שמתאימה לשם העמוד הנוכחי לפי האטריביות. אם כן, היא מפעילה את הפונקציה הזו.<br><br>ככה שלא משנה באיזה עמוד אתה נמצא, כל הקוד javascript שלך נמצא באותו קובץ JS<br>אבל רק החלק שמתאים לאטריביות scriptOnPage יופעל. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2225"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/02/2013 07:25</span><br>
+נראה טוב.<br>
+מה שכן, יש מקרים של קבצי סקריפט ענקיים. בגירסה הקודמת של האתר שלי, קוד הסקריפט של הצ&apos;אט הכיל בערך 500 שורות.<br>
+הבעיה היא שלהכניס קודים ענקיים לאיזו פונקציה ולבסוף ליצור קובץ עצום שתמיד ייטען זה בעייתי.<br>
+<br>
+אני חושב שיהיה יותר חכם לבצע את כל הפעולה הזו בשרת, לייצר בשרת קובץ סקריפט שיכיל רק את הקוד שרלוונטי לאותו עמוד (ועל הדרך אפשר לבצע כיווץ בקובץ ומחיקת תווים מיותרים) ולבסוף לשלוח ללקוח.<br>
+ככה הקובץ שהלקוח מוריד קטן יותר כי הוא מכיל רק את מה שקלוונטי לאותו עמוד ואנחנו נהנים מהפרדה של הקוד לקבצים (מאחורי הקלעים).<br>
+<br>
+דרך אגב, המדריך שלי זקוק לעריכה. אעשה את זה בקרוב. :)</div>
+<a id="comment2226"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/02/2013 07:35</span><br>
+אתה צודק<br>
+ויש כלים לזה. בתור התחלה coffeescript<br>
+שמעבר לקימפול של קופי עצמו יודע גם לאחד כמה קבצים לקובץ אחד.</div>
+<a id="comment2227"></a>
+<div class="blog-comment">
+<span class='comment-author'>WebId.co.il</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/02/2013 11:58</span><br>
+בהקשר לזה,<br>
+אני בונה אתר שכולו אבל כולו בAJAX<br>
+מה עדיף ליצור פונקצייה שטוענת &quot;במעבר דף&quot; את הסקריפט הרצוי לאותו דף או קובץ אחד עם כל הסקריפטים?</div>
+<a id="comment2228"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/02/2013 13:54</span><br>
+זה לא מפריע אחד לשני.<br>
+את הפונקציה שבמדריך מופעל בעליה של העמוד תחליף בפונקציה שמופעלת בעת חילוף דף<br>
+ועדיין תשאיר את כל הסקריפטים של האתר באותו קובץ JS</div>
+<a id="comment2229"></a>
+<div class="blog-comment">
+<span class='comment-author'>WebId.co.il</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/02/2013 17:03</span><br>
+ואם מדובר בסקריפטים לא בעייתים?<br>
+לדוגמא הצמדת אירועים.</div>
+<a id="comment2230"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/02/2013 02:23</span><br>
+הצמדת אירועים זה הדוגמה הקלאסית למטרה של הקוד במדריך.<br>
+בכל עמוד יש לך אלמנטים שונים שדורשים הצמדת אירועים שונה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

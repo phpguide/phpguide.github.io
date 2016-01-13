@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="לפעמים יש לנו באתר אלמנטים שאנחנו רוצים להציג איתם מידע נוסף אבל השימוש ב-title לא מתאים לנו. בשביל זה יש לנו את jQuery, סיפרייה אשר איתה ניצור Tooltip ">
+<meta name="keywords" content="tooltip, טולטיפ, jquery, javascript, ג&apos;אווה סקריפט">
+<meta name="author" content="nfsalon">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>מדריך ליצירת פלאגין Tooltip ב-jQuery</title>
+<meta itemprop="name" content="מדריך ליצירת פלאגין Tooltip ב-jQuery">
+<meta itemprop="description" content="לפעמים יש לנו באתר אלמנטים שאנחנו רוצים להציג איתם מידע נוסף אבל השימוש ב-title לא מתאים לנו. בשביל זה יש לנו את jQuery, סיפרייה אשר איתה ניצור Tooltip ">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"266","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מדריך ליצירת פלאגין Tooltip ב-jQuery</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">nfsalon, </div>
+<div class="right">&nbsp;<time datetime="2012-10-27T18:17:53+02:00" dir="rtl">27 לאוקטובר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://up357.siz.co.il/up3/zz4jiyguuyy4.png" alt="מדריך ליצירת פלאגין Tooltip ב-jQuery">
+</div>
+<div class="right post-content">
+לפעמים יש לנו באתר אלמנטים שאנחנו רוצים להציג איתם מידע נוסף אבל השימוש ב-title לא מתאים לנו.<br>בשביל זה יש לנו את jQuery, סיפרייה אשר איתה ניצור Tooltip קטן ויעיל למטרות אלו. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+הקוד עצמו להפעלת הטולטיפ מבוסס על 4 חלקים.<br><br>1) קוד המקור של הפלאגין עצמו, אשר אוניברסלי לכל אתר ואתר.<br>2) קוד ה-CSS אשר איתו ניתן לסגנן ולשנות את המראה של הטולטיפ.<br>3) קוד ה-HTML אשר איתו מגדירים מה יהיה תוכן הטולטיפ במעבר עליו.<br>4) קוד ה-Javascript אשר מקשר בין קוד ה-HTML להפעלת הפלאגין.<br><br>כל הקודים מאוחסנים ב-pastebin למען נוחיותכם.<br><br><br><h4>קוד המקור של הפלאגין</h4><br>לנוחיותכם ולהבנה מקסימאלית, הוספתי קומנטים לאורך כל קוד המקור.<br><a href="http://pastebin.com/ZrEyuRcT">http://pastebin.com/ZrEyuRcT</a><br><br>יש לשמור כקובץ נפרד, מומלץ עם השם jquery.tooltip.js. יש לשלב את הקוד <strong>לאחר</strong> שילוב ספריית ה-jQuery.<br><br><br><h4>קוד ה-CSS של הטולטיפ</h4><br>בכדי להתאים אישית את הטולטיפ לפי המראה הרצוי לכם, ניתן לשנות בקלות את קוד ה-CSS. כברירת מחדל, הטולטיפ הינו בצבע שחור עם כתב לבן.<br><a href="http://pastebin.com/NvTMw696">http://pastebin.com/NvTMw696</a><br><br><br><h4>קוד ה-HTML</h4><br>יש מגוון שיטות לבחור מתי וכיצד להציג את הטולטיפ. אני העדפתי לשלב טיפ-טיפה HTML5.<br><a href="http://pastebin.com/STYddk5D">http://pastebin.com/STYddk5D</a><br><br>מה שחשוב זה להוסיף את הקלאס ui-title בכדי שקוד ה-JS יזהה את האלמנט, ו-data-title שיכיל את הטקסט שיופיע בטולטיפ.<br><br><br><h4>קוד ה-Javascript לקישור בין ה-HTML לפלאגין</h4><br><a href="http://pastebin.com/9yEUfFeQ">http://pastebin.com/9yEUfFeQ</a><br>שימו לב לשימוש בפונקציה on על פני bind פשוט. ההבדל הוא, ש-on תקף גם לאלמנטים דינאמיים שנוצרים גם אחרי שטעינת הדף הושלמה כבר.<br><br><br><strong>זה הכל!</strong> הקוד אמור לעבוד בלי שום בעיות והתאמות מסויימות. בכל בעיה, באג או סתם שאלה, אתם מוזמנים לפרסם כאן בתגובות.<br><br><a href="http://www.facebook.com/alon.pini">הוסיפו אותי בפייסבוק!</a> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/34112e81b1df3887e7b8de205aa57f92?s=16&r=g&d=monsterid" alt="nfsalon">
+<a>nfsalon</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2033"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/10/2012 21:10</span><br>
+נחמד בהחלט, אבל למה ב-CSS עשית את ההגדרות על פי ID ולא על פי קלאס? אתה פשוט סוגר את הקוד לפעם אחת בדף.. וזה לא המטרה שלו :)</div>
+<a id="comment2034"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/10/2012 17:06</span><br>
+תודה על הקוד ! <br>
+אולי תצרף דמו ? :)</div>
+<a id="comment2035"></a>
+<div class="blog-comment">
+<span class='comment-author'>nfsalon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/10/2012 21:03</span><br>
+@KingYes - בגלל שזה התאים לי יותר כשבניתי את הפלאגין, במקור הוא היה בשביל שימוש עצמי והחלטתי להפיץ אותו לציבור. אפשר לשנות מאוד בקלות את הסלקטור בפלאגין.<br>
+<br>
+@shlomo120 - רעיון טוב, יש מצב אעדכן בקרוב עם דמו.</div>
+<a id="comment2036"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/10/2012 21:37</span><br>
+@nfsalon, אני מדבר על יעילות. אתה כבר כתבת לזה פלאגין בפני עצמו והכל טוב ויפה, אבל חבל שאת ההגדרות של ה-CSS סגרת על פי ID ולא קלאס.<br>
+<br>
+תודה על השיתוף. :)</div>
+<a id="comment2037"></a>
+<div class="blog-comment">
+<span class='comment-author'>nfsalon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/10/2012 09:20</span><br>
+@KinkYes, מה היית ממליץ?</div>
+<a id="comment2038"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/10/2012 13:39</span><br>
+פשוט לעשות במקום ב-CSS להשתמש ב-#tooltip כאלמנט ראשי, תשנה אותו לקלאס. כמובן לשנות בקוד ה-JQ.. וככה אתה יכול להשתמש בקוד הזה לכמה חלקים בדף בלי בעיה.</div>
+<a id="comment2046"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi787</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/11/2012 14:40</span><br>
+לא עובד לי..<br>
+מיקמתי את הקבצים בתקייה כלשהיא וקישרתי, אבל זה לא מצליח,<br>
+אחר כך ניסיתי לעשות כך:<br>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;<span dir="ltr"><a href="http://pastebin.com/raw.php?i=NvTMw696&quot">http://pastebin.com/raw.php?i=NvTMw696&quot</a></span>; /&gt;<br>
+&lt;script src=&quot;<span dir="ltr"><a href="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.4.js&quot">http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.4.js&quot</a></span>; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>
+&lt;script src=&quot;<span dir="ltr"><a href="http://pastebin.com/raw.php?i=ZrEyuRcT&quot">http://pastebin.com/raw.php?i=ZrEyuRcT&quot</a></span>; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>
+&lt;script src=&quot;<span dir="ltr"><a href="http://pastebin.com/raw.php?i=9yEUfFeQ&quot">http://pastebin.com/raw.php?i=9yEUfFeQ&quot</a></span>; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>
+(ה-CSS, יבוא ה-JQUERY,קובץ JQUERY, ו-JS)<br>
+וב-body:<br>
+&lt;a href=&quot;#&quot; class=&quot;ui-title&quot; data-title=&quot;עוד אפשרויות&quot;&gt;...&lt;/a&gt;<br>
+ועדין לא עובד..</div>
+<a id="comment2047"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/11/2012 17:21</span><br>
+יכול להיות כי אתה עובד עם jquery בגירסא 1.4.4, תנסה את 1.8.3<br>
+<span dir="ltr"><a href="http://pastebin.com/z1rGVP5L">http://pastebin.com/z1rGVP5L</a></span></div>
+<a id="comment2050"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi787</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/11/2012 20:06</span><br>
+תודה, זאת באמת הייתה הבעיה!</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

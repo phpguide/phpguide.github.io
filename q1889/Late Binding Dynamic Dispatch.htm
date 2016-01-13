@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה Late Binding, Dynamic Dispatch...">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Late Binding, Dynamic Dispatch... | שאלת לימוד PHP</title>
+<meta itemprop="name" content="Late Binding, Dynamic Dispatch... | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה Late Binding, Dynamic Dispatch...">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">9</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="Late Binding Dynamic Dispatch.htm" title="איך שלא קוראים לזה. הייתי בטוח שזה יקרה כאן:public class Main &amp;#123;
+&amp;nbsp; public static void main&amp;#40;String args&amp;#91;&amp;#93;&amp;#41;
+&amp;nbsp; &amp;#123;
+&amp;nbsp; &amp;nbsp; &amp;#40;new ">Late Binding, Dynamic Dispatch...</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2014-05-01T15:45:40+03:00" style="display:inline-block;">
+01 למאי 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1889'>
+איך שלא קוראים לזה. הייתי בטוח שזה יקרה כאן:<br><br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">class</span> Main <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> static void main<span class="br0">&#40;</span>String args<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><span class="kw2">new</span> A<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">.</span>foo<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// foo from A</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><span class="kw2">new</span> A<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">.</span>bar<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// foo from A</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><span class="kw2">new</span> B<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">.</span>foo<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// foo from B</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><span class="kw2">new</span> B<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">.</span>bar<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// foo from A &nbsp; &nbsp; &nbsp;&lt;- &nbsp;???</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> A<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> void foo<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">System</span><span class="sy0">.</span>out<span class="sy0">.</span>println<span class="br0">&#40;</span><span class="st0">&quot;foo from A&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> void bar<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; foo<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> B <span class="kw2">extends</span> A<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> void foo<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">System</span><span class="sy0">.</span>out<span class="sy0">.</span>println<span class="br0">&#40;</span><span class="st0">&quot;foo from B&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> void bar<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; super<span class="sy0">.</span>foo<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>למה ככה? </div>
+</div>
+<h3>
+<span id="answersCounter">9 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8527">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 01 למאי 2014 </span>
+<a id="answer_8527" href="Late Binding Dynamic Dispatch.htm#answer_8527">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הבנתי למה הסימני שאלה שלך. עשית בb.foo קריאה למטודה בparent, עם super. אם תוריד את הsuper. ובעצם תשאיר רק foo(); זה יקרא לb.foo במקום לa.foo<br>אם תעיף אגב את הדריסה שלך לbar בb, אז b.bar() גם כן ידפיס לך foo from b כמו שאתה רוצה (?).<br><br>בכל מקרה,<br>https://ideone.com/6AlprM </p>
+</div>
+<div class="answer" id="answer8528">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 01 למאי 2014 </span>
+<a id="answer_8528" href="Late Binding Dynamic Dispatch.htm#answer_8528">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני יודע שאם אני אוריד את ה-super זה יקרא ל-B.foo.<br><br>בדיוק הנקודה שלי. זו ההתנהגות שציפיתי אליה - תמיד קריאה למימוש האחרון, לא? כמו עם המילה השמורה static ב-PHP, וכמו שקורה באופן כללי עם פולימורפיזם.<br><br>אגב, למה מה שעשית <a href="http://ideone.com/KUL7zJ">לא עובד עם פעולות סטטיות</a>? </p>
+</div>
+<div class="answer" id="answer8530">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 01 למאי 2014 </span>
+<a id="answer_8530" href="Late Binding Dynamic Dispatch.htm#answer_8530">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+super קורא למימוש באב, אז כן זה הגיוני למה זה כתב לך foo from A. <br>וכי אתה לא יכול <a href="http://stackoverflow.com/questions/2223386/why-doesnt-java-allow-overriding-of-static-methods">לדרוס מטודות סטטיות</a> </p>
+</div>
+<div class="answer" id="answer8532">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 למאי 2014 </span>
+<a id="answer_8532" href="Late Binding Dynamic Dispatch.htm#answer_8532">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מעניין. כלומר כשקוראים למתודה שנדרסה, ובעצם מציינים בפירוש לעלות למעלה - גם המימוש עצמו וגם ה-binding עולה למעלה. לאחרון לא ציפיתי, אבל כשחושבים על זה זה דווקא נשמע הגיוני. (לפחות במובן מסוים.)<br><br>אני לא קונה את הסיבות שם להיעדרות האפשרות לדרוס מתודות סטטיות. (זה שמדובר במחלקות ולא באובייקטים לא אומר שזה לא הגיוני לדרוס מתודה של מחלקה. זה נשמע מגוחך.) בדקתי בתיעוד הרשמי, וגם <a href="http://docs.oracle.com/javase/tutorial/java/IandI/override.html">שם</a> לא ראיתי הסבר למה זה ככה. יש לך רעיון?<br><br>תודה! </p>
+</div>
+<div class="answer" id="answer8537">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 02 למאי 2014 </span>
+<a id="answer_8537" href="Late Binding Dynamic Dispatch.htm#answer_8537">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בגלל שזה חסר משמעוט מבחינה רעיונית.<br>הרעיון של דריסה מיועד לפולימורפיזם<br>כאשר ניתן להפעיל מטודה על <span class="underline">מופע</span> מחלקה בלי לדעת את הסוג הספציפי שלה<br><div class="php codeblock"><span class="kw1">for</span> <span class="br0">&#40;</span>Iface item <span class="sy0">:</span> someList<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; item<span class="sy0">.</span>ifaceMethod<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>כשאתה מפעיל מטודה סטטית - אתה לא מפעיל אותה על מופע מסוים, אלא על טיפוס מסוים, וכשאתה עושה את זה - אתה יודע בוודאות את סוג הטיפוס בזמן כתיבת הקוד.<br><div class="php codeblock"><span class="kw1">for</span> <span class="br0">&#40;</span>Iface item <span class="sy0">:</span> someList<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; TypeX<span class="sy0">.</span>staticM<span class="br0">&#40;</span>item<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer8541">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 למאי 2014 </span>
+<a id="answer_8541" href="Late Binding Dynamic Dispatch.htm#answer_8541">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\intval.htm">@intval</a> לא בהכרח, אפשר להפעיל על משתנה מסוים (בג&apos;אווה, לפחות). מכיוון שאני אשתמש בזה הרבה פחות (ספק אם בכלל), כי אני נמנע מסטטיות באופן כללי, זה לא כזה חשוב לי, אבל זה כן לא מובן לי.<br><br>בנוגע לשאלה המקורית (בערך) - אם אני רוצה כן לדרוס מתודה, ואז לקרוא לה דרך super ולשמור על Binding לאובייקט של מחלקת הבן - אני יכול לעשות את זה? כרגע אני לא מצליח למצוא דוגמה מציאותית לזה, אבל במערכות מורכבות אני בטוח שיש לזה שימושים. (פתרון לזה יכול להיות לשנות את מחלקת האב כדי שתאפשר את זה, אבל לא תמיד זה אפשרי. פתרון אחר הוא להשתמש באותו הקוד של מחלקת האב למתודה הזאת ולהוסיף על זה, אבל זה שכפול קוד.) </p>
+</div>
+<div class="answer" id="answer8553">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 02 למאי 2014 </span>
+<a id="answer_8553" href="Late Binding Dynamic Dispatch.htm#answer_8553">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה מתכוון למשהו כזה בעצם?<br><div class="php codeblock"><span class="kw2">class</span> A <span class="br0">&#123;</span><br>
+<span class="kw2">public</span> void hello<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp;<span class="kw3">System</span><span class="sy0">.</span>out<span class="sy0">.</span><span class="kw1">print</span><span class="br0">&#40;</span><span class="st0">&quot;Hello&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">public</span> void world<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+hello<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> B <span class="kw2">extends</span> A <span class="br0">&#123;</span><br>
+<span class="kw2">public</span> void hello<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+super<span class="sy0">.</span>hello<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">System</span><span class="sy0">.</span>out<span class="sy0">.</span>println<span class="br0">&#40;</span><span class="st0">&quot; World&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="co1">///</span><br>
+B b <span class="sy0">=</span> <span class="kw2">new</span> B<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+b<span class="sy0">.</span>world<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Hello World</span></div> </p>
+</div>
+<div class="answer" id="answer8554">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 למאי 2014 </span>
+<a id="answer_8554" href="Late Binding Dynamic Dispatch.htm#answer_8554">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה בעצם מה שהראית לי בהתחלה. התכוונתי למשהו אחר, אבל בתשובה עם דוגמה שכמעט גמרתי לכתוב לך עכשיו ואז מחקתי, קלטתי שבעיות כאלה אפשר לפתור עם הפרדה פשוטה של מתודות. מובן שאם מדובר במערכת שאי אפשר יהיה לשנות את מחלקת האב זה יהיה קצת בעייתי, אבל זה כבר בעיה של גמישות (וצריך לנסות לעבוד על זה מראש כמה שאפשר), וזה כל מקרה בפני עצמו.<br><br>תודה רבה לכם שסבלתם את החפירות שלי. :-) </p>
+</div>
+<div class="answer" id="answer8555">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 02 למאי 2014 </span>
+<a id="answer_8555" href="Late Binding Dynamic Dispatch.htm#answer_8555">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בהצלחה </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

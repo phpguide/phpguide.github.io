@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה פונקציה שמקבלת ערך חיצוני">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_225673">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>פונקציה שמקבלת ערך חיצוני | שאלת לימוד PHP</title>
+<meta itemprop="name" content="פונקציה שמקבלת ערך חיצוני | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה פונקציה שמקבלת ערך חיצוני">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">21</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="פונקציה שמקבלת ערך חיצוני-1.htm" title="אני רוצה לעשות לפונקציה שתקבל ערך חיצוני כלומר מהדף PHP אבל לא דרך הפרמטרים שלה כלומר:$f=&apos;hello&apos;;
+function f&amp;#40;&amp;#41;&amp;#123;
+echo $f; &amp;#125;
+f">פונקציה שמקבלת ערך חיצוני</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_225673</a>
+,
+<time class="timeago relativetime" datetime="2012-06-10T14:05:51+03:00" style="display:inline-block;">
+10 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText627'>
+אני רוצה לעשות לפונקציה שתקבל ערך חיצוני כלומר מהדף PHP אבל לא דרך הפרמטרים שלה כלומר:<br><div class="php codeblock"><span class="re0">$f</span><span class="sy0">=</span><span class="st_h">'hello'</span><span class="sy0">;</span><br>
+<span class="kw2">function</span> f<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$f</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+f<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">21 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2457">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/77687afd3880fb9ad19abc54f4c706df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>KingYes</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2457" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2457">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תקרא על global... </p>
+</div>
+<div class="answer" id="answer2458">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2458" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2458">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">function</span> f<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">global</span> <span class="re0">$f</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$f</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>או<br><div class="php codeblock"><span class="kw2">function</span> f<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$GLOBALS</span><span class="br0">&#91;</span><span class="st_h">'f'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer2459">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2459" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2459">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה שתרצה לעשות את זה?<br>זה משהו שלא אמור לקרות. </p>
+</div>
+<div class="answer" id="answer2460">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2460" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2460">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חחחחחחח תמיד אתה שואל את זה<br>אני עושה פונקציה שחוזרת על עצמה לפחות 50 פעם וכל פעם שהיא עולה היא פותחת את הפונקציה TIME<br>ולפתוח אותה כל פעם מחדש יכול לתת תוצאות שונות או סתם להעמיס אז אני שומר אותה במשתנה מסוים וככה היא לא תשתנה לאורך כל הפעמים שהפונקציה שלי תופעל<br><br>ד&quot;א עובד מעולה!! </p>
+</div>
+<div class="answer" id="answer2461">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2461" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2461">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איכס, להשתמש ב-global זה כמו לירות לעצמך ברגל. </p>
+</div>
+<div class="answer" id="answer2463">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2463" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2463">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חח מה הקשר עכשיו ולמה??<br>הגלובל עוזר לי להגיע אל המשתנה החיצוני מה רע בו..?? </p>
+</div>
+<div class="answer" id="answer2464">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2464" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2464">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה אתה לא רוצה להעביר את ה time בתור פרמטר ? </p>
+</div>
+<div class="answer" id="answer2465">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2465" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2465">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כי עד עכשיו בכל הדפים שלי השתמשתי ב2 פרמטרים..<br>ובדף INCLUDE יש את הפונקציה כבר וגם את המשתנה $curtime שהגדרתי ובו נמצא הזמן המקורי ששיך לכל הדף וכל הדף בעצם מתבסס על אותו TIME </p>
+</div>
+<div class="answer" id="answer2466">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2466" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2466">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי. אם נמשיך לא להסתכל לכיוון object oriented<br>אפשר אולי לגנוב משם מילה אחת שתתאים לך יותר בצורה הבאה:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">function</span> doSomething<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; static <span class="re0">$time</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw4">null</span> <span class="sy0">===</span> <span class="re0">$time</span><span class="br0">&#41;</span> <span class="re0">$time</span> <span class="sy0">=</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$time</span><span class="sy0">,</span> <span class="st0">&quot;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+doSomething<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">sleep</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+doSomething<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>static גורמת לזה שהמשתנה הזה יהיה משותף לכל הקריאות של הפונקציה לא משנה מי ומתי קרה לה.<br>ככה שהערך של time$ משתמר בין הקריאות. </p>
+</div>
+<div class="answer" id="answer2469">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2469" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2469">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וואי אין לי מושג מה אני רואה פה ולמה הBOOLEAN שלך הוא null === $time זה אמור להיות הפוך לא??<br>ולמה השתמשת בSLEEP זה לא כדי להריץ זמן??<br>בכל מקרה חחחח אפשר הסבר נוסף או בכלל מדריך לזה </p>
+</div>
+<div class="answer" id="answer2470">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2470" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2470">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה ההבדל בין <div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$a</span> <span class="sy0">===</span> <span class="re0">$b</span><span class="br0">&#41;</span></div> לבין <div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$b</span> <span class="sy0">===</span> <span class="re0">$a</span><span class="br0">&#41;</span></div> ?<br>לא, אי אפשר &quot;להריץ&quot; זמן עדיין, אבל אפשר לבדוק בדוקמנטציה מה <a href="http://php.net/sleep">sleep </a>עושה, שזה פשוט לעצור את הסקריפט, לחכות כמה שניות ואז להמשיך.<br>למה השתמשתי בה? כדי להדגים שהערך של המשתנה time$ משתמר ולא נכנס לתוכו ערך חדש בכל קריאה לפונקציה. </p>
+</div>
+<div class="answer" id="answer2471">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2471" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2471">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל אני זוכר כשלמדתי תכנות בכלל הייתה הדגשה שמשפט בתכנות הוא לא כמו מתמטיקה למשל<br>לא כותבים<br><div class="php codeblock"><span class="nu0">4</span><span class="sy0">=</span><span class="re0">$var</span><span class="sy0">;</span></div><br>שבתכנות זה אומר ש&quot;4&quot; יכיל את הערך $VAR ולכן הסדר משנה כשמדובר במשתנה ובערך<br>ובמקרה שהבאת באמת אין בעיה כי שניהם משתנים אבל קודם כתבת<br><div class="php codeblock"><span class="nu0">4</span><span class="sy0">==</span><span class="re0">$var</span></div><br>זה נראה לי צריך להיות ההפך..<br>בכל מקרה עוד משהו אמרת שSLEEP זה עוצר את הסקריפט זה בעצם כמו SETTIMEOUT??<br>אבל אם עושים דבר כזה זה לא יתקע את כל הדף עד שהסקריפט יסתיים?? כי בכל זאת זאת שפת שרת לא שפה כמו JS שרצה בדפדפן<br><br><br>ולגבי הקוד שהבאת אתה יכול להסביר לי מה זה STATIC בבקשה </p>
+</div>
+<div class="answer" id="answer2472">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2472" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2472">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון שאתה לא יכול לשים ערך כלשהו בתוך המספר 4, אבל לבדוק האם 4 שווה ל X או האם X שווה ל 4 זה אותו דבר.<br>static גורמת לזה שהמשתנה הזה יהיה משותף לכל הקריאות של הפונקציה לא משנה מי ומתי קרה לה. </p>
+</div>
+<div class="answer" id="answer2473">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2473" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2473">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+yoda syntax ftw <br>ו-global זה רע כיוון שזה מסתיר תלות של פונקציה באלמנט כלשהו. במקום זה, אתה יכול להעביר את האלמנט כפרמטר או ללמוד oop ולעשות מאפיין שיהיה נגיש לכל מתודה. </p>
+</div>
+<div class="answer" id="answer2475">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2475" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2475">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אהה הבנתי<br>2 שאלות אחרונות :)<br>למה STATIC עדיף על GLOBAL ומה ההבדל בניהם ,מבחינת מה שאני רוצה לעשות? (במי כדאי להשתמש ולמה לא כדאי בכלל להשתמש בGLOBAL באופן כללי)<br>למה STATIC לא מקבל פונקציה static $time = time();<br>שהרי זה בעצם מה שניסית לכתוב אבל אם אני כותב ישר פונקציה השרת מחזיר שגיאה<br><div class="php codeblock">Parse error<span class="sy0">:</span> syntax error<span class="sy0">,</span> unexpected <span class="st_h">'('</span><span class="sy0">,</span> expecting <span class="st_h">','</span> or <span class="st_h">';'</span> in code on line <span class="nu0">1</span></div> </p>
+</div>
+<div class="answer" id="answer2476">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 10 ליוני 2012 </span>
+<a id="answer_2476" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2476">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין קשר בין global ל-static.<br>static מגדיר משתנה פעם אחת בלבד.<br><br>ואתה לא יכול לתת כערך למאפיין של קלאס (בין אם הוא סטטי או לא) ערך שהוא חישוב כלשהו, או פונקציה כלשהי או משתנה כלשהו, כי php לא מבצע את כל אלה בזמן קומפילציה.<br><br>ואם תקרא את ההודעה שמעל להודעה שלך תראה את התשובה ל-global. </p>
+</div>
+<div class="answer" id="answer2478">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 11 ליוני 2012 </span>
+<a id="answer_2478" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2478">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+yoda syntax ftw <br>ו-global זה רע כיוון שזה מסתיר תלות של פונקציה באלמנט כלשהו. במקום זה, אתה יכול להעביר את האלמנט כפרמטר או ללמוד oop ולעשות מאפיין שיהיה נגיש לכל מתודה.<br><br>ע&quot;פ מה שאתה אומר הבנתי שהבעיה בגלובל שהוא אינו פרמטר בפונקציה ושאם הוא לא קיים אז הפונקציה נופלת..<br>אם הבנתי נכון אז זה באמת לא משנה לי למרות שאם זה היה משנה הייתי יכול להוסיף<br>ISSET ולעשות RETURN FALSE בכל מקרה אם זאת הבעיה היחידה אז מה הבעיה להשתמש בזה במקום STATIC.. </p>
+</div>
+<div class="answer" id="answer2483">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 11 ליוני 2012 </span>
+<a id="answer_2483" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2483">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה היא שהפונקצייה שלך תלוייה במשהו, ועם בגלובאל אתה מסתיר את התלות הזאת. יכולות להיות לך כמה פונקציות שתלויות באותו הדבר, לכן צריך לבנות מחלקה או מבנה לוגי כלשהו שיחבר בין התלויות. גלובאל זה פתרון &quot;בדרך&quot; ו&quot;בחפיף&quot; - הוא יוצר בלאגן. זה פרקטיקה גרועה.<br><br>ומה הקשר בכלל ל-static? זה דברים שונים <strong>לגמרי</strong>. <br>global מחפש מרכיב כלשהו בטוח גלובאלי (global scope).<br>static מגדיר משתנה פעם אחת בלבד. ככה שאם אתה מגדיר משתנה כסטטי בתוך הפונקציה, המשתנה הזה יווצר פעם אחת בזכרון, וכל פעולה שתעשה על המשתנה הזה תבוצע על אותו תא בזכרון. </p>
+</div>
+<div class="answer" id="answer2493">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 11 ליוני 2012 </span>
+<a id="answer_2493" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2493">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>אני יודע שהם שונים לגמריי אחד מהשני!!!!!</strong><br>התכוונתי ש<strong>במקרה שלי</strong> ששם אני יכול להשתמש בGLOBAL או בSTATIC ואז אין הבדל בתוצאה<br><br>אז אני שאלתי מה יותר יעיל מבחינת מהירות <strong>במקרה שלי</strong><br>ולגבי התלות הסברתי לך שזה לא משנה לי המשתנה הזה תמיד זמין ומוגדר אין בעיה עם זה </p>
+</div>
+<div class="answer" id="answer2494">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 ליוני 2012 </span>
+<a id="answer_2494" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2494">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשתמש ב global.<br>צריך להבין פחות בשביל להישתמש בו במקרה שיהיו בעיות. </p>
+</div>
+<div class="answer" id="answer2497">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 11 ליוני 2012 </span>
+<a id="answer_2497" href="פונקציה שמקבלת ערך חיצוני-1.htm#answer_2497">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איזה בעיות יכולות להיגרם ממנו ששימוש בSTATIC ימנע? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

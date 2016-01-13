@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="התקנה והשינויים העיקריים ב- mysql 5.5.8">
+<meta name="keywords" content="mysql 5.5.8">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>ראתה אור MYSQL 5.5.8</title>
+<meta itemprop="name" content="ראתה אור MYSQL 5.5.8">
+<meta itemprop="description" content="התקנה והשינויים העיקריים ב- mysql 5.5.8">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"41","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>ראתה אור MYSQL 5.5.8</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-01T19:26:25+02:00" dir="rtl">01 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/mysql.gif" alt="ראתה אור MYSQL 5.5.8">
+</div>
+<div class="right post-content">
+הרבה זמן כולם חיקו ליציאתה של הגרסה החדשה של mysql והנה זה קרה.<br>מה חדש בפנים, איפה להוריד ומדריך התקנה מחקה לכם בהמשך <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אחרי שנתיים של עבודה oracle <a href="http://www.oracle.com/us/corporate/press/195726">הודיעה</a> על שחרור הגרסה היציבה הראשונה של mysql 5.5.8 . ענף ה-5.5 מתבסס בעיקרו על ענך ה-5.4 (שאף פעם לא יצא) וכולל שיפורים רבים בתחומי הרפליקציה וביצועים. בפרסומה של Oracle כללה החברה את הבטחתה להמשיך ולפתח את Mysql כמסד נתונים עם קוד פתוח.<br><br><br>* שיפור בביצועים ויכולות הרחבה בהשוואה לענף 5.1 שרובינו עובדים איתו כיום. מהירות פעולות כתיבה-קריאה מעורבות גדל פי 3.6 , ומהירות פעולות הקריאה בלבד עלה כמעט פי 2.<br><br>* שימוש במנוע ה-InnoDB הפך להיות ברירת מחדל<br>* אינטגרציה של תוספות מבית גוגל — לעבודה עם רפליקציה לשרתים מרובים ושרתים עם הרבה ליבות. בגרסאות קודמות מנוע ה-InnoDB לא הפיק את המרב משרתים עם 16 ליבות ומעלה. <br>* יישום אופרטורים SIGNAL ו-RESIGNAL — דרכים חדשות להתמודדות עם שגיאות בפרוצדורות וטריגרים.<br>* מנגנון ייעול חדש לתת-שאילתות ו-jOINים המגדיל את מהירותם במקרים מסוימים בכ-90% .<br>* הוספת טבלה עם נתונים מהרמה נמוכה על ביצועי טבלאות מסוג InnoDB<br>* שופרו הכלים לעבודה עם XML. התווספה האופרטור LOAD XML<br>* הגדרת סוג(מנוע) הטבלה באמצעות הפקודה TYPE יצא מהאופנה ולא תקף יותר. להדגרת סוג הטבלה מאתה יש להשתמש בפקודה ENGINE<br><a href="http://www.oracle.com/us/corporate/press/195726">ועוד שינויים אחרים</a>. <br><br>להוריד את הגרסה החדשה <a href="http://downloads.skysql.com/archive/index/p/mysql/v/5.5.8">ניתן כאן</a>. את ההתקנה יש לבצע כפי שמתואר במדריך <a href="התקנת_PHP_Apache_MySQL.htm">התקנת mysql</a><br><br>אין צורך למחוק את ההתקנה הקודמת, אך רצוי לעשות גיבוי של הטבלאות הקיימות על ידי העתקת התיקייה שמכילה את כל הטבלאות. בכל מערכת הפעלה והתקנה התיקייה הזו נמצאת במקום אחר, לכן יהיה עלינו לגשת לקובץ my.cnf<br>שנמצאת ב C:/www/server/mysql ולמצוא בה את השורה datadir=..<br>שם נמצאות כל הטבלאות שלנו. רצוי לעשות להם גיבוי ורק לאחר מכן להתקין את הגרסה החדשה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

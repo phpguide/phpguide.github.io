@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הדפסת נתונים במערך בפונקציית fetchall">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="davsev">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>הדפסת נתונים במערך בפונקציית fetchall | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הדפסת נתונים במערך בפונקציית fetchall | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הדפסת נתונים במערך בפונקציית fetchall">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  unanswered">
+<div class="item-count">0</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הדפסת נתונים במערך בפונקציית fetchall.htm" title="היי,יש לי את הדטא בייס הזה.id index &amp;nbsp; wLname &amp;nbsp;wFname
+--------------------------
+1 &amp;nbsp; &amp;nbsp; 1 &amp;nbsp; &amp;nbsp;שמואל &amp;nbsp; סמית 
+2 &amp;nbsp; &amp;nbsp; 1 &amp;nbsp; &amp;nbsp;אלי &amp;nbsp; &amp;nbsp; &amp;nbsp; ברלב &amp;nbsp;
+3 &amp;nbsp; &amp;nbsp; 2 &amp;nbsp; &amp;nbsp;אייל &amp;nbsp; &amp;nbsp">הדפסת נתונים במערך בפונקציית fetchall</a></h2>
+<div class="userinfo">
+פתח
+<a>davsev</a>
+,
+<time class="timeago relativetime" datetime="2015-03-13T15:47:38+02:00" style="display:inline-block;">
+13 למרץ 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2120'>
+היי,<br>יש לי את הדטא בייס הזה.<br><br><div class="php codeblock">id index &nbsp; wLname &nbsp;wFname<br>
+<span class="sy0">--------------------------</span><br>
+<span class="nu0">1</span> &nbsp; &nbsp; <span class="nu0">1</span> &nbsp; &nbsp;שמואל &nbsp; סמית <br>
+<span class="nu0">2</span> &nbsp; &nbsp; <span class="nu0">1</span> &nbsp; &nbsp;אלי &nbsp; &nbsp; &nbsp; ברלב &nbsp;<br>
+<span class="nu0">3</span> &nbsp; &nbsp; <span class="nu0">2</span> &nbsp; &nbsp;אייל &nbsp; &nbsp; &nbsp;סעדון<br>
+<span class="nu0">4</span> &nbsp; &nbsp; <span class="nu0">2</span> &nbsp; &nbsp;שמעון &nbsp; לוי<br>
+<span class="nu0">5</span> &nbsp; &nbsp; <span class="nu0">2</span> &nbsp; &nbsp;חיים &nbsp; &nbsp; &nbsp;דוד</div><br>ויש לי את הקוד הזה:<br><br><div class="php codeblock"><span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT wFname,wLname FROM writers WHERE bibidbook = <span class="es4">$bibidbook</span> AND wrole = 0 ORDER BY Wid&quot;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$stmt</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$name</span> <span class="sy0">=</span> <span class="re0">$stmt</span><span class="sy0">-&gt;</span><span class="me1">fetchAll</span><span class="br0">&#40;</span>PDO<span class="sy0">::</span><span class="me2">FETCH_ASSOC</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$name</span> <span class="kw1">as</span> <span class="re0">$row</span> <span class="sy0">=&gt;</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;<span class="kw1">return</span> <span class="st0">&quot;&lt;b&gt;&quot;</span><span class="sy0">.</span><span class="re0">$value</span><span class="br0">&#91;</span><span class="st_h">'wLname'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot; &quot;</span> <span class="sy0">.</span> <span class="re0">$value</span><span class="br0">&#91;</span><span class="st_h">'wFname'</span><span class="br0">&#93;</span><span class="sy0">.</span> <span class="st0">&quot;&lt;/b&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>שבPRINT_R מייצא את הקוד הבא: <br><div class="php codeblock"><span class="kw3">Array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="kw3">Array</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wFname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> סמית<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wLname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> שמואל<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<br>
+&nbsp; &nbsp; <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="kw3">Array</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wFname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> אלי<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wLname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> ברלב<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<br>
+<span class="br0">&#41;</span><br>
+<span class="kw3">Array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="kw3">Array</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wFname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> אייל<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wLname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> סעדון<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<br>
+&nbsp; &nbsp; <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="kw3">Array</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wFname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> שמעון<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wLname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> לוי<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<br>
+&nbsp; &nbsp; <span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="kw3">Array</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wFname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> חיים<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#91;</span>wLname<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> דוד<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+<br>
+<span class="br0">&#41;</span></div><br><br><br>אני מעוניין לייצא פורמט כזה שיציג<br>את כל השורות של כל תת מערך בשורה אחת. <br>שורה 1- שמואל סמית אלי ברלב <br>שורה 2- אייל סעדון שמעון לוי חיים דוד<br>לא יודע איך לנסח את זה טוב יותר. <br><br>כרגע הפוראיץ&apos; מציג לי רק את התוצאה הראשונה בכל תת מערך Araay[0]<br>אני יודע שחסר לי לופ שיעטוף את הפוראיץ&apos; שקיים בקוד. <br>אבל אני לא מצליח למצוא את השילוב.<br><br>אשמח לכל עזרה </div>
+</div>
+<h3>
+<span id="answersCounter">0 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

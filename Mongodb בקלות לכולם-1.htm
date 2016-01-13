@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="Mongo db על Mongolab">
+<meta name="keywords" content="mongo db">
+<meta name="author" content="raslin">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Mongodb בקלות לכולם</title>
+<meta itemprop="name" content="Mongodb בקלות לכולם">
+<meta itemprop="description" content="Mongo db על Mongolab">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"265","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Mongodb בקלות לכולם</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">raslin, </div>
+<div class="right">&nbsp;<time datetime="2012-10-17T16:51:49+02:00" dir="rtl">17 לאוקטובר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://info.10gen.com/rs/10gen/images/mongodb%20badge.png" alt="Mongodb בקלות לכולם">
+</div>
+<div class="right post-content">
+Mongolab נותנת מסד נתונים מסוג MongoDB בחינם לכולם,<br>אז הגיע הזמן לנסות לא? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+מי מכם עוד לא שמע על מסד הנתונים מסוג MongoDB?<br>מסד נתונים מסוג document מאוד scalable, ומהיר,<br>וכל הסיפור שלו מתאים לאשכול אחר, אבל אם תמיד חלמתם לנסות אותו,<br>אז Mongolab מאפשרת לכם לעשות זאת בקלות.<br><br><a href="https://mongolab.com">https://mongolab.com</a><br><br>קודם כל, אתם צריכים לוודא ש mongo מותקנת אצלכם ב PHP,<br>(לא המסד עצמו, אלא הדרייבר של PHP).<br><br>כדי לוודא זאת, תנסו להריץ ()new Mongo<br>אם ההשגיאה שהמחלקה לא קיימת, אז אתם צריכים להתקין.<br>מי שעובד על הלוקאלהוסט בוינדוס יכול להוריד מפה: https://github.com/mongodb/mongo-php-driver/downloads<br><br>בכל אופן, למדריך המלא להתקנת הדרייבר בלינוקס ווינדוס ניתן למצוא <a href="http://www.mongodb.org/pages/viewpage.action?pageId=5537953">כאן</a><br><br><br>כעת כנסו לאתר https://mongolab.com<br>פיתחו חשבון, וצרו מסד נתונים חינמי של חצי ג&#039;יגה!<br>צרו מסד נתונים חדש, ביחרו שם משתמש וסיסמא,<br>וכעת תופיע לכם שורה חדשה תחת ה databases<br><br>לחצו על השורה הזו, ותראו את הקישור להתחברות למונגו,<br>אמור להיראות משהו כמו זה:<br><br><div class="php codeblock">mongodb<span class="sy0">:</span><span class="co1">//&lt;dbuser&gt;:&lt;dbpassword&gt;@ds039717.mongolab.com:39717/somedb</span></div><br><br>כאשר את &lt;dbuser&gt; ו &lt;dbpassword&gt; תחליפו בפרטים שהרגע בחרתם.<br><br>וכעת בואו נתחבר למסד הנתונים שלנו ב PHP<br><div class="php codeblock"><span class="re0">$m</span> <span class="sy0">=</span> <span class="kw2">new</span> Mongo<span class="br0">&#40;</span><span class="st_h">'mongodb://username:<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="11617062625175622122282620263f7c7e7f767e7d70733f727e7c">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>:39717/somedb</span></div><br><br><h4>CRUD בסיסי</h4><br>קודם בואו נבחר את המסד נתונים בו נשתמש, ואת הטבלה:<br><br><div class="php codeblock"><span class="co1">//somedb is my database name</span><br>
+<span class="re0">$db</span> <span class="sy0">=</span> <span class="re0">$m</span><span class="sy0">-&gt;</span><span class="me1">somedb</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//people is the table</span><br>
+<span class="re0">$collection</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">people</span><span class="sy0">;</span></div><br><br>לעומת Mysql אתם לא צריכים ליצור טבלה ואז להכניס אליה נתונים, אתם יוצרים אותו ברגע שאתם מכניסים אליה שורה.<br>כך שלא צריך לעשות שום דבר מעבר,<br>בחרו להשתמש בטבלה people שלא הייתה קיימת אבל עצם ההגדרה הנ&quot;ל היא כבר קיימת ותפעל :)<br><br><br><strong>הכנסת שורה</strong><br><div class="php codeblock"><span class="re0">$collection</span><span class="sy0">-&gt;</span><span class="me1">insert</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">=&gt;</span><span class="st_h">'roman'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>בדוגמא הנ&quot;ל העברו מערך פשוט לאותו collection וכך הכנסנו שורה חדשה :).<br><br><strong>מציאת שורה / שורות והדפסה</strong><br><br><div class="php codeblock">$people = $collection-&gt;find();<br>
+$people_count = $people-&gt;count();<br>
+<br>
+echo $people_count . ' records found&lt;br/&gt;';<br>
+<br>
+<br>
+if($people_count &gt; 0){<br>
+&nbsp; ?&gt;<br>
+<br>
+&lt;table border=&quot;1&quot;&gt;<br>
+&lt;thead&gt;<br>
+&nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &lt;th&gt;ID&lt;/th&gt;<br>
+&nbsp; &nbsp; &lt;th&gt;Name&lt;/th&gt;<br>
+&nbsp; &lt;/tr&gt;<br>
+&lt;/thead&gt;<br>
+&lt;tbody&gt;<br>
+&nbsp; <span class="sy1">&lt;?</span> <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$people</span> <span class="kw1">as</span> <span class="re0">$v</span><span class="br0">&#41;</span><span class="br0">&#123;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$v</span><span class="br0">&#91;</span><span class="st_h">'_id'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$v</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+<br>
+&nbsp; &lt;/tr&gt;<br>
+&nbsp; <span class="sy1">&lt;?</span> <span class="br0">&#125;</span> <span class="sy1">?&gt;</span><br>
+&lt;/tbody&gt;<br>
+&lt;/table&gt;<br>
+<br>
+<br>
+<span class="sy1">&lt;?</span> <span class="br0">&#125;</span></div><br><br>בדוגמא הנ&quot;ל ראיתם גם מספור וגם מצאנו את כל השורות,<br>כבר לבצע שאילתה פשוטה, ניתן להעביר מערך עם החיפוש, <br><br>מציאת שורה בודדת ועריכתה (ORM style):<br><div class="php codeblock"><span class="re0">$query</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">=&gt;</span><span class="st_h">'roman'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="re0">$collection</span><span class="sy0">-&gt;</span><span class="me1">findOne</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$person</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;korin&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$collection</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="re0">$person</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><br><br>המדריך הנ&quot;ל לא בא ללמד את כל האפשרויות של מונגו, <br>אלא על קצה המזלג,<br>את הפרטים המלאים וכל האפשרויות ניתן למצוא כאן:<br><a href="http://www.mongodb.org/pages/viewpage.action?pageId=589836">http://www.mongodb.org/pages/viewpage.action?pageId=589836</a><br><br>רציתי להכיר לכם בעיקר את mongolab,<br>ולפתוח לכם בקלות יתרה את הדלת למונגו דיבי,<br>אולי אם אמצא את עצמי במצב רוח בינוני+ אפילו אפרט עליו במדריך נוסף (למי שאלכס לא פירט לו מספיק)<br><br><br>שיהיה בהצלחה לכולם. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=16&r=g&d=monsterid" alt="raslin">
+<a>raslin</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2023"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/10/2012 20:50</span><br>
+תודה רבה ! <br>
+לפי מה שהבנתי , המסד עצמו מאוכסן בשרתים שלהם ? </div>
+<a id="comment2024"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/10/2012 12:56</span><br>
+לא, זה מסד מסוג nosql.<br>
+מסד רציונלי רגיל, ינתח את השאילתה שלך ולפי זה ידע מה להוציא, לעומת מסדי nosql שהם בעצם מתאפיינים בלעקוף את השלב הזה - ובכך חוסכים זמן ריצה.<br>
+אומנם להשתמש במסד nosql לבד לא הפיתרון הכי טוב, פשוט צריך לדעת לשלב.<br>
+אני אישית משתמש בממקאש לדברים מסוימים, אבל זה לדברים נדיפים.<br>
+והמסד מאוחסן אצלך, כמו כל מסד אחר. זה לא מסד קלאוד כזה :)</div>
+<a id="comment2025"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/10/2012 16:10</span><br>
+אהה אוקיי . <br>
+תודה רבה :) <br>
+אם זה nosql , למה יש הגבלת זיכרון של עד חצי ג&apos;יגה ?</div>
+<a id="comment2026"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/10/2012 16:11</span><br>
+כן זה יושב על השרתים שלהם,<br>
+ההגבלה היא הגבלה שלהם לחצי ג&apos;יגה חינם, אתה יכול לשלם ולקבל יותר,<br>
+אבל זה אמור להספיק לרוב.</div>
+<a id="comment2027"></a>
+<div class="blog-comment">
+<span class='comment-author'>PHPDeveloper</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/10/2012 15:05</span><br>
+האם זה תחליף טוב לPDO? למה אתרים גדולים עם הרבה מידע צריכים להשתמש בזה?</div>
+<a id="comment2028"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/10/2012 21:28</span><br>
+זה שזה מאוחסן אצלהם זה די חיסרון לעומת יתרון<br>
+1) יותר מהיר להתחבר למסד שנמצא בשרת שלך<br>
+2) לא טוב להיות תלוי במסד של אנשים אחרים הכי טוב זה להיות תלוי בעצמך</div>
+<a id="comment2029"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/10/2012 22:17</span><br>
+מבחינת שאילתות רבות וכו&apos; , האם הוא יותר מהיר מ PDO ?</div>
+<a id="comment2030"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/10/2012 21:58</span><br>
+PDO זה רק דרייבר לעבודה מול מסדים. מונגוDB זה מסד.<br>
+רומן הציג פה שירות של חברת mongolab שמספקת את המסד על קלאוד, שזה נחמד במקרים שאין לך אפשרות או שאתה מעדיף מסיבה כזאת או אחרת שזה יהיה על קלאוד.</div>
+<a id="comment2031"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/10/2012 17:14</span><br>
+כלומר , האם ניתן להתחבר דרך המסד הזה , אבל לעבוד דרך PDO ?</div>
+<a id="comment2032"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/10/2012 19:31</span><br>
+חיפוש קטן בגוגל יניב לך את התוצאוץ<br>
+</div>
+<a id="comment2040"></a>
+<div class="blog-comment">
+<span class='comment-author'>Th3Location</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/11/2012 10:17</span><br>
+אכן מעניין....אוהב את השימוש של MongoDB אולם כמו שצוין כאן, המימוש של NoSQL הוא במטרה כשאנחנו לא רוצים ליצור דטאבייס על השרת שלנו ולדאוג לבעיית פרפומרמנס במסדי נתונים.<br>
+<br>
+למרות שאני בעד עדיין לעבוד עם MySQL בשרת שלי ולא להיות תלוי באחרים (שגם לרוב לא מאפשרים לבצע רפלקציה של המידע שאז זה בכלל בעייתי)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

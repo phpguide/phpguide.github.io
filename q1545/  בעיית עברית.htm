@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה éùøàìé - בעיית עברית">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nirbe">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>éùøàìé - בעיית עברית | שאלת לימוד PHP</title>
+<meta itemprop="name" content="éùøàìé - בעיית עברית | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה éùøàìé - בעיית עברית">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="  בעיית עברית.htm" title="שלום,אני בונה מערכת שמושכת קובץ CSV ומכניסה למסד,נתקלתי בבעיה שמחרוזת נראת כך: ������אז לאחר שהשתמשתי בפונקציה mb_convert_encoding, ככה:mb_convert_encoding&amp;#40;$string, &amp;quot;UTF-8&amp;quot;&amp;#41;;הטקסט שחזר אלי היה נראה כבר יותר טוב: éùøàìéומפה אני">éùøàìé - בעיית עברית</a></h2>
+<div class="userinfo">
+פתח
+<a>nirbe</a>
+,
+<time class="timeago relativetime" datetime="2013-06-26T12:51:14+03:00" style="display:inline-block;">
+26 ליוני 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1545'>
+שלום,<br>אני בונה מערכת שמושכת קובץ CSV ומכניסה למסד,<br>נתקלתי בבעיה שמחרוזת נראת כך:<br> ������<br><br>אז לאחר שהשתמשתי בפונקציה mb_convert_encoding, ככה:<br><div class="php codeblock"><span class="kw3">mb_convert_encoding</span><span class="br0">&#40;</span><span class="re0">$string</span><span class="sy0">,</span> <span class="st0">&quot;UTF-8&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הטקסט שחזר אלי היה נראה כבר יותר טוב: éùøàìé<br>ומפה אני כבר לא יודע איך להמיר את המחרוזת לעברית..<br><br>ואני יודע שזה אפשרי, בגלל השימוש בתיקן באתר הזה:<br>http://www.pixiesoft.com/flip/<br><br>והוא תיקן והגיע למילה. </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7009">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2013 </span>
+<a id="answer_7009" href="  בעיית עברית.htm#answer_7009">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מצטער שכתבתי פה מהר, הייתי לחוץ לסיים ללקוח את המערכת, אבל אחרי הרבה חרישה, הצלחתי למצוא פתרון, הנה הפונקציה:<br><div class="php codeblock"><span class="kw2">function</span> fixHeb <span class="br0">&#40;</span><span class="re0">$string</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">iconv</span><span class="br0">&#40;</span><span class="kw3">mb_detect_encoding</span><span class="br0">&#40;</span><span class="re0">$string</span><span class="sy0">,</span> <span class="kw3">mb_detect_order</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st0">&quot;UTF-8&quot;</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer7010">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/550250b403b4540876614d2d3d4dd1c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mayden</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2013 </span>
+<a id="answer_7010" href="  בעיית עברית.htm#answer_7010">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה פורמט של window-1255 </p>
+</div>
+<div class="answer" id="answer7011">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2013 </span>
+<a id="answer_7011" href="  בעיית עברית.htm#answer_7011">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>השרת שלי לא תומך בזה, יש אפשרות אחרת להתמודד עם הבעיה הנ&quot;ל?</strong> </p>
+</div>
+<div class="answer" id="answer7013">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/190d413353868f74fda4ad037a7c0932?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yakir</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2013 </span>
+<a id="answer_7013" href="  בעיית עברית.htm#answer_7013">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+באיזו שפה הטבלה שלך מקודדת ? </p>
+</div>
+<div class="answer" id="answer7014">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2013 </span>
+<a id="answer_7014" href="  בעיית עברית.htm#answer_7014">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שלא תתבלבלו, זה קורה עוד לפני שאני מכניס למסד, אין לו שום קשר בנתיים. </p>
+</div>
+<div class="answer" id="answer7021">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2013 </span>
+<a id="answer_7021" href="  בעיית עברית.htm#answer_7021">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקידוד של קובץ ה-CSV הוא UTF-8? (אם אתה יוצר אותו באמצעות תסריט PHP אחר, פשוט תשלח Header של קידוד, אם עוד לא עשית את זה.)<br>נ.ב. יכול להיות בכלל שהבעיה היא בדרך שבה הדפדפן מנתח את הטקסט. תוסיף meta charset, אם עוד לא הוספת.<br>ועוד משהו - מה זאת אומרת &quot;השרת שלי לא תומך בזה&quot;?<br>ועוד משהו אחרון (:/) - רק עכשיו שמתי לב שבכלל כבר מצאת את התשובה. XD פעם הבאה פשוט תוסיף אותה למטה, אל תערוך תגובה קודמת... </p>
+</div>
+<div class="answer" id="answer7022">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 27 ליוני 2013 </span>
+<a id="answer_7022" href="  בעיית עברית.htm#answer_7022">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@OrelBeY, כשאני שומר כ UTF8, האקסל עושה בעיות, בגלל זה אני מנסה למצוא פתרון אחר למצב.<br>ומצאתי את הפתרון, רק שהשרת הוא 5.3 והפונקציה עובדת לי במחשב שאצלי זה PHP 5.4...<br><br>ואני עדיין מחפש פתרון, עוד לא מצאתי. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מה עדיף meta או header להעברת המשתמש?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OxyNuke">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מה עדיף meta או header להעברת המשתמש? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מה עדיף meta או header להעברת המשתמש? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מה עדיף meta או header להעברת המשתמש?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מה עדיף meta או header להעברת המשתמש-1.htm" title="במידה ואני רוצה להעביר את המשתמש לדף אחר, במה עדיף לי להשתמש:echo &apos;&amp;lt;meta http-equiv=&amp;quot;refresh&amp;quot; content=&amp;quot;0; url=index.php&amp;quot; /&amp;gt;&apos;;או:header&amp;#40;&apos;location: index.php&apos;&amp;#41;;ואם אשתמש ב head">מה עדיף meta או header להעברת המשתמש?</a></h2>
+<div class="userinfo">
+פתח
+<a>OxyNuke</a>
+,
+<time class="timeago relativetime" datetime="2012-01-28T12:36:23+02:00" style="display:inline-block;">
+28 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText192'>
+במידה ואני רוצה להעביר את המשתמש לדף אחר, במה עדיף לי להשתמש:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=index.php&quot; /&gt;'</span><span class="sy0">;</span></div><br>או:<br><div class="php codeblock"><span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'location: index.php'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ואם אשתמש ב header, לא יהיו לי שגיאות/אזהרות כלשהן?<br><br>תודה! </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer771">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 28 לינואר 2012 </span>
+<a id="answer_771" href="מה עדיף meta או header להעברת המשתמש-1.htm#answer_771">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עדיף ב header כי זה יקרה מהר יותר.<br>שים לב, ש header זה כותר והוא חייב להישלח לפני כל פלט שהוא לדפדפן.<br><a href="..\Can not send session cookie  headers already sent.htm">ראה עוד על headers already sent</a> </p>
+</div>
+<div class="answer" id="answer783">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de41644601331b113464dd390c46cd7c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_95587</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_783" href="מה עדיף meta או header להעברת המשתמש-1.htm#answer_783">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה או זה או זה? עדיף גם וגם וגם.<br>גם כותר (head)<br>גם מטה (meta)<br>וגם לינק (a)<br>יש דפדפים ובוטים שלא תומכים עדיין ואתה רוצה שכולם היו שמחים, לא ככה? </p>
+</div>
+<div class="answer" id="answer784">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5003d8438ef1828aa16534d09c192efe?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yehudade</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_784" href="מה עדיף meta או header להעברת המשתמש-1.htm#answer_784">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פקודת header, כמשמעה תשלח כותרת HTTP בלי תוכן, כל דפדפן ובוט יודע להבחין בקודי 301 ו-302.<br>גם וגם וגם היא לעולם לא תשובה, בפיתוח ותכנות חייבים לבחור וצריכים להיות החלטיים ועקביים בבחירות.<br>כדאי כמובן לבדוק את המשמעות של כל קוד HTTP לפני שמשתמשים באחד מהם.<br><a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">קודי HTTP בויקיפדיה באנגלית</a> </p>
+</div>
+<div class="answer" id="answer799">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/14f117a87b13f2c447a32c246eb70df4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_96622</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_799" href="מה עדיף meta או header להעברת המשתמש-1.htm#answer_799">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תלוי אם אתה רוצה 301 או לא אם כן אז header אם לא אז meta </p>
+</div>
+<div class="answer" id="answer801">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b08c3b5eb5dee06c57d8c5fdc9f08f8f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_96654</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_801" href="מה עדיף meta או header להעברת המשתמש-1.htm#answer_801">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@yehudade<br>אם מישהו חוסם בדפדפן שלו את הכותר Location הוא פשוט יקבל דף ריק, ובגלל זה עדיף להוסיף לינק. </p>
+</div>
+<div class="answer" id="answer802">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5003d8438ef1828aa16534d09c192efe?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yehudade</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_802" href="מה עדיף meta או header להעברת המשתמש-1.htm#answer_802">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@משתמש_96654<br>פעם ראשונה שאני שומע על האפשרות הזו, גם עם תוספי HTTP LIVE וכדומה אף משתמש מתקדם ככל שיהיה לא יחסום כותרת Location שלא לצורך בדיקות. חסימת הפניות meta אני מכיר והן בדרך כלל מוטמעות כהגנה וייתכן שהגולש לא יבין אפילו למה הוא רואה דף לבן, אבל אלא אם כן אתה מדפדף עם telnet אני לא רואה מקרה שבו לא תועבר מבלי שתתכנן זאת מראש. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

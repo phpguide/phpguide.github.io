@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ftp_delete">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="dinamit">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ftp_delete | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ftp_delete | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ftp_delete">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ftp_delete-1.htm" title="איך אני משתמש בפונקיה של ftp_delete בשרת WAMP?הפונקציה היא:&amp;lt;?php
+$conn = ftp_connect&amp;#40;&amp;quot;ftp.testftp.com&amp;quot;&amp;#41; or die&amp;#40;&amp;quot;Could not connect&amp;quot;&amp;#41;">ftp_delete</a></h2>
+<div class="userinfo">
+פתח
+<a>dinamit</a>
+,
+<time class="timeago relativetime" datetime="2012-07-03T16:07:11+03:00" style="display:inline-block;">
+03 ליולי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText755'>
+איך אני משתמש בפונקיה של ftp_delete בשרת WAMP?<br>הפונקציה היא:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$conn</span> <span class="sy0">=</span> <span class="kw3">ftp_connect</span><span class="br0">&#40;</span><span class="st0">&quot;ftp.testftp.com&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="st0">&quot;Could not connect&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">ftp_login</span><span class="br0">&#40;</span><span class="re0">$conn</span><span class="sy0">,</span><span class="st0">&quot;admin&quot;</span><span class="sy0">,</span><span class="st0">&quot;pass&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="kw3">ftp_delete</span><span class="br0">&#40;</span><span class="re0">$conn</span><span class="sy0">,</span><span class="st0">&quot;test.txt&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">ftp_close</span><span class="br0">&#40;</span><span class="re0">$conn</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>מן הסתם זה לא עובד... </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3252">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>dinamit</a>
+ב
+<span style="font-size:10px"> 04 ליולי 2012 </span>
+<a id="answer_3252" href="ftp_delete-1.htm#answer_3252">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בבקשה תענו זה דחוף! </p>
+</div>
+<div class="answer" id="answer3257">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 04 ליולי 2012 </span>
+<a id="answer_3257" href="ftp_delete-1.htm#answer_3257">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא מזהה בעיה ..אבל יכול להיות שהקובץ נמצא בתיקיה אחרת ולא בראשית של הFTP ?<br><br>תנסה לתת ריל פאטצ&#039; אל הקובץ files/test.txt ותסתכל בקישור שהבאתי יש שם דוגמא שעובדת<br><br><a href="http://php.net/manual/en/function.ftp-delete.php"><span class="underline">http://php.net/manual/en/function.ftp-delete.php</span></a> </p>
+</div>
+<div class="answer" id="answer3258">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>dinamit</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3258" href="ftp_delete-1.htm#answer_3258">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא משנה. הסתדרתי<br>מצאתי את הפונקציה unlink...<br>באמת שאני ממש מתפלא שאף אחד לא הגיב פה וסיפר לי על הפונקציה המעניינת הזו. </p>
+</div>
+<div class="answer" id="answer3264">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>dinamit</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3264" href="ftp_delete-1.htm#answer_3264">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בכל מקרה, שאלה אחרונה, מה ההבדל בין unlink לבין ftp_delete? </p>
+</div>
+<div class="answer" id="answer3265">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3265" href="ftp_delete-1.htm#answer_3265">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה שמישהו יענה לך אם אתה אפילו לא טורח לספר לנו מה השגיאה, ולחפש בלוגים מה קרה.<br>ואם &quot;מן הסתם זה לא עובד...&quot; - אז &quot;מן הסתם&quot; אתה כנראה יודע למה.<br>unlink מוחקת קובץ. ו-ftp_delete מוחקת קובץ על שרת ftp. יש הבדל. ולפעמים יש בעיות בהרשאות בגלל ידיים עקומות של מתכנת. </p>
+</div>
+<div class="answer" id="answer3266">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>dinamit</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3266" href="ftp_delete-1.htm#answer_3266">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא חשבתי שצריך לפרט יותר מדי.<br>די ברור ש-WAMP זה לא FTP...<br>ולנושא, בשביל מה צריך אז ftp_delete אם יש את unlink שמבצע בדיוק את אותה עבודה רק ללא התחברות לשרת?? </p>
+</div>
+<div class="answer" id="answer3267">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3267" href="ftp_delete-1.htm#answer_3267">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לפעמים אתה רוצה להתחבר לשרת מרוחק.. </p>
+</div>
+<div class="answer" id="answer3268">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3268" href="ftp_delete-1.htm#answer_3268">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+unlink ימחוק לך קובץ בפיילסיסטיים - בתיקיות שקשורות לאפליקציה<br><br>ftp_delete ימחוק קובץ בשרת מרוחק..אין צורך שיהיה בפיילסיסטים-תיקיות מרוחקות </p>
+</div>
+<div class="answer" id="answer3269">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>dinamit</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3269" href="ftp_delete-1.htm#answer_3269">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי, תודה רבה!<br>אמרתם שאפשר להתחבר לשרת FTP מרוחק, כלומר אם יש לי אתר אני יכול גם להתחבר לשרת FTP של אתר אחר ולמחוק משם קבצים וכו&#039;. באותה מידה אני יכול להתחבר ל-MYSQL שהוא לא שלי?<br>מקווה שהבנתם לאן אני חותר... </p>
+</div>
+<div class="answer" id="answer3270">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3270" href="ftp_delete-1.htm#answer_3270">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ftp מוגן בפיירוול (לא אחד) סיסמא הצפנות שונות וכו&#039;..<br><br>SQL גם אותו סיפור </p>
+</div>
+<div class="answer" id="answer3271">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3271" href="ftp_delete-1.htm#answer_3271">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול לנסות להתחבר, אבל תצטרך לדעת את פרטי הכניסה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

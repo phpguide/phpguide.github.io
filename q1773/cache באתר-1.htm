@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה cache באתר">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="razand">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>cache באתר | שאלת לימוד PHP</title>
+<meta itemprop="name" content="cache באתר | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה cache באתר">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="cache באתר-1.htm" title="בניתי איזה קוד של MVCואני רוצה עכשיו להכניס לו את כל החלק של ה cache.חשבתי לשמור רק את הקוד HTML מחובר כלומראם הדף הראשי מורכב משלושה קבציםheader.html&amp;#123;TITLE&amp;#125;body.html&amp;#123;CONTENT&amp;#125;footer&amp;#123;COPYINFO">cache באתר</a></h2>
+<div class="userinfo">
+פתח
+<a>razand</a>
+,
+<time class="timeago relativetime" datetime="2014-01-24T08:39:59+02:00" style="display:inline-block;">
+24 לינואר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1773'>
+בניתי איזה קוד של MVC<br>ואני רוצה עכשיו להכניס לו את כל החלק של ה cache.<br>חשבתי לשמור רק את הקוד HTML מחובר כלומר<br>אם הדף הראשי מורכב משלושה קבצים<br>header.html<br><div class="php codeblock"><span class="br0">&#123;</span>TITLE<span class="br0">&#125;</span></div><br>body.html<br><div class="php codeblock"><span class="br0">&#123;</span>CONTENT<span class="br0">&#125;</span></div><br>footer<br><div class="php codeblock"><span class="br0">&#123;</span>COPYINFO<span class="br0">&#125;</span></div><br><br>אז זה ישמור לי את כולם בקובץ אחד שיהיה בתקיה של ה cache. ויקראו לו index.html.<br><div class="php codeblock"><span class="br0">&#123;</span>TITLE<span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span>CONTENT<span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span>COPYINFO<span class="br0">&#125;</span></div><br><br>הרעיון הזה יעזור לגבי מהירות טעינת האתר? </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8113">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 24 לינואר 2014 </span>
+<a id="answer_8113" href="cache באתר-1.htm#answer_8113">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אתה כל הזמן שולף את התוכן מבסיס הנתונים או עושה כל מיני חישובים שלא צריך כל פעם מחדש - ודאי שזה יעזור. (לא סתם לאחד את כל התגיות האלה לדף אחד, אלא את תוכן ה-HTML ממש).<br>קראת כבר את <a href="..\buffered file cache.htm">המדריך שפורסם כאן על Cache בסיסי ו-OB</a>? </p>
+</div>
+<div class="answer" id="answer8116">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 24 לינואר 2014 </span>
+<a id="answer_8116" href="cache באתר-1.htm#answer_8116">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה בעייתי...<br>כי אם אני רוצה לעשות מערכת משתמשים ושבכל עמוד יש פרטים על המשתמש...<br>איך אני ישמור את העמוד לכל משתמש בנפרד?<br>ואם קורה איזה שינוי במסד נתונים? </p>
+</div>
+<div class="answer" id="answer8117">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 24 לינואר 2014 </span>
+<a id="answer_8117" href="cache באתר-1.htm#answer_8117">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שאלות נכונות. אני שמח ששאלת. :)<br><br>את הפרטים שמשתנים לכל משתמש אל תשמור בזיכרון המטמון, אלא תשלוף אותם כל פעם מחדש לכל משתמש. אבל את שאר הדברים תשמור: פוסטים, תגובות...<br><br>לפני שאתה הולך לזיכרון המטמון תצטרך לבדוק כמה דברים:<br>- האם הדף המקורי (סקריפט ה-PHP שייצר את הדף) עודכן. זה קצת בעייתי כי קובץ אחד ישתמש בקבצים אחרים, וזה לא יהיה הכי יעיל (או אפשרי באופן מודולרי לבדוק את זה על כל הקבצים שיובאו לתוכנית, אבל לפחות תבדוק את הקובץ הישיר. לא יזיק.<br>- האם תאריך העדכון האחרון של אותו הדף בזיכרון המטמון הוא לפני משך זמן מוקצב. באתרי חדשות זה מן הסתם יהיה קצת זמן - 5-10 שניות. (אבל תאר לך שבאתרים כאלה גם יש המון גולשים, ובהנחה שאפילו יש רק 1000 גולשים כל 10 שניות, תחסוך כמעט 1000 רינדורים של הדף מחדש.) באתרים אחרים זה יכול להיות אפילו 5 דקות או הרבה יותר במקרים מסוימים.<br><br>גישה נוספת היא להוסיף למה שתיארתי למעלה מנגנון בעת הוספה/עריכה/מחיקה של פריט כלשהו - כמו פוסט. בעת פעולה על פוסט, פשוט תעדכן את זיכרון המטמון שלו. זה יגרום לשינויים להופיע יותר מהר ועדיין לשמור על יעילות זיכרון מטמון.<br><br>עקרונית ניהול זיכרון מטמון לתוכנה זה נושא גדול ומורכב יותר, אבל זה הבסיס. </p>
+</div>
+<div class="answer" id="answer8118">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 24 לינואר 2014 </span>
+<a id="answer_8118" href="cache באתר-1.htm#answer_8118">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בקיצור זה מסובך מדי :)<br>עוד שאלה<br>איך אני יכול לעשות רינדור רק לחלק מסויים בדף?(לא לכל העמוד) </p>
+</div>
+<div class="answer" id="answer8120">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 24 לינואר 2014 </span>
+<a id="answer_8120" href="cache באתר-1.htm#answer_8120">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא התכוונתי להרתיע אותך מהנושא. להפך. :-)<br><br>אתה יכול לעשות את מה שאתה רוצה בעזרת מודולריות - הפרדת קובץ תצוגה אחד לכמה קבצי תצוגה. לפעמים לא יהיה צורך בהפרדה נוספת, ואז אפשר יהיה להשתמש במנוע תבניות שיפענח את זה באופן דינמי. (או שניהם יחד. תלוי במקרה.) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

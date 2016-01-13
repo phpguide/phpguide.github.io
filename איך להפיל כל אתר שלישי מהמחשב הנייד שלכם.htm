@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="היום אני אספר על התקפה בשם Sockstress/Slowloris/Slow Read ועל דרכים למנוע אותה.">
+<meta name="keywords" content=" slowloris sockstress slowhttptest">
+<meta name="author" content="Cayce">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>איך להפיל כל אתר שלישי מהמחשב הנייד שלכם</title>
+<meta itemprop="name" content="איך להפיל כל אתר שלישי מהמחשב הנייד שלכם">
+<meta itemprop="description" content="היום אני אספר על התקפה בשם Sockstress/Slowloris/Slow Read ועל דרכים למנוע אותה.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"312","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>איך להפיל כל אתר שלישי מהמחשב הנייד שלכם</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Cayce, </div>
+<div class="right">&nbsp;<time datetime="2013-03-17T21:16:42+02:00" dir="rtl">17 למרץ 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://boomboom.co.il/images/phpguide/4/logo.png" alt="איך להפיל כל אתר שלישי מהמחשב הנייד שלכם">
+</div>
+<div class="right post-content">
+היום אני אספר על התקפה בשם Sockstress/Slowloris/Slow Read ועל דרכים למניעתה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>איך זה עובד?</h2><br>העיקרון של ההתקפה מתבסס על ההגבלה של השרת למספר חיבורים(sockets) שהוא יכול להחזיק בו זמנית עם הלקוחות. ועל זה שהשרת לא יודע להבדיל בין חיבור &quot;טוב&quot;(כלומר באמת בן אדם שרוצה לפתוח דף), לסתם חיבור שתלוי לו באוויר.<br><br>העניין הוא לדעת ליצור חיבורים כאלה שהשרת לא יסגור, אלא שימשיכו להיות תלויים באוויר. לדוגמה, התוכנה Slowloris עושה שאילתות חלקיות, היא מתחילה חיבור עם השרת, ואז שולחת את החלקים של השאילתה באיטיות, אבל לא יותר מדי איטית כדי שהשרת לא יסגור את החיבור. מה שנשאר לעשות זה לפתוח 1000 חיבורים כאלה בו זמנית, והשרת יפסיק להגיב למשתמשים רגילים, ורק יחכה לסיום של החיבורים האלה.<br><br><h2>קצת היסטוריה</h2><br>הראשונים שהציגו את ההתקפה <a href="http://en.wikipedia.org/wiki/Sockstress">Sockstress</a> היו Outpost24 בספטמבר 2008. ההתקפה נהייתה פופולרית יותר תחת השם <a href="http://ha.ckers.org/slowloris/">Slowloris</a>, בזכות מנהל הבלוג <a href="http://ha.ckers.org">ha.ckers</a>, שבשנת 2009 הוציא תוכנה תחת אותו שם שמיישמת התקפה באותו עיקרון. התוכנה שימשה בין היתר להתקפת אתרים של שלטון איראן, כחלק ממחאה שהייתה באותו זמן בגלל הבחירות.<br><br><h2>היום</h2><br>היום אנחנו ב-2013 ועדיין רוב השרתים פגיעים להתקפה הזאת. ב-2011 יצאה תוכנה חדשה, שבה אני משתמש (למטרות שלום בלבד ;-)), העונה לשם SlowHTTPTest. היא מיישמת התקפה בשם Slow Read, שזה קצת שונה ממה ש-Slowloris עושה. בשונה ממנו, SlowHTTPTest עושה שאילתה רגילה לגמרי, אבל ברגע שהשרת מתחיל להחזיר תשובה, התוכנה אומרת שאין לה מקום בזיכרון, ואז השרת מתחיל לחכות ללקוח. פעם בכמה זמן התוכנה מורידה עוד קצת ביטים, כדי להחזיק את החיבור חי.<br><br><h2>התקנת SlowHTTPTest</h2><br>SlowHTTPTest עובד רק בלינוקס, ובכלל אפשר ליצור את ההתקפה הזאת רק מלינוקס, כי ו&apos;ינדוס מגביל את מספר החיבורים שאתם יכולים לפתוח לבערך 100-200, שזה בדרך כלל לא מספיק.<br><a href="http://code.google.com/p/slowhttptest/downloads/list">תורידו</a> את הגרסה האחרונה, ותריצו את הפקודות הבאות:<br><div class="php codeblock">$ tar <span class="sy0">-</span>xzvf slowhttptest<span class="sy0">-</span>x<span class="sy0">.</span>x<span class="sy0">.</span>tar<span class="sy0">.</span>gz<br>
+$ cd slowhttptest<span class="sy0">-</span>x<span class="sy0">.</span>x<br>
+$ <span class="sy0">./</span>configure <span class="sy0">--</span>prefix<span class="sy0">=</span>PREFIX<br>
+$ make<br>
+$ sudo make install</div><br>במקום PREFIX תרשמו את המקום המדויק על המחשב בו אתם רוצים להתקין את SlowHTTPTest. <br>אצלי באובונטו התוכנה ביקשה את g++ ואת libssl-dev. יכול להיות שכבר יש לכם, אם לא, אז באובונטו אתם יכולים להתקין את זה בצורה הזאת.<br><div class="php codeblock">sudo apt<span class="sy0">-</span>get install g<span class="sy0">++</span> libssl<span class="sy0">-</span>dev</div><br>שימוש לדוגמה בתוכנה הזאת:<br><div class="php codeblock">slowhttptest <span class="sy0">-</span>c <span class="nu0">1000</span> <span class="sy0">-</span>u http<span class="sy0">:</span><span class="co1">//example.com</span></div><br>קצת יותר אגרסיבי:<br><div class="php codeblock">slowhttptest <span class="sy0">-</span>c <span class="nu0">1000</span> <span class="sy0">-</span>X <span class="sy0">-</span>r <span class="nu0">200</span> <span class="sy0">-</span>w <span class="nu0">512</span> <span class="sy0">-</span>y <span class="nu0">1024</span> <span class="sy0">-</span>n <span class="nu0">5</span> <span class="sy0">-</span>z <span class="nu0">32</span> <span class="sy0">-</span>k <span class="nu0">3</span> <span class="sy0">-</span>u http<span class="sy0">:</span><span class="co1">//www.example.com -p 3</span></div><br>בכותרת הייתי אפילו קצת צנוע. לפי מה שבדקתי עד עכשיו, יותר מחצי מהאתרים הבינוניים בישראל נופלים אחרי הפקודה הזאת.<br><br><h2>העיקר – איך מגנים על השרת מהתקפה הזאת</h2><br>זה לא קשה בכלל. קודם כול צריך להגביל את כמות החיבורים שכל IP יכול לפתוח עם השרת שלכם, ודבר שני לצמצם את זמן החיבור המקסימלי.<br>אני אסביר איך עושים את זה באפאצ&apos;י.<br><br><h3>הגבלת כמות החיבורים של כל IP</h3><br>מגבילים את כמות החיבורים בעזרת המודול mod_securit.<br>התקנה באובונטו מתבצעת עם פקודה אחת:<br><div class="php codeblock">sudo apt<span class="sy0">-</span>get install libapache<span class="sy0">-</span>mod<span class="sy0">-</span>security</div><br>אחרי זה כנסו ל-<span dir="ltr">etc/apache2/mods-enabled/mod-security.conf</span> ותוסיפו את השורה הבאה איפשהו בין <span dir="ltr">&lt;IfModule security2_module&gt;</span> לבין <span dir="ltr">&lt;/IfModule&gt;</span>:<br><div class="php codeblock">SecWriteStateLimit <span class="nu0">100</span></div><br>עכשיו בניסיון לתקוף את השרת שלכם, התוקף יראה שהשרת נפל, אבל רק כי בחיבור 101 שהוא יעשה עם השרת, הוא יחטוף באן IP (זמני).<br>ב-Log של השרת שלכם (<span dir="ltr">var/log/apache2/error.log</span>) יהיה רשום משהו כזה:<br><div class="php codeblock">ModSecurity<span class="sy0">:</span> Access denied with code <span class="nu0">400</span><span class="sy0">.</span> Too many threads <span class="br0">&#91;</span><span class="nu0">101</span><span class="br0">&#93;</span> of <span class="nu0">100</span> allowed in WRITE state from <span class="sy0">*.*.*.*</span> <span class="sy0">-</span> Possible DoS Consumption Attack <span class="br0">&#91;</span>Rejected<span class="br0">&#93;</span></div><br><h3>צמצום זמן החיבור המקסימלי</h3><br>אפשר לצמצם את זמן החיבור המקסימלי בעזרת המודול reqtimeout. הוא מותקן אוטומטית החל מגרסת Apache 2.2.15 במיוחד להגנה מההתקפה הזאת (אבל הוא לבד לא מספיק).<br>כנסו ל-<span dir="ltr">etc/apache2/mods-enabled/reqtimeout.conf</span>.<br>אם אתם לא משתמשים ב-SSL אתם יכולים להקטין משמעותית את המספרים, אני הגדרתי בצורה הזאת:<br><div class="php codeblock">RequestReadTimeout <span class="kw3">header</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">-</span><span class="nu0">2</span><span class="sy0">,</span>minrate<span class="sy0">=</span><span class="nu0">500</span><br>
+RequestReadTimeout body<span class="sy0">=</span><span class="nu0">1</span><span class="sy0">,</span>minrate<span class="sy0">=</span><span class="nu0">500</span></div><br><br><h2>למידע נוסף</h2><br>החור שעליו מבוססת התוכנה SlowHTTPTest הוא בקצרה – הלקוח יכול להגיד לשרת שיש לו 0 מקום בזיכרון, כך שהשרת יפסיק לשלוח לו מידע, אבל לא יסגור את החיבור. לא בקצרה:<br><a href="http://www.kb.cert.org/vuls/id/723308">http://www.kb.cert.org/vuls/id/723308</a><br><br>הסבר מפורט על התוכנה SlowHTTPTest:<br><a href="http://code.google.com/p/slowhttptest/wiki/InstallationAndUsage">http://code.google.com/p/slowhttptest/wiki/InstallationAndUsage</a><br><br>מפתח התוכנה SlowHTTPTest מציע גם הוא אפשרויות להגנה:<br><a href="https://community.qualys.com/blogs/securitylabs/2011/11/02/how-to-protect-against-slow-http-attacks">https://community.qualys.com/blogs/securitylabs/2011/11/02/how-to-protect-against-slow-http-attacks</a><br><br>וכאן המפתח מסביר בפרוט איך התוכנה עובדת:<br><a href="https://community.qualys.com/blogs/securitylabs/2012/01/05/slow-read">https://community.qualys.com/blogs/securitylabs/2012/01/05/slow-read</a> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/eae8f99c4b8a7edfc90c2e915ff5c6ec?s=16&r=g&d=monsterid" alt="Cayce">
+<a>Cayce</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2283"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/03/2013 11:01</span><br>
+אגב, nginx בהתקנה הדיפולטית שלו תחת debian לא מושפע <br>
+אבל בהגנה הדיפולטית תחת centos הכן כן.</div>
+<a id="comment2290"></a>
+<div class="blog-comment">
+<span class='comment-author'>dan_barzilay</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/03/2013 12:05</span><br>
+מאוד מעניין, תודה<br>
+<br>
+*יש דיי הרבה שגיאות כתיב, לתשומת לבך</div>
+<a id="comment2348"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/04/2013 17:29</span><br>
+איך אני מיישם את זה בעצמי (את ההתקפה) נניח בC#? התחלתי ללמוד יותר אבטחת מידע, נהיה פופולרי מאז התקפת הסייבר :)</div>
+<a id="comment2351"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/04/2013 21:43</span><br>
+אני לא מבין גדול בזה, אבל לפי מה שהבנתי זה לא משהו שאתה יכול לעשות עם C שארפ. &quot;העיקרון בהתקפה הזאת הוא פתיחה הרבה חיבורים לשרת בו זמנית [...]&quot; איפה אתה רואה שרת ב-C#? דברים כאלה זה פשוט שורת הפקודה.</div>
+<a id="comment2352"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/04/2013 22:54</span><br>
+לא.... איך אתה יכול לממש את המתקפה בC#, לכמה זמן לפתוח את החיבורים, איך לדווח...</div>
+<a id="comment2360"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/04/2013 12:42</span><br>
+הבן אדם שפיתח את slowhttptest מסביר די מפורט איך ההתקפה עובדת כאן:<br>
+<span dir="ltr"><a href="https://community.qualys.com/blogs/securitylabs/2012/01/05/slow-read">https://community.qualys.com/blogs/securitylabs/2012/01/05/slow-read</a></span><br>
+<br>
+אפשר ליצור את ההתקפה בכל שפה שאפשר בה ליצור חיבורים עם השרת(sockets), כולל C#.<br>
+יש אפילו ב PHP את ההתקפה הזאת חחח:<br>
+<span dir="ltr"><a href="http://seclists.org/fulldisclosure/2009/Jun/207">http://seclists.org/fulldisclosure/2009/Jun/207</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

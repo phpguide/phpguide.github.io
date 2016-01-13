@@ -1,0 +1,425 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="התקנת PHP, התקנת APACHE, התקנת MYSQL בכמה שלבים פשוטים, אם תיאורים, הסברים ותמונות של מהלך ההתקנה.">
+<meta name="keywords" content="התקנת PHP, התקנת שרת, שרת ביתי, apache, mysql">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>התקנת PHP, Apache, MySQL</title>
+<meta itemprop="name" content="התקנת PHP, Apache, MySQL">
+<meta itemprop="description" content="התקנת PHP, התקנת APACHE, התקנת MYSQL בכמה שלבים פשוטים, אם תיאורים, הסברים ותמונות של מהלך ההתקנה.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"49","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>התקנת PHP, Apache, MySQL</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-11-25T20:20:26+02:00" dir="rtl">25 לנובמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://i.picresize.com/images/2013/03/01/plZaJ.jpg" alt="התקנת PHP, Apache, MySQL">
+</div>
+<div class="right post-content">
+6 שלבים ל
+התקנת PHP, התקנת APACHE, התקנת MYSQL עם תיאורים והסברים של כל התהליך. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>
+1. נוריד את כל המצרכים לפני הבישול<strong>:</strong>
+<a href="http://windows.php.net/download/">php</a> ,
+<a href="http://www.apachelounge.com/download/">apache</a> ,
+<a href="http://dev.mysql.com/downloads/installer/">mysql</a>
+</h3><br>
+<p>
+&mdash; בכל אחד מהרכיבים האלה מוצעות כמה גרסאות שונות להורדה. <br>
+<br>
+&mdash; הגרסה של PHP שמעניינת אותנו (הכי אחרונה) הינה מסוג vc9 Thread safe בצורת ארכיון ZIP. <br>
+apache מעניין אותנו בגרסה של httpd-2.x.x-win32-ssl_0.9.8.zip,<br> גם היא בתור ארכיון זיפ ועם תמיכה ב open ssl בגרסה 0.9.8 <br>
+שים לב שאפאצ'י הוא בגרסה 32 ביט ולא 64, בגלל שPHP גם בגרסה 32 ביט ונדרשת תאימות<br>
+<br>
+&mdash; ל mysql הכל הרבה יותר פשוט. יש קובץ התקנה אחד בלבד.
+</p>
+<br><br><br>
+<p>
+בזמן שההורדה זורמת אנצל את ההזדמנות להזכיר מה בעצם אנחנו מורידים .<br>
+כאשר אנחנו גולשים לאתר כלשהו, היי שם באינטרנט מחשב כלשהו עונה לבקשות שלנו לספק דפים. על המחשב הזה יושבת תכנה שהיא זו, שבעצם עושה את כל העבודה.<br>
+לתוכנה הזו קוראים apache<br>
+<br>
+כאשר apache רואה בקשה לקובץ עם סיומת php - היא מפעילה תוכנה אחרת שקוראים לה php .מפענח שפת php קורא את קובץ ה-php, מבצע את הפקודות שבו ומחזיר בחזרה לapache את הhtml התוצר.
+</p><br>
+<h3>
+2. התקנת הapache
+</h3><br>
+<p>
+ההתקנה מורכבת מהפעלת הקובץ שהורדנו, לחיצה מרובה על next והשלבים הבאים:<br>
+<span class="cleanuphtml-1">~ אם מופעל לכם על המחשב סקייפ - זה הזמן לכבות אותו.</span>
+</p><br>
+<h4>
+א. בחירת תיקית התקנה <span dir="ltr">C:/www/server/apache</span>
+</h4>
+<p>
+נפעיל את הקובץ שהורדנו, נלחץ כמה פעמים next עד שנגיע לבחירת תיקית ההתקנה.<br>
+אני הייתי ממליץ ליצור תיקיה www בתוך דיסק С.<br>
+בתוך התיקיה www ליצור תיקיה server<br>
+ובתוך תיקית server ליצור תיקית apache אליה נבצע את ההתקנה.
+</p><br>
+<h4>
+ב. הגדרת הגדרות <span dir="ltr">localhost, localhost, admin@localhost</span>
+</h4>
+<p>
+נמשיך עם <span dir="ltr">next</span> עד למסך עם שלושה שדות.<br>
+<span class="cleanuphtml-2">השדה הראשון</span>: דומיין, נקליד <span dir="ltr">localhost</span>. זוהי הכתובת אליה נגלוש בדפדפן.<br>
+<span class="cleanuphtml-2">השדה השני</span>: שם השרת, נכתוב גם כן <span dir="ltr">localhost</span>. זוהי הגדרה פנימית.<br>
+<span class="cleanuphtml-2">השדה השלישי</span>: אימייל, נכתוב <span dir="ltr">admin@localhost</span> . אין צורך לכתוב את האימייל האמיתי שלכם. אף אחד לא ישתמש בו ולא ישלח אליו או ממנו אימיילים.
+</p>
+<p>
+<span class="cleanuphtml-2">אפשרויות בחירה</span>: נבחר באפשרות הראשונה מבין השניים כדי להתקין את השרת עם ההגדרות הדיפולטיות שלו לכל המשתמשים
+</p><br>
+<h4>
+ג. נבדוק שהכל הותקן בהצלחה <span dir="ltr">http://localhost</span>
+</h4>
+<p>
+אחרי שההתקנה תסתיים בהצלחה נגלוש בדפדפן לכתובת <a href="http://localhost"><span dir="ltr">http://localhost</span></a> ונגלה שם הודעה: <span dir="ltr">It Works!</span> במידה ולא גיליתם שם שום
+דבר כזה או ההתקנה לא עברה, אנא פנו לפורום לקבלת עזרה.
+</p><br>
+<br>
+<h3>
+3. התקנת php
+</h3><br>
+<h4>
+ד. לשים קבצים ב <span dir="ltr">C:/www/server/php</span>
+</h4>
+<p>
+כל הקבצים שמכיל ה-zip שהורדתם יש לשים בתיקיה <span dir="ltr">C:/www/server/php</span><br>
+(קודם צריך ליצור אותה בעצמינו)
+</p><br>
+<h4>
+ה. עריכת php.ini
+</h4>
+<p>
+בתיקיה אליה העתקנו את קבצי הphp ימצא קובץ בשם <span dir="ltr">php.ini-development</span><br>
+יש לשנות את שמו לפשוט <span dir="ltr">php.ini</span> ולאחר מכן לפתוח אותו עם <span dir="ltr">notepad</span> או כל עורך טקסט אחר.
+</p><br>
+<h5>
+I. נטפל בקידוד
+</h5>
+<p>
+נמצא את השורה הבאה: <span dir="ltr">;default_charset = "iso-8859-1"</span><br>
+נוריד בתחילתה את הנקודה-פסיק ואת הערך שלה (בתוך הגרשיים) נשנה ל utf-8
+</p><br>
+<h5>
+II. נדאג לתיקית הרחבות
+</h5>
+<p>
+נמצא את השורה הבאה: <span dir="ltr">; extension_dir = "ext"</span><br>
+נוריד בתחילתה את הנקודה-פסיק ואת ערכה נשנה ל- <span dir="ltr">C:/www/server/php/ext</span><br>
+כך שתווצר השורה <span dir="ltr">extension_dir = "C:/www/server/php/ext"</span>
+</p><br>
+<h5>
+III. נוסיף קצת הרחבות
+</h5>
+<p>
+נלך אל שורת ה <span dir="ltr">;extension=php_curl.dll</span><br>
+ונוריד בתחילתה את הנקודה פסיק. על הדרך נוריד גם את הנקודות-פסיק בשורות של:<br>
+<span dir="ltr">gd2, mbstring, mysql, mysqli, sockets</span>
+</p>
+<p>
+זהו עם הקובץ הזה להיום. נשמור אותו ונעבור לקובץ הבא (והאחרון).
+</p><br>
+<br>
+<h4>
+ו. חיבור בין php ל apache
+</h4>
+<p>
+בתיקיה שאליה התקננו את <span dir="ltr">apache</span> (בהנחה שזו <span dir="ltr">C:/www/server/apache</span> ) יש עוד תיקיה קטנה - <span dir="ltr">conf</span> שמכילה את כל קבצי ההגדרות השונים
+למיניהם. אותנו מעניין קובץ ההגדרות הראשי <span dir="ltr">httpd.conf</span> שאותו נפתח לעריכה עם <span dir="ltr">notepad</span> או כל עורך טקסט אחר.
+</p><br>
+<h5>
+I. הוספת תמיכה בphp
+</h5>
+<p>
+היישר בסוף הקובץ פשוט נוסיף את שני השורות הבאות:<br>
+</p>
+<div class="codeblock" dir="ltr">
+AddType Application/x-httpd-php .php<br>
+LoadModule php5_module "c:/www/server/php/php5apache2_2.dll
+</div><br>
+<h5>
+II. שינוי מיקום תיקית הסקריפטים
+</h5>
+<p>
+הגדרה זו תאפשר לנו להחליט איפה אנחנו רוצים לשמור את הסקריפטם שלנו. הדרך המומלצת יותר, לדעתי, היא ליצור תיקיה עם השם <span dir="ltr">localhost</span> בתיקית ה <span dir="ltr">C:/www</span> שלנו
+ולאכלס את כל הסקריפטים שם. כייון שההגדרה הזו מופיע מספר פעמים בקובץ, הדרך הכי מהירה לשנות את הכל היא בעזרת לחיצה על <span dir="ltr">Ctrl+H</span> ולהחליף<br>
+את כל <span dir="ltr">C:/www/server/apache/htdocs</span> ב <span dir="ltr">C:/www/localhost</span> . רק אל תשכחו ליצור את התיקיה, אחרת שום דבר לא יעבוד. לי היו שני שורות שהוחלפו. אותו דבר אמור
+להיות גם לכם.
+</p><br>
+<h5>
+III. הפעלת htaccess
+</h5>
+<p>
+htaccess הוא קובץ הגרות שאפשר לשים בתיקיה מסוימת בשרת וההגדרות בו יחולו רק על תיקיה זו. כרגע אנחנו נסתפק בזה ונדאג להפעיל את התמיכה בו באמצעות שינוי של השורות <span dir="ltr">AllowOverride
+None</span> ב <span dir="ltr">AllowOverride All</span>
+</p><br>
+<h5>
+IV. הפעלת mod_rewrite
+</h5>
+<p>
+עוד דבר שנרצה לעשות עכשיו, כדי לא לחזור לזה בעתיד הוא להפעיל מודול של השרת שמאפשר לשכתב קישורים. איפשהו או מתישהו אתם תתקלו בקישורים לא רגילים. לדוגמא האתר הזה. שמות העמודים שאליהם אתם גולשים
+לא נגמרים בנקודה php. את זה בא לאפשר המודול הזה.<br>
+כדי להפעיל אותו נחפש את השורה <span dir="ltr">#LoadModule rewrite_module</span> ונוריד בתחילתה את סימן הסולמית. זהו. החלק הקשה מאחורינו. נשאר רק ללמוד להשתמש ב-<span dir="ltr">mod_rewrite</span>.
+</p><br>
+<br>
+<h4>
+ו. בדיקה שהכל עובד.
+</h4>
+<p>
+נפעיל מחדש את שרת הapache בעזרת הכפתור שלו ליד השעון ( למטה מצד ימין).<br>
+עכשיו עלינו ליצור סקריפט לבדיקה. נפתח <span dir="ltr">notepad</span> ונרשום בו
+</p>
+<div class="codeblock" dir="ltr">
+<code><span class="cleanuphtml-2"><span class="cleanuphtml-3">&lt;?php phpinfo</span><span class="cleanuphtml-4">(); </span><span class="cleanuphtml-3">?&gt;</span></span></code>
+</div>
+<p>
+נשמור את הקובץ כ test.php בתיקיה localhost ונגלוש ל<a href="http://localhost/test.php">דף שיצרנו</a>. רק שימו לב, שכאשר אתם שומרים את הקובץ, אתם שומרים אותו כ test.php ולא כ test.php.txt .
+בשביל שזה לא יקרה, במסך השמירה יש לבחור למטע <span dir="ltr">File type: All files</span> ו <span dir="ltr">Encoding: Utf-8</span> (כמו <a href="http://habreffect.ru/files/3ab/b63ed7fc1/screen.png">בתמונה</a>)
+</p>
+<p>
+</p><br>
+<br>
+<h3>
+3. התקנת mysql
+</h3>
+<p>
+יכול להיות שכרגע אין לכם מושג מה אנחנו הולכים בכלל להתקין וההסבר הקצר הבא יוסיף אור לחושך. מסד נתונים, כשמו הוא, הוא מערכת שמאפשרת לנו לשמור נתונים בזכרון בעזרת טבלאות.
+</p><br>
+<p>
+נגיד והחלטנו לבנות מערכת משתמשים שבה לכל משתמש יש שם וסיסמה. ברור לנו שצריך לשמור את הנתונים האלה איפשהו. בזכרון - כקובץ בדיסק של המחשב. ובכן נכון. את הנתונים נשמור בקובץ כלשהו. אז מה? בשביל מה
+צריך את המאה מגה שהורדנו עכשיו? מה, php לא יודעת להתמודד עם קובץ?
+</p><br>
+<p>
+עם קבצים php יודעת להסתדר טוב מאוד. אבל בוא נתאר מצב שלכל משתמש יש שם וסיסמה. איך הייתם רושמים את זה בקובץ? שם, מקף, סיסמה וכל משתמש בשורה נפרדת? מה יקרה עם משתמש יחליט שבא לו מקף בסיסמה?
+וכשמספר המשתמשים באתר יגיע לכמה מאות אלפים? נתחיל לעבור בקובץ הענקי שורה שורה ולחפש משתמש, כדי לבדוק האם הסיסמה שהוא הקליד - נכונה?
+</p><br>
+<p>
+בואו נוסיף למשתמש גם קצת פרטים אישיים, טלפונים, אימיילים. כבר הסתבכתם עם הרישום של כל זה לקובץ? ועכשיו משתמש החליט לשנות את שם סבטא שלו. מי עכשיו ישכתב את כל הקובץ בשבילו. ובאותו זמן משתמש אחר
+לא יכול להשתמש באתר כי הקובץ חסום ונמצא בעריכה.
+</p><br>
+<p>
+שיכנעתי אתכם? מסד נתונים הוא שיכבה בינינו לבין הדיסק הקשיח. אנחנו אומרים למסד - תשנה את שם סבטא שלו, והוא דואג לשנות את זה בלי שאנחנו נצטרך להתאמץ יותר מדי.<br>
+במקרה שלנו, את השיכבה הזו מייצת התכנה mysql server שאותה אנחנו מתקינים ככה:
+</p><br>
+<h4>
+<br>
+א. שינוי תיקית התקנה ל C:/www/server/mysql
+</h4>
+<p>
+כדי לשנות את תיקית ההתקנה, בין שלושת מצבי ההתקנה יש לבחור ב custom כאשר למטע תתאפשר בחירת תיקיה. אין צורך לגעת בשאר ההגדרות. הם מספיק טובות לנו.<br>
+לאחר מכן אפשר להמשיך את ההתקנה עד לסיומה עם הרבה <span dir="ltr">next</span>. בסוף ההתקנה יופיעו מאט פרסומות ולאחריהם הצעה לקנפג את <span dir="ltr">mysql</span>. זה מה שנעשה.
+</p><br>
+<h4>
+ב. שינוי הגדרות
+</h4>
+<p>
+האמת היא שאנחנו לא נשנה שום הגדרוץ חוץ מאחת קטנה. יש ללחוץ הרבה פעמים next עד שתיעו למסך עם שלושה בחורים שחורים מדברים סינית. הם אפילו <a href="http://habreffect.ru/files/cc6/f26fa998f/screen.png">הסכימו להצתלם</a>.<br>
+<span class="cleanuphtml-5">הבחור האמצעי</span> זה מי, שאנחנו צריכים. הוא מראה לנו שהוא יודע הרבה שפות, ואנחנו הרי רוצים תמיכה בעברית במסד שלנו. next וגם next על המסך אחריו.
+</p><br>
+<h4>
+ג. בחר סיסמה
+</h4>
+<p>
+כאן לא נצליח להמשיך גם עם מאוד נרצה, בלי לבחור סיסמה. סיסמה אנחנו צריכים כדי להן על הנתונים שלנו. תארו לכם מה היה קורא, אילו כל אחד היה יכול לגשת אל הנתונים שלנו ולראות סיסמאות של אנשים אחרים.
+אני כתבתי בשדה הסיסמה 123456. אתם אולי תרצו לכתוב משהו אחר במקום, אחרת כולם ידעו את הסיסמה המיותרת במקרה הזה.
+</p><br>
+<h4>
+ד. זהו זה.
+</h4>
+<p>
+המשתמש שלכם להתחברות למסד נתונים נקרא root<br>
+הסיסמה שלו להתחברות למסד - זה מה שכתבתם בשדה הסיסמה<br>
+והשרת בו עובד המסד(host) שלכם הינו localhost
+</p><br>
+<br>
+<h3>
+4. דבר אחרון חביב
+</h3>
+<p>
+אי אפשר לתכנת אתרים ב-notepad בימינו.<br>
+<a href="http://netbeans.org/features/php/"><span dir="ltr">netbeans ide</span></a> מערכת פיתוח נוחה ומותאמת ל-PHP <b>חינמית לחלוטין</b><br>
+או <a href="http://www.jetbrains.com/phpstorm/"></a>PHPStorm בתשלום, אבל כמה רמות מעל
+</p>
+</article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment390"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_800</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2011 23:13</span><br>
+שתי השורות שכתבת שיש להעתיק לסוף של הקובץ httpd.conf זה לא תקין. ה-apache לא יעבוד ולכן יש להעתיק שורות אלו לסוף המסמך:<br>
+<br>
+AddType Application/x-httpd-php .php<br>
+LoadModule php5_module &quot;<span dir="ltr"><a href="c:/www/server/php/php5apache2_2.dll&quot">c:/www/server/php/php5apache2_2.dll&quot</a></span>;</div>
+<a id="comment391"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_800</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2011 23:14</span><br>
+דרך אגב אני המשתמש dinamit 2011</div>
+<a id="comment392"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/07/2011 23:14</span><br>
+צודק לגמרי. תיקנתי :)<br>
+אם אתה המשתמש dinamit תשנה לעצך את השם מצד ימין</div>
+<a id="comment393"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_800</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 15:43</span><br>
+מוזר. פעלתי במדויק לפי המדריך (כמובן לאחר התיקון שהוספתי) ויש לי בכל זאת שגיאה ב-PHPMYADMIN כאשר אני פותח את הדפדפן בכתובת: <span dir="ltr"><a href="http://localhost/phpmyadmin/index.php">http://localhost/phpmyadmin/index.php</a></span><br>
+<br>
+הנה תמונה:<br>
+<br>
+<span dir="ltr"><a href="http://up352.siz.co.il/up2/okimgzmzjzzd.jpg">http://up352.siz.co.il/up2/okimgzmzjzzd.jpg</a></span></div>
+<a id="comment394"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 15:47</span><br>
+תודה על ההערה.<br>
+גש לקובץ php.ini בתיקיה <br>
+C:\www\server\php תמצא בה את השורה <br>
+<br>
+;extension=php_mysqli.dll<br>
+<br>
+ותוריד בתחילתה את הנקודה פסיק.<br>
+לאחר מכן יש לבצע אתחול של apache<br>
+תבדוק באמת שהקובץ קיים php_mysqli.dll בתיקיה ext<br>
+<br>
+אם עדיין לא יעבוד, נסה לכתוב את המיקום המלא של הקובץ אחרי סימן השווה:<br>
+extension=C:\www\server\php\ext\php_mysqli.dll</div>
+<a id="comment395"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_800</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 16:04</span><br>
+עדיין לא עובד.<br>
+אתה בטוח שהייתי צריך לשים ב-localhost תקייה phpmyadmin ולשים בתוכה את כל הקבצים של ה-phpmyadmin? אולי לשים בתקייה <span dir="ltr"><a href="c:/www/server">c:/www/server</a></span><br>
+בכל מקרה היום אני אפרמט את המחשב ואתקין WAMP שיחסוך לי בעיות.<br>
+<br>
+ד&quot;א אתה משתמש ב-dreamweaver של אדובי?</div>
+<a id="comment396"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 16:31</span><br>
+לא. אני משתמש ב netbeans<br>
+הבעיה היא לא במיקום הקבצים אלה בהרחבה של php שלא נטענה. הפעלת מחדש את apache אחרי השינויים בקובץ?</div>
+<a id="comment397"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_800</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 16:36</span><br>
+כמובן שהפעלתי מחדש. לא נורא, היום אני אפרמט לחלונות 7 (מקווה שזה יעזור [: ). לדעתך netbeans ו-Adobe Dreamweaver עושים את אותה עבודה? כלומר אין הבדל משמעותי בין שתי התוכנות?</div>
+<a id="comment398"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 17:47</span><br>
+יש. תשתמש במה שנוח לך יותר</div>
+<a id="comment2206"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/02/2013 07:16</span><br>
+במקרה נכנסתי לפוסט הזה, היה חשוב לי להגיד שהקישורים בסעיף 1 אינם תקינים:<br>
+<br>
+[php]<br>
+1. נוריד את כל המצרכים לפני הבישול: php , apache , mysql<br>
+[/php]</div>
+<a id="comment2207"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/02/2013 08:06</span><br>
+יכול להיות. הפתרון - להוריד מהאתרים המקוריים.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

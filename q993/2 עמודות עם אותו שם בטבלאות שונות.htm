@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה 2 עמודות עם אותו שם בטבלאות שונות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="phpguide1">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>2 עמודות עם אותו שם בטבלאות שונות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="2 עמודות עם אותו שם בטבלאות שונות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה 2 עמודות עם אותו שם בטבלאות שונות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="2 עמודות עם אותו שם בטבלאות שונות.htm" title="השאלה קשורה לMYSQL:יש לי 2 טבלאות שבשניהם יש עמודה בשם &amp;quot;ID&amp;quot;.עכשיו אני שולף את שניהם בעזרת JOIN. הבעייה שאני רוצה לעשות בדיקה עם PHP על עמודה ID של טבלה א&amp;#039;. איך?כי הרי גם טבלה ב&amp;#039; העמודה באותו שם..לדוגמא, אם ארצה לעשות את הבדיקה באמצעות הSQL אז אני עושה כך: TABLE1.ID - TABLE2.IDאבל PHP מתייחס בשליפה של העמודות רק לשמות שלהם ולא לשמות של הטבלה שלהם, כלומר אי אפשר לעשות כך:">2 עמודות עם אותו שם בטבלאות שונות</a></h2>
+<div class="userinfo">
+פתח
+<a>phpguide1</a>
+,
+<time class="timeago relativetime" datetime="2012-08-30T13:32:24+03:00" style="display:inline-block;">
+30 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText993'>
+השאלה קשורה לMYSQL:<br>יש לי 2 טבלאות שבשניהם יש עמודה בשם &quot;ID&quot;.<br>עכשיו אני שולף את שניהם בעזרת JOIN. הבעייה שאני רוצה לעשות בדיקה עם PHP על עמודה ID של טבלה א&#039;. <strong>איך?</strong><br>כי הרי גם טבלה ב&#039; העמודה באותו שם..<br>לדוגמא, אם ארצה לעשות את הבדיקה באמצעות הSQL אז אני עושה כך: TABLE1.ID - TABLE2.ID<br>אבל PHP מתייחס בשליפה של העמודות רק לשמות שלהם ולא לשמות של הטבלה שלהם, <br>כלומר<span class="underline"> אי אפשר לעשות כך</span>:<br><div class="php codeblock"><span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'table1.id'</span><span class="br0">&#93;</span></div><br>מקווה שהיה מובן. </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4357">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 30 לאוגוסט 2012 </span>
+<a id="answer_4357" href="2 עמודות עם אותו שם בטבלאות שונות.htm#answer_4357">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מובן :)<br>בשביל זה יש ב mysql משהו שנקרא alias (כינוי)<br>שמאפשר לך לתת לעמודה שם שונה בתוצאת השליפה.<br>כל מה שצריך הוא לכתוב בצורה מפורטת בשליפה את השדה שאתה רוצה, להשתמש במילה AS ולבחור לו שם חדש.<br><br><div class="php codeblock">select id <span class="kw1">AS</span> <span class="st_h">'idFromTable1'</span><span class="sy0">,</span> username<span class="sy0">,</span> password <span class="kw1">AS</span> <span class="st_h">'hashedPass'</span></div> </p>
+</div>
+<div class="answer" id="answer4363">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/c88a5af77e9e5fbe48dee1a369458540?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpguide1</a>
+ב
+<span style="font-size:10px"> 31 לאוגוסט 2012 </span>
+<a id="answer_4363" href="2 עמודות עם אותו שם בטבלאות שונות.htm#answer_4363">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אהה תודה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

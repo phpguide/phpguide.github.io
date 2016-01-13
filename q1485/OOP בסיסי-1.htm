@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה OOP בסיסי">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="phpon">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>OOP בסיסי | שאלת לימוד PHP</title>
+<meta itemprop="name" content="OOP בסיסי | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה OOP בסיסי">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">12</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="OOP בסיסי-1.htm" title="אני לומד OOP בסיסי מכאן:http://www.amazon.com/Programming-PHP-Kevin-Tatroe/dp/1449392776/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1370097637&amp;amp;sr=1-1&amp;amp;keywords=programming+php+3rd+edition&amp;lt;?php
+class Person
+&amp;#123;
+&amp;nbsp; public $age;
+
+&amp;nbsp; public ">OOP בסיסי</a></h2>
+<div class="userinfo">
+פתח
+<a>phpon</a>
+,
+<time class="timeago relativetime" datetime="2013-06-01T14:41:58+03:00" style="display:inline-block;">
+01 ליוני 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1485'>
+אני לומד OOP בסיסי מכאן:<br>http://www.amazon.com/Programming-PHP-Kevin-Tatroe/dp/1449392776/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1370097637&amp;sr=1-1&amp;keywords=programming+php+3rd+edition<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> Person<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$age</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">age</span><span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> <br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> incrementAge<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">age</span> <span class="sy0">+=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ageChanged</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">protected</span> <span class="kw2">function</span> decrementAge<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">age</span> <span class="sy0">-=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">ageChanged</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span> &nbsp;<br>
+&nbsp; <br>
+&nbsp; <span class="kw2">private</span> <span class="kw2">function</span> ageChanged<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Age changed to <span class="es4">{$this-&gt;age}</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+&nbsp; <br>
+<span class="kw2">class</span> SupernaturalPerson<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> incrementAge<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// ages in reverse</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">decrementAge</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span> <br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> Person<span class="sy0">;</span><br>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">incrementAge</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">decrementAge</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">ageChanged</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> SupernaturalPerson<span class="sy0">;</span><br>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">SupernaturalPerson</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>רק חלק אחד עובד...דרך אגב הספר הזה הוא של רזמוס לזדורוף.. </div>
+</div>
+<h3>
+<span id="answersCounter">12 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6671">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6671" href="OOP בסיסי-1.htm#answer_6671">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+?? </p>
+</div>
+<div class="answer" id="answer6672">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6672" href="OOP בסיסי-1.htm#answer_6672">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה הבעיה / שאלה? </p>
+</div>
+<div class="answer" id="answer6673">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6673" href="OOP בסיסי-1.htm#answer_6673">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא יודעעם הספר שבחרתי הוא ספר טוב...הכוונה לפרק בOOP </p>
+</div>
+<div class="answer" id="answer6674">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6674" href="OOP בסיסי-1.htm#answer_6674">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני בכללי לא תומך בלמידה מתוך ספר, לדעתי האינטרנט הוא המקום הטוב ביותר ללמוד שפות תכנות, יש לך הרבה יותר חומר מאשר בספר ולדעתי גם קל יותר ללמוד באינטרנט מאשר בספר. </p>
+</div>
+<div class="answer" id="answer6675">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6675" href="OOP בסיסי-1.htm#answer_6675">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אשמח לקבל מדריך אם כך לOOP מהאינטרנט. </p>
+</div>
+<div class="answer" id="answer6679">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6679" href="OOP בסיסי-1.htm#answer_6679">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@nirbe אני כל כך לא מסכים אתך. ספר מרכז לך את המידע במקום שתצטרך ללכת וללמוד מכל מיני אתרים ואז לגלות שהם שכחו לספר לך משהו. (*תדמיין שיש כאן סמיילי עצבני*)<br>וחוץ מזה, בוא תראה לי באינטרנט סדרת מאמרים באיכות של PHP: Objects, Patterns and Practice. ועוד לא התחלתי לדבר על Expert PHP and MySQL.<br>גם ספרים בסיסים יכולים לעזור מאוד מאוד. אני מדבר מניסיון. </p>
+</div>
+<div class="answer" id="answer6680">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6680" href="OOP בסיסי-1.htm#answer_6680">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוראל יש לך סקייפ? דבר שני, אני לומד משני ספרים..אחד של מאט דויל-להישאר בו? הוא מלמד OOP טוב?<br>אחרי זה לעבור אלhttp://www.amazon.com/Programming-PHP-Kevin-Tatroe/dp/1449392776/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1370097637&amp;sr=1-1&amp;keywords=programming+php+3rd+edition<br>כי זה כבר PHP 5.4<br>דבר שני, יש לך המלצה לספר Mysqli טוב? או שגםPDO עושה תעבודה? </p>
+</div>
+<div class="answer" id="answer6685">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6685" href="OOP בסיסי-1.htm#answer_6685">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@OrelBeY, על טעם ועל ריח אין להתווכח.<br>כבר יצא לי לנסות ללמוד תכנות פעם מספר, ואני יכול לומר לך שהרבה יותר נוח לי ללמוד מהאינטרנט, מה גם שבאינטרנט יש כמות הרבה יותר גדולה של חומר, אז נכון שלא רשום הכל במאמר אחד וצריך לחפש דברים, אבל זה אחד הדברים שמתכנת צריך לדעת לעשות. </p>
+</div>
+<div class="answer" id="answer6686">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/84bd1a57dc1ffc16e66a8f4eda181d90?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>liorel100</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6686" href="OOP בסיסי-1.htm#answer_6686">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+PHP היא שפה די פשוטה, לא צריך ספר ולא צריך בטיח. </p>
+</div>
+<div class="answer" id="answer6687">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6687" href="OOP בסיסי-1.htm#answer_6687">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ליאור עם כל הכבוד שלי לוובמאסטר וכמה שאני אוהב תמדריך שלו, הוא לא מלמד את כל הדברים, ומאוד קשה לי ללמוד דרך הדוקומנטציה...עובדה שצריך ללמוד מספר.. </p>
+</div>
+<div class="answer" id="answer6690">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6690" href="OOP בסיסי-1.htm#answer_6690">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@phpon, הכינוי הוא lighto273.<br>@nirbe, אתה צודק במובן מסוים. אבל להגיד למישהו שהוא יחסית מתחיל (?) לעשות את זה לבד זה לא אפקטיבי. בזבוז של הרבה שעות מיותרות.<br>@ליאור, לא כולם חכמים כמוך. אני עכשיו גם חושב שזה קל, אבל מתברר שזה לא. אני חושב את זה עכשיו, אחרי שאני יודע הרבה דברים. (לא הכול, אבל עדיין..)<br><br>@phpon, נראה כמו אחלה ספר. אני לא חושב שתצטרך עוד ספר בסיסי חוץ ממנו.<br>PDO זה מעולה. </p>
+</div>
+<div class="answer" id="answer6692">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/84bd1a57dc1ffc16e66a8f4eda181d90?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>liorel100</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2013 </span>
+<a id="answer_6692" href="OOP בסיסי-1.htm#answer_6692">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+PHPON תענה לי בסקייפ אחי<br>אוראל קודם כל תודה על המחמאה, דבר שני באמת ובתמים PHP היא די פשוטה, תשווה אותה למשל לשפה עילית כמו C#. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

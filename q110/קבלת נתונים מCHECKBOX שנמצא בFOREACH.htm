@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה קבלת נתונים מCHECKBOX שנמצא בFOREACH">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_77681">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>קבלת נתונים מCHECKBOX שנמצא בFOREACH | שאלת לימוד PHP</title>
+<meta itemprop="name" content="קבלת נתונים מCHECKBOX שנמצא בFOREACH | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה קבלת נתונים מCHECKBOX שנמצא בFOREACH">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="קבלת נתונים מCHECKBOX שנמצא בFOREACH.htm" title="שלום לכולם,בטופס הבא אני לא יודע כמה סעיפים יבחר המשתמש לשלוח בטופס. אני שולח מהטופס CHECKBOXים בFOREACH, איך אני מקבל אותם ע&amp;quot;מ להכניסם לDB. &amp;lt;ul&amp;gt;&apos;;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; foreach($get_all_categories_rows as $key =&amp;gt; $val){
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; echo &apos;&amp;lt;li">קבלת נתונים מCHECKBOX שנמצא בFOREACH</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_77681</a>
+,
+<time class="timeago relativetime" datetime="2012-01-10T20:32:09+02:00" style="display:inline-block;">
+10 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText110'>
+שלום לכולם,<br>בטופס הבא אני לא יודע כמה סעיפים יבחר המשתמש לשלוח בטופס. אני שולח מהטופס CHECKBOXים בFOREACH, איך אני מקבל אותם ע&quot;מ להכניסם לDB. <br><div class="php codeblock"><span class="sy0">&lt;</span>ul<span class="sy0">&gt;</span><span class="st_h">';<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foreach($get_all_categories_rows as $key =&gt; $val){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo '</span><span class="sy0">&lt;</span>li<span class="sy0">&gt;&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;checkbox&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;cat_'.<span class="es4">$val</span>['cat_id'].'&quot;</span><span class="sy0">/&gt;</span> <span class="st_h">'.$val['</span>cat_name<span class="st_h">'].'</span><span class="sy0">&lt;/</span>li<span class="sy0">&gt;</span><span class="st_h">';<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo'</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;/</span>ul<span class="sy0">&gt;</span></div><br> </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer424">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לינואר 2012 </span>
+<a id="answer_424" href="קבלת נתונים מCHECKBOX שנמצא בFOREACH.htm#answer_424">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ב GET ו POST אפשר להעביר גם מערכים.תעשה ככה:<br><div class="php codeblock"><span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$get_all_categories_rows</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$val</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;li&gt;&lt;input type=&quot;checkbox&quot; name=&quot;cat['</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'cat_id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">']&quot;/&gt; '</span><span class="sy0">.</span><span class="re0">$val</span><span class="br0">&#91;</span><span class="st_h">'cat_name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/li&gt;'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><div class="php codeblock"><span class="re0">$selected</span> <span class="sy0">=</span> <span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'cat'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'selected categories are '</span><span class="sy0">,</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">', '</span><span class="sy0">,</span> <span class="re0">$selected</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer431">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/0eeefd6882068a9b29c533be1244e746?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_78465</a>
+ב
+<span style="font-size:10px"> 11 לינואר 2012 </span>
+<a id="answer_431" href="קבלת נתונים מCHECKBOX שנמצא בFOREACH.htm#answer_431">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואיך אני מחלק אותם למשתנים בכדי שאוכל להכניסם לDB? </p>
+</div>
+<div class="answer" id="answer432">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לינואר 2012 </span>
+<a id="answer_432" href="קבלת נתונים מCHECKBOX שנמצא בFOREACH.htm#answer_432">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אתה שואל את זה, כנראה שאתה עושה משהו לא נכון.<br>את מה אתה רוצה לחלק לאיזה משתנים? אתה מקבל במערך רק רשימה של cat_id שסומנו. כל אלמנט במערך $_POST[&#039;cat&#039;] זה cat_id כלשהו. תעשה איתו מה שאתה רוצה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

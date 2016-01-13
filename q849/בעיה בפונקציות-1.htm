@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעיה בפונקציות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>בעיה בפונקציות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעיה בפונקציות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעיה בפונקציות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיה בפונקציות-1.htm" title="שלום!עשיתי, שבדף HTML ראשון יש לי פונקציה, עם כמה קודי HTML ולולאות בפנים.עשיתי גם עוד דף, שקולט את הדף הזה עם הפונקציה, ועושה print לפונקציה, כלומר מדפיס אותה.אך כשאני מדפיס אותה היא לא נדפסת.אז.. נגיד זה דף הפונקציה:&amp;lt;?php
+$p = &amp;quot;&amp;quot;;
+&amp;nbsp; &amp;nbsp; $p ">בעיה בפונקציות</a></h2>
+<div class="userinfo">
+פתח
+<a>ArielTador</a>
+,
+<time class="timeago relativetime" datetime="2012-08-04T19:49:17+03:00" style="display:inline-block;">
+04 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText849'>
+שלום!<br><br>עשיתי, שבדף HTML ראשון יש לי פונקציה, עם כמה קודי HTML ולולאות בפנים.<br>עשיתי גם עוד דף, שקולט את הדף הזה עם הפונקציה, ועושה print לפונקציה, כלומר מדפיס אותה.<br>אך כשאני מדפיס אותה היא לא נדפסת.<br>אז.. נגיד זה דף הפונקציה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$p</span> <span class="sy0">=</span> <span class="st0">&quot;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$p</span> <span class="sy0">.=</span> <span class="st_h">'<br>
+&nbsp; &nbsp; &nbsp; &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;he&quot; dir=&quot;rtl&quot; lang=&quot;he&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=windows-1255&quot; /&gt; <br>
+&nbsp; &nbsp; &nbsp; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;title&gt;מערכת ניהול תוכן&lt;/title&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/head&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; '</span><span class="sy0">;</span><br>
+<span class="re0">$globalstopfile</span> <span class="sy0">=</span> <span class="st_h">'png'</span><span class="sy0">;</span><br>
+<span class="kw2">function</span> headerpanel<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$p</span> <span class="sy0">.=</span><span class="st_h">'<br>
+&nbsp; &nbsp; &nbsp; &lt;img src=&quot;images/panel/global/panellogo.'</span><span class="sy0">.</span><span class="re0">$globalstopfile</span><span class="sy0">.</span><span class="st_h">'&quot; style=&quot;margin-top: 5px;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; '</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="re0">$ipanel</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$optionid</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$ipanel</span> <span class="sy0">&lt;</span> <span class="nu0">7</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$optionid</span> <span class="sy0">&lt;</span> <span class="nu0">8</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$p</span> <span class="sy0">.=</span><span class="st_h">'&lt;a href=&quot;paneloptions.php?op='</span><span class="sy0">.</span><span class="re0">$optionid</span><span class="sy0">.</span><span class="st_h">'&gt;&lt;img src=&quot;images/panel/headpanels/'</span><span class="sy0">.</span><span class="re0">$ipanel</span><span class="sy0">.</span><span class="st_h">'.'</span><span class="sy0">.</span><span class="re0">$globalstopfile</span><span class="sy0">.</span><span class="st_h">'&quot; /&gt;&lt;/a&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$optionid</span><span class="sy0">++;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$ipanel</span><span class="sy0">++;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>וזה הדף של ההדפסה:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">require_once</span><span class="br0">&#40;</span><span class="st_h">'panelthems.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$p</span> <span class="sy0">.=</span> headerpanel<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$p</span> <span class="sy0">.=</span> <span class="st_h">'<br>
+&nbsp; &nbsp; &nbsp; &lt;/body&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/html&gt;<br>
+&nbsp; &nbsp; '</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$p</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>מה לא בסדר כאן?! </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3600">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2012 </span>
+<a id="answer_3600" href="בעיה בפונקציות-1.htm#answer_3600">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בפונקציה לא בצעת return בסוף. </p>
+</div>
+<div class="answer" id="answer3601">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2012 </span>
+<a id="answer_3601" href="בעיה בפונקציות-1.htm#answer_3601">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מקודם עשיתי return 24; ואז זה הדפיס לי בדף 24, אז מחקתי את זה!,<br>איך אני יכול לעשות את זה, כשי שידפיס לי את מה שכתוב בפונקציה? </p>
+</div>
+<div class="answer" id="answer3606">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2012 </span>
+<a id="answer_3606" href="בעיה בפונקציות-1.htm#answer_3606">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה להחזיר 24? תחזיר את p$. </p>
+</div>
+<div class="answer" id="answer3630">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 06 לאוגוסט 2012 </span>
+<a id="answer_3630" href="בעיה בפונקציות-1.htm#answer_3630">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+המשתנה $p לא מוגדר בפונקציה שלך. הפונקציה לא מכירה משתנה כזה.<br>יש לך שני אופציות - או להכיר לפונקציה את המשתנה P כדי שגם היא תוכל להוסיף ל P דברים<br>או להחזיר מהפונקציה את P כמו שאמר עדין ויהיה נכון לעשות. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

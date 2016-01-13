@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="באג קריטי שמאפשר לגשת לקוד המקור של דף PHP ב mod_cgi נסגר אחרי למעלה משמונה שנים.">
+<meta name="keywords" content="5.4.2, mod_cgi, פרצה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>PHP 5.3.13 and PHP 5.4.3 Released</title>
+<meta itemprop="name" content="PHP 5.3.13 and PHP 5.4.3 Released">
+<meta itemprop="description" content="באג קריטי שמאפשר לגשת לקוד המקור של דף PHP ב mod_cgi נסגר אחרי למעלה משמונה שנים.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"208","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>PHP 5.3.13 and PHP 5.4.3 Released</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-05-04T13:24:09+03:00" dir="rtl">04 למאי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://cloud.ohloh.net/attachments/42/php_med.png" alt="PHP 5.3.13 and PHP 5.4.3 Released">
+</div>
+<div class="right post-content">
+באג קריטי שמאפשר לגשת לקוד המקור של דף PHP נסגר אחרי למעלה משמונה שנים. התקנות מסוימות של PHP חשופות. apache+mod_php ו nginx+php_fpm לא מושפעים. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>5.3.13-PHP ו-PHP 5.4.3 שוחרר!</h3><br>שני ימים אחרי הגירסה הקריטים הקודמת - מגיעה הגירסה הבאה<br><br>עם עוד תיקון קריטי שמישהו יכול לנצל כדי להוריד לכם את השרת<br><span dir="ltr"> buffer overflow vulnerability in the apache_request_headers() (CVE-2012-2329)</span><br><strong>ממליץ לעדכן !</strong><br><br><br><br><h3>5.3.12-PHP ו-PHP 5.4.2 שוחרר!</h3><br><br>בהתקנות CGI מסוימות (Apache + mod_php ו nginx + PHP-FPM אינם מושפעים) קיימת פרצה שנעלמה מעיני המפתחים למעלה מ-8 שנים. <br><br>במילים פשוטות מדובר בזה, ששאילתות שיש להם את הסימן = בכתובת מטופלות בצורה שונה משאילתות שאין להם = בכתובת. השאילתות בלי הסימן = הופעלו במקרים מסוימים בתור פקודה ב CMD בצורה הבאה:<div class="php codeblock">php index<span class="sy0">.</span>php</div> הפעלה של סקריפטים דרך שורת הפקודה בצורה שכזו איפשרה להוסיף לסוף הכתובת עוד דברים שהיו עשויים להיתפרש בתור פרמטרים של שורת הפקודה. כך למשל הפקודה <div class="php codeblock">php index<span class="sy0">.</span>php <span class="sy0">-</span>s</div> הייתה גורמת למפענח ה PHP להחזיר את קוד המקור של הסקריפט במקום לבצע אותו.<br><br>משמעות הדבר היא כי בקשה המכילה <span dir="ltr">?-S</span> יכולה להחזיר את קוד המקור של דף PHP,<br>לאומת בקשות כמו <span dir="ltr">?-s&=1</span> שיעבדו בסדר גמור.<br><br><h4>האם אני מושפע?</h4><br>רוב האתרים והאחסונים היום מפעילים את PHP בתור מודול של apache <em>(כולל כל מיני wamp למיניהם)</em><br>או בתור fpm עם nginx <em>(אנחנו למשל)</em>.<br><br>אם אתם מפעילים את PHP עם mod_cgi במקום mod_php - יכול מאוד להיות שיש לכם מה לתקן. כדי לבדוק האם אתם מושפעים מזה צריך רק להוסיף <span dir="ltr">?-S</span> לסוף הכתובת של האתר שלכם ואם אתם רואים את קוד המקור שלכם — ...<br><br>לתקן את זה אפשר על ידי עדכון ל-PHP 5.3.12 או PHP 5.4.2.<br><em>למרות שכדאי מאוד לשדרג לגרסאות האחרונות תמיד גם בלי קשר לחדשות.</em><br><br>כאן יש <a href="6_צעדים_קצרים_לעדכון_גרסת_php_ב_wamp-1.htm">מדריך שדרוג של גרסת PHP ל wamp.</a><br>להוריד את <a href="http://windows.php.net/download/">הגרסה העדכניות ביותר ל windows אפשר פה</a>. מי שלא ב-win — יודע לבד מה לעשות.<br><br><h5>ומי שלא יכול לשדרג?</h5><br>בגלל שהשיטה של mod_cgi היא יחסית מיושנת ויכול להיות קשה מאוד לשדרג את PHP לגרסה העדכנית ביותר באתרים שכאלה - אפשר להישתמש בכלל rewrite הבא כדי להתגבר על הפרצה.<br><div class="php codeblock">RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>QUERY_STRING<span class="br0">&#125;</span> ^<span class="br0">&#40;</span><span class="sy0">%</span>2d<span class="sy0">|-</span><span class="br0">&#41;</span><span class="br0">&#91;</span>^<span class="sy0">=</span><span class="br0">&#93;</span><span class="sy0">+</span>$ <span class="br0">&#91;</span>NC<span class="br0">&#93;</span><br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span> $<span class="nu19">1</span>? <span class="br0">&#91;</span>L<span class="br0">&#93;</span></div> <br><br><span style="color:green;">שימו לב, אם אתם לא מושפעים מהפרצה הזו, לא צריך לרוץ לתקוע את הקוד הזה ב htaccess שלכם. זה לא יעזור לכם בשום צורה!</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1524"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 10:33</span><br>
+נו! נו! נו!<br>
+מעניין כמה פעמים תופיע בלוגים הכתובת <span dir="ltr"><a href="index-1.htm?-S">http://phpguide.co.il/?-S</a></span> </div>
+<a id="comment1532"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 12:41</span><br>
+Yehonatan Tsirolnik ממליץ לנסות את זה על פייסבוק :)</div>
+<a id="comment1538"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 19:49</span><br>
+<span dir="ltr"><a href="http://www.facebook.com/?-s">http://www.facebook.com/?-s</a></span><br>
+<br>
+:)</div>
+<a id="comment1539"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 20:31</span><br>
+מי היה מאמין 8 שנים .</div>
+<a id="comment1540"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 21:06</span><br>
+וואלה הצלחתי קובץ php<br>
+<br>
+תראה חלקו כתוב בצורה קריאה וחלקו כתוב <br>
+כך :<br>
+$&quot;·ˆ÷ יh�¦��XSPy�b—Q@ײ�׀ט�lֶcƒpBמ��ָ·)‘€�³�Yי‹l�ְ�מןן1�‹5ֱ&apos;ל׃³)‰�ֽ&amp;�d‚\���R��c˜מ‚\v�ei0…X&apos;�k¦f��e�¯�LהAJצ�סg“D*ך:€¯`�ל��H—‡ֿ&lt;`A’� £�ּ�ןׁ �‘‰£ס�{°A&apos;d¿�װ�ךv½��¬°,†�ְ�Dֱt8�ץj�•²ֵ�4סQ�ָ׀ƒ�ֻח‎ַכbF��g�.ָ‡©ר�זֱ GQ‘ גƒn–ַ&quot;ך�ד½©״��ƒGA?&amp;›¼•�:I¦,א�‏~�ׁ `�˜םט��}<br>
+</div>
+<a id="comment1541"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/05/2012 21:20</span><br>
+כנראה שפה השתמשו ב zend_encoder</div>
+<a id="comment1546"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/05/2012 09:19</span><br>
+זה לא פועל לי בשום אתר &gt;.&lt;<br>
+רק על <span dir="ltr"><a href="http://www.facebook.com/?-s">http://www.facebook.com/?-s</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

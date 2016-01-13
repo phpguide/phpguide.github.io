@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה traits,abstract שימושים ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משהה">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>traits,abstract שימושים  | שאלת לימוד PHP</title>
+<meta itemprop="name" content="traits,abstract שימושים  | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה traits,abstract שימושים ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="traitsabstract שימושים -1.htm" title="החלטתי.ללמוד לעומק יותר על מחלקות והכול , והגעתי לשתי הנושאים האלה . הבנתי אותם והכול , אבל יש לי כמה שאלות בקשר לשימושים שלהם..מג1. Traits הם בעצם קלאסים שיכולים לעזור לי בהרבה מחלקות, ויותר פשוט להשתמש בזה מאשר להוריש כל פעם . דוגמה לטרייט היא טרייט שמטפל במערכים? או בפעולות מתמטיות ? או בכול דבר כזה או אחר שקשור לדברים גלובאליים? כי אם זה היה משו לוקאלי, מקומי אז היייתי משתמש בהורשה - לא ככה? 2. למה אני צריך קלאס אבסטראקטי? באמת שעדיין לא הבנתי את השימוש שלו..">traits,abstract שימושים </a></h2>
+<div class="userinfo">
+פתח
+<a>משהה</a>
+,
+<time class="timeago relativetime" datetime="2013-04-04T17:37:53+03:00" style="display:inline-block;">
+04 לאפריל 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1351'>
+החלטתי.ללמוד לעומק יותר על מחלקות והכול , והגעתי לשתי הנושאים האלה . <br>הבנתי אותם והכול , אבל יש לי כמה שאלות בקשר לשימושים שלהם..<br>מג1. Traits הם בעצם קלאסים שיכולים לעזור לי בהרבה מחלקות, ויותר פשוט להשתמש בזה מאשר להוריש כל פעם . דוגמה לטרייט היא טרייט שמטפל במערכים? או בפעולות מתמטיות ? או בכול דבר כזה או אחר שקשור לדברים גלובאליים? כי אם זה היה משו לוקאלי, מקומי אז היייתי משתמש בהורשה - לא ככה? <br><br>2. למה אני צריך קלאס אבסטראקטי? באמת שעדיין לא הבנתי את השימוש שלו..<br><br>אשמח להסברים :) תודה :) </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5951">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 לאפריל 2013 </span>
+<a id="answer_5951" href="traitsabstract שימושים -1.htm#answer_5951">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. כמו ש-<a href="..\q1212\Multiple inheritance.htm#answer_5312">iiddaannyy אמר פעם</a>, ירושה ממחלקה היא פעולה של הרחבת המחלקה, לוגית. Traits נועדו לפונקציונליות מסוימת, למשל ל-<a href="..\database_singleton.htm">Singelton</a>.<br>2. שמעת פעם על Interface? הוא בעצם מציג את הדרישות של המחלקה מבחוץ. כלומר מה יהיה אפשר לגשת אליו מחוץ למחלקה. עכשיו, מחלקה אבסטרקטית היא הרבה מעבר לכך - היא מציגה את הדרישות של המחלקה גם מבחוץ וגם מבפנים, כלומר גם למפתח שמשתמש במחלקה, וגם למפתח שמפתח את המחלקה. מחלקה אבסטרקטית גם יכולה להציע יישומים שונים של פונקציות וכדו&#039;. </p>
+</div>
+<div class="answer" id="answer5955">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 05 לאפריל 2013 </span>
+<a id="answer_5955" href="traitsabstract שימושים -1.htm#answer_5955">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. סינגלטון זה לא תבנית למחלקה ? <br>2. וכן שמעתי, ועדיין לא הבנתי מה ההבדל בעצם.. ההבדלים שאני יודע בניהם הם : <br>באינטרפייס חייב לממש את כל המתודות - בקלאס אבסטרקטי לא , <br>באינטרפייס כל המתודות הן מסוג public<br>באינטרפייס אסור לממש את המתודות<br>אבל בקלאס אבסטרקטי, אם לא מימשתי את.הפעולות - הן עדיין יפעלו? כמו שבtrait הפעולות פועלות גם בלי שמימשו אותן? </p>
+</div>
+<div class="answer" id="answer5956">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 לאפריל 2013 </span>
+<a id="answer_5956" href="traitsabstract שימושים -1.htm#answer_5956">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+trait זה כשהקומפיילר עושה קופי פייסט של פונקציה מסוימת לתוך כמה מחלקות.<br>תחשוב שיש שלב באמצע של פיענוח השפה שמה שקורה בה זה שהמחשב משכתב את הקלאסים שלך ובכל קלאס שהוא מוצא בו את המילה trait הוא מוחק את השורה הזו ובמקומה עושה paste לקוד של המטודות שמוגדרות ב trait.<br><br>אין ביניהם קשר לאינטרפייסים, למחלקות אבסטרקטיות ולא לשום דבר אחר.<br>זה פשוט קופי פייסט. אם אחרי הקופיי פייסט יסתבר למחשב שחסר לך מטודה במחלקה שמבוקשת באינטרפייס<br>או שאחרי הקופי פייסט יתגלה שאין לך מימוש של איזה מטודה אבסטרקית שאמורה להיות - תקבל שגיאה.<br><br>לגבי פונקציות לעבודה עם מערכים, אתה בטוח שבכל מחלקה אמור להיות קופי פייסט של כמה מטודות לעבודה עם מערכים? </p>
+</div>
+<div class="answer" id="answer5957">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 05 לאפריל 2013 </span>
+<a id="answer_5957" href="traitsabstract שימושים -1.htm#answer_5957">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+את החלק עם traits הבנתי, לא הבנתי את האינטרפייס והקלאס האבסטרקטי , פשוט למדתי על הכול ביחד אז הכנסתי ביחד את השאלה חח :) וזה היה סתם דוגמה...האמת שלא עולה לי רעיון לשימוש בtrait, למה זה עוזר בעצם ? איזה traits כבר צריך? </p>
+</div>
+<div class="answer" id="answer5958">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 לאפריל 2013 </span>
+<a id="answer_5958" href="traitsabstract שימושים -1.htm#answer_5958">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שאלה מעולה וזה מה שרוב האנשים שאולים את עצמם.<br>סינגלטון היא דוגמה אחת לפונקצינאליות שדי זהה בין מחלקה למחלקה. </p>
+</div>
+<div class="answer" id="answer5962">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 05 לאפריל 2013 </span>
+<a id="answer_5962" href="traitsabstract שימושים -1.htm#answer_5962">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נראה שאתה מעוניין בקטע הטכני - מה ההבדל בן Interface לבין Abstract Class טכנית, ולא לוגית. אז הנה, כתבתי תשובה.<br><br><strong>Interface מציג דרישות כלפי חוץ</strong>, כלומר מה חייב להיות זמין מחוץ למחלקה (לכן זה רק public). יכול להיות בו <strong>מתודות וקבועים</strong>. לכל מחלקה שמיישמת Interface <strong>חייב להיות את כל המתודות והקבועים שיש ב-Interface</strong> (ושיוגדרו כ-public). אם המתודות מקבלות פרמטרים, למחלקה <strong>חייב להיות בדיוק אותו מספר פרמטרים</strong> (השם שלהם לא משנה), אבל המחלקה <strong>יכולה להוסיף פרמטרים שהם רשות</strong> (אחרי הפרמטרים שהם חובה).<br><br>Abstract Class זה למעשה מחלקה מופשטת. היא לא מציגה דרישות כלפי חוץ (כמו Interface), אלא <strong>מציגה דרישות למחלקה עצמה, לא משנה מה רמת הכימוס</strong> (public/protected/private). מכיוון שכך, היא יכולה להציע גם יישומים למתודות, ולא רק מתודות ללא יישום.<br><strong>אי אפשר ליצור מופע</strong> של מחלקה שמוגדרת כ-Abstract, אלא רק לרשת ממנה. מחלקה מופשטת יכולה להכיל <strong>משתנים, קבועים ומתודות</strong> (כמו כל מחלקה), אבל <strong>אי אפשר להגדיר משתנים וקבועים כ-Abstract</strong>, אלא רק מתודות.<br>כמו ב-Interface, <strong>המתודות שהוגדרו כ-Abstract חייבות להופיע במחלקה היורשת</strong> (עם יישום שלהן) כאשר <strong>מספר הפרמטרים זהה, מלבד פרמטרים שהם רשות</strong> (שנמצאים בסוף הרשימה של הפרמטרים).<br>בניגוד ל-Interface, <strong>רמת הכימוס</strong> במתודה מופשטת יכולה להיות <strong>כל אחת מהרמות השונות</strong>. המחלקה היורשת <strong>חייבת ליישם את המתודות המופשטות באותה רמת כימוס שהן הוגדרו או ברמה מחמירה פחות</strong>. למשל, אם מתודה הוגדרה כ-protected, במחלקה היורשת היא יכולה להיות protected או public, אך לא private.<br>נוסף על כך, <strong>אפשר להוסיף למחלקה מופשטת מתודות רגילות</strong> (עם יישום), שהמחלקה היורשת תקבל כאילו ירשה אותן ממחלקה רגילה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

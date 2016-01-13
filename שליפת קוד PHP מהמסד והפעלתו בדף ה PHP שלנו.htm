@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו.">
+<meta name="keywords" content="PHP, SQL, הפעלת קוד PHP, קוד, CODE, SQL &gt; PHP, שליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו.</title>
+<meta itemprop="name" content="שליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו.">
+<meta itemprop="description" content="שליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"242","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>שליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו.</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ArielTador, </div>
+<div class="right">&nbsp;<time datetime="2012-08-18T20:49:51+03:00" dir="rtl">18 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.image.co.il/data/uploads/583af676b2.png" alt="שליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו.">
+</div>
+<div class="right post-content">
+לפני כמה ימים, שאלתי פה שאתה בקשר לשליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו,<br>פה לא ענו לי תשובה ואמרו שזה לא אפשרי להוציא קוד PHP מן המסד, ולהפעיל אותו.<br>פה אני יראה לכם את הדרך הנכונה לעשות זאת. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אז.. שלום לכולם!<br><br>לפני כמה ימים, שאלתי פה שאתה בקשר לשליפת קוד PHP מהמסד, והפעלתו בדף ה PHP שלנו,<br>פה לא ענו לי תשובה ואמרו שזה לא אפשרי להוציא קוד PHP מן המסד, ולהפעיל אותו.<br>פה אני יראה לכם את הדרך הנכונה לעשות זאת.<br><br>עכשיו אני יראה לכם דרך לעשות את הפעולה הזו <strong>בעזרת הפונקציה eval() !</strong><br>נגיד ויש לנו במסד בתוך טבלה בשם &quot;Test&quot;, ובתוכה יש עמודה בשם &quot;PHP&quot;,<br>בתוך העמודה בשם &quot;PHP&quot; יש שורה, שבה כתוב את קוד ה PHP הזה:<br><br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'&lt;font color=&quot;red&quot;&gt;Welcom to SQL &gt; PHP&lt;/font&gt;'</span><span class="sy0">;</span></div><br><br>אוקיי, אני מגיע לדף ה PHP שלי, ורוצה להפעיל את הקוד הזה מתוך המסד..<br>דבר ראשון אני נכנס לדף ה PHP שלי, נגיד וזה דף ה PHP שלי:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>קודם כל נתחיל בדבר כזה,<br>נגיד ויש לי משתנה, ובתוכו קוד PHP, נגיד וזה המשתנה:<br><br><div class="php codeblock"><span class="re0">$phpcode</span> <span class="sy0">=</span> <span class="st_h">'echo &quot;Hello Worlds&quot;'</span><span class="sy0">;</span></div><br><br>הקוד של ה PHP שבו, עדיין לא מופעל באתר,<br>נגיד ואני רוצה להפעיל אותו באתר, אין אפשרות להשתמש ב echo או print בכדי להדפיס אותו,<br>גם אם נעשה ככה:<br><br><div class="php codeblock"><span class="re0">$phpcode</span> <span class="sy0">=</span> <span class="st_h">'echo &quot;Hello Worlds&quot;'</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$phpcode</span><span class="sy0">;</span></div><br><br>זה לא יעבוד.<br><br>אז.. מה בעצם עושים בשביל שזה יעבוד לנו?<br>כמו שהדגשתי בהתחלה:<br>&quot;<strong>בעזרת הפונקציה eval() !</strong>&quot;<br> נשתמש בפונקציה הזו כדי לבצע את הפעולה,<br>איך משתמשים איתה?<br>זאת דרך פשוטה מאוד, כל מה שצריך לעשות זה ככה:<br><br><div class="php codeblock"><span class="re0">$phpcode</span> <span class="sy0">=</span> <span class="st_h">'echo &quot;Hello Worlds&quot;'</span><span class="sy0">;</span><br>
+<span class="kw3">eval</span><span class="br0">&#40;</span><span class="re0">$phpcode</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>כלומר, פה עשינו שהוא ידפיס לנו את $phpcode,<br>הפלט הוא:<br>Hello Worlds<br><br>אותו הדבר בשליפה מהמסד, שליפה מהמסד היא בצורה כזו:<br><br><div class="php codeblock"><span class="re0">$idss</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM Test&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">mysql_num_rows</span><span class="br0">&#40;</span><span class="re0">$idss</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$idss</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'body'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$p</span> <span class="sy0">.=</span> <span class="kw3">eval</span><span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>כלומר הפלט שלנו בקוד הזה יהיה כזה:<br><br><span style="color:darkred;">Welcom to SQL &gt; PHP</span><br>(זה יהיה הפלט לפי מה שדיברנו בהתחלה.....)<br>בהצלחה! </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=16&r=g&d=monsterid" alt="ArielTador">
+<a>ArielTador</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1840"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 00:37</span><br>
+באמת תודה על כך שאתה משתף פתרונות לבעיות שנתקלת בהן, אבל יש כאן כמה בעיות:<br>
+1. אם יהיה מאמר על הפונקציה eval, הוא יהיה עליה, ולא רק על שימוש בה בהקשר למסד נתונים, כי אין הבדל ביניהם.<br>
+2. הפתרון הזה הוא ממש לא טוב לבעיה (מה שהיא לא תהיה).<br>
+מלבד זאת, לדעתי, אני לא חושב שהפונקציה eval זקוקה למאמר, מכיוון שהשימוש שלה הוא יחיד ופשוט: להריץ מחרוזת כקוד PHP.<br>
+לפיכך, אני מניח שהמאמר לא יתפרסם...<br>
+<br>
+נ.ב. אם תוכל אולי לפרט לנו למה בדיוק אתה חייב לאחזר מידע מהמסד ולהריץ אותו בתור קוד PHP - קרוב לוודאי שנוכל להציע פתרון טוב יותר.</div>
+<a id="comment1843"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 09:27</span><br>
+לא משנה מה אתה בונה, שימוש בפונקציית eval זה גרוע ויכול להוות בעיית אבטחה</div>
+<a id="comment1846"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielTador</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 15:26</span><br>
+אני צריך את זה כדי לבנות מערכת ניהול תוכן ולהוציא קודי PHP שנשמרו בתוך המסד לתוך האתר..</div>
+<a id="comment1847"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 15:56</span><br>
+*************** אם תוכל אולי לפרט לנו למה בדיוק אתה חייב לאחזר מידע מהמסד ולהריץ אותו בתור קוד PHP - קרוב לוודאי שנוכל להציע פתרון טוב יותר. ***************</div>
+<a id="comment1848"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 17:01</span><br>
+LighTo273 אתה טועה..<br>
+לא &quot;קרוב לוודאי&quot; אלא 100% בטוח.</div>
+<a id="comment1849"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 18:03</span><br>
+:)</div>
+<a id="comment1850"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 18:04</span><br>
+נ.ב. קוראים לי אוראל. :)</div>
+<a id="comment1858"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 13:24</span><br>
+עד עכשיו לא הומצאה סיבה טובה לשמור קוד PHP במסד.<br>
+המנהל של האתר המבוסס על המערכת שלך לא אמור להתעסק בלכתוב קוד שיכנס למסד, מכאן השקוד היחידי שאמור להיות למערכת שלך זה הקוד שהמפתח כתב.<br>
+קוד כזה לא אמור להיות מבסד נתונים.<br>
+<br>
+מאוד ממליץ לעיין בנושא ה mvc<br>
+<span dir="ltr"><a href="mvc_מפרידים_html_מ_php.htm">http://phpguide.co.il/mvc_מפרידים_html_מ_php.htm</a></span></div>
+<a id="comment1861"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 13:33</span><br>
+&quot; אני צריך את זה כדי לבנות מערכת ניהול תוכן ולהוציא קודי PHP שנשמרו בתוך המסד לתוך האתר..&quot;<br>
+<br>
+מערכת ניהול תוכן מנהלת את התוכן. לא את הקוד.<br>
+php צריכה להשמר בקבצים ולהיות מורצת ישירות ולא לאחר שליפה שלה מהמסד.<br>
+מה שאמור להיות במסד זה התוכן. שזה כולל מאמרים, מדריכים, שאלות, תשובות, פוסטים, html וכו&apos;. לא php.</div>
+<a id="comment1864"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 16:42</span><br>
+זה גרוע מאוד להשתמש בeval! אתה חשוף לפגיעה חמורה מאוד באתר שלך , כי כל אחד יוכל לכתוב קוד PHP לתוך האתר ! ... </div>
+<a id="comment1865"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 17:18</span><br>
+עדיף לך לבצע עריכה של קובץ ולא להשתמש בזה עם מסד נתונים.</div>
+<a id="comment1872"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 23:21</span><br>
+למה סיבכת תעניינים וחספת את האתר שלך לפגיע?<br>
+<br>
+אתה יכול ליצור קובף בשם test.php(נניח),<br>
+אחרי זה כשאתה צריך אותו תעשה לו require_once: require_once(__DIR__.&apos;/test.php); <br>
+(<span dir="ltr"><a href="http://php.net/manual/en/function.require-once.php">http://php.net/manual/en/function.require-once.php</a></span>)<br>
+<br>
+וכשאתה עורך תפתח את הקובץ של עם fopen(הרשאת w - write), תכתוב לשם עם fwrite, תסגור עם fclose.<br>
+עוד פרטים כאן: <span dir="ltr"><a href="http://php.net/manual/en/ref.filesystem.php">http://php.net/manual/en/ref.filesystem.php</a></span></div>
+<a id="comment1875"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/08/2012 10:32</span><br>
+לתת לערוך קובץ זה הצעה מטומטמת ביותר.<br>
+בעיית הבטחה היא לא עם זה שהקוד במסד. הבעיה היא עם זה שהמשתמשים עורכים קוד<br>
+ולא משנה איפה הוא נשמר.</div>
+<a id="comment1889"></a>
+<div class="blog-comment">
+<span class='comment-author'>mat</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/08/2012 22:29</span><br>
+אפשר להשתמש עם זה מתי שאתה רוצה להריץ כמה פעמים קוד שנמצא בקובץ php<br>
+במקום include שאפשר רק פעם אחת.<br>
+<br>
+לידיעתם גם מערכת מגנטו משתמשת ב eval. והרבה.</div>
+<a id="comment1890"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/08/2012 22:49</span><br>
+היא לא היחידה והיא מסתמכת על זה שהמפתח או בעל האתר יכתבו קוד בעצמם במערכת ניהול תוכן שלהם.<br>
+אם בעל האתר עושה את זה, אין אם זה בעיה. אם המשתמשים של האתר עושים את זה, המצב על הפנים</div>
+<a id="comment1891"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/08/2012 22:51</span><br>
+@mat גם VB פועלת על EVAL והרבה מאוד EVAL... כל HOOK שם זה קוד שיוצר על ידי EVAL.<br>
+אבל רק בעל האתר יכול לערוך את הקוד הזה...</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

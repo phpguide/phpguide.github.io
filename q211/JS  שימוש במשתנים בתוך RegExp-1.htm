@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה JS | שימוש במשתנים בתוך RegExp">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>JS | שימוש במשתנים בתוך RegExp | שאלת לימוד PHP</title>
+<meta itemprop="name" content="JS | שימוש במשתנים בתוך RegExp | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה JS | שימוש במשתנים בתוך RegExp">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">18</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="JS  שימוש במשתנים בתוך RegExp-1.htm" title="אני רוצה להשתמש במשתנים ב-RegExp שב-JS במקום סתם טקסט. איך עושים את זה?">JS | שימוש במשתנים בתוך RegExp</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2012-02-02T20:34:07+02:00" style="display:inline-block;">
+02 לפברואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText211'>
+אני רוצה להשתמש במשתנים ב-RegExp שב-JS במקום סתם טקסט. איך עושים את זה? </div>
+</div>
+<h3>
+<span id="answersCounter">18 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer874">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2012 </span>
+<a id="answer_874" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_874">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר ליצור ביטוי רגולרי באמצעות המחלקה RegExp בצורה הבאה:<br><br><div class="php codeblock"><span class="kw2">var</span> re <span class="sy0">=</span> <span class="kw2">new</span> RegExp<span class="br0">&#40;</span><span class="st0">&quot;regex&quot;</span><span class="sy0">,</span><span class="st0">&quot;g&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="st0">&quot;mystring&quot;</span><span class="sy0">.</span>replace<span class="br0">&#40;</span>re<span class="sy0">,</span> <span class="st0">&quot;newstring&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer875">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_875" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_875">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואם אני רוצה לעשות שרק אם זה יופיע בסוף (בעזרת $)?<br>ואם כבר - איך אני עושה רק בסוף מילה ולא בסוף כל הטקסט? </p>
+</div>
+<div class="answer" id="answer877">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_877" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_877">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לפי מה כשאתה קורא את הארי פוטר המוח שלך יודע שזה סוף מילה?<br><div class="php codeblock"><span class="kw2">var</span> re <span class="sy0">=</span> <span class="kw2">new</span> RegExp<span class="br0">&#40;</span><span class="st0">&quot;<span class="es4">$blabla</span>[^a-z0-9א-ת]&quot;</span><span class="sy0">,</span> <span class="st_h">'gi'</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer881">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_881" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_881">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+צריך לשלב גם סימן קריאה וכו&#039;.<br>והשאלה שלי מלכתחילה הייתה איך עושים את זה עם משתנים.<br>כלומר, אני רוצה לבדוק אם <div class="php codeblock"><span class="kw3">array</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">9</span><span class="br0">&#93;</span></div> נמצא בסוף כל מילה, ואם כן, לשנות אותו באותה המילה למשהו אחר שנמצא במערך אחר.<br>איך אני עושה את זה? </p>
+</div>
+<div class="answer" id="answer882">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_882" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_882">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה לבד להכניס לזה משתנה<br><div class="php codeblock"><span class="kw2">var</span> re <span class="sy0">=</span> <span class="kw2">new</span> RegExp<span class="br0">&#40;</span><span class="st0">&quot;regex&quot;</span><span class="sy0">,</span><span class="st0">&quot;g&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer883">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_883" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_883">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הבנתי.<br>במקרה רגיל אני פשוט עושה:<br><div class="php codeblock">re <span class="sy0">=</span> <span class="kw2">new</span> RegExp<span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">9</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="st0">&quot;g&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אבל ניסיתי ב:<br><div class="php codeblock">re <span class="sy0">=</span> <span class="kw2">new</span> RegExp<span class="br0">&#40;</span><span class="st0">&quot;<span class="es4">$blabla</span>[^a-z0-9א-ת]&quot;</span><span class="sy0">,</span> <span class="st_h">'gi'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>בכל מיני דרכים ולא הצלחתי </p>
+</div>
+<div class="answer" id="answer884">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_884" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_884">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">re <span class="sy0">=</span> <span class="kw2">new</span> RexExp<span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">9</span><span class="br0">&#93;</span><span class="sy0">+</span><span class="st0">&quot;\b&quot;</span><span class="sy0">,</span> <span class="st0">&quot;g&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer885">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_885" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_885">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+המטרה שלי שזה יחליף את array[0][9] במשהו אחר בכל אות אחרונה (שזהה אליו) בכל מילה.<br><div class="php codeblock">re <span class="sy0">=</span> <span class="kw2">new</span> RexExp<span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">9</span><span class="br0">&#93;</span><span class="sy0">+</span><span class="st0">&quot;\b&quot;</span><span class="sy0">,</span> <span class="st0">&quot;g&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>איך זה עוזר לי?<br>אני לא מצליח להבין... </p>
+</div>
+<div class="answer" id="answer886">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_886" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_886">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה מוצא כל array[0][9] שיש בסוף מילה. </p>
+</div>
+<div class="answer" id="answer887">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 לפברואר 2012 </span>
+<a id="answer_887" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_887">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא עובד לי...<br><br><div class="php codeblock">re<span class="sy0">=</span><span class="kw2">new</span> RegExp<span class="br0">&#40;</span>myArray<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">9</span><span class="br0">&#93;</span><span class="sy0">+</span><span class="st0">&quot;\b&quot;</span><span class="sy0">,</span> <span class="st0">&quot;g&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+text<span class="sy0">=</span>text<span class="sy0">.</span>replace<span class="br0">&#40;</span>re<span class="sy0">,</span> myArray<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">9</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer939">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 לפברואר 2012 </span>
+<a id="answer_939" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_939">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מישהו? </p>
+</div>
+<div class="answer" id="answer941">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 לפברואר 2012 </span>
+<a id="answer_941" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_941">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">text <span class="sy0">=</span> <span class="st_h">'abcx defy ghix, jklx! mnoy pqrx xxx yyx zzz?? abcx58 blatx'</span><span class="sy0">;</span><br>
+<br>
+find <span class="sy0">=</span> <span class="st_h">'x'</span><span class="sy0">;</span><br>
+replace <span class="sy0">=</span> <span class="st_h">'2'</span><span class="sy0">;</span><br>
+<br>
+&nbsp;re <span class="sy0">=</span> <span class="kw2">new</span> RegExp<span class="br0">&#40;</span>find <span class="sy0">+</span> <span class="st0">&quot;([^-a-zA-z0-9א-ת]|$)&quot;</span><span class="sy0">,</span> <span class="st0">&quot;g&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+text <span class="sy0">=</span> text<span class="sy0">.</span>replace<span class="br0">&#40;</span>re<span class="sy0">,</span> replace <span class="sy0">+</span> <span class="st_h">'$1'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+document<span class="sy0">.</span>write<span class="br0">&#40;</span>text<span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer943">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 לפברואר 2012 </span>
+<a id="answer_943" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_943">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה הוא לא משנה גם את ה-x האחרון? :) </p>
+</div>
+<div class="answer" id="answer944">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 לפברואר 2012 </span>
+<a id="answer_944" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_944">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ערכתי את הקוד. עכשיו משנה גם את האחרון </p>
+</div>
+<div class="answer" id="answer945">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 לפברואר 2012 </span>
+<a id="answer_945" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_945">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה. :)<br>שאלה אחת אחרונה - אתה מכיר מדריך שמסביר <strong>בפירוט ולעומק</strong> את <strong>כל </strong>הדברים הקשורים לנושא הזה? (חוץ מגוגל) </p>
+</div>
+<div class="answer" id="answer946">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 לפברואר 2012 </span>
+<a id="answer_946" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_946">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה לכתוב בחיפוש של האתר &quot;ביטויים רגולריים&quot; </p>
+</div>
+<div class="answer" id="answer949">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 05 לפברואר 2012 </span>
+<a id="answer_949" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_949">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קראתי אותו פעם. :)<br>ובכל זאת לא הבנתי מה עושה פה $1:<br><div class="php codeblock">text <span class="sy0">=</span> text<span class="sy0">.</span>replace<span class="br0">&#40;</span>re<span class="sy0">,</span> replace <span class="sy0">+</span> <span class="st_h">'$1'</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer950">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 לפברואר 2012 </span>
+<a id="answer_950" href="JS  שימוש במשתנים בתוך RegExp-1.htm#answer_950">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כל מה שנמצא בתוך סוגריים עגולות בביטוי הרגולרי נשמר בזיכרון לתוך משתנה. $1 זה המשתנה.<br>במקרה של הביטוי שלך זה &quot;התו שאחרי ה X שהוא לא A_Z 0-9<br>שזה יכול להיות פסיק, נקודה, מעבר שורה, סוף טקסט, סימן קריאה כלשהו, ריבוע, מלבן, מספר וכו&#039; (כל מה שלא a-z 0-9 א-ת </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

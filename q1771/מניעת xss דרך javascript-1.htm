@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מניעת xss דרך javascript">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itamar">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מניעת xss דרך javascript | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מניעת xss דרך javascript | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מניעת xss דרך javascript">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מניעת xss דרך javascript-1.htm" title="יש לי באתר אפשרות הוספת תגובה, ברגע שהמשתמש רושם תגובה אני מכניס אותה ל db דרך ajax ומפרסם את התגובה דרך ה javascript כלומר אני לא מקבל את התגובה מה db אלא לוקח אותה מה form  השאלה שלי היא איך אני יכול למנוע xss בצד הלקוח בלבד?ניסיתי להשתמש ב encodeURIComponent אבל משום מה הוא ממיר לי גם אותיות בעברית. מישהו יודע מה הדרך הכי נוחה לסנן את הקלט בלי התערבות של השרת?">מניעת xss דרך javascript</a></h2>
+<div class="userinfo">
+פתח
+<a>itamar</a>
+,
+<time class="timeago relativetime" datetime="2014-01-22T13:22:49+02:00" style="display:inline-block;">
+22 לינואר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1771'>
+יש לי באתר אפשרות הוספת תגובה, ברגע שהמשתמש רושם תגובה אני מכניס אותה ל db דרך ajax ומפרסם את התגובה דרך ה javascript כלומר אני לא מקבל את התגובה מה db אלא לוקח אותה מה form השאלה שלי היא איך אני יכול למנוע xss בצד הלקוח בלבד?<br>ניסיתי להשתמש ב encodeURIComponent אבל משום מה הוא ממיר לי גם אותיות בעברית. מישהו יודע מה הדרך הכי נוחה לסנן את הקלט בלי התערבות של השרת? </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8094">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3366b78c0faf6c8737abfa8c6350a242?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamar</a>
+ב
+<span style="font-size:10px"> 22 לינואר 2014 </span>
+<a id="answer_8094" href="מניעת xss דרך javascript-1.htm#answer_8094">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כרגע אני משתמש בקוד הזה לסינון זה מספיק מאובטח?<br><br><div class="php codeblock"><span class="kw2">function</span> encodeHTML<span class="br0">&#40;</span>s<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> s<span class="sy0">.</span>replace<span class="br0">&#40;</span><span class="sy0">/&amp;/</span>g<span class="sy0">,</span> <span class="st_h">'&amp;amp;'</span><span class="br0">&#41;</span><span class="sy0">.</span>replace<span class="br0">&#40;</span><span class="sy0">/&lt;/</span>g<span class="sy0">,</span> <span class="st_h">'&amp;lt;'</span><span class="br0">&#41;</span><span class="sy0">.</span>replace<span class="br0">&#40;</span><span class="sy0">/</span><span class="st0">&quot;/g, '&amp;quot;');<br>
+&nbsp; &nbsp; &nbsp; }</span></div> </p>
+</div>
+<div class="answer" id="answer8095">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d13bb8962ca31a6c9ce9f5bb8b90937a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>vu47678</a>
+ב
+<span style="font-size:10px"> 22 לינואר 2014 </span>
+<a id="answer_8095" href="מניעת xss דרך javascript-1.htm#answer_8095">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">function</span> clean<span class="br0">&#40;</span>e<span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">var</span> textfield <span class="sy0">=</span> document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span>e<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">var</span> regex <span class="sy0">=</span> <span class="sy0">/</span><span class="br0">&#91;</span>^a<span class="sy0">-</span>z <span class="nu0">0</span><span class="sy0">-</span><span class="nu0">9</span>?<span class="sy0">!.,</span><span class="br0">&#93;</span><span class="sy0">/</span>gi<span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>textfield<span class="sy0">.</span>value<span class="sy0">.</span>search<span class="br0">&#40;</span>regex<span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; textfield<span class="sy0">.</span>value <span class="sy0">=</span> textfield<span class="sy0">.</span>value<span class="sy0">.</span>replace<span class="br0">&#40;</span>regex<span class="sy0">,</span> <span class="st0">&quot;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer8096">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d13bb8962ca31a6c9ce9f5bb8b90937a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>vu47678</a>
+ב
+<span style="font-size:10px"> 22 לינואר 2014 </span>
+<a id="answer_8096" href="מניעת xss דרך javascript-1.htm#answer_8096">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה שהקוד עושה בודק אם יש משהו אחר חוץ מהרגקס שהגדרת ומחליף אותו בתו ריק </p>
+</div>
+<div class="answer" id="answer8097">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d13bb8962ca31a6c9ce9f5bb8b90937a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>vu47678</a>
+ב
+<span style="font-size:10px"> 22 לינואר 2014 </span>
+<a id="answer_8097" href="מניעת xss דרך javascript-1.htm#answer_8097">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני אפילו יתן לך קוד משודרג שלא נותן למשתמש אפילו להקליד משהו שלא הגדרת ומוחק לו אותו ישר שהוא כותב אותו.<br><br><div class="php codeblock"><span class="kw2">function</span> clean<span class="br0">&#40;</span>e<span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">var</span> textfield <span class="sy0">=</span> document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span>e<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">var</span> regex <span class="sy0">=</span> <span class="sy0">/</span><span class="br0">&#91;</span>^a<span class="sy0">-</span>z <span class="nu0">0</span><span class="sy0">-</span><span class="nu0">9</span>?<span class="sy0">!.,</span><span class="br0">&#93;</span><span class="sy0">/</span>gi<span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>textfield<span class="sy0">.</span>value<span class="sy0">.</span>search<span class="br0">&#40;</span>regex<span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; textfield<span class="sy0">.</span>value <span class="sy0">=</span> textfield<span class="sy0">.</span>value<span class="sy0">.</span>replace<span class="br0">&#40;</span>regex<span class="sy0">,</span> <span class="st0">&quot;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+&nbsp;<span class="sy0">&lt;</span>div<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>textarea id<span class="sy0">=</span><span class="st0">&quot;comment&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;ta&quot;</span> onkeyup<span class="sy0">=</span><span class="st0">&quot;clean('comment')&quot;</span> onkeydown<span class="sy0">=</span><span class="st0">&quot;clean('comment')&quot;</span><span class="sy0">&gt;&lt;/</span>textarea<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer8098">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3366b78c0faf6c8737abfa8c6350a242?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamar</a>
+ב
+<span style="font-size:10px"> 23 לינואר 2014 </span>
+<a id="answer_8098" href="מניעת xss דרך javascript-1.htm#answer_8098">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה עובד מצוין!!! </p>
+</div>
+<div class="answer" id="answer8099">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 23 לינואר 2014 </span>
+<a id="answer_8099" href="מניעת xss דרך javascript-1.htm#answer_8099">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה נחמד והכול, אבל אתה לא צריך להגביל את הטקסט למספר תווים מסוימים רק כדי לסתום פריצת XSS; אתה יכול פשוט להשתמש בפונקציות שימירו את התווים המיוחדים ל-HTML Entities (כך שהם עדיין יישמרו - צריך את זה בהמון מקרים - ולא יזיקו!). וחוץ מזה, אתה לא שולט על איך הלקוח שולח לך נתונים. זה נחמד ויעיל לסנן נתונים בצד הלקוח, אבל מבחינת אבטחה - תצטרך גם לסנן את זה בצד השרת! תמיד! הטופס הזה זה לא הדרך היחידה לשלוח לך נתונים, וגם את הטופס והסקריפט האלה אפשר לשנות בדפדפן הלקוח (כל אחד בפני עצמו), שזו דרך אחת לרמות למשל.<br>אני ממליץ לך לקרוא את <a href="..\Cross_Site_Scripting.htm">המדריך שפורסם כאן בנושא XSS</a>. </p>
+</div>
+<div class="answer" id="answer8100">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3366b78c0faf6c8737abfa8c6350a242?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamar</a>
+ב
+<span style="font-size:10px"> 23 לינואר 2014 </span>
+<a id="answer_8100" href="מניעת xss דרך javascript-1.htm#answer_8100">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוראל אל תדאג אני מסנן את זה גם בשרת ע&quot;י html_entities אבל כאן זה לצורך אחר, כדי שהמשתמש יראה מיד שהתגובה שלו נוספה ללא צורך בריפרוש הדף<br>וחוץ מזה אני חושב שזה מצוין להגביל את המשתמש עוד בקלט </p>
+</div>
+<div class="answer" id="answer8101">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 23 לינואר 2014 </span>
+<a id="answer_8101" href="מניעת xss דרך javascript-1.htm#answer_8101">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה? אבל יכול להיות שהייתה תקלה בביצוע של הסקריפט בצד השרת, והתגובה לא נוספה. אם בכל זאת תרצה את זה תצטרך להשתמש ב-AJAX. :-)<br>אני מסכים איתך, אבל יש גבול להגבלה. :-) זו תגובה, נכון? לך תדע איזה תווים יכולים להיות שם. מה עם מקף? קו מפריד? נקודה-פסיק? סימן הסעיף (§)? סימנים מיוחדים אחרים? תגובה כדאי פשוט לא להגביל בסוג התווים במחרוזת הקלט, ולמניעת XSS פשוט להבריח את התווים המיוחדים ב-HTML. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

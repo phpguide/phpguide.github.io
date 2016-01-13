@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הסבר על cron, השימוש בו והסינטקס שלו יחד עם הדגמות והסברים איך להעפעיל קרון ב cpanel, direct admin, isp manager">
+<meta name="keywords" content="cron, cron jobs, זמן, פעם ב, קרון">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>קרון — להפעיל סקריפט אחת ל..</title>
+<meta itemprop="name" content="קרון — להפעיל סקריפט אחת ל..">
+<meta itemprop="description" content="הסבר על cron, השימוש בו והסינטקס שלו יחד עם הדגמות והסברים איך להעפעיל קרון ב cpanel, direct admin, isp manager">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"67","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>קרון — להפעיל סקריפט אחת ל..</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-03-03T22:53:14+02:00" dir="rtl">03 למרץ 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://img04.static-nextag.com/image/Champro-A151-Stop-Watch/0/000/006/870/627/687062733.jpg" alt="קרון — להפעיל סקריפט אחת ל..">
+</div>
+<div class="right post-content">
+אין מצב שלא שמעתם על קרון או cron jobs. <br>כל מה שלא ידעתם עליו ופחדתם לשאול. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+cron (קרון) היא תוכנה כזאת, שרצה לה במערכת ההפעלה 24 שעות, 7 ימים בשבוע, הרבה ימים בשנה ובכל דקה שלמה בודקת האם יש משהו חדש שהיא צריכה לעשות. קרון מובנה במערכת ההפעלה (unix) ופועל תמיד. בפועל cron משמש תוכנות אחרות ואת מערכת ההפעלה עצמה כדי לבצע פעולות מסוימות בזמנים מסוימים.<br><br>אנחנו ננצל את קיומו של הקרון למטרותינו הזדוניות, כדי להפעיל סקריפטים בזמן מסוים. החל מדברים פשוטים וחמודים כמו ניקוי המסד נתונים כל לילה, עדכון האתר, שליחת ספאם לשכנים וכל דבר אחר שיבוא פתאום לעשות.<br><br><br>ביסודה קרון בודקת אחת לדקה את קובץ המסימות (crontab) שיש לה. עלינו פשוט להוסיף רשומה משלנו לקובץ הזה ומשם קרון תדאג לבצע אותה בזמן שנבחר. <br><br><h4>פורמט רישום זמן</h4><br>כל שורה בקובץ ה-crontab מורכבת משישה שדות.<br><div class="php codeblock">minute hour day_of_month month day_of_week &nbsp; &nbsp; &nbsp; &nbsp; command_to_execute<br>
+<span class="co2"># for example:<br>
+</span><span class="nu0">1</span> <span class="nu0">0</span> <span class="nu0">31</span> <span class="nu0">3</span> <span class="sy0">*</span> some_programm</div><br><br><br>לדוגמה כדי להפעיל את program.exe בתאריך השלישי למרץ 18:20 הקוד יהיה זה:<br>בדקה ה-20 של השעה ה-18 ביום השלישי לחודש השלישי:<br><div class="php codeblock"><span class="nu0">20</span> <span class="nu0">18</span> <span class="nu8">03</span> <span class="nu8">03</span> <span class="sy0">*</span> Programe<span class="sy0">.</span>exe</div><br><br><h4>פרקי זמן</h4><br><br>כוכבית מסמנת &quot;כל יחידת זמן&quot;. <br>כלומר כוכבית בעמודת השעות תסמן &quot;כל שעה&quot;.<br>כוכבית בעמודת החודשים תסמן &quot;כל חודש&quot;. <br><br>חילוק מאפשר לבחור חלק מהזמן. כלומר &quot;כל פרק זמן כלשהו&quot;.<br>20/* יקרה כל פעם שכמות הדוקת תתחלק ב20 ללא שארית <br>(00:00, 00:20, 00:40, 01:00, 01:20, ..)<br><br><div class="php codeblock">Every <span class="nu0">20</span> minutes<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">*/</span><span class="nu0">20</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> Program &nbsp;<br>
+Every <span class="nu0">3</span> minutes<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">*/</span><span class="nu0">3</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> Program &nbsp;<br>
+Every <span class="nu0">8</span> hours<span class="sy0">:</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">*</span> <span class="sy0">*/</span><span class="nu0">8</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="nu0">0</span> Program &nbsp;<br>
+Once a week <span class="br0">&#40;</span>sunday midnight<span class="br0">&#41;</span><span class="sy0">:</span> &nbsp; &nbsp; &nbsp; <span class="nu0">0</span> <span class="nu0">0</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="nu0">0</span> Program &nbsp;<br>
+Once a month <span class="br0">&#40;</span>1st day of month midnight<span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; <span class="nu0">0</span> <span class="nu0">0</span> <span class="sy0">*</span> <span class="nu0">1</span> <span class="sy0">*</span> Program</div><br><br><br><h3>להפעיל את הסקריפט</h3><br>במקום Program יהיה עלינו לרשום בקובץ הזה את הסקריפט שלנו. נניח שהסקריפט שלנו נמצא בנתיב <span dir="ltr">/home/alex/test.php</span>. ברגע זה חשוב לנו להיזכר שהרי php היא שפה מפוענחת ומנוע ה-php הוא זה שמפענח ומבצע את הקוד שלנו. <br>התוכנה שעלינו להפעיל בפועל זה לא הסקריפט שלנו, אלה מנוע ה-php ולהגיד לו שיבצע את הקוד שכתוב בקובץ. בדרך כלל התוצאה הסופית תראה כך:<br><div class="php codeblock"><span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> php <span class="sy0">-</span>f <span class="sy0">/</span>home<span class="sy0">/</span>alex<span class="sy0">/</span>test<span class="sy0">.</span>php</div><br>מה שאומר: כל דקה להפעיל את מנוע ה-php ולבקש ממנו לפענח (ולבצע) את הקוד בקובץ הנ&quot;ל. אבל, הכל לא כל כך פשוט והדרך להפעיל את מנוע ה-php שונה מאיחסון לאיחסון.<br><br><h4>איך ואיפה לרשום את זה</h4><br>קובץ ה-crontab הוא קובץ של מערכת ההפעלה. למשתמשים של חברות איחסון לרוב אין גישה ישירה אליו, אבל ניתן לבצע הוספה של פקודות אליו דרך פאנל הניהול של חברת האיחסון.<br><br>אם ברשותך פאנל ניהול מסוג <strong>cPanel</strong><br>יש לכתוב את הפקודה באופן הבא: <span dir="ltr">/usr/local/bin/php -f /path/to/script.php</span><br>קישור ל<a href="http://s3.postimage.org/508wupopx/cpanel_1.png">תמונה</a> ל<a href="http://s3.postimage.org/508yi917p/cpanel2.png">המחשה</a>.<br><br>בפאנל של <strong>Direct Admin</strong><br>יש לכתוב בפקודה: <span dir="ltr">/usr/local/bin/php /path/to/script.php</span><br>קישור ל<a href="http://s3.postimage.org/8juxvlgf9/da1.png">תמונה</a> ל<a href="http://s3.postimage.org/8juzj4sx1/da2.png">המחשה</a>.<br><br>ובמערכת <strong>Isp Manager</strong><br>יש לכתוב בפקודה: <span dir="ltr">/usr/bin/php -f /path/to/script.php</span><br><a href="http://s3.postimage.org/fn2wmaaud/isp1.png">קישור לתמונה</a>.<br><br><h4>מיקום הסקריפט</h4><br>בכל הדוגמאות מיקום הסקריפט היה <span dir="ltr">/path/to/script.php</span> . כדי למצוא את מיקום הסקריפט האימיתי - אפשר להכניס לקוד את השורה הבאה בראש הסקריפט, להפעיל אותו פעם אחת ולמחוק את השורה שוב.<br><div class="php codeblock"><span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">realpath</span><span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><br><h3>איך להפעיל קרון ב-windows</h3><br>קודם כל, למה לכל הרוחות השרת שלכם ב-windows? מערכות unix ידועות כהרבה יותר יציבות, בטוחות, מהירות ואפפקטיביות משרתי windows. רגע, נחזור לענייננו. בשרתי windows (כמו גם במחשב שלכם, כנראה) אין cron. אותו מחליף הבחור המיקרוסופטי, ה- Task Scheduler של ווינדוס. גם דרכו אפשר לדמות פעולה של קרון לצורכי עבודה.<br><br>להגיע אליו אפשר דרך <span dir="ltr">Start -&gt; Run -&gt; Taskschd.msc</span><br>או ב-winXp דרך <span dir="ltr">Contor Panel -&gt; Scheduled Tasks</span><br><br><span style="color:red;">בשורת הפקודה לביצוע לכתוב <span dir="ltr">C:\www\server\php\php.exe -f &quot;C:\Path\to\script.php&quot;</span> </span><br>כאשר את מיקום קובץ הסקריפט הנכון ניתן לקבל באותו אופן המתואר מלעה, ואת מיקום מפענח ה-php (ה- php.exe הזה) אפשר למצוא בתיקיה שאליה התקנתם את php. אם התקנתם הכל לפי המדריך התקנה באתר, אזי מיקום המפענח הוא כפי שכתוב בדוגמה.<br>דוגמה ל <a href="http://postimage.org/image/ni4wdj7o ">windows7</a> ו-<a href="http://ncdn.phpguide.co.il/blogimages/winxpcronexample.png">windowsXP</a><br><br>עכשיו אתם יודעים איך להפעיל סקריפט כל X זמן. נסו את כל הפעולות היקרות שיש לכם במערכת להעביר לעבודה בקרון, כמו חישוב רייטינגים, ציור כפתורים עם כמות משתמשים אוןלייו או חישוב 10 הכתבות הפופולאריות. גם אם הקרון יפעל אחת לדקה, העומס שתורידו מהשרת שלכם בשעות הכבדות יהיה משמעוטי.<br><br>קרון הוא כלי חשוב בידי המפתחים, השתמשו בו בחוכמה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment24"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/03/2011 09:12</span><br>
+אם אני עובד עם שרת חינמי באינטרנט, שאליו אין לי גישה פיזית ואין לי גישה מלאה, האם אני יכול להשתמש ב-cron?<br>
+לפי מה שהבנתי יש קובץ מיוחד שאליו צריך לכתוב את המשימות. איפה הוא נמצא במידה ו-cron מותקנת על השרת איתו אני עובד?</div>
+<a id="comment25"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/03/2011 12:36</span><br>
+הקובץ שמכיל את נתוני הקרון הוא קובץ מערכת שאין ללוקוחות שרתי האיחסון גישה אליו גם לא בשירותי איחסון שבתשלום. מערכות ניהול אתרים כמו cpanel, derect admin ו-isp עושים את הפעולות הנדרשות על הקובץ הזה בעצמם, וכל מה שנשאר למשתמש זה לשנות את ההגדרות במערכת הניהול.<br>
+<br>
+רוב חברות האיחסון החינמיים לא נותנות מערכת ניהול כזו, למרות שיש כאלה שכן. במקרה הזה אין לך אפשרות ליצור פעולות קרון בשרת שלך, אולם תמיד תוכל להשתמש בשירותים של חברות חיצוניות, כמו <span dir="ltr"><a href="http://www.google.com/search?q=web+cron">http://www.google.com/search?q=web cron</a></span> שיתנהגו כאילו מישהו עם דפדפן יגלוש אליך כל פרק זמן מסוים.<br>
+<br>
+תן להם לגלוש אליך לעמוד דוגמאת copde.php?password=123 ותבדוק בקוד שלך שהסיסמה נכונה. באופן הזה גם אם מישהו יגלה שיש לך סקריפט כזה בשרת, הוא לא יוכל לבצע אותו בלי לדעת את הסיסמה.</div>
+<a id="comment35"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/03/2011 20:12</span><br>
+אחי שמע אני מנסה את זה בבית וזה לא עוד לי.<br>
+יש לי ווינדוס XP עשיתי מה שאמרתה וזה אומר שזה לא נימצא..<br>
+<br>
+מה לעשות?</div>
+<a id="comment37"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/03/2011 20:29</span><br>
+במחשבים עם מערכת הפעלה windows לא קיים קרון. תוכל להשתמש ב-task scheduler במקום. ניתן להגיע אליו בעזרת Control Panel -&gt; Scheduled tasks. <br>
+בשורת הפקודה יש לכתוב את הפקודה כמתואר מעלה, רק לתת את המיקום הנכון של php.exe במחשב שלך. תעשה חיפוש במחשב, תמצא את php.exe ותשתמש בו כפקודה.<br>
+<br>
+__עזרה פרטית נוספת תוכל לקבל בפורום.__</div>
+<a id="comment55"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/04/2011 14:24</span><br>
+Taskschd.msc לא נמצא, מה עושים?<br>
+<br>
+--<br>
+תגובה:<br>
+Control Panel -&gt; Scheduled tasks<br>
+עזרה פרטית רק דרך הפורום</div>
+<a id="comment563"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/08/2011 13:46</span><br>
+ישר כח</div>
+<a id="comment764"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/09/2011 02:20</span><br>
+כל הכבוד!! מדריך מצוין!</div>
+<a id="comment1381"></a>
+<div class="blog-comment">
+<span class='comment-author'>s976</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/03/2012 21:06</span><br>
+תודה רבה.המדריך כתוב בצורה ברורה מאוד. <br>
+אני מנסה להפעיל את זה על המחשב של עם חלונות, והבעיה היא שבמשימות המתוזמנות, אין אפשרות ליצור תדירות גבוה יותר מאשר פעם ביום. ואילו אני צריך פעם בדקה.</div>
+<a id="comment2823"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/12/2014 21:09</span><br>
+ע&quot;פ המדריך, אם אני רוצה להפעיל את הסקריפט בכל יום רביעי בשעה 3 וחצי בבוקר בכל חודש אני צריך לכתוב ככה:<br>
+<br>
+30 03 04 * * Programe.exe<br>
+<br>
+בדקה ה-30 של השעה ה-3 ביום הרביעי<br>
+<br>
+?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

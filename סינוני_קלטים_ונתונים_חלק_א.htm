@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="כיצד מסננים קלטים ונתונים המתקבלים מידי המשתמש בעזרת PHP .">
+<meta name="keywords" content="סינון קלטים מסוכנים, אבטחת קלטים בPHP">
+<meta name="author" content="JBStyle">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>סינוני קלטים ונתונים - חלק א&apos;</title>
+<meta itemprop="name" content="סינוני קלטים ונתונים - חלק א&apos;">
+<meta itemprop="description" content="כיצד מסננים קלטים ונתונים המתקבלים מידי המשתמש בעזרת PHP .">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"106","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>סינוני קלטים ונתונים - חלק א&apos;</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">JBStyle, </div>
+<div class="right">&nbsp;<time datetime="2011-06-21T19:30:41+03:00" dir="rtl">21 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/lock.jpg" alt="סינוני קלטים ונתונים - חלק א&apos;">
+</div>
+<div class="right post-content">
+כיצד מסננים קלטים ונתונים המתקבלים מידי המשתמש בעזרת PHP . <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+ובכן, הרבה אנשים שואלים בתמימות &quot;כיצד אני יכול לאבטח את האתר שלי מפני התקפות כאלו ואחרות&quot; .<br>ובכן ישנן התקפות מסויימות (כדוגמת XSS, SQLi) הקורות בד&quot;כ מרשלנות יתר או חוסר תשומת לב לאי סינון קלטי קוד .<br>במאמר הבא נלמד כיצד להגן ולסנן קלטים המתקבלים מהמשתמשים .<br><br><br><h3>סינון קלטים מספריים</h3><br>ובכן כמעט בכל מערכת ישנו סינון לפי ID המתבקש מידי המשתמש דרך בקשת GET כזו או אחרת .<br>דוגמא חיה ממערכת הפורומים של האתר: http://phpguide.co.il/forum/index.php?action=profile;u=20<br>אם תשימו לב ישנה בקשת GET בשם u המבקשת את המספר 20 (מספר הID של המשתמש) .<br><br>ובכן, מה שהמערכת מצפה לקבל מהמשתמש הוא מספר שלאחר מכן בעזרתו היא שולפת את פרטי הפרופיל של המשתמש עם הID שהתקבל באותו הGET; מה קורה אם המשתמש מתחכם ומחליט לא להכניס מספר ?<br>במקרה שאנחנו לא מסננים את הקלטים שאנחנו מקבלים מהמשתמש אנחנו בבעיה גדולה מאוד, שכן המשתמש יכול להכניס כל דבר שיעלה על רוחו ואף לגרום נזק לנתונים בDB שלנו .<br>PHP מציעה לנו פונקציה נהדרת למקרה מסוג זה בשם intval .<br><br>מה שintval עושה זה לקחת את המספר הראשון המופיע בקלט המוגש לה ולהחזיר מספר שהוא אינטג&#039;ר (INT [שלם]) .<br>אם אין בתו הראשון של הקלט שמוגש לה מספר היא מחזירה 0 (FALSE) .<br>להלן מספר דוגמאות של קלטים שהיא תקבל ומה שהיא תחזיר בתמורתה הנדיבה:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">intval</span><span class="br0">&#40;</span> <span class="st_h">'1'</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 1</span><br>
+<span class="kw1">echo</span> <span class="kw3">intval</span><span class="br0">&#40;</span> <span class="st_h">'1 or 1=1'</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 1</span><br>
+<span class="kw1">echo</span> <span class="kw3">intval</span><span class="br0">&#40;</span> <span class="st_h">'2=2'</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 2</span><br>
+<span class="kw1">echo</span> <span class="kw3">intval</span><span class="br0">&#40;</span> <span class="st_h">'1++'</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 1</span><br>
+<span class="kw1">echo</span> <span class="kw3">intval</span><span class="br0">&#40;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 0</span><br>
+<span class="kw1">echo</span> <span class="kw3">intval</span><span class="br0">&#40;</span> <span class="kw4">TRUE</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 1</span><br>
+<span class="kw1">echo</span> <span class="kw3">intval</span><span class="br0">&#40;</span> <span class="sy0">@</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st_h">'Y/m/d'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 2011</span></div><br>ובכן, במידה שנרצה שGET מסויים (נקרא לו נניח userId) יוכל לקבל רק מספר כקלט, כל שנעשה הוא את הצעד הבא ואנחנו מוגנים מפני קלטים בלתי רצויים:<br><div class="php codeblock"><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'userId'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">intval</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'userId'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>במקרה כזה, נוכל אפילו להציג דף שגיאה אם התוצאה לא מקובלת עלינו:<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'userId'</span><span class="br0">&#93;</span> <span class="sy0">===</span> <span class="nu0">0</span> <span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'foo'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">// display error ..</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">// get data from database</span><br>
+<span class="br0">&#125;</span></div><br>כמו שאמרנו intval מחזירה לנו מספר שלם ומסננת אותו, אך מה אם המשתמש הכניס מספר שלילי ?<br>לשם כך קיימת לנו הפונקציה abs שתפקידה הוא להחזיר ערך מוחלט של קלט מסויים (למחרוזות יוחזר ערך מוחלט אך ורק אם המספר מופיע ראשון, בדיוק כמו intval) .<br>כך שאם למשל המשתמש יכניס -2, לאחר מיפוי הנתונים והשתמשות בabs נקבל 2 .<br>בואו נראה מספר דוגמאות לשימושים בפונקציה:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">abs</span><span class="br0">&#40;</span> <span class="st_h">'-1'</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 1 (type = int)</span><br>
+<span class="kw1">echo</span> <span class="kw3">abs</span><span class="br0">&#40;</span> <span class="st0">&quot;34.55&quot;</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 34.55 (type = float)</span><br>
+<span class="kw1">echo</span> <span class="kw3">abs</span><span class="br0">&#40;</span> <span class="sy0">-</span><span class="nu19">52.01</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 52.01 (type = float)</span><br>
+<span class="kw1">echo</span> <span class="kw3">abs</span><span class="br0">&#40;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// false</span><br>
+<span class="kw1">echo</span> <span class="kw3">abs</span><span class="br0">&#40;</span> <span class="st_h">'hello'</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// 0 (type = int)</span><br>
+<span class="kw1">echo</span> <span class="kw3">abs</span><span class="br0">&#40;</span> <span class="st_h">'-1 or 1=1'</span> <span class="br0">&#41;</span> <span class="co1">// 1 (type = int)</span></div><br>אם כן בואו ו&quot;נשכלל&quot; את הקוד שיצרנו לסינון $_GET[&#039;userId&#039;] ונוסיף אפשרות לסינון של ערך מוחלט:<br><div class="php codeblock"><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'userId'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">abs</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'userId'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אם כן נטרלנו את האפשרות להכניס כל דבר שהוא לא מספר ואף מספר שלילי .<br><br>חשוב לדעת שיש לintval ארגמנט שני אופציונלי המציין את בסיס ההמרה והוא מוגדר כברירת מחדל על 10 .<br><br><br><h3>סינון קלטי HTML והברחת תווים מסוכנים</h3><br>בואו ניקח לנו לדוגמא אתר כמו רשת חברתית כדוגמת מייספייס .<br>רשתות חברתיות מסוגים כאלו נותנות אפשרות להשתמש בHTML כחלק מעריכת הפרופיל, אך כמובן שזהו צעד מאוד מאוד מסוכן .<br>לכן, יש לסנן ולהגדיר מראש באילו תגים נרשה להשתמש .<br>במקרים שאנחנו לא מוודאים אך גם לא מרשים להכניס HTML ישנן שתי אפשרויות:<br>האחת, לעשות REPLACE לכל התגים ולא לאפשר כל להכניס תווים הקשורים לתגים ובכללם &gt;, &lt;, &quot;, &#039; וכד&#039; ..<br>השניה, לאפשר להקיש תווים אלו אך לעשות להם המרה לHTMLENTITIES, כך שבמקרה שנקיש למשל &quot; נקבל בקוד &amp;quot; אך מבחינת תצוגה נראה אותו הדבר (&quot;) .<br><br><strong>אפשרות ראשונה</strong><br>אם ברצוננו לא לאפשר כלל להקיש תווי תגים נוכל להשתמש בstr_replace ובו נגדיר מערך מוגדר מראש או לחלופין נוכל לחבר ביטוי רגולרי ואז לחסום אפשרות להכניס את התווים האלו במסגרת של תגים אך במסגרת רגילה ובודדת נאפשר .<br><br><strong>אפשרות שנייה</strong><br>PHP מציעה לנו כלים נהדרים לטיפול בתווי HTML מיוחדים .<br>אני אדבר על שתי פונקציות שנחוצות: htmlentities, htmlspecialchars .<br><br>הפונקציה htmlespecialchars ממירה תווים &quot;מיוחדים&quot; שמצויים בHTML לHTMLENTITIES .<br>מהם תווים מיוחדים ?<br>ובכן, התווים המיוחדים שהפונקציה ממירה הם &amp;, &quot;, &#039;, &gt;, &lt; .<br><br>הפונקציה מקבלת ארבעה ארגמנטים שמתוכם רק ארגמנט אחד הוא חובה (המחרוזת שאותה רוצים להמיר) .<br>הארגמנט השני מקבל קבועים המיוחדים לפונקציה זו ולפונקציה htmlentities שעוד נדבר עליה בהמשך (את הקבועים ניתן לראות בקישור הבא: <a href="http://php.net/manual/en/function.htmlentities.php">רשימת קבועי HTMLENTITIES</a> וברירת המחדל מביניהם הוא ENT_COMPAT .<br>הארגמנט השלישי מקבל את הקידוד שנרצה לתווים המומרים לHTMLENTITIES .<br>הארגמנט הרביעי מקבל בוליאן (TRUE / FALSE) שמורים לפונקציה האם להמיר מחרוזת שהוגשה כמומרת או לא (לדוגמה האם להמיר את המחרוזת &amp;amp; ל&amp;amp;amp; או פשוט להשאיר אותה כמו שהיא הוגשה .<br><br>ובכן בואו נראה שימושים שונים עם פונקציה זו:<br><div class="php codeblock"><span class="coMULTI">/*<br>
+נניח ש:<br>
+$_POST['userStatus'] = '&lt;b&gt;&amp;amp;היי כולם, אני מנסה לעשות טקסט מודגש, בואו נראה אם זה יצליח לי !&lt;/b&gt;';<br>
+*/</span><br>
+<br>
+<span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'userStatus'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// &amp;lt;b&amp;gt;&amp;amp;amp;היי כולם, אני מנסה לעשות טקסט מודגש, בואו נראה אם זה יצליח לי !&amp;lt;/b&amp;gt;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'userStatus'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="kw4">ENT_COMPAT</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="sy0">,</span> <span class="kw4">FALSE</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// &amp;lt;b&amp;gt;&amp;amp;היי כולם, אני מנסה לעשות טקסט מודגש, בואו נראה אם זה יצליח לי !&amp;lt;/b&amp;gt;</span></div><br><br>htmlentities עושה אותו הדבר כמו htmlspecialchars ומקבל אותם ארגמנטים באותו סדר בדיוק אך ישנו הבדל קטן ביניהם, HTMLENTITIES ימיר גם תווים &quot;מוזרים&quot; שאינם רק מהחמישה שhtmlspecialchars ממירה .<br><br><br><h3>הברחת גרשיים</h3><br>לא פעם יכול המשתמש לשים למשל בתוכן שלו גם גרשיים (ציטוטים וכד&#039;) .<br>ניתן להמירם בעזרת HTMLENTITIES / HTMLSPECIALCHARS אך במידה ולא נרצה בכך נוכל להשתמש בפונקציה addslashes, פונקציה זו מוסיפה מתחת לגרש/יים תו המבריח אותם (\) .<br>ראוי להדגיש ולציין שיש להשתמש בפונקציה זו רק במידה שmagic_quotes_gpc בשרת מכובה (magic_quotes_gpc עושה לPOST, GET, COOKIES הברחת גרש/יים באופן אוטומטי ללא התערבות המשתמש) .<br>כמו כן בהכנסה למסד שPHP אינו תומך בו בהברחת גרש/יים יש להשתמש בפונקציה זו .<br>במסדים כמו MySQL, PostgreSQL וכד&#039; שבהם יש תמיכה בPHP להברחת תווים יש להשתמש בהם (mysql_real_escape_string, pg_escape_string) .<br><br>דוגמאות שימוש:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">addslashes</span><span class="br0">&#40;</span><span class="st_h">'&quot;foo'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// \&quot;foo</span><br>
+<span class="kw1">echo</span> <span class="kw3">addslashes</span><span class="br0">&#40;</span> <span class="st_h">'boo&quot;foo&quot;'</span> <span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// boo\&quot;foo\&quot;</span></div><br><br><br><h3>הערות ודברים שחשוב לזכור</h3><br>* יש תמיד לסנן קלטים .<br>* PHP מציעה מגוון כלים ופונקציות שבעזרתם ניתן לסנן קלטים .<br>* יש לבדוק ולסנן כל קלט שאינו ידוע לנו מה הסוג שלו .<br><br><br><em>במדריך הבא בעז&quot;ה אדבר על פילטרים - כלי נהדר לסינון ולבדיקת קלטים (אימיילים, סטרינגים, IP ועוד ..)</em> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/d5489318b0ce990d7ea29e0cffd43110?s=16&r=g&d=monsterid" alt="JBStyle">
+<a>JBStyle</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment231"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2011 23:14</span><br>
+החלק הראשון של המדריך כולו עלי :-)<br>
+<br>
+בשביל לסנן קלט מתגי html קיימת פונקציה strip_tags שעדיפה בהרבה יותר בזכות מהירות העבודה שלה וגם בזכות האפשרות כפרמטר שני לרשום - אילו תגים לאפשר ולא לסנן.<br>
+<br>
+לדעתי זהו רעיון רע מאוד לסנן תגיות html לגמרי. לצורך המחשה בדיוק בתגובה הזו ארצה לדבר על התגית &lt;b&gt;. אם הטקסט הזה היה מסונן, לא הייתם רואים אותו בכלל.<br>
+<br>
+במקום למחוק אותם לגמרי, עדיף פשוט להציג אותם באופן טקסטואלי (על ידי הפיכתם מתגיות לטקסט בעזרת htmlspecialchars) ולא לשנות את התוכן המקורי שהמשתמש הכניס.<br>
+<br>
+כשעובדים עם קידוד utf-8 (ואני מאוד מקוהה שאתם עובדים עם קידוד utf-8) - יש לקרוא לפונקציה htmlspecialchars עם כל שלושת הפרמטרים שלה באופן הבא:<br>
+<br>
+htmlSpecialChars($data, ENT_QUOTES, &apos;UTF-8&apos;); //x<br>
+<br>
+<br>
+וככל אצבע יש לזכור שלהבטחה מפני XSS ו SQL Injection יש לבצע שני פעולות בלבד:<br>
+<br>
+א. בעת הכנסת נתונים למסד לבצע הברחה עם mysql_real_escape_string<br>
+<br>
+ב. בעת ההדפסה של הנתונים למשתמש (שזה יכול להיות סקריפט אחר אצל משתמש אחר ביום אחר) - להשתמש ב htmlSpecialChars עם 3 פרמטרים.<br>
+<br>
+זהו :)</div>
+<a id="comment233"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/06/2011 23:33</span><br>
+כמובן, ציינתי את strip_tags .<br>
+וגם ציינתי את האפשרות שבה לאפשר תגים מסויימים, שזו מעלה מצויינת .<br>
+<br>
+דבר שני, הזכרתי שעדיף להשתמש בפונקציות של הדרייברים של הDB ובמקרה שאין אז להשתמש בaddslashes .<br>
+ולדעתי ברור מאליו שמתי שמדפיסים לעשות את הhtmlspecialchars .<br>
+<br>
+ואני גם מקווה שכולם עובדים עם utf-8 (ומי שלא, זה הזמן !)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

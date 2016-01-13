@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה fb php sdk">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mmm">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>fb php sdk | שאלת לימוד PHP</title>
+<meta itemprop="name" content="fb php sdk | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה fb php sdk">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  unanswered">
+<div class="item-count">0</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="fb php sdk-1.htm" title="שלום חברים, אני משתמש בSDK של פייסבוק באתר שלי, על מנת ליצור הרשמה באמצעות פייסבוק.אני לא מעמת מול פייסבוק את המשתמש בכל טעינת דף, אלא יוצר משתמש מהפרטים שקיבלתי בפעם הראשונה מפייסבוק, על מנת להאיץ את מהירות טעינת הדף.בעת התחברות לאתר, נעשה שימוש חד פעמי בחיבור לפייסבוק על נת לעמת את המשתמש מול המסד, ולהגדיר קוקי מתאים.העניין הוא שהSDK של פייסבוק עובד לי ממש  ל א ט..לפי כמות האזכורים ברשת אני מבין שזו בעיה ידועה. הקוד שלי:">fb php sdk</a></h2>
+<div class="userinfo">
+פתח
+<a>mmm</a>
+,
+<time class="timeago relativetime" datetime="2013-10-23T14:54:39+03:00" style="display:inline-block;">
+23 לאוקטובר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1644'>
+שלום חברים, אני משתמש בSDK של פייסבוק באתר שלי, על מנת ליצור הרשמה באמצעות פייסבוק.<br>אני לא מעמת מול פייסבוק את המשתמש בכל טעינת דף, אלא יוצר משתמש מהפרטים שקיבלתי בפעם הראשונה מפייסבוק, על מנת להאיץ את מהירות טעינת הדף.<br>בעת התחברות לאתר, נעשה שימוש חד פעמי בחיבור לפייסבוק על נת לעמת את המשתמש מול המסד, ולהגדיר קוקי מתאים.<br>העניין הוא שהSDK של פייסבוק עובד לי ממש ל א ט..<br>לפי כמות האזכורים ברשת אני מבין שזו בעיה ידועה.<br> הקוד שלי:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw1">include</span> <span class="st_h">'cl.php'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">require_once</span><span class="br0">&#40;</span><span class="st_h">'fb/src/facebook.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">include</span><span class="br0">&#40;</span><span class="st_h">'uf.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$facebook</span> <span class="sy0">=</span> <span class="kw2">new</span> Facebook<span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'appId'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'xxxx'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'secret'</span> <span class="sy0">=&gt;</span> <span class="st_h">'xxxx'</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$user</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">getUser</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$user</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$user_profile</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">api</span><span class="br0">&#40;</span><span class="st_h">'/me'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; try <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$first</span> <span class="sy0">=</span> sec<span class="br0">&#40;</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'first_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$last</span> <span class="sy0">=</span> sec<span class="br0">&#40;</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'last_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$mail</span> <span class="sy0">=</span> sec<span class="br0">&#40;</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$birthDate</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st0">&quot;/&quot;</span><span class="sy0">,</span> sec<span class="br0">&#40;</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'birthday'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$birth</span> <span class="sy0">=</span> <span class="re0">$birthDate</span><span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'-'</span><span class="sy0">.</span><span class="re0">$birthDate</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'-'</span><span class="sy0">.</span><span class="re0">$birthDate</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$age</span> <span class="sy0">=</span> sec<span class="br0">&#40;</span><span class="re0">$birth</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$id</span> <span class="sy0">=</span> sec<span class="br0">&#40;</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$password</span> <span class="sy0">=</span> <span class="st_h">'fb'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'gender'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st_h">'male'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$gender</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span><span class="br0">&#40;</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'gender'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st_h">'female'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$gender</span> <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$sessionU</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'u'</span><span class="sy0">,</span> <span class="re0">$sessionU</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">2602000</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$login</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#/fb-#Ui'</span><span class="sy0">,</span> <span class="re0">$personalIMG</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$fileName</span> <span class="sy0">=</span> <span class="st_h">'fb-xxxxx.jpg'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; uploadFiles<span class="br0">&#40;</span><span class="st_h">'http://graph.facebook.com/'</span><span class="sy0">.</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'/picture?type=large'</span><span class="sy0">,</span> <span class="re0">$fileName</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$imgforq</span> <span class="sy0">=</span> <span class="st0">&quot;, `img` = '<span class="es4">$fileName</span>'&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$imgforq</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="sy0">,</span> <span class="st0">&quot;UPDATE `users` SET `f-name` = '<span class="es4">$first</span>', `l-name` = '<span class="es4">$last</span>', `birth` = '<span class="es4">$age</span>', `fb` = '<span class="es4">$id</span>', `lastcookie` = '<span class="es4">$sessionU</span>', `gender` = '<span class="es4">$gender</span>'<span class="es4">$imgforq</span> WHERE `username` = '<span class="es4">$uName</span>'&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysqli_error</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$cife</span> <span class="sy0">=</span> <span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="sy0">,</span> <span class="st0">&quot;SELECT `fb`, `img` FROM `users` WHERE `fb` = '<span class="es4">$id</span>'&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysqli_error</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$imgres</span> <span class="sy0">=</span> <span class="kw3">mysqli_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$cife</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="nu0">1234</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$nrfc</span> <span class="sy0">=</span> <span class="kw3">mysqli_num_rows</span><span class="br0">&#40;</span><span class="re0">$cife</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$nrfc</span> <span class="sy0">!=</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#fb-#Ui'</span><span class="sy0">,</span> <span class="re0">$imgres</span><span class="br0">&#91;</span><span class="st_h">'img'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$fileName</span> <span class="sy0">=</span> <span class="st_h">'fb-xxxxxxxxx.jpg'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; uploadFiles<span class="br0">&#40;</span><span class="st_h">'http://graph.facebook.com/'</span><span class="sy0">.</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'/picture?type=large'</span><span class="sy0">,</span> <span class="re0">$fileName</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$imgforq</span> <span class="sy0">=</span> <span class="st0">&quot;, `img` = '<span class="es4">$fileName</span>'&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$imgforq</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="sy0">,</span> <span class="st0">&quot;UPDATE `users` SET `f-name` = '<span class="es4">$first</span>', `l-name` = '<span class="es4">$last</span>', `birth` = '<span class="es4">$age</span>', `fb` = '<span class="es4">$id</span>', `lastcookie` = '<span class="es4">$sessionU</span>', `gender` = '<span class="es4">$gender</span>'<span class="es4">$imgforq</span> WHERE `fb` = '<span class="es4">$id</span>'&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysqli_error</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$fileName</span> <span class="sy0">=</span> <span class="st_h">'fb-xxxxxxxxxx.jpg'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; uploadFiles<span class="br0">&#40;</span><span class="st_h">'http://graph.facebook.com/'</span><span class="sy0">.</span><span class="re0">$user_profile</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'/picture?type=large'</span><span class="sy0">,</span> <span class="re0">$fileName</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="sy0">,</span> <span class="st0">&quot;INSERT INTO `users` (`username`, `f-name`, `l-name`, `mail`, `birth`, `password`, `time`, `gender`, `fb`, `lastcookie`, `img`) VALUES ('fb-<span class="es4">$id</span>', '<span class="es4">$first</span>', '<span class="es4">$last</span>', '<span class="es4">$mail</span>', '<span class="es4">$age</span>', '<span class="es4">$password</span>', '&quot;</span><span class="sy0">.</span><span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;', '<span class="es4">$gender</span>', '<span class="es4">$id</span>', '<span class="es4">$sessionU</span>', '<span class="es4">$fileName</span>')&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysqli_error</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Location: msg.php?id=1&amp;redirect=home'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span> catch<span class="br0">&#40;</span>FacebookApiException <span class="re0">$e</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$login_url</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">getLoginUrl</span><span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'scope'</span> <span class="sy0">=&gt;</span> <span class="st_h">'publish_stream'</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Please &lt;a href=&quot;'</span> <span class="sy0">.</span> <span class="re0">$login_url</span> <span class="sy0">.</span> <span class="st_h">'&quot;&gt;login.&lt;/a&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">error_log</span><span class="br0">&#40;</span><span class="re0">$e</span><span class="sy0">-&gt;</span><span class="me1">getType</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">error_log</span><span class="br0">&#40;</span><span class="re0">$e</span><span class="sy0">-&gt;</span><span class="me1">getMessage</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_REFERER'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Location: '</span><span class="sy0">.</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_REFERER'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Location: index.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$user</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$loginUrl</span> <span class="sy0">=</span> <span class="re0">$facebook</span><span class="sy0">-&gt;</span><span class="me1">getLoginUrl</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'scope'</span> <span class="sy0">=&gt;</span> <span class="st_h">'email,publish_actions,publish_stream,user_birthday,user_about_me'</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;script type='text/javascript'&gt;top.location.href = '<span class="es4">$loginUrl</span>';&lt;/script&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>סורי על הספגטי, הקוד נכתב ממש מהר.<br><br>למישהו יש רעיון כלשהו? הקוד עובד ממש לאט, ולפעמים לא עובד בכלל. </div>
+</div>
+<h3>
+<span id="answersCounter">0 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

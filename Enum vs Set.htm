@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הסבר על שדות enum ו set">
+<meta name="keywords" content="enum, set, mysql, שדות">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Enum vs Set או איך לתת הרשאות</title>
+<meta itemprop="name" content="Enum vs Set או איך לתת הרשאות">
+<meta itemprop="description" content="הסבר על שדות enum ו set">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"163","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Enum vs Set או איך לתת הרשאות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-10-18T12:52:16+02:00" dir="rtl">18 לאוקטובר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.campusphilly.org/editorial/2007/aug8/checklist_small.jpg" alt="Enum vs Set או איך לתת הרשאות">
+</div>
+<div class="right post-content">
+enum ו-set הם שני סוגי נתונים מאוד מיוחדים ב-mysql ותכף תדע מה כל כך מעניין בהם. לדגומה השדה מסוג "מין". שדה כזה יכול להכיל רק ערכים קבועים "זכר" ו"נקבה". מסתבר שאפשר להגביל את הערכים האלה בכוחות המסד עצמו. בוא תראה איך. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>Enum</h3><br>הוא הפשוט מבין השניים. שדה מסוג Enum הוא שדה טקסט (מחרוזת) עם רשימת ערכים קבועים. <br>מעולה כדי לשמור נתונים כמו מין, מצב משפחתי או כל דבר שנבחר מרשימת ערכים קבוע. <br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="Enum vs Set או איך לתת הרשאות" title="http://ncdn.phpguide.co.il/images/enum_phpmyadmin.jpg" class="content-image-float"><br><br>אני משתמש בזה בעמוד "<a href="http://idea.phpguide.co.il/">שפר את האתר</a>" עבור סוג ההצעה, רעיון, בקשה וגם עבור המצב התקבל, טופל, נדחה וכו'..<br><br>אופן הפעולה הפנימי שלו הוא כזה, שלכל אופציה מוגדר מספר <br>התקבל = 1 , בוצע = 2 , נדחה = 3<br>ככה שהמקום שהשדה הזה טופס הוא יחסית קטן.<br><br><h3>Set</h3><br>set דומה מאוד ל enum אבל הרבה יותר מעניין. <br>הוא מאפשר לבחור בבת אחת <strong>כמה ערכים מתוך רשימה קבוע</strong>. <br>לדגומה, מתאים לשמירת הרשאות משתמשים.<br><br>היצירה שלו זהה לזו של enum:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="Enum vs Set או איך לתת הרשאות" title="http://ncdn.phpguide.co.il/images/set_phpmyadmin.jpg" class="content-image-float"><br><br><br><h4>טבלה לדוגמה</h4><br><div class="php codeblock">CREATE TABLE <span class="kw1">IF</span> NOT EXISTS `setest` <span class="br0">&#40;</span><br>
+&nbsp; `userid` int<span class="br0">&#40;</span><span class="nu0">11</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span> AUTO_INCREMENT<span class="sy0">,</span><br>
+&nbsp; `permissions` set<span class="br0">&#40;</span><span class="st_h">'read'</span><span class="sy0">,</span><span class="st_h">'write'</span><span class="sy0">,</span><span class="st_h">'edit'</span><span class="sy0">,</span><span class="st_h">'delete'</span><span class="sy0">,</span><span class="st_h">'upload'</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; PRIMARY <span class="kw3">KEY</span> <span class="br0">&#40;</span>`userid`<span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span> ENGINE<span class="sy0">=</span>MyISAM &nbsp;<span class="kw1">DEFAULT</span> CHARSET<span class="sy0">=</span>utf8</div><br><br>עמודה "הרשאות" תשמור עבור כל משתמש את הרשאות המשתמש. המשתמש יכול <br>[*] "לקרוא" כתבות בבלוג <br>[*] "לכתוב" בבלוג<br>[*] "לערוך כתבות" שאת זה יוכלו רק מפקחים <br>[*] "למחוק כתבות" שאת זה יוכלו רק מנהלים<br>[*] "להעלות תמונות" שאת זה יכולו רק משתמשים עם הרשאות מיוחדות<br><br><br>כדי לאפשר למשתמש רק לקרוא כתבות ניתן לו הרשאות קריאה בלבד:<br><div class="php codeblock">INSERT INTO `setest` <span class="br0">&#40;</span>`userid`<span class="sy0">,</span> `permissions`<span class="br0">&#41;</span> VALUES <span class="br0">&#40;</span><span class="st_h">'3'</span><span class="sy0">,</span> <span class="st_h">'read'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>כדי לאפשר למשתמש לקרוא ולכתוב ניתן הרשאות קריאה וכתיבה:<br><div class="php codeblock">INSERT INTO `setest` <span class="br0">&#40;</span>`userid`<span class="sy0">,</span> `permissions`<span class="br0">&#41;</span> <br>
+VALUES <span class="br0">&#40;</span><span class="st_h">'4'</span><span class="sy0">,</span> <span class="st_h">'read,write'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>לקרוא, לכתוב ולהעלות תמונות:<br><div class="php codeblock">INSERT INTO `setest` <span class="br0">&#40;</span>`userid`<span class="sy0">,</span> `permissions`<span class="br0">&#41;</span> <br>
+VALUES <span class="br0">&#40;</span><span class="st_h">'5'</span><span class="sy0">,</span> <span class="st_h">'read,write,upload'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>לבחור את כל המשתמשים שיכולים לקרוא כתבות:<br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM setest WHERE FIND_IN_SET<span class="br0">&#40;</span><span class="st_h">'read'</span><span class="sy0">,</span>premissions<span class="br0">&#41;</span><span class="sy0">&gt;</span><span class="nu0">0</span><span class="sy0">;</span></div><br><br><h5>בדיקת הרשאות אם php - האם הקוד יודע?</h5><br>ומה קורה אחרי ששלפנו את השורה מהמסד, איך בקוד נדע אם המשתמש רשאי לעשות משהו או לא?<br>תוצאת השליפה שנקבל תכיל רשימה מלאה של כל ההרשאות שהמשתמש יכול לעשות ותראה ככה<br><div class="php codeblock"><span class="kw3">Array</span> <span class="br0">&#40;</span> <span class="br0">&#91;</span>userid<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">5</span> <span class="br0">&#91;</span>permissions<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> read<span class="sy0">,</span>write<span class="sy0">,</span>upload <span class="br0">&#41;</span></div><br> קוד הבדיקה:<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">strpos</span><span class="br0">&#40;</span><span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'permissions'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st0">&quot;read&quot;</span><span class="br0">&#41;</span> <span class="sy0">!==</span> <span class="kw4">false</span> <span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'user can read'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><br><br><h5><br>אופן הפעולה הפנימי של SET הוא כזה, שלכל אופציה מוגדר מספר </h5><br>רשאי לקרוא דואר = 1 , <br>רשאי לשלוח דואר = 2 , <br>רשאי לקרוא פורום = 4 , <br>רשאי לכתוב בפורום = 8 , <br>רשאי למחוק הודעות מהפורום = 16 <br><br>כל המספורים הם חזקות של 2.<br>דבר זה מאפשר לבחור כמה ערכים בבת אחת. <br><br>אם אנחנו רוצים שהבן אדם יוכל גם לשלוח דואר וגם לקרוא דואר ניתן לו את הערך 3<br>1 & 2 = 3<br><br>אם נרצה לאפשר לו רק לקרוא הודעות בפורום והודעות דואר ניתן לו את הערך<br>1 & 4 = 5<br><br>רק לקרוא , למחוק הודעות מהפורום וגם לקרוא דואר: (בלי לענות בפורום או בדואר)<br>1 & 4 & 16 = 21<br><br>את חישוב הביתים מנוע המסד עושה במקומנו ואנחנו רק עובדים עם ערכים טקסטואליים.<br><br>--------<br><span style="color:green;">עוד שני שדות במסד עכשיו עומדים לשירותך ותוכל לבחור את סוג השדה הטוב ביותר עבור הבעיה שאתה פותר. השתמש במסד בחוכמה :)</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment867"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/10/2011 18:16</span><br>
+אהבתי.. תודה רבה אלכס!</div>
+<a id="comment868"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/10/2011 04:41</span><br>
+תודה!</div>
+<a id="comment869"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/10/2011 20:56</span><br>
+נחמד מאוד. :)</div>
+<a id="comment883"></a>
+<div class="blog-comment">
+<span class='comment-author'>amitdar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/10/2011 11:20</span><br>
+הסבר מצוין על ההבדלים בין השניים.<br>
+הסבר נוסף למה כל המספרים הם כפולות של 2 היא האופן שבו הנתונים נשמרים במסד, בצורה בינארית. צורה בינארית מאפשרת לנו &quot;לחבר&quot; כמה נתונים כך שבקלות ניתן &quot;להפריד&quot; אותם לרכיבים המקוריים, בדיוק באותה צורה שבה עובד מנגנון ההרשאות בלינוקס או מנגנון פתיחת קבצים ב- PHP.</div>
+<a id="comment1543"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/05/2012 13:25</span><br>
+רק לתיקון, יותר מדויק להגיד שאלה חזקות של 2, לא כפולות של 2.</div>
+<a id="comment1544"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/05/2012 15:17</span><br>
+צודק, תוקן, תודה :)</div>
+<a id="comment1854"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2012 23:33</span><br>
+חשוב גם לציין שה-ORDER BY לא ממיין לפי המיקום האלפביתי של הערכים במקרה של enum.<br>
+הוא ממיין לפי המיקום של הערך ברשימה (אני מאמין שככה זה גם עם set אבל לא ניסיתי).<br>
+<br>
+ככה שאם נגדיר enum עם הערכים true ו-false (כך שברשימת הערכים true לפני false), אז כשנעשה order by על העמודה הזו - true יבוא לפני false. אפילו שלפי מיון אלפביתי false הוא לפני true (האות f היא לפני t).<br>
+<br>
+שימו לב לזה,<br>
+העניין הזה בזבז לי כמעט חצי שעה. -.-</div>
+<a id="comment1979"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/09/2012 18:39</span><br>
+הבעיה היחידה בקטע של ההרשאות היא שאם יש לכם מערכת גדולה - זה תופס המון מקום, ואז אין ברירה אלא לחלק את זה למספר קטגוריות של הרשאות, ולכל קטגוריה יש עמודה אחרת, לא? אלא אם כן אני טועה או שיש שיטה אחרת?</div>
+<a id="comment1980"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/09/2012 18:41</span><br>
+* (אם יש לכם מערכת גדולה, כך שיש המון סוגים של הרשאות, אפילו 70.)</div>
+<a id="comment1988"></a>
+<div class="blog-comment">
+<span class='comment-author'>nirbe</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/09/2012 13:31</span><br>
+מאמר מצויין, תודה רבה!</div>
+<a id="comment1989"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/09/2012 14:32</span><br>
+@LighTo273<br>
+SET יכול לקבל עד 64 ערכים שונים (אני מדבר על mysql). :)<br>
+כעיקרון כשמדברים על הרשאות עם SET מדברים על הרשאות גלובליות פחות או יותר, כמו קריאה של מדריכים, כתיבת מדריכים, עריכת מדריכים, מחיקת מדריכים, קריאת פוסטים בפורום, כתיבת פוסטים בפורום, עריכת פוסטים בפורום, מחיקת פוסטים מהפורום, שינוי הרשאות למשתמשים אחרים, עריכת פרטים של משתמשים אחרים, גישה לפאנל הניהול וכו&apos;.<br>
+<br>
+אם אתה רוצה להוסיף אופציות יותר ספציפיות, כמו &quot;לא יכול לצפות מדריך מספר 8&quot;, תצטרך להוסיף את זה בצורה אחרת כמובן. אבל לרוב לא צריכים את זה. לרוב המשתמשים מתחלקים לקבוצות ברורות עם הרשאות משותפות ומוסיפים עוד עמודת SET אם רוצים לשנות הרשאות כלליות (כמו שציינתי למעלה) למשתמשים ספיציפיים.</div>
+<a id="comment1993"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/09/2012 20:59</span><br>
+אני מדבר על השיטה הכללית, ולא ספציפית על SET ב-MySQL.<br>
+כשאני אומר מערכת גדולה, אני מדבר על מערכת ענקית, שיש בה הרבה מאוד דברים, כך שבסופו של דבר מספר ההרשאות הכלליות השונות עולות על 64.<br>
+אגב, אם למשל יש לי כמה פורומים, לכל אחד מהם אני אעשה מספר הרשאות שונות בשיטה הזאת. אני לא אתחיל לתכנן עוד מערכת הרשאות אחרת, מה שגם אומר שצריך עוד עמודה בטבלת המשתמשים. (זה בקשר לאופציות יותר ספציפיות שאמרת.)</div>
+<a id="comment1994"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/09/2012 03:36</span><br>
+ב-set אתה לא מכניס את &quot;יכול לצפות בפורום 8&quot;, אתה מכניס &quot;יכול לצפות בפורומים&quot;. זה נקרא &quot;הרשאות גלובליות&quot; יותר.</div>
+<a id="comment1995"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/09/2012 12:20</span><br>
+כמו שאמרתי, אני פשוט מכניס לעמודה מספר, ואז עובד עליו עם אופרטורי Bitwise, בלי שימוש ב-SET. בכל מקרה, אז איך אני אמור לעשות את זה בלי לסבך את המערכת שלי יותר ויותר?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

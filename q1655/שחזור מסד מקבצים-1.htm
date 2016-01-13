@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שחזור מסד מקבצים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mmm">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שחזור מסד מקבצים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שחזור מסד מקבצים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שחזור מסד מקבצים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שחזור מסד מקבצים-1.htm" title="קרא לי אסון!נמחק לי כל הדאטאבייס, אין לי גיבוי לקובץ SQL, אבל יש לי את קבצי המסד הפיזיים.כלומר, כל תיקיית הDATA.איך אני משחזר אותה?">שחזור מסד מקבצים</a></h2>
+<div class="userinfo">
+פתח
+<a>mmm</a>
+,
+<time class="timeago relativetime" datetime="2013-11-05T11:08:30+02:00" style="display:inline-block;">
+05 לנובמבר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1655'>
+קרא לי אסון!<br>נמחק לי כל הדאטאבייס, אין לי גיבוי לקובץ SQL, אבל יש לי את קבצי המסד הפיזיים.<br>כלומר, כל תיקיית הDATA.<br>איך אני משחזר אותה? </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7568">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 לנובמבר 2013 </span>
+<a id="answer_7568" href="שחזור מסד מקבצים-1.htm#answer_7568">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מזל טוב :) כולם עוברים דרך זה.<br>אבל לא הכל אבוד עדיין<br>אם הטבלאות היות מסוג myisam היה מספיק לשים את הקבצים מתיקיית העתק לתיקיה המקורית.<br>אם הטבלאות היו InnoDB הכל קצת יותר מסובך והתהליך קצת יותר ארוך. נסה את ה<a href="http://www.chriscalender.com/?p=28">הוראות שחזור טבלאות innodb באנגלית</a> </p>
+</div>
+<div class="answer" id="answer7570">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 05 לנובמבר 2013 </span>
+<a id="answer_7570" href="שחזור מסד מקבצים-1.htm#answer_7570">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+היו, היו InnoDB...<br>זה בדיוק המדריך שניסיתי אתמול בלילה, משום מה אני נתקל בשגיאה בדרך.<br><br>בכל אופן, פתחתי ידנית את קובץ הibd, ואני רואה שם את התוכן, אני יכול להעתיק אותו ידנית מכיוון שיש לי אך ורק שלוש רשומות (אך חשובות מאד) הבעיה היא שהעברית כתובה שם כג,יבריש. איך אני ממיר את זה חזרה לUTF8? </p>
+</div>
+<div class="answer" id="answer7571">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 05 לנובמבר 2013 </span>
+<a id="answer_7571" href="שחזור מסד מקבצים-1.htm#answer_7571">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עצה:<br>בפעם הבאה שעובדים עם DB צריך לגבות..נכון לגבות..וואי כאב ראש אה?<br>אוקיי יש עוד כמה שיטות שיעזרו לך לשמור על הDB ולשפר ביצועים על הדרך מבלי לדאוג לגיבוי.<br>מדובר על שיטת MASTER/SLAVE<br>כאשר המאסטר והסלייב מחוברים בסוקט פתוח המאסטר יעביר תמידית אוונטים(מהלוג) לסלייב וככה יהיה גיבוי אוטומטי מלא על כל הפעולות והמידע...מגניב?<br>משתמשים בשיטה הזאת בעיקר כדי לשפר ביצועי DB.<br>לDB יש מאסטר אחד בלבד(רצוי שיהיה כמה שיותר חזק)<br>ולDB יכולים להיות מלאאאא סלייבים מה שאומר שאת כל פעולות הSELECT אפשר להריץ על הסלייבים ואת כל פעולות הUPDATE אפשר להריץ על המאסטר.<br>אפשר להריץ פעולות Update על הסלייב? כן,אבל בהגדרות נכונות הסלייב read-only ואסור לבצע עליו פעולות שיכולות לשבור את המבנה התקין של המערכת.<br>ומה קורה שהDB מאסטר נמחק?<br>אה כן יש גיבוי בסלייב..<br><br>booyaa </p>
+</div>
+<div class="answer" id="answer7588">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 10 לנובמבר 2013 </span>
+<a id="answer_7588" href="שחזור מסד מקבצים-1.htm#answer_7588">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לגבות? אחרי שעתיים שלוש? מדובר היה בדאטאבייס (אמנם מאד חשוב) שרק התחלתי לעבוד עליו. אני כן עושה גיבויים בסוף כל יום.<br>על שיטת המאסטר/סלייב שמעתי בהקשר אחר, ואני אשמח לדעת איך אני מממש אותה. </p>
+</div>
+<div class="answer" id="answer7589">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 10 לנובמבר 2013 </span>
+<a id="answer_7589" href="שחזור מסד מקבצים-1.htm#answer_7589">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לשיטה קוראים רפלקיצה. מאסטר/סלייב זה אחד השימושים שלה.<br>אתה יכול לקרוא על רפליקציות עוד כאן: http://aciddrop.com/2008/01/10/step-by-step-how-to-setup-mysql-database-replication/<br>או סתם לחפש mysql replication tutorial ולמצוא עוד אחלה מדריכים :)<br><br>הערה קטנה לתגובה הקודמת:<br>אפשר גם בכיף להרים master-master, ויש עוד המון דרכים לעצב את המבנה של הרפליקציות בצורה יפה. </p>
+</div>
+<div class="answer" id="answer7598">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d70f6a6d36f06fa76369bdc3ede123c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mmm</a>
+ב
+<span style="font-size:10px"> 12 לנובמבר 2013 </span>
+<a id="answer_7598" href="שחזור מסד מקבצים-1.htm#answer_7598">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה על הכל :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

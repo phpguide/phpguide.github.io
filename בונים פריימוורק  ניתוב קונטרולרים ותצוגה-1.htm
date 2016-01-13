@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="ליבנות MVC Framework">
+<meta name="keywords" content="framework, mvc, routing, controller, view">
+<meta name="author" content="pol292">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>בונים פריימוורק - ניתוב קונטרולרים ותצוגה</title>
+<meta itemprop="name" content="בונים פריימוורק - ניתוב קונטרולרים ותצוגה">
+<meta itemprop="description" content="ליבנות MVC Framework">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"238","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>בונים פריימוורק - ניתוב קונטרולרים ותצוגה</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">pol292, </div>
+<div class="right">&nbsp;<time datetime="2012-08-11T14:23:00+03:00" dir="rtl">11 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="" alt="בונים פריימוורק - ניתוב קונטרולרים ותצוגה">
+</div>
+<div class="right post-content">
+הסבר איך ליצור סביבת פיתוח אישית שעובדת על בסיס MVC. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+בחלק הקודם הסברתי איך להתחיל את הפיתוח של סביבת העבודה האישית שתעבוד על MVC, ההסבר היה על קובץ ההפעלה והוא הריץ לנו קונטרולייר שבנינו.<br>אם לא קראתם את החלק הראשון <a href="בונים פריימוורק הפעלה וקונטרולרים.htm">לחץ כאן</a><br><br>בחלק הקודם שככתי להוסיף הסבר על ה htaccess<br>אז בתיקיה הראשית ניצור קובץ בשם: .htaccess<br>ובוא נוסיף את השורות קוד הבאות:<br><div class="php codeblock">RewriteEngine On<br>
+<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>d<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>f<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>l<br>
+<br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.+</span><span class="br0">&#41;</span>$ index<span class="sy0">.</span>php?url<span class="sy0">=</span>$<span class="nu19">1</span> <span class="br0">&#91;</span>QSA<span class="sy0">,</span>L<span class="br0">&#93;</span></div><br>משזה יעשה אם נכנסתם לדף הוא מעביר את זה לתיקיה אם התיקיה לא קיימת והקובץ לא קיים זה מעביר לתוך הindex.php?url=[את הפניה בדפדפן]<br><br>כאן אני יתמקד בשני קבצים חשובים שנמצאים תחת תיקיה:library<br>הקבצים: Controller.php , View.php<br>Controller.php זהו קובץ שמכיל מחלקה שתיתן כלים למפתח אם זה שליטה על תצוגה או בדיקת הקוד וכו.<br>View.php זהו קובץ שאחרי על כל התצוגה אם זה לבצע render או להפעיל layout או לעביר בין דפים שונים באתר הכל כאן.<br><br>Controller.php<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> Framework_Controller <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp;<span class="sy0">*</span> <span class="sy0">@</span>param Framework_View <span class="re0">$view</span> this object <span class="kw2">use</span> the view <span class="kw3">system</span><br>
+&nbsp; &nbsp; &nbsp;<span class="sy0">*/</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$view</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* construct function<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span> <span class="sy0">=</span> <span class="kw2">new</span> Framework_View<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; <span class="co1">//start to use view</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">controller</span> <span class="sy0">=</span> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">&quot;Controller&quot;</span><span class="sy0">,</span> <span class="kw4">null</span><span class="sy0">,</span> get_called_class<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//use the controller name in view</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br>טיפ: את הFramework תחליפו בשם של הפריימוורק שלכם אצלי לדוגמה זה Sidox<br>אוקיי זהו קובץ ממש פשוט הוא מבצע הפעלה למחלקת הFramework_View ומכניס אותה במשתנה view<br>והוא בעצם לוקח את שם המחלקה שהריצה אותו ומוריד את המילה Controller מימנה.<br><br>רעיונות לשיפור המחלקה:<br>ליצור כלים למתכנת לדוגמה כלי שמאפשר לבדוק יעלות של קוד (כמה זמן לוקח הביצוע) ריבוי אקשינים לצור פונקציה שמקבלת מערך ופונקציה שמחזירה אותו ובפונקציה שמחזירה מגדירה שמות של אקשניים ומשתנים שהם מקבלים וזה שולך את זה למחלקה חדשה בתת תיקיה של שם הקונטרולייר לדוגמה:<br><div class="php codeblock"><span class="co1">//its main controller</span><br>
+<span class="kw2">public</span> <span class="kw2">function</span> actions<span class="br0">&#123;</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+<span class="st0">&quot;page&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="re0">$vars</span><span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>ואז זה פותח את הקובץ:<br>aplication/controllers/main/page.php<br>ובתוך page יש מחלקת page<br>טוב אז עכשיו נתתי כמה דוגמאות לשדרוג המחלקה עכשיו פשוט תהיו יצרתיים נעבור לתצוגה<br><br>View.php<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> Framework_View <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* @param array(string) $_data data for loaded pages<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_data</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* set data in $_data array<br>
+&nbsp; &nbsp; &nbsp;* @param (string) $name its a key<br>
+&nbsp; &nbsp; &nbsp;* @param (string) $value its a data<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> __set<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#91;</span><span class="re0">$name</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$value</span><span class="sy0">;</span> &nbsp; <span class="co1">//set the data in array</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* get data from array<br>
+&nbsp; &nbsp; &nbsp;* @param $name its a key of array<br>
+&nbsp; &nbsp; &nbsp;* @return the value<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> __get<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#91;</span><span class="re0">$name</span><span class="br0">&#93;</span><span class="sy0">;</span> &nbsp; &nbsp; <span class="co1">//get the data from array</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* render the page <br>
+&nbsp; &nbsp; &nbsp;* @param (string) $name is name of file<br>
+&nbsp; &nbsp; &nbsp;* @param array(string) $data data are using in file<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> render<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="kw3">array</span> <span class="re0">$data</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">extract</span><span class="br0">&#40;</span><span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//extract array to vars</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">require</span> APPLICATION <span class="sy0">.</span> <span class="st_h">'views'</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span> DS <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">controller</span> <span class="sy0">.</span> DS <span class="sy0">.</span> <span class="re0">$name</span> <span class="sy0">.</span> <span class="st0">&quot;.phtml&quot;</span><span class="sy0">;</span> <span class="co1">//require the file</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* redirect to url<br>
+&nbsp; &nbsp; &nbsp;* @param (string) $redirectTo url or commend to redirect<br>
+&nbsp; &nbsp; &nbsp;* commends: <br>
+&nbsp; &nbsp; &nbsp;* 1)start on http:// will be redircecting to url<br>
+&nbsp; &nbsp; &nbsp;* 2)commend back goto last page in your site<br>
+&nbsp; &nbsp; &nbsp;* 3)commend comeback or -1 come back to referer site<br>
+&nbsp; &nbsp; &nbsp;* 4)commend refresh come back to this page<br>
+&nbsp; &nbsp; &nbsp;* @param array(string) $redirectTo array(Controller,Action)<br>
+&nbsp; &nbsp; &nbsp;* @else commend Controller/Action come to your controller and run action<br>
+&nbsp; &nbsp; &nbsp;* &nbsp; &nbsp; &nbsp;if action not set run only controller<br>
+&nbsp; &nbsp; &nbsp;* @param int $time its time to sleep<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> redirect<span class="br0">&#40;</span><span class="re0">$redirectTo</span><span class="sy0">,</span> int <span class="re0">$time</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">stristr</span><span class="br0">&#40;</span><span class="re0">$redirectTo</span><span class="sy0">,</span> <span class="st_h">'http://'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param $redirectTo has http://<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Refresh:'</span> <span class="sy0">.</span> <span class="re0">$time</span> <span class="sy0">.</span> <span class="st_h">'; URL='</span> <span class="sy0">.</span> <span class="re0">$redirectTo</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="re0">$redirectTo</span> <span class="sy0">==</span> <span class="st_h">'back'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_REFERER'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><span class="kw3">stristr</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_REFERER'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'SERVER_NAME'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param $redirectTo Equal back<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* if referer is your site go to referer<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Refresh:'</span> <span class="sy0">.</span> <span class="re0">$time</span> <span class="sy0">.</span> <span class="st_h">'; URL='</span> <span class="sy0">.</span> <span class="re0">$redirectTo</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="br0">&#40;</span><span class="re0">$redirectTo</span> <span class="sy0">==</span> <span class="st_h">'comeback'</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="br0">&#40;</span><span class="re0">$redirectTo</span> <span class="sy0">==</span> <span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_REFERER'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param $redirectTo Equal comback or -1<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* goto referer<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Refresh:'</span> <span class="sy0">.</span> <span class="re0">$time</span> <span class="sy0">.</span> <span class="st_h">'; URL='</span> <span class="sy0">.</span> <span class="re0">$redirectTo</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="kw3">is_array</span><span class="br0">&#40;</span><span class="re0">$redirectTo</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param array(string) $redirectTo<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$redirectTo</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param string $redirectTo[1] is set<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* goto Controller/Action<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Refresh:'</span> <span class="sy0">.</span> <span class="re0">$time</span> <span class="sy0">.</span> <span class="st_h">'; URL='</span> <span class="sy0">.</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span>SERVER_NAME<span class="br0">&#93;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span> <span class="kw3">pathinfo</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REQUEST_URI'</span><span class="br0">&#93;</span><span class="sy0">,</span> PATHINFO_DIRNAME<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span> <span class="st_h">'/'</span> <span class="sy0">.</span> <span class="re0">$redirectTo</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st0">&quot;/&quot;</span> <span class="sy0">.</span> <span class="re0">$redirectTo</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param string $redirectTo[1] is not set<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* goto Controller<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Refresh:'</span> <span class="sy0">.</span> <span class="re0">$time</span> <span class="sy0">.</span> <span class="st_h">'; URL='</span> <span class="sy0">.</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span>SERVER_NAME<span class="br0">&#93;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span> <span class="kw3">pathinfo</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REQUEST_URI'</span><span class="br0">&#93;</span><span class="sy0">,</span> PATHINFO_DIRNAME<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span> <span class="st_h">'/'</span> <span class="sy0">.</span> <span class="re0">$redirectTo</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="re0">$redirectTo</span> <span class="sy0">==</span> <span class="st_h">'refresh'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param $redirectTo Equal refresh<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* refresh the page<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Refresh:'</span> <span class="sy0">.</span> <span class="re0">$time</span> <span class="sy0">.</span> <span class="st_h">'; URL='</span> <span class="sy0">.</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span>SERVER_NAME<span class="br0">&#93;</span> <span class="sy0">.</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REQUEST_URI'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param $redirectTo is Controller/Action<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* or<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param $redirectTo is Controller<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* goto local page<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Refresh:'</span> <span class="sy0">.</span> <span class="re0">$time</span> <span class="sy0">.</span> <span class="st_h">'; URL='</span> <span class="sy0">.</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span>SERVER_NAME<span class="br0">&#93;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span> <span class="kw3">pathinfo</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REQUEST_URI'</span><span class="br0">&#93;</span><span class="sy0">,</span> PATHINFO_DIRNAME<span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">.</span> <span class="st_h">'/'</span> <span class="sy0">.</span> <span class="re0">$redirectTo</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>מחלקת הView בעלת 4 תכונות אצלנו:<br>השמה נתונים למערך $_data<br>קבלת נתונים ממערך $_data<br>דוגמה לשימוש:<br><div class="php codeblock"><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">yourdatakey</span> <span class="sy0">=</span> <span class="st_h">'your data'</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">yourdatakey</span><span class="sy0">;</span></div><br>כמובן שהשימוש בוא היה בתוך הקונטרולליר או בתוך הקבצי תצוגה<br>render - שמוסיף את תוכן התצוגה שלנו בעצם דף שכולו HTML ובתוכו יש משתנים שהגדרנו או בהשמה את בrender עצמו<br>דוגמה לשימוש:<br><div class="php codeblock"><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'main'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'titile'</span><span class="sy0">=&gt;</span><span class="st_h">'main page'</span><span class="sy0">,</span><span class="st_h">'body'</span><span class="sy0">=&gt;</span><span class="st_h">'this is my main page'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>כידי להשתמש במשתנים צריך פשוט להתייחס לKEY כמשתנה לדוגמה $title<br>redirect-מעבר מדף לדף אחר<br>נסביר בקצרה פשוט בתוך הקוד חפרתי מספיק על השימוש בוא:<br><div class="php codeblock"><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">redirect</span><span class="br0">&#40;</span><span class="st_h">'http://google.co.il'</span><span class="sy0">,</span><span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אוקיי אז בוא ניראה מה יש לנו עד עכשיו<br>יצרנו את מערכת התיקיות כפי שאתם זוכרים:<br><img src="static\images\pixel.png" alt="בונים פריימוורק - ניתוב קונטרולרים ותצוגה" title="http://up351.siz.co.il/up1/nazmd50mjynm.png" class="content-image-float"><br>מתוכם יצרנו את הקבצים הבאים:<br><div class="php codeblock">index<span class="sy0">.</span>php<br>
+<span class="sy0">.</span>htaccess<br>
+<span class="sy0">/</span>library<span class="sy0">/</span><br>
+&nbsp; &nbsp;<span class="sy0">|-</span>Bootstrap<span class="sy0">.</span>php<br>
+&nbsp; &nbsp;<span class="sy0">|-/</span>framework<span class="sy0">/</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">|-</span>Controller<span class="sy0">.</span>php<br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">|-</span>View<span class="sy0">.</span>php</div><br>עכשיו ניצור עוד כמה תיקיות<br>בתיקיה הראשית איפו שהlibrary והindex.php ניצור:<br>public-שם תכניסו את הקבצים שנגישים למשתמש לדוגמה<br>public/css/main.css - זה היה הנתיב של קובץ הCSS וככה כנ&quot;ל אם תמונות וJS וכו&#039;<br>appliction-זאת התיקיה של האפליקציה<br>בתוכנה ניצור שתי תיקיות<br>controllers-התיקיה של הקונטרוליירים שניצור<br>views-התיקיה של קבצי התצוגה שניצור<br><br>אז בוא ניצור דוגמה לבדיקת המערכת:<br>ניצור קובץ נוסף בתיקיה appliction/controller שעכשיו יצרנו וניקרא לו MainController.php<br>ניצור תיקיה נוספת בתיקיה appliction/views שעכשיו יצרנו וניקרא לו Main <br>ובתוכה ניצור קובץ נוסף demo.phtml<br><br>נפתח לעריכה את הקבצים :<br>בתיקיה:appliction/controllers/<br>קובץ:MainController.php<br><div class="php codeblock"><span class="kw2">class</span> MainController <span class="kw2">extends</span> Framework_Controller<br>
+<span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> MainAction<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'demo'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'title'</span><span class="sy0">=&gt;</span><span class="st_h">'this is demo page'</span><span class="sy0">,</span><span class="st_h">'body'</span><span class="sy0">=&gt;</span><span class="st_h">'this is demo.phtml page'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'demo'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'title'</span><span class="sy0">=&gt;</span><span class="st_h">'main action'</span><span class="sy0">,</span><span class="st_h">'body'</span><span class="sy0">=&gt;</span><span class="st_h">'this is my main action'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;this is my test action&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'we redirect in 5 sec'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">redirect</span><span class="br0">&#40;</span><span class="st_h">'main/test'</span><span class="sy0">,</span><span class="nu0">5</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> TestAction<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;this is my test action&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'demo'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'title'</span> <span class="sy0">=</span> <span class="sy0">&gt;</span> <span class="st_h">'test page'</span><span class="sy0">;</span><span class="st_h">'body'</span><span class="sy0">=&gt;</span><span class="st_h">'this my test page'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div><br>בתיקיה:appliction/views/main/<br>קובץ:demo.phtml<br><div class="php codeblock">title: <span class="sy1">&lt;?=</span> <span class="re0">$title</span> <span class="sy1">?&gt;</span> &lt;br /&gt;<br>
+body:&lt;br /&gt; <span class="sy1">&lt;?=</span> <span class="re0">$body</span> <span class="sy1">?&gt;</span> &lt;br /&gt;</div><br><br>טוב לפני שנסיים ניראה איזה קבצים יש לנו:<br><div class="php codeblock">index<span class="sy0">.</span>php<br>
+<span class="sy0">.</span>htaccess<br>
+<span class="sy0">/</span>library<span class="sy0">/</span><br>
+&nbsp; &nbsp;<span class="sy0">|-</span>Bootstrap<span class="sy0">.</span>php<br>
+&nbsp; &nbsp;<span class="sy0">|-/</span>framework<span class="sy0">/</span><br>
+&nbsp; &nbsp; &nbsp;<span class="sy0">|-</span>Controller<span class="sy0">.</span>php<br>
+&nbsp; &nbsp; &nbsp;<span class="sy0">|-</span>View<span class="sy0">.</span>php<br>
+<span class="sy0">/</span>appliction<span class="sy0">/</span><br>
+&nbsp; &nbsp;<span class="sy0">|-/</span>controllers<span class="sy0">/</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">|-</span>MainController<span class="sy0">.</span>php<br>
+&nbsp; &nbsp;<span class="sy0">|-/</span>views<span class="sy0">/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">|-/</span>main<span class="sy0">/</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">|-</span>demo<span class="sy0">.</span>phtml</div><br>רעיון למחשבה:<br>לא הכי נח לעשות רנדור בתחילת כל דף וגם בסיומו כידי לקבל מראה קבוע לאתר<br>תחשבו על דרך לעשות מעטפת שתיתן לדף LAYOUT קבוע ואם נירצה גם נוכל לשנות אותה בקלוט<br><br>טוב בחלק הבא אני יגע במודל ומה השימושים שלו ונבנה גם בסיס למודל שלכם </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=16&r=g&d=monsterid" alt="pol292">
+<a>pol292</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1817"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2012 13:28</span><br>
+אהבתי מאוד ! מחכה למדריכים הבאים ! :)</div>
+<a id="comment1845"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 10:26</span><br>
+נחמד מאוד :)<br>
+אבל יש הרבה מוכנים אז בשביל מה להכין חדש?<br>
+אבל יכול מאוד לעזור לידע בPHP</div>
+<a id="comment2146"></a>
+<div class="blog-comment">
+<span class='comment-author'>mtndiv</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2013 05:33</span><br>
+בעיה. ה-htaccess לא עובד.<br>
+ושאלה, נגיד ופתרתי את הבעיה של ה-htaccess והוא עובד, איך הוא יבוא לידי ביטוי?<br>
+אם אני רוצה לגשת לקונטרולר MainController למטודה Main - זה הכתובת: matan.co.il/Main/Main ?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

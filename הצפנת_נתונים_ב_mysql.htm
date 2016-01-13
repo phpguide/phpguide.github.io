@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הצפנת נתונים במסד הנתונים באמצעות פונקציות des">
+<meta name="keywords" content="הצפנה, mysql, des">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>הצפנת נתונים ב-MySQL</title>
+<meta itemprop="name" content="הצפנת נתונים ב-MySQL">
+<meta itemprop="description" content="הצפנת נתונים במסד הנתונים באמצעות פונקציות des">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"79","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>הצפנת נתונים ב-MySQL</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-04-16T19:32:15+03:00" dir="rtl">16 לאפריל 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/mysql_encryption.gif" alt="הצפנת נתונים ב-MySQL">
+</div>
+<div class="right post-content">
+גם נתונים רגישים אפשר לשמור במסד נתונים. יתרה מכך, MySQL מכילה פונקציות הצפנה מובנות שיאפשרו לך להצפין ולהגן על המידע השמור באמצעות פקודה אחת קצרה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+מדי פעם יש צורך לשמור נתונים מוצפנים במסד כמו מספרי תעודות הזהות.<br>הצפנות כגון md5, sha1, sha256 לא מתאימות עקב היותן חד-כיווניות ללא דרך שיחזור למצב המקורי. במקומן ניתן להשתמש באחת מעשרות פונקציות ההצפנה שמציעה PHP, אבל להרוויח הרבה יותר ניתן באמצעות פונקציות ההצפנה שמציעה MySQL.<br>כמובן שכל הפונקציות של MySQL עובדות הרבה יותר מהר מאלה של PHP, מכיוון שהן מבוצעות בשפת C ישירה ובנוסף יתאפשר חיפוש של נתונים מוצפנים בתוך המסד.<br><br><h3>DES_ENCRYPT</h3><br><a href="http://dev.mysql.com/doc/refman/5.5/en/encryption-functions.html#function_des-encrypt">des_encrypt</a> היא פונקציה פשוטה, המבצעת הצפנה לפי <a href="http://he.wikipedia.org/wiki/Data_Encryption_Standard">אלרגוריתם ה-des</a> שפותח על ידי IBM לפני הרבה מאוד שנים. השימוש בה פשוט מאוד:<br><div class="php codeblock">DES_ENCRYPT<span class="br0">&#40;</span><span class="st_h">'some_secret_data'</span><span class="sy0">,</span><span class="st_h">'very_secret_key52@#$@#$@#$'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הפרמטר הראשון הוא הטקסט שיש להצפין, הפרמטר השני הוא מפתח סודי (סיסמה) שמשמש להצפנה; בכדי לפענח את הטקסט המוצפן יהיה צורך בדיוק באותה סיסמה.<br><br><h4>שימוש בפועל</h4><br>לצורך ההסבר ניצור טבלה עם שתי שדות, id עם מספור אוטומטי ו-encrypted מסוג blob.<br><div class="php codeblock">CREATE TABLE <span class="kw1">IF</span> NOT EXISTS `destest` <span class="br0">&#40;</span><br>
+&nbsp; `id` smallint<span class="br0">&#40;</span><span class="nu0">6</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span> AUTO_INCREMENT<span class="sy0">,</span><br>
+&nbsp; `encrypted` blob NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; PRIMARY <span class="kw3">KEY</span> <span class="br0">&#40;</span>`id`<span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span> ENGINE<span class="sy0">=</span>InnoDB <span class="kw1">DEFAULT</span> CHARSET<span class="sy0">=</span>utf8<span class="sy0">;</span></div><br>שימו לב לכך שהשדה שישמור את הנתונים המוצפנים יהיה מסוג <strong>blob</strong> <span style="color:gray;">(ראשי תיבות של <em>binary large object</em></span>).<br>תוצאת פעולת ההצפנה לרוב לא תהיה טקסט רגיל, אלה משהו בינארי לא ברור.<br><br>נכניס שורה אחת כלשהי לטבלה עם הפקודה הנ&quot;ל:<br><div class="php codeblock">INSERT INTO `destest` <span class="br0">&#40;</span>`id`<span class="sy0">,</span> `encrypted`<span class="br0">&#41;</span> VALUES<span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span> DES_ENCRYPT<span class="br0">&#40;</span><span class="st_h">'phpguide.co.il'</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span></div><br>כעת יש שורה אחת שבה מוצפן הערך phpguide.co.il עם הסיסמה password.<br><br><h5>des_decrypt</h5><br>כדי לשלוף את הערך מהטבלה נשתמש בפונקציה ההפוכה - <a href="http://dev.mysql.com/doc/refman/5.5/en/encryption-functions.html#function_des-decrypt">des_decrypt</a>, שפועלת בדיוק באותה צורה, רק שבמקום המחרוזת שיש להצפין, היא מקבלת את המידע שיש לפענח.<br><div class="php codeblock">SELECT `id`<span class="sy0">,</span> <br>
+DES_DECRYPT<span class="br0">&#40;</span>`encrypted`<span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><br>
+<span class="kw1">as</span> <span class="st_h">'decrypted'</span> FROM `destest`</div><br><br><h3>שימוש עם PHP</h3><br><div class="php codeblock"><span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="sy0">..</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="sy0">..</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'UTF-8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">define</span><span class="br0">&#40;</span><span class="st0">&quot;deskey&quot;</span><span class="sy0">,</span> <span class="st0">&quot;uduATHd-thontseuh;wmxjk){(}{)@#(Y~~~~~:QJK)oeullr&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<br>
+<span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `destest` (`encrypted`) VALUES<br>
+(DES_ENCRYPT('this is cool', '&quot;</span><span class="sy0">.</span>deskey<span class="sy0">.</span><span class="st0">&quot;'))&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT `id`, <br>
+DES_DECRYPT(`encrypted`, '&quot;</span><span class="sy0">.</span>deskey<span class="sy0">.</span><span class="st0">&quot;') as 'decrypted' <br>
+FROM `destest` &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">' -&gt; '</span><span class="sy0">,</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'decrypted'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'&lt;br/&gt;'</span><span class="sy0">;</span> &nbsp; &nbsp;<br>
+<span class="br0">&#125;</span></div><br>שורות שבהן מוצפן טקסט עם סיסמה אחרת לא יפוענחו נכון.<br><br><strong>איזו סיסמת הצפנה לבחור?</strong><br>כמה שיותר ארוכה. מה אכפת לכם, זה לא שאתם צריכים לזכור אותה. אבל לא להגזים, 50 תווים זה מספיק. :)<br><br><h4>שימו לב</h4><br>אם פתאום תהיה לכם שגיאה בשאילתה, יש סיכוי שהודעת השגיאה תכלול חלק מהסיסמה שלכם. מאוד חשוב - <strong><span style="color:red;">אף פעם אל תציגו שגיאות למשתמש</span></strong>. תוכלו לקרוא איך עושים זאת <a href="טיפול_בשגיאות.htm">כאן</a> ואח&quot;כ <a href="טיפול בשגיאות קריטיות.htm">כאן</a>.<br><br><br><h5>בונוס</h5><br>להצפנה בטוחה יותר ניתן אפילו להצפין כל שורה בעזרת מפתח משלה. <br>פשוט נוסיף למפתח ההצפנה גם את ה-id של השורה באופן הבא:<br><div class="php codeblock">UPDATE `destest` SET <br>
+`encrypted` <span class="sy0">=</span> DES_ENCRYPT<span class="br0">&#40;</span><span class="st_h">'this is cool'</span><span class="sy0">,</span> CONCAT<span class="br0">&#40;</span>`id`<span class="sy0">,</span> <span class="st_h">'mypassword'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><br>
+<span class="sy0">--</span><br>
+SELECT `id`<span class="sy0">,</span> <br>
+DES_DECRYPT<span class="br0">&#40;</span>`encrypted`<span class="sy0">,</span> CONCAT<span class="br0">&#40;</span>`id`<span class="sy0">,</span> <span class="st_h">'mypassword'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">as</span> <span class="st_h">'decrypted'</span><br>
+FROM `destest`</div><br>הפונקציה <a href="http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_concat">concat</a> מחברת מחרוזות כמו אופרטור הנקודה ב-PHP. השורה הראשונה תוצפן עם המפתח 1mypassword, השורה השניה עם המפתח 2mypassword וכו&#039;. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment954"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/11/2011 00:36</span><br>
+תגיד לי, באלך לאבטח לי את האתר חח?<br>
+תהיה בריא, אתה חכם מידי =]</div>
+<a id="comment1133"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/01/2012 21:17</span><br>
+איך אני משתמש בזה ב-YII?</div>
+<a id="comment1138"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/01/2012 09:59</span><br>
+בצורה רגילה. זה בסה&quot;כ שאילתה. באותה צורה שאתה מפעיל ב YII שאילתות - תפעיל את השאילתה הזאת. לדגמה:<br>
+<br>
+Yii::app()-&gt;db-&gt;createCommand(&quot;UPDATE `destest` SET<br>
+`encrypted` = DES_ENCRYPT(:string, CONCAT(`id`, :pass) )&quot;)-&gt;execute(array(&apos;string&apos; =&gt; &apos;hello&apos;, &apos;pass&apos; =&gt; &apos;password&apos;));</div>
+<a id="comment1140"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/01/2012 14:47</span><br>
+איך אני משלב את זה עם מה שלמדנו במדריך :<span dir="ltr"><a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ד.htm">http://phpguide.co.il/מדריך לYii הפריימוורק הכי מתקדם של PHP חלק ד.htm</a></span>?</div>
+<a id="comment1145"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/01/2012 21:13</span><br>
+במדריך 4 של YII למדנו להכניס למסד נתונים כך:<br>
+$account = new Account();<br>
+$account-&gt;username = $username;<br>
+$account-&gt;password = md5($password);<br>
+$account-&gt;email = $email;<br>
+$account-&gt;save();<br>
+איך אני מוסיף לזה את Yii::app()-&gt;db-&gt;createCommand(&quot;UPDATE `destest` SET<br>
+`encrypted` = DES_ENCRYPT(:string, CONCAT(`id`, :pass) )&quot;)-&gt;execute(array(&apos;string&apos; =&gt; &apos;hello&apos;, &apos;pass&apos; =&gt; &apos;password&apos;));<br>
+?<br>
+או שזה או זה או זה?</div>
+<a id="comment1146"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/01/2012 21:34</span><br>
+$encrytionkey = &apos;somethingblabalbalbal&apos;;<br>
+$email = $account-&gt;mail; // = &apos;<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="9be3e2e1dbebf3ebfceef2fffeb5f8f4b5f2f7">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&apos;;<br>
+$account-&gt;mail = new CDbExpression(DES_ENCRYPT(:string, CONCAT(`id`, :encryptionkey) ), array(&apos;string&apos;=&gt;$email, &apos;encryptionkey&apos; =&gt; $encriptionkey));</div>
+<a id="comment1147"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/01/2012 21:49</span><br>
+לא הבנתי איך להוסיף את זה.<br>
+זה הקוד שלי:<br>
+$emails = new Emails();<br>
+$emails-&gt;email = $email;<br>
+$emails-&gt;save();<br>
+echo &quot;האימייל נרשם בהצלחה!&quot;;<br>
+<br>
+את השורה $encrytionkey = &apos;somethingblabalbalbal&apos;; הבנתי, ומהשורה הבאה לא הבנתי מה לעשות.<br>
+אפשר הסבר ? ואיפה להוסיף את מה שנתת בקוד שלי?</div>
+<a id="comment1851"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2012 20:35</span><br>
+נתמך בגרסא MySQL 5.5 ומעלה נכון ?</div>
+<a id="comment1856"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 13:19</span><br>
+ואפילו הרבה לפני</div>
+<a id="comment1924"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/09/2012 19:48</span><br>
+מכיוון שהיה לי בעיה להשתמש בזה, הלכתי לפי המדריך והעתקתי את כל הקודים שנתת.<br>
+פתחתי את הטבלה, וכתבתי את השאילתה שמכניסה למסד, את הINSERT.<br>
+<br>
+כשאני מריץ את זה, זה פשוט מראה לי את השגיאה:<br>
+&quot;Column &apos;encrypted&apos; cannot be null&quot;<br>
+<br>
+יכול להיות שזה לא תומך ?, אני מזכיר, כל הקודים אותו דבר כמו במדריך...</div>
+<a id="comment1925"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/09/2012 19:52</span><br>
+ד&quot;א, הגירסא שמותקנת על השרת היא MySQL 5.0.67<br>
+</div>
+<a id="comment1926"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/09/2012 20:53</span><br>
+את איזה קוד ספציפי מהמדריך אתה מפעיל כשאתה מקבל שגיאה?</div>
+<a id="comment1927"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/09/2012 21:05</span><br>
+INSERT INTO `destest` (`id`, `encrypted`) VALUES(1, DES_ENCRYPT(&apos;phpguide.co.il&apos;, &apos;password&apos;) )<br>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

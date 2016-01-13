@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה סריקת קבצי ZIP לפני העלתם ?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>סריקת קבצי ZIP לפני העלתם ? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="סריקת קבצי ZIP לפני העלתם ? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה סריקת קבצי ZIP לפני העלתם ?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">22</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="סריקת קבצי ZIP לפני העלתם -1.htm" title="אני רוצה לאפשר לעלות קבצי ZIP בלבד לאתר.אני מחפש דרך שבה אוכל לסרוק (מנגנון חיצוני \ שלי - חיצוני עדיף) את מה שמכווץ בקובץ ZIP, במידה ואין שם משהו מזיק אז הקובץ עולה, אחרת לא.בעיקרון, מה שאמור להיות בקובץ זיפ זה קבצי PDF או WORD או תמונה.האם מישהו יכול להמליץ לי על דרך טובה ובטוחה שבה אוכל לסרוק את הקבצים ולוודא שאין בהם משהו מזיק ? שהמשתמש שיוריד אותם בעתיד יוכל להוריד בבטחה ?אני רוצה לעשות את זה מכיוון שזה יחסוך אישור ידני. כרגע, כל מה שעולה עובר אישור שלי. ">סריקת קבצי ZIP לפני העלתם ?</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2015-08-04T09:36:38+03:00" style="display:inline-block;">
+04 לאוגוסט 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2172'>
+אני רוצה לאפשר לעלות קבצי ZIP בלבד לאתר.<br>אני מחפש דרך שבה אוכל לסרוק (מנגנון חיצוני \ שלי - חיצוני עדיף) את מה שמכווץ בקובץ ZIP, במידה ואין שם משהו מזיק אז הקובץ עולה, אחרת לא.<br>בעיקרון, מה שאמור להיות בקובץ זיפ זה קבצי PDF או WORD או תמונה.<br><br>האם מישהו יכול להמליץ לי על דרך טובה ובטוחה שבה אוכל לסרוק את הקבצים ולוודא שאין בהם משהו מזיק ? שהמשתמש שיוריד אותם בעתיד יוכל להוריד בבטחה ?<br><br>אני רוצה לעשות את זה מכיוון שזה יחסוך אישור ידני. כרגע, כל מה שעולה עובר אישור שלי. אני בודק אם הכל בסדר ורק אז מאשר את הפוסט.. הבדיקה היא רק בקובץ שהוא באמת מכיל את מה שהוא אמור להכיל. </div>
+</div>
+<h3>
+<span id="answersCounter">22 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9467">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2015 </span>
+<a id="answer_9467" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9467">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כדי לבצע סריקה אמיתית אתה צריך לבצע אותה מול אנטי וירוס איכותי שיוודא שאותו קובץ וורד,pdf או תמונה לא מכילים בתוכם וירוסים.<br>במידה ומטרת הסריקה היא רק לוודא שהוא מכיל סיומת של אותם קבצים אתה מוזמן לקרוא בתיעוד של php איך לעבוד מול קבצי zip - <a href="http://php.net/manual/en/book.zip.php">http://php.net/manual/en/book.zip.php</a> </p>
+</div>
+<div class="answer" id="answer9468">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2015 </span>
+<a id="answer_9468" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9468">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני צריך מול אנטי וירוס </p>
+</div>
+<div class="answer" id="answer9470">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2015 </span>
+<a id="answer_9470" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9470">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא יצא לי להתעסק עם סריקות קבצים לצורך כזה אז אני לא כל כך יכול לעזור לך,אבל ברפרוף זריז באינטרנט נמצא - <a href="https://www.virustotal.com/he/documentation/public-api/">Virus total</a><br>אתה תצטרך לקרוא את התנאי שימוש [לא ניתן להשתמש לצורך מסחרי] וגם את ההגבלות [4 בקשות לדקה עם אפשרות להרחבה] וכמובן לבנות לבד את כל ההתקשרות מול ה api.<br>במידה ואתה צריך לשימוש מסחרי אני מאמין שיש חברות שידעו לספק גם את זה אבל זה גם יעלה לך לא מעט. </p>
+</div>
+<div class="answer" id="answer9471">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2015 </span>
+<a id="answer_9471" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9471">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי, תודה! </p>
+</div>
+<div class="answer" id="answer9481">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2015 </span>
+<a id="answer_9481" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9481">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה מוזמן לבחור לעצמך אנטיוירוס, למשל kaspersky,<br>וכל אנטיוירוס מאפשר הפעלה דרך שורת הפקודה.<br>כל מה שישאר לך הוא להפעיל את הפקודה המתאימה באמצעות פקודות כמו shell_exec ולוודא שהפלט שהאנטיוירוס החזיר לא כולל מילים כמו <br>virus<br>dangerous<br>omg, wtf<br>וכו&apos; </p>
+</div>
+<div class="answer" id="answer9482">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 04 לאוגוסט 2015 </span>
+<a id="answer_9482" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9482">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הבנתי איך להשתמש במה שאמרת אלכס.<br>לפי מה שאני מבין האנטי וירוס צריך להיות מותקן על המחשב של הלקוח וזה לא יעיל לי.<br>אני צריך משהו פשוט, בעת ההעלאה, אם יש משהו נגוע, כלום לא עולה. אחרת אני מעלה. לכן הבדיקה תצטרך להיות בעת העלאה על ידי סורק כלשהו באינטרנט שיש לן API.<br>וירוס טוטל נראה לי הכי טוב.. יש לך הצעה נוספת ? </p>
+</div>
+<div class="answer" id="answer9483">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2015 </span>
+<a id="answer_9483" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9483">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אלכס התכוון שתתקין את האנטי וירוס אצלך בשרת ובעזרת השורת פקודה להפעיל אותו ולקבל את הפלט שלו ולפי זה לדעת אם מדובר בוירוס או לא.<br>לא הצעתי לך את העניין מאחר ורשמת שאתה מעדיף שירות חיצוני,במידה ואתה מעוניין שהאנטי וירוס יהיה אצלך בשרת אתה יכול ללכת על <a href="http://www.clamav.net/doc/install.html">ClamAV</a> שלא מעט אתרי העלאות משתמשים.היתרון הוא כמובן זה שהוא קוד פתוח ככה שאתה יכול לשחק איתו איך שאתה רוצה.<br><br><br>אגב גם במידה ואתה משתמש בשירות חיצוני אתה בכל מקרה אתה צריך להעלות את הקובץ לשרת שלך קודם אחרת כל הפעולה של העלאה תקח המון זמן והמשתמשים פשוט לא יעשו את זה. </p>
+</div>
+<div class="answer" id="answer9484">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2015 </span>
+<a id="answer_9484" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9484">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי.<br>חשבתי גם על הדבר הבא:<br><br>המשתמשים מעלים את הקובץ רגיל לתיקיה X, כל 4 דקות אני סורק בעזרת VIRUSTOTAL את 4 הקבצים הראשונים שהועלו, שולח מייל עם תשובה (הועלה סופית או לא) למשתמש שהעלה את זה ומצרף קישור לפוסט במייל.<br><br>אם אני כן מיישם את זה, איך אני יכול לבצע פעולה כל 4 דקות ?<br>אז חשבתי ישר על CRON (?) שיגש לקובץ מסויים שמשם יריץ את הכל כל 4 דקות.<br><br>אבל אם הקובץ נמצא ב public_html/x/y/z/abc.php והמשתמש נכנס לקובץ הזה (ההפניה מתקבלת על ידי גולש ולא על ידי CRON) אז זה גם יבדוק...<br>ואם המשתמש ירענן את העמוד 1000 פעם זה יבדוק 1000 פעם... יש דרך למנוע את זה? </p>
+</div>
+<div class="answer" id="answer9485">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2015 </span>
+<a id="answer_9485" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9485">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נתחיל מזה שאתה לא נותן גישה ישירה לקבצים אלה &quot;מסתיר&quot; את הכתובת האמיתית ואת ההורדה מבצע באמצעות php/nginx/apache/whatever.<br>אחרי שסגרנו את הפינה הזאת,המסד שלך אמור להיראות ככה - מיקום,שם קובץ,אושר\לא אושר .<br>ברגע שקובץ סיים להעלות אתה מכניס אותו למסד עם 0 ב&quot;אושר\לא אושר&quot;.<br>--------------------------------------------------------------------------------------------------------------------------------------------------<br>עכשיו אתה מריץ קרון כל פרק זמן מסויים ששולף X קבצים אחרונים שעדיין לא אושרו ושולח אותם לאנטי וירוס,במידה והקובץ נמצא תקין - תעדכן במסד ל&quot;אושר&quot;.<br><br>אם מישהו מנסה להוריד קובץ שעדיין לא נבדק מול אנטי וירוס אתה יכול לעשות שזה יציג להם את הקובץ עם הערה שהקובץ עדיין לא נסרק או פשוט להציג שגיאה שהקובץ ממתין לאישור. </p>
+</div>
+<div class="answer" id="answer9486">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2015 </span>
+<a id="answer_9486" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9486">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה הבנתי הכל חוץ מהפינה.. לא הבנתי מה זה אומר.<br><br><br>נתחיל מזה שאתה לא נותן גישה ישירה לקבצים אלה &quot;מסתיר&quot; את הכתובת האמיתית ואת ההורדה מבצע באמצעות php/nginx/apache/whatever </p>
+</div>
+<div class="answer" id="answer9487">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2015 </span>
+<a id="answer_9487" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9487">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תחת איזה פלטפורמה בנויה המערכת? ומה הגודל המקסימאלי שאפשר לעלות לשרת ? </p>
+</div>
+<div class="answer" id="answer9488">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2015 </span>
+<a id="answer_9488" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9488">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני בונה את המערכת בעזרת CODEIGNITER לגבי הגודל המקסימאלי לא בדקתי. איך אני בודק? </p>
+</div>
+<div class="answer" id="answer9489">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2015 </span>
+<a id="answer_9489" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9489">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם לא הגדרת גודל מקסימאלי זה כבר בעיה אני מציע לך לחפש קצת מידע באינטרנט על התחום אחרת האתר שלך יפול מהר מאוד.<br><br>בכל מקרה ב php יש שתי הגדרות שקשורות לזה [ולא כדאי ששם תתבצע הבדיקה אלה בקוד עצמו] - <br>upload_max_filesize - הגודל המקסימאלי שאפשר להעלות.<br>post_max_size = 40M - גודל המידע שניתן לשלוח בבקשות post - חייב להיות שווה או גדול מ upload_max_filesize אחרת תקבל שגיאה שהגודל של ה post גדול מידי.<br><br>לגבי ההסתרה של הכתובת - <a href="https://ellislab.com/codeigniter/user-guide/helpers/download_helper.html">https://ellislab.com/codeigniter/user-guide/helpers/download_helper.html</a><br>אתה אמור לקבל ב get את ה id של הקובץ -&gt; לטעון את המיקום של במסד ולהדפיס אותו למשתמש כמו בדוגמא. </p>
+</div>
+<div class="answer" id="answer9490">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 05 לאוגוסט 2015 </span>
+<a id="answer_9490" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9490">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני מאוחסן בחברה, מן הסתם שהחברה הגדירה גודל מקסימאלי בשרת שלה. האם יש דרך שאני יכול לראות את זה או שרק לברר דרך החברה ?<br><br>לגבי ההורדה והכתובת,<br>במסד יש לי איידי וכתובת הורדה, אני מקבל את האיידי דרך GET , פונה למסד, שולף את הכתובת הורדה באותה שורה ומוריד.<br>האם אין דרך שהמשתמש יוכל לגלות איכשהו את הכתובת הורדה ?<br>הכתובת הורדה תיהיה משהו כזה (?):<br>http://www.site.com/uploaded/abc.zip<br>אני מניח שאת כל הקבצים שמועלים אני יעלה לכאן (?):<br>public_html/uploaded<br>צריך להיות לתיקיה הרשאות מסויימות ? </p>
+</div>
+<div class="answer" id="answer9491">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 06 לאוגוסט 2015 </span>
+<a id="answer_9491" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9491">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל אם אתה מאוחסן על אחסון משותף רוב הסיכויים שהתנאי שימוש שלך אוסרים על סוג כזה של שירות משום שהוא מנצל המון משאבים.<br>בכל מקרה כמו שכתבתי זה שיש הגבלה באמצעות php זה נחמד אבל ממש לא ככה עושים את זה בדיוק כמו שאתה לא רוצה שאם עמוד לא נמצא יהיה כתוב פשוט 404 אלה עמוד עם קצת יותר משמעות שישאיר את המשתמש באתר. זה לא מקצועי,זה מכוער וחלק מהמשתמשים כנראה גם לא יבינו מה השגיאה.<br>כדי לדעת מה ההגבלה דרך המנוע - phpinfo<br><br>לגבי החלק של ההורדה,מן הסתם אתה צריך למנוע גישה ישירה לתיקיה. </p>
+</div>
+<div class="answer" id="answer9492">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 06 לאוגוסט 2015 </span>
+<a id="answer_9492" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9492">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל על מנת לעלות קובץ לתיקיה מסויימת אני חייב לתת לה גישה 777<br>http://www.codeigniter.com/user_guide/libraries/file_uploading.html#the-upload-directory </p>
+</div>
+<div class="answer" id="answer9493">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 06 לאוגוסט 2015 </span>
+<a id="answer_9493" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9493">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין קשר בין מה שאני רשמתי למה שאתה רשמת,אתה מדבר על הרשאות כתיבה של השרת ואני מדבר על כניסה חיצונית,מן הסתם גם הקוד שקורא את הקובץ יצטרך גישה אליו אחרת איך הוא יכול לשלוח את המידע שלו ?<br><a href="http://stackoverflow.com/questions/19118482/deny-access-to-one-specific-folder-in-htaccess">http://stackoverflow.com/questions/19118482/deny-access-to-one-specific-folder-in-htaccess</a> </p>
+</div>
+<div class="answer" id="answer9497">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 11 לאוגוסט 2015 </span>
+<a id="answer_9497" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9497">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי הכל ויישמתי הכל ואני מאוד מאוד מודה לך על העזרה והסבלנות. <br>יש לי שאלה אחרונה שאשמח אם תענה לי עליה. יכול להיות שענית כבר אבל אשמח לחידוד.<br><br>בנוגע ל CRON.<br>דרך הפאנל DA שלי אני מבצע קרון ומנווט אותו public_html/cron.php<br>יש לקובץ הזה הרשאות רגילות כשהוא מקבל כאשר אני פותח קובץ חדש (הרשאות קובץ 644).<br>עכשיו הקרון עובד הכל טוב ויפה, אם אני בתור משתמש, גולש פשוט, נכנס ל site.com/cron.php , הקוד מתחיל לרוץ ומתחילות בדיקות.<br>כדי למנוע את זה, הכנסתי את הקובץ cron.php לתיקיה X שבה יש גם קובץ HTACCESS עם השורה Deny from all. עכשיו הכניסה ל site.com/x/cron.php נמנעת.<br>השאלה היא האם גם הפניה של הקרון עצמו לקובץ נמנעת ? או שהקרון שהגדרתי דרך ה DA שלי יוכל להריץ את הקובץ שנמצא בתיקיית X ? (בהנחה שהחלפתי את הניווט שהיה כתוב בDA לניווט העדכני עם תיקיית X).<br><br>ככה עושים את זה ? יש דרך אחרת למנוע מהמשתמש גישה לקבצים שאמורים להיות אך ורק לפעולות קרון? </p>
+</div>
+<div class="answer" id="answer9501">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2015 </span>
+<a id="answer_9501" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9501">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+:-) </p>
+</div>
+<div class="answer" id="answer9502">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 13 לאוגוסט 2015 </span>
+<a id="answer_9502" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9502">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה תלוי איך אתה קורא לקובץ,אם אתה מבצע את זה דרך הטרמינל ולא דרך wget אז הקרון צריך לפעול כמו שצריך משום שהקובץ htaccess בכלל לא נקרא מתי שאתה ניגש ישירות ל php דרך ה cli.<br><br>בכל מקרה לא עושים את זה ככה - אין שום סיבה שקבצים יהיו תחת public_html ,תשים אותם בתיקיה אחת למעלה וככה תבטיח שלא יהיה ניתן להיכנס אליהם דרך הדפדפן.<br>בנוסף אפשר לבדוק דרך ()php_sapi_name באיזה סביבה php רץ או לבדוק האם קיים REMOTE_ADDR </p>
+</div>
+<div class="answer" id="answer9503">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 13 לאוגוסט 2015 </span>
+<a id="answer_9503" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9503">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקרה זה אני עובד עם CODEIGNITER.<br>ראיתי מדריכים באינטרנט ולפיהם יש לי קונטרולר אחד בשם CRON עם פונקציה INDEX בפונקציה עצמה יש את התנאי הבא:<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span>is_cli<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">// cron bla bla</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> show_404<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>.<br>אז זה בסדר אני מניח.<br>-------------------------<br>באתרים שלא רצים עם פריימוורק מסויים פשוט לפתוח תיקיה cron מעל public_html ושם יהיו הקבצים ? </p>
+</div>
+<div class="answer" id="answer9504">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 13 לאוגוסט 2015 </span>
+<a id="answer_9504" href="סריקת קבצי ZIP לפני העלתם -1.htm#answer_9504">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין שום קשר בין אם אתה משתמש בפריימוורק ובין אם לא את הפונקציה is_cli כתבו ב php ככה שגם אתה יכול לכתוב אותה לבד.<br>בדיקה בתיעוד תביא לך - <br><div class="php codeblock">This <span class="kw2">function</span> checks both <span class="kw1">if</span> the PHP_SAPI value is ‘cli’ or <span class="kw1">if</span> the STDIN <span class="kw3">constant</span> is <span class="kw3">defined</span><span class="sy0">.</span></div><br>כלומר הם בודקים אם קיים הקבוע STDIN וגם אם הערך בקבוע PHP_SAPI הוא cli [אגב PHP_SAPI = ()php_sapi_name] והבדיקה הזאת לא תעבוד אם אתה מריץ את php ולא את php-cli<br><br>בכל מקרה שום חלק מהקוד שלך לא אמור להיות ב public_html למעט ה index.php והוא יטען את כל הקבצי php מתיקייה שאינה נגישה לדפדפן - אתה מוזמן לראות איך הפריימוורק של laravel עובד על מנת לראות איך עושים את זה נכון. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

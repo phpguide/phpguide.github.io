@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="ביצי פסחא ב-php — הסודות שהשאירו לנו המפתחים לגלות">
+<meta name="keywords" content="סוד, php, easter egg, ביצת פסחא, ביצי פסחי">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>ביצי פסחא ב-php</title>
+<meta itemprop="name" content="ביצי פסחא ב-php">
+<meta itemprop="description" content="ביצי פסחא ב-php — הסודות שהשאירו לנו המפתחים לגלות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"84","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>ביצי פסחא ב-php</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-04-21T16:56:53+03:00" dir="rtl">21 לאפריל 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/phpeasterneggs.png" alt="ביצי פסחא ב-php">
+</div>
+<div class="right post-content">
+הסודות החבויים של php שהשאירו לנו המפתחים לגלות <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+ביצי פסחא (Easter Eggs) הם סוג של סוד שהשאירו המפתחים במשחק, סרט או תכנה. הסוד הזה לא מופיע בדרך השימוש הרגילה ובמשונה מסוד רגיל (למשחק) גם נראה מוזר ולא קשור. גם ב-php השאירו המפתחים ביצי פסחא למקרה שאולי תגלו אותם. לרגל חג הפסח שכל המדינה חוגגת השבוע, נמצא את האפיקומן ונגלה מהו.<br><br><br><h3>אז מה העניין</h3><br>קיימים ערכים מסוימים של פרמטרים שאפשר להעביר לכל סקריפט דרך GET_ והסקריפט ישנה את אופן הפעולה שלו. להעביר אותם אפשר לכל סקריפט שהו, בכל אתר שהו, למעט אתרים שבהם ההגדרות של php.ini הם expose_php = Off<br><br>1. הפעלת סקריפט עם הפרמטר <span dir="ltr"><a href="http://php.net/?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000 ">?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000</a></span> תציג את רשימת המפתחים של php <br><img src="static\images\pixel.png" alt="ביצי פסחא ב-php" title="http://ncdn.phpguide.co.il/blogimages/phpcredits.png" class="content-image-float"><br><br>2. הלוגו <span dir="ltr"><a href="http://php.net/?=PHPE9568F34-D428-11d2-A769-00AA001ACF42">?=PHPE9568F34-D428-11d2-A769-00AA001ACF42</a></span><br><br><img src="static\images\pixel.png" alt="ביצי פסחא ב-php" title="http://ncdn.phpguide.co.il/blogimages/phplogo.gif" class="content-image-float"><br><br>3. לוגו zend engine - המנוע שמאחורי <span dir="ltr"><a href="http://php.net/?=PHPE9568F35-D428-11d2-A769-00AA001ACF42">?=PHPE9568F35-D428-11d2-A769-00AA001ACF42</a></span><br><br><img src="static\images\pixel.png" alt="ביצי פסחא ב-php" title="http://ncdn.phpguide.co.il/blogimages/zendlogo.gif" class="content-image-float"><br><br>4. תמונה מצחיקה ששונה מגרסה לגרסה <span dir="ltr"><a href="http://php.net/?=PHPE9568F36-D428-11d2-A769-00AA001ACF42">?=PHPE9568F36-D428-11d2-A769-00AA001ACF42</a></span><br><br><img src="static\images\pixel.png" alt="ביצי פסחא ב-php" title="http://ncdn.phpguide.co.il/blogimages/phpeasternlogos.png" class="content-image-floatright"><br>Thies C. Arntzen, אחד המפתחים של php<br>גרסאות 4.0.1 — 4.2.2<br><br>הכלבה החומה שנושאת את השם Nadia<br>של המפתח <span dir="ltr">(4.3.02 — 4.3.10) Stig Bakken </span><br><br><br>Scotch — טרייר שחור מסקוטלנד<br>השייך ל-<span dir="ltr">(4.3.11 — 4.4.4, 5.0.5 — 5.1.2) Zeev Suraski </span><br><br><br>אוגרת <span dir="ltr">(4.3.1, 5.0.0, 5.0.3) Carmella</span><br><br><br>לוגו php עקום (5.1.4 — 5.3.6)<br><br><br>הקמיע של php, הפיל &quot;elePHPant&quot;<br>חלק מגרסאות 5.2<br><br><br><h3>אפשר לכבות את זה איכשהו ומהר?!</h3><br>אם יש לכם אתר משלכם — די בטוח שכבר ניסיתם את הקישורים האלה על האתר שלכם.<br>על שרת שנמצא בבעלותכם אפשר לכבות את הדבר הזה תוך עריכת קובץ php.ini. שנו בו את ההגדרה <br><div class="php codeblock">expose_php <span class="sy0">=</span> off</div> והדבר יפסיק לעבוד בשרת שלכם.<br>חשוב לציין שנית, שאין לזה שום השפעה (טובה או רעה) על הסקריפטים שלכם<br>ואין סיבה ממשית לכבות פונקציה זו. כפי שאתם רואים ל- php.net אין אם זה שום בעיה.<br><br><br><h4>בונוס</h4><br>בשרתים בהם הותקנה הרחבה ל-php שנקראת suhosin אפשר לקבל את הלוגו שלה גם כן, בעזרת הפרמטר <span dir="ltr"><a href="http://www.php.ru/?=SUHO8567F54-D428-14d2-A769-00DA302A5F18">?=SUHO8567F54-D428-14d2-A769-00DA302A5F18</a></span><br><img src="static\images\pixel.png" alt="ביצי פסחא ב-php" title="http://ncdn.phpguide.co.il/blogimages/suhosinlogo.jpg" class="content-image-float"><br><br>+ ובנוסף יש שמועות שהתמונה המצחיקה משתנה לא רק מגרסה לגרסה, אלה גם משתנה למשהו מעניין בראשון לאפריל. נצטרך לחקות כמעט שנה עד ההזמנות הבאה לבדוק את זה (או פשוט לשנות את התאריך בשרת לראשון באפריל ולבדוק לפני).<br><br><br><h4>סיכום דבר</h4><br>נחמד כשלמפתחים יש חוש הומור. חוץ מזה, אם לרגע תהיתם מאיפה הגיעו הלוגויים שהפונקציה phpinfo מציירת על המסך או לאן מוביל הקישור &quot;אודות המפתחים&quot; באותו עמוד, אז עכשיו אתם יודעים :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment72"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/04/2011 23:39</span><br>
+פשוט חזק.<br>
+אהבתי לראות את החוש הומור של המפתחים.<br>
+<br>
+אגב, אני מאוד נהנה מהפוסטים שאתה מפרסם. רואים אדם בעל כשרון שעומד מאחורי כל פוסט. כל הכבוד.</div>
+<a id="comment1402"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/03/2012 23:41</span><br>
+ואיך בדיוק אנשים גילו את זה??<br>
+מה הם כתבו כל מני פקודות GET?</div>
+<a id="comment1403"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/03/2012 00:16</span><br>
+הם קראו את קוד המקור של PHP</div>
+<a id="comment1439"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2012 00:50</span><br>
+ננווווו התמונה השתנה לאחד באפריל?</div>
+<a id="comment1440"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/04/2012 18:04</span><br>
+היה בלוגו של PHP פיל מגניב בצבעי תכלת. :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

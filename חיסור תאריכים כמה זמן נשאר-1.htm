@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חיסור תאריכים וחיבור באמצעות מחלקת datetime ב-php">
+<meta name="keywords" content="חיסור תאריכים, חיבור, תאריך, datetime, כמה זמן עד, זמן">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>חיסור תאריכים — כמה זמן נשאר</title>
+<meta itemprop="name" content="חיסור תאריכים — כמה זמן נשאר">
+<meta itemprop="description" content="חיסור תאריכים וחיבור באמצעות מחלקת datetime ב-php">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"73","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>חיסור תאריכים — כמה זמן נשאר</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-04-28T18:03:29+03:00" dir="rtl">28 לאפריל 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/datetime.png" alt="חיסור תאריכים — כמה זמן נשאר">
+</div>
+<div class="right post-content">
+שאלה מאוד נפוצה שעולה היא איך לחשב כמה זמן נשאר עד תאריך מסוים, או כמה זמן עבר מאז. php מציעה כלים נוחים לעבודה עם תאריכים, באיחוד בגרסאות האחרונות שלה php &gt; 5.3 באמצעות מחלקת ה-DateTime. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+בגרסאות הישנות יותר נצטרך להעביר כל תאריך לשניות <br>ולחסר את הזמן אחד מהשני באופן ידני. למזלנו עכשיו הכל הרבה יותר פשוט.<br><br><br><h2>מחלקת DateTime</h2><br>המחלקה <a href="http://php.net/manual/en/book.datetime.php">dateTime</a> מייצגת נקודת זמן כלשהי (למשל <strong>היום</strong>) ומכילה מטודות (פונקציות) שונות שניתן לעשות עם אותה יחידת זמן, כמו: חיבור, חיסור, הדפסה באופנים שונים וכו&apos;. <br><br>בעזרת הקוד הבא ניצור אובייקט מסוג datetime ונראה מה אפשר לעשות איתו:<br><br><div class="php codeblock"><span class="re0">$date</span> <span class="sy0">=</span> <span class="kw2">new</span> DateTime<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$date</span><span class="sy0">-&gt;</span><span class="me1">format</span><span class="br0">&#40;</span><span class="st_h">'התאריך d/m/Y, השעה: H:i:s'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>נוצר לנו אובייקט זמן עם התאריך והשעה הנוכחית. אפשר להדפיס אותו בתבנית מסוימת, לפי רצוננו. האותיות מסמנות את חלקי התאריך והזמן כפי שמפורט <a href="http://php.net/manual/en/function.date.php">בטבלה הזו</a>.<br><br><strong>יצירת אובייקט datetime של נקודת זמן שונה מ&quot;עכשיו&quot;:</strong><br>בעבודה עם תאריכים נצטרך להשתמש לא רק בתאריך הנוכחי, אלה מדי פעם גם בתארים עברו או תאריכים עתידיים לבוא. ליצור אובייקט זמן של תאריך אחר אפשר באחת הצורות הבאות:<br><div class="php codeblock"><span class="re0">$datePast</span> <span class="sy0">=</span> DateTime<span class="sy0">::</span><span class="me2">createFromFormat</span><span class="br0">&#40;</span><span class="st_h">'d/m/Y'</span><span class="sy0">,</span> <span class="st_h">'06/03/2012'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$past</span> <span class="sy0">=</span> <span class="kw2">new</span> DateTime<span class="br0">&#40;</span><span class="st_h">'yesterday'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$past</span> <span class="sy0">=</span> <span class="kw2">new</span> DateTime<span class="br0">&#40;</span><span class="st_h">'tomorrow'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$past</span> <span class="sy0">=</span> <span class="kw2">new</span> DateTime<span class="br0">&#40;</span><span class="st_h">'+5 days'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$past</span> <span class="sy0">=</span> <span class="kw2">new</span> DateTime<span class="br0">&#40;</span><span class="st_h">'-7 years'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$past</span> <span class="sy0">=</span> <span class="kw2">new</span> DateTime<span class="br0">&#40;</span><span class="st_h">'+1 week'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>המטודה createFromFormat מנסה לפענח את המחרוזת לפי התבנית שנומר לה.<br>הבנאי של DateTime יודע לקבל גם טקסט ולפענח אותו לתאריך.<br><br>ניצור באופן הזה תאריך בעתיד (למשל 06/03/2012)<br>ועכשיו ברשותנו שני תאריכים שנוכל לחשב את מרווח הזמן ביניהם.<br><br><h2>המחלקה DateInterval</h2><br><a href="http://php.net/manual/en/class.dateinterval.php">DateInterval</a> היא מחלקה שמייצגת מרווח (הפרש) זמן כלשהו. הפרש זמן יהיה מורכב משנים, חודשים, ימים, שעות, דקות ושניות. חיסור של שני תאריכים אחד מהשני ייצרו אובייקט מסוג dateinterval שיכיל את הפרש הזמנים בין התאריכים:<br><div class="php codeblock"><span class="re0">$now</span> <span class="sy0">=</span> DateTime<span class="sy0">::</span><span class="me2">createFromFormat</span><span class="br0">&#40;</span><span class="st_h">'d/m/Y H:i'</span><span class="sy0">,</span> <span class="st_h">'28/04/2011 21:15'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$independence_day</span> <span class="sy0">=</span> DateTime<span class="sy0">::</span><span class="me2">createFromFormat</span><span class="br0">&#40;</span><span class="st_h">'d/m/Y H:i'</span><span class="sy0">,</span> <span class="st_h">'15/05/2011 18:00'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$interval</span> <span class="sy0">=</span> <span class="re0">$now</span><span class="sy0">-&gt;</span><span class="me1">diff</span><span class="br0">&#40;</span><span class="re0">$independence_day</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$interval</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>לצורך העניין כרגע מעכשיו (21:15 28/04/2011)<br> עד יום העצמאות ( 18:00 15/05/2011) נשאר:<br><div class="php codeblock">DateInterval Object <span class="br0">&#40;</span> <span class="br0">&#91;</span>y<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span> <span class="br0">&#91;</span>m<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span> <span class="br0">&#91;</span>d<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">16</span> <span class="br0">&#91;</span>h<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">20</span> <span class="br0">&#91;</span>i<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">45</span> <span class="br0">&#91;</span>s<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span> <span class="br0">&#91;</span>invert<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span> <span class="br0">&#91;</span>days<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">16</span> <span class="br0">&#41;</span></div><br><span dir="ltr">0 &lt;= y</span> שנים,<br><span dir="ltr">0 &lt;= m</span> חודשים,<br><span dir="ltr">16 &lt;= d</span> ימים,<br><span dir="ltr">20 &lt;= h</span> שעות,<br><span dir="ltr">45 &lt;= i</span> דקות,<br><span dir="ltr">0 &lt;= s</span> שניות.<br><br>days =&gt; כמות ימים מלאים כוללת (בלי חלוקה לחודשים). למשל עד ראש השנה נשאר 5 חודשים<span dir="ltr">(m)</span> ו-12 ימים<span dir="ltr">(d)</span> או 165 ימים<span dir="ltr">(days)</span> בלי חלוקה לחודשים.<br><br>invert =&gt; האם הפוך? אם ננסה לחסר מתאריך שכבר עבר את התאריך הנוכחי, הרי שהתוצאות יהיו שליליות. כדי שה-dateInterval לא יחזיק מספרים שליליים משאירים את המספרים כחיוביים, אך נרשם שהתאריכים נהפכו כדי לחסר מהגדול את הקטן. ערך זה יהיה או 1 (true, היה היפוך) או 0.<br><br><br><span style="color:darkred;">עד כאן זהו אם חיפשתם ללמוד איך לחסר תאריכים.<br>ישתמשו באובייקט dateinterval שנוצר עקב החיסור כדי לקבל את כל המידע.</span><br><br><br><h2>חיבור תאריכים</h2><br>חיבור שני תאריכים מתבצע גם הוא בעזרת מחלקת DateInterval. לא ניתן לחבר שני אובייקטים מסוג DateTime (וגם אין באמת צורך לחבר את היום ומחר כדי לגלות שאנחנו נהיה בשנת 4022). ניתן להוסיף לתאריך כלשהו עוד תווך זמן. (להוסיף ל<strong>היום</strong> עוד חודש ולראות איזה תאריך יוצא.<br><br>כדי ליצור תווך זמן יש להשתמש <a href="http://php.net/manual/en/dateinterval.construct.php">בפורמט טיפה מוזר</a>: <br><div class="php codeblock"><span class="re0">$interval</span> <span class="sy0">=</span> <span class="kw2">new</span> DateInterval<span class="br0">&#40;</span><span class="st_h">'P2Y4DT6H8M'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$interval</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>שני אותיות עיקריות מפרידות את המחרוזת לשני חלקים:<br><br>Period &lt;- <strong>P</strong> מסמנת שכל מה שבא אחריה שייך לתווך תאריך<br>Time &lt;- <strong>T</strong> מסמנת שכל מה שבא אחריה שייך לתווך זמן<br><br>שאר הסימנים מתחלקים בזוגות למספר ואות<br>2Y = 2 Years<br>4D = 4 Days<br>6H = 6 Hours<br>8M = 8 Minutes<br><br>נוצר אובייקט DateInterval עם הנתונים הבאים:<br><div class="php codeblock">DateInterval Object <span class="br0">&#40;</span> <span class="br0">&#91;</span>y<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">2</span> <span class="br0">&#91;</span>m<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span> <span class="br0">&#91;</span>d<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">4</span> <span class="br0">&#91;</span>h<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">6</span> <span class="br0">&#91;</span>i<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">8</span> <span class="br0">&#91;</span>s<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span> <span class="br0">&#91;</span>invert<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="nu0">0</span> <span class="br0">&#91;</span>days<span class="br0">&#93;</span> <span class="sy0">=&gt;</span> <span class="br0">&#41;</span></div><br><br>עכשיו ניתן לחבר תאריך עם תווך הזה ונקבל תאריך שגדול בשנתיים, 4 ימים, 6 שעות ו8 דקות מהתאריך המקורי.<br><div class="php codeblock"><span class="re0">$now</span> <span class="sy0">=</span> <span class="kw2">new</span> DateTime<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$interval</span> <span class="sy0">=</span> <span class="kw2">new</span> DateInterval<span class="br0">&#40;</span><span class="st_h">'P2Y4DT6H8M'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$now</span><span class="sy0">-&gt;</span><span class="me1">add</span><span class="br0">&#40;</span><span class="re0">$interval</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$now</span><span class="sy0">-&gt;</span><span class="me1">format</span><span class="br0">&#40;</span><span class="st_h">'התאריך d/m/Y, השעה: H:i:s'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שימו לב לזכור להפריד ב-P ו-T את הימים-חודשים-שנים מה-שעות-דקות-שניות.<br>דרישה נוספת היא שהתקופות יופיעו מהגדולה לקטנה. כלומר קודם כמות השנים, אחריה חודשים, אחריה הימים, אחריהם השעות, דקות ולבסוף שניות ולא בסדר אחר.<br><br><h4>לסיכום</h4><br>ממבט ראשון יכול להראות מסובך, בעיקר אחרי החיבור תאריכים, אך בפועל חיסור תאריכים קל ופשוט בעזרת המחלקה הזו. היא תדאג בעצמה לחשב כמה חודשים ימים ושעות נשאר עד תאריך היעד בלי שתצטרכו לבצע את כל פעולות החשבון המעצבנות, לספור חודשים עם 30/31 יום בעצמכם ולוודא שדווקא בפברואר של השנה יש 29 יום.<br><br><span style="color:red;">חשוב מאוד: עד php 5.3.6 פונקציות אלו לא עבדו ב-windows</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment108"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/05/2011 04:55</span><br>
+וואו, תודה אחי!<br>
+חסכת לי המון עבודה של Javascript.</div>
+<a id="comment176"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/06/2011 17:19</span><br>
+אם אתם עובדים עם wapm שכרגע גרסת הphp שלו היא 5.3.3<br>
+אתם חייבים לעדכן את הגרסה כמה שיותר מהר! בעזרת המדריך לעדכון גרסת php בwamp<br>
+<br>
+<span dir="ltr"><a href="6_צעדים_קצרים_לעדכון_גרסת_php_ב_wamp.htm">http://phpguide.co.il/6_צעדים_קצרים_לעדכון_גרסת_php_ב_wamp.htm</a></span><br>
+<br>
+לא יהיו לכם בעיות עם הפונקציות האלה באחסונים עם linux<br>
+שזה רוב האחסונים הקיימים ל php</div>
+<a id="comment1626"></a>
+<div class="blog-comment">
+<span class='comment-author'>ניב</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2012 07:43</span><br>
+mktime?</div>
+<a id="comment1630"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2012 12:00</span><br>
+mktime מתאים לפעולות על התאריך הנוכחי.<br>
+יהיה קצת קשה לחסר יומיים מהראשון למרץ על ידי mktime שזה לא התאריך הנוכחי</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

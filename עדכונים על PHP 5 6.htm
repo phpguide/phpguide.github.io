@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="PHP 5.6 - תכונות חדשות ועדכונים נוספים. לבינתיים יצאו שלוש גרסאות אלפא וגרסת בטא אחת. התכונות החדשות כוללות ייבוא קבועים ופונקציות ממרחבי שמות, ">
+<meta name="keywords" content="php 5.6">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>PHP 5.6 הגיעה [פרסום מתעדכן]</title>
+<meta itemprop="name" content="PHP 5.6 הגיעה [פרסום מתעדכן]">
+<meta itemprop="description" content="PHP 5.6 - תכונות חדשות ועדכונים נוספים. לבינתיים יצאו שלוש גרסאות אלפא וגרסת בטא אחת. התכונות החדשות כוללות ייבוא קבועים ופונקציות ממרחבי שמות, ">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"357","rating":"42","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>PHP 5.6 הגיעה [פרסום מתעדכן]</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">OrelBeY, </div>
+<div class="right">&nbsp;<time datetime="2014-04-11T16:22:45+03:00" dir="rtl">11 לאפריל 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://imageshack.com/a/img812/567/8up7.png" alt="PHP 5.6 הגיעה [פרסום מתעדכן]">
+</div>
+<div class="right post-content">
+PHP 5.6 - תכונות חדשות ועדכונים נוספים. התכונות החדשות כוללות ייבוא קבועים ופונקציות ממרחבי שמות, תחביר חדש עבור Variadric Functions, פריקת ארגומנטים, ביטויים סקלריים קבועים ועוד. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+עבר זמן מה מאז יצאה PHP 5.4, וגרסאות חדשות החלו לצאת מהר ומהר יותר. אני מרוצה מאוד מ-PHP 5.6, והתקווה שלי בעתיד של PHP חודשה. אני אשמח לשמוע מה אתם חושבים בתגובות.<br><br>אמנם לא יהיה אפשר לכלול את כל השינויים בגרסה הזאת ולהסביר עליהם בפירוט במאמר אחד, אבל אני אעשה כמיטב יכולתי. לפירוט נוסף תוכלו לקרוא את <a href="http://docs.php.net/manual/en/migration56.new-features.php">מדריך המעבר הרשמי</a>. תודה ל-Bruno Skvorc; נעזרתי לא מעט בעדכון &quot;<a href="http://www.sitepoint.com/new-features-php-5-6/">New Features in PHP 5.6</a>&quot; שהוא פרסם ב-SitePoint.<br><br><strong>רשימת גרסאות PHP 5.6.0</strong><br><ul><li><strong>אלפא 1</strong> &rlm;(23.1) - תכונות חדשות</li><li>אלפא 2 &rlm;(13.2) - תכונות חדשות ותיקוני באגים</li><li>אלפא 3 &rlm;(6.3)</li><li><strong>בטא 1</strong> - &rlm;(11.4) - תכונות חדשות, תיקוני באגים ו<strong>הקפאת תכונות חדשות</strong></li><li>בטא 2 &rlm;(2.5) - בעיקר תיקוני באגים; מעט מאוד תכונות חדשות</li><li>בטא 3 &rlm;(15.5) - תיקוני באגים בלבד</li><li>בטא 4 &rlm;(5.6)</li><li><strong>RC 1</strong> &rlm;(19.6)</li><li>RC 2 &rlm;(3.7)</li><li>RC 3 &rlm;(31.7)</li><li>RC 4 &rlm;(14.8)</li><li><strong>גרסה יציבה</strong> &rlm;(28.8)</li></ul><br><a href="https://github.com/php/php-src/blob/php-5.6.0RC3/NEWS">רשימת השינויים המלאה הרשמית.</a><br><br><strong>ראשי פרקים</strong>: ייבוא קבועים ופונקציות ממרחבי שמות, תחביר חדש עבור Variadric Functions, פריקת ארגומנטים, ביטויים סקלריים קבועים, ספריית Zip משופרת, אופרטור חדש - חזקה, שימוש מופחת בזיכרון נתוני POST, העלאת קבצים מעל 2GB, העמסת אופרטורים פנימית, סוגי MIME בשרת ה-PHP המובנה, PHPDBG ארוז כברירת מחדל, שיפורים ב-SSL/TLS.<br><br><h2>תכונות חדשות ב-PHP 5.6</h2><br><h3>ייבוא קבועים ופונקציות ממרחבי שמות</h3><br>עד עכשיו היה אפשר לייבא רק טיפוסים (מחלקות, ממשקים ו-Traits) באמצעות האופרטור use. ב-PHP 5.6 יושם <a href="https://wiki.php.net/rfc/use_function">RFC</a> שהציע לאפשר ייבוא פונקציות וקבועים, וזאת באמצעות use function ו-use const בהתאמה:<br><div class="php codeblock"><span class="kw2">namespace</span> Foo\Bar <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">const</span> BAZ <span class="sy0">=</span> <span class="nu0">42</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">function</span> qux<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw1">echo</span> <span class="kw4">__FUNCTION__</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">namespace</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">use</span> <span class="kw2">const</span> Foo\Bar\BAZ<span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">use</span> <span class="kw2">function</span> Foo\Bar\qux<span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">echo</span> BAZ<span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; qux<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>כמו ייבוא טיפוסים באמצעות use עד עכשיו, גם באמצעות use המשופר אי אפשר לייבא את כל הפונקציות או הקבועים שבמרחב שמות מסוים מבלי לציין אותם אחד-אחד.<br><br><h3>תחביר חדש עבור Variadric Functions</h3><br>Variadic Functions הן <strong>פונקציות שנועדו לקבל מספר לא קבוע של משתנים</strong> (בלי קשר לערכי ברירת מחדל). לפני PHP 5.6, כשהארגומנטים הראשונים שפונקציה כזו קיבלה היו פרמטרים קבועים והשאר היו הקבוצה עם הגודל המשתנה של ערכים, היה צריך לחתוך חלק מהמערך לאחר הקריאה לפונקציה func_get_args. הנה דוגמה לכך מה-<a href="https://wiki.php.net/rfc/variadics">RFC</a> שיושם:<br><div class="php codeblock"><span class="kw2">class</span> <span class="kw3">MySQL</span> implements DB <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">protected</span> <span class="re0">$pdo</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> query<span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">pdo</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$stmt</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="kw3">array_slice</span><span class="br0">&#40;</span><span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$stmt</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="co1">// ...</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$userData</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'SELECT * FROM users WHERE id = ?'</span><span class="sy0">,</span> <span class="re0">$userID</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">fetch</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>עכשיו, ב-PHP 5.6, נוכל להשתמש בתחביר החדש כדי לשפר את קטע הקוד הקודם:<br><div class="php codeblock"><span class="kw2">class</span> <span class="kw3">MySQL</span> implements DB <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> query<span class="br0">&#40;</span><span class="re0">$query</span><span class="sy0">,</span> <span class="sy0">...</span><span class="re0">$args</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">pdo</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$stmt</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="re0">$args</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$stmt</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="co1">// ...</span><br>
+<span class="br0">&#125;</span></div><br>כמו שכנראה כבר הבנתם, התחביר <span dir="ltr">...$args</span> מורה לקבל את הארגומנטים הראשונים לפרמטרים המתאימים, ולשים את כל השאר במערך <span dir="ltr">$args</span>. זה חוסך ממנו את הקריאה ל-<span dir="ltr">func_get_params()</span> ואת חתיכת המערך, משפר את חתימות הפונקציות מהסוג הזה, ועושה את הקוד קריא יותר.<br><br>התחביר החדש מאפשר גם <strong>העברת ארגומנטים בתור הפניות</strong> (Pass by reference), באמצעות הוספת אמפרסנד לפני המשתנה, כך: <span dir="ltr">&amp;...$params</span>. דבר זה לא היה אפשרי קודם עם <span dir="ltr">func_get_args()</span>.<br><br><h3>פריקת ארגומנטים</h3><br>בעקבות יישום התחביר המשופר עבור Variadric Functions, יושם גם ה-<a href="https://wiki.php.net/rfc/argument_unpacking">RFC העוסק בפריקת ארגומנטים</a>.<br><br>עד עכשיו, הדרך היחידה להעביר כמות לא ידועה מראש של ארגומנטים הייתה באמצעות <span dir="ltr">call_user_func_array()</span>. זה היה מגושם, לא נתמך בבנאים של מחלקות, ודרש Callback מטיפוס מחרוזת - שם של פונקציה - כלומר לא נתמך בעורכי קוד ברוב המקרים.<br><br>לתחביר החדש לפריקת ארגומנטים אין את כל החסרונות של הפונקציה ההיא, והוא משלים את התמיכה ב-Variadric Functions באופן טבעי.<br><div class="php codeblock"><span class="kw2">function</span> test<span class="br0">&#40;</span><span class="sy0">...</span><span class="re0">$args</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="re0">$args</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="re0">$args1</span> <span class="sy0">=</span> <span class="br0">&#91;</span><span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> <span class="nu0">3</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="re0">$args2</span> <span class="sy0">=</span> <span class="br0">&#91;</span><span class="nu0">4</span><span class="sy0">,</span> <span class="nu0">5</span><span class="sy0">,</span> <span class="nu0">6</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+test<span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> <span class="nu0">3</span><span class="sy0">,</span> <span class="nu0">4</span><span class="sy0">,</span> <span class="nu0">5</span><span class="sy0">,</span> <span class="nu0">6</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; <span class="co1">// [1, 2, 3, 4, 5, 6]</span><br>
+test<span class="br0">&#40;</span><span class="sy0">...</span><span class="re0">$args1</span><span class="sy0">,</span> <span class="sy0">...</span><span class="re0">$args2</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// [1, 2, 3, 4, 5, 6]</span><br>
+test<span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> <span class="nu0">3</span><span class="sy0">,</span> <span class="sy0">...</span><span class="re0">$args2</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; <span class="co1">// [1, 2, 3, 4, 5, 6]</span><br>
+test<span class="br0">&#40;</span><span class="sy0">...</span><span class="re0">$args1</span><span class="sy0">,</span> <span class="nu0">4</span><span class="sy0">,</span> <span class="nu0">5</span><span class="sy0">,</span> <span class="nu0">6</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; <span class="co1">// [1, 2, 3, 4, 5, 6]</span></div><br>אפשר להשתמש בפריקת ארגומנטים בכל מצב אפשרי: בבנאי מחלקה, בפונקציות רגילות (לא רק Variadric) ומספר פעמים בקריאה אחת.<br><br><h3>ביטויים סקלריים קבועים</h3><br>יושם <a href="https://wiki.php.net/rfc/const_scalar_exprs">RFC</a> שמאפשר לשים ביטויים סקלריים במקומות שמצפים לערכים סטטיים. זה אומר שעכשיו אפשר להשתמש באופרטורים (אריתמטיקה, לוגיקה, שרשור מחרוזות ו-Bitwise) בהגדרת קבועים, בקביעת ערכי ברירת מחדל לפרמטרים של פונקציות וכו&apos;. יש לשים לב שמדובר רק בביטויים שמורכבים מקבועים או מערכים קבועים (מספרים ומחרוזות), ולא ממשתנים או מקריאות לפונקציות.<br><br>הנה דוגמה שנלקחה מה-RFC:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> Foo <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">const</span> BAZ <span class="sy0">=</span> <span class="nu0">10</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+&nbsp;<br>
+<span class="kw2">class</span> Bar <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$foo</span> <span class="sy0">=</span> <span class="nu0">1</span> <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$bar</span> <span class="sy0">=</span> <span class="br0">&#91;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="nu0">1</span> <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="nu0">1</span> <span class="sy0">&lt;&lt;</span> <span class="nu0">2</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Foo<span class="sy0">::</span><span class="me2">BAZ</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;foo &quot;</span><span class="sy0">.</span><span class="st0">&quot;bar&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$baseDir</span> <span class="sy0">=</span> __DIR__ <span class="sy0">.</span> <span class="st0">&quot;/base&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><h3>ספריית Zip משופרת</h3><br>נוספו מתודות לספריית ה-Zip, וחלו בה עוד כמה שיפורים. אחת המתודות שבולטת במיוחד היא <span dir="ltr">ZipArchive::setPassword($password)</span>, שסוף סוף מאפשרת ליצור קבצי Zip המוגנים בסיסמה.<br><br><h3>אופרטור חדש - חזקה</h3><br>באלפא 2 יושם <a href="https://wiki.php.net/rfc/pow-operator">RFC</a> שהציע להוסיף את האופרטור ** לחישוב חזקה. על המיקום שלו בקדימות אופרטורים ועל פרטים נוספים תוכלו לקרוא ב-RFC או בדוקומנטציה, כשהיא תתעדכן. הנה דוגמה פשוטה:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="nu0">2</span> <span class="sy0">**</span> <span class="nu0">4</span><span class="sy0">;</span> <span class="co1">// 16</span></div><br>נוסף גם אופרטור השמה מתאים (<span dir="ltr">**=</span>).<br><br><h3>שונות</h3><br><ul><li>מתודה חדשה בשם <span dir="ltr">__debugInfo()</span>, שמספקת מידע דיבאגינג נוסף על האובייקט. (אלפא 3)</li><li>פונקציית עזר חדשה לערבול - <a href="http://docs.php.net/manual/en/migration56.new-features.php#migration56.new-features.hash-equals">hash_compare()</a>. (בטא 1)</li><li>מתודה סטטית חדשה למחלקה DateTimeImmutable בשם <span dir="ltr">createFromMutable()</span>, היוצרת אובייקט DateTimeImmutable מאובייקט DateTime רגיל (בטא 1)</li></ul><br><br><h2>שיפורים ושינויים אחרים</h2><br><h3><a href="http://docs.php.net/manual/en/migration56.new-features.php#migration56.new-features.openssl">SSL</a></h3><br>בכל גרסאות האלפא הוכנסו שיפורים ושינויים לכל מיני דברים הקשורים ל-SSL.<br><br><h3>שימוש מופחת בזיכרון נתוני POST</h3><br>הגדרת ה-always_populate_raw_post_data ב-php.ini, אם תופעל, תגרום לשגיאת התיישנות (Deprecated), ו-<span dir="ltr">$HTTP_RAW_POST_DATA</span> יוסר סופית באחת גרסאות ה-PHP הבאות.<br>זה אומר ששימוש הזיכרון של נתוני ה-POST הצטמק פי 2-3. עכשיו, כשנרצה לגשת לנתוני POST גולמיים (כמו שהם, שלא כמו ב-<span dir="ltr">$_POST</span>) נצטרך להשתמש בפתרונות אחרים, <a href="http://www.php.net/manual/en/wrappers.php.php#wrappers.php.input">כמו זה</a>:<br><div class="php codeblock"><span class="re0">$postdata</span> <span class="sy0">=</span> <span class="kw3">file_get_contents</span><span class="br0">&#40;</span><span class="st0">&quot;php://input&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>יש לשים לב שקבלת נתוני POST דרך <span dir="ltr">php://input</span> לא זמינה אם נשלח טופס בחלקים (<span dir="ltr">multipart/form-data</span>) - כלומר בעת העלאת קבצים.<br><br><h3>העלאת קבצים מעל 2GB</h3><br>עד PHP 5.6 היה אפשר להעלות רק קבצים הקטנים מ-2GB. כבר לא. :-)<br><br><h3>העמסת אופרטורים פנימית ושיפורים בהרחבת GMP</h3><br>יושם <a href="https://wiki.php.net/rfc/operator_overloading_gmp">RFC</a> שהציע ליישם העמסת אופרטורים פנימית ושיפורים אחרים בהרחבת GMP. אני לא אדון בזה בהרחבה (מי שרוצה שפשוט יקרא את ה-RFC), אבל אני אתן דוגמה אחת מה-RFC:<br><div class="php codeblock"><span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">gmp_mod</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="kw3">gmp_add</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">gmp_mul</span><span class="br0">&#40;</span><span class="re0">$c0</span><span class="sy0">,</span> <span class="kw3">gmp_mul</span><span class="br0">&#40;</span><span class="re0">$ms0</span><span class="sy0">,</span> <span class="kw3">gmp_invert</span><span class="br0">&#40;</span><span class="re0">$ms0</span><span class="sy0">,</span> <span class="re0">$n0</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">gmp_add</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">gmp_mul</span><span class="br0">&#40;</span><span class="re0">$c1</span><span class="sy0">,</span> <span class="kw3">gmp_mul</span><span class="br0">&#40;</span><span class="re0">$ms1</span><span class="sy0">,</span> <span class="kw3">gmp_invert</span><span class="br0">&#40;</span><span class="re0">$ms1</span><span class="sy0">,</span> <span class="re0">$n1</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">gmp_mul</span><span class="br0">&#40;</span><span class="re0">$c2</span><span class="sy0">,</span> <span class="kw3">gmp_mul</span><span class="br0">&#40;</span><span class="re0">$ms2</span><span class="sy0">,</span> <span class="kw3">gmp_invert</span><span class="br0">&#40;</span><span class="re0">$ms2</span><span class="sy0">,</span> <span class="re0">$n2</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="kw3">gmp_mul</span><span class="br0">&#40;</span><span class="re0">$n0</span><span class="sy0">,</span> <span class="kw3">gmp_mul</span><span class="br0">&#40;</span><span class="re0">$n1</span><span class="sy0">,</span> <span class="re0">$n2</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span></div> <br><div class="php codeblock"><span class="re0">$result</span> <span class="sy0">=</span> <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="re0">$c0</span> <span class="sy0">*</span> <span class="re0">$ms0</span> <span class="sy0">*</span> <span class="kw3">gmp_invert</span><span class="br0">&#40;</span><span class="re0">$ms0</span><span class="sy0">,</span> <span class="re0">$n0</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="sy0">+</span> <span class="re0">$c1</span> <span class="sy0">*</span> <span class="re0">$ms1</span> <span class="sy0">*</span> <span class="kw3">gmp_invert</span><span class="br0">&#40;</span><span class="re0">$ms1</span><span class="sy0">,</span> <span class="re0">$n1</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="sy0">+</span> <span class="re0">$c2</span> <span class="sy0">*</span> <span class="re0">$ms2</span> <span class="sy0">*</span> <span class="kw3">gmp_invert</span><span class="br0">&#40;</span><span class="re0">$ms2</span><span class="sy0">,</span> <span class="re0">$n2</span><span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span> <span class="sy0">%</span> <span class="br0">&#40;</span><span class="re0">$n0</span> <span class="sy0">*</span> <span class="re0">$n1</span> <span class="sy0">*</span> <span class="re0">$n2</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>תגידו לי אתם מה נראה טוב יותר. :-)<br><br><h3>סוגי MIME בשרת ה-PHP המובנה</h3><br>סוגי MIME קובעים את סוג הקובץ שהשרת מחזיר ללקוח. פלט ברירת המחדל של תוכנית PHP הוא מסוג <span dir="ltr">text/html</span>, אפשר אבל להשתמש ב-Headers כדי להגדיר את את הפלט כקובץ תמונה, למשל, ו<a href="מציירים_תמונות_עם_php.htm">ליצור תמונות</a>. כששרת מודע לסוגי ה-MIME השונים - ורוב השרתים (כגון Apache,&rlm; Nginx ו-HHVM) הם כאלה - הוא יודע איך להגיש קבצים מסוגים שונים כברירת מחדל, בלי שנצטרך להגדיר הוראות מיוחדות ב-PHP. לשרת שורת הפקודה מ-PHP 5.4 היו רק סוגי MIME מעטים עד עכשיו, והגרסה הזאת תוסיף לו עוד עשרות. בטוח לומר ששרת ה-PHP המובנה יוכל לטפל בכל סוגי ה-MIME השכיחים.<br><br><h3>PHPDBG ארוז כברירת מחדל</h3><br><a href="http://phpdbg.com/">phpdbg</a>, הדיבאגר דמוי ה-gdb, ארוז כברירת מחדל כ-SAPI (כלומר API שרת - ממשק התקשורת בין מנוע ה-PHP/Zend ל&quot;עולם החיצוני&quot;). משתמשים בו משורת הפקודה או באמצעות ממשק משתמש פשטני מבוסס Java. אפשר להגדיר באמצעותו נקודות שבירה (Break Points), לשנות את התוכנה בזמן ריצה ועוד. הוא יכול גם לפקח על Opcode ואפשר להשתמש בו גם בתוך תוכנית PHP.<br><br><h3>ועוד</h3><br>אין כאן מקום לכל השינויים ולפירוט על כל דבר. אתם מוזמנים לבדוק את <a href="http://php.net/ChangeLog-5.php#5.6.0">רשימת השינויים הרשמית</a> ולקרוא עוד ב<a href="http://docs.php.net/manual/en/migration56.php">מדריך המעבר הרשמי</a>. שימו לב שיש כמה שינויים שאינם תואמים עם קוד של גרסאות קודמות. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=16&r=g&d=monsterid" alt="OrelBeY">
+<a>OrelBeY</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2744"></a>
+<div class="blog-comment">
+<span class='comment-author'>yonikal56</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/03/2014 15:55</span><br>
+אלפא3 יצא בבקשה עדכן.</div>
+<a id="comment2768"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/04/2014 16:01</span><br>
+@yonikal56 אין יותר מדי מה להוסיף על אלפא 3 (אם כי סוף סוף הוסיפו כמה דברים מסוימים). אני אעדכן לאחר שתצא הבטא הראשונה (שהייתה אמורה לצאת כבר לפני שלושה שבועות, אם כבר מדברים על זה).</div>
+<a id="comment2777"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2014 18:37</span><br>
+סוף סוף יצאה גרסת הבטא הראשונה! :-)</div>
+<a id="comment2787"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/05/2014 15:03</span><br>
+*עדכון:* יצאה הבטא השנייה. יש בה בעיקר תיקוני באגים, אך גם שתי תכונות חדשות - אחת ל-phpdbg והשנייה ל-mysqlnd. אם זה אומר לכם משהו, לכו לרשימת השינויים הרשמית: <span dir="ltr"><a href="https://github.com/php/php-src/blob/php-5.6.0beta2/NEWS">https://github.com/php/php-src/blob/php-5.6.0beta2/NEWS</a></span></div>
+<a id="comment2816"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/08/2014 13:18</span><br>
+זהו, יצאה PHP 5.6.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

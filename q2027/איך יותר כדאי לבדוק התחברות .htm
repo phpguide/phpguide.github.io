@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך יותר כדאי לבדוק התחברות ?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משהה">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>איך יותר כדאי לבדוק התחברות ? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך יותר כדאי לבדוק התחברות ? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך יותר כדאי לבדוק התחברות ?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך יותר כדאי לבדוק התחברות .htm" title="עלתה לי שאלה איך הכי כדאי לבדוק התחברות ?מבחינת בטיחות, מהירות ומה שתרצויש אפשרות ראשונה : להשוות אימייל וסיסמה מגובבת (אל תתייחסו לתקינות\בטיחות\אם הפקודה תעבוד אלא לרעיון)[code] $pass = md5($pass);    $db-&amp;gt;query(&amp;quot;select * where email = $email and pass = $pass&amp;quot;);[/code]אם אני אקבל משו שהוא לא NULL - הכל טוב ויפהאפשרות שנייה : אותו רעיון, רק עם COUNT[code] $pass = md5($pass);    $db-&amp;gt;query(&amp;quot;s">איך יותר כדאי לבדוק התחברות ?</a></h2>
+<div class="userinfo">
+פתח
+<a>משהה</a>
+,
+<time class="timeago relativetime" datetime="2014-09-28T15:25:30+03:00" style="display:inline-block;">
+28 לספטמבר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2027'>
+עלתה לי שאלה איך הכי כדאי לבדוק התחברות ?<br>מבחינת בטיחות, מהירות ומה שתרצו<br><br>יש אפשרות ראשונה : להשוות אימייל וסיסמה מגובבת (אל תתייחסו לתקינות\בטיחות\אם הפקודה תעבוד אלא לרעיון)<br><br>[code]<br> $pass = md5($pass);<br> $db-&gt;query(&quot;select * where email = $email and pass = $pass&quot;);<br>[/code]<br><br>אם אני אקבל משו שהוא לא NULL - הכל טוב ויפה<br><br>אפשרות שנייה : אותו רעיון, רק עם COUNT<br>[code] $pass = md5($pass);<br> $db-&gt;query(&quot;select count(*) where email = $email and pass = $pass&quot;);[/code]<br><br>אפשרות שלישית : לקבל את הסיסמה ואז לגבב\מה שבאלנו ואז להשוות<br>[code] $pass = $db-&gt;query(&quot;select pass where email = $email&quot;);<br>$pass = md5($pass);<br>[/code]<br>אם יש לכם עוד אפשרות ומשו יותר יעיל ובטיחותי אשמח לשמוע על כך :)<br><br>אז מה לדעתכם יותר כדאי ? </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9080">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 28 לספטמבר 2014 </span>
+<a id="answer_9080" href="איך יותר כדאי לבדוק התחברות .htm#answer_9080">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר להגיד שהאפשרות הראשונה היא ההכי פחות נכונה משום שאתה סתם שולף נתונים שאין לך שימוש בהם.[אלה אם יש לך שימוש ולא ציינת]<br>מבחינת מהירות כדאי להוסיף limit 1 בשאילתה על מנת שהוא לא סתם ימשיך לחפש תוצאות אחרי שהוא סיים.<br>ומבחינת אבטחה לא מומלץ להשתמש יותר ב-md5 יש לך מדריך ל<a href="..\sha1 pass and salt are not secure.htm">איך לעבוד נכון עם סיסמאות</a> </p>
+</div>
+<div class="answer" id="answer9081">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 28 לספטמבר 2014 </span>
+<a id="answer_9081" href="איך יותר כדאי לבדוק התחברות .htm#answer_9081">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מבחינה טכנית האופציה השניה עדיפה, בהיותה הכי מהירה ובוודאות עדיפה על הדרך הראשונה<br><br>בפרויקטים שלי אני משתמש באופציה השלישית, כדי להציג הודעות שגיאה מתאימות יותר. מבחינתי הודעת שגיאה שאומרת &quot;שם משתמש שגוי&quot; או &quot;סיסמה שגויה&quot; עדיפה יותר מאשר &quot;שם משתמש או סיסמה לא נכונים&quot; כי זה עוזר למשתמשים להבין מה בדיוק הבעיה ומגדיל את הסיכוי שהם יתקנו את הבעיה במקום שיעזבו את האתר.<br><br><a href="..\sha1 pass and salt are not secure.htm">וגם שים לב לזה</a><br><br>נ.ב. אני רואה שsplash ענה מהר יותר :)<br>נ.נ.ב, במקום limit עדיף להוסיף <a href="..\מפתחות primary unique index.htm">unique index</a> על עמודת אימייל, ככה גם החיפוש יהיה מהיר ויעצור אחרי ששורה אחת תמצא וגם המסד לא יאפשר לשני משתמשים עם אותו אימייל להירשם </p>
+</div>
+<div class="answer" id="answer9083">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 28 לספטמבר 2014 </span>
+<a id="answer_9083" href="איך יותר כדאי לבדוק התחברות .htm#answer_9083">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה על התשובות :)<br>כן ברור שMD5 לא בטיחותי זה היה רק בשביל הדוגמה <br>אז בקיצור השני עדיף מבחינת יעילות והשלישי מבחינת חווית משתמש :)<br>בנוגע לLIMIT והUNIQUE INDEX - איך אני גורם לאימייל להיות בלעדי ? זאת אומרת שיהיה אפשר להירשם רק עם אימייל אחד? <br>לעשות בדיקה שתעבור על כל הרשומות זה לא נראה לי אפקטיבי .. במקרה של מיליון רשומות זה עומס מיותר על השרת<br>יש לכם פתרון ? </p>
+</div>
+<div class="answer" id="answer9085">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 28 לספטמבר 2014 </span>
+<a id="answer_9085" href="איך יותר כדאי לבדוק התחברות .htm#answer_9085">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לך באתר מדריך גם על <a href="..\מפתחות primary unique index.htm">מפתחות בטבלאות</a> אבל בעקרון כן,אתה אמור בנוסף למפתח unique לבדוק אם האימייל כבר קיים באמצעות שאילתה,אין לך מה לדאוג המסד מתוכנן ככה שאם יש עליו מפתח החיפוש מתבצע מהר גם כאשר מדובר בכמה מיליונים של שורות.<br><br>ואלכס אני אישית אף פעם לא סומך על זה שהמסד עושה את זה בשבילי ותמיד מוסיף limit 1 כאשר אני רוצה שרק שורה אחת תשלף </p>
+</div>
+<div class="answer" id="answer9087">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 28 לספטמבר 2014 </span>
+<a id="answer_9087" href="איך יותר כדאי לבדוק התחברות .htm#answer_9087">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לפי המדריך, את השדה אימייל לעשות כPRIMARY KEY או כUNIQUE INDEX שהרי הם אותו דבר בעצם חח<br>ואיך לעשות את השאילתת חיפוש הזאת? select count(*) from users where email = <a class="__cf_email__" href="..\cdn-cgi\l\email-protection.htm" data-cfemail="b1d4dcd0d8ddf1d4c9d0c1dcddd49fd2dedc">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>וכשזה גדול מ0 אז האימייל קיים ? או שיש שיטה יותר מהירה? </p>
+</div>
+<div class="answer" id="answer9088">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 29 לספטמבר 2014 </span>
+<a id="answer_9088" href="איך יותר כדאי לבדוק התחברות .htm#answer_9088">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שאלה מאוד נפוצה ומשום מה לא כלולה במדריך.<br>ישנם שני הבדלים בין &quot;יחודי&quot; ל&quot;מפתח ראשי&quot;<br>קודם כל,מפתח ראשי לא מסוגל להכיל null בעוד &quot;יחודי&quot; כן[פעם אחת], והיותר חשוב המפתח הראשי הוא בעצם מה שמאפיין את השורה הזאת.לכן גם ניתן להוסיף רק מפתח ראשי אחד בטבלה בעוד שמפתחות יחודיים אתה יכול להוסיף כראות עינייך<br>אימייל לא יכול להיות מפתח ראשי משום שמשתמש יכול לשנות את האימייל שלו ולכן הוא לא מה שמייצג לנו את העמודה,מה שכן אמור לייצג את העמודה זה ID מסויים שאינו אמור להשתנות.<br><br>לגבי שטת בדיקה,עושים זאת בדרך שציינת. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

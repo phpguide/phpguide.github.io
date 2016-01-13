@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שגיאה בהרצת Apache">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שגיאה בהרצת Apache | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שגיאה בהרצת Apache | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שגיאה בהרצת Apache">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">13</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שגיאה בהרצת Apache.htm" title="כאשר אני מריץ את ה Apache על המחשב שלי, אני מקבל שגיאה:The requested operation has failedעבדתי לפי המדריך הזה, זה הראה לי בהתחלה it works, הבעיה היא בקישור בין Apache לPHP.אם אני מוחק את השורה של הקישור:LoadModule php5_module &amp;quot;c:/www/server/php/php5apache2_2.dll&amp;quot;">שגיאה בהרצת Apache</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2013-02-26T19:13:35+02:00" style="display:inline-block;">
+26 לפברואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1269'>
+כאשר אני מריץ את ה Apache על המחשב שלי, אני מקבל שגיאה:<br><div class="php codeblock">The requested operation has failed</div><br><br>עבדתי לפי המדריך <strong><a href="..\התקנת_PHP_Apache_MySQL.htm">הזה</a></strong>, זה הראה לי בהתחלה it works, הבעיה היא בקישור בין Apache לPHP.<br><br>אם אני מוחק את השורה של הקישור:<br><div class="php codeblock">LoadModule php5_module <span class="st0">&quot;c:/www/server/php/php5apache2_2.dll&quot;</span></div><br>זה רץ ולא מראה שגיאה, ברגע שאני כותב את השורה הזו ומריץ זה מראה את השגיאה.<br>הנתיב לקובץ תקין, ממה זה נובע ?<br><br><strong><span class="underline">* אני עם APACHE 2.4.4 ו PHP 5.4.12</span></strong> </div>
+</div>
+<h3>
+<span id="answersCounter">13 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5560">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 26 לפברואר 2013 </span>
+<a id="answer_5560" href="שגיאה בהרצת Apache.htm#answer_5560">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כמו כל בעיה, צריך להתחיל מלבדוק מהי.<br>כדי לבדוק מה הבעיה, צריך ללכת לקובץ הלוג ולראות מה apache חושב שהבעיה.<br><span dir="ltr">c/www/server/apache/logs/..error..</span><br><br>או אופציה נוספת היא לפתוח את CMD, לגשת לתיקיה של<br>server/apache/bin<br>ולהריץ משם את הפקודה httpd.exe<br>ככה כל הפלט יופיע בקונסול.<br><br>יכול להיות שהנתיב לקובץ לא נכון או משהו בסגנון. </p>
+</div>
+<div class="answer" id="answer5565">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 26 לפברואר 2013 </span>
+<a id="answer_5565" href="שגיאה בהרצת Apache.htm#answer_5565">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="br0">&#91;</span>Wed Feb <span class="nu0">27</span> <span class="nu8">00</span><span class="sy0">:</span><span class="nu0">56</span><span class="sy0">:</span><span class="nu19">29.860351</span> <span class="nu0">2013</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>mpm_winnt<span class="sy0">:</span>notice<span class="br0">&#93;</span> <span class="br0">&#91;</span>pid <span class="nu0">7084</span><span class="sy0">:</span>tid <span class="nu0">632</span><span class="br0">&#93;</span> AH00455<span class="sy0">:</span> Apache<span class="sy0">/</span>2<span class="sy0">.</span>4<span class="sy0">.</span>3 <span class="br0">&#40;</span>Win64<span class="br0">&#41;</span> configured <span class="sy0">--</span> resuming normal operations<br>
+<span class="br0">&#91;</span>Wed Feb <span class="nu0">27</span> <span class="nu8">00</span><span class="sy0">:</span><span class="nu0">56</span><span class="sy0">:</span><span class="nu19">29.860351</span> <span class="nu0">2013</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>mpm_winnt<span class="sy0">:</span>notice<span class="br0">&#93;</span> <span class="br0">&#91;</span>pid <span class="nu0">7084</span><span class="sy0">:</span>tid <span class="nu0">632</span><span class="br0">&#93;</span> AH00456<span class="sy0">:</span> Server built<span class="sy0">:</span> Nov <span class="nu0">12</span> <span class="nu0">2012</span> <span class="nu0">12</span><span class="sy0">:</span><span class="nu0">31</span><span class="sy0">:</span><span class="nu0">35</span><br>
+<span class="br0">&#91;</span>Wed Feb <span class="nu0">27</span> <span class="nu8">00</span><span class="sy0">:</span><span class="nu0">56</span><span class="sy0">:</span><span class="nu19">29.860351</span> <span class="nu0">2013</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>core<span class="sy0">:</span>notice<span class="br0">&#93;</span> <span class="br0">&#91;</span>pid <span class="nu0">7084</span><span class="sy0">:</span>tid <span class="nu0">632</span><span class="br0">&#93;</span> AH00094<span class="sy0">:</span> Command line<span class="sy0">:</span> <span class="st_h">'C:\\www\\server\\Apache\\bin\\httpd.exe -d D:/server_bnsd/Apache -f C:\\www\\server\\Apache\\conf\\httpd.conf -d C:\\www\\server\\\\Apache\\.'</span><br>
+<span class="br0">&#91;</span>Wed Feb <span class="nu0">27</span> <span class="nu8">00</span><span class="sy0">:</span><span class="nu0">56</span><span class="sy0">:</span><span class="nu19">29.861328</span> <span class="nu0">2013</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>mpm_winnt<span class="sy0">:</span>notice<span class="br0">&#93;</span> <span class="br0">&#91;</span>pid <span class="nu0">7084</span><span class="sy0">:</span>tid <span class="nu0">632</span><span class="br0">&#93;</span> AH00418<span class="sy0">:</span> Parent<span class="sy0">:</span> Created child process <span class="nu0">6656</span><br>
+AH00558<span class="sy0">:</span> httpd<span class="sy0">.</span>exe<span class="sy0">:</span> Could not reliably determine the server<span class="st_h">'s fully qualified domain name, using fe80::c4f2:1038:c5e3:fb44. Set the '</span>ServerName<span class="st_h">' directive globally to suppress this message<br>
+AH00558: httpd.exe: Could not reliably determine the server'</span>s fully qualified domain name<span class="sy0">,</span> using fe80<span class="sy0">::</span><span class="me2">c4f2</span><span class="sy0">:</span><span class="nu0">1038</span><span class="sy0">:</span>c5e3<span class="sy0">:</span>fb44<span class="sy0">.</span> Set the <span class="st_h">'ServerName'</span> directive globally to suppress this message<br>
+<span class="br0">&#91;</span>Wed Feb <span class="nu0">27</span> <span class="nu8">00</span><span class="sy0">:</span><span class="nu0">56</span><span class="sy0">:</span><span class="nu19">30.207031</span> <span class="nu0">2013</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>mpm_winnt<span class="sy0">:</span>notice<span class="br0">&#93;</span> <span class="br0">&#91;</span>pid <span class="nu0">6656</span><span class="sy0">:</span>tid <span class="nu0">568</span><span class="br0">&#93;</span> AH00354<span class="sy0">:</span> Child<span class="sy0">:</span> Starting <span class="nu0">64</span> worker threads<span class="sy0">.</span><br>
+<span class="br0">&#91;</span>Wed Feb <span class="nu0">27</span> <span class="nu8">00</span><span class="sy0">:</span><span class="nu0">57</span><span class="sy0">:</span><span class="nu19">14.213867</span> <span class="nu0">2013</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>mpm_winnt<span class="sy0">:</span>notice<span class="br0">&#93;</span> <span class="br0">&#91;</span>pid <span class="nu0">7084</span><span class="sy0">:</span>tid <span class="nu0">632</span><span class="br0">&#93;</span> AH00422<span class="sy0">:</span> Parent<span class="sy0">:</span> Received shutdown signal <span class="sy0">--</span> Shutting down the server<span class="sy0">.</span><br>
+<span class="br0">&#91;</span>Wed Feb <span class="nu0">27</span> <span class="nu8">00</span><span class="sy0">:</span><span class="nu0">57</span><span class="sy0">:</span><span class="nu19">16.213867</span> <span class="nu0">2013</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>mpm_winnt<span class="sy0">:</span>notice<span class="br0">&#93;</span> <span class="br0">&#91;</span>pid <span class="nu0">6656</span><span class="sy0">:</span>tid <span class="nu0">568</span><span class="br0">&#93;</span> AH00364<span class="sy0">:</span> Child<span class="sy0">:</span> All worker threads have exited<span class="sy0">.</span><br>
+<span class="br0">&#91;</span>Wed Feb <span class="nu0">27</span> <span class="nu8">00</span><span class="sy0">:</span><span class="nu0">57</span><span class="sy0">:</span><span class="nu19">16.234375</span> <span class="nu0">2013</span><span class="br0">&#93;</span> <span class="br0">&#91;</span>mpm_winnt<span class="sy0">:</span>notice<span class="br0">&#93;</span> <span class="br0">&#91;</span>pid <span class="nu0">7084</span><span class="sy0">:</span>tid <span class="nu0">632</span><span class="br0">&#93;</span> AH00430<span class="sy0">:</span> Parent<span class="sy0">:</span> Child process exited successfully<span class="sy0">.</span><br>
+AH00558<span class="sy0">:</span> httpd<span class="sy0">.</span>exe<span class="sy0">:</span> Could not reliably determine the server<span class="st_h">'s fully qualified domain name, using fe80::c4f2:1038:c5e3:fb44. Set the '</span>ServerName<span class="st_h">' directive globally to suppress this message<br>
+[Wed Feb 27 00:59:11.263671 2013] [mpm_winnt:notice] [pid 6288:tid 632] AH00455: Apache/2.4.3 (Win64) configured -- resuming normal operations<br>
+[Wed Feb 27 00:59:11.264648 2013] [mpm_winnt:notice] [pid 6288:tid 632] AH00456: Server built: Nov 12 2012 12:31:35<br>
+[Wed Feb 27 00:59:11.264648 2013] [core:notice] [pid 6288:tid 632] AH00094: Command line: '</span>C<span class="sy0">:</span>\\www\\server\\Apache\\bin\\httpd<span class="sy0">.</span>exe <span class="sy0">-</span>d D<span class="sy0">:/</span>server_bnsd<span class="sy0">/</span>Apache <span class="sy0">-</span>f C<span class="sy0">:</span>\\www\\server\\Apache\\conf\\httpd<span class="sy0">.</span>conf <span class="sy0">-</span>d C<span class="sy0">:</span>\\www\\server\\Apache\\<span class="sy0">.</span><span class="st_h">'<br>
+[Wed Feb 27 00:59:11.265625 2013] [mpm_winnt:notice] [pid 6288:tid 632] AH00418: Parent: Created child process 6796<br>
+AH00558: httpd.exe: Could not reliably determine the server'</span>s fully qualified domain name<span class="sy0">,</span> using fe80<span class="sy0">::</span><span class="me2">c4f2</span><span class="sy0">:</span><span class="nu0">1038</span><span class="sy0">:</span>c5e3<span class="sy0">:</span>fb44<span class="sy0">.</span> Set the <span class="st_h">'ServerName'</span> directive globally to suppress this message<br>
+AH00558<span class="sy0">:</span> httpd<span class="sy0">.</span>exe<span class="sy0">:</span> Could not reliably determine the server<span class="st_h">'s fully qualified domain name, using fe80::c4f2:1038:c5e3:fb44. Set the '</span>ServerName<span class="st_h">' directive globally to suppress this message<br>
+[Wed Feb 27 00:59:11.680664 2013] [mpm_winnt:notice] [pid 6796:tid 568] AH00354: Child: Starting 64 worker threads.</span></div> </p>
+</div>
+<div class="answer" id="answer5568">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 לפברואר 2013 </span>
+<a id="answer_5568" href="שגיאה בהרצת Apache.htm#answer_5568">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכתב לשם משהו נוסף אחרי שאתה עושה בקשה לעמוד עם קובץ PHP?<br>מתוך מה שיש כאן לא נראה כאילו יש לשרת בכלל בעיון כלשהן. </p>
+</div>
+<div class="answer" id="answer5569">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 27 לפברואר 2013 </span>
+<a id="answer_5569" href="שגיאה בהרצת Apache.htm#answer_5569">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כלום לא נכתב... </p>
+</div>
+<div class="answer" id="answer5590">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 01 למרץ 2013 </span>
+<a id="answer_5590" href="שגיאה בהרצת Apache.htm#answer_5590">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כמה שחיפשתי באינטרנט לא מצאתי פתרון, רק כשאני מוחק את שתי השורות של הקישור בין הPHP לAPACHE זה מריץ.<br>אחרת, שגיאה. </p>
+</div>
+<div class="answer" id="answer5591">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 למרץ 2013 </span>
+<a id="answer_5591" href="שגיאה בהרצת Apache.htm#answer_5591">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה כנראה בגלל תאימות הרכיבים.<br><a href="..\התקנת_PHP_Apache_MySQL.htm">עדכנתי את המדריך</a>. נסה להוריד מחדש את כל הרכיבים. </p>
+</div>
+<div class="answer" id="answer5592">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 01 למרץ 2013 </span>
+<a id="answer_5592" href="שגיאה בהרצת Apache.htm#answer_5592">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לי וינדוס 64BIT, ומה שהורדתי זה מהלשונית windows 64 שיש באתר שנתת שם.<br>הוספת שצריך להוריד את הקובץ httpd-2.x.x-win32-ssl_0.9.8.zip, אבל בלשונית של 64BIT אין את זה.... </p>
+</div>
+<div class="answer" id="answer5594">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 02 למרץ 2013 </span>
+<a id="answer_5594" href="שגיאה בהרצת Apache.htm#answer_5594">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה היא ש apache 64 bit וה php שמורץ (בתוך apache) הוא 32 ביט. הם לא מסתדרים ביחד.<br>תוריד את אפאצ&#039;י 32 ביט. </p>
+</div>
+<div class="answer" id="answer5595">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 02 למרץ 2013 </span>
+<a id="answer_5595" href="שגיאה בהרצת Apache.htm#answer_5595">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הורדתי גם את ה 32 וזה עדיין אותה שגיאה. מחרפן :S<br>הקובץ של ה apache שהורדתי נקרא httpd-2.4.4-win32-ssl_0.9.8 מסוג ZIP כמו שכתבת במדריך.<br>וגם כאן רק אם אני מוריד את השורה של הניתוב לקובץ ה php5apache2_2.dll ה apache עובדת. אחרת שגיאה. </p>
+</div>
+<div class="answer" id="answer5596">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 02 למרץ 2013 </span>
+<a id="answer_5596" href="שגיאה בהרצת Apache.htm#answer_5596">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הורדת את הגרסה הנכונה של PHP?<br>vc9 thread safe ? </p>
+</div>
+<div class="answer" id="answer5597">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 02 למרץ 2013 </span>
+<a id="answer_5597" href="שגיאה בהרצת Apache.htm#answer_5597">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן........... </p>
+</div>
+<div class="answer" id="answer5612">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 04 למרץ 2013 </span>
+<a id="answer_5612" href="שגיאה בהרצת Apache.htm#answer_5612">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+HELP? </p>
+</div>
+<div class="answer" id="answer5613">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 04 למרץ 2013 </span>
+<a id="answer_5613" href="שגיאה בהרצת Apache.htm#answer_5613">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה לא יכול להתקין WampServer וזהו? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

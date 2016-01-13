@@ -1,0 +1,19 @@
+<head/><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;
+<br/>var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">checkTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'17:50'</span><span style="color: #007700">));
+<br/></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">checkTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'17:60'</span><span style="color: #007700">));
+<br/></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">checkTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'57:69'</span><span style="color: #007700">));
+<br/></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">checkTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'57:01'</span><span style="color: #007700">));
+<br/></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">checkTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'23:00'</span><span style="color: #007700">));
+<br/>
+<br/>function&nbsp;</span><span style="color: #0000BB">checkTime</span><span style="color: #007700">(</span><span style="color: #0000BB">$time</span><span style="color: #007700">)
+<br/>{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">mb_strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$time</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">':'</span><span style="color: #007700">))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;list(</span><span style="color: #0000BB">$hh</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mm</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(</span><span style="color: #DD0000">':'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$time</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">);
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">ctype_digit</span><span style="color: #007700">(</span><span style="color: #0000BB">$hh</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">ctype_digit</span><span style="color: #007700">(</span><span style="color: #0000BB">$mm</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$hh&nbsp;</span><span style="color: #007700">&gt;=&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$hh&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">23&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$mm&nbsp;</span><span style="color: #007700">&gt;=&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$mm&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">59</span><span style="color: #007700">;
+<br/>}</span>
+</span>
+</code>1

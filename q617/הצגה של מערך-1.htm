@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הצגה של מערך">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_225559">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הצגה של מערך | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הצגה של מערך | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הצגה של מערך">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הצגה של מערך-1.htm" title="jQuery שולח אוביקט (מערך) בצורת  json  &amp;quot;data&amp;quot; אני מקבל את המערך בphp ממיר אותו בחזרה לאוביקט במקרה שלי אוביקט זה מערךאם אני רושם את הפקודה print_r&amp;#40;$res&amp;#41;; מדפיס באמת מערך.אני רושם $res = json_decode">הצגה של מערך</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_225559</a>
+,
+<time class="timeago relativetime" datetime="2012-06-07T17:03:18+03:00" style="display:inline-block;">
+07 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText617'>
+jQuery שולח אוביקט (מערך) בצורת json <br>&quot;data&quot; אני מקבל את המערך בphp ממיר אותו בחזרה לאוביקט במקרה שלי אוביקט זה מערך<br>אם אני רושם את הפקודה <div class="php codeblock"><span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$res</span><span class="br0">&#41;</span><span class="sy0">;</span></div> מדפיס באמת מערך.<br>אני רושם <div class="php codeblock"><span class="re0">$res</span> <span class="sy0">=</span> <span class="kw3">json_decode</span><span class="br0">&#40;</span><span class="re0">$_REQUEST</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$res</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">-&gt;</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$resualt</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$key</span><span class="sy0">.</span><span class="st_h">'='</span><span class="sy0">.</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$resualt</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div>לא מתבצע כלום למה?<br>הקוד המלא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$res</span> <span class="sy0">=</span> <span class="kw3">json_decode</span><span class="br0">&#40;</span><span class="re0">$_REQUEST</span><span class="br0">&#91;</span><span class="st_h">'data'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$res</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">-&gt;</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$resualt</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$key</span><span class="sy0">.</span><span class="st_h">'='</span><span class="sy0">.</span><span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$resualt</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="co1">//print_r($res);</span><br>
+<span class="co1">//echo json_encode($res);</span><br>
+<span class="sy1">?&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2393">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/0cbc3c4f1ddcbc05b8ff79f8bd14174b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225559</a>
+ב
+<span style="font-size:10px"> 07 ליוני 2012 </span>
+<a id="answer_2393" href="הצגה של מערך-1.htm#answer_2393">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טוב מצאתי התבלבלתי jQuery השפיע עלי. צריך לרשום =&gt; במקום -&gt; </p>
+</div>
+<div class="answer" id="answer2649">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/bc359b3e48612fbda99cc258b5d6f1d4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ניב</a>
+ב
+<span style="font-size:10px"> 16 ליוני 2012 </span>
+<a id="answer_2649" href="הצגה של מערך-1.htm#answer_2649">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כדי להמנע מטעויות כאלו, הייתי ממליץ לך להשתמש במהדר איכותי (כדוגמת PHPDESIGNER) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

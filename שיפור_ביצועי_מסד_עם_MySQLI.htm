@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מבוא ודוגמאות לשימוש בספריית MYSQLI: Mysql Improved לעבודה יעילה ונוחה עם המסד">
+<meta name="keywords" content="mysqli">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שיפור ביצועי מסד עם MySQLI</title>
+<meta itemprop="name" content="שיפור ביצועי מסד עם MySQLI">
+<meta itemprop="description" content="מבוא ודוגמאות לשימוש בספריית MYSQLI: Mysql Improved לעבודה יעילה ונוחה עם המסד">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"29","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>שיפור ביצועי מסד עם MySQLI</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-11-26T08:51:48+02:00" dir="rtl">26 לנובמבר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/mysqli.jpg" alt="שיפור ביצועי מסד עם MySQLI">
+</div>
+<div class="right post-content">
+כפי שהשם אומר <span dir="ltr">mysqli = mysql Improved</span> זוהי ספריה משופרת לעבודה עם <span dir="ltr">mysql</span>. הכננו לכם רשימה של שיפורים — 7 סיבות למה להשתמש דווקא בה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>למה <strong>mysqli</strong>?</h3><br>1. שיפור של כ-<span dir="ltr">20%</span> ביצועים<br>2. ממשק תפעול מונחה עצמים <span dir="ltr">(object oriented)</span><br>3. תמיכה בשאילתות מוכנות מראש <span dir="ltr">(prepared statements)</span><br>4. תמיכה בשאילתות מרובות <span dir="ltr">(multiple statements)</span> <br>5. תמיכה בטראנזקציות<br>6. כלים משופרים לניפוי (דיבאג) שגיאות<br>7. תמיכה בפרוצדורות מסד <span dir="ltr">(stored procedures)</span><br><br><br><h2>I. התקנת mysqli</h2><br>סביר להניח שחברת האחסון שלכם כבר תומכת בהרחבה mysqli<br>ויהיה צורך להפעיל אותה על המחשב הביתי שלכם.<br><br>1. פתחו את קובץ ההדגרות <span dir="ltr">php.ini</span><br>ניתן להיעזר בכתבה <a href="איפה_נמצא_phpini.htm">איך למצוא את קובץ ההגדרות php.ini</a><br><br>2. מצאו בקובץ את המילה mysqli<br>החיפוש יוביל אותכם לשורה הבאה או משהו דומה לה:<br><div class="php codeblock"><span class="sy0">;</span>extension<span class="sy0">=</span>php_mysqli<span class="sy0">.</span>dll</div><br>יש להוריד את הנקודה-פסיק מתחילת השורה, לשמור את הקובץ <br>ולהפעיל מחדש את השרת.<br><br><h2>II. התחברות ראשונה למסד</h2><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="co1">// Connecting to the database at</span><br>
+<span class="co1">// localhost, with user: my_user, password: my_password, database: my_db</span><br>
+<span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'my_user'</span><span class="sy0">,</span> <span class="st_h">'my_password'</span><span class="sy0">,</span> <span class="st_h">'my_db'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// If there was an error during the connection - output it</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp;<span class="kw3">die</span><span class="br0">&#40;</span><span class="st_h">'Connect Error ('</span> <span class="sy0">.</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">connect_errno</span> <span class="sy0">.</span> <span class="st_h">') '</span> <span class="sy0">.</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+<span class="kw1">echo</span> <span class="st_h">'Successfully connected to '</span> <span class="sy0">.</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">host_info</span> <span class="sy0">;</span><br>
+<br>
+<span class="co1">// Close the connection handler</span><br>
+<span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>שימו לב, פונקציית החיבור למסד מקבלת ארבעה פרמטרים ולא שלושה.<br>הפרמטר הרביעי הוא שם המסד שאותו רשמנו בפונקציה mysql_select_db בעבר.<br><br>במידה ויש שגיאה כלשהי בהתחברות, php תציב ערכים כלשהם במאפיינים <br><span dir="ltr">connect_errno</span> ו-<span dir="ltr">connect_error</span> של האובייקט.<br><br>אם ההתחברות הצליחה, במאפיין host_info יופיע שם שרת הmysql<br>שיהיה localhost במקרה שלנו.<br><br>בתום התהליך עלינו לשחרר את הזיכרון ולנתק את החיבור של php מהמסד.<br>חשוב לזכור לנתק את החיבור משני סיבות: <br>א. לפנות זכרון (למרות ש-php תעה זאת בעצמה מאוחר יותר)<br>ב. יש הגבלה על כמות חיבורים מקבילים למסד<br><br><h2>III. שליפה עם mysqli</h2><br>בואו נבצע את השאילתה <span dir="ltr"><em>SELECT NOW( )</em></span> באמצעות mysqli<br>השאילתה הזו צריכה להחזיר שורה אחת בלבד עם עמודה אחת בלבד בה.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'my_user'</span><span class="sy0">,</span> <span class="st_h">'my_password'</span><span class="sy0">,</span> <span class="st_h">'my_db'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span> &nbsp;<span class="kw3">die</span><span class="br0">&#40;</span><span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'Successfully connected to '</span> <span class="sy0">.</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">host_info</span> <span class="sy0">;</span><br>
+<br>
+<br>
+<span class="co1">// mysqli-&gt;query creates a NEW OBJECT</span><br>
+&nbsp;<span class="co1">//This object has it's own properties and methods</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'SELECT NOW()'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Mysql returned '</span><span class="sy0">,</span><span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">num_rows</span><span class="sy0">,</span> <span class="st_h">' row with '</span><span class="sy0">,</span> <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">field_count</span><span class="sy0">,</span><span class="st_h">' field'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">// Mysql returned 1 row with 1 field</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/* while ( $row = $result-&gt;fetch_row() ) echo &quot;Now it's: &quot;, row[0]; */</span><br>
+&nbsp; &nbsp; <span class="re0">$row</span> <span class="sy0">=</span> <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">fetch_row</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Now it's: &quot;</span><span class="sy0">,</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/* free result set */</span><br>
+&nbsp; &nbsp; <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>mysqli-&gt;query יוצרת אובייקט חדש לחלוטין מסוג <a href="http://php.net/manual/en/class.mysqli-result.php">mysqli_result</a><br>עם מטודות ומאפיינים משלו. <br><br>לאחר שליפה, באמצעות לולאה נעבור על כל השורות ונוציא מהם את הערכים, כפי שעשינו עם mysql. <br>במקרה שלנו יש רק שורה אחת, לכן הלולאה תפעל רק פעם אחת.<br>לכן בעצם אין צורך בלולאה עצמה כלל.<br><br>ב-mysql יכולנו להשתמש בפונקציה mysql_result כדי לגשת לעמודה אחת בשורה אחת בלי לולאות ומערכים. ב-mysqli אין פונקציה זהה, לכן יהיה עלינו להשתמש באחת מפונקציות ה-<span dir="ltr">fetch</span>:<br><br><span class="dirleft">$result-&gt;<a href="http://php.net/manual/en/mysqli-result.fetch-row.php">fetch_row</a><br>$result-&gt;<a href="http://php.net/manual/en/mysqli-result.fetch-assoc.php">fetch_assoc</a><br>$result-&gt;<a href="http://php.net/manual/en/mysqli-result.fetch-array.php">fetch_array</a><br>$result-&gt;<a href="http://php.net/manual/en/mysqli-result.fetch-object.php">fetch_object</a><br></span><br><br><h3>שיחרור תוצאות, MYSQLI_USE_RESULT or MYSQLI_STORE_RESULT</h3><br>חשוב מאוד לשהתמש ב <span dir="ltr">$result-&gt;close</span> לאחר השאילתה כדי למחוק את תוצאות השליפה הקודמות. הצורך בא נובע מאופן בו נשמרים הנתונים הנשלפים.<br><br>mysqli-&gt;query מקבלת שני פרמטרים, הראשון הוא השאילתה שיש לבצע והשני הוא אופן השליפה. אופני השליפה נבדלים זה מזה באופן בו התוצאות נשמרות:<br><br>אפשרות ראשונה MYSQLI_STORE_RESULT היא שנשלוף את כל הנתונים מהמסד לזיכרון של php ונעבוד איתם מהזיכרון של php בלי שום קשר נוסף למסד.<br><br>האפשרות השניה, MYSQLI_USE_RESULT היא שנבצע את השאילתה, המסד יכין את רשימת התוצאות ויחזיר לנו רק את השורה הראשונה. לאחר שנעבוד עם השורה הראשונה — ייגש php שוב אל המסד ויקבל את השורה השניה מתוצאות המוכנות מראש (ללא ביצוע השאילתה פעם נוספת). <br><br>במידה ויש לנו כמות נתונים קטנה שניתן למקם את כולה בזיכרון, רצוי לשלוף את כל הנתונים פעם אחת באמצעות האופציה הראשונה ולעבוד איתה, כך שהעבודה עם המסד תהיה מהירה יותר (ללא גישה מרובה למסד).<br><br>במידה וכמות הנתונים ששלפנו גדולה, אין צורך להכניס את כולה לזיכרון ו-php ידאג לייבא את השורות מהמסד בהתאם.<br><br>מבחינת הקוד שלנו שני האפשרויות זהות לחלוטין וההבדל הוא רק בפרמטר השני של הפונקציה mysqli-&gt;query, כאשר מתחת לפני השטח php ידאג להביא את הנתונים מהמקום המתאים.<br><br>כאשר אנחנו משתמשים באפשרות השניה, של שמירת נתונים במסד יוצרת php חיבור מתמיד אל המסד עם מצביעים פנימיים שלה ושל המסד כדי לתאם עם המסד מהי השורה הבאה שצריך להחזיר מאיזה רשימת תוצאות. <br><br>במקרה הזה, אם ננסה לבצע שאילתה נוספת נתקל בשגיאה<span class="dirleft"><br><em>Error: Commands out of sync; You can&apos;t run this command now</em></span><br><br>לכן עלינו ראשית למחוק את תוצאת השליפה הקודמת והקישוריות הזו בין php למסד ורק לאחר מכן להפעיל את השאילתה הבאה בעזרת <span dir="ltr">$result-&gt;close()</span><br><br><h2>IV. חיטוי נתונים</h2><br>גם ב-mysqli יש לחטא את הנתונים לפני ההכנסה למסד.<br>האופן זהה מאוד ל-mysql<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="sy0">...</span><br>
+<span class="re0">$city</span> <span class="sy0">=</span> <span class="st0">&quot; 'Yohansburg or 1=1 &quot;</span><span class="sy0">;</span><br>
+<span class="re0">$city</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">real_escape_string</span><span class="br0">&#40;</span><span class="re0">$city</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><br><h2>V. כתיבת מעטפת לנוחות מירבית</h2><br>הרבה פעמים חוזרת הבדיקה האם ההתחברות הצליחה לאחר התחברות או חוזרים על עצמם חלקים אחרים של קוד. את אותו קוד ניתן להכניס למחלקה משלנו לעבודה עם המסד. לדוגמה באופן הבא:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> db <span class="kw2">extends</span> mysqli <br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$connected</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="sy0">,</span> <span class="re0">$db</span><span class="sy0">,</span> <span class="re0">$charset</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; parent<span class="sy0">::</span>__construct<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pass</span><span class="sy0">,</span> <span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span> <span class="kw3">die</span><span class="br0">&#40;</span><span class="st0">&quot;Connection Error: &quot;</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">set_charset</span><span class="br0">&#40;</span><span class="re0">$charset</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connected</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> query<span class="br0">&#40;</span><span class="re0">$query</span><span class="sy0">,</span> <span class="re0">$resultmode</span> <span class="sy0">=</span> <span class="kw3">MYSQLI_STORE_RESULT</span> <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$res</span> <span class="sy0">=</span> parent<span class="sy0">::</span><span class="me2">query</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="sy0">,</span> <span class="re0">$resultmode</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$res</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">&#41;</span> <span class="kw3">die</span><span class="br0">&#40;</span><span class="st0">&quot;SQL Error: &quot;</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">error</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$res</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">function</span> __destruct<span class="br0">&#40;</span><span class="br0">&#41;</span> &nbsp; <span class="br0">&#123;</span> &nbsp; &nbsp;<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">connected</span><span class="br0">&#41;</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> db<span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span><span class="st_h">'my_user'</span><span class="sy0">,</span><span class="st_h">'my_password'</span><span class="sy0">,</span> <span class="st_h">'my_db'</span><span class="sy0">,</span> <span class="st_h">'utf8'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>המחלקה הזו מרחיבה את <a href="http://php.net/manual/en/class.mysqli.php">המחלקה mysqli</a> הבסיסית ומוסיפה לה את בדיקת ההתחברות ובחירת קידוד בזמן ההתחברות, הודעה על שגיאות בשאילתות במידה ויהיו כאלו וסגירה אוטומטית של החיבור למסד בסוף הסקריפט.<br><br>ניתן להשתמש בזה על מנת להעביר את המשתמש לעמוד שגיאה ספציפי<br>או להוסיף פונקציונליות אחרת למעטפת במידת הצורך, כמו ניתור שגיאות.<br><br><br><br>זהו בסיס השימוש ב-<span dir="ltr"><a href="http://www.php.net/manual/en/class.mysqli.php">MySQL Improved</a></span><br>שכוללת בין היתר אפשרויות נוספות שלא עמדנו עליהם בכתבה זו.<br><br>רוב המתכנתים עברו ל mysqli מאז הופעתה ב-PHP5<br>ואתה? </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment14"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/03/2011 16:30</span><br>
+יפה מאוד!!</div>
+<a id="comment146"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/05/2011 12:25</span><br>
+כל הכבוד :)</div>
+<a id="comment437"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/07/2011 17:05</span><br>
+very usefull small class</div>
+<a id="comment556"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/08/2011 20:20</span><br>
+ראיתי גם שבמקום mysqli-&gt;num_rows וכל אלה, אפשר mysqli_num_rows..<br>
+כנ&quot;ל גם לגבי fetch, mysqli_query וכו&apos;...<br>
+<br>
+האם יש הבדל בין השורות האלה? :<br>
+<br>
+mysqli_query(&apos;SELECT NOW()&apos;)<br>
+<br>
+mysqli-&gt;query(&apos;SELECT NOW()&apos;)</div>
+<a id="comment558"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/08/2011 21:55</span><br>
+הדוגמה הראשונה היא שימוש בפונקציות של mysqli בתכנות פרוצדורלי, והשני זהו תכנות מונחה עצמים שיתאים לך יותר עם אתה עובד ב OOP</div>
+<a id="comment572"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 18:21</span><br>
+את זה אני הבנתי, השאלה היא האם יש הבדלי מהירות בינהם ויש דרך &quot;עדיפה&quot; מסיבה מסוימת.</div>
+<a id="comment573"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 18:22</span><br>
+לא. שניהם מבצעות את אותו הקוד מתחת לפני השטח.<br>
+הבחירה שלך צריכה להיות מטעמי נוחות.</div>
+<a id="comment581"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 04:00</span><br>
+תודה רבה, עזרת לי מאוד. :)</div>
+<a id="comment691"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/08/2011 15:47</span><br>
+$mysqli = new mysqli($host, $user, $pass, $db);<br>
+if($mysqli-&gt;connect_error || $mysqli-&gt;connect_errno) <br>
+die(&apos;This is error.&apos;);<br>
+<br>
+ברגע שאני מריץ את זה בWAMP והערכים שנשלחים למחלקה שגויים מלבד השרת (localhost) , נפלטת לי שגיאה מהמחלקה עצמה , אני לא מדבר על ה DIE.<br>
+<br>
+מה לעשות ?</div>
+<a id="comment693"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/08/2011 16:40</span><br>
+לטפוס את השגיאה.<br>
+אפ תשאל את זה דרך הפורום בצירוף הודעת השגיאה - אדע לעזור לך ביתר דיוק :)</div>
+<a id="comment1013"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/12/2011 00:38</span><br>
+קיימת טבלה שמציגה את המשתנים של MYSQL ושל MYSQLI בהשוואה ?<br>
+זה יעזור לי ממש.</div>
+<a id="comment1014"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/12/2011 00:48</span><br>
+אין טבלה, יש דוקומנטציה. <br>
+אם תנסה להשוות את mysqli לדברים אחרים זה לא ייתן לך הרבה. יש הרבה דברים שונים. תסתכל על זה בתור משהו חדש ולא קשור להרחבת mysql הרגילה. פשוט תלמד להישתמש ב mysqli מאפס וזהו.</div>
+<a id="comment1835"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/08/2012 15:41</span><br>
+מה עדיך יותר mysqli או PDO ?<br>
+אני כרגע עובד עם PDO יותר נוח לי איתו.<br>
+להשאר איתו או שיותר עדיף Mysqli ?</div>
+<a id="comment1837"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/08/2012 17:53</span><br>
+תישאר עם pdo ...</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

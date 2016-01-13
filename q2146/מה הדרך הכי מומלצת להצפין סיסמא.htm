@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מה הדרך הכי מומלצת להצפין סיסמא">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nati323">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מה הדרך הכי מומלצת להצפין סיסמא | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מה הדרך הכי מומלצת להצפין סיסמא | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מה הדרך הכי מומלצת להצפין סיסמא">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מה הדרך הכי מומלצת להצפין סיסמא.htm" title="מה הדרך הכי מומלצת להצפין סיסמא כאשר הפונקציה password_hash() לא נתמכת בגלל גירסא ישנה של השרת?">מה הדרך הכי מומלצת להצפין סיסמא</a></h2>
+<div class="userinfo">
+פתח
+<a>nati323</a>
+,
+<time class="timeago relativetime" datetime="2015-06-03T14:55:48+03:00" style="display:inline-block;">
+03 ליוני 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2146'>
+מה הדרך הכי מומלצת להצפין סיסמא כאשר הפונקציה password_hash() לא נתמכת בגלל גירסא ישנה של השרת? </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9377">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2015 </span>
+<a id="answer_9377" href="מה הדרך הכי מומלצת להצפין סיסמא.htm#answer_9377">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>רגע, זה לא מPHP5.5 ?<br></strong><br>למרות שהפונקציות האלה מופיעות רק ב PHP 5.5 - אתה יכול להתחיל להשתמש בהם כבר עכשיו.<br>פשוט תעשה אינקלוד לקובץ <a href="https://github.com/ircmaxell/password_compat/blob/master/lib/password.php">password_compat</a> ותתחיל להשתמש. הקוד יבדוק לבד את גרסת ה-PHP שלך ובהתאם לזה יחליט אם להשתמש בפונקציות המובנות בשפה עצמה או בפונקציות הממומשות בקובץ.<br><br>https://github.com/ircmaxell/password_compat/blob/master/lib/password.php<br><br>אם אתה בכלל על php4 או איזו גרסנת אספנות אחרת - אתה בבעיה, ולא רק כי אין דרך מומלצת, אלה גם כי השרת חסוף להרבה הרבה בעיות אחרות<br>וכל מה שאתה יכול לעשות - זה לעדכן את השרת, גם אם זה אומר להחליף חברת אחסון או להקדיש הרבה זמן לשכתוב </p>
+</div>
+<div class="answer" id="answer9378">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2015 </span>
+<a id="answer_9378" href="מה הדרך הכי מומלצת להצפין סיסמא.htm#answer_9378">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני חושב שמה שאלכס אמר לגבי php 4 תקף לכל גירסאת php שהיא לא האחרונה שמוגדרת &quot;stable&quot; מה הקטע לעבוד עם גירסאות ישנות של php ?<br>זה אותו כסף - חינם ואם הוציאו גירסא חדשה כנראה יש סיבה - בין אם זה בעיות אבטחה,יעילות או סתם פיצ&apos;רים נחמדים שנוספו לשפה </p>
+</div>
+<div class="answer" id="answer9379">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8f7ac82b8da8bbd8996a6aeb6f2845c0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nati323</a>
+ב
+<span style="font-size:10px"> 03 ליוני 2015 </span>
+<a id="answer_9379" href="מה הדרך הכי מומלצת להצפין סיסמא.htm#answer_9379">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קודם כל תודה רבה על הקישור, לא ידעתי שקיים דבר כזה, הועלת לי מאוד.<br><br>ב) זה לא תלוי בי גירסת ה PHP אלא בשרת של הלקוח... </p>
+</div>
+<div class="answer" id="answer9380">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 04 ליוני 2015 </span>
+<a id="answer_9380" href="מה הדרך הכי מומלצת להצפין סיסמא.htm#answer_9380">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לפעמים עדיף לזרוק עבודות לפח מאשר להתעסק אחר כך בבעיות שלהם. הרי מתי שיפרצו לו\תהיה לו בעיה במערכת הוא יבוא אליך ולא בהכרח השגיאה מגיע מקוד שגוי אלה מבאג שקיים במנוע עצמו </p>
+</div>
+<div class="answer" id="answer9381">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8f7ac82b8da8bbd8996a6aeb6f2845c0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nati323</a>
+ב
+<span style="font-size:10px"> 04 ליוני 2015 </span>
+<a id="answer_9381" href="מה הדרך הכי מומלצת להצפין סיסמא.htm#answer_9381">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+צודק, אקח את זה לתשומת ליבי.. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

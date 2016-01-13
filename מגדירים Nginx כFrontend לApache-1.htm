@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="איך להתקין ולהגדיר שרת nginx כfrontend לapache, על דביאן.">
+<meta name="keywords" content="Apache, Nginx, Nginx Frontend Apache, Apache Backend">
+<meta name="author" content="Michael">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>מגדירים Nginx כFrontend לApache</title>
+<meta itemprop="name" content="מגדירים Nginx כFrontend לApache">
+<meta itemprop="description" content="איך להתקין ולהגדיר שרת nginx כfrontend לapache, על דביאן.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"144","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מגדירים Nginx כFrontend לApache</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Michael, </div>
+<div class="right">&nbsp;<time datetime="2011-08-13T17:26:49+03:00" dir="rtl">13 לאוגוסט 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://1.bp.blogspot.com/_FoXyaus6K6s/TTqFVNSWr7I/AAAAAAAAAoQ/Fy2aM-kwJtg/s320/nginx+0.9.4.jpg" alt="מגדירים Nginx כFrontend לApache">
+</div>
+<div class="right post-content">
+נלמד איך להתקין ולהגדיר שרת nginx כfrontend לapache, על דביאן. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>מגדירים Nginx כFrontend לApache</h3><br>בשביל לעשות אופטימיזציה לשרת שלנו (לחסוך במשאבים והגברת מהירות השרת) כאן נלמד<br>איך להתקין שרת Nginx שישמש כFrontned לApache.<br>לצורך המחשה הינה הבדלים בין עבודה של Apache בלבד לעבודה של Apache וNgnix ביחד:<br>מהירות טעינה - <a href="http://www.opennet.ru/base/net/nginx_frontend_apache1.gif">http://www.opennet.ru/base/net/nginx_frontend_apache1.gif</a><br>CPU - <a href="http://www.opennet.ru/base/net/nginx_frontend_apache2.gif">http://www.opennet.ru/base/net/nginx_frontend_apache2.gif</a><br>זיכרון - <a href="http://www.opennet.ru/base/net/nginx_frontend_apache3.gif">http://www.opennet.ru/base/net/nginx_frontend_apache3.gif</a><br>ככה זה פחות או יותר איך זה מבוצע:<br><div class="php codeblock">HTTP Client &nbsp;<span class="sy0">----&gt;</span> &nbsp;<span class="me1">Front</span><span class="sy0">-</span><span class="kw3">End</span> <span class="br0">&#40;</span>nginx<span class="br0">&#41;</span> &nbsp;<span class="sy0">----&gt;</span> &nbsp;<span class="me1">Back</span><span class="sy0">-</span><span class="kw3">End</span> <span class="br0">&#40;</span>apache<span class="br0">&#41;</span><br>
+<span class="sy0">-----------</span> &nbsp;<span class="sy0">&lt;----</span> &nbsp;<span class="sy0">-----------------</span> &nbsp;<span class="sy0">&lt;----</span> &nbsp;<span class="sy0">-----------------</span><br>
+1<span class="sy0">.</span>2<span class="sy0">.</span>3<span class="sy0">.</span>4<span class="sy0">:</span><span class="nu0">80</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;127<span class="sy0">.</span>0<span class="sy0">.</span>0<span class="sy0">.</span>1<span class="sy0">:</span><span class="nu0">80</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;127<span class="sy0">.</span>0<span class="sy0">.</span>0<span class="sy0">.</span>1<span class="sy0">:</span><span class="nu0">8080</span><br>
+<br>
+Credit to DebianWorld<span class="sy0">.</span>ru</div><br><h4>לפני שנתחיל..</h4><br><strong>- זה מיוחס רק לדביאן.</strong><br>נכנס לפה - http://www.dotdeb.org/instructions/ , נוסיף 2 שורות שכתובות בעמוד לקובץ /etc/apt/resources.list לפי גירסאת הדביאן שלנו (Lenny = 5, Squeeze = 6), נוריד את הקובץ key, נוסיף אותו למנהל החבילות שלנו (apt), ונעדכן ע&quot;י כתיבת הפקודה apt-get update,<br>ולאחר מכן apt-get dist-upgrade<br><br><br><h4>לעבודה</h4><br>נתקין Nginx:<br><div class="php codeblock">apt<span class="sy0">-</span>get install nginx</div><br>לבינתיים נעזוב את Nginx.<br>נלך לתיקייה של Apache:<br><div class="php codeblock">cd <span class="sy0">/</span>etc<span class="sy0">/</span>apache2</div><br>שם קודם נערוך את קובץ ports.conf<br><div class="php codeblock">nano ports<span class="sy0">.</span>conf</div><br>שם נראה את השורה Listen 80, נשנה אותה ל: Listen 8080<br>כמו כן, נראה שורה שנראת בסגנון NameVirtualHost *:80,<br>נשנה ל: NameVirtualHost *:8080<br>לאחר מכן, נלך לתיקייה sites-available<br><div class="php codeblock">cd sites<span class="sy0">-</span>available</div><br>שם נערוך את הקובץ vhosts שלנו (אם אתם לא יודעים במה מדובר, סביר להניח שכבחירת מחדל הקובץ שלכם הוא default, אחרת תערכו את הקובץ שלכם)<br><div class="php codeblock">nano <span class="kw1">default</span></div><br>נשנה כל VirtualHost *:80 ל VirtualHost *:8080, כלומר שהפורט ישתנה מ80 ל8080.<br>אחרי שסיימנו עם זה, נעשה ריסטרט לאפאצ&#039;י:<br><div class="php codeblock"><span class="sy0">/</span>etc<span class="sy0">/</span>init<span class="sy0">.</span>d<span class="sy0">/</span>apache2 restart</div><br>סיימנו עם האפאצ&#039;י.<br>נחזור לNginx:<br><div class="php codeblock">cd <span class="sy0">/</span>etc<span class="sy0">/</span>nginx</div><br>ניצור קובץ בשם proxy.conf ונערוך אותו:<br><div class="php codeblock"><span class="kw3">touch</span> proxy<span class="sy0">.</span>conf<br>
+nano proxy<span class="sy0">.</span>conf</div><br>ונכניס לשם את התוכן הבא:<br><div class="php codeblock">proxy_redirect &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;off<span class="sy0">;</span><br>
+proxy_set_header &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Host <span class="re0">$host</span><span class="sy0">;</span><br>
+proxy_set_header &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;X<span class="sy0">-</span>Real<span class="sy0">-</span>IP <span class="re0">$remote_addr</span><span class="sy0">;</span><br>
+proxy_set_header &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;X<span class="sy0">-</span>Forwarded<span class="sy0">-</span><span class="kw1">For</span> <span class="re0">$proxy_add_x_forwarded_for</span><span class="sy0">;</span><br>
+client_max_body_size &nbsp; &nbsp; &nbsp; &nbsp;10m<span class="sy0">;</span><br>
+client_body_buffer_size &nbsp; &nbsp; 128k<span class="sy0">;</span><br>
+proxy_connect_timeout &nbsp; &nbsp; &nbsp; <span class="nu0">90</span><span class="sy0">;</span><br>
+proxy_send_timeout &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">90</span><span class="sy0">;</span><br>
+proxy_read_timeout &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="nu0">90</span><span class="sy0">;</span><br>
+proxy_buffer_size &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4k<span class="sy0">;</span><br>
+proxy_buffers &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="nu0">4</span> 32k<span class="sy0">;</span><br>
+proxy_busy_buffers_size &nbsp; &nbsp; 64k<span class="sy0">;</span><br>
+proxy_temp_file_write_size &nbsp;64k<span class="sy0">;</span></div><br>נערוך את הקובץ nginx.conf<br><div class="php codeblock">nano nginx<span class="sy0">.</span>conf</div><br>נחפש שם את השורה: &quot;http {&quot;, נחפש את הסוגר של הסוגריים המסולסלות ושורה לפני זה<br>נכתוב:<br><div class="php codeblock">server <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; listen YourIP<span class="sy0">:</span><span class="nu0">80</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; server_name www<span class="sy0">.</span><span class="re0">$hostname</span> <span class="re0">$hostname</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location <span class="sy0">/</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; proxy_pass &nbsp;http<span class="sy0">:</span><span class="co1">//YourIP/;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">include</span> <span class="sy0">/</span>etc<span class="sy0">/</span>nginx<span class="sy0">/</span>proxy<span class="sy0">.</span>conf<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location <span class="coMULTI">/*\.(jpg|jpeg|gif|png|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|ppt|txt|tar|wav|bmp|rtf|js)$ {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; root /location/to/web/files;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }</span></div><br>כשאר YourIP זה האיפי של השרת שלכם. כמו כן, לא לשכוח לשנות את הroot לכתובת של הקבצי אתר שלכם.<br>נעשה ריסטרט:<br><div class="php codeblock"><span class="sy0">/</span>etc<span class="sy0">/</span>init<span class="sy0">.</span>d<span class="sy0">/</span>nginx restart<br>
+<span class="sy0">/</span>etc<span class="sy0">/</span>init<span class="sy0">.</span>d<span class="sy0">/</span>apache2 restart</div><br><br><strong>--עדכון--</strong><br>כרגע, אחרי כל מה שעשינו עכשיו, הכל כבר מוכן.<br>אך הNGINX עדיין יעשה לנו כמה בעיות כשהוא שולח האדרים לאפאצ&#039;י.<br>אחת הבעיות היא שהREMOTE_ADDR הוא האיפי של השרת במקום האיפי של הקליינט.<br>בשביל לסדר את זה, אנחנו נתקין rpah mod<br><br>ההתקנה (לדביאן):<br><div class="php codeblock">aptitude install libapache2<span class="sy0">-</span>mod<span class="sy0">-</span>rpaf</div><br><br>אחרי שהתקנו, אנחנו עורכים את הקובץ של ההגדרות שלו:<br><div class="php codeblock">nano <span class="sy0">/</span>etc<span class="sy0">/</span>apache2<span class="sy0">/</span>mods<span class="sy0">-</span>enabled<span class="sy0">/</span>rpaf<span class="sy0">.</span>conf</div><br>מוחקים הכל ומעתיקים לשם את זה:<br><div class="php codeblock"><span class="sy0">&lt;</span>IfModule mod_rpaf<span class="sy0">.</span>c<span class="sy0">&gt;</span><br>
+RPAFenable On<br>
+RPAFsethostname On<br>
+RPAFproxy_ips 127<span class="sy0">.</span>0<span class="sy0">.</span>0<span class="sy0">.</span>1 YourIP 192<span class="sy0">.</span>138<span class="sy0">.</span>0<span class="sy0">.</span>1<br>
+<span class="sy0">&lt;/</span>IfModule<span class="sy0">&gt;</span></div><br>כאשר YourIP, זה האיפי של השרת שלכם.<br>לאחר מכן כותבים את זה:<br><div class="php codeblock">apache2ctl graceful<br>
+service apache2 restart<br>
+service nginx restart</div><br><br><strong>וסיימנו.</strong><br>תגובות של שאלות, בעיות, או סתם תודה אתם מוזמנים להגיב :-) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=16&r=g&d=monsterid" alt="Michael">
+<a>Michael</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment638"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/08/2011 19:56</span><br>
+לי אישית היה חסר לפחות משהו קצר בהתחלה שיסביר למה כדאי בכלל לעשות את זה<br>
+<br>
+בתור מדריך טכני - יצא מעולה. <br>
+עבור windows הכל דומה מבחינת הגדרות למאט מיקומי הקבצים ואופן ההתקנה.<br>
+<br>
+תודה מיכאל :)</div>
+<a id="comment708"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/09/2011 21:52</span><br>
+HTTP Client)<br>
+------------<br>
+1.2.3.4:80<br>
+אתה טועה, החיבור מצד הקליינט מתבצע דרך פורט רנדומלי</div>
+<a id="comment709"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/09/2011 21:54</span><br>
+תודה על הערה. <br>
+לא שזה עקרוני לכתבה ומובא מ debianword.ru<br>
+אבל כל הכבוד על העין החדה :)</div>
+<a id="comment710"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/09/2011 21:58</span><br>
+כרגע בדקתי, וצודק. אכן הפורט רנדומלי.<br>
+אבל הדוגמא רק להמחשה איך הפעולה מתבצעת, אז כמו 1.2.3.4 זה האיפי שלך אז גם פורט 80 זה רק לדוגמא.<br>
+אכן הפורט הוא רנדומלי.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הפיכת מחרוזת למערך (הפרדת אותיות)">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_238974">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>הפיכת מחרוזת למערך (הפרדת אותיות) | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הפיכת מחרוזת למערך (הפרדת אותיות) | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הפיכת מחרוזת למערך (הפרדת אותיות)">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">14</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הפיכת מחרוזת למערך הפרדת אותיות.htm" title="אני רוצה להפריד את הטקס שכל אות תיהיה בחדר נפרד במערך.עשיתי דבר כזה explode&amp;#40;&amp;quot;&amp;quot;,$text&amp;#41;;וזה החזיר לי שגיאהמה אפשר לעשות בישביל זה?">הפיכת מחרוזת למערך (הפרדת אותיות)</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_238974</a>
+,
+<time class="timeago relativetime" datetime="2012-06-15T11:48:03+03:00" style="display:inline-block;">
+15 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText649'>
+אני רוצה להפריד את הטקס שכל אות תיהיה בחדר נפרד במערך.<br>עשיתי דבר כזה <br><div class="php codeblock"><span class="kw3">explode</span><span class="br0">&#40;</span><span class="st0">&quot;&quot;</span><span class="sy0">,</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>וזה החזיר לי שגיאה<br>מה אפשר לעשות בישביל זה? </div>
+</div>
+<h3>
+<span id="answersCounter">14 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2607">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2607" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2607">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מחרוזות הם כבר מערך.<br>פשוט תיגש אל התו שאתה רוצה כאילו זה היה מערך.<br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'hello'</span><span class="sy0">;</span> <br>
+<span class="kw1">echo</span> <span class="re0">$string</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2610">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8fb1499612df71f8cd69395f5582eea?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238974</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2610" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2610">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא אני רוצה לעשות דבר כזה <br><div class="php codeblock"><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'h'</span><span class="sy0">,</span><span class="st_h">'e'</span><span class="sy0">,</span><span class="st_h">'l'</span><span class="sy0">,</span><span class="st_h">'l'</span><span class="sy0">,</span><span class="st_h">'o'</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2612">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2612" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2612">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ברור, אבל בשביל מה ?<br>בכל מקום שבו אתה הולך להישתמש במערך הזה, אתה יכול פשוט להישתמש ישר במחרוזת. </p>
+</div>
+<div class="answer" id="answer2617">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8fb1499612df71f8cd69395f5582eea?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238974</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2617" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2617">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא בדיוק....<br>אני בונה מין מערכת למשחק של הצפנה...<br>וכל אות מוצפנת בנפרד.. </p>
+</div>
+<div class="answer" id="answer2619">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2619" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2619">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני עדיין לא מבין.<br>כשיש לך מערך, אתה עובר עליו בלולאה ומצפין כל אות בנפרד?<br>וכשיש לך מחרוזת, מי מפריע לך לעבור כל אות ולהצפין אותה בנפרד ?<br>---------<br><div class="php codeblock"><span class="re0">$array</span> <span class="sy0">=</span> <span class="kw3">str_split</span><span class="br0">&#40;</span><span class="st_h">'hello'</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2620">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8fb1499612df71f8cd69395f5582eea?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238974</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2620" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2620">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ניסיתי לעשות דבר כזה אבל זה לא עובד:<br><div class="php codeblock"><span class="re0">$loop</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$loop</span> <span class="sy0">!=</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'code'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$code</span><span class="br0">&#91;</span><span class="re0">$loop</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">str_split</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'code'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$loop</span><span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$loop</span> <span class="sy0">=</span> <span class="re0">$loop</span><span class="sy0">+</span><span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer2621">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2621" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2621">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול להסביר את הקוד שלך במילים?<br><em>(אני בכלל לא מבין מה אתה מנסה לעשות)</em><br>אבל כנראה שהטעות שלך היא בזה שהפרמטר השני של str_split עושה לא מה שאתה חושב שהוא עושה. </p>
+</div>
+<div class="answer" id="answer2623">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8fb1499612df71f8cd69395f5582eea?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238974</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2623" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2623">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ניסיתי לעשות ללואה שהיא לוקחת את אות ומכניסה אותה למערך<br><div class="php codeblock"><span class="re0">$loop</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$loop</span> <span class="sy0">!=</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'code'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$code</span><span class="br0">&#91;</span><span class="re0">$loop</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">substr</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'code'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$loop</span><span class="sy0">+</span><span class="nu0">1</span><span class="sy0">,</span><span class="re0">$loop</span><span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$loop</span> <span class="sy0">=</span> <span class="re0">$loop</span><span class="sy0">+</span><span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer2624">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2624" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2624">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כבר נתתי לך את הפתרון, למרות שהוא מיותר: <a href="http://php.net/str_split">str_split</a> </p>
+</div>
+<div class="answer" id="answer2626">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8fb1499612df71f8cd69395f5582eea?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238974</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2626" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2626">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל הפתרון מחזיר לי גיבריש בעברית </p>
+</div>
+<div class="answer" id="answer2628">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2628" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2628">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+היית צריך להגיד ישר שמדובר בעברית :)<br>תוכל לעשות את זה ככה:<br><div class="php codeblock"><span class="re0">$data</span> <span class="sy0">=</span> <span class="st_h">'שלום עולם'</span><span class="sy0">;</span><br>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span> <span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="kw3">mb_strlen</span><span class="br0">&#40;</span><span class="re0">$data</span><span class="sy0">,</span> <span class="st_h">'utf-8'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="re0">$result</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">mb_substr</span><span class="br0">&#40;</span><span class="re0">$data</span><span class="sy0">,</span> <span class="re0">$i</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="st_h">'utf-8'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2629">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8fb1499612df71f8cd69395f5582eea?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238974</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2629" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2629">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל הוא מחזיר לי משהו מוזר:<br><div class="php codeblock"><span class="kw3">Array</span> <span class="br0">&#40;</span> <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> ש <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> ל <span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> ו <span class="br0">&#91;</span><span class="nu0">3</span><span class="br0">&#93;</span> <span class="sy0">=&gt;</span> ם <span class="br0">&#41;</span></div> </p>
+</div>
+<div class="answer" id="answer2630">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2630" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2630">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הוא מחזיר הכל בסדר. תוסיף לתג body את האטריביות dir=&quot;rtl&quot; או שפשוט תראה את קוד המקור.<br>המערך בסדר גמור, ההצגה שלו על המסך על ידי הדפדפן לא משהו. </p>
+</div>
+<div class="answer" id="answer2631">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d8fb1499612df71f8cd69395f5582eea?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238974</a>
+ב
+<span style="font-size:10px"> 15 ליוני 2012 </span>
+<a id="answer_2631" href="הפיכת מחרוזת למערך הפרדת אותיות.htm#answer_2631">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה עובד </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

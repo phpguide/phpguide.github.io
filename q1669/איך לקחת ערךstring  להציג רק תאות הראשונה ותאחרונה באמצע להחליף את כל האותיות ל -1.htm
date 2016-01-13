@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך לקחת ערך(string) , להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל *">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ravgrg">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>איך לקחת ערך(string) , להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל * | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך לקחת ערך(string) , להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל * | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך לקחת ערך(string) , להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל *">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך לקחת ערךstring  להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל -1.htm" title="איך לקחת ערך(string) , להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל * ?עד כה הגעצי לזה :$str = strtok&amp;#40;$result&amp;#91;&apos;useremail&apos;&amp;#93;,&apos;@&apos;&amp;#41;;">איך לקחת ערך(string) , להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל *</a></h2>
+<div class="userinfo">
+פתח
+<a>ravgrg</a>
+,
+<time class="timeago relativetime" datetime="2013-11-25T16:33:22+02:00" style="display:inline-block;">
+25 לנובמבר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1669'>
+איך לקחת ערך(string) , להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל * ?<br><br>עד כה הגעצי לזה :<br><div class="php codeblock"><span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">strtok</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#91;</span><span class="st_h">'useremail'</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="st_h">'@'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$str</span> <span class="sy0">=</span> &nbsp;<span class="kw3">str_repeat</span> <span class="br0">&#40;</span><span class="st_h">'*'</span><span class="sy0">,</span> <span class="kw3">strlen</span> <span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>נגיד והערך ככה : <br><br><a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="c0a5b8adb0a1aca580a5ada1a9aceea3afad">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>זה יגיע לזה :<br>example<br>ואז ב- str_repeat הוא יחליף את הכל ל Password symbol (*) :<br>*********<br><br>אבל אני רוצה שהוא יציג את האות הראשונה והאחרונה ככה :<br>e******<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="2e4b6e4b434f4742004d4143">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>משהו יודע ? </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7615">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/eae8f99c4b8a7edfc90c2e915ff5c6ec?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Cayce</a>
+ב
+<span style="font-size:10px"> 25 לנובמבר 2013 </span>
+<a id="answer_7615" href="איך לקחת ערךstring  להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל -1.htm#answer_7615">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$str</span> <span class="sy0">=</span> <span class="st0">&quot;asdf&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$first</span> <span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="re0">$last</span> &nbsp;<span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$str</span> <span class="sy0">=</span> &nbsp;<span class="re0">$first</span> <span class="sy0">.</span> <span class="kw3">str_repeat</span> <span class="br0">&#40;</span><span class="st_h">'*'</span><span class="sy0">,</span> <span class="kw3">strlen</span> <span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span> <span class="sy0">-</span><span class="nu0">2</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="re0">$last</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="re0">$str</span><span class="sy0">;</span> <span class="co1">// prints a**f</span></div> </p>
+</div>
+<div class="answer" id="answer7616">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/524da81efdc89a1ebb1874ae3cf8f576?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ravgrg</a>
+ב
+<span style="font-size:10px"> 25 לנובמבר 2013 </span>
+<a id="answer_7616" href="איך לקחת ערךstring  להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל -1.htm#answer_7616">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+סבבה יותר טוב אבל נתקעתי ככה : <br><div class="php codeblock"><span class="re0">$str</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st0">&quot;@&quot;</span><span class="sy0">,</span> <span class="re0">$result</span><span class="br0">&#91;</span><span class="st_h">'useremail'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$str</span> <span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$str1</span> <span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$first</span> <span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$last</span> &nbsp;<span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$str</span> <span class="sy0">=</span> &nbsp;<span class="re0">$first</span> <span class="sy0">.</span> <span class="kw3">str_repeat</span> <span class="br0">&#40;</span><span class="st_h">'*'</span><span class="sy0">,</span> <span class="kw3">strlen</span> <span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span> <span class="sy0">-</span><span class="nu0">2</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="re0">$last</span><span class="sy0">.</span><span class="re0">$str1</span><span class="sy0">;</span></div><br><br>אני רוצה לקחת את הערך שבמקרה זה :<br><a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="1d78657c706d71785d7a707c7471337e7270">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>לחתוך אותו לשניים:<br>example<br><a href="/users/gmail.com">@gmail.com</a><br>ולקחת את האות הראשונה והאחרונה של ה- example ובאמצע לשים * ואז בסוף את הכל להכניס למשתנה אחד:<br>e****<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="d3b693b4beb2babffdb0bcbe">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script><br>אתה יכול לכוון אותי ? </p>
+</div>
+<div class="answer" id="answer7617">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/eae8f99c4b8a7edfc90c2e915ff5c6ec?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Cayce</a>
+ב
+<span style="font-size:10px"> 25 לנובמבר 2013 </span>
+<a id="answer_7617" href="איך לקחת ערךstring  להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל -1.htm#answer_7617">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשים לב, פה:<br><div class="php codeblock"><span class="re0">$str</span> <span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="re0">$str1</span> <span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br>אתה לא באמת שומר את החלק השני של המייל. כי בשורה הראשונה אתה &quot;דורס&quot; את המערך.<br>תתן שם אחר למשתנה(בשורה הראשונה).<br>ובסוף אל תשכח להוסיף את השטרודל. </p>
+</div>
+<div class="answer" id="answer7618">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/524da81efdc89a1ebb1874ae3cf8f576?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ravgrg</a>
+ב
+<span style="font-size:10px"> 25 לנובמבר 2013 </span>
+<a id="answer_7618" href="איך לקחת ערךstring  להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל -1.htm#answer_7618">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וואלה לא הבנתי..<br><br>הינה שינתי לזה :<br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st0">&quot;@&quot;</span><span class="sy0">,</span> <span class="re0">$result</span><span class="br0">&#91;</span><span class="st_h">'useremail'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$str</span> <span class="sy0">=</span> <span class="re0">$string</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$str1</span> <span class="sy0">=</span> <span class="re0">$string</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$first</span> <span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$last</span> &nbsp;<span class="sy0">=</span> <span class="re0">$str</span><span class="br0">&#91;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$return</span> <span class="sy0">=</span> &nbsp;<span class="re0">$first</span> <span class="sy0">.</span> <span class="kw3">str_repeat</span> <span class="br0">&#40;</span><span class="st_h">'*'</span><span class="sy0">,</span> <span class="kw3">strlen</span> <span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span> <span class="sy0">-</span><span class="nu0">2</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="re0">$last</span><span class="sy0">.</span><span class="st_h">'@'</span><span class="sy0">.</span><span class="re0">$str1</span><span class="sy0">;</span></div><br><br>ועדין לא עובד :<br><div class="php codeblock">Warning<span class="sy0">:</span> <span class="kw3">str_repeat</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">:</span> Second argument has to be greater than or equal to <span class="nu0">0</span></div> </p>
+</div>
+<div class="answer" id="answer7619">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/524da81efdc89a1ebb1874ae3cf8f576?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ravgrg</a>
+ב
+<span style="font-size:10px"> 25 לנובמבר 2013 </span>
+<a id="answer_7619" href="איך לקחת ערךstring  להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל -1.htm#answer_7619">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טוב הסתדרתי תודה </p>
+</div>
+<div class="answer" id="answer7620">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 25 לנובמבר 2013 </span>
+<a id="answer_7620" href="איך לקחת ערךstring  להציג רק תאות הראשונה ותאחרונה באמצע להחליף את כל האותיות ל -1.htm#answer_7620">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+או פיתרון יותר פשוט:<br><br><div class="php codeblock"><span class="re0">$email</span> <span class="sy0">=</span> <span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="395f5656527954565e555c175a5654">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$pos</span> <span class="sy0">=</span> <span class="kw3">strrpos</span><span class="br0">&#40;</span><span class="re0">$email</span><span class="sy0">,</span> <span class="st_h">'@'</span><span class="br0">&#41;</span> <span class="sy0">-</span> <span class="nu0">2</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="kw3">substr_replace</span><span class="br0">&#40;</span><span class="re0">$email</span><span class="sy0">,</span> <span class="kw3">str_repeat</span><span class="br0">&#40;</span><span class="st_h">'*'</span><span class="sy0">,</span> <span class="re0">$pos</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="re0">$pos</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>דיסקליימר: לא בדקתי, 100% שלא יעבוד עם אימייל של אות אחת, לא יצנזר מייל עם שתי אותיות. gl </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

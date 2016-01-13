@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ממוצע">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="raz1001">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ממוצע | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ממוצע | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ממוצע">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ממוצע-1.htm" title="יש לי עמודה במסד שיש בה הרהב מספרים.איך אני יכול לעשות ממוצא של כל המספרים שמה?">ממוצע</a></h2>
+<div class="userinfo">
+פתח
+<a>raz1001</a>
+,
+<time class="timeago relativetime" datetime="2011-11-30T13:26:58+02:00" style="display:inline-block;">
+30 לנובמבר 2011 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText31'>
+<strong>יש לי עמודה במסד שיש בה הרהב מספרים.<br>איך אני יכול לעשות ממוצא של כל המספרים שמה?</strong> </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer98">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/18ee1c005da09a986dc9668a9719e0f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>אנונימי</a>
+ב
+<span style="font-size:10px"> 30 לנובמבר 2011 </span>
+<a id="answer_98" href="ממוצע-1.htm#answer_98">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+http://www.w3schools.com/SQL/sql_func_avg.asp </p>
+</div>
+<div class="answer" id="answer102">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/18ee1c005da09a986dc9668a9719e0f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>אנונימי</a>
+ב
+<span style="font-size:10px"> 30 לנובמבר 2011 </span>
+<a id="answer_102" href="ממוצע-1.htm#answer_102">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+התקנתי WAMP + וורדפרס.<br>כשאני נכנס למסך: http://localhost/phpmyadmin/<br><br>אני מקבל את ההודעה הבאה:<br> The website declined to show this webpage <br> HTTP 403 <br> Most likely causes:<br>•This website requires you to log in.<br> <br> What you can try: <br> Go back to the previous page. <br> <br> More information <br><br>This error (HTTP 403 Forbidden) means that Internet Explorer was able to connect to the website, but it does not have permission to view the webpage.<br>For more information about HTTP errors, see Help.<br> <br> </p>
+</div>
+<div class="answer" id="answer103">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>raz1001</a>
+ב
+<span style="font-size:10px"> 30 לנובמבר 2011 </span>
+<a id="answer_103" href="ממוצע-1.htm#answer_103">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא מצליח לעשות את זה עשיתי דבר כזה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$hmt</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT AVG(hmt) FROM `secer`&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$c</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$hmt</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$c</span><span class="br0">&#91;</span><span class="st_h">'$hmt'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br>זה לא מחזיר לי שום שגיאה </p>
+</div>
+<div class="answer" id="answer104">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/18ee1c005da09a986dc9668a9719e0f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>אנונימי</a>
+ב
+<span style="font-size:10px"> 30 לנובמבר 2011 </span>
+<a id="answer_104" href="ממוצע-1.htm#answer_104">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT AVG(`row`) FROM `table`&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$average</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$average</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer105">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>raz1001</a>
+ב
+<span style="font-size:10px"> 30 לנובמבר 2011 </span>
+<a id="answer_105" href="ממוצע-1.htm#answer_105">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא משנה הסתדרתי </p>
+</div>
+<div class="answer" id="answer346">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/18ee1c005da09a986dc9668a9719e0f9?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>אנונימי</a>
+ב
+<span style="font-size:10px"> 06 לינואר 2012 </span>
+<a id="answer_346" href="ממוצע-1.htm#answer_346">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חברים אתם מסתדרים אבל לא רושמים תשובה ופיתרון לבעיה וחבל כי אנשים נכנסים לפה אם הסתדרת כל הכבוד ואני שמח . אבל תתן את הפיתרון לבאים אחרייך. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

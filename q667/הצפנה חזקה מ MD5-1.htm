@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הצפנה חזקה מ MD5">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="razand">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הצפנה חזקה מ MD5 | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הצפנה חזקה מ MD5 | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הצפנה חזקה מ MD5">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">12</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הצפנה חזקה מ MD5-1.htm" title="יש הצפנה יותר חזקה מMD5 אני מאוחסן על אחסון חינמי והבעלים של השרת כל הזמן מגלה את הסיסמה שלי למרות שאני משתמש בהרבה דרגים כלו להצפין עם מחרוזת אחרת ועוד....יש משהו יותר חזק?">הצפנה חזקה מ MD5</a></h2>
+<div class="userinfo">
+פתח
+<a>razand</a>
+,
+<time class="timeago relativetime" datetime="2012-06-17T14:21:41+03:00" style="display:inline-block;">
+17 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText667'>
+יש הצפנה יותר חזקה מMD5 <br>אני מאוחסן על אחסון חינמי והבעלים של השרת כל הזמן מגלה את הסיסמה שלי למרות שאני משתמש בהרבה דרגים כלו להצפין עם מחרוזת אחרת ועוד....<br><br>יש משהו יותר חזק? </div>
+</div>
+<h3>
+<span id="answersCounter">12 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2697">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/498b474629e1910d9626c6e8ecdeb125?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_242008</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2697" href="הצפנה חזקה מ MD5-1.htm#answer_2697">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם הוא הבעלים אז מן הסתם כל סיסמא שתשים הוא יוכל לראות ...<br><br>//<br><br>לידע כללי לא עושים MD5($pass) על סיסמא..<br><br>צריך להוסיף איזה טעם לוואי - מלח salt שרק אתה מכיר על ההצפנה... </p>
+</div>
+<div class="answer" id="answer2698">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2698" href="הצפנה חזקה מ MD5-1.htm#answer_2698">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw3">hash</span><span class="br0">&#40;</span><span class="st_h">'sha512'</span><span class="sy0">,</span> &nbsp;<span class="st_h">'text'</span> <span class="sy0">.</span> <span class="re0">$salt</span> <span class="sy0">,</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2699">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2699" href="הצפנה חזקה מ MD5-1.htm#answer_2699">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ברור שלא אני עושה לזה <br><div class="php codeblock"><span class="kw3">md5</span><span class="br0">&#40;</span><span class="re0">$pass</span><span class="sy0">.</span><span class="st0">&quot;fdnsiavhiojnfisjiogn&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2700">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2700" href="הצפנה חזקה מ MD5-1.htm#answer_2700">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם זה מה שאתה עושה, כנראה שהוא מגלה את זה בצורה יותר פרימיטיבית, כמו משנה את הקוד שלך כדי שישמור אצלו את הסיסמה בצורה לא מוצפנת לפני שאתה מכניס אותה למסד. לא חשבת עדיין לעבור אחסון ? </p>
+</div>
+<div class="answer" id="answer2701">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2701" href="הצפנה חזקה מ MD5-1.htm#answer_2701">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא שהוא עושה את זה בלי שאני יודע <br>אני פשוט יכול לתת לו את ההצפנה והוא מגלה<br>התערבתי איתו שהוא לא יכול לגלות והוא גילה<br>ובדקתי את הקובץ והוא לא שינה בו כלום </p>
+</div>
+<div class="answer" id="answer2702">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2702" href="הצפנה חזקה מ MD5-1.htm#answer_2702">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה לבחור סיסמה שהיא לא מספר או מילה במילון. </p>
+</div>
+<div class="answer" id="answer2703">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2703" href="הצפנה חזקה מ MD5-1.htm#answer_2703">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ברור שלא עשיתי גיבריש והוא גילה.<br>הוא מצליח לגלות כל מה שאני נותן לו!<br>כתבתי לו<br><div class="php codeblock">איך אתה עושה את זה?</div><br>והצפנתי עם wkejhkfjdskfhjfhdskjfhfkj והוא עדיין גילה.<br>אני לא מבין את זה... </p>
+</div>
+<div class="answer" id="answer2704">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/649280ba95f551ff37be97fff6f7973c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_242090</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2704" href="הצפנה חזקה מ MD5-1.htm#answer_2704">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תבקש ממנו לפענח את זה:<br><div class="php codeblock">a698db45645a7e46fcbd2e6cae9806c5fc3b7811b03f837fcec11ec6ed0ad0c5eb65dd08f61d8759c4c89a46f511bc75e09a19691ed88a0f3d1c9c616842bf06</div><br>הוצפן עם sha512. </p>
+</div>
+<div class="answer" id="answer2705">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2705" href="הצפנה חזקה מ MD5-1.htm#answer_2705">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+:O לא עבד לו. </p>
+</div>
+<div class="answer" id="answer2708">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2708" href="הצפנה חזקה מ MD5-1.htm#answer_2708">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יפה, החזרת לו. עכשיו אתם פיטים.<br><br>שמחתי לעזור. D: </p>
+</div>
+<div class="answer" id="answer2716">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2716" href="הצפנה חזקה מ MD5-1.htm#answer_2716">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חח נחמד.<br>אבל השאלה זה איך הוא מגלה את ה MD5? </p>
+</div>
+<div class="answer" id="answer2717">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2012 </span>
+<a id="answer_2717" href="הצפנה חזקה מ MD5-1.htm#answer_2717">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+או שהוא משתמש ב-rainbow tables או שהוא הריץ brute force בעצמו על ההאש.<br><br>או שתשאל אותו פשוט. :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

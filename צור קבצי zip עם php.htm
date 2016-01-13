@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="יצירה וקריאה של ארכיוני זיפ באמצעות php">
+<meta name="keywords" content="זיפ, ארכיון ">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>צור קבצי zip עם php</title>
+<meta itemprop="name" content="צור קבצי zip עם php">
+<meta itemprop="description" content="יצירה וקריאה של ארכיוני זיפ באמצעות php">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"150","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>צור קבצי zip עם php</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-09-17T07:28:12+03:00" dir="rtl">17 לספטמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/zip.jpg" alt="צור קבצי zip עם php">
+</div>
+<div class="right post-content">
+האתר שלך מאפשר לגולש הורדה של קבצים, אבל אתה אישית תמיד מתעצבן כשצריך להוריד 50 קבצים נפרדים אחד אחד במקום ארכיון עם כל הקבצים בבת אחת? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>ב PHP יש מחלקה מובנת לעבודה עם zip</h3><br><div class="php codeblock"><span class="co1">// Creating object of the ZipArchive</span><br>
+&nbsp;<span class="re0">$zip</span> <span class="sy0">=</span> <span class="kw2">new</span> ZipArchive<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>רצוי לתת לכל קובץ zip שם רנדומלי או לקוות לטוב אם באתר יגלשו שני אנשים במקביל.<br><div class="php codeblock"><span class="re0">$zip</span> <span class="sy0">=</span> <span class="kw2">new</span> ZipArchive<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">open</span><span class="br0">&#40;</span><span class="st0">&quot;someName.zip&quot;</span><span class="sy0">,</span>ZIPARCHIVE<span class="sy0">::</span><span class="me2">CREATE</span><span class="br0">&#41;</span><span class="sy0">===</span><span class="kw4">TRUE</span><span class="br0">&#41;</span><br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp; &nbsp;<span class="co1">// הוספת קובץ לתוך הזיפ</span><br>
+&nbsp; &nbsp;<span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">addFile</span><span class="br0">&#40;</span><span class="st0">&quot;master.css&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<br>
+<br>
+&nbsp; &nbsp;<span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">addFile</span><span class="br0">&#40;</span><span class="st0">&quot;style.css&quot;</span><span class="sy0">,</span> <span class="st0">&quot;new_style.css&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="co1">// זה אומר שהקובץ</span><br>
+&nbsp; &nbsp;<span class="co1">// &nbsp;style.css </span><br>
+&nbsp; &nbsp;<span class="co1">// יופיע בתוך הארכיון תחת השם</span><br>
+&nbsp; &nbsp;<span class="co1">// &nbsp;new_style.css</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;<br>
+<br>
+&nbsp; &nbsp;<span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="co1">// סגירת הזיפ</span><br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;<span class="co1">// הקוד למעלה יוצר ארכיון בשם</span><br>
+&nbsp; &nbsp;<span class="co1">// &nbsp;someName.zip &nbsp;</span><br>
+&nbsp; &nbsp;<span class="co1">// שמכיל את הקבצים </span><br>
+&nbsp; &nbsp;<span class="co1">// &nbsp;master.css, new_style.css </span><br>
+&nbsp;<span class="br0">&#125;</span></div><br><br>להציע לגולש את הקובץ להורדה אפשר באמצעות הסקריפט של <a href="php_קובץ_להורדה.htm">קובץ להרודה</a>.<br>שימו לב לשורה 5 שבה אפשר לשנות את שם הקובץ הנשלח ולהחליט שהדפדפן יציע לגולש לשמור את הקובץ בשם PHPGUIDE.ZIP במקום someName.zip או השם הרנדומלי שיצא.<br><br><br><br><h3>אפשר גם לקרוא קבצי zip </h3><br><br><div class="php codeblock"><span class="re0">$zip</span> <span class="sy0">=</span> <span class="kw2">new</span> ZipArchive<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp;<span class="co1">// פתיחת קובץ הזיפ</span><br>
+&nbsp;<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">open</span><span class="br0">&#40;</span><span class="st0">&quot;master.zip&quot;</span><span class="br0">&#41;</span> <span class="sy0">===</span> <span class="kw4">TRUE</span><span class="br0">&#41;</span><br>
+&nbsp;<span class="br0">&#123;</span><br>
+&nbsp;<br>
+&nbsp; &nbsp;<span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">extractTo</span><span class="br0">&#40;</span><span class="st0">&quot;/path/to/folder/&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// מוציא את כל הקבצים מהארכיון לתיקיה הרשומה</span><br>
+<br>
+&nbsp; &nbsp;<span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="br0">&#125;</span></div><br><br><br><h4>אפשר לבחור קבצים מסוימים להוצאה</h4><br><div class="php codeblock"><span class="sy0">/</span><br>
+&nbsp;<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">open</span><span class="br0">&#40;</span><span class="st0">&quot;master.zip&quot;</span><span class="br0">&#41;</span> <span class="sy0">===</span> <span class="kw4">TRUE</span><span class="br0">&#41;</span><br>
+&nbsp;<span class="br0">&#123;</span><br>
+<span class="co1">// מערך עם שמות הקבצים שיש להוציא מהארכיון</span><br>
+<span class="co1">// ארכיון יכול להכיל בין היתר גם תיקיות</span><br>
+&nbsp; &nbsp;<span class="re0">$files</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;fonts.css&quot;</span><span class="sy0">,</span><span class="st0">&quot;styles/home/master.css&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">extractTo</span><span class="br0">&#40;</span><span class="st0">&quot;/path/to/folder/&quot;</span><span class="sy0">,</span><span class="re0">$files</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="re0">$zip</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="br0">&#125;</span></div><br><br><br><br>למשל <a href="http://ltr2rtl.co.cc/ltr2rtl/index.php">השירות שהופך עיצובים מאנגלית לעברית</a> מאפשר העלאה של קובץ zip שנפתח בשרת בצורה הזו, הקבצים עוברים את התהליך ומקובצים חזרה לקובץ zip שחוזר לגולש.<br><br>תשתמש בזה כשאתה רוצה לתת לגולשים להוריד כמה קבצים במכה או במקומות עם העלאת קבצים, כדי לאפשר לגולש להעלות את כל הקבצים בבת אחת. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment777"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/09/2011 15:06</span><br>
+תודה, מדריך שימושי ביותר :)</div>
+<a id="comment778"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/09/2011 15:21</span><br>
+תודה.<br>
+זה אפשרי לעעביר תקיה שלמה לתוך ה zip?</div>
+<a id="comment779"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/09/2011 15:24</span><br>
+@רז, אין כזו.<br>
+בדוקומנטציה יש לזה פתרון (כמו לכל דבר) כזה:<br>
+<span dir="ltr"><a href="http://il.php.net/manual/en/function.ziparchive-addfile.php#93090">http://il.php.net/manual/en/function.ziparchive-addfile.php#93090</a></span></div>
+<a id="comment780"></a>
+<div class="blog-comment">
+<span class='comment-author'>fingerbang</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/09/2011 20:50</span><br>
+אפשר לשלב בשם את הip של המשתמש (ושהוא מוריד להשתמש בשם קבוע) וככה למנוע התנגשות.</div>
+<a id="comment781"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/09/2011 21:06</span><br>
+אפשר. בדרך כלל אני משתמש בפתרון האולטימתיבי: microtime</div>
+<a id="comment788"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/09/2011 14:39</span><br>
+כאשר ZIPARCHIVE אינו מותקן אפשר לבצע פעולת Exec<br>
+<br>
+FOR EXAMPLE: <br>
+zip file.zip file1 file2 file3</div>
+<a id="comment790"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/09/2011 15:59</span><br>
+כאשר ziparchive לא מותקן אבל אפשר לבצע EXEC - עדיף להתקין zip_archive, לא? :)</div>
+<a id="comment1784"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוספי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/08/2012 16:11</span><br>
+הרצתי ב PHP לולאה שקוראת את כל התיקיה ומריצה על זה על פונקציה של הוספת קובץ<br>
+כשאני מוריד את התיקיה זה באמת מוריד אבל שאני מלחץ זה רושם שגיאה<br>
+The archive is either in unknown format or damaged<br>
+למרות שכשאני ניכנס לקובץ RAR אני רואה את כל הקבצים בצורה טובה<br>
+למה יש בעיה בחילוץ?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

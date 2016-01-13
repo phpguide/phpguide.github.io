@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="טווחי ריאה ב javascript, אובייקטים ופונקציות.">
+<meta name="keywords" content="js, scope, visibilty,טווח ריאה">
+<meta name="author" content="fingerbang">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>טווחים, אובייקטים ופונקציות בג&apos;אווה סקריפט</title>
+<meta itemprop="name" content="טווחים, אובייקטים ופונקציות בג&apos;אווה סקריפט">
+<meta itemprop="description" content="טווחי ריאה ב javascript, אובייקטים ופונקציות.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"141","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>טווחים, אובייקטים ופונקציות בג&apos;אווה סקריפט</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">fingerbang, </div>
+<div class="right">&nbsp;<time datetime="2011-08-11T16:13:13+03:00" dir="rtl">11 לאוגוסט 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/scope.jpg" alt="טווחים, אובייקטים ופונקציות בג&apos;אווה סקריפט">
+</div>
+<div class="right post-content">
+טוח ריאה או scope הוא המרחב קוד שבו לקוד יש גישה למשתנים ולפוניקציות. <br>זה הדבר הזה שכשאתם יוצרים פונקציה ב PHP המשתנים בה שייכים רק לה ומחוץ לפונקציה הם לא קיימים. גם ב javascript והם יכולים להכיל בתוכם פונקציות שלמות או אפילו את הדברים הבאים: <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>טווח(סקופ)</h3><br><br>שאתם מגדירים ערך בג&#039;אווה מסקריפט אתם מוסיפים אותו לטווח (סקופ) שאתם נמצאים בו.<br>אם פשוט תשתמשו ב<br><div class="php codeblock"><span class="kw2">var</span> answer <span class="sy0">=</span> <span class="nu0">42</span><span class="sy0">;</span></div>אז הוא יוגדר בטווח שאתם מצאים בו, הטווח שממנו מתחילים בדפדפנים הוא הטווח הגלובלי window.<br><br>שאנחנו כותבים קוד שמתבסס על קוד של מישהו אחר אנחנו לא נרצה לדרוס את הערכים שהוא קבע.<br>כלומר, אם הוא הגדיר את הגירסה ל 1.0 ואנחנו רוצים להגדיר את הגרסה שלנו כ1.2 ואנחנו נשתמש באותו שם לערך, אז תהיה לנו בעיה. כי אחד מאיתנו ידרוס את הערך של השני.<br>אחת הדרכים לפתור את זה היא לתת קידמות לשמות שלנו למשל:<br><div class="php codeblock"><span class="kw2">var</span> fb_version <span class="sy0">=</span> <span class="nu19">1.2</span><span class="sy0">;</span></div>וככה נדע שאנחנו לא דורסים ערכים אחרים ושלא ידרסו את הערכים שלנו.<br><br>דרך אחרת היא להשתמש בטווח משלנו.<br>מי שלא מכיר את הרעיון של טווח(סקופ) יכול לדמיין קופסאות.<br>יש את הקופסה הכללית, הראשית שבה הכל נמצא, ערכים, פונקציות ועוד קופסאות.<br>אם בקופסה הראשית יש ערך בשם<br><div class="php codeblock"><span class="kw2">var</span> name <span class="sy0">=</span> <span class="st0">&quot;web-site&quot;</span><span class="sy0">;</span></div>ויש קופסה בשם<br><div class="php codeblock"><span class="kw2">var</span> add_on <span class="sy0">=</span> <span class="br0">&#123;</span><span class="br0">&#125;</span><span class="sy0">;</span></div>ובקופסה add_on יש ערך בשם name וערך בשם version<br><div class="php codeblock">add_on<span class="sy0">.</span>name <span class="sy0">=</span> <span class="st0">&quot;the greatest add-on&quot;</span><span class="sy0">;</span><br>
+add_on<span class="sy0">.</span>version <span class="sy0">=</span> <span class="st0">&quot;over 9000&quot;</span><span class="sy0">;</span></div>אז הן לא ידרסו אחת את השניה.<br><br>אפשר לדמיין את זה גם בתור ענפים של עץ<br><span class="dirleft">name = &quot;web site&quot;<br>add_on<br> |-name = &quot;the greatest add-on&quot;<br> |-version = &quot;over 9000&quot;<br></span>צריך לזכור שהערך version קיים רק בתוך add_on.<br>לפי דעתי הדרך הזאת עדיפה בגלל שהיא עוזרת לשמור על הכל מאורגן, בראש ובמבנה.<br><br><br><h3>אובייקטים</h3>כדי ליצור אובייקט בג&#039;אווה סקריםט אפשר להשתמש בסוגריים מסולסלות (תתעלמו מהשימוש שלהן בפוקנציות(בלוקים)).<br><div class="php codeblock"><span class="kw2">var</span> obj <span class="sy0">=</span> <span class="br0">&#123;</span><span class="br0">&#125;</span><span class="sy0">;</span></div><br>שיוצרים אובייקט בדרך הזאת אפשר להגדיר לו ערכים, התחביר הוא key: value ושאחרי כל &quot;הכרזה&quot; כזאת יהיה פסיק כדי להפריד אותן.<br><div class="php codeblock"><span class="kw2">var</span> obj <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="st0">&quot;name&quot;</span><span class="sy0">:</span> <span class="st0">&quot;value&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;key2&quot;</span><span class="sy0">:</span> <span class="st0">&quot;someothervalue&quot;</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;last&quot;</span><span class="sy0">:</span> <span class="st0">&quot;one&quot;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span></div><br>לא חובה להשתמש בסוגריים למפתחות.<br>(שימו לב שלאחרון אין פסיק בגלל שאין &quot;הכרזה&quot; אחריו להבדיל אותו ממנה.)<br><br>אפשר לקבל ערכים מאובייקט בעזרת הנקודה.<br><div class="php codeblock">obj<span class="sy0">.</span>name</div>יחזיר את הערך &quot;value&quot;<br>אם נעשה ככה<br><div class="php codeblock">obj<span class="sy0">.</span>name <span class="sy0">=</span> <span class="st0">&quot;name value&quot;</span><span class="sy0">;</span></div>אז הערך יוגדר מחדש.<br>אפשר גם לשרשר (עד אינסוף, או במקביל שהזיכרון יגמר) אובייקטים בתוך אובייקטים<br><div class="php codeblock"><span class="kw2">var</span> obj <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="st0">&quot;sub&quot;</span><span class="sy0">:</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;name&quot;</span><span class="sy0">:</span> <span class="st0">&quot;nameless endless&quot;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span></div><br>ואני אוכל לגשת אליו ככה:<br><div class="php codeblock">obj<span class="sy0">.</span>sub<span class="sy0">.</span>name</div><br>ואותו העיקרון עובד על כל &quot;ענף&quot; שתרדו ב&quot;עץ&quot; האובייקטים שלכם.<br><br><br><br><br><h3><br>פונקציות</h3><br>בג&#039;אווה סקריפט יש מספר דרכים להגדיר פונקציה.<br>פשוט להכריז עליה.<div class="php codeblock"><span class="kw2">function</span> the<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#125;</span></div><br>להעביר את הפונקציה כערך. לא חובה לתת לה שם, אם תתנו לה תוכלו להשתמש בו רק בתוכה ולא מחוץ לה. (שימו לב ל; בסוף)<br><div class="php codeblock"><span class="kw2">var</span> the <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span></div><br>להשתמש בקונסטרקטור(בנאי)<br><div class="php codeblock"><span class="kw2">var</span> the <span class="sy0">=</span> <span class="kw2">new</span> <span class="kw2">Function</span><span class="br0">&#40;</span>arg1 <span class="br0">&#91;</span><span class="sy0">,</span> arg2 <span class="sy0">...</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st0">&quot;...&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>מעבירים פרמטרים והפרמטר האחרון הוא תוכן הפונקציה, כמחרוזת.<br><br>והאחרונה היא פונקציה אנונימית לגמרי, שאדבר עליה בהמשך. <br><div class="php codeblock"><span class="kw2">function</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="sy0">...</span><span class="br0">&#125;</span><br>
+<span class="kw2">new</span> Functiob<span class="br0">&#40;</span><span class="st0">&quot;...&quot;</span><span class="br0">&#41;</span></div><br>בכל טווח שתהיו בו יהיה מוגדר הערך this. אם אתם נמצאים בטווח הראשי בדפדפן אתם תראו שthis מכיל את window.<br>אם תהיו בטווח add_on ותבדקו מה יש בthis תקבלו את add_on.<br>כאשר אנחנו בפונקציה הערך this יכיל את הטווח שהריץ את הפונקציה, כלומר, אם תריצו את זה:<br><div class="php codeblock"><span class="kw2">function</span> whereAmI<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">return</span> this<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+whereAmI<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>תקבלו בחזרה את הטווח שבו אתם נמצאים, זה יכול להיות הwindow בדפדפן או האובייקט add_on אם נבצע את זה מתוכו<br><div class="php codeblock">add_on <span class="sy0">=</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="st0">&quot;whereAmI&quot;</span><span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> this<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span><br>
+add_on<span class="sy0">.</span>whereAmI<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>שימו לב שאפשר לגשת אל הפונקציה כמו כל ערך אחר באובייקט, אם נגש אל הפונקציה ללא סוגרים אז נקבל את הפנקציה עצמה, נוכל למשל לעשות את זה כדי להדגים<br><div class="php codeblock"><span class="kw2">var</span> whereAmI <span class="sy0">=</span> add_on<span class="sy0">.</span>whereAmI<span class="sy0">;</span><br>
+whereAmI<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>עכשיו תנסו להריץ את זה בטווח הגלובלי ותראו מה קורה.<br><br>הערה: בפונקציות יהיה מוגדר הערך arguments הוא יכיל מערך של כל הפרמטרים שניתנו לפונקציה, בעזרתו אפשר לכתוב פונקציות שמקבלות מספר פרמטרים לא יודע מראש.<br><h3><br>שימוש בפונקציה כדי ליצור אובייקט</h3><br>דרך נוספת ליצור אובייקט היא להשתמש בפונקציה.<br>קודם נגדיר פונקציה<div class="php codeblock"><span class="kw2">function</span> webobj<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; this<span class="sy0">.</span>website <span class="sy0">=</span> <span class="st0">&quot;phpguide.co.il&quot;</span><br>
+<span class="br0">&#125;</span></div><br>ואז ניצור מופע חדש של האובייקט<br><div class="php codeblock"><span class="kw2">var</span> here <span class="sy0">=</span> <span class="kw2">new</span> webobj<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>עכשיו נוכל לפנות ל<br><div class="php codeblock">here<span class="sy0">.</span>website</div><br>ולקבל את הערך.<br>הייתרון הוא שרוצים ליצור מספר גדול של מופעים כאלו.<br>אם היו לנו הרבה כלי רכב היינו יכולים לעשות משהו כזה<br><div class="php codeblock"><span class="kw2">function</span> creatACar<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; this<span class="sy0">.</span>weels <span class="sy0">=</span> <span class="nu0">4</span><span class="sy0">,</span><br>
+&nbsp; this<span class="sy0">.</span>sits <span class="sy0">=</span> <span class="nu0">5</span><br>
+<span class="br0">&#125;</span></div><br>וכדי ליצור מכונית חדשה לעשות<br><div class="php codeblock"><span class="kw2">var</span> standCar <span class="sy0">=</span> <span class="kw2">new</span> creatACar<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>וכדי ליצור מכונית עם 42 מושבים לעשות ככה<br><div class="php codeblock"><span class="kw2">var</span> epicCar <span class="sy0">=</span> <span class="kw2">new</span> creatACar<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+epicCar<span class="sy0">.</span>sits <span class="sy0">=</span> <span class="nu0">42</span><span class="sy0">;</span></div><br>כמובן שלפונקציה creatCar נוכל להעביר פרמטרים שישפיעו על ההתנהגות שלה, ובתוכה נוכל להשתמש בלוגיקה (משפטי תנאי, לולאות וכל מה שיש לנו בג&#039;אווה סקריפט).<br><br><br><h3>הפעלת פונקציות.</h3><br><br>הדרך הכי פשוטה לקרוא לפונקציה היא להוסיף ().<br>אם נעשה ככה<div class="php codeblock"><span class="kw2">function</span> foo<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="br0">&#125;</span></div><br>אז נגדיר בעצם את foo כפוקנציה, וכדי לקרוא לה נוכל לעשות<br>foo<div class="php codeblock"><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אם נעשה ככה<div class="php codeblock"><span class="kw2">var</span> foo <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="br0">&#125;</span><span class="sy0">;</span></div><br>אז תגדיר את foo כפונקציה, בדיוק כמו הדרך הקודמת, רק בצורה שונה, נוכל לרשום<br><div class="php codeblock">foo<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>נראה שההכרזה של פונקציה בעצם מחזירה פונקציה, זה אומר שנוכל לעשות ככה.<br><div class="php codeblock"><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>שמתם לב לסוגריים והפסיק שבסוף?<br>זאת נקראת פונקציה אנונימית שקוראת לעצמה. שם ערך אבל מסביר את עצמו.<br><div class="php codeblock"><span class="kw2">var</span> tafluae <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="nu0">42</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>מה אתם חושבים שיהיה בערך tafluae?<br>אם חשבתם על הערך 42 אז צדקתם.<br>זה מקביל ללרשום<br><div class="php codeblock"><span class="kw2">function</span> foo<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="nu0">42</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw2">var</span> tafluae <span class="sy0">=</span> foo<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שאנחנו נרצה לכתוב משהו ולוודא שהוא לא יתנגש עם דברים אחרים שפועלים אנחנו ניצור לנו טווח משלנו.<br>הסברתי על כמה דרכים ליצור טווח משלנו ע&quot;י אובייקטים ופונקציות. אבל אם אנחנו נרצה ליצור לנו טווח נקי שיהיה בטוח להגדיר עליו ערכים נוכל להשתמש בפונקציה<br>אנונימית שקוראת לעצמה.<br><div class="php codeblock"><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>בטוח הפונקציה אנחנו נתהג כמו שהיינו כותבים בטווח הראשי.<br>אני מעדיף לעטוף את הפונקציה עצמה בעוד סט של סוגריים<br><div class="php codeblock"><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ככה שאני קורא את הקוד, אני יכול לדעת שזאת פונקציה אנונימית שקוראת לעצמה ואני לא צריך לנחש את זה.<br><br>דרך אחרת לקרוא לפונקציה היא בעזרת המתודה call. אנחנו נקרא בצורה כזאת לפונקציות כשאנחנו נרצה להפעיל אותן &quot;מטווח אחר&quot;<br>לצורך ההדגמה המשתנה bar יכיל פונקציה כלשהי<br><div class="php codeblock">bar <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="br0">&#125;</span></div><br>הסברתי על המשתנה this בפונקציות שמכיל את הטווח שממנו הפעילו אותן, אפשר לשנות אותו ע&quot;י הפונקציה call ובעצם &quot;להפעיל את הפונקציה מטווח אחר&quot;.<br>אם נעשה ככה<br><div class="php codeblock">bar<span class="sy0">.</span>call<span class="br0">&#40;</span>add_on<span class="sy0">,</span> arg1 <span class="br0">&#91;</span><span class="sy0">,</span> arg2 <span class="sy0">...</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אז המשתנה this בפונקציה יכיל את add_on.<br>לcall אפשר להעביר מספר לא מוגדר מראש של פרמטרים שהיא תעביר לפונקציה.<br><br>הפונקציה aplly עושה פעולה זהה. היא מקבלת שני פרמטרים.<br>הפרמטר הראשון יגדיר את הthis של הפונקציה, בדיוק כמו בcall<br>הפרמטר השני יקבל מערך, את הערכים של המערך הוא יעביר כפרמטרים לפונקציה.<br>ההבדל הוא שאם בזמן הריצה של הסקריפט נרצה לשנות את מספר הפרמטרים נוכל, ע&quot;י הסרה או הוספה של ערך במערך.<br><div class="php codeblock">bar<span class="sy0">.</span>apply<span class="br0">&#40;</span>add_on<span class="sy0">,</span> arg_array<span class="br0">&#41;</span><span class="sy0">;</span></div><br>אבל בcall יש לנו מספר סטטי של פרמטרים בזמן ריצה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/5b582f3ff09af72dd46793d359788f37?s=16&r=g&d=monsterid" alt="fingerbang">
+<a>fingerbang</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment601"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2011 21:24</span><br>
+אני חייב לציין שזה המדריך הכי ברור לתכנות מונחה עצמים בג&apos;אווה סקריפט שקראתי עד היום. למרות שהוא לא מספר על פרמטרים סטטיים, הורשה/דקורציה , אבל הוא בהחלט מביא את המבוא.<br>
+<br>
+תודה.</div>
+<a id="comment606"></a>
+<div class="blog-comment">
+<span class='comment-author'>fingerbang</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/08/2011 03:06</span><br>
+הורשה זה כבר להתעסק עם הprototype ולא רציתי לגלוש.<br>
+אם אני אראה שאנשים מתעניינים אני אמשיך לכתוב על js.<br>
+<br>
+אני שמח שזה ברור, הייתי בטוח שעשיתי בלאגן. :)</div>
+<a id="comment607"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/08/2011 03:19</span><br>
+תמשיך תמשיך לכתוב, מאמר מצוין, מסביר מעולה! תודה רבה!</div>
+<a id="comment609"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/08/2011 11:08</span><br>
+כן, גם אותי זה מעניין. באיחוד עם הסברים טובים וברורים כמו שלך.</div>
+<a id="comment613"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/08/2011 16:15</span><br>
+כל הכבוד על המדריך</div>
+<a id="comment614"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/08/2011 16:31</span><br>
+מדריך מעולה :)</div>
+<a id="comment862"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/10/2011 00:03</span><br>
+אני ממליץ גם להוסיף שהפקודה var, היא זו שגורמת למשתנה להיות בטווח הנוכחי שבו הוא הוכרז, אך אם נגדיר את המשתנה ללא var, הוא יוגדר כ&quot;גלובאלי&quot;.<br>
+<br>
+לדוגמה הקוד הזה לא יעבוד: <span dir="ltr"><a href="http://pastebin.com/n6W3ce61">http://pastebin.com/n6W3ce61</a></span><br>
+וזה כן: <span dir="ltr"><a href="http://pastebin.com/6WkevfeU">http://pastebin.com/6WkevfeU</a></span></div>
+<a id="comment2733"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/01/2014 22:27</span><br>
+@iiddaannyy הקישורים שנתת בתגובה האחרונה שבורים. אולי כדאי לארגן שמירת קטעי קוד כאן (כמו PHPLive שיש כאן), כך שזה לא יקרה שוב.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

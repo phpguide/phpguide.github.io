@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="כלים עבור פנטסט לאתרים, כלומר כלים שמחפשים אוטומטית חורים כמו SQL Injextion, XSS ו-RFI.">
+<meta name="keywords" content="פנטסט,כלים">
+<meta name="author" content="Cayce">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>כלים עבור פנטסט</title>
+<meta itemprop="name" content="כלים עבור פנטסט">
+<meta itemprop="description" content="כלים עבור פנטסט לאתרים, כלומר כלים שמחפשים אוטומטית חורים כמו SQL Injextion, XSS ו-RFI.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"311","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>כלים עבור פנטסט</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Cayce, </div>
+<div class="right">&nbsp;<time datetime="2013-02-26T20:40:25+02:00" dir="rtl">26 לפברואר 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://boomboom.co.il/images/phpguide/3/logo.jpeg" alt="כלים עבור פנטסט">
+</div>
+<div class="right post-content">
+שלום.<br>במאמר הבא אני אציג כמה כלים עבור פנטסט לאתרים, כלומר כלים שמחפשים אוטומטית חורים כמו SQL Injextion, XSS ו-RFI. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2><a href="http://www.acunetix.com/vulnerability-scanner/download/">Acunetix Web Vulnerability Scanner</a></h2><br><img src="static\images\pixel.png" alt="כלים עבור פנטסט" title="http://chudinov.org/images/phpguide/3/3.1.png" class="content-image-float"><br><br>תוכנה פשוטה להבנה - רושמים אתר שרוצים לעשות לו פנטסט, לוחצים אנטר וזהו. (האמת היא שיש שם כמה הגדרות...)<br>הנה גם סרטון הסברה (אבל לדעתי הכל מובן גם בלי הסרטון):<br><br><iframe width="480" height="390" src="http://www.youtube.com/embed/Ek3N8PpZoGc?rel=0" frameborder="0" allowfullscreen=""></iframe><br><br>התוכנה עולה כסף ועובדת רק בו&#039;ינדוס. יש לה גרסה חינמית ל-14 יום. אם אתם מפעילים אותה על אתר שהוא לא שלהם (שהם פיתחו בכוונה עם חורים לשם ההדגמה) - התוכנה רושמת את החורים שהיא מצאה באתר, אבל לא רושמת איפה בדיוק. בכל מקרה, זה עדיין יהיה שימושי, כי כשאתם יודעים שיש חור, ויודעים מאיזה סוג, קל יותר לחפש אותו.<br><br><br><img src="static\images\pixel.png" alt="כלים עבור פנטסט" title="http://chudinov.org/images/phpguide/3/3.2.png" class="content-image-floatright"><br><h2><a href="http://www.cirt.net/nikto2">Nikto</a></h2><br>זאת תוכנת קוד פתוח עבור לינוקס.<br>אין ממשק גרפי, אבל אנחנו פה יודעים שממשק גרפי זה לילדים.<br>התוכנה בעיקר מחפשת כל מני סקריפטים שהיו אמורים להיות חסומים לציבור, כמו test.php, phpmyadmin, pma...<br>ההתקנה פשוטה: מורידים את הארכיון, מחלצים אותו איפה שאתם רוצים, וזהו. זה סך הכול סקריפטים ב-Perl.<br>הפעלה לדוגמה:<br><span class="dirleft">perl nikto.pl -h http://example.com</span><br><br><br><h2><a href="http://research.sensepost.com/tools/web/wikto">Wikto</a></h2><br>זו התוכנה שלמעלה, אבל עבור ו&#039;ינדוס ועם ממשק גרפי.<br>יש כמה תוספות בהשוואה ל-Nikto, לדוגמה Google Hacking Database, שזה ניסיון למצוא דברים שלא היו אמורים להיות חשופים דרך זיכרון המטמון של גוגל.<br><br><br><br><br><br><img src="static\images\pixel.png" alt="כלים עבור פנטסט" title="http://chudinov.org/images/phpguide/3/3.3.png" class="content-image-floatleft"><br><h2><a href="http://w3af.org/">w3af</a></h2><br>לינוקס, קוד פתוח, ממשק גרפי ושורת פקודה - כמו שצריך. יש גם גרסאות ישנות יותר לו&#039;ינדוס.<br>זה פרימו&#039;ורק עם הרבה מאוד <a href="http://w3af.sourceforge.net/plugin-descriptions.php">תוספות</a> - יש חיפוש של כל סוגי החורים.<br>התקנה פשוטה מאוד בלינוקס:<br><span class="dirleft">sudo apt-get install w3af</span><br>אחרי זה הפעלה באמצעות הפקודה:<br><span class="dirleft">w3af_gui</span><br><br><img src="static\images\pixel.png" alt="כלים עבור פנטסט" title="http://chudinov.org/images/phpguide/3/3.4.png" class="content-image-floatleft"><br><h2><a href="http://www.getmantra.com/">Mantra</a></h2> is a dream that came true<br>ערכה של תוספות לדפדפן עבור פנטסט.<br>עובד עם פיירפוקס וכרומיום (לא להתבלבל עם כרום).<br><br><br><br><h2>לסיכום</h2><br>אלה תוכנות שאני ניסיתי, אבל יש עוד לא מעט שם בחוץ. אף על פי שמה שהצגתי צריך להספיק להתחלה, מי שרוצה יכול להמשיך לחפש באתרים הבאים:<br><a href="http://sectools.org/tag/web-scanners">http://sectools.org/tag/web-scanners</a> - עשרים תוכנות עבור פנטסט ל-Web;<br><a href="http://www.securitytube-tools.net">http://www.securitytube-tools.net</a> - רשימה מסודרת של אינסוף כלים עבור כל סוגי הפנטסט.<br>תהנו! :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/eae8f99c4b8a7edfc90c2e915ff5c6ec?s=16&r=g&d=monsterid" alt="Cayce">
+<a>Cayce</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2251"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 16:40</span><br>
+מדהים!!!!<br>
+תודה על הפרסום!</div>
+<a id="comment2252"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 16:46</span><br>
+חחחח אני רוצה להגיד שוב פעם...<br>
+כי אין לך מושג כמה עזרת לי הפעם<br>
+<br>
+אתה אלוף, בחיים לא אמנתי שקיימת תוכנה כזאת</div>
+<a id="comment2253"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 16:51</span><br>
+רגע מה, הפעלתי את התוכנה על האתר שלי<br>
+ועכשיו אתר שלי לא עובד, זה מראה שהדף אינו זמין ?!</div>
+<a id="comment2255"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 17:41</span><br>
+&gt;&gt; אלה דברים שאני ניסיתי, <br>
+צריך להלחליף ב<br>
+אלה דברים שאני ניסיתי (על phpguide), <br>
+<br>
+----------------<br>
+@ilikeme<br>
+אם הדף אינו זמין, זה אומר שהשרת נפל או משהו בסגנון. זה מאוד יכול לקרות בגלל שהתוכנה מייצרת הרבה מאוד בקשות . נסה לראות בלוגים של השרת מה בעצם קרה.</div>
+<a id="comment2257"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 17:54</span><br>
+חחח אלכס זאת היית הבעיה זה הראה לי שהאתר שלי נגיש לDDOS<br>
+אני צריך לכתוב בהרבה יותר יעילות (או שזה YII לוקח את כל המשאבים!@!)<br>
+<br>
+בכל מקרה, אני אתקשר לחברת האחסון ואפתור את הבעיה :)</div>
+<a id="comment2258"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 18:49</span><br>
+התוכנה הראשונה הפילה בטעות את האתר הזה גם חחח<br>
+פתאום ראיתי שהאתר לא עובד, והמחשבה שעברה לי בראש זה &quot;אופס&quot;</div>
+<a id="comment2259"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 19:06</span><br>
+אם Acunetix Web Vulnerability Scanner לא מציג שום שגיאה<br>
+אז אין לי מה לדאוג יותר והאתר מספיק מאובטח?</div>
+<a id="comment2262"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 20:10</span><br>
+האמת שאם Acunetix לא מצא שום חור(או אפשרות לחור), אז המצב שלך טוב.<br>
+אבל זה גם מוזר, כי בדרך כלל הוא מוצא לפחות משהו קטן. באתר הזה זה מצא, באתר שלי מצא. <br>
+אם יש לך התחברות באתר, שים לב שלימדת את Acunetix להתחבר, שהוא גם יחפש חורים בדפים שרואים רק משתמשים מחוברים.<br>
+<br>
+להפסיק לדאוג לגמרי לבטיחות זה לא בריא, אבל להירגע אפשר, לפחות עד הכתבה הבאה :)</div>
+<a id="comment2263"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 22:17</span><br>
+אממ.. אני צריך גם להעביר אותו גם לדף התחברות של פאנל הניהול?<br>
+כאילו הוא כן הציג לי שגיאות אבל תיקנתי את כולם... חוץ מ-DDOS</div>
+<a id="comment2264"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 22:36</span><br>
+אם פאנל הניהול פתוח רק לאדמין הראשי, אז בעקרון לא. גם ככה הוא יכול לעשות שם כל דבר.<br>
+אם יש לך כמה רמות גישה בפאנל הניהול, אז אפשר גם שם.<br>
+<br>
+אבל צריך להיזהר, אני נתתי לו גישה למשתמש שלי באתר הזה, והוא מחק לי את הכתבות חח</div>
+<a id="comment2265"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/02/2013 23:18</span><br>
+כאילו לממשק ניהול... של האתר...<br>
+לא הCPANEL<br>
+איפה שמתחברים כדי לשנות תוכן, להוסיף/להסיר דברים<br>
+הממשק של האתר</div>
+<a id="comment2266"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/02/2013 17:07</span><br>
+אבל אם רק לך יש לשם גישה, אז מה זה משנה אם יהיה שם חור או לא.<br>
+העיקר לבדוק, שבאמת רק לך תהיה לשם גישה.<br>
+<br>
+ואם יש לך בפאנל הניהול כמה משתמשים עם רמות גישה שונות, אז כן, צריך להריץ את התוכנה על הפאנל ניהול, לראות שאין שם חורים.</div>
+<a id="comment2267"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/02/2013 21:53</span><br>
+לא חחח<br>
+לבדוק אם BOOT יכול לזהות את הפרטים...<br>
+</div>
+<a id="comment2280"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/03/2013 13:22</span><br>
+1) pma == php my admin<br>
+2) ממשק גרפי הוא לא לילדים. הוא הרבה יותר נוח להרבה אנשים, גם מתכנתים (ראה לשם דוגמה VS)<br>
+3) inko מחפשים גם XSS וSQL Injection?<br>
+</div>
+<a id="comment2281"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/03/2013 17:08</span><br>
+איך השארת את nessus בחוץ?</div>
+<a id="comment2282"></a>
+<div class="blog-comment">
+<span class='comment-author'>Cayce</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/03/2013 23:41</span><br>
+liorel100<br>
+1. נכון. התכוונתי שהוא מנסה להיכנס גם דרך example.com/pma וגם דרך example.com/phpmyadmin<br>
+יש לו מסד נתונים ענק של כל מניי דברים כאלה. נתתי את הדוגמאות הפשוטות.<br>
+2. צחקתי ;) <br>
+3. לא<br>
+<br>
+ldbrgr<br>
+השארתי גם את Metasploit, שנראה לי הכלי הכי טוב בתחום :)<br>
+אבל זה כי התמקדתי בכלים שכל העבודה שלהם זה לחפש חורים באתרי אינטרנט, גם nessus וגם Metasploit עושים הרבה יותר מזה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

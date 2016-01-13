@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="תמיד שאלתם את עצמכם כיצד שולחים פרטים לשרת ללא רענון הדף?נענה אל הכל!">
+<meta name="keywords" content="AJAX ו PHP - פרק א&apos; יבוא קובץ פשוט">
+<meta name="author" content="RaFaeL">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>AJAX ו PHP - פרק א&apos; יבוא קובץ פשוט</title>
+<meta itemprop="name" content="AJAX ו PHP - פרק א&apos; יבוא קובץ פשוט">
+<meta itemprop="description" content="תמיד שאלתם את עצמכם כיצד שולחים פרטים לשרת ללא רענון הדף?נענה אל הכל!">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"111","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>AJAX ו PHP - פרק א&apos; יבוא קובץ פשוט</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">RaFaeL, </div>
+<div class="right">&nbsp;<time datetime="2011-06-24T15:06:59+03:00" dir="rtl">24 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/ajax.jpg" alt="AJAX ו PHP - פרק א&apos; יבוא קובץ פשוט">
+</div>
+<div class="right post-content">
+תמיד שאלתם את עצמכם כיצד שולחים פרטים לשרת ללא רענון הדף? נענה אל הכל! <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+לא מזמן פנו אלי מספר אנשים ושאלו אותי את השאלה: &quot;כיצד אני שולח נתונים לשרת ללא רענון הדף?&quot;, היום אני רוצה לנות לכולם חד משמעית כיצד עושים זאת.<br><br>ובכן, יש כמה דרכים לעשות זאת ב AJAX, אחד בשימוש ב JS השני בשימוש JQUERY.<br>לפי דעתי הקוד של JQUERY <strong>הרבה הרבה יותר קצר!</strong>.<br><br><h4>השוואה בין שני הקודים</h4><br>ובכן, כמו שאמרתי קודם יש אפשרות לכתוב AJAX ב JQUERY וב JS.<br>הקוד של JS יותר ארוך מקוד <span dir="ltr">JQUERY</span><br><br><strong>קוד JS:</strong><br><div class="php codeblock"><span class="kw2">function</span> AJAX<span class="br0">&#40;</span>pram<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">var</span> xmlhttp<span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>window<span class="sy0">.</span>XMLHttpRequest<span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="co1">// code for IE7+, Firefox, Chrome, Opera, Safari</span><br>
+&nbsp; &nbsp; xmlhttp<span class="sy0">=</span><span class="kw2">new</span> XMLHttpRequest<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><span class="co1">// code for IE6, IE5</span><br>
+&nbsp; &nbsp; xmlhttp<span class="sy0">=</span><span class="kw2">new</span> ActiveXObject<span class="br0">&#40;</span><span class="st0">&quot;Microsoft.XMLHTTP&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; xmlhttp<span class="sy0">.</span>onreadystatechange<span class="sy0">=</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>xmlhttp<span class="sy0">.</span>readyState<span class="sy0">==</span><span class="nu0">4</span> <span class="sy0">&amp;&amp;</span> xmlhttp<span class="sy0">.</span>status<span class="sy0">==</span><span class="nu0">200</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;txtHint&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>innerHTML<span class="sy0">=</span>xmlhttp<span class="sy0">.</span>responseText<span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; xmlhttp<span class="sy0">.</span>open<span class="br0">&#40;</span><span class="st0">&quot;GET&quot;</span><span class="sy0">,</span><span class="st0">&quot;page.php?p=&quot;</span><span class="sy0">+</span>pram<span class="sy0">,</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; xmlhttp<span class="sy0">.</span>send<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><strong>קוד JQ:</strong><br><div class="php codeblock"><span class="kw2">function</span> AJAX<span class="br0">&#40;</span>pram<span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; $<span class="sy0">.</span>get<span class="br0">&#40;</span><span class="st0">&quot;page.php?p=&quot;</span><span class="sy0">+</span>pram<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>result<span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;div&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>html<span class="br0">&#40;</span>result<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>נו מה אתם אומרים? לפי דעתכם מה יותר נוח? לפי דעתי JQuery<br><br><h3>על מה המדריך בעצם?</h3><br>טוב בגלל שיותר נוח לי(ולפי דעתי גם לכם) לכתוב קוד AJAX בעזרת JQuery שהיא בעצם ספריה של JS אני ילמד כיצד כותבים קוד AJAX יעיל ופשוט בעזרת JQuery<br><br><h4>מה זה JQuery?</h4><br>JQuery זאת בעצם ספריה של JS, ובשביל לעבוד איתה יש לעשות כמה צעדים:<br><br>1.להיכנס לאתר הרשמי של <a href="http://jquery.com/">JQUERY</a> ולהוריד את הגירסה הנוכחית, מי שלא מצליח להוריד שיעשה שמירה בשם ללינק הבא:<a href="http://code.jquery.com/jquery-1.6.1.min.js">שמור אותי!!</a><br><br>2.הוסיפו את JQuery לדף HTML,PHP... כך:<br>שימו את הקוד הבא ב HEADER של הדף או לאחר הסגירה של BODY:<br><div class="php codeblock"><span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;jquery.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></div><br>jquery.js = שם הקובץ שלכם.<br><strong>עוד אפשרות:</strong><br>מי שאין לו רצון להוריד קבצים יכול להשתמש בקבצים המאוחסנים על ידי GOOGLE ומיקרוסופט ככה:<br><div class="php codeblock"><span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></div><br><div class="php codeblock"><span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;http://ajax.microsoft.com/ajax/jquery/jquery-1.6.1.min.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></div><br><br>3.נבדוק שהכל פועל. הוסיפו את הקוד הבא מתחת לקישור ל JQuery:<br><div class="php codeblock"><span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span><br>
+$<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;body&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>html<span class="br0">&#40;</span><span class="st_h">'hi from jquery'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br><br>אם הדף שלכם מראה הודעת שלום מ-jquery אז הכל בסדר<br><br><br><h4>מתחילים בקטן</h4><br>נתחיל לכתוב את הקוד שלנו..<br>נתחיל בזה שנילמד להוסיף(לייבא) קבצים לתוך הדף ללא שום רענון.<br>JQuery מציאה לנו אל הפונקציה load שלמעשה, כפי שנשמע, טוענת משהו (קובץ שנומר לה לטעון).<br>למעשה היא לא תיטען לנו קוד PHP אלה את הפלט שלו.<br><br>נגיד יש לי את הקובץ ajax.php, תכולת הקובץ היא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw2">function</span> AJAX<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="st0">&quot;I am a Ajax code&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">echo</span> AJAX<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו, AJAX יטען את הפלט של הקוד(תבצע ותחזיר תשובה - פלט).<br>לדוגמא הקובץ שהבאתי למעלה מחזיר &quot;I am a Ajax code&quot;.<br><br>עכשיו אתם שואלים מה אני מבלבל לכם ת&#039;מוח למה אתה לא עובר לשורש העניין?<br>טוב נו אני ירחם אליכם <span dir="ltr">:P</span><br><br>טוב עכשיו נגיד אני רוצה לטעון את הפלט של הקובץ לתוך דיב בשם<span dir="ltr">(id) Ajax</span>.<br>אוקיי אנו רושמים דולר($) לאחר מכן נשים סוגרים(()) ובתוכם נשים מרכאות.<br>בתוך המרכאות רושמים את ה selector(שם הדיב בתוספת . <span dir="ltr">OR #, .=class #=id</span>).<br>ככה:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st0">&quot;#ajax&quot;</span><span class="br0">&#41;</span></div><br>נוסיף לאחר מכן נקודה +שם הפונקציה ובסוגרים נרשום את שם הקובץ שברצוננו ליבא:<br><div class="php codeblock"><span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; $<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#ajax&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>load<span class="br0">&#40;</span><span class="st_h">'ajax.php'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br>עכשיו נוסיף לדף שלנו DIV בשם ajax:<br><div class="php codeblock"><span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;ajax&quot;</span><span class="sy0">&gt;&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>פלט:&quot;I am a Ajax code&quot;.<br><br>כמובן שלא חייב לייבא קובץ PHP אפשר כל קובץ למשל:<br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span>document<span class="br0">&#41;</span><span class="sy0">.</span>ready<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#ajax&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>load<span class="br0">&#40;</span><span class="st_h">'ajax1.html'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">&lt;/script&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;ajax&quot;</span><span class="sy0">&gt;&lt;/</span>div<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><div class="php codeblock">שלום אני טקסט יפה ופשוט בקובץ ajax1<span class="sy0">.</span>html <span class="sy0">:</span>P</div><br><br>פלט:&quot;שלום אני טקסט יפה ופשוט בקובץ ajax1.html <span dir="ltr">:P</span>&quot;.<br><br><h4>מה למדנו?</h4><br>טוב לא למדנו הרבה..<br>1.למדנו להוסיף לקובץ שלנו אפשרות JQuery<br>2.למדנו ממש בקטנה מה זה JQuery<br>3.למדנו אל האפשרות ש JQuery מציאה לנו:load<br><br>נתראה במדריך הבא <span dir="ltr">:P</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/7ff5a4244432d30b20b8a8a2d7ed82e7?s=16&r=g&d=monsterid" alt="RaFaeL">
+<a>RaFaeL</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment246"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/06/2011 19:44</span><br>
+כל הכבוד על הכתבה רפאל. המשיך כך. <br>
+אני כבר מחקה לחלק ב&apos;.<br>
+--<br>
+אני מאוד ממליץ על שימוש בספריה באמצעות השרת של גוגל ולא להוריד את הקובץ ולשים באתר שלכם. לדפדפן יש זכרון מתמון מיוחד שמאפשר לו לשמור קבצים שהוא כבר הוריד בעבר ולא להוריד אותם עוד פעם. לכן עם נכנסתם לאתר הזה(שמשתמש בגוגל) - הדפדפן שלכם הוריד את הקובץ מהשרת של גוגל, שמר אותו, ופעם הבאה שתכנסו לאתר הזה או לכל אתר אחר שגם משתמש בגוגל - הקובץ יטען הרבה הרבה הרבה יותר מהר מהזכרון.</div>
+<a id="comment247"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/06/2011 22:30</span><br>
+כל הכבוד רפאל. אלכס, פעם הבאה תעבור טיפה יותר על המאמר ותתקן בעיות איות.<br>
+בהצלחה ברפאל במאמרים הבאים, מקווה שהכתיבה שלך תשתפר.<br>
+<br>
+וכן, ממליץ מאוד על Ajax בעזרת הספרייה jQuery, ובכללי אני ממליץ על הספרייה הזאת. ספרייה שמקצרת את העבודה בהמון.<br>
+<br>
+שוב תודה רפאל.</div>
+<a id="comment248"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/06/2011 22:32</span><br>
+חבל שיש טעויות של איות כמו &quot;אל&quot; במקום &quot;על&quot;.</div>
+<a id="comment249"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/06/2011 22:42</span><br>
+חח אני אששמח לעבוד טיפה אל דקדוק :P</div>
+<a id="comment251"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2011 12:40</span><br>
+תודה רבה, מדריך מעולה.</div>
+<a id="comment252"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2011 13:31</span><br>
+לא מומלץ בכלל להשתמש בJQ בשביל דבר פשוט כמו Ajax<br>
+חבל לייבא ספרייה ענקית בשביל משהו כל כך פשוט.</div>
+<a id="comment253"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2011 15:25</span><br>
+תודה רבה :]</div>
+<a id="comment254"></a>
+<div class="blog-comment">
+<span class='comment-author'>iosolidar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/06/2011 22:03</span><br>
+יהונתן -&gt; אתה טועה.<br>
+<br>
+זה תלוי בצורך, קוד ajax יכול להתלכלך ולהפוך למאוד מורכב בזמן קצר. jquery היא ספריה מאוד חזקה שמכילה הרבה כלים טובים (עם סינטקס נוח) בשביל לעבוד בצורה יעילה. אם אתה רק רוצה לשלוח בקשת GET לשרת כלשהוא בשביל לקבל איזה json פשוט, אולי עדיף לך ליישם בעצמך ולכתוב קוד שיספק לך אובייקט שיעבוד ביותר מדפדפן אחד. אבל אם אתה רוצה לכתוב אפליקיית javascript מורכבת שעושה מאשר יותר בקשה אחת פשוטה אולי כדי לך לשקול להשתמש בספריה.<br>
+<br>
+משאבי המחשב הם זולים, זמן מתכנתים יקר. אז במקום להמציא את הגלגל עדיף להשתמש בספריות החזקות הללו, אם המשתמשים שלך לא על dialup זה לא ישנה עבורם כמעט בכלל.</div>
+<a id="comment318"></a>
+<div class="blog-comment">
+<span class='comment-author'>astn</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/07/2011 23:46</span><br>
+בקשר לגודל של JQUERY: <br>
+א. 90K זה לא גודל שהייתי מגדיר כ&quot;ענק&quot;.<br>
+ב. מן הסתם כשאתה כותב משהו, לא תשתמש בJQUERY רק לדבר אחד. מאז שאני גליתי את הספריה אני משתמש בה כמעט לכל דבר: EVENT HANDLING, שינויים בCSS, שליטה בDOM - פשוט הכל...<br>
+כבר קשה למצוא אצלי PLAIN JAVASCRIPT.</div>
+<a id="comment671"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/08/2011 10:50</span><br>
+מתי יש פרק ב&apos;? אחלה מדריך</div>
+<a id="comment755"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/09/2011 21:46</span><br>
+תודה תודה מדריך מעולה .</div>
+<a id="comment984"></a>
+<div class="blog-comment">
+<span class='comment-author'>Swimor</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/12/2011 18:18</span><br>
+נחמד, הרבה תגובות שכחתי לגמרי אני אשב לכתוב חלק ב בימים הקרובים :P </div>
+<a id="comment1813"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/08/2012 01:33</span><br>
+יש מצב שחלק מהמדריך לא מעודכן ל JQ 1.8?</div>
+<a id="comment1839"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi787</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/08/2012 22:15</span><br>
+תודה רבה מאוד עזר לי!</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שליפה של שורה אחת מהמסד">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_242658">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שליפה של שורה אחת מהמסד | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שליפה של שורה אחת מהמסד | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שליפה של שורה אחת מהמסד">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">23</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שליפה של שורה אחת מהמסד-1.htm" title="כותרת^ + שיהיה רנדומלי ושיחזיר לי שורה שקיימת ולא מס&amp;#039; ID שכבר נמחקוגם שיהיה יעיל.יש כזה דבר? - איך?">שליפה של שורה אחת מהמסד</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_242658</a>
+,
+<time class="timeago relativetime" datetime="2012-06-19T13:38:26+03:00" style="display:inline-block;">
+19 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText681'>
+כותרת^ + שיהיה רנדומלי ושיחזיר לי שורה שקיימת ולא מס&#039; ID שכבר נמחק<br>וגם שיהיה יעיל.<br>יש כזה דבר? - איך? </div>
+</div>
+<h3>
+<span id="answersCounter">23 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2820">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2820" href="שליפה של שורה אחת מהמסד-1.htm#answer_2820">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">select <span class="sy0">*</span> from table order by <span class="kw3">RAND</span><span class="br0">&#40;</span><span class="br0">&#41;</span> limit <span class="nu0">1</span></div><br>זה הלא יעיל והפשוט<br>וזה ה<a href="..\שליפת_שורות_רנדומלית_ב_mysql.htm">שליפה רנדומלית יעילה</a> שמצריכה לקרוא מדריך של 100 שורות לפני </p>
+</div>
+<div class="answer" id="answer2853">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/97db65694acde77a5c8f7a177aee58d7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244284</a>
+ב
+<span style="font-size:10px"> 20 ליוני 2012 </span>
+<a id="answer_2853" href="שליפה של שורה אחת מהמסד-1.htm#answer_2853">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קראתי את המדריך ויש בעייה עם השימוש בלימיט במצב כזה, בגלל:<br>שאם לגולש יצא את המספר 20(נניח),אז יוצג לו בדף את שורה מספר 21(כי זה דילג על 20 שורות).<br>עכשיו מה יקרה אם מחקתי את שורה מס&#039; 10. אז הגולש לדף 20 יוצג בכלל את השורה 22 -ולא 21 כמו קודם.<br><br>וזה יכול לבאס גולש שהגיע מגוגל או מקישור כל שהוא(מועדפים וכו&#039;)<br>מה הפתרון? </p>
+</div>
+<div class="answer" id="answer2854">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 ליוני 2012 </span>
+<a id="answer_2854" href="שליפה של שורה אחת מהמסד-1.htm#answer_2854">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה לא מגריל את ה id של השורה שצריך להציג,<br>אתה מגריל את המספר הסידורי (הסדר) של השורה בטבלה.<br>תמיד יש שורה שמספרה 20 בטבלה, גם אם ה id שלה הוא 5811 </p>
+</div>
+<div class="answer" id="answer2855">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f00478cc8419d9f77c85d901c947ccab?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244385</a>
+ב
+<span style="font-size:10px"> 20 ליוני 2012 </span>
+<a id="answer_2855" href="שליפה של שורה אחת מהמסד-1.htm#answer_2855">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון, ואתה מסכים שהיום שורה מס&#039; 20 בטבלה זה פוסט בנושא X, ומחר אם אני ימחוק שורה אז המיקום של 20 שורות יהיה שונה ולכן הפוסט יהיה Y. נכון?<br><br>ואני רוצה לתת לגולש אפשרות של לשמור קישור כך שאצטרך להגדיר GET מסויים וע&quot;פ זה לשלוף או משהנו כזה..<br><br>יש פתרון? </p>
+</div>
+<div class="answer" id="answer2856">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 20 ליוני 2012 </span>
+<a id="answer_2856" href="שליפה של שורה אחת מהמסד-1.htm#answer_2856">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקרה כזה השליפה היא בכלל לא רנדומלית :)<br><br>אתה יכול לשמור בטבלה נפרדת קישור בין קוקי של משתמש שתיתן למשתמש <br>לבין הפוסט שהיגרלת בכניסה הראשונה שלו לאתר.<br><br>אם אתה רוצה שהוא יוכל לתת את זה בתור קישור לחבר - באמת תצטרך לעשות את זה על בסיס קישור עם איזה פרמטר בכתובת, אבל המימוש ישאר זהה.<br>אם בן אדם נכנס בלי פרמטר בכתובת - אתה שם בטבלה מספר כלשהו x ואת האידי של השורה שהוגרלה<br>ומפנה את הדפדפן לכתובת עם הפרמטר x. </p>
+</div>
+<div class="answer" id="answer2889">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/97db65694acde77a5c8f7a177aee58d7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244284</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2889" href="שליפה של שורה אחת מהמסד-1.htm#answer_2889">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני חשבתי ואז הגעתי לפתרון, וזה <strong>כן </strong>רנדומלי:<br><div class="php codeblock">SELECT `id` FROM `table` LIMIT <span class="re0">$rand</span><span class="sy0">,</span><span class="nu0">1</span></div><br><strong>הסבר:</strong> אני משלב בין לימיט לבין שליפה ע&quot;פ ID.<br><strong>פירוט:</strong> אני שולף מהמסד שורה <strong>רנדומלית</strong> ע&quot;י מספר שהגרלתי(מ-0 עד למספר השורות שבמסד-1)<br>לדוגמא יש לי טבלה עם 50 שורות, והוגרל המספר 25. אז השורה מס&#039; 26 תשלף.<br>אבל לגולש אני לא יציג ע&quot;פ הלימיט אלא ע&quot;פ הID של אותה שורה.<br>זאת אומרת שהמזהה היחודי של השורה שנבחרה מהלימיט, תכנס לGET ושם אני ישלוף את המספר ויציג לו את השורה הזהה לID מה&quot;גט&quot;.<br>ובכך הרווחתי <strong>שתמיד</strong> יוצג לו שורה שקיימת במסד. ו<strong>שיש לו קישור לאותו הפוסט.</strong><br><br>כי אם נשתמש רק בלימיט אז עכשיו נשלף לו שורה מס&#039; 26, ומה יקרה אם מחקתי את שורה מס&#039; 10 - אז שהוא יכנס לקישור ששמר, בעצם יוצג לו השורה מס&#039; 27 ולא 26. כי הלימיט סופר שורות ביחס לטבלה.<br><br>ואם נשתמש בID אז יכול להיות שיוגרל ID מחוק.<br><br>לעומת זאת אם נשתמש בשניהם כמתואר לעיל - הכל מצויין!<br><br><strong>אשמח לשמוע הערות(לחיוב ולשלילה)</strong><br><br>נ.ב איך עדיף להגריל מס&#039; רנדומלי: ע&quot;י סקריפט PHP או ע&quot;י שאילתה(ואז יהיה לי 3 שאילתות, לעומת זאת אם אשתמש בסקריפט PHP אז יהי 2 שאילתות - ספירת שורות ושליפה של השורה) </p>
+</div>
+<div class="answer" id="answer2890">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2890" href="שליפה של שורה אחת מהמסד-1.htm#answer_2890">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פתרון מעולה :)<br>בקשר לשאילתות: תהיה לך רק <a href="..\שליפת_שורות_רנדומלית_ב_mysql.htm">שאילת אחת </a>אם היא גם תגריל מספר וגם תחזיר שורה שאת ה id שלה תיקח. </p>
+</div>
+<div class="answer" id="answer2896">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/97db65694acde77a5c8f7a177aee58d7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244284</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2896" href="שליפה של שורה אחת מהמסד-1.htm#answer_2896">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא כל כך הבנתי את הפונקצייה FLOOR - מה היא עושה? </p>
+</div>
+<div class="answer" id="answer2897">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2897" href="שליפה של שורה אחת מהמסד-1.htm#answer_2897">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני אסביר לך בהודעה הבאה, אבל באמת מעניין אותי אם יש לך ניחושים מה יכולה לעשות פונקציה &quot;ריצפה&quot; שמקבלת שבר עשרוני. </p>
+</div>
+<div class="answer" id="answer2900">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/97db65694acde77a5c8f7a177aee58d7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244284</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2900" href="שליפה של שורה אחת מהמסד-1.htm#answer_2900">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, קראתי שהיא מעגלת מספר כלפי מטה. נוו..<br><br><strong>נ.ב.</strong> עכשיו קראתי גם על הפונקצייה RAND() בMYSQL. ולפי מה שהבנתי, היא מחזירה מספר אקראי בין 0&#039; ל 1&#039; שזה נראה כך בדרך כלל: 0.45445654645 ולכן אם נריץ בלולאה 3 פעמים אז נקבל:<br>1 - 0.523423432432<br>2- 0.2324324234324<br>3 - 0.346546546456456<br>ואז כשאשתמש עם ORDER BY RAND() אז הוא יסדר ע&quot;פ גודל המספר ולכן השורות שלעיל יסתדרו כך:<br>1 - ...<br>3 - ....<br>2 - ......<br><em>הייתי חייב לציין זאת כי זה הפעם הראשונה שבאמת הבנתי איך זה עובד</em><br><strong>ואם כך:</strong> הפונקצייה FLOOR היא תעגל את המספר שייצר הRAND() כך שתמיד התוצאה הסופית תהיה 0&#039; - כי היא מורידה את כל מה שארי הנקודה(העשרוני).<br>ואז בשאילתה שהבאת בהודעה שלך לעיל. יוצא שהיא מבצעת: <strong>0</strong> <strong>כפול </strong>מספר השורות בטבלה(נניח <strong>50</strong>)<br><strong>אז איך יש פה תוצאה רנדומלית בדיוק</strong>???<br><br>או בקיצור, לא הבנתי את השאילתה הזאת:<br>SELECT FLOOR( RAND() * COUNT(*))<br>אפשר להסביר? </p>
+</div>
+<div class="answer" id="answer2902">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2902" href="שליפה של שורה אחת מהמסד-1.htm#answer_2902">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+RAND מחזירה מספר בין 0 ל-1.<br>אנחנו מכפילים את זה במספר השורות בטבלה (COUNT). כולמר, אנחנו מקבלים מספר בין 0 לבין מספר השורות בטבלה.<br>אחר כך, כדי להוריד את מה שאחרי הנקודה העשרונית, משתמש ב-FLOOR. </p>
+</div>
+<div class="answer" id="answer2905">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/97db65694acde77a5c8f7a177aee58d7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244284</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2905" href="שליפה של שורה אחת מהמסד-1.htm#answer_2905">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, הבעייה שלי הייתה בחשבון, שחשבתי שהכפלה בשבר עשרוני זה כמו הכפלה ב-0&#039; (שלפני הנקודה)<br>ועכשיו בדקתי ומתברר שהתרגיל הזה לדוגמא: 0.435435 * 50 שווה 21.77175 ואז יש את FLOOR שמוריד את הנקודה ומה שאחריה כך שנשאר 21.<br>הבנתי :) </p>
+</div>
+<div class="answer" id="answer2906">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/97db65694acde77a5c8f7a177aee58d7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244284</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2906" href="שליפה של שורה אחת מהמסד-1.htm#answer_2906">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עוד דבר אחד: <br>מה יותר יעיל? - הגרלת מספר ע&quot;י שאילתה כמתואר לעיל, או הגרלה ע&quot;י PHP - MT_RAND??<br><br>אם אני יגריל עם שאילתה אז יהיה 2 שאילתות[1.ספירת שורות 2.הגרלת מספר ושליפתו] ו<span class="underline">עוד שאילתה שמציגה את הפוסט</span><br>ואם אשתמש בPHP להגרלת המספר אז יהיה רק שאילתה אחת[1.ספירת השורות]<span class="underline"> והPHP יגריל מספר שיכנס לשאילתה של הצגת הפוסט.</span><br><strong>מה עדיף?</strong><br><br>[לפי מה שאני יודע: השאילתה תתבצע יותר מהר מהסקריפט אבל מצד שני יהיה יותר שאילתות שרצות]<br><br><strong>מה עדיף?</strong> </p>
+</div>
+<div class="answer" id="answer2910">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2910" href="שליפה של שורה אחת מהמסד-1.htm#answer_2910">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ככה או ככה יהיו לך שני שאילתות. אחת לקבל את כמות השורות והשניה לבחור שורה מסוימת.<br>למזלך אפשר לעשות את שניהם בשאילת אחת, שזה חוסך לך בזמן ותעבורה בין הסקריפט לבין המסד נתונים. </p>
+</div>
+<div class="answer" id="answer2927">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7f9b5715fb2daa39e9891500b685aed4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_245615</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2927" href="שליפה של שורה אחת מהמסד-1.htm#answer_2927">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חשבתי על השאילתה הבאה, האם היא אפשרית?:<br><div class="php codeblock">&nbsp;</div>SELECT `id` FROM `table` LIMIT FLOOR(RAND()*COUNT(*)),1<br>שבעצם אני שולף את הID של השורה, איפה שהלימיט מדלג על X שורות.<br>וכך יוצא שבשאילתה אחת שלפתי <strong>גם </strong>את כמות השורות, <strong>גם </strong>הגרלתי מס&#039; מספר, <strong>וגם </strong>קיבלתי את הID של השורה<br>ואז נשאר לעשות רק את השאילתה שתציג את הפוסט.<br>מה אתה אומר, זה אפשרי שאילתה שכזאת? </p>
+</div>
+<div class="answer" id="answer2929">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2929" href="שליפה של שורה אחת מהמסד-1.htm#answer_2929">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה ותגלה לבד. :) </p>
+</div>
+<div class="answer" id="answer2930">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7f9b5715fb2daa39e9891500b685aed4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_245615</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2930" href="שליפה של שורה אחת מהמסד-1.htm#answer_2930">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נו באמת אין לי כוח אתה יודע או שאני יהיה מוכרח לנסות....? </p>
+</div>
+<div class="answer" id="answer2931">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7f9b5715fb2daa39e9891500b685aed4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_245615</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2931" href="שליפה של שורה אחת מהמסד-1.htm#answer_2931">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואוווווווווו איזה טמבל, עכשיו אחזתי שמה שבעצם אמרתי זה היה כתוב גם בכתבה שלך אלכס.<br>ואתה עוד אומר לי &quot;פתרון מעולה :)&quot;<br>רק שבעצם אתה עשית 2 שאילתות:<br>1) קבלת מס&#039; אקראי - ע&quot;י מספר השורות שבמסד כפול מספר אקראי בין 0 ל1 ועיגול המספר(שלא יהיה עשרוני)<br>2)שליפה של שורה בטבלה ע&quot;פ הלימיט שידלג על מס&#039; שורות רנדומלי - מהשאילתה הקודמת.<br><br>ובגלל שאני רוצה שיהיה גם קישור לדף האקראי אז אני לא שולף את הפוסט ע&quot;פ הלימיט. אלא אני רק שולף את השורה בשבילי ע&quot;י הלימיט ואז אני מכניס את הID של השורה לתוך GET וע&quot;פ זה אני שולף למשתמש <br><br>אבל בעצם הקוד שבכתבה הוא אותו דבר כמו מה שאני צריך, אז למה לעזאזאל אמרת לי פתרון מעולה..?<br>ולעידן: כתוב שם שאי אפשר את השאילתה ששאלתי אבל אני ינסה אני לא מאמין </p>
+</div>
+<div class="answer" id="answer2934">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2934" href="שליפה של שורה אחת מהמסד-1.htm#answer_2934">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כי כרנאה הפתרון היה בדיוק מה שהיית צריך :)<br>אני שמח שהגעת אליו לבד. זה הרבה יותר מעשיר מסתם לקרוא את התשובה שלי :) </p>
+</div>
+<div class="answer" id="answer2936">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/97db65694acde77a5c8f7a177aee58d7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244284</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2936" href="שליפה של שורה אחת מהמסד-1.htm#answer_2936">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקקי אז בעצם עכשיו יש לי 3 שאילתות, 2 כמו שבכתבה שלך(1.סופר את השורות ומגריל מספר 2.שולף שורה ע&quot;פ המספר הרנדומלי בלימיט -יחסית לטבלה ולא ע&quot;פ id)<br>ועכשיו הוספתי שאילתה שלישית שישלוף פוסט ע&quot;פ הID של השורה - שהתקבל לי מהשאילתה השנייה -כי אני רוצה שיהיה קישור קבוע לזה..<br><br>יש איזה דרך לצמצם בשאילתה? שיהיה אולי פחות שאילתות ? </p>
+</div>
+<div class="answer" id="answer2937">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2937" href="שליפה של שורה אחת מהמסד-1.htm#answer_2937">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+צריך לציין ששני השאילתות הראשונות קוראות בבקשה הראשונה לשרת,<br>השאילתה השלישית קוראת בבקשה השניה לשרת, אחרי רידיירקט.<br><br>את שני השאילתות אפשר לצמצם לאחת<br>את השלישית אפשר בחלק מהמקרים לחסוך אם בבקשה הראשונה תכניס את הנתונים של אותה שורה לסשן. אחרי ההפנייה, למרות שבקישור יהיה ID , תוכל לקחת את הערך מהסשן.<br><br>אבל אין באמת צורך לעשות את זה. 3 שאילתות זה ממש לא הרבה.<br>בטח רק בשביל להציג את העמוד שאתה מתסכל עליו כרגע התבצעו לפחות עשר. </p>
+</div>
+<div class="answer" id="answer2938">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/97db65694acde77a5c8f7a177aee58d7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_244284</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2938" href="שליפה של שורה אחת מהמסד-1.htm#answer_2938">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>לא הבנתי איך אפשר לצמצם את 2 השאילתות הללו לשאילתה אחת?</strong><br>הנה 2 השאילתות:<br><div class="php codeblock"><span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT FLOOR( RAND() * COUNT(*) ) FROM `table` &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><div class="php codeblock"><span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `table` LIMIT <span class="es4">$rand</span>,1&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הרי אמרת שם בכתבה במפורש שאי אפשר לתת תת שליפה כפרמטר בלימיט(בדקתי את זה ואתה צודק) </p>
+</div>
+<div class="answer" id="answer2939">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 ליוני 2012 </span>
+<a id="answer_2939" href="שליפה של שורה אחת מהמסד-1.htm#answer_2939">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מצטער, טעות שלי, לא הבנתי נכון באיזה שליפות מדובר.<br>אי אפשר לצמצם את שני השליפות לאחת כי באמת אי אשפר לשים ב limit תת שליפה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

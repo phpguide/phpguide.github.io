@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="איך לעשות תופס שחזור סיסמה נכון ב-PHP">
+<meta name="keywords" content="שחזור סיסמה, שכחתי סיסמה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>איך לעשות שחזור סיסמה (&quot;שכחתי סיסמה&quot;)</title>
+<meta itemprop="name" content="איך לעשות שחזור סיסמה (&quot;שכחתי סיסמה&quot;)">
+<meta itemprop="description" content="איך לעשות תופס שחזור סיסמה נכון ב-PHP">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"379","rating":"4","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>איך לעשות שחזור סיסמה (&quot;שכחתי סיסמה&quot;)</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2015-04-05T02:16:41+03:00" dir="rtl">05 לאפריל 2015</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="https://s.phpguide.co.il/wp-content/uploads/2015/04/6a00d834517b5669e200e54f033ea78833-800wi.jpg" alt="איך לעשות שחזור סיסמה (&quot;שכחתי סיסמה&quot;)">
+</div>
+<div class="right post-content">
+82% מכלל משתמשי האינטרנט שוכחים סיסמאות. מספר שלכאורה מפתיע, אך הגינוי, בהתחשב בזה שמרבית הגולשים לא מומחים טכנולוגיים מי-יודע-מה. מחקרים מראים שכ-65% מהמשתמשים רושמים את הסיסמאות על דף, שכנראה נעלם לקראת ל&quot;ג בעומר, שוכחים את הסיסמה באופן קבוע (25%) ומשתפים סיסמאות עם שותפים (33%).<br><br>כאן הזמן לתת מחמאה לקהילת המפתחים הישראלית, שלא שוכחת את הסיסמאות שלה. ובכלל, כאן באתר, לא נשכחה בחודש האחרון אף סיסמה מלבד הסיסמה שלי, שנשכחה כמה עשרות פעמים ומכמה כתובות ip שונות. <br><br>עכשיו כשהסיסמה בידיים הנכונות, אספר איך ליצור כפתור &quot;שכחתי סיסמה&quot; בצורה נכונה ועל מה צריך לחשוב. אין שום דבר מסובך בהמשך ואם אתה כבר יודע ליצור כפתורי שחזור סיסמה, כנראה שלא אחדש לך שום דבר. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שחזור סיסמה מתחיל, כמובן, מסיסמה.<br><br>אם אתה עדיין לא יודע <a href="sha1 pass and salt are not secure-1.htm">לשמור סיסמאות נכון במסד ולבצע הזדהות נכונה באמצעות פונקציות לעבודה עם סיסמאות</a>, עצור עכשיו, קרא את המדריך וחזור לאחר מכן, אחרת עלית על רכבת בכיוון הפוך.<br><br><br>עכשיו הגיע הזמן ליצור טופס עם כפתור שחזור, אבל לפני זה שכחתי לומר לך דבר אחד חשוב. מסתבר, שבאתרים כמו זה, אנשים שוכחים לא רק את הסיסמה, אלא גם את כתובת המייל שאיתה נרשמו וגם את שם המשתמש שבו בחרו.<br><br>עכשיו יותר מעניין? טוב, לא הכל בבת אחת. קודם סיסמה ושני מקרים פשוטים:<br><br>במקרה הראשון: המשתמש שכח את הסיסמה של עצמו<br>במקרה השני: מישהו מנסה לשחזר סיסמה של מישהו אחר.<br><br>כדי למנוע מהמשתמשים שלך הפתעות לא נעימות רצוי לא לשכוח גם מהמקרה השני לאורך כל הדרך.<br><br><br><br><br>אם ההזדהות אצלך באתר מתבצעת באמצעות כתובת מייל, המקרה השני הופך לפחות רלוונטי. <br>אם ההזדהות היא לפי שם משתמש וסיסמה, אני ממליץ להכניס שלב ביניים ולהציע למשתמש להזין גם את כתובת המייל, יחד עם רמז קטן בצורת כתובת המייל חצי חבויה:<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="איך לעשות שחזור סיסמה (&quot;שכחתי סיסמה&quot;)" title="http://s.phpguide.co.il/wp-content/uploads/2015/04/Untitled.png" class="content-image-float"><br><br>במקרה הזה מספיק שהאדם הזין את שם המשתמש שלו באתר ולפי שם המשתמש תוכל לשלוף מהמסד את כתובת המייל, להחליף כמה אותיות בכוכביות בצורה שרירותית ולהציג לו.<br>רק במקרה הזה אתה מבטיח שהמשתמש לא יקבל לכתובת הדואר שלו הודעות עם הצעה לשינוי סיסמה כל פעם שמישהו אחר מנסה לשחזר סיסמה במקומו. פשוט וקל עד עכשיו.<br><br><br><h4>כשביררנו שהמשתמש אמיתי</h4><br>נוכל לשלוח הצעה לשחזור סיסמה לכתובת המייל שהוא הזין .<br>גם כאן לרשותינו שני אפשרויות: <br>- לשנות את הסיסמה ולשלוח לו סיסמה חדשה למייל<br>- או להפנות לעמוד מיוחד שבו יוכל לבחור לעצמו סיסמה חדשה.<br><br>מבחינה טכנית שני הפתרונות די דומים, אך אני ממליץ על הפתרון השני מניסיון אישי. הפתרון הראשון הוא מתכון 100% לקבל בקשה לשחזור סיסמה שוב פעם בעוד יומיים. אף אחד לא נכנס לפאנל ניהול להחליף סיסמה אם לא דרשת את זה במפורש. בייחוד באתרים שאתה צריך בדיוק לשלוש דקות, כמו הזמנת פיצה.<br><br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="איך לעשות שחזור סיסמה (&quot;שכחתי סיסמה&quot;)" title="http://s.phpguide.co.il/wp-content/uploads/2015/04/Untitled1.png" class="content-image-float"><br><br><h4>דרישות לשחזור סיסמה</h4><br><br>כדי שהמשתמש ישמח לקבל את מייל השחזור שלו עם לב שלם<br>- רצוי שזה יהיה מייל חד פעמי ומישהו לא יוכל בטעות להשתמש באותו קישור לשחזור סיסמה פעמיים<br>- לקישור יהיה תוקף מסוים, רק לחמש הדקות הקרובות<br>- יהיה קשה לנחש אותו (לא <span style="color:darkblue;">setNewPassword.php?userid=1</span> )<br><br><br><br>קישור יותר חכם יכלול מחרוזת מקרית כלשהי שתבטיח שאף אחד לא ניחש אותה, ובנוסף תכלול מספיק מידע לזיהוי המשתמש. למשל: <div class="php codeblock">setNewPassword<span class="sy0">.</span>php?<span class="kw3">key</span><span class="sy0">=</span>KnYfme9XleLX8lJFux2aM1</div><br><br>כל מה שנשאר לנו, הוא ליצור טבלה במסד נתונים עם השדות:<br>- מספר משתמש<br>- מפתח רדומלי <br>- כתובת IP<br>- תוקף בצורת תאריך ושעה:<br><div class="php codeblock">CREATE TABLE <span class="kw1">IF</span> NOT EXISTS `password_recovery` <span class="br0">&#40;</span><br>
+&nbsp; `userid` bigint<span class="br0">&#40;</span><span class="nu0">20</span><span class="br0">&#41;</span> unsigned <span class="kw1">DEFAULT</span> <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; `<span class="kw3">key</span>` varchar<span class="br0">&#40;</span><span class="nu0">20</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; `validity` datetime NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; `ip` varchar<span class="br0">&#40;</span><span class="nu0">45</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span><br>
+<span class="br0">&#41;</span> ENGINE<span class="sy0">=</span>InnoDB <span class="kw1">DEFAULT</span> CHARSET<span class="sy0">=</span>utf8<span class="sy0">;</span><br>
+<br>
+ALTER TABLE `password_recovery`<br>
+&nbsp;ADD PRIMARY <span class="kw3">KEY</span> <span class="br0">&#40;</span>`<span class="kw3">key</span>`<span class="br0">&#41;</span></div><br><br><br><br><h3>החלק הפשוט, הקוד</h3><br>עכשיו נשאר החלק הקל: להכניס שורה למסד כאשר המשתמש שולח את טופס השחזור<br>ולשלוף שורה כאשר מישהו נכנס לקישור המיוחד<br><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span>isValidEmail<span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$userId</span> <span class="sy0">=</span> SELECT userid FROM users WHERE email <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><br>
+&nbsp; <span class="re0">$key</span> <span class="sy0">=</span>generateRandomString<span class="br0">&#40;</span><span class="nu0">20</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$validUntil</span> <span class="sy0">=</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="nu0">10</span> <span class="sy0">*</span> <span class="nu0">60</span><span class="sy0">;</span> <span class="co1">// +10 minutes from now</span><br>
+&nbsp; <span class="re0">$ip</span> <span class="sy0">=</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'REMOTE_ADDR'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; INSERT INTO password_recovery VALUES<span class="br0">&#40;</span><span class="re0">$userId</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$validity</span><span class="sy0">,</span> <span class="re0">$ip</span><span class="br0">&#41;</span><br>
+<span class="br0">&#125;</span></div><br>אני בטוח שאתה יכול לכתוב את השאר, בלי לשכוח לבדוק שאשכרה נמצא משתמש עם מייל כזה במסד.<br>אולי יעזור לך: <a href="q2129\איך עושים מחרוזת רנדומלית בPHP.htm">פונקציה ליצירת מחרוזת רנדומלית</a> ו<a href="בדיקת_תקינות_אימייל_ב_php-1.htm">בדיקת תקינות אימייל</a>.<br><br><br>ומה צריך להיות בעמוד שחזור סיסמה שאליו מוביל הקישור? בסך הכל הפעולה ההפוכה:<br><br><div class="php codeblock"><span class="re0">$key</span> <span class="sy0">=</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'key'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$row</span> <span class="sy0">=</span> SELECT <span class="sy0">*</span> FROM password_recovery WHERE <span class="kw3">key</span><span class="sy0">=</span><span class="re0">$key</span> and validity <span class="sy0">&gt;</span> NOW<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+<br>
+<span class="re0">$_SESSION</span><span class="br0">&#91;</span><span class="st_h">'userid'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'userid'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="re0">$_SESSION</span><span class="br0">&#91;</span><span class="st_h">'allowPassReset'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<br>
+<span class="sy1">?&gt;</span><br>
+<span class="sy0">&lt;</span>form<span class="sy0">&gt;&lt;/</span>form<span class="sy0">&gt;</span></div><br><br>וזהו, אפשר להציג למשתמש את תופס שחזור הסיסמה. <br>שום דבר קשה, נכון?<br><br>ואם אתה תוהה בשביל מה <span style="color:darkblue;">allowPassReset</span> בסשן, אז בוא ניזכר לרגע שאנחנו הולכים לאפשר למשתמש להחליף סיסמה בלי לדעת את הסיסמה הישנה. את הסיסמה הישנה בדרך כלל מבקשים כדי שלא ישנה לך את הסיסמה בפייסבוק חבר שיתישב לך על המחשב אחרי שסימנת &quot;זכור אותי&quot;.<br><br>כדי שהחבר הזדוני לא יוכל לגשת לעמוד הזה ולשנות את הסיסמה בלי לדעת את הסיסמה הישנה - נצטרך להגביל גישה לעמוד השינוי ואת זה נוכל לעשות או באמצעות בדיקה שנית של key או על ידי המפתח הזה בסשן. מה שעדיף, בגלל שלבדוק key שוב צריך מול מסד.<br><br><br>יש לך שאלות? רשום בתגובה, אם לא שכחת סיסמה.. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2830"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/04/2015 17:22</span><br>
+יפה יפה! אהבתי מאוד. מדוייק.<br>
+תודה רבה לך! האתר קצת &quot;מת&quot; לאחרונה.. :(</div>
+<a id="comment2848"></a>
+<div class="blog-comment">
+<span class='comment-author'>hadash</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/10/2015 11:06</span><br>
+כשיצרת את הטבלה, למה הוספת את key כמפתח ראשי ולא את userid ? <br>
+</div>
+<a id="comment2849"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/10/2015 14:38</span><br>
+בגלל שאם הקישור שלך נראה כמו שאצלי<br>
+setNewPassword.php?key=KnYfme9XleLX8lJFux2aM1<br>
+את החיפוש בטבלה אתה תעשה לפי ה-key ולא לפי userid<br>
+חוץ מזה, אותו משתמש יכול לבקש שחזור סיסמה מספר פעמים, ומפתח ראשי על עמודת יוזר ימנע ממנו ליצור שני שורות בטבלה, מה שיצריך ממך עוד קוד שיבדוק האם כבר יש מפתח שהוא בתוקף לאותו משתמש וקוד שידאג למחוק שורות ישנות.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

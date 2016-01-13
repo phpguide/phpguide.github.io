@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="במדריך הבאה אני מלמד אותכם איך לטפל בשגיאות">
+<meta name="keywords" content="שגיאות, טיפול בשגיאות">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>טיפול בשגיאות</title>
+<meta itemprop="name" content="טיפול בשגיאות">
+<meta itemprop="description" content="במדריך הבאה אני מלמד אותכם איך לטפל בשגיאות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"121","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>טיפול בשגיאות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2011-07-08T12:13:42+03:00" dir="rtl">08 ליולי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://avatar.hq-picture.com/avatars/img17/fatal_error_avatar_picture_32275.gif" alt="טיפול בשגיאות">
+</div>
+<div class="right post-content">
+יש כאלה שיש להם בעיה הם פונים לפורומים ומחכים עד שיקבלו תשובה ויש כאלו שפותרים אותה לבד <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+מכירים את זה שיש שגיאה באתר ואתם לא יודעים מה לעשות, לדוגמה השאילתה לא מוסיפה את הפרטים למסד, או שזה מראה שיצרת את אותה הפונקציה כמה פעמים ובעצם כתבתה אותה רק פעם אחת.<br><br><h4>שאילתות SQL</h4><br>כשאנחנו יוצרים שאילתה ובטעות כתבנו שתי &#039; או הטבלה לא נמצאת, ואנחנו לא מבינים למה הוא לא מוסיף למסד או בוחר את הדבר הנכון.<br><br>לדוגמה:<br>יש לי טבלה במסד בשם items אבל בשאילתה פה שלפתי את הטבלה item שהיא בעצם לא קיימת ולפעמים אנחנו טועים אנחנו לא מושלמים, ואנחנו לא מבינים למה הוא לא שולף כלום.<br><div class="php codeblock"><span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `item`&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אז מה שאנחנו נעשה זה פשוט נוסיף or die(mysql_error()) בסוף הפונקציה<br><br><div class="php codeblock"><span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `item`&quot;</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>למרות שזה קצת מציק לכתוב כל פעם את זה אז פשוט נעשה פונקציה שתעשה את זה במקומנו.<br><div class="php codeblock"><span class="kw2">function</span> sql_query<span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>ופשוט את השאילתות שלנו אנחנו נעשה בפונקציה הזאת ואם תיהיה שגיאה איפשהו באתר אז זה פשוט יראה את השגיאה.<br><br><h4>include &amp; require</h4><br>לפעמים שאנחנו טוענים קובץ יכול להיות שבטעות מחקנו אותו או טעננו אותו פעמים וזה עלול להציג שגיאות.<br><br>לדוגמה בלי להשים לב טענתי פעמיים את הקובץ של הפונקציות בקובץ config ובקובץ header בלי להרגיש, בדר&quot;כ אני טוען קבצים רק בקובץ header אז זה הראה לי שגיאה באתר שהפונקציה X כבר קיימת. לא הבנתי למה בדקתי אם יצרתי אותה בדף הראשי וזה היה באג מטומטם שישבתי עליו הרבה זמן עד שהבנתי שטענתי את הקובץ, מטעויות לומדים אז מעכשיו אני טוען רק בעזרת require_once.<br><br><h4>קבצים</h4><br>כשאנחנו בוחרים קובץ לפונקציה או משהו אז יכול להיות שבטעות כתבנו כתובת לא נכונה בלי להרגיש.<br><br>לדוגמה:<br><div class="php codeblock"><span class="re0">$xml</span> <span class="sy0">=</span> <span class="kw3">simplexml_load_file</span><span class="br0">&#40;</span><span class="st_h">'hey.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ובטעות הקובץ נמחק ויש שם רשימה גדולה מאוד, ובנתיים לא שמתה לב לזה והגולשים רואים שגיאה והאתר צולע כי המשתנה מחזיר false והאתר מתבסס על המשתנה הזה.<br><br>אז מה נעשה? עד שאתה תגלה את השגיאה נראה לגולשים שיש בעיה ואנחנו נתקן אותה.<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">file_exists</span><span class="br0">&#40;</span><span class="st0">&quot;hey.xml&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="st0">&quot;The file &lt;b&gt;hey.xml&lt;/b&gt; is not exists&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$xml</span> <span class="sy0">=</span> <span class="kw3">simplexml_load_file</span><span class="br0">&#40;</span><span class="st_h">'hey.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>מומלץ לעשות את זה בראש הדף.<br>לדוגמה:<br><div class="php codeblock">&lt;h1&gt;Logo&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">file_exists</span><span class="br0">&#40;</span><span class="st0">&quot;hey.xml&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="st0">&quot;The file &lt;b&gt;hey.xml&lt;/b&gt; is not exists&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$xml</span> <span class="sy0">=</span> <span class="kw3">simplexml_load_file</span><span class="br0">&#40;</span><span class="st_h">'hey.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">print</span> <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>המשתנה יראה את הלוגו ואנחנו לא רוצים שזה יקרה אז פשוט נעביר את זה לראש הדף<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">file_exists</span><span class="br0">&#40;</span><span class="st0">&quot;hey.xml&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="st0">&quot;The file &lt;b&gt;hey.xml&lt;/b&gt; is not exists&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$xml</span> <span class="sy0">=</span> <span class="kw3">simplexml_load_file</span><span class="br0">&#40;</span><span class="st_h">'hey.xml'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;h1&gt;Logo&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">print</span> <span class="re0">$xml</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment376"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/07/2011 22:58</span><br>
+תודה רבה.<br>
+מאוד שימושי, יכול לעזור מאוד.</div>
+<a id="comment1101"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 19:36</span><br>
+תודה</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שאלה על XML ועל NUMBER_FORMAT">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="zacharya">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שאלה על XML ועל NUMBER_FORMAT | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שאלה על XML ועל NUMBER_FORMAT | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שאלה על XML ועל NUMBER_FORMAT">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">12</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שאלה על XML ועל NUMBER_FORMAT.htm" title="טוב קודם כל, למה יש דפי XML בכלל? אני לא מצליח להבין, אשמח אם תסבירו.בנוגע NUMBER_FORMAT עשיתי ככה:$num = number_format&amp;#40;$num, 4, &apos;.&apos;, &apos;&apos;&amp;#41;">שאלה על XML ועל NUMBER_FORMAT</a></h2>
+<div class="userinfo">
+פתח
+<a>zacharya</a>
+,
+<time class="timeago relativetime" datetime="2013-08-20T13:26:13+03:00" style="display:inline-block;">
+20 לאוגוסט 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1595'>
+טוב קודם כל, למה יש דפי XML בכלל? אני לא מצליח להבין, אשמח אם תסבירו.<br><br>בנוגע NUMBER_FORMAT עשיתי ככה:<br><div class="php codeblock"><span class="re0">$num</span> <span class="sy0">=</span> <span class="kw3">number_format</span><span class="br0">&#40;</span><span class="re0">$num</span><span class="sy0">,</span> <span class="nu0">4</span><span class="sy0">,</span> <span class="st_h">'.'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אבל במקרה וזה שווה נגיד למספר שלם אז הוא עושה 5.0000, או נגיד 5.100 ואני לא רוצה שהוא יציג אפסים סתם, איך לעשות את זה? </div>
+</div>
+<h3>
+<span id="answersCounter">12 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7301">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 20 לאוגוסט 2013 </span>
+<a id="answer_7301" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7301">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+XML מיועד לשמירת מידע.<br>ובקשר לnumber_format מהא אתה רוצה שזה יציג? </p>
+</div>
+<div class="answer" id="answer7302">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 21 לאוגוסט 2013 </span>
+<a id="answer_7302" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7302">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה זאת אומרת לשמירת מידע? לא הבנתי.<br>ואני רוצה שנגיד אם התוצאה היא 7.64465151 זה יציג רק 4 ראשונות, אבלאם זה 7.846 זה לא יציג לי 7.8460 </p>
+</div>
+<div class="answer" id="answer7303">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 21 לאוגוסט 2013 </span>
+<a id="answer_7303" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7303">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+XML שומרת מידע כמו דף טקסט ואפשר לשלוף בנוחות את הכל או משהו מסויים מתוך הדף XML. </p>
+</div>
+<div class="answer" id="answer7304">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 21 לאוגוסט 2013 </span>
+<a id="answer_7304" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7304">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">number_format</span><span class="br0">&#40;</span><span class="nu19">12.656788</span><span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> <span class="st_h">'.'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// print 12.66</span></div> </p>
+</div>
+<div class="answer" id="answer7305">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 21 לאוגוסט 2013 </span>
+<a id="answer_7305" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7305">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז יש אפשרות לשלוף בPHP מXML?<br>וזה שענה על השאלה עם הנאמבר פורמט, אני חושב שכדאי שתקרא שוב את השאלה כי בלי טענות והכל לא נראה לי הבבנת, זה בדיוק מה שעשיתי אבל אני לא רוצה שבמצב של 150 זה נגיד המספר אז יהיה רשום 150.00 </p>
+</div>
+<div class="answer" id="answer7306">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 21 לאוגוסט 2013 </span>
+<a id="answer_7306" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7306">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="http://il1.php.net/manual/en/book.xml.php">XML עם PHP לפי הדוקומנטציה</a> אפשר לשלוף XML בעזרת PHP ולהוסיף לXML דרך PHP, יכול להיות שמי שבנה את המסד נתונים לPHP כתב את הקבצים בעזרת XML זה הכי נוח כי מכניסים שם הכל לתגים שאתה ממציא ואתה יכול לשלוף רק תג מסוים מבפנים וזה הכי נוח.<br>אז אתה כותב את המשתנה במספר בקשר לזה שמ:<br>123.456789<br>יוצא לך עם ארבע ספרות:<br>123.4568<br>זה בגלל שזה מעגל למעלה. </p>
+</div>
+<div class="answer" id="answer7307">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 21 לאוגוסט 2013 </span>
+<a id="answer_7307" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7307">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני יודע אבל אני רוצה שזה יעשה ככה אלא במקרה ויש מספר שאין בו שבר עשרוני של 4 ספרות כי אז זה יוצא לי 150.0000 </p>
+</div>
+<div class="answer" id="answer7308">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 21 לאוגוסט 2013 </span>
+<a id="answer_7308" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7308">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במספר שלם שיציג רק את המספר השלם?<br>אם כן אז תבדוק בתנאי אם יש את הסימן נקודה בפנים אם כן שיציג 4 ספרות אם לא שיציג את הספרה בלבד. </p>
+</div>
+<div class="answer" id="answer7309">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 22 לאוגוסט 2013 </span>
+<a id="answer_7309" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7309">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אני רוצה שגם נגיד במקרה וזה 150.264 (שזה רק שלוש ספרות עשרוניות) זה לא יציג לי 150.2640 </p>
+</div>
+<div class="answer" id="answer7310">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 22 לאוגוסט 2013 </span>
+<a id="answer_7310" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7310">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז תעשה שאם יש נקודה אם יש אפס בסוף שימחק אותו. </p>
+</div>
+<div class="answer" id="answer7311">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 22 לאוגוסט 2013 </span>
+<a id="answer_7311" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7311">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+what&#039;s the big deal?<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">print</span> <span class="kw3">rtrim</span><span class="br0">&#40;</span><span class="kw3">number_format</span><span class="br0">&#40;</span><span class="re0">$number</span><span class="sy0">,</span> <span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st_h">'.0'</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer7312">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 22 לאוגוסט 2013 </span>
+<a id="answer_7312" href="שאלה על XML ועל NUMBER_FORMAT.htm#answer_7312">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה! </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

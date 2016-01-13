@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מספר דוגמאות שימושיות ל htaccess, הקובץ שמייפה לנו את הקישורים ועושה לנו חיים יותר קלים במקרים מסויימים.">
+<meta name="keywords" content=".htaccess , ייפוי כתובת, mod_rewrite, דוגמאות לשימוש ב .htaccess">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מספר דוגמאות שימושיות ל .htaccess</title>
+<meta itemprop="name" content="מספר דוגמאות שימושיות ל .htaccess">
+<meta itemprop="description" content="מספר דוגמאות שימושיות ל htaccess, הקובץ שמייפה לנו את הקישורים ועושה לנו חיים יותר קלים במקרים מסויימים.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"314","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מספר דוגמאות שימושיות ל .htaccess</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Ben, </div>
+<div class="right">&nbsp;<time datetime="2013-03-26T00:31:02+02:00" dir="rtl">26 למרץ 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/url_rewrite.jpg" alt="מספר דוגמאות שימושיות ל .htaccess">
+</div>
+<div class="right post-content">
+מספר דוגמאות שימושיות ל htaccess, הקובץ שמייפה לנו את הקישורים ועושה לנו חיים יותר קלים במקרים מסויימים. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+היי :-).<br>הייתי בחיפוש אגרסיבי אחר דוגמאות לשימוש ב htaccess ומצאתי כמה אתרים חמודים מאוד שנתנו לי כמה דוגמאות מאוד שימושיות לשימוש בקובץ הפלא שלנו - .htaccess.<br><br><h3>בואו נתחיל:</h3><br><br><h4>1) www בתחילת הכתובת:</h4><br><div class="php codeblock">RewriteEngine On<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_HOST<span class="br0">&#125;</span> ^site<span class="sy0">.</span>com <span class="br0">&#91;</span>NC<span class="br0">&#93;</span><br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ http<span class="sy0">:</span><span class="co1">//www.site.com/$1 [L,R=301]</span></div><br><br><h4>2) ביטול ה www בתחילת הכתובת:</h4><br><div class="php codeblock">RewriteEngine On<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_HOST<span class="br0">&#125;</span> <span class="sy0">!</span>^site<span class="sy0">.</span>com$ <span class="br0">&#91;</span>NC<span class="br0">&#93;</span><br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ http<span class="sy0">:</span><span class="co1">//site.com/$1 [L,R=301]</span></div><br><br><h4>3) דיי להעתקת התמונות</h4>מכירים את זה שאנשים מעתיקים את הקישור של התמונה מהאתר שלכם ומשתמשים בזה ?, לאלה שלא אוהבים את זה פשוט מוסיפים את הקוד הבא וכל פעם שמישהו ינסה &quot;לגנוב&quot; לכם תמונה, תופיע לו התמונה שתגדירו במקום תמונת ה warning בתיקית images, כמובן שאתם יכולים להוסיף עוד פורמטים בסוגרים שמה שמפריד בניהם זה &quot;|&quot;:<br><div class="php codeblock">RewriteEngine On<br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_REFERER<span class="br0">&#125;</span> <span class="sy0">!</span>^http<span class="sy0">:</span><span class="co1">//(.+\.)?site\.com/ [NC]</span><br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_REFERER<span class="br0">&#125;</span> <span class="sy0">!</span>^$<br>
+RewriteRule <span class="sy0">.*</span>\<span class="sy0">.</span><span class="br0">&#40;</span>jpg<span class="sy0">|</span>gif<span class="sy0">|</span>bmp<span class="sy0">|</span>png<span class="br0">&#41;</span>$ <span class="sy0">/</span>images<span class="sy0">/</span>warning<span class="sy0">.</span>png <span class="br0">&#91;</span>L<span class="br0">&#93;</span></div><br><br><h4>4) php &amp; js </h4>מגניב, קוד זה מאפשר לכם לעבוד עם php בתוך קבצי ה js. אין פה יותר מידי מה לעשות, פרט שהקובץ htaccess יהיה בתוך התיקייה שבה נמצא קובץ ה js:<br><div class="php codeblock"><span class="sy0">&lt;</span>FilesMatch <span class="st0">&quot;^.*?api.*?$&quot;</span><span class="sy0">&gt;</span><br>
+SetHandler php5<span class="sy0">-</span>script<br>
+<span class="sy0">&lt;/</span>FilesMatch<span class="sy0">&gt;</span></div><br><br><h4>5) ניווט לכתובת</h4> אחרת פשוט מאוד, החלפתם כתובת ? ברור לכם שלא תעברו גולש גולש ותודיעו לו על הכתובת החדשה או שאפשר גם להשאיר הודעה עם הכתובת החדשה, אבל הכי בטוח זה פשוט לנווט אותם ישירות לכתובת החדשה שלך בעת כניסתם לכתובת הישנה בעזרת הקוד הבא:<br><div class="php codeblock">Redirect <span class="nu0">301</span> <span class="sy0">/</span> http<span class="sy0">:</span><span class="co1">//newsite.com/</span></div><br><br><h4>6) קידוד </h4>מאוד מומלץ לדעתי להוסיף את זה לכל קובץ htaccess, לא מזיק ופשוט מגדיר לכל הקבצים קידוד אחיד בעזרת הקוד הבא:<br><div class="php codeblock">AddDefaultCharset utf<span class="sy0">-</span><span class="nu0">8</span></div><br><br><h4>7) שינוי קובץ ה index שלכם</h4>99.99% מהאתרים ברשת, קובץ האינדקס שלהם הוא index.php, אבל אם בכל זאת בא לכם להיות מהאחוז הנותר שלא בא לו להיות כמו כולם, קוד זה מאפשר לכם לשנות את שם הקובץ הראשי שלכם (פשוט כותבים במקום ה iinnddeexx.htm את השם שאתם רוצים):<br><div class="php codeblock">DirectoryIndex iinnddeexx<span class="sy0">.</span>htm</div><br><br><h4>8) דף גלישה ייחודי לiPhone</h4>אם ברצונכם ליצור דף גלישה ייחודי לגולשים דרך ה-iPhone זה הקוד בשבילכם:<br><div class="php codeblock">RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_USER_AGENT<span class="br0">&#125;</span> <span class="sy0">.*</span>iPhone<span class="sy0">.*</span><br>
+RewriteRule ^index\<span class="sy0">.</span>php$ http<span class="sy0">:</span><span class="co1">//www.iphone.site.com [L]</span></div><br><br><h4>9) דף גלישה ייחודי לiPad</h4>אם ברצונכם ליצור דף גלישה ייחודי לגולשים דרך ה-iPad זה הקוד בשבילכם:<br><div class="php codeblock">RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>HTTP_USER_AGENT<span class="br0">&#125;</span> ^<span class="sy0">.*</span>iPad<span class="sy0">.*</span>$<br>
+RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ http<span class="sy0">:</span><span class="co1">//ipad.site.com [R=301]</span></div><br><br><h4>10) דפי שגיאה מעוצבים</h4> המון פעמים קורה לנו שאנחנו גולשים לכתובת בטעות, או שפתאום משהו בשרת נופל ואז *בום* שגיאה לא נעימה לגולש ולנו ביחד. מי אמר שאין לזה פתרון ?:<br><div class="php codeblock">ErrorDocument <span class="nu0">400</span> <span class="sy0">/</span>errors<span class="sy0">/</span><span class="nu0">400</span><span class="sy0">.</span>html<br>
+ErrorDocument <span class="nu0">401</span> <span class="sy0">/</span>errors<span class="sy0">/</span><span class="nu0">401</span><span class="sy0">.</span>html<br>
+ErrorDocument <span class="nu0">403</span> <span class="sy0">/</span>errors<span class="sy0">/</span><span class="nu0">403</span><span class="sy0">.</span>html<br>
+ErrorDocument <span class="nu0">404</span> <span class="sy0">/</span>errors<span class="sy0">/</span><span class="nu0">404</span><span class="sy0">.</span>html<br>
+ErrorDocument <span class="nu0">500</span> <span class="sy0">/</span>errors<span class="sy0">/</span><span class="nu0">500</span><span class="sy0">.</span>html</div><br><br>תעצבו לעצמכם דפי שגיאה חמודים יותר ממה שהשרת מספק לנו ובמקרה זה כל דפי השגיאה נמצאים בתיקיית errors, נוח מאוד שזה מרוכז במקום אחד.<br><br>זהו לבנתיים, היו עוד כמה אתרים שנתנו עוד כמה דוגמאות אבל לצערי הדפדפן קרס ולא שיחזר את הכרטיסיות, אם אמצא עוד פשוט אעדכן :).<br><br>מקווה שעזרתי לכם :). </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=16&r=g&d=monsterid" alt="Ben">
+<a>Ben</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2303"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2013 14:10</span><br>
+רוב המידע הזה מועתק מהאשכול הנ&quot;ל: <span dir="ltr"><a href="http://www.fxp.co.il/showthread.php?t=5912952">http://www.fxp.co.il/showthread.php?t=5912952</a></span><br>
+אין סיבה לשכפל מידע :) עדיף אם כבר פשוט להפנות לאשכול ישירות.</div>
+<a id="comment2304"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2013 14:56</span><br>
+האמת שזה מועתק מאתרים אחרים ולא מ fxp כי אני בקושי גולש שם.<br>
+בכ&quot;מ כנראה הוא הוציא את המידע גם כן מאותו מקום שאני הוצאתי כי אני לא עד כדי כך אוטיסט בשביל להעתיק את הכל.</div>
+<a id="comment2307"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2013 17:54</span><br>
+סלח לי, אבל יש אנשים שלא הכי אוהבים שימוש במילה &quot;אוטיסט&quot; במטרה לבטא תכונות רעות/טמטום.<br>
+נ.ב. שכפול תוכן יפגע בדירוג האתר בגוגל.</div>
+<a id="comment2308"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/03/2013 18:17</span><br>
+אז תעשו טובה ותמחקו את זה לגמרי.<br>
+אני מסביר לכם שלא ראיתי בכלל את מה שפורסם ב fxp מהסיבה הפשוטה שאני לא גולש שם.<br>
+העתקתי את זה מכמה אתרים אחרים שהופיעו בגוגל והוספתי גם כמה מילים משלי, אין לזה קשר בכלל למה שיש ב fxp ויצא שפורסם כמעט אותו דבר. אין לי אינטרס להעתיק כי לא יצא מזה כלום.<br>
+לא נורא, לא קרה כלום פשוט תמחקו את זה לגמרי כי נ יכול רק לערוך את זה לא למחוק.</div>
+<a id="comment2311"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/03/2013 02:21</span><br>
+איזה כיף לכתוב כתבה מיותרת ברמה 0.</div>
+<a id="comment2312"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/03/2013 10:24</span><br>
+עוד יותר כיף לראות כתבה מלאה ב --------------------- באמצע העמוד הראשי :&lt;<br>
+למה אתה מקשיב להם בכלל. כתבת כתבה, אחלה. הועתק, לא הועתק - כל עוד זה יעזור למישהו, לפחות אחד - עשית מצווה גדולה. כל דבר שכתוב כאן באתר כתוב בלפחות עוד 100 מקומות שונים ולאף אחד זה לא הפריע.</div>
+<a id="comment2315"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/03/2013 19:44</span><br>
+צודק לא חשבתי על זה, החזרתי את זה בכל מקרה ...<br>
+</div>
+<a id="comment2316"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/03/2013 19:46</span><br>
+ועוד משהו, כתוב לי למעלה בצד:<br>
+&quot;מדריך זה עדיין לא אושר וניתן לצפיה רק לך&quot;.<br>
+איך זה שכל השאר רואים ומגיבים פה ?</div>
+<a id="comment2317"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/03/2013 11:57</span><br>
+הוא היה מאושר ומפורסם לתקופה מסוימת.</div>
+<a id="comment2330"></a>
+<div class="blog-comment">
+<span class='comment-author'>hagai303</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2013 14:28</span><br>
+קודם כל נתחיל בזה שהמדריך כתוב בצורה טובה בניגוד למדריכים אחרים בתחום.<br>
+<br>
+דבר אחד שיכול להפוך אותו למעולה זה הסברים.<br>
+<br>
+למשל: <br>
+מה &quot;[L,R=301]&quot; אומר?<br>
+וכד&apos;...<br>
+<br>
+מקווה שתעשו מדריך מפורט יותר</div>
+<a id="comment2331"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2013 18:01</span><br>
+אגב, הסברים על רוב הדגלים L, R, NC, QSA יש במדריך על שכתוב כתובות בעברית.<br>
+<span dir="ltr"><a href="mod_rewrite וקישורים בעברית.htm">http://phpguide.co.il/mod_rewrite וקישורים בעברית.htm</a></span></div>
+<a id="comment2332"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/04/2013 19:37</span><br>
+תיקון לסעיף 4:<br>
+זה צריך להיות:<br>
+<span dir="ltr"><a href="http://pastebin.com/4rTxE68P">http://pastebin.com/4rTxE68P</a></span></div>
+<a id="comment2398"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/04/2013 01:24</span><br>
+הביטול העתקת תמונות, לא באמת עובד, זה לא באמת אפשרי...</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

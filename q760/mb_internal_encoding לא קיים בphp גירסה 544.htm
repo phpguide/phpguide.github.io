@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה mb_internal_encoding לא קיים ב-php גירסה 5.4.4">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>mb_internal_encoding לא קיים ב-php גירסה 5.4.4 | שאלת לימוד PHP</title>
+<meta itemprop="name" content="mb_internal_encoding לא קיים ב-php גירסה 5.4.4 | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה mb_internal_encoding לא קיים ב-php גירסה 5.4.4">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="mb_internal_encoding לא קיים בphp גירסה 544.htm" title="התקנתי lamp server על המחשב, גירסת ה-php היא 5.4.4 וכשאני מריץ את הקוד:[phh]var_dump(function_exists(&amp;#039;mb_internal_encoding&amp;#039;));[/php]אני מקבל false...זה משהו שצריך לשנות ב-php.ini? אולי בקובץ הגדרות אחר?מישהו מכיר את הבעיה?">mb_internal_encoding לא קיים ב-php גירסה 5.4.4</a></h2>
+<div class="userinfo">
+פתח
+<a>iiddaannyy</a>
+,
+<time class="timeago relativetime" datetime="2012-07-05T20:42:06+03:00" style="display:inline-block;">
+05 ליולי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText760'>
+התקנתי lamp server על המחשב, גירסת ה-php היא 5.4.4 וכשאני מריץ את הקוד:<br>[phh]<br>var_dump(function_exists(&#039;mb_internal_encoding&#039;));<br>[/php]<br>אני מקבל false...<br><br><br>זה משהו שצריך לשנות ב-php.ini? אולי בקובץ הגדרות אחר?<br>מישהו מכיר את הבעיה? </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3272">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 05 ליולי 2012 </span>
+<a id="answer_3272" href="mb_internal_encoding לא קיים בphp גירסה 544.htm#answer_3272">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="kw3">function_exists</span><span class="br0">&#40;</span><span class="st_h">'mb_internal_encoding'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3276">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 06 ליולי 2012 </span>
+<a id="answer_3276" href="mb_internal_encoding לא קיים בphp גירסה 544.htm#answer_3276">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תכתוב בטרמינל:<br>php -m | grep &quot;mbstring&quot;<br>אם מופיע mbstring, אז זה כנראה באג, אחרת, זה די מוזר. מכיוון שהחבילה php5 אמורה להכיל בתוכו את mbstring.<br>תכתוב לי איזו מערכת הפעלה, ואם השתמשת ברפו מסויים על מנת להתקין php5.4.4 (אם זה אובונטו, אני מניח שהשתמשת ברפו חיצוני, אם זה דביאן כנראה השתמשת בדוט דב, בקיצור - אם השתמשת ברפו מסוים או לא).<br><br>אם אתה על סנטוס, תנסה להתקין את החבילה:<br>yum install php5-mbstring<br>או<br>yum install php-mbstring<br>(לא זוכר בדיוק איך קוראים לחבילה). </p>
+</div>
+<div class="answer" id="answer3277">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/77687afd3880fb9ad19abc54f4c706df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>KingYes</a>
+ב
+<span style="font-size:10px"> 06 ליולי 2012 </span>
+<a id="answer_3277" href="mb_internal_encoding לא קיים בphp גירסה 544.htm#answer_3277">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+צריך להפעיל את התוספת של ה-MB דרך ה-php.ini אם אני זוכר נכון.. </p>
+</div>
+<div class="answer" id="answer3279">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 06 ליולי 2012 </span>
+<a id="answer_3279" href="mb_internal_encoding לא קיים בphp גירסה 544.htm#answer_3279">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@Michael<br>php -m | grep &quot;mbstring&quot; לא מחזיר כלום, אפילו לא שורה ריקה.<br>אני על פדורה 17. והתקנתי מכאן: http://fedorasolved.org/server-solutions/lamp-stack/<br><br>עריכה:<br>לא חשוב, yum install php-mbstring תיקן את הבעיה. עשיתי ריסטרט לשרת ועכשיו זה מחזיר true. תודה. ;) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

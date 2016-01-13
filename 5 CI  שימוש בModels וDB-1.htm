@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חיבור לDB ושימוש בMODEL">
+<meta name="keywords" content="CI, MODEL, DB">
+<meta name="author" content="alon">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>5) CI - שימוש בModels וDB</title>
+<meta itemprop="name" content="5) CI - שימוש בModels וDB">
+<meta itemprop="description" content="חיבור לDB ושימוש בMODEL">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"233","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>5) CI - שימוש בModels וDB</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">alon, </div>
+<div class="right">&nbsp;<time datetime="2012-07-24T17:51:41+03:00" dir="rtl">24 ליולי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://codeigniter.com/user_guide/images/ci_logo_flame.jpg" alt="5) CI - שימוש בModels וDB">
+</div>
+<div class="right post-content">
+איך מחברים את הCI לDB ושימוש בModel <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>DB</h3><br>הCI מגיע עם ספריות DB נרחבות ומאפשר לנו שימוש קל ברוב הDB הידועים, <br>לפי הדוקומנטציה הוא תומך בMySQL (4.1+), MySQLi, MS SQL, Postgres, Oracle, SQLite, and ODBC.<br>ומדי פעם עוד מוסיפים לו תמיכה בעוד..<br><br>החיבור לDB כלשהו הוא מאוד פשוט, תחת ספריית הapplication/config יש לנו קובץ בשם database.php שנראה כך:<br><div class="php codeblock"><span class="re0">$active_group</span> <span class="sy0">=</span> <span class="st_h">'default'</span><span class="sy0">;</span><br>
+<span class="re0">$active_record</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'hostname'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'localhost'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'database'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbdriver'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'mysql'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbprefix'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'pconnect'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'db_debug'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'cache_on'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">FALSE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'cachedir'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'char_set'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'utf8'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbcollat'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'utf8_general_ci'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'swap_pre'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'autoinit'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'stricton'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">FALSE</span><span class="sy0">;</span></div><br>כדי להתחבר לDB ראשית עליכם למלא את ההגדרות הנכונות תחת username,passeord ו database.<br>בשלב זה הCI יוכל להתחבר לDB אם נרצה בכך אך אין זה מספיק, CI לא טוען שום קלאס מעצמו, וזו אחת הסיבות שהוא כל כך קל משקל.<br><br>כדי שהוא יתחבר db_demo עלינו להגיד לו לעשות זאת, ולשם כך נייצר קונטרולר בשם application/controllers/db_demo.php.<br><div class="php codeblock"><span class="kw2">class</span> Db_demo <span class="kw2">extends</span> CI_Controller<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="sy0">-&gt;</span><span class="me1">database</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span> <br>
+<span class="br0">&#125;</span></div><br>הפקודה <span dir="ltr">$this-&gt;load-&gt;database();</span> טוענת את כל הקלאסים שנדרשים בשביל חיבור לDB כולל קלאס ייחודי שנקרא active_record (שמאפשר לנו כתיבת SQL קל נקי ומהיר) ועליו נרחיב בהמשך.<br><br>נסו להריץ את התוכנית לעייל, ואם לא קיבלתם שום הודעת שגיאה (מסך לבן!) זה אומר שהכל עבר כמו שצריך..<br>תזכורת, פקודת ההרצה תהיה:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/CI/db_demo</span></div><br><h4>חיבור קבוע וautoload</h4><br>כיוון שלרוב נרצה את החיבור לDB בכל הפרוייקט או לפחות בכל הקונטרולר ולא נרצה אותו בכל מתודה, ניתן לשים את פקודת החיבור ככה שהDB יהיה זמין לנו בכל מקום.<br><br>כפי שציינתי בעבר הCI לא טוען שום דבר אוטומטית ורק לאחר שאנחנו מבקשים ממנו לטעון משהו הוא עושה את זה, אבל ישנם משאבים שאנחנו נרצה איתנו בכל הפרוייקט, לשם כך ישנו הקובץ application/config/autoload.php<br>בקובץ זה ניתן להגדיר איזה משאבים אנחנו רוצים שהCI יטען בכל פעם שהוא עולה.<br><br>אם כן פתחו את בקובץ אתרו את השורה הבאה:<br><div class="php codeblock"><span class="re0">$autoload</span><span class="br0">&#91;</span><span class="st_h">'libraries'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>והחליפו אותה ב:<br><div class="php codeblock"><span class="re0">$autoload</span><span class="br0">&#91;</span><span class="st_h">'libraries'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'database'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>מעתה החיבור לDB יטען אוטומטית עבורנו ואין צורך לטעון אותו ידנית.<br><h4>שימוש בסביבות שונות</h4><br>לרוב אנחנו צריכים הגדרות חיבור שונות עבור כל סביבה, לשם כך ניתן להגדיר DB group, ולהתאים אותו לסביבה שלנו, לדוגמא הקוד הבא מאפשר שימוש בחיבור שונה בproduction, כמובן שתוכלו להוסיף סביבות כיד הדמיון או לפי הצורך...<br><div class="php codeblock"><span class="re0">$active_group</span> <span class="sy0">=</span> <span class="st_h">'default'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span>ENVIRONMENT<span class="sy0">==</span><span class="st_h">'production'</span><span class="br0">&#41;</span><span class="re0">$active_group</span> <span class="sy0">=</span> <span class="st_h">'production'</span><span class="sy0">;</span><br>
+<span class="re0">$active_record</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'hostname'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'localhost'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'[local user]'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'[local pass]'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'database'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'[local db]'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbdriver'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'mysql'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbprefix'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span> &nbsp; <br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'pconnect'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'db_debug'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'cache_on'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">FALSE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'cachedir'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'char_set'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'utf8'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbcollat'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'utf8_general_ci'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'swap_pre'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'autoinit'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'default'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'stricton'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">FALSE</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'hostname'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'localhost'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'[prod user]'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'[prod pass]'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'database'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'[prod db]'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbdriver'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'mysql'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbprefix'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'pconnect'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'db_debug'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'cache_on'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">FALSE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'cachedir'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'char_set'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'utf8'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'dbcollat'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'utf8_general_ci'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'swap_pre'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'autoinit'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">TRUE</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'production'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'stricton'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">FALSE</span><span class="sy0">;</span></div><br><h3>Models</h3><br>כעת לאחר שהתחברנו לDB, אנחנו נלמד על השימוש במודלים, למי ששכח תפקיד המודל הוא להיות שכבה שמחברת בין התוכנית שלנו לבין מקור הנתונים, זה יכול להיות כל דבר החל בDB עובר לXML JSON CSV TXT או כל מקור שממנו אתם רוצים למשוך/לכתוב מידע.<br><br>הרעיון הוא שכל הכתיבות קריאות יעברו דרך מקום אחד וכך תהיה לנו יותר שליטה וריכוז של הפניות למקור המידע, קצת כמו הרעיון של getters וsetters למשתני private בOOP.<br>(ולכל מי שכבר מתחיל לכתוב לי תגובה נזעמת, הbusiness logic לא יושב כאן אלא בlibraries, תפקיד המודל הוא להיות השכבה המחברת לdata source ותו לא!)<br><h3>Hellow World - Model</h3><br>לשם הדוגמא הבאה אנא הריצו את פקודות הSQL הבאות בphpmyadmin או בקליינט הSQL הקרוב לביתכם:<br><div class="php codeblock">CREATE DATABASE `demo` <span class="coMULTI">/*!40100 DEFAULT CHARACTER SET utf8 */</span><span class="sy0">;</span><br>
+CREATE TABLE `demo`<span class="sy0">.</span>`users` <span class="br0">&#40;</span><br>
+&nbsp; `u_id` INTEGER UNSIGNED NOT <span class="kw4">NULL</span> AUTO_INCREMENT<span class="sy0">,</span><br>
+&nbsp; `u_first` VARCHAR<span class="br0">&#40;</span><span class="nu0">45</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; `u_last` VARCHAR<span class="br0">&#40;</span><span class="nu0">45</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; `u_email` VARCHAR<span class="br0">&#40;</span><span class="nu0">255</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; `u_pass` VARCHAR<span class="br0">&#40;</span><span class="nu0">45</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; PRIMARY <span class="kw3">KEY</span> <span class="br0">&#40;</span>`u_id`<span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><br>
+ENGINE <span class="sy0">=</span> InnoDB<span class="sy0">;</span><br>
+INSERT INTO `users` <span class="br0">&#40;</span>`u_id`<span class="sy0">,</span> `u_first`<span class="sy0">,</span> `u_last`<span class="sy0">,</span> `u_email`<span class="sy0">,</span> `u_pass`<span class="br0">&#41;</span> VALUES<br>
+<span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span> <span class="st_h">'Alon'</span><span class="sy0">,</span> <span class="st_h">'Nagar'</span><span class="sy0">,</span> <span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="91f0fdfeffd1f5f4fcfebff2fefc">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'1234'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+<span class="br0">&#40;</span><span class="nu0">2</span><span class="sy0">,</span> <span class="st_h">'Menashe'</span><span class="sy0">,</span> <span class="st_h">'CI'</span><span class="sy0">,</span> <span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="e78a82898ea783828a88c984888a">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'4321'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+<span class="br0">&#40;</span><span class="nu0">3</span><span class="sy0">,</span> <span class="st_h">'Yair'</span><span class="sy0">,</span> <span class="st_h">'CodeIgniter'</span><span class="sy0">,</span> <span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="e39a828a91a387868e8ccd808c8e">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'1111'</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+<span class="br0">&#40;</span><span class="nu0">4</span><span class="sy0">,</span> <span class="st_h">'Amichai'</span><span class="sy0">,</span> <span class="st_h">'CI'</span><span class="sy0">,</span> <span class="st_h">'<a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="4f2e22262c272e260f2b2a2220612c2022">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'2222'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>לאחר שבניתם DB וודאו שהוא מוגדר נכון תחת config/database.php.<br>בתוכנית הבאה אני מתבסס על כך שהוספתם את הdatabase לconfig/autoload.php. כפי שהסברתי מקודם, אם עוד לא עשיתם זאת זה הזמן.<br><br><h4>Users Model</h4><br>כדי להשתמש במידע שהכנסנו לDB אנחנו נייצר model שייגש אליו, אנא צרו תחת תיקיית application/model את הקובץ (אותיות קטנות!) users_model.php<br><div class="php codeblock"><span class="kw2">class</span> Users_Model <span class="kw2">extends</span> CI_Model<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getAll<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//query the db</span><br>
+&nbsp; &nbsp; <span class="re0">$resObj</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">db</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT * FROM `users`&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">//if there are results</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$resObj</span><span class="sy0">-&gt;</span><span class="me1">num_rows</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="co1">//return the results as array</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> &nbsp;<span class="re0">$resObj</span><span class="sy0">-&gt;</span><span class="me1">result_array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co1">//return empty array</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>לאחר שטענו חיבור לdatabase, מתווסף הן בקונטרולר והן במודל מאפיין שנקרא db, למאפיין הזה ישנה מתודה שנקראת <span dir="ltr">query() </span>ודרכה אנחנו יכולים לבצע שאילתות על הDB.<br>התשובה חוזרת כאובייקט מיוחד של CI, וראשית אני בודק האם חזרו תוצאות<span dir="ltr"> if($resObj-&gt;num_rows())</span> אם כן אני מחזיר את התוצאות כמערך גדול <span dir="ltr">return $resObj-&gt;result_array();</span> אחרת אני מחזיר מערך ריק.<br><br><h4>users Controller</h4><br>לשם שימוש בmodel אנא צרו את הקונטרולר application/controller/users.php<br><div class="php codeblock"><span class="kw2">class</span> Users <span class="kw2">extends</span> CI_Controller<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> show<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//load the model</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="sy0">-&gt;</span><span class="me1">model</span><span class="br0">&#40;</span><span class="st0">&quot;users_model&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">//fetch the users</span><br>
+&nbsp; &nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'usersArr'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">users_model</span><span class="sy0">-&gt;</span><span class="me1">getAll</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">//send to view</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="br0">&#40;</span><span class="st0">&quot;users/show_view&quot;</span><span class="sy0">,</span><span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>כאן אנחנו יכולים להתחיל לראות את הכח שהשימוש במודל נותן לנו, מעכשיו כל פעם שנרצה למשוך את כל היוזרים רק נצטרך לקרוא למודל, וזהו!<br>שימו לב שכדי להשתמש במודל שכתבנו חייבים לטעון אותו באמצעות המתודה <span dir="ltr">$this-&gt;load-&gt;model()</span> בטח כבר הבנתם ששום דבר לא נטען לבד בCI, ניתן לטעון מודלים בconfig/autoload.php אבל זו שיטה לא נכונה כיוון שזה אומר שהמודל יטען בכל מקום במערכת.<br>גישה נכונה יותר שאותה נלמד בהמשך היא לטעון אותו ב<span dir="ltr">__construct()</span> של הקונטרולר, כיוון שכן נצטרך את המודל הזה בכל מקום בקונטרולר.<br><br><h4>view</h4><br>לשם הצגת הרשימה אנא צרו את התיקייה users תחת application/views ותחתיה צרו את הקובץ show_view.php<br><div class="php codeblock">&lt;html&gt;<br>
+&nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &lt;title&gt;users model usage&lt;/title&gt;<br>
+&nbsp; &lt;/head&gt;<br>
+&nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; &lt;h1&gt;Users list&lt;/h1&gt;<br>
+&nbsp; &nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;#&lt;/th&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;First&lt;/th&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;Last&lt;/th&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;Email&lt;/th&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$usersArr</span> <span class="kw1">as</span> <span class="re0">$user</span><span class="br0">&#41;</span><span class="sy0">:</span><span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'u_id'</span><span class="br0">&#93;</span><span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'u_first'</span><span class="br0">&#93;</span><span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'u_last'</span><span class="br0">&#93;</span><span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$user</span><span class="br0">&#91;</span><span class="st_h">'u_email'</span><span class="br0">&#93;</span><span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">endforeach</span><span class="sy0">;</span><span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;/table&gt;<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;</div><br>כמו שניתן לראות קיבלנו בview את מערך המשתמשים, כל איבר במערך הוא רשומה אחת מתוך הDB כאשר ברשומה כל key הוא עמודה מהDB.<br><br>כדי להריץ את התוכנית להלן אנא הריצו את:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/CI/users/show</span></div> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/4cb7bcf17e326a77aa13e000b6551a84?s=16&r=g&d=monsterid" alt="alon">
+<a>alon</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1768"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/07/2012 18:08</span><br>
++1 <br>
+אחלה מדריך ! </div>
+<a id="comment1769"></a>
+<div class="blog-comment">
+<span class='comment-author'>CaTz</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2012 10:36</span><br>
+תודה רבה, מה הדרך הנכונה לחלק.ליצור Model clases?<br>
+ז&quot;א, האם עושים מודל עבור כל קונטרולר או שאיך?</div>
+<a id="comment1770"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2012 10:52</span><br>
+בונים מודל עבור כל טבלה במסד נתונים + אם רוצים לבצע עוד מקור נתונים, אז גם בשבילו..</div>
+<a id="comment1771"></a>
+<div class="blog-comment">
+<span class='comment-author'>CaTz</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2012 11:18</span><br>
+אבל אם אני צריך לעשות JOINים עם 5-7 טבלאות, אז עבור הJOIN הזה אני עושה MODEL?</div>
+<a id="comment1772"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2012 11:22</span><br>
+אז אתה עושה אותו במודל של הטבלה הראשית של ה-join.<br>
+ב-Yii אתה מקבל כבר קוד מגניב אוטומתי שמטפל בזה באמת בצורה יפה.<br>
+הנה דוגמא: <span dir="ltr"><a href="http://www.yiiframework.com/doc/guide/1.1/en/database.arr">http://www.yiiframework.com/doc/guide/1.1/en/database.arr</a></span></div>
+<a id="comment1773"></a>
+<div class="blog-comment">
+<span class='comment-author'>CaTz</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2012 11:55</span><br>
+הבנתי, פשוט אני עובד על FW אישי שלי...(איתו הכי נוח לי לעבוד)<br>
+ואני לא הצלחתי להבין איך אני גורם לעניין של הmodelים לעבוד. עכשיו זה קצת יותר בהיר.<br>
+<br>
+עוד שאלה, במודל &quot;שיושב&quot; מעל טבלה מסויימת, כל סוג שליפה (מלבד הבסיסיים) יהיה בעצם מתודה?</div>
+<a id="comment1774"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2012 14:47</span><br>
+אפשר גם.. ואפשר לא.<br>
+תלוי בצרכים שלך.<br>
+<br>
+אם אתה כל כך רוצה לבנות FW משלך.. תעבוד קצת עם FW רגיל, ותראה איך עובדים נכון.. ואולי תצליח לבנות לעצמך FW שיעבוד נכון.<br>
+<br>
+עדיין, הכי מומלץ זה לעבוד על פי סטנדרט כתיבה מסויים, ו-FW אישי, לא מביא לך את זה.</div>
+<a id="comment1780"></a>
+<div class="blog-comment">
+<span class='comment-author'>אודי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/07/2012 18:56</span><br>
+אני מעלה את הcodigniter מxampp במחשב שלי שהכל תקין <br>
+לשרת לינוקס אפאצי עם דומיין ומקבל הודעה ...<br>
+<br>
+בפיסי שלי הכל תקין הבעיה שזה בשרת . <br>
+<br>
+קונפג config.php לדומיין הנכון .<br>
+וגם database.php<br>
+<br>
+להלן ההודעה<br>
+Fatal error: Class &apos;ALS_Model&apos; not found in /home/allsea/public_html/pam/application/models/admin/kom.php on line 3<br>
+<br>
+ניתן לראות אותה בלינק זה <span dir="ltr"><a href="http://allsearch.co.il/pam">http://allsearch.co.il/pam</a></span><br>
+<br>
+.htaccess - מקונפג כך <br>
+RewriteEngine on<br>
+RewriteCond $1 !^(index\.php|utils|robots\.txt)<br>
+RewriteRule ^(.*)$ /pam/index.php/$1 [L]<br>
+<br>
+אודה על עזרה .<br>
+<br>
+מה שמוזר שאצלי במחשב הוא מזהה את כל המודלים היטב עם אפצי ..<br>
+וגם בשרת iis קינפגתי את web.config והכל תקין .<br>
+<br>
+פה יש הפניה מה.htaccess אבל עדיין לא מזהה את המודלי טעינה.</div>
+<a id="comment1785"></a>
+<div class="blog-comment">
+<span class='comment-author'>alon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/08/2012 16:35</span><br>
+סביר מאוד שהבעיה היא עם שמות קבצים...<br>
+שם הקובץ חייב להיות באותויות קטנות</div>
+<a id="comment1786"></a>
+<div class="blog-comment">
+<span class='comment-author'>alon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/08/2012 16:35</span><br>
+**אותיות</div>
+<a id="comment1789"></a>
+<div class="blog-comment">
+<span class='comment-author'>אודי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/08/2012 22:44</span><br>
+תודה רבה אלון ......... חבל שקודגhנאטור לא מבין זאת שיש גם לינקוס <br>
+<br>
+למה כל הקבצים שלו עם אותיות גדולות וקטנות והאם צריך את כולם לתקן או רק את הclass?<br>
+<br>
+כרגע המתכנת שלנו נכנס והכניס require לכל class ...בכל קובץ בשרשרת .<br>
+<br>
+האם יש פתרון יותר טוב או שככה עובדים ופשוט תחת וינדוס הכל מוכר .</div>
+<a id="comment1790"></a>
+<div class="blog-comment">
+<span class='comment-author'>אודי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/08/2012 01:33</span><br>
+אלון ,<br>
+האם יש איזה מסמך שמראה לי את קבצי מערכת אני צריך לשנות בלינוקס ?<br>
+<br>
+כי הלכתי לאיבוד שם וחלק מהדברים עובדים וחלק לא עובדים אודה על עזרתך .<br>
+אודי</div>
+<a id="comment1810"></a>
+<div class="blog-comment">
+<span class='comment-author'>alon</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/08/2012 19:10</span><br>
+לא צריך לשנות כלום,<br>
+רק תוודא שכל הקבצים שאתה מייצר הם באותיות קטנות, ו.... זהו!</div>
+<a id="comment1978"></a>
+<div class="blog-comment">
+<span class='comment-author'>nirbe</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/09/2012 17:59</span><br>
+מדריכים מצויינים, מחכה לעוד :)</div>
+<a id="comment2182"></a>
+<div class="blog-comment">
+<span class='comment-author'>roee</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2013 15:28</span><br>
+שלום אלון , קודם כל מדריכים מובנים מעולים , אני רוצה לכתוב נגיד class user ויש לו שדות private , לפני הבנתי בכל מני מדריכים באינטרנט שאני צריך לשמור את class בתקיה libraries ואז מתוך contrller לטעון לקלאס באותה פונקציה של טעינה אני יכול שלוח לconstrctor של קלאס את משתנים לאתחול שדות של אובייקט , אחרי שאני עושה , יש לי באותו קלאס פוניציה get שמחזירה שדה של אובייקט , לדוגמה getName<br>
+ואני מנסה לדפיס מתוך controler את ערך שדה הוא לא מחיזר לי כלום , יש אפשרות מסיבר לי או יש לי מדריך לזה , או שאפשר בדרך רגילה לכתוב קלאס ולעשות include לקובץ של קלאס </div>
+<a id="comment2184"></a>
+<div class="blog-comment">
+<span class='comment-author'>roee</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/01/2013 01:52</span><br>
+הסתדרתי תודה</div>
+<a id="comment2801"></a>
+<div class="blog-comment">
+<span class='comment-author'>morwin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/06/2014 22:48</span><br>
+סיימתי את המדריך ..<br>
+ממש טוב תודה !!<br>
+אולי תמשיך אותו אתה מסביר טוב</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

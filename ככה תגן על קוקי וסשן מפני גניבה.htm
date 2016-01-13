@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הגנה מפני גנבת סשנים וקוקיז באמצעות שינוי הגדרות php.ini ל-httponly.">
+<meta name="keywords" content="httponly, session, cookie">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>כך תגנו על קוקי ועל סשן מפני גנבה</title>
+<meta itemprop="name" content="כך תגנו על קוקי ועל סשן מפני גנבה">
+<meta itemprop="description" content="הגנה מפני גנבת סשנים וקוקיז באמצעות שינוי הגדרות php.ini ל-httponly.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"215","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>כך תגנו על קוקי ועל סשן מפני גנבה</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-06-17T15:38:53+03:00" dir="rtl">17 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/httpcookie.png" alt="כך תגנו על קוקי ועל סשן מפני גנבה">
+</div>
+<div class="right post-content">
+שתי הגדרות פשוטות יעזרו לך למנוע את גנבת הסשן מהאתר שלך וימנעו אפשרות של התחזות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>איך גונבים זהות? על ידי גניבת סשן</h3><br>כולנו משתמשים בסשן על מנת לזהות את הגולש שמחובר לאתר. בא משתמש, התחבר, רשמנו בסשן את ה-ID שלו, ולפי מזהה הסשן שלו נדע בכל טעינת עמוד שהוא – אכן הוא. כל זה עובד בצורה מדהימה עד הרגע שבו מישהו אחר מגלה את מזהה הסשן שלי וגולש לאתר עם המזהה שלי.<br>המזהה הזה, sessionid, נשלח בכל בקשה מהדפדפן לשרת ביחד עם שאר הקוקיז, כמו שראינו ב<a href="SESSION.htm">הסבר על Session</a>. בדיוק אל אותם הקוקיז אפשר לגשת גם דרך JavaScript באמצעות הפקודה document.cookie. <br><br><h4>מה זה אומר?</h4><br>זה אומר שפיספסנו <a href="Cross_Site_Scripting.htm">חור XSS</a> אחד קטן היכן שהוא באתר, ומישהו זדוני יכול לדחוף לשם קוד JavaScript שגונב לנו את הקוקי ושולח לו, כדי שהוא יוכל אחרי זה להזדהות בתור מישהו אחר באתר שלנו.<br>אתה יכול לשאול את עצמך – אם קוקיז הם כאלה חשובים והם המפתח לממלכת ההזדהות, למה הדפדפנים לא מגנים בצורה טובה יותר על הקוקיז? למזלנו – הם כן.<br><br><h3>httpOnly</h3><br>מי שפעם ראה את הדוקומנטציה של <a href="http://php.net/set_cookie">set_cookie</a> שם לב שבסוף הרשימה מופיע פרמטר רשות וכנראה לא חשוב בשם httponly.<br><div class="php codeblock">bool <span class="kw3">setcookie</span> <span class="br0">&#40;</span> string <span class="re0">$name</span> <span class="br0">&#91;</span><span class="sy0">,</span> string <span class="re0">$value</span> <span class="br0">&#91;</span><span class="sy0">,</span> int <span class="re0">$expire</span> <span class="sy0">=</span> <span class="nu0">0</span> <span class="br0">&#91;</span><span class="sy0">,</span> string <span class="re0">$path</span> <span class="br0">&#91;</span><span class="sy0">,</span> string <span class="re0">$domain</span> <span class="br0">&#91;</span><span class="sy0">,</span> bool <span class="re0">$secure</span> <span class="sy0">=</span> <span class="kw4">false</span> <span class="br0">&#91;</span><span class="sy0">,</span> bool <span class="re0">$httponly</span> <span class="sy0">=</span> <span class="kw4">false</span> <span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="br0">&#41;</span></div><br>נשמע מוזר, לא ברור, וקוקיז עובדים לי טוב מאוד בלי זה... במה בכלל מדובר?<br><br>כשאתה מסמן קוקי בתור httpOnly, אתה אומר לדפדפן שהקוקי הספציפי הזה צריך להיות נגיש אך ורק לשרת המקורי. פעולה זו גורמת לדפדפן להחביא את הקוקי מקוד ה-JavaScript, בהנחה שמדובר בדפדפן עדכני יחסית.<br><br>וכאן מתגלה הבעיה השנייה:<br><br><h3>את הקוקי עם מזהה הסשן לא אנחנו מייצרים</h3><br>הקוקי בשם PHPSESSID נוצר ונשלח אוטומטית על ידי PHP בלי הבקרה הישירה שלנו. אבל זה נכון רק חלקית; לנו יש בקרה מלאה על קובץ בשם php.ini, שבו נמצאות שתי ההגדרות הבאות:<br><div class="php codeblock">session<span class="sy0">.</span>use_only_cookies <span class="sy0">=</span> <span class="nu0">1</span><br>
+session<span class="sy0">.</span>cookie_httponly <span class="sy0">=</span></div><br><br><h4>session.use_only_cookies</h4> <br>session.use_only_cookies אומר ל-PHP שסשנים צריכים לעבוד אך ורק דרך קוקי. אם נשים אפס בתור ערך זה, PHP תצרף פרמטר עם מזהה של סשן לכל קישור באתר, כמו <span dir="ltr">http://phpguide.co.il/?PHPSESSID=abc123</span>. להוציא את ערך הקוקי מתוך הכתובת באמצעות JavaScript זה עניין של שתי שורות קוד. מעבר לכך, המתשמש יכול לעזור למישהו לגנוב את הקוקי של עצמו על ידי העתקת הקישור ומסירתו למישהו, או פרסומו באינטרנט עם הכותרת &quot;קבלו איזה אתר מדליק&quot;. כל הדפדפנים המודרניים תומכים בקוקיז בצורה מלאה, והערך הבטיחותי עבור אופציה זו הוא 1, שזו אופציית ברירת המחדל.<br><br><h4>session.cookie_httponly</h4><br>אופציה זו אמורה להיות מובנת לכם מהשם שלה, וכאן הבעיה היא דווקא בערך ברירת המחדל, שפשוט לא נמצא שם ומוחשב ל-0, כלומר כבוי. את הערך הזה עלינו לשנות ל-1 כדי לזכות בשיפור האבטחה.<br>בנוסף, את ההגדרה הזו אפשר לשנות לא רק ב php.ini אלה גם בקובץ htaccess. בצורה הבאה:<br><div class="php codeblock">php_value session<span class="sy0">.</span>cookie_httponly On</div><br><br><h4>בונוס</h4><br><h5>session.name</h5><br>session.name זה שם הקוקי שבו PHP תשתמש בתור מזהה הסשן. ערך ברירת המחדל שלה הוא PHPSESSID.<br>מומלץ מאוד לשנות את הערך הזה לערך אחר כדי למנוע מכל מיני בוטים וסקריפטים אוטומטיים שמגיעים לאתר שלכם לגרום נזק, כיוון שרובם מוגדרים לחפש באתר מישהו או משהו עם המילים PHPSESSID. הערך שתשימו כאן לא משנה בכלל, העיקר שיהיה שונה מההגדרות הרגילות שאליהם מכוונים בוטים עצבניים.<br><br>אחרי כל השינויים לא שוכחים לעשות ריסטרט לשרת כדי שהשינויים ייכנסו לפועל.<br><span style="color:green;">אפשר לעשות את זה גם ב-Wamp, אבל אני מקווה שאל האתר שלכם שמאוחסן ב-Wamp לא גולשים אנשים אחרים ומנסים לעשות כל מיני שטויות. חשוב שחברת האכסון שלכם תעשה את השינויים האלה בהקדם.</span> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1642"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_242108</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 19:45</span><br>
+ידוע ושימושי, היה חסר דגש בנושא.</div>
+<a id="comment1643"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_242112</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 20:04</span><br>
+תודה רבה על המדריך, לא הכרתי את הנושא.</div>
+<a id="comment1644"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 23:02</span><br>
+אני רואה שאתה בעצמך לא מימשת את ההצעה.. :)</div>
+<a id="comment1645"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/06/2012 23:29</span><br>
+השארתי את זה ליותר מאוחר בלילה, כאשר לא יהיו גולשים ואוכל לשנות את מזהה הסשן,<br>
+אחרת אנשים יתנתקו מהאתר באמצע הגלישה שלהם.</div>
+<a id="comment1646"></a>
+<div class="blog-comment">
+<span class='comment-author'>itamarhadad</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 03:56</span><br>
+&quot;כולנו משתמשים בסשן על מנת לזהות את הגולש שמחובר לאתר&quot;<br>
+למה לעשות דבר כזה..??<br>
+אני פשוט בודק אם הקוקי קיים ומשווה אותו למסד ,לא ככה עושים??<br>
+אם לא אתה יכול להסביר חסרונות בשימוש בקוקי בלבד בבקשה.</div>
+<a id="comment1647"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 06:47</span><br>
+המשתמש, שיכול להיות גם האקר, יכול לגשת לקוקי ולשנות אותו...</div>
+<a id="comment1649"></a>
+<div class="blog-comment">
+<span class='comment-author'>itamarhadad</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 11:21</span><br>
+הדבר היחידי שבעייתי אצלי זה שדרך הגוגול כרום אפשר לראות את הקוקי<br>
+אבל אי אפשר לערוך ,אפשר רק למחוק אותו ולראות מה הערך שלו..<br>
+<br>
+אתה בטוח שאפשר לשנות קוקי דרך המחשב??</div>
+<a id="comment1651"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 12:03</span><br>
+הקוקי שמור על המחשב, הוא קובץ רגיל לגמרי ואתה יכול לערוך מתי שבא לך.</div>
+<a id="comment1652"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 12:27</span><br>
+יש גם הרבה תוספים לגוגל כרום שאפשר לשנות בהם קוקיז</div>
+<a id="comment1653"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 12:34</span><br>
+אם אתה רוצה לשנות משהו במחשב שלך - לך על זה.<br>
+אבל אם מישהו אחר ישים באתר הזה סקריפט שמנסה לקרוא את הקוקי שלך - הוא לא יצליח, כיוון שהסשן קוקי של האתר לא נגיש עבור אותו בן אדם.</div>
+<a id="comment1654"></a>
+<div class="blog-comment">
+<span class='comment-author'>itamarhadad</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 13:10</span><br>
+אני לא מבין במה זה פוגע..<br>
+על מנת שזה באמת יעבוד המשתמש אמור להכניס קוקי וסיסמא נכונים ואם הוא ייעשה את זה בJS אז מה ההבדל??..<br>
+חוץ מזה אני מברר טיפה עכשיו על HTTPONLY..</div>
+<a id="comment1655"></a>
+<div class="blog-comment">
+<span class='comment-author'>itamarhadad</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 13:20</span><br>
+תדע לך שיכול להיות שזה הבעיה שבגללה האתר שלך מנתק אותי לפעמים..<br>
+<br>
+בכל מקרה FXP לא עושים ככה ועוד המון אתרים אז זה לא נראה לי הכרחי..</div>
+<a id="comment1656"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 13:40</span><br>
+בFXP זה מערכת פורומים מוכנה.<br>
+אצלם החיבורים עובדים על המסד נתונים.<br>
+זה עובד כמו שסן<br>
+רק שהנתונים נכנסים למסד נתונים.(במקום שנשמרים לשרת)<br>
+וגם ה IP.<br>
+ככה שרק מי שיש לו את אותו IP יכול להתחבר.</div>
+<a id="comment1663"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2012 14:39</span><br>
+fxp לא מסתמכים רק על ה-IP. הייתי אומר שזה הפקטור האחרון שצריך להסתמך עליו.</div>
+<a id="comment1684"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_245698</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2012 01:41</span><br>
+הערות:<br>
+1. בהנחה שהאתר עובד עם AJAX, ברגע שהסשן httpOnly אין אפשרות לעקוב אחרי המשתמש. (תקנו אותי אם אני טועה)<br>
+2. למי שאין גישה לphp.ini אפשר להגדיר גם דרך htaccess עם מוד php:<br>
+php_value session.cookie_httponly On<br>
+<br>
+מאמר איכותי, תודה רבה.</div>
+<a id="comment1685"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2012 11:24</span><br>
+1. דפדפנים שולחים את הקוקי לשרת גם בבקשות ajax ובכל זאת מחביאים אותו מקוד javascript (כולל getResponseHeader ) ככה שהכל בסדר.<br>
+<br>
+2. נכון. ברשותך הוסיף את זה גם לתוכן הכתבה</div>
+<a id="comment2197"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/02/2013 05:05</span><br>
+לא הבנתי כ&quot;כ איפה אני מסמן את הקוקי כ httpOnly.<br>
+ואם אני בכלל לא משתמש בקוקי אלא רק בסשנים, זה תקף ?</div>
+<a id="comment2198"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/02/2013 05:20</span><br>
+בקובץ php.ini שלך, או בקובץ htaccess.<br>
+תקרא קצת על סשנים ואז תראה. :-) (רמז: במה זה משתמש?)</div>
+<a id="comment2199"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/02/2013 05:23</span><br>
+סתם מיהרתי לכתוב תגובה מבלי להעמיק בקריאה. עכשיו שמתי לב ששאלתי שאלות כ&quot;כ מטופשות.<br>
+תודה:).</div>
+<a id="comment2200"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/02/2013 05:28</span><br>
+זה בסדר. קורה לכולם. :-)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

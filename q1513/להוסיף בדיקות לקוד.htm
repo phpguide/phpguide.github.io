@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה להוסיף בדיקות לקוד">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="phpon">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>להוסיף בדיקות לקוד | שאלת לימוד PHP</title>
+<meta itemprop="name" content="להוסיף בדיקות לקוד | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה להוסיף בדיקות לקוד">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="להוסיף בדיקות לקוד.htm" title="יש לי את הקוד הבא:&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;nbsp; &amp;lt;title&amp;gt;my order!&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;h1&amp;gt;Bob&apos;s Auto Parts&amp;lt;/h1&amp;gt;
+&amp;lt;h2&amp;gt;Order Results&amp;lt;/h2&amp;gt;
+
+&amp;lt;?php
+&amp;nbsp; echo &amp;quot;&amp;lt;p&amp;gt;Order processed at &amp;quot;.date&amp;#40;">להוסיף בדיקות לקוד</a></h2>
+<div class="userinfo">
+פתח
+<a>phpon</a>
+,
+<time class="timeago relativetime" datetime="2013-06-15T15:22:34+03:00" style="display:inline-block;">
+15 ליוני 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1513'>
+יש לי את הקוד הבא:<br><div class="php codeblock">&lt;html&gt;<br>
+&lt;head&gt;<br>
+&nbsp; &lt;title&gt;my order!&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;h1&gt;Bob's Auto Parts&lt;/h1&gt;<br>
+&lt;h2&gt;Order Results&lt;/h2&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;p&gt;Order processed at &quot;</span><span class="sy0">.</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st_h">'H:i, jS F Y'</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&lt;/p&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;p&gt;Your order is as follows: &lt;/p&gt;'</span><span class="sy0">;</span> <br>
+<span class="kw1">echo</span> <span class="re0">$tireqty</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'tireqty'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">' tires&lt;br /&gt;'</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$oilqty</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'oilqty'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">' bottels of oil&lt;br /&gt;'</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="re0">$sparkqty</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'sparkqty'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">' spark plugs&lt;br /&gt;'</span><span class="sy0">;</span><br>
+&nbsp; <br>
+<br>
+<span class="re0">$totalqty</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$totalqty</span> <span class="sy0">=</span> <span class="re0">$tireqty</span> <span class="sy0">+</span> <span class="re0">$oilqty</span> <span class="sy0">+</span> <span class="re0">$sparkqty</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;Items ordered: &quot;</span><span class="sy0">.</span><span class="re0">$totalqty</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$totalamount</span> <span class="sy0">=</span> <span class="nu19">0.00</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'TIREPRICE'</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'OILPRICE'</span><span class="sy0">,</span> <span class="nu0">10</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'SPARKPRICE'</span><span class="sy0">,</span> <span class="nu0">4</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$totalamount</span> <span class="sy0">=</span> <span class="re0">$tireqty</span> <span class="sy0">*</span> TIREPRICE<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">+</span> <span class="re0">$oilqty</span> <span class="sy0">*</span> OILPRICE<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">+</span> <span class="re0">$sparkqty</span> <span class="sy0">*</span> SPARKPRICE<span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;Subtotal: $&quot;</span><span class="sy0">.</span><span class="kw3">number_format</span><span class="br0">&#40;</span><span class="re0">$totalamount</span><span class="sy0">,</span><span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$taxrate</span> <span class="sy0">=</span> <span class="nu19">0.10</span><span class="sy0">;</span> <span class="co1">//local sales tax is 10%</span><br>
+<span class="re0">$totalamount</span> <span class="sy0">=</span> <span class="re0">$totalamount</span> <span class="sy0">*</span> <span class="br0">&#40;</span><span class="nu0">1</span> <span class="sy0">+</span> <span class="re0">$taxrate</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;Total including tax: $&quot;</span><span class="sy0">.</span><span class="kw3">number_format</span><span class="br0">&#40;</span><span class="re0">$totalamount</span><span class="sy0">,</span><span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp;<br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br>ואני אמור להכניס עליו את <br><div class="php codeblock"><span class="kw1">echo</span> ‘<span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$tireqty</span><span class="br0">&#41;</span><span class="sy0">:</span> ‘<span class="sy0">.</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$tireqty</span><span class="br0">&#41;</span><span class="sy0">.</span>’<span class="sy0">&lt;</span>br <span class="sy0">/&gt;</span>’<span class="sy0">;</span><br>
+<span class="kw1">echo</span> ‘<span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$nothere</span><span class="br0">&#41;</span><span class="sy0">:</span> ‘<span class="sy0">.</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$nothere</span><span class="br0">&#41;</span><span class="sy0">.</span>’<span class="sy0">&lt;</span>br <span class="sy0">/&gt;</span>’<span class="sy0">;</span><br>
+<span class="kw1">echo</span> ‘<span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$tireqty</span><span class="br0">&#41;</span><span class="sy0">:</span> ‘<span class="sy0">.</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$tireqty</span><span class="br0">&#41;</span><span class="sy0">.</span>’<span class="sy0">&lt;</span>br <span class="sy0">/&gt;</span>’<span class="sy0">;</span><br>
+<span class="kw1">echo</span> ‘<span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$nothere</span><span class="br0">&#41;</span><span class="sy0">:</span> ‘<span class="sy0">.</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$nothere</span><span class="br0">&#41;</span><span class="sy0">.</span>’<span class="sy0">&lt;</span>br <span class="sy0">/&gt;</span>’<span class="sy0">;</span></div><br><br>והנה הHTML<br><div class="php codeblock"><span class="sy0">&lt;</span>form action<span class="sy0">=</span>”processorder<span class="sy0">.</span>php” method<span class="sy0">=</span>”post”<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>table border<span class="sy0">=</span>”<span class="nu0">0</span>”<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>tr bgcolor<span class="sy0">=</span>”<span class="co2">#cccccc”&gt;<br>
+</span><span class="sy0">&lt;</span>td width<span class="sy0">=</span>”<span class="nu0">150</span>”<span class="sy0">&gt;</span>Item<span class="sy0">&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>td width<span class="sy0">=</span>”<span class="nu0">15</span>”<span class="sy0">&gt;</span>Quantity<span class="sy0">&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>tr<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>tr<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>td<span class="sy0">&gt;</span>Tires<span class="sy0">&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>td align<span class="sy0">=</span>”center”<span class="sy0">&gt;&lt;</span>input type<span class="sy0">=</span>”text” name<span class="sy0">=</span>”tireqty” size<span class="sy0">=</span>”<span class="nu0">3</span>”<br>
+maxlength<span class="sy0">=</span>”<span class="nu0">3</span>” <span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>tr<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>tr<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>td<span class="sy0">&gt;</span>Oil<span class="sy0">&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>td align<span class="sy0">=</span>”center”<span class="sy0">&gt;&lt;</span>input type<span class="sy0">=</span>”text” name<span class="sy0">=</span>”oilqty” size<span class="sy0">=</span>”<span class="nu0">3</span>”<br>
+maxlength<span class="sy0">=</span>”<span class="nu0">3</span>” <span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>tr<span class="sy0">&gt;&lt;</span>tr<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>td<span class="sy0">&gt;</span>Spark Plugs<span class="sy0">&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>td align<span class="sy0">=</span>”center”<span class="sy0">&gt;&lt;</span>input type<span class="sy0">=</span>”text” name<span class="sy0">=</span>”sparkqty” size<span class="sy0">=</span>”<span class="nu0">3</span>”<br>
+maxlength<span class="sy0">=</span>”<span class="nu0">3</span>” <span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>tr<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>tr<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>td colspan<span class="sy0">=</span>”<span class="nu0">2</span>” align<span class="sy0">=</span>”center”<span class="sy0">&gt;&lt;</span>input type<span class="sy0">=</span>”submit” value<span class="sy0">=</span>”Submit Order” <span class="sy0">/&gt;&lt;/</span>td<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>tr<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>table<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6842">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 16 ליוני 2013 </span>
+<a id="answer_6842" href="להוסיף בדיקות לקוד.htm#answer_6842">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+להכניס איפה? </p>
+</div>
+<div class="answer" id="answer6843">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 16 ליוני 2013 </span>
+<a id="answer_6843" href="להוסיף בדיקות לקוד.htm#answer_6843">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני אמור להכניס את הבדיקות לקוד הזה..<br>אני לא יודע ממש איך.. </p>
+</div>
+<div class="answer" id="answer6844">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 16 ליוני 2013 </span>
+<a id="answer_6844" href="להוסיף בדיקות לקוד.htm#answer_6844">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה זאת אומרת להכניס את הבדיקות לקוד?<br>למה אתה צריך את זה? </p>
+</div>
+<div class="answer" id="answer6850">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2013 </span>
+<a id="answer_6850" href="להוסיף בדיקות לקוד.htm#answer_6850">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לי טבלה עם פורם, עכשיו זה מין כמו רשימת קניות(כמובן שלא אמיתית) אלא דמו ורק מראה לך כמה כסף תוציא אם תקנה, כמה וכמה דברים..עכשיו כדאי שכנראה ישימו 0 במשהו, אז הוא לא 0 ככה וככה, אלא לא ירשום כלום. </p>
+</div>
+<div class="answer" id="answer6851">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 17 ליוני 2013 </span>
+<a id="answer_6851" href="להוסיף בדיקות לקוד.htm#answer_6851">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה התכוונת? </p>
+</div>
+<div class="answer" id="answer6869">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2013 </span>
+<a id="answer_6869" href="להוסיף בדיקות לקוד.htm#answer_6869">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה התכוונת?? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

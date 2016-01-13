@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מה לא נכון פה ?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="NaseemIB96">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מה לא נכון פה ? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מה לא נכון פה ? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מה לא נכון פה ?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מה לא נכון פה -1.htm" title="לא יודע אני משתגע !$author = secure&amp;#40;&apos;author&apos;&amp;#41;;
+
+&amp;nbsp; function secure&amp;#40;$name&amp;#41;&amp;#123;
+&amp;nbsp; &amp;nbsp; $post =">מה לא נכון פה ?</a></h2>
+<div class="userinfo">
+פתח
+<a>NaseemIB96</a>
+,
+<time class="timeago relativetime" datetime="2012-05-24T16:02:33+03:00" style="display:inline-block;">
+24 למאי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText585'>
+לא יודע אני משתגע !<br><br><div class="php codeblock"><span class="re0">$author</span> <span class="sy0">=</span> secure<span class="br0">&#40;</span><span class="st_h">'author'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">function</span> secure<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$post</span> <span class="sy0">=</span> <span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="re0">$name</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$post</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>שגיאה : ( ! ) Notice: Undefined index: author in C:\wamp\www\xxxxx\config.php on line 10<br>Call Stack<br># Time Memory Function Location<br>1 0.0008 375176 {main}( ) ..\xxx_Xxxx.php:0<br>2 0.0143 383616 secure( ) ..\xxx_Xxxx.php:87 </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2251">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 24 למאי 2012 </span>
+<a id="answer_2251" href="מה לא נכון פה -1.htm#answer_2251">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אין במערך POST_ אלמנט עם מפתח author.<br>תבדוק שקיים אלמנט עם מפתח כזה באמצעות isset לפני שאתה מנסה לגשת אליו.<br><br>באופן כללי, שתכיר:<br>מישהו פעם כתב את הפונקציה הזו secure .. חצי מ"מפתחי ה PHP" העתיקו אותה<br>והבעיה איתה - שהיא לא עושה שום דבר מועיל, אם לא פוגעת במערכת..<br>למה?<br>כי צריך <a href="..\Cross_Site_Scripting.htm">לעשות ככה</a> ו<a href="..\SQL_Injection.htm"><strong><span class="underline">גם</span></strong> ככה</a> כדי להגן על האתר ולא את מה שהפונקציה הזאת עושה. </p>
+</div>
+<div class="answer" id="answer2252">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/559451d68edda01c84cb405e86c06e7b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>NaseemIB96</a>
+ב
+<span style="font-size:10px"> 24 למאי 2012 </span>
+<a id="answer_2252" href="מה לא נכון פה -1.htm#answer_2252">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לי <div class="php codeblock"><span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;author&quot;</span> <span class="sy0">/&gt;</span></div><br>זה אומר שקיים נכון ?<br>לא הבנתי בדיוק מה לעשות עם ISSET </p>
+</div>
+<div class="answer" id="answer2253">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 24 למאי 2012 </span>
+<a id="answer_2253" href="מה לא נכון פה -1.htm#answer_2253">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, זה לא אומר שקיים.<br>תדפיס את המערך באמצעות הפקודה print_r ותדע מה קיים.<br>http://php.net/FUNCTION_NAME<br><br>http://php.net/isset<br>http://php.net/print_r </p>
+</div>
+<div class="answer" id="answer2254">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/559451d68edda01c84cb405e86c06e7b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>NaseemIB96</a>
+ב
+<span style="font-size:10px"> 24 למאי 2012 </span>
+<a id="answer_2254" href="מה לא נכון פה -1.htm#answer_2254">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>לא מצליח לי, תוכל להגיד לי מה לכתוב בשביל שזה יעבוד ?!</strong> </p>
+</div>
+<div class="answer" id="answer2257">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/78e235eeb3cb0f6d7bee6e6c7c85333b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_218762</a>
+ב
+<span style="font-size:10px"> 25 למאי 2012 </span>
+<a id="answer_2257" href="מה לא נכון פה -1.htm#answer_2257">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תראה <a href="..\phplive-51.htm?code=387 ">דוגמא</a> אולי תבין.<br>בכל מקרה הפונקציה הנ"ל מציקה, לא יעילה ולא מאבטחת שום דבר.<br>למנוע הזרקת שאילתות - escape_string למינהם (<a href="//php.net/mysql_real_escape_string">mysql_real_escape_string</a> בMySQL).<br>למנוע XSS - תעבוד עם <a href="//php.net/htmlentities">htmlentities</a> </p>
+</div>
+<div class="answer" id="answer2258">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/54f9f663b7c2b22b2654232e011791e0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_213253</a>
+ב
+<span style="font-size:10px"> 25 למאי 2012 </span>
+<a id="answer_2258" href="מה לא נכון פה -1.htm#answer_2258">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$author</span> <span class="sy0">=</span> secure<span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">function</span> secure<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$post</span> <span class="sy0">=</span> <span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$post</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div> </p>
+</div>
+<div class="answer" id="answer2259">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 25 למאי 2012 </span>
+<a id="answer_2259" href="מה לא נכון פה -1.htm#answer_2259">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@213253<br>מה עשית בזה ? העברת את הודעת השגיאה לשורה אחרת ? </p>
+</div>
+<div class="answer" id="answer2274">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 28 למאי 2012 </span>
+<a id="answer_2274" href="מה לא נכון פה -1.htm#answer_2274">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני זוכר שראיתי את הפונקציה הזאת באחד מהמדריכים ל-php ביוטיוב, וקיוויתי שלא ישתמשו בה.<br>מאז אני רק רואה יותר ויותר משתמשים בפונקציה secure, שהיא פשוט facepalm אחד גדול.<br><br>ניסים, תלמד מה htmlspecialchars עושה ומה strip_tags עושה ותבין שה-strip_tags בפונקציה הזו לא עושה כלום ורק מבזבזת משאבים.<br>תלמד מתי משתמשים ב-htmlspecialchars (רמז: xss), ומה עושים כדי לסנן נתונים שעומדים להכנס למסד (רמז: real_escape_string) כדי למנוע חורי אבטחה (רמז: sql injection).<br><br><br>בנוגע לבעיה שלך, תדפיס את המערך POST_ כדי לוודא שאכן מגיע המפתח author:<br><div class="php codeblock"><span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

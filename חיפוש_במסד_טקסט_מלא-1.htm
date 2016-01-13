@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חיפוש ואינדוקס טקסט מלא במסד mysql">
+<meta name="keywords" content="חיפוש, טקסט מלא, full text, mysql, like">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>חיפוש במסד (טקסט מלא)</title>
+<meta itemprop="name" content="חיפוש במסד (טקסט מלא)">
+<meta itemprop="description" content="חיפוש ואינדוקס טקסט מלא במסד mysql">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"78","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>חיפוש במסד (טקסט מלא)</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-04-16T17:49:59+03:00" dir="rtl">16 לאפריל 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/searchimage.jpg" alt="חיפוש במסד (טקסט מלא)">
+</div>
+<div class="right post-content">
+איך מחפשים במסד את מה שאי אפשר למצוא עם like<br>מה זה חיפוש טקסט מלא ולמה הוד עדיף - קרוא בהמשך <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<a href="http://en.wikipedia.org/wiki/Full_text_search">Full Text Search</a> — חיפוש טקסט מלא היא טכניקת חיפוש טקסט במסד נתונים. בחיפוש טקסט מלא מנוע החיפוש עובר על כל מילה ומילה בטקסט ובודק האם היא מתאימה לשאילתת החיפוש.<br><br>1. full text search הרבה יותר <strong>מהיר</strong> מ-like<br>full text search .2 הרבה יותר <strong>מדויק</strong> מ-like<br><br><br><h3>אינדוקס טקסט</h3><br>טקסט בשדות טקסט מלא מאונדקס. mysql עוברת על הטקסט, בוחנת את המילים שקיימות בו ושומרת רשימה נפרדת — אילו מילים מכיל אותו טקסט. כאשר מתבצע חיפוש על שדה הטקסט הזה, mysql ניגשת לרשימת המילים שלה, בודקת במהירות האם המילה המחופשת קיימת שם או לא ומחזירה בזריזות את התשובה.<br><br>לאומתה במקרה של like היה חייב המסד לנתח את הטקסט מחדש (לשלוף אותו מהקובץ שבו הוא שמור, לפענח את המחרוזת ולבצע השוואת מחרוזות איטית.<br><br><br><h3>דיוק חיפוש</h3><br><h5>הבסה של like</h5><br>נניח שהטקסט שלכם הוא <em>&#039;inhibited search&#039;</em><br>חיפוש המילה <em>hi</em> לפי <em>%hi%</em> ימצא גם את המילה in<strong>hi</strong>bited כיוון שגם בה יש hi. <br><br>כדי לפתור בעיה זו עם like נצטרך לחפש את <em>hi</em> עם רווח לפני ואחרי המילה כדי למצוא אך ורק מילים נפרדות. בנוסף לזה נצטרך לכתוב תנאי נוסף למקרה שהטקסט מתחיל במילה <em>hi</em> (כי לפניה לא יהיה רווח) וגם לכתוב תנאי נוסף למקרה שהטקסט נגמר ב <em>hi</em> שאחריו אין רווח.<br><br>למקרה שחשבתם שזה הכל — חבל. הרי הטקסט שלנו יכול להכיל את המילה <em>hi</em> ואחריה פסיק, נקודה, סימן פיסוק אחר, נקודה, מעבר שורה או כל דבר אחר. ניסיון למצוא את hi הופך לכמות בלתי מוגבלת של השוואת שהמסד יצטרך לבצע. <br><br>אלה עם כן אתם מרגישים שלמשתמשים שלכם התוצאה של <em>inhibited search</em> היא די רלוונטית בחיפוש אחר <em>hi</em>. כנראה שאין טעם להמשיך לקרוא אם זה ככה :)<br><br><br><h5>הטקסט המלא</h5><br>בנוסף לכל, חיפוש טקסט מלא מפענח את הטקסט ומאפשר חיפוש לקסי, שיאפשר למצוא מילים מאותו שורש ומבנה. בחיפוש של המילה <em>&#039;אוכל&#039;</em> נוכל למצוא גם את <em>אוכלת, אוכלים, אוכלות</em>.<br><br><br><h3>איך יוצרים את זה?!</h3><br>יוצרים שדה רגיל לחלוטין מסוג Text<br>מסמנים אותו ולוחצים על כפטור ה-Full Text<br><br><img src="static\images\pixel.png" alt="חיפוש במסד (טקסט מלא)" title="http://habreffect.ru/files/57e/39053a307/fulltextbutton.png" class="content-image-float"><br>זהו זה, כל התהליך. mysql תדאג לבנות אינדקס טקסט מלא עבור השדה הזה לבד.<br><br><h3>חיפוש בשדה טקסט מלא</h3><br>השאילתה המתאימה לחיפוש בשדה טקסט מלא היא <a href="http://dev.mysql.com/doc/refman/5.0/en/fulltext-search.html">match against</a><br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM `table1` WHERE MATCH<span class="br0">&#40;</span>`textcolumn`<span class="br0">&#41;</span> AGAINST<span class="br0">&#40;</span><span class="st_h">'אוכל'</span><span class="br0">&#41;</span></div><br><br>זהו זה. החיפוש עובד הרבה יותר מהר ומדויק יותר מזכות חישוב רלוונטיות של הטקסט למילה. <span style="color:gray;">בפועל match against מחשבת עד כמה הטקסט רלוונטי למילה המסוימת ובוחר את כל השורות בהם הרלוונטיות גדולה מ 50%. את הרלוונטיות שעליה החליט מנוע החיפוש אפשר לראות בעזרת השליפה </span><br><div class="php codeblock">SELECT <span class="sy0">*,</span>MATCH<span class="br0">&#40;</span>`textcolumn`<span class="br0">&#41;</span> AGAINST<span class="br0">&#40;</span><span class="st_h">'אוכל'</span><span class="br0">&#41;</span> FROM `table1`</div><br><br><br><h4>טקסט מלא רק בטבלאות MyIsam</h4><br>mysql תומכת באינדוקס טקסט מלא רק עבור טבלאות מסוג myisam. בגרסאות האחרונות של mysql סוג הטבלה כברירת המחדל הוא InnoDB שלא תומך באינדוקס טקסט מלא. במקרה והינכם חייבים להשתמש ב-InnoDB עבור אותה טבלה שעליה מבוצע החיפוש — השתמשו ב <a href="http://sphinxsearch.com/">SphinxSearch</a>. <br><br><br>נ.ב. על חיפוש שדה מלא יש הגבלה לאורך מחרוזת החיפוש. מחרוזת החיפוש חייבת להיות באורך ארבעה תווים לפחות. כלומר לא ניתן לחפש את המילה &#039;yes&#039; באמצעות חיפוש טקסט מלא. ההגבלה הזו נועדה להקל על מנוע החיפוש מפני חיפוש מילים שכיחות מדי כמו the.<br><br>כהמשך אפשר גם לראות ולהבין את ה<a href="סוגי_טבלאות_והבדלם_MyISAM_InnoDB-1.htm">הבדל בין סוגי הטבלאות, myIsam, innoDB והשאר. </a> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment60"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/04/2011 16:41</span><br>
+אבל נגיד אני רוצה לעשות אשכולות וחיפוש בכותרת של האשכול..<br>
+מה הטעם בישביל קוטרת שמקסימום התווים שלה זה 30 תווים ליצור שד טקסט?<br>
+<br>
+מיילה הודעה עצמה אבל הכותרת של הנושא ממש מיותר יוצרים שדא מסוג varchar(30) .<br>
+יש עוד פיתרו בישביל זה?</div>
+<a id="comment68"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/04/2011 12:19</span><br>
+על שדה מסוג varchar גם כן אפשר ליצור אינדקס טקסט מלא.</div>
+<a id="comment80"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/04/2011 13:16</span><br>
+בLIKE אתה לא צריך לעשות 3 מקרים,מספיק לך %text% כדי למצוא את הטקסט בכל מקום... לדוגמה:<span dir="ltr"><a href="http://pixup2.me/search.php?a=s&amp;q=test">http://pixup2.me/search.php?a=s&amp;q=test</a></span></div>
+<a id="comment106"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/05/2011 19:47</span><br>
+טוב נתקלתי בבעיה עם LIKE נגיד ואני רוצה לחפש epic fail ויש לי קובץ בשם epic-fail זה לא מוצא לי,אולי אתה יודע מה עלי לעשות?</div>
+<a id="comment107"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/05/2011 20:11</span><br>
+&gt;&gt; בLIKE אתה לא צריך לעשות 3 מקרים<br>
+כן, תודה שהזכרת. צריך הרבה יותר. עדכנתי הכתבה<br>
+<br>
+&gt;&gt; טוב נתקלתי בבעיה עם LIKE<br>
+אין לזה פתרון עם like. <br>
+חיפוש טקסט מלא הוא הפתרון היחידי שלך. לא סתם המציאו אותו<br>
+עזרה במקרים פרטיים אשמח להגיש בפורום :)</div>
+<a id="comment464"></a>
+<div class="blog-comment">
+<span class='comment-author'>dinamit</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2011 18:20</span><br>
+מצטער על הבורות, אבל אם בחיפוש אני אקליד שם של משתמש כלשהו באתר מסוים, זה לא יציג לי את שם המשתמש והסיסמא?<br>
+<br>
+דרך אגב, העליתם לאתר הזה מדריכים לשימוש ב-SQL. אם כן אז תשלחו לי בבקשה את הקישורים אליהם.<br>
+תודה!</div>
+<a id="comment959"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/12/2011 00:42</span><br>
+לא עובד לא העניין של משפחות המילים (אם מכניסים אוכל זה גם מוציא אוכלים, אוכלות וכו&apos;)...<br>
+למען האמת כל החיפוש full text עבד לי בכלל, אבל כשהוספתי IN BOOLEAN MODE זה עבד בערך.</div>
+<a id="comment960"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/12/2011 02:39</span><br>
+צריך לתקן ולומר שזה תקף רק לאנגלית ולא תמיד.</div>
+<a id="comment1672"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_244145</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2012 12:06</span><br>
+המדריך עזר לי מאוד אבל נתקלתי בבעיה,<br>
+החיפוש עובד אצלי בצורה של case-sensitive. קראתי שזה לא אמור להיות ככה, אלא אם מגדירים את השדה כ-latin1_bin או משהו כזה, אבל אצלי הוא latin1_swedish_ci.<br>
+<br>
+איך מטפלים בבעיה הזאת</div>
+<a id="comment1673"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2012 12:28</span><br>
+בברירת המחדל בחיפוש הוא case-INsensitive, אלה אם כן באמת מגדירים את השדה בתור bin_.<br>
+אתה בטוח שהשדות והטבלה עצמה הם ci ?<br>
+<br>
+תוכל לנסות את השליפה הבאה:<br>
+SELECT * FROM mytable WHERE MATCH(text_field) AGAINST(&apos;BANKING&apos; IN BOOLEAN MODE) COLLATE latin1_general_ci; </div>
+<a id="comment1674"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_244145</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2012 14:39</span><br>
+תודה<br>
+הוספתי מה שאמרת וזה עובד מצויין :)</div>
+<a id="comment1798"></a>
+<div class="blog-comment">
+<span class='comment-author'>WebId.co.il</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/08/2012 15:56</span><br>
+איך משתמשים בספינקס?</div>
+<a id="comment1799"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2012 10:55</span><br>
+זה תכנה נפרדת שצריך להתקין על השרת ולקנפג.<br>
+את כל ההסברים אפשר למצוא באתר שלהם.<br>
+<span dir="ltr"><a href="http://sphinxsearch.com/docs/">http://sphinxsearch.com/docs/</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

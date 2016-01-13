@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="בפרק הזה נכיר את מבנה התכנות בסביבת אינטרנט ואיך PHP פועלת">
+<meta name="keywords" content="צד שרת, תכנות אינטרנט, client-server">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>לקוח – שרת – לקוח</title>
+<meta itemprop="name" content="לקוח – שרת – לקוח">
+<meta itemprop="description" content="בפרק הזה נכיר את מבנה התכנות בסביבת אינטרנט ואיך PHP פועלת">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"50","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>לקוח – שרת – לקוח</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-01T18:59:07+02:00" dir="rtl">01 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="" alt="לקוח – שרת – לקוח">
+</div>
+<div class="right post-content">
+בפרק הזה נכיר את מבנה התכנות בסביבת אינטרנט ואיך PHP פועלת <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+אינטרנט, היא רשת של מחשבים מחוברים יחדיו. כאשר אתם גולשים לאתר, בפועל אתם מבקשים ממחשב אחר שישלח לכם את העמוד הראשי של האתר.<br>אתם מבקשים ממנו שיבצע חיפוש, והמחשב האחר שולח לכם רשימה של קישורים לאתרים אחרים, אתם מבקשים לשלוח אימייל והמחשב שלכם מעביר טקסט כלשהו למחשב אחר.<br><br><br><h3>איפה נמצאים האתרים?</h3><br>אינטרנט, היא רשת של מחשבים מחוברים יחדיו. כאשר אתם גולשים לאתר, בפועל אתם מבקשים ממחשב אחר שישלח לכם את העמוד הראשי של האתר.<br>אתם מבקשים ממנו שיבצע חיפוש, והמחשב האחר שולח לכם רשימה של קישורים לאתרים אחרים, אתם מבקשים לשלוח אימייל והמחשב שלכם מעביר טקסט כלשהו למחשב אחר.<br><br><strong>האתר נצמא במקום אחר, על מחשב אחר</strong>, איפשהו באינטרנט. מה שאתם מקבלים ממנו הוא עמוד html שהדפדפן שלכם יודע להציג. הדפדפן שלכם שולח בקשה לשרת &quot;הביא לי עמוד ראשי&quot;. השרת מייצר את העמוד ושולח לדפדפן בחזרה. ככה עובד אתר.<br><br>כשיצרנו דפי html שמרנו אותם ופתחנו בדפדפן, הדפדפן פנה למחשב שלנו, ביקש ממנו לשלוח לו דף כלשהו ולאחר מכן הציג אותו. כשאנחנו גולשים באינטרנט הדפדפן שלנו מבצע בדיוק את אותה פעולה — פונה אל מחשב כלשהו ומבקש ממנו להציג דף מסוים. הדף הזה יכול להימצא במחשב שלנו ויכול להימצא במחשב נפרד לחלוטין.<br><br><strong>בזמן הזה במקום אחר יושבת לה תוכנה ועונה לבקשות של דפדפנים.</strong> לתוכנה הזו קוראים שרת. php נמצאת שם — בשרת ומאפשרת לכם לכתוב קוד שאותו השרת יבצע. השרת מקבל בקשה ואומר ל-php — תייצרי לי דף. php מייצרת את הhtml של הדף, מחזירה לשרת והוא שולח אותו לנו (לדפדפן) בחזרה. כשאתם רואים את העמוד, php כבר מזמן סיימה את עבודתה. היא יצרה את העמוד, מסרה אותו לשרת, שכחה מהבקשה ומאיתנו לגמרי והתפנתה לטפל בבקשות אחרות.<br><br><strong>טעות מאוד נפוצה</strong> אצל מתכנתים מתחילים היא להסתכל על מערכת דפדפן-שרת כמערכת אחת. אינטראקטיבית. משתמש לחץ על הכפתור - המערכת הגיבה. הזיז ת&#039;עכבר - הגיבה. כל המידע הזמין ללקוח - זמין למערכת, התוכנית תמיד בזיכרון. אז לא כך! php היא תוכנה שרצה בשרת אי שם באינטרנט, הדפדפן רץ על המחשב שעליו אתם מסתכלים עכשיו. כאשר משהו קורא בדפדפן שלכם, הוא קורא אך ורק בדפדפן שלכם. כאשר אתם רואים את העמוד php כבר סיימה את עבודתה וברגע זה שותה קפה עם חברות שלה בקצה השני של כדור הארץ.<br><br><br>זה אומר ש<strong>אי-אפשר להכניס משהו למסד בלחיצה על כפתור.</strong> אני עוד פעם יחזור על המשפט החשוב הזה: ברגע שאתם רואים את הכפתור על המסך, php כבר סיימה את עבודתה ושכחה מאיתנו לגמרי. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment917"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>08/11/2011 01:05</span><br>
+את המשפט הזה:<br>
+זה אומר שאי-אפשר להכניס משהו למסד בלחיצה על כפתור.<br>
+<br>
+הייתי רושם בצורה הבאה:<br>
+זה אומר שאי-אפשר להכניס משהו למסד בלחיצה על כפתור ללא פנייה נוספת אל השרת.</div>
+<a id="comment2694"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/11/2013 21:52</span><br>
+אני מחזק את @iiddaannyy<br>
+זה משפט יותר הגיוני.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

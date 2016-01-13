@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ביטויים רגולריים - איך למצוא את כל מה שלא שווה לביטוי מסויים?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="fcbdaniel">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ביטויים רגולריים - איך למצוא את כל מה שלא שווה לביטוי מסויים? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ביטויים רגולריים - איך למצוא את כל מה שלא שווה לביטוי מסויים? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ביטויים רגולריים - איך למצוא את כל מה שלא שווה לביטוי מסויים?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ביטויים רגולריים  איך למצוא את כל מה שלא שווה לביטוי מסויים-1.htm" title="היי,אני רוצה למצוא באמצעות ביטויים רגולריים את כל הביטוי שלא שווה לביטוי מסויים.לדוגמא יש לי את הביטוי hello world ואני רוצה למצוא את כל מה שלא שווה ל world.איך?">ביטויים רגולריים - איך למצוא את כל מה שלא שווה לביטוי מסויים?</a></h2>
+<div class="userinfo">
+פתח
+<a>fcbdaniel</a>
+,
+<time class="timeago relativetime" datetime="2012-11-07T17:43:52+02:00" style="display:inline-block;">
+07 לנובמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1095'>
+היי,<br>אני רוצה למצוא באמצעות ביטויים רגולריים את כל הביטוי שלא שווה לביטוי מסויים.<br>לדוגמא יש לי את הביטוי hello world ואני רוצה למצוא את כל מה שלא שווה ל world.<br><br>איך? </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4763">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 07 לנובמבר 2012 </span>
+<a id="answer_4763" href="ביטויים רגולריים  איך למצוא את כל מה שלא שווה לביטוי מסויים-1.htm#answer_4763">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="sy0">/</span><span class="br0">&#40;</span>?<span class="sy0">!</span>world<span class="br0">&#41;</span><span class="sy0">/</span></div> </p>
+</div>
+<div class="answer" id="answer4764">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/460f589f9436abf611372ebac69c3b87?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>fcbdaniel</a>
+ב
+<span style="font-size:10px"> 07 לנובמבר 2012 </span>
+<a id="answer_4764" href="ביטויים רגולריים  איך למצוא את כל מה שלא שווה לביטוי מסויים-1.htm#answer_4764">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$str</span> <span class="sy0">=</span> <span class="st0">&quot;hello world&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$hello</span> <span class="sy0">=</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st_h">'/(?!world)/'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="sy0">,</span> <span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="re0">$hello</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>לא עובד. מציג לי hello world. </p>
+</div>
+<div class="answer" id="answer4765">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 07 לנובמבר 2012 </span>
+<a id="answer_4765" href="ביטויים רגולריים  איך למצוא את כל מה שלא שווה לביטוי מסויים-1.htm#answer_4765">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טעיתי, הרבה זמן לא השתמשתי ב-look ahead.<br><br>למה אתה רוצה לעשות את זה? אם אתה רוצה למחוק את כל מה ששונה מ-world אתה בסופו של דבר תשאר רק עם world. </p>
+</div>
+<div class="answer" id="answer4766">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 08 לנובמבר 2012 </span>
+<a id="answer_4766" href="ביטויים רגולריים  איך למצוא את כל מה שלא שווה לביטוי מסויים-1.htm#answer_4766">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+http://phpguide.co.il/phplive?code=562 </p>
+</div>
+<div class="answer" id="answer4767">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 08 לנובמבר 2012 </span>
+<a id="answer_4767" href="ביטויים רגולריים  איך למצוא את כל מה שלא שווה לביטוי מסויים-1.htm#answer_4767">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@Michael<br>אתה פשוט מחקת כל world והצגת את התוצאה. הביטוי שנתת לא מוצא דברים ששונים מ-world. </p>
+</div>
+<div class="answer" id="answer4768">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 09 לנובמבר 2012 </span>
+<a id="answer_4768" href="ביטויים רגולריים  איך למצוא את כל מה שלא שווה לביטוי מסויים-1.htm#answer_4768">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מישה עשה מצויין את מה שביקשת, אולי זה לא מתאים למה שאתה מנסה לעשות, אז תפרט יותר שנוכל לעזור.. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

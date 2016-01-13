@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הכנסה למשתנים ב YII + מה ההבדל בין שדה active לבין רגיל.">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הכנסה למשתנים ב YII + מה ההבדל בין שדה active לבין רגיל. | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הכנסה למשתנים ב YII + מה ההבדל בין שדה active לבין רגיל. | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הכנסה למשתנים ב YII + מה ההבדל בין שדה active לבין רגיל.">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הכנסה למשתנים ב YII  מה ההבדל בין שדה active לבין רגיל-1.htm" title="היי.יש לי תיבת טקסט כזו באחד מקבצי ה view:&amp;lt;?= CHtml::textField&amp;#40;&apos;utu_before&apos;, null, array&amp;#40; &apos;class&apos; =&amp;gt; &amp;quot;t-field&amp;quot;">הכנסה למשתנים ב YII + מה ההבדל בין שדה active לבין רגיל.</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2013-03-17T13:12:05+02:00" style="display:inline-block;">
+17 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1309'>
+היי.<br>יש לי תיבת טקסט כזו באחד מקבצי ה view:<br><div class="php codeblock"><span class="sy1">&lt;?=</span> CHtml<span class="sy0">::</span><span class="me2">textField</span><span class="br0">&#40;</span><span class="st_h">'utu_before'</span><span class="sy0">,</span> <span class="kw4">null</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span> <span class="st_h">'class'</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;t-field&quot;</span> <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>עכשיו בעת לחיצה על אנטר, אני טוען את העמוד home/show בעזרת jQuery.<br>בעמוד home/show שזה בעצם <strong>HomeController -&gt; actionShow</strong> אני בעצם רוצה להכניס למשתנה את מה שהמשתמש כתב בשדה בשם utu_before, איך אני עושה את זה ?<br><br>ועוד שאלה, מה ההבדל בין textField לבין <strong>active</strong>TextField ? כיאילו בין שדה שהוא רגיל ולבין שדה שהוא active. </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5735">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 למרץ 2013 </span>
+<a id="answer_5735" href="הכנסה למשתנים ב YII  מה ההבדל בין שדה active לבין רגיל-1.htm#answer_5735">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+א. בדיוק כמו שאתה עושה בלי YII. או על ידי סאבמיט של טופס שאפשרל קרוא ממנו דרך _POST או על ידי הופסה של פרמטר לקישור שאפשר לקרוא ממנו ב GET.<br><br>ב. activeTextField מקבל בתור אחד המפרמטרים מופע של מחלקה activeRecord וקורה את התוכן ממנה<br>ככה שתוכל לעשות שדה קלט והטקסט שכרגע שמור במסד יופיע למשתמש במסך </p>
+</div>
+<div class="answer" id="answer5736">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 למרץ 2013 </span>
+<a id="answer_5736" href="הכנסה למשתנים ב YII  מה ההבדל בין שדה active לבין רגיל-1.htm#answer_5736">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+א. ומה לגבי,<br><div class="php codeblock">Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">getPost</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div><br>זו גם דרך לקלוט משדה כלשהו רק אם יש כפתור submit ?<br><br>יש דרך מיוחדת לקרוא ב GET דרך YII או שזה באופן רגיל ?<br><br>ב. תודה :). </p>
+</div>
+<div class="answer" id="answer5741">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 למרץ 2013 </span>
+<a id="answer_5741" href="הכנסה למשתנים ב YII  מה ההבדל בין שדה active לבין רגיל-1.htm#answer_5741">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יופי שאתה מכיר את הפקודה הזו בגלל שנמנעתי מלכתוב אותה בהודעה הקודמת בשביל לא להפיל עליך יותר מדי.<br>אבל מאחורי הקלאים הפוקנציה הזו היא בדיוק אותה גישה למערך POST<br>וזאת הדרך העדיפה.<br><br>Yii::app()-&gt;request-&gt;getPost()<br>Yii::app()-&gt;request-&gt;getQuery()<br>http://www.yiiframework.com/doc/api/1.1/CHttpRequest </p>
+</div>
+<div class="answer" id="answer5742">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 למרץ 2013 </span>
+<a id="answer_5742" href="הכנסה למשתנים ב YII  מה ההבדל בין שדה active לבין רגיל-1.htm#answer_5742">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני קורא דיי הרבה באתר שלהם, אני פשוט לא מבין איך להשתמש עם כל מה שהם מציעים..<br>אוקי, ז&quot;א ש:<br><div class="php codeblock">Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">getQuery</span><span class="br0">&#40;</span><span class="st_h">'number'</span><span class="br0">&#41;</span></div><br><br>הוא אותו דבר כמו:<br><div class="php codeblock"><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'number'</span><span class="br0">&#93;</span></div><br><br>אם כן, למה אני לא יכול לעשות דבר כזה:<br><div class="php codeblock"><span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span>Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">getQuery</span><span class="br0">&#40;</span><span class="st_h">'number'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></div><br><br>אם ה_GET אני יכול.<br><br>* למה השימוש בפניה ל POST ו ל GET דרך YII עדיף יותר מהרגיל ?<br><br><strong>ועוד שאלה,<br>כשאני גולש לדוגמא לעמוד register.htm זה כיאילו אני גולש לעמוד account/register,<br>האם יש אפשרות לאפשר גלישה רק ל register.htm, ומי שינסה לגלוש ל account/register יקבל שגיאה 404 או משהו שיחסום את זה ויאפשר אך ורק ל register.htm ?</strong> </p>
+</div>
+<div class="answer" id="answer5746">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 17 למרץ 2013 </span>
+<a id="answer_5746" href="הכנסה למשתנים ב YII  מה ההבדל בין שדה active לבין רגיל-1.htm#answer_5746">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שאלה ראשונה:<br>זה לא קשור ל Yii, עד PHP 5.5 אתה חייב להעביר רפרנס לפונקציה isset, <br>ו<br><div class="php codeblock">Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">getQuery</span><span class="br0">&#40;</span><span class="st_h">'number'</span><span class="br0">&#41;</span></div> זה לא רפרנס, זאת קריאה לפונקציה.<br>גם אין שום סיבה לעשות את זה, אם אתה רוצה לעבוד רק עם $_GET[&#039;number&#039;] תעשה ככה:<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$number</span> <span class="sy0">=</span> Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">getQuery</span><span class="br0">&#40;</span><span class="st_h">'number'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$number</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Empty _GET[number]&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>זה בדיוק כמו<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span> <span class="sy0">!</span> <span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'number'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'number'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Empty _GET[number]&quot;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><strong>לגבי השאלה השניה</strong>: אני לא מבין למה אתה רוצה בכלל לעשות את זה,<br>אם אין שום לינק באתר שמקשר ל account/register שום מנוע חיפוש לא יאנדקס אותו ואף משתמש מצוי לא יתחיל לנחש כתובות באתר.<br>אם אתה ממש ממש רוצה את זה, אתה יכול להוסיף את התנאי הזה:<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span>Yii<span class="sy0">::</span><span class="me2">app</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="sy0">-&gt;</span><span class="me1">requestUri</span> <span class="sy0">!=</span> <span class="st_h">'/register.htm'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// 404 or redirect to user to '/register.htm'..</span><br>
+<span class="br0">&#125;</span></div><br>בקונטרולר account באקשן register. </p>
+</div>
+<div class="answer" id="answer5747">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 למרץ 2013 </span>
+<a id="answer_5747" href="הכנסה למשתנים ב YII  מה ההבדל בין שדה active לבין רגיל-1.htm#answer_5747">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. תודה.<br>2. כן, לאחר שקראתי שוב מה שאלתי, הבנתי שזה סתמי. בכל מקרה הסתדרתי כבר והצלחתי לעשות את מה שהתכוונתי. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="הסבר ופתרון לתקלה Can not send session cookie - headers already sent ב-PHP">
+<meta name="keywords" content="headers sent, output started, שגיאה, headers already sent, session cookie">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Can not send session cookie - headers already sent</title>
+<meta itemprop="name" content="Can not send session cookie - headers already sent">
+<meta itemprop="description" content="הסבר ופתרון לתקלה Can not send session cookie - headers already sent ב-PHP">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"19","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Can not send session cookie - headers already sent</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-10-01T11:00:46+02:00" dir="rtl">01 לאוקטובר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/headers_sent.jpg" alt="Can not send session cookie - headers already sent">
+</div>
+<div class="right post-content">
+בשל השכיחות הגוברת של המחלה הזו, אני חושב שיש צורך במדריך קטן לטיפול בה. ובכן, תרופה מס&#039; 1 זה כמובן Google, אבל למי שהתעצל לחפש או לא רצה להתעמק בדיונים ארוכים - תזכורת קטנה בשבילכם. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<div class="php codeblock">Cannot send session cookie <span class="sy0">-</span> headers already sent by <br>
+<span class="br0">&#40;</span>output started at script1<span class="sy0">.</span>php<span class="sy0">:</span><span class="nu0">1</span><span class="br0">&#41;</span> in script2<span class="sy0">.</span>php on line <span class="nu0">2</span></div><br>אני מצאתי מילון (מקווה שאתם לפחות למדתם אנגלית בבית ספר יותר טוב ממני) ותרגמתי את המשפט כך:<br><strong>לא יכול לשלוח את הסשן קוקי - כותרים כבר נשלחו עלי ידי הפלט שהתחיל ב...</strong><br>פה אנחנו צריכים להכיר קצת את מבנה התקשורת ברשת. כאשר דפדפן ושרת מדברים אחד עם השני, הם שולחים אחד לשני מכתבים. כמו כל מכתב, המכתב הזה מורכב מראש מכתב, עם כתובת השולח, כתובת המען, לוגו של החברה, תאריך ועוד. כמו כן יש גם את גוף המכתב, שמכיל את כל פלט ה-html עצמו שעל הדפדפן להציג.<br>כל cookie (גם סשן קוקי) נשלח בראש המכתב ולא בתוכן המכתב. כלומר, תחילה על PHP לייצר את ראש המכתב - headers, ולאחריו לייצר רק את כל ה-html שאנחנו צריכים. ברגע שאנחנו מייצרים את פלט ה-html הראשון שלנו, PHP אוטומטית חושבת שסיימנו לייצר את ראש המכתב, כותבת אותו על דף וממשיכה לכתיבת התוכן.<br>אין לנו אפשרות להוסיף עוד לראש המכתב אחרי שכבר התחלנו לכתוב את התוכן; לא השארנו מקום.<br><br><h3>קודם headerים, אחרי זה תוכן</h3><br>השגיאה שלנו אומרת שבשורה 2 של script2.php אנחנו מנסים לשלוח header כלשהו, אבל עוד בשורה 1 של script1.php התחיל הפלט, ו-PHP חתמה את חלקת ה-headers. מה שעלינו לעשות הוא להעביר את הפלט אחרי יצירת הקוקי.<br>פלט יכול להיות פקודת echo כלשהי, טקסט שמופיע בתחילת הקובץ מחוץ לתגי ה-PHP, סימן רווח לפני התג הראשון או byte order mark עליו נדבר עוד מעט. כל שעלינו לעשות הוא לנטרל את הפלט ולדאוג לheaderים להישלח לפני הפלט. בואו ננסה ביחד<br><div class="php codeblock">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; <br>
+&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br>
+&lt;head&gt;<br>
+&nbsp; &nbsp; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;title&gt;Cannot send session cookie - headers already sent&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw3">session_start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Sending header</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st_h">'1234'</span> <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Correct password'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;loggedin&quot;</span><span class="sy0">,</span><span class="st_h">'true'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Sending header</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Incorrect password'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;loggedin&quot;</span><span class="sy0">,</span><span class="st_h">'false'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// Sending header</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div><br>בדוגמה הזו יש לנו שלוש מקומות שבהם נוצר header, אבל, לפני שהם בכלל נוצרים מופיע לנו הרבה פלט שמועבר ללקוח כפי שהוא, עוד לפני ש-PHP בכלל מגיעה לקוד. אנחנו צריכים להעביר את כל קוד ה-headerים לראש העמוד, אבל את הפלט נרצה להשאיר בתוך ה-body, באמצע העמוד. יש רעיונות?<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; <span class="kw3">session_start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// sending header</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'password'</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st_h">'1234'</span> <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">=</span> <span class="st_h">'Correct password'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;loggedin&quot;</span><span class="sy0">,</span><span class="st_h">'true'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// sending header</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">=</span> <span class="st_h">'Incorrect password'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;loggedin&quot;</span><span class="sy0">,</span><span class="st_h">'false'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// sending header</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; <br>
+&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br>
+&lt;head&gt;<br>
+&nbsp; &nbsp; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;title&gt;Cannot send session cookie - headers already sent&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$output</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div> <br>כל ה-headerים ייווצרו לפני כל פלט שהוא וההודעה שלנו תופיעה בדיוק איפה שרצינו.<br><br><h3>מה אם אין לי שום פלט לפני? Byte Order Mark</h3><br>בעולם המחשבים של היום קיימים קידודים שונים. קידוד הוא האופן שבו תווים נשמרים במחשב. יש קידודים, שבהם כל תו תופס בדיוק byte אחד, דוגמת windows-1255. כמות התווים השונים שיש בקידוד הזה היא מאוד מוגבלת. מחרוזת בקידוד הזה יכולה להכיל רק תווים מקבוצת תווים מסוימת. במקרה הזה אלו הם אותיות השפה העברית, השפה האנגלית, מספרים ועוד מעט תווים אחרים.<br>ואם נרצה לכתוב טקסט בשפה אחרת, שהקידוד הזה לא מכיר דרך לשמור ולייצג? כאן אנחנו נתקלים במובלות של הקידוד הזה. במקרה הזה נעבור לשימוש בקידוד שמכיל תווים מהשפה שבה אנחנו משתמשים. אבל גם הקידוד ההוא יכלול רק את אותה שפה, אנגלית מספרים ותווים מיוחדים.<br><br><h4> UTF-8 הוא קידוד שמכיל תווים של הרבה שפות</h4><br>לעומת זאת, הקידוד הזה מורכב מזוג של שני בתים לייצוג של כל תו. לקידוד הזה יש אח יותר גדול בשם utf-16 (שלנו אין בו שימוש). גם הוא מורכב משני בתים לתו, אבל לעומת utf-8 אין לו אחידות בנוגע לסדר הבתים בתו. מעבדים מסוימיים שומרים את הבית השני לפני הבית הראשון, מה שיוצר בלבול כאשר אותו קובץ מגיע למחשב עם מעבד אחר. הפתרון שנמצא היה לכתוב בתחילת הקובץ טקסט מיוחד שיסמל את סדר הבתים. שמו הוא, כפי שניחשתם נכון, הוא byte order mark.<br>משום מה, הרבה עורכי טקסט, וביניהם Notepad, דוחפים את ה-byte order mark גם לקבצים ששמורים בקידוד utf-8, למרות שאין לו שום קשר לשם. &quot;byte order mark&quot; אמנם לא מוצג על ידי עורכי טקסט, אך מבחינת מפענח ה-PHP הוא קיים שם ומועבר כפלט לדפדפן.<br><strong>יש לכבות את ה-byte order mark בעורך הטקסט שלכם על מנת לפטור את הבעיה.</strong><br>ואני מקווה שבעיית ה-hedearים לא תחזור אליכם שוב. :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment23"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/03/2011 17:50</span><br>
+תודה רבה</div>
+<a id="comment1100"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 17:35</span><br>
+כיצד מכבים את ה-byte order mark?</div>
+<a id="comment1103"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 19:40</span><br>
+בסביבות פיתוח (ide) כמו netbeans, zend studio, aptana הוא כבר מכובה.<br>
+ב notepad++ באחד התפריטים, איפה שאתה בוחר את הקידוד - יש שם encode as UTF8 without BOM</div>
+<a id="comment1104"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 19:59</span><br>
+תודה.<br>
+ובנוטפאד רגיל? :)</div>
+<a id="comment1105"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 20:04</span><br>
+אי אפשר.</div>
+<a id="comment1106"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 20:05</span><br>
+אז למה אני לא מקבל את הטקסט הזה בתור פלט בקוד שאני כותב בנוטפאד הרגיל? :תוהה:</div>
+<a id="comment1107"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 20:47</span><br>
+בתור איזה פלט? BOM לא הופך את הסקריפט ל&quot;לא סקריפט&quot;. BOM זה כמו תו $. אם אתה שם דולר לפני התג הפותח של PHP הוא לא יפסיק לך את הסקריפט, נכון ? הוא בסה&quot;כ יישלח לדפדפן. אותו דבר קורה עם ה BOM. הוא בסה&quot;כ נשלח לדפדפן. לבטל אותו בנוטפאד אי אפשר.</div>
+<a id="comment1108"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/01/2012 20:51</span><br>
+&quot;אך מבחינת מפענח ה-PHP הוא קיים שם ומועבר כפלט לדפדפן.&quot;<br>
+חשבתי שהכוונה היא שהוא מציג אותו.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

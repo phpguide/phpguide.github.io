@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שאילה לגבי קובץ ה- .htaccess">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itzik">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שאילה לגבי קובץ ה- .htaccess | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שאילה לגבי קובץ ה- .htaccess | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שאילה לגבי קובץ ה- .htaccess">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">8</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שאילה לגבי קובץ ה htaccess-1.htm" title="RewriteRule ^category/&amp;#40;.*&amp;#41;/&amp;#40;.*&amp;#41;$ category.php?id=$1&amp;amp;slug=$2אני רוצה לדלג על $1 ושבכ">שאילה לגבי קובץ ה- .htaccess</a></h2>
+<div class="userinfo">
+פתח
+<a>itzik</a>
+,
+<time class="timeago relativetime" datetime="2015-07-22T14:23:17+03:00" style="display:inline-block;">
+22 ליולי 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2162'>
+<div class="php codeblock">RewriteRule ^category<span class="sy0">/</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span><span class="sy0">/</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ category<span class="sy0">.</span>php?id<span class="sy0">=</span>$<span class="nu19">1</span><span class="sy0">&amp;</span>slug<span class="sy0">=</span>$<span class="nu19">2</span></div><br><br>אני רוצה לדלג על $1 ושבכתובת שאני גולש אני יגלוש על $2.<br><br>לדוגמא: במקום x.com/ategory/1/demo אני רוצה שיופיע x.com/ategory/demo בלי מספר הקטגורייה<br><br><br>תודה לעוזרים </div>
+</div>
+<h3>
+<span id="answersCounter">8 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9435">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 22 ליולי 2015 </span>
+<a id="answer_9435" href="שאילה לגבי קובץ ה htaccess-1.htm#answer_9435">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז מה שאתה צריך לעשות, זה לכתוב בדיוק את מה שאתה רוצה<br><br><div class="php codeblock">RewriteRule <br>
+<br>
+&nbsp; ^category<span class="sy0">/</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span><span class="sy0">/</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ <span class="sy0">--&gt;</span> <span class="me1">When</span> someone goes to the address category<span class="sy0">/</span>SOMETHING<span class="sy0">/</span>GREAT<br>
+<br>
+&nbsp; category<span class="sy0">.</span>php?id<span class="sy0">=</span>$<span class="nu19">1</span><span class="sy0">&amp;</span>slug<span class="sy0">=</span>$<span class="nu19">2</span> <span class="sy0">--&gt;</span> <span class="me1">the</span> server will pretend that someone went to cat<span class="sy0">.</span>php?id<span class="sy0">=</span>SOMETHING<span class="sy0">&amp;</span>slug<span class="sy0">=</span>GREAT</div> <br>If you want to have a url category/demo, thats exactly what you should write in your rule<br><br><div class="php codeblock">RewriteRule ^category<span class="sy0">/</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ category<span class="sy0">.</span>php?name<span class="sy0">=</span>$<span class="nu19">1</span></div><br><br><div class="php codeblock">RewriteRule <br>
+&nbsp; ^category<span class="sy0">/</span><span class="br0">&#40;</span><span class="sy0">.*</span><span class="br0">&#41;</span>$ <span class="sy0">--&gt;</span> <span class="me1">every</span> <span class="kw3">time</span> someone goes to category<span class="sy0">/</span>SOMETHING<br>
+&nbsp; category<span class="sy0">.</span>php?name<span class="sy0">=</span>$<span class="nu19">1</span> &nbsp;<span class="sy0">--&gt;</span> <span class="me1">server</span> will act <span class="kw1">as</span> <span class="kw1">if</span> you went to category<span class="sy0">.</span>php?name<span class="sy0">=</span>SOMETHING</div> </p>
+</div>
+<div class="answer" id="answer9437">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 22 ליולי 2015 </span>
+<a id="answer_9437" href="שאילה לגבי קובץ ה htaccess-1.htm#answer_9437">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי בערך<br><br>השאילה אם אין דרכים בקובץ htaccess לעקוף את (category.php?id=$1&amp;slug=$2) ה- $1 שפשוט שיקרא רק את $2 </p>
+</div>
+<div class="answer" id="answer9438">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 22 ליולי 2015 </span>
+<a id="answer_9438" href="שאילה לגבי קובץ ה htaccess-1.htm#answer_9438">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה הכוונה בלעקוף ?<br>htaccess זה כזה שאתה מקליד בדפדפן כתובת מסוימת והשרת מתנהג כאילו הקלידו כתובת אחרת.<br>איזו כתובת אתה רוצה להזין בדפדפן ואיזה כתובת אתה רוצה שהשרת יתנהג כאילו גלשו אליה ? </p>
+</div>
+<div class="answer" id="answer9439">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 22 ליולי 2015 </span>
+<a id="answer_9439" href="שאילה לגבי קובץ ה htaccess-1.htm#answer_9439">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני רוצה להקליד x.com/category/דמו<br>ושהשרת יתייחס אליה category.php?id=$1&amp;slug=$2<br><br>כביכול לדלג בהקלדה על $1 </p>
+</div>
+<div class="answer" id="answer9440">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 23 ליולי 2015 </span>
+<a id="answer_9440" href="שאילה לגבי קובץ ה htaccess-1.htm#answer_9440">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה יהיה שווה $1 ו $2 אם אתה מקליד <br>x.com/category/demo<br>?<br>למחרוזת ריקה? </p>
+</div>
+<div class="answer" id="answer9441">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 23 ליולי 2015 </span>
+<a id="answer_9441" href="שאילה לגבי קובץ ה htaccess-1.htm#answer_9441">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה מה ששאלתי אם ניתן לדלג בהקלדת כתובת על ה-$1 </p>
+</div>
+<div class="answer" id="answer9442">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 23 ליולי 2015 </span>
+<a id="answer_9442" href="שאילה לגבי קובץ ה htaccess-1.htm#answer_9442">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+o.O </p>
+</div>
+<div class="answer" id="answer9443">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 24 ליולי 2015 </span>
+<a id="answer_9443" href="שאילה לגבי קובץ ה htaccess-1.htm#answer_9443">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול אולי להסביר מה זה בהבנה שלך htaccess? <br>א. למה הוא מיועד <br>ב. איך הוא עובד מאחורי הקלעים? איך הוא עושה בדיוק את מה שהוא מיועד לעשות?<br>אני מנסה להבין מה אני מפספס ולמה אני לא מבין מה זה לדלג. אולי אנחנו מבינים בצורה שונה מה זה </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בנוגע לsubpatterns בregex">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="liorel100">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>בנוגע לsubpatterns בregex | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בנוגע לsubpatterns בregex | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בנוגע לsubpatterns בregex">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בנוגע לsubpatterns בregex.htm" title="החלטתי להתעמק בזה כי אני צריך את זה להרבה דברים.http://www.php.net/manual/en/regexp.reference.subpatterns.phpאחרי באמת יותר משעה שאני יותר עם google translate ומתרגם אני עדיין לא מבין שום דבר, חיפשתי באינטרנט אבל לא מצאתי מדריך נורמלי. אם מישהו יכול לתת לי קו מנחה כל שהוא אני מאד מאד אשמח. כרגע מה שהבנתי הוא דבר כזה:1) יש שני דברים ש() עושה2) כדי להבדיל בין האחד לשני משתמשים ב?פרט לזה בקושי הבנתי משהו, ואני בן אדם שבאמת שעובד קשה כדי להשיג את הידע שלו. אני גם ">בנוגע לsubpatterns בregex</a></h2>
+<div class="userinfo">
+פתח
+<a>liorel100</a>
+,
+<time class="timeago relativetime" datetime="2013-04-07T21:19:09+03:00" style="display:inline-block;">
+07 לאפריל 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1363'>
+החלטתי להתעמק בזה כי אני צריך את זה להרבה דברים.<br>http://www.php.net/manual/en/regexp.reference.subpatterns.php<br>אחרי באמת יותר משעה שאני יותר עם google translate ומתרגם אני עדיין לא מבין שום דבר, חיפשתי באינטרנט אבל לא מצאתי מדריך נורמלי. אם מישהו יכול לתת לי קו מנחה כל שהוא אני מאד מאד אשמח. <br>כרגע מה שהבנתי הוא דבר כזה:<br>1) יש שני דברים ש() עושה<br>2) כדי להבדיל בין האחד לשני משתמשים ב?<br>פרט לזה בקושי הבנתי משהו, ואני בן אדם שבאמת שעובד קשה כדי להשיג את הידע שלו. אני גם רוצה אחרי שאדע את זה ברמה מספקת לכתוב על זה מדריך מסכם כאן באתר או בבלוג שלי לגבי זה, בשביל שעוד ישראלים לא ישברו את הראש.<br>בתודה מראש, ליאור :) </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6013">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 08 לאפריל 2013 </span>
+<a id="answer_6013" href="בנוגע לsubpatterns בregex.htm#answer_6013">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה שהסוגריים עושות זה כשאתה מפעיל preg_match הם שומרות במערך ה matches<br>את החלקים שהתאימו למה שרשמת בסוגריים.<br>במילה אחרת &quot;תופסת&quot; תאימויות (capturing)<br><br>למשל אתה צריך לפרק עם ביטוי רגולרי את האימייל לחלקים. את החלקים הנפרדים שאתר צריך אתה שם בסוגריים.<br><a href="..\phplive-37.htm?code=716">ראה דגומה</a><br><br><br>עוד מקרה של שימוש בסוגריים זה כשאתה צריך אפשרות של OR בין כמה אופציות <br><div class="php codeblock"><span class="co2">#I love my (girlfriend|family|friends|colleagues|employees)#u</span></div><br>אבל גם פה הסוגריים עצמן יתפסו את התת מחרוזת שתאמה להם וישימו אותה ב matches.<br><br>&quot;התפיסה&quot; דורשת עוד זיכרון ומשאבים ולפעמים אתה צריך סוגריים (בשביל OR) אבל בלי התפיסה עצמה<br>ואז בתחילת הסוגריים מויסיפים את הסימן <span dir="ltr">?;</span><br><div class="php codeblock"><span class="co2">#I love my (?:girlfriend|family|ds|colleagues|employees)#u</span></div><br><br>בחלקים שנתפסו אתה יכול להשתמש גם בביטוי הרגולרי עצמו או בביטוי של replace<br><br><div class="php codeblock"><span class="st0">&quot;# &nbsp;&lt; div class = (<span class="es1">\&quot;</span>|') .* <span class="es1">\\</span>1 &gt; &nbsp;#uxi &quot;</span></div><br>שבדוגמה מעל אתה &quot;תופס&quot; את הסימן שפתח את ה class ומוודא שהאטריביוט נסגר בדיוק עם אותו סימן.<br><br><div class="php codeblock"><span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st0">&quot;#&lt;div&gt;(.*)&lt;/div&gt;#ui&quot;</span><span class="sy0">,</span> <span class="st0">&quot;&lt;span&gt;<span class="es1">\\</span>1&lt;/span&gt;&quot;</span><span class="sy0">,</span> <span class="re0">$src</span><span class="br0">&#41;</span></div><br><br><br>-----<br>p.s. אם התשובה הזאת מספקת, אתה יכול לקחת, לארוז אותה לפי ההוראות לכתיבת מדריך טוב, להוסיף עוד קצת דוגמאות והסברים שתגלה מלשחק בעצמך ולפרסם בתור מדריך.<br>p.p.s תנסה לא לתרגם משפטים עם גוגל טרנסלייט, אלה מילים בודדות שאתה לא מכיר. את המשפטים תנסה להרכיב לבד. </p>
+</div>
+<div class="answer" id="answer6018">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/84bd1a57dc1ffc16e66a8f4eda181d90?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>liorel100</a>
+ב
+<span style="font-size:10px"> 08 לאפריל 2013 </span>
+<a id="answer_6018" href="בנוגע לsubpatterns בregex.htm#answer_6018">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה גדולה מאד, אתה יכול להסביר לי בבקשה את הביטוי הרגולרי הבא:<br><div class="php codeblock">^<span class="br0">&#40;</span>?<span class="sy0">:</span><span class="br0">&#40;</span>?<span class="sy0">!</span>hey<span class="br0">&#41;</span><span class="sy0">.</span><span class="br0">&#41;</span><span class="sy0">*</span>$</div> </p>
+</div>
+<div class="answer" id="answer6021">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 08 לאפריל 2013 </span>
+<a id="answer_6021" href="בנוגע לsubpatterns בregex.htm#answer_6021">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. יש את :? כדי לבטל את התפיסה של התת-תבנית.<br>2. יש את !? כדי לסמן &quot;הכל חוץ מ...&quot;<br>3. יש את |? כדי לאפשר כפילויות במספור של תתי התבניות.<br><br>לשאלתך, הביטוי שכתבת תואם לכל מחרוזת שמתחילה במשהו שהוא לא &quot;hey&quot; ואחריו תו כלשהו שמופיעים 0 או יותר פעמים. </p>
+</div>
+<div class="answer" id="answer6022">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/84bd1a57dc1ffc16e66a8f4eda181d90?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>liorel100</a>
+ב
+<span style="font-size:10px"> 08 לאפריל 2013 </span>
+<a id="answer_6022" href="בנוגע לsubpatterns בregex.htm#answer_6022">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הסתדר לי, הייתי בטוח שזה אומר שhey לא יוכל לבוא גם באמצע...<br>בכל מקר איך עושים את זה? פשוט <div class="php codeblock">^<span class="br0">&#40;</span>?<span class="sy0">:</span><span class="br0">&#40;</span>?<span class="sy0">!</span>hey<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">*</span>$</div> יתפוס? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

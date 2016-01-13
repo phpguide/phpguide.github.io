@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה עזרה עם while(true)">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="shlomo120">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>עזרה עם while(true) | שאלת לימוד PHP</title>
+<meta itemprop="name" content="עזרה עם while(true) | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה עזרה עם while(true)">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="עזרה עם whiletrue-1.htm" title="אהלן . ניסיתי פעם ראשונה לעבוד עם לולאה שעובדת קבועה . רשמתי את הקוד הבא : &amp;lt;?php
+&amp;nbsp; error_reporting&amp;#40;E_ALL&amp;#41;;
+&amp;nbsp; &amp;nbsp; ignore_user_abort&amp;#40;TRUE&amp;#41;;">עזרה עם while(true)</a></h2>
+<div class="userinfo">
+פתח
+<a>shlomo120</a>
+,
+<time class="timeago relativetime" datetime="2012-12-10T15:48:06+02:00" style="display:inline-block;">
+10 לדצמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1125'>
+אהלן . <br>ניסיתי פעם ראשונה לעבוד עם לולאה שעובדת קבועה . <br>רשמתי את הקוד הבא : <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw3">error_reporting</span><span class="br0">&#40;</span><span class="kw4">E_ALL</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">ignore_user_abort</span><span class="br0">&#40;</span><span class="kw4">TRUE</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">set_time_limit</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">sleep</span><span class="br0">&#40;</span><span class="nu0">5</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span></div><br><br>אבל הוא לא מציג שום דבר , הוא רק טוען ו&quot;חושב&quot; ... <br><br>אפשר עזרה ? אני רוצה לפתח את זה יותר אבל נתקעתי בהתחלה ... <br><br>חג שמח :) </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4898">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4898" href="עזרה עם whiletrue-1.htm#answer_4898">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה שתעשה לולאה אינסופית? לא תקבל שום פלט עד שהלולאה תפסיק. במקרה הטוב השרת ייבטל את התהליך וייפלוט חלק במקרה הגרוע השרת ייקרוס בגלל כמות הפעילות שלו. </p>
+</div>
+<div class="answer" id="answer4899">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לדצמבר 2012 </span>
+<a id="answer_4899" href="עזרה עם whiletrue-1.htm#answer_4899">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה כי הדפדפן שלך מחכה לתשובה. הדפדפן שלך ימשיך לחכות לתשובה עד שלא תלחץ על סימן הX.<br>אבל זה לא אומר שהסקריפט שלך לא הופעל. תעשה במקום echo (שאף אחד אף לא יראה כי הסקרפיט ימשיך לעבוד גם כשתסגור את הדפדפן) תעשה כתיבה לאיזה קובץ.<br>ככה תוכל לפתוח אותו ולוודא שהכל עובד.<br><br>שנית, תוסיף תנאי יציאה כלשהו לפחות.<br>למשל שלא יעבוד יותר מחצי שעה, אחרת יהיה לך סתם משהו שרץ במחשב בלי סוף. </p>
+</div>
+<div class="answer" id="answer4917">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d8fc91f13ef234637359c22d7b4071?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mat</a>
+ב
+<span style="font-size:10px"> 12 לדצמבר 2012 </span>
+<a id="answer_4917" href="עזרה עם whiletrue-1.htm#answer_4917">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה לעשות אחרי ה echo <br><br><div class="php codeblock"><span class="kw3">flush</span><span class="br0">&#40;</span> <span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4918">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d8fc91f13ef234637359c22d7b4071?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mat</a>
+ב
+<span style="font-size:10px"> 12 לדצמבר 2012 </span>
+<a id="answer_4918" href="עזרה עם whiletrue-1.htm#answer_4918">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יצא פעמיים </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

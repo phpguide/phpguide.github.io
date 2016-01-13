@@ -1,0 +1,422 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה אחסון זמן ותאריך בדאטאבייס">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_225673">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>אחסון זמן ותאריך בדאטאבייס | שאלת לימוד PHP</title>
+<meta itemprop="name" content="אחסון זמן ותאריך בדאטאבייס | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה אחסון זמן ותאריך בדאטאבייס">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">20</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="אחסון זמן ותאריך בדאטאבייס.htm" title="את העמודה של הזמן אצלי הגדרתי בDATETIME שזה בעצם DATE וTIME אבל שמתי לב שלרוב הוא לא מתייחס לצורה שבה אני מארגן את הSTRING של הDATE כלומר יש לו סדר מסוים כמו למשל שימוש ב&amp;quot;-&amp;quot; קבועאורך שנה מלא וכו&amp;#039;מכאן הסקתי שהדרך היחידה לאחסן במסד DATETIME כזה:&amp;#40;&amp;quot;H:i:s d/m/Y&amp;quot;&amp;#41;היא רק באמצעות עמודה מסוג TEXTהאם ככה אני צריך לפעול + מה ה">אחסון זמן ותאריך בדאטאבייס</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_225673</a>
+,
+<time class="timeago relativetime" datetime="2012-06-11T21:45:45+03:00" style="display:inline-block;">
+11 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText630'>
+את העמודה של הזמן אצלי הגדרתי בDATETIME שזה בעצם DATE וTIME אבל שמתי לב שלרוב הוא לא מתייחס לצורה שבה אני מארגן את הSTRING של הDATE כלומר יש לו סדר מסוים כמו למשל שימוש ב&quot;-&quot; קבוע<br>אורך שנה מלא וכו&#039;<br><br>מכאן הסקתי שהדרך היחידה לאחסן במסד DATETIME כזה:<br><div class="php codeblock"><span class="br0">&#40;</span><span class="st0">&quot;H:i:s d/m/Y&quot;</span><span class="br0">&#41;</span></div><br>היא רק באמצעות עמודה מסוג TEXT<br><br>האם ככה אני צריך לפעול + מה היתרונות בלעבוד עם DATETIME באופן כללי מאשר בTEXT..? </div>
+</div>
+<h3>
+<span id="answersCounter">20 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2498">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d911317df7b02570843e4575a562e476?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_237402</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2498" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2498">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+באופן כללי המסד בכלל שומר את הזמן בתור מספר של שניות מאז 1970.<br>הבעיה שלך זה מה שאתה רואה על המסך. ומה שקורה, זה ש mysql בדרך כלל באופן אוטומטי מתרגמת את המספר הזה לתצוגה טקסטואלית כמו זאת שאתה רואה.<br>אם אתה רוצה שהיא תתרגם את הזמן לתצוגה אחרת - עליך להישתמש בפונקציה date_format. (שים לב, שזה לא ישנה את הדרך שבה המסד שומר את הזמן, זה ישנה רק את הדרך שבה זה יוצג לך)<br><br>בשליפה עצמה תוכל לעשות משהו כזה:<br><div class="php codeblock">select <span class="kw3">DATE_FORMAT</span><span class="br0">&#40;</span>date_column<span class="sy0">,</span> <span class="st0">&quot;<span class="es6">%d</span>/%m/%Y %k:%i:<span class="es6">%s</span>&quot;</span><span class="br0">&#41;</span> <br>
+FROM table</div><br>ראה את<a href="http://dev.mysql.com/doc/refman/5.1/en/date-and-time-functions.html#function_date-format"> כל האפשרויות של date_format כאן</a><br><br>היתרון של זה שאתה יכול לשלוף לפי תאריך, לעשות השוואות על העמודה (איפה שתאריך גדול מ),<br>להוסיף תנאים על העמודה הזו ו/או חישובים שלא יכולת לעשות על סתם שדה טקסט.<br>+ השמירה של השדה הזה הרבה יותר אפקטיבית מבחינת זיכרון :) </p>
+</div>
+<div class="answer" id="answer2499">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2499" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2499">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איך אני משנה את המסד לפורמט קבוע כזה?<br>אמרת קובץ הגדרות אתה יכול להרחיב?<br><br>אני יכול אולי להגדיר את הפורמט של הDATE דרך המסד??<br>אולי בהגדרה של DEFAULT בעמודה של הDATETIME? </p>
+</div>
+<div class="answer" id="answer2504">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2504" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2504">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה לא תוכל לעשות את זה באחסון מימלא. ככה שלרזותך עומדת הפונקציה date_format </p>
+</div>
+<div class="answer" id="answer2505">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2505" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2505">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני רוצה להגדיר את העמודה בפורמט כזה..<br>זה כמו לתת לה DEFAULT מסוים אני מאמין שחייב להיות<br>יש לי פורום שבניתי בסגנון &quot;תפוז&quot; ככה שהזמן מופיע מלא פעמים בדף או יותר נכון נשלף מלא פעמים<br>לא הגיוני כל פעם לעשות DATEFORMAT ועדיף כבר לעבור לTEXT..<br><br>ואם מדברים כבר על DATEFORMAT איך אני יכול לשלוף את הכל &quot; * &quot; וגם את DATEFORMAT מבלי לכתוב את כל העמודות? </p>
+</div>
+<div class="answer" id="answer2506">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2506" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2506">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מצטער על ההתייה. אין דרך לעשות את זה לא במחשב שלך ולא באחסון.<br>האופציה היחידה שלך היא להישתמש ב date_format. אני לא מבין את הבעיה .<br><br>נכון שזה נראה מטומטם שהחליטו לעשות את זה ככה, אבל זה ממש לא כי <br>mysql שומרת את הזמן בתור מספר שניות. הם היו חייבים להחליט על איזשהו פורמט כלשהו לתצוגה טקסטואלית וזה הפורמט שנבחר. אם היו בוחרים את הפורמט שלך - היה מישהו בפורום אחר מתעצבן שזה לא מתאים לו.<br><br>ככה שבחרו פורמט כלשהו. אם אתה רוצה פורמט אחר - נתנו לרשותך את date_format<br>ודווקא זה מאוד הגיוני לעשות date_format. יותר מזה - זה בדיוק מה שמצפים שתעשה.<br><br><div class="php codeblock">select <span class="sy0">*,</span> <span class="kw3">date_format</span><span class="br0">&#40;</span><span class="sy0">...</span><span class="br0">&#41;</span> from table</div> </p>
+</div>
+<div class="answer" id="answer2507">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2507" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2507">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוקי הבנתי..<br><br>אבל בכל אופן מה יותר זריז ויעיל <strong>במקרה שלי</strong> TEXT או DATETIME<br>במקרה שלי הכוונה שאני משתמש בפורמט..<br><br>ובוא נגיד שאני משתמש בDATETIME <br>מה אני צריך להכניס לעמודה הזאת במסד DATE או TIME שניהם פעולת </p>
+</div>
+<div class="answer" id="answer2509">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2509" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2509">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשתמש ב datettime<br>כשאתה רוצה להכניס משהו לעמודה הזאת אתה יכול להכניס את NOW<br><div class="php codeblock">insert into table <span class="br0">&#40;</span>a<span class="sy0">,</span>datefield<span class="sy0">,</span>b<span class="br0">&#41;</span> value <span class="br0">&#40;</span><span class="st_h">'a'</span><span class="sy0">,</span> NOW<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st_h">'b'</span><span class="br0">&#41;</span></div><br><br>את שאלת ה&quot;אחסון זמן&quot; מיצינו?<br>שאלות חדשות הייתי מעדיף בתור שאלות נפרדות. קשה לעקוב אחרי נושא עם 20 תגובות.<br>בנוסף יש בעיה באתר, כל האנשים עם החוש השישי יצאו לחופשת הקיץ ואם אתה לא כותב בדיוק את הקוד שניסיתי להפעיל ואת הודעת השגיאה שקיבלת - אין מי שיעזור לך. </p>
+</div>
+<div class="answer" id="answer2510">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2510" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2510">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אהה סבבה..<br>תודה רבה! </p>
+</div>
+<div class="answer" id="answer2513">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2513" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2513">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל לגבי הTIME איך אני בטוח שזה מכוון לירושליים ולאסיה </p>
+</div>
+<div class="answer" id="answer2514">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2514" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2514">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">SELECT <span class="sy0">@@</span><span class="kw2">global</span><span class="sy0">.</span>time_zone<span class="sy0">,</span> <span class="sy0">@@</span>session<span class="sy0">.</span>time_zone<span class="sy0">;</span></div><br>אם משהו מהם לא בסדר, תצטרך לשנות את זה בקובפ קונפיגורצה my.cfg<br>אם אין לך אפשרות לעשות את זה, למשל באחסון, אתה יכול אחרי החיבור למסד להפעיל את השאילת<br><div class="php codeblock">set time_zone <span class="sy0">=</span> <span class="st_h">'+02:00'</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2515">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72c9b073092553e02ddefb60a3b0d541?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225673</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2515" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2515">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זאת אומרת לכוון את זה..<br>אין הבדל הרי בין TIME בSQL לTIME בPHP נכון?<br>בPHP זה יותר פשוט כי אני פשוט שם לפני הTIME<br> TIMEZONE<br>כלומר לכוון את הTIME לזמן בישראל ופשוט אחרי זה להכניס אותו למסד.. </p>
+</div>
+<div class="answer" id="answer2519">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 ליוני 2012 </span>
+<a id="answer_2519" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2519">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בטח שיש הבדלים. <br>מתוך ברירת מחדל שניהם משתמשים בשעה של השרת.<br>אבל אתה יכול להגדיר בכל אחת מהן גם שעה אחרת (למקרה שהשעה של השרת לא מוצאת חן בעיניך).<br>אם אתה מגדיר אותה רק ב php זה משפיע רק על php.<br>אם אתה מגדיר אותה רק ב mysql זה משפיע רק על mysql </p>
+</div>
+<div class="answer" id="answer2522">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2522" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2522">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז מה אני אמור להכניס לעמודה הזאת בPHP?<br><div class="php codeblock"><span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st0">&quot;Asia/Jerusalem&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$time</span><span class="sy0">=</span><span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ואז את הִ$TIME להכניס לשרת??<br>(הTIME שכתבתי עכשיו מכוון לישראל??) </p>
+</div>
+<div class="answer" id="answer2548">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/320fd8d4dccf2a7fd07b843af5c94e21?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238913</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2548" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2548">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול לכוון את השעה של המנוע MySQL לשעה של המנוע PHP ככה:<br><div class="php codeblock"><span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st0">&quot;Asia/Jerusalem&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$sqlQuery</span> <span class="sy0">=</span> <span class="kw3">sprintf</span><span class="br0">&#40;</span><span class="st0">&quot;SET `time_zone` = '<span class="es6">%s</span>';&quot;</span><span class="sy0">,</span> <span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;P&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2549">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2549" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2549">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="http://postimage.org/image/wys4bwi1v/">תנסה ככה</a> </p>
+</div>
+<div class="answer" id="answer2551">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2551" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2551">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תקשיבו רגע השאילתה שלי זה זה:<br><div class="php codeblock">INSERT INTO threads VALUES <span class="br0">&#40;</span><span class="st_h">''</span><span class="sy0">,</span><span class="st_h">'$title'</span><span class="sy0">,</span><span class="st_h">'$user-id'</span><span class="sy0">,</span><span class="st_h">'$message'</span><span class="sy0">,</span><span class="st_h">'$date'</span><span class="br0">&#41;</span></div><br>לפי מה שINTVAL אמר אני צריך לעשות ככה:<br><div class="php codeblock">INSERT INTO threads VALUES <span class="br0">&#40;</span><span class="st_h">''</span><span class="sy0">,</span><span class="st_h">'$title'</span><span class="sy0">,</span><span class="st_h">'$user-id'</span><span class="sy0">,</span><span class="st_h">'$message'</span><span class="sy0">,</span>NOW<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></div><br>אבל אמרנו שהבעיה היא שזה שמסד לא מכוון<br>אז בעצם מה שאני אמור לעשות זה להריץ את הקוד PHP הזה פעם אחת בלבד כמו שהוא מבלי לשנות בו כלום?<br><div class="php codeblock"><span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st0">&quot;Asia/Jerusalem&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$sqlQuery</span> <span class="sy0">=</span> <span class="kw3">sprintf</span><span class="br0">&#40;</span><span class="st0">&quot;SET `time_zone` = '<span class="es6">%s</span>';&quot;</span><span class="sy0">,</span> <span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;P&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="re0">$sqlQuery</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2552">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2552" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2552">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון.<br>למרות שלא אמרנו שהמסד לא מכוון. אמרנו שהוא יכול להיות לא מכוון. ואם הוא לא מכוון - אז צריך לעשות את הפקודות האלה. </p>
+</div>
+<div class="answer" id="answer2554">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 14 ליוני 2012 </span>
+<a id="answer_2554" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2554">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז אני מריץ את הקוד הזה ככה בדיוק רק עם תוספת של הסיסמא למסד והדאטבייס? </p>
+</div>
+<div class="answer" id="answer2557">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/320fd8d4dccf2a7fd07b843af5c94e21?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238913</a>
+ב
+<span style="font-size:10px"> 14 ליוני 2012 </span>
+<a id="answer_2557" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2557">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, אני מעדיף להוסיף את השאילתא הזאת גם לקידוד.<br>זה נראה בערך ככה:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw3">date_default_timezone_set</span><span class="br0">&#40;</span><span class="st_h">'Asia/Tel_Aviv'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$_CONFIG</span> <span class="sy0">=</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="co1">// http://dev.mysql.com/doc/refman/5.5/en/charset-connection.html</span><br>
+&nbsp; <span class="st_h">'mysql_encoding'</span> <span class="sy0">=&gt;</span> <span class="st_h">'utf8'</span><span class="sy0">,</span> <br>
+<br>
+&nbsp; <span class="co1">// http://dev.mysql.com/doc/refman/5.5/en/time-zone-support.html</span><br>
+&nbsp; <span class="st_h">'time_zone'</span> <span class="sy0">=&gt;</span> <span class="kw3">date</span><span class="br0">&#40;</span><span class="st_h">'P'</span><span class="br0">&#41;</span><span class="sy0">,</span> <br>
+<br>
+&nbsp; <span class="co1">// http://dev.mysql.com/doc/refman/5.5/en/locale-support.html</span><br>
+&nbsp; <span class="st_h">'lc_time_names'</span> <span class="sy0">=&gt;</span> <span class="st_h">'he_IL'</span><span class="sy0">,</span> <br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">mysql_query</span><br>
+<span class="br0">&#40;</span><span class="st0">&quot;<br>
+&nbsp; SET NAMES '<span class="es4">{$_CONFIG['mysql_encoding']}</span>', <br>
+&nbsp; &nbsp; &nbsp; `time_zone` = '<span class="es4">{$_CONFIG['mysql_time_zone']}</span>', <br>
+&nbsp; &nbsp; &nbsp; &nbsp; `lc_time_names` = '<span class="es4">{$_CONFIG['mysql_locale']}</span>';<br>
+&quot;</span><span class="br0">&#41;</span> <br>
+or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>--<strong>שים לב</strong>-- אם יש לך אפשרות לערוך את my.cfg - עדיף כך, זה יחסוך את השאילתא הזאת. </p>
+</div>
+<div class="answer" id="answer2564">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 ליוני 2012 </span>
+<a id="answer_2564" href="אחסון זמן ותאריך בדאטאבייס.htm#answer_2564">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@משתמש_238913<br>תודה על השיתוף. <br>הצחיק אותי לגלות שיש asia/jerusalem וגם asia/tel_aviv <a href="http://php.net/manual/en/timezones.php">ברשימה של timezones</a> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

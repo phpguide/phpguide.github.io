@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="אירועים ומטפלי אירועים, הוספת מטפלי אירועים, מחיקת מטפלי אירועים ודברים חשובים שצריכים לשים לב אליהם כשרושמים מטפל לאירוע.">
+<meta name="keywords" content="JS, Javascript, Events, JS events, אירועים JS">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>אירועים ב-Javascript - קצת יותר ממה שאתם מכירים - חלק א&apos;</title>
+<meta itemprop="name" content="אירועים ב-Javascript - קצת יותר ממה שאתם מכירים - חלק א&apos;">
+<meta itemprop="description" content="אירועים ומטפלי אירועים, הוספת מטפלי אירועים, מחיקת מטפלי אירועים ודברים חשובים שצריכים לשים לב אליהם כשרושמים מטפל לאירוע.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"317","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>אירועים ב-Javascript - קצת יותר ממה שאתם מכירים - חלק א&apos;</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iiddaannyy, </div>
+<div class="right">&nbsp;<time datetime="2013-03-30T21:14:43+03:00" dir="rtl">30 למרץ 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://it-imho.ru/wp-content/uploads/2012/11/js.jpg" alt="אירועים ב-Javascript - קצת יותר ממה שאתם מכירים - חלק א&apos;">
+</div>
+<div class="right post-content">
+אירועים ומטפלי אירועים, הוספת מטפלי אירועים, מחיקת מטפלי אירועים ודברים חשובים שצריכים לשים לב אליהם כשרושמים מטפל לאירוע. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>מהו אירוע?</h2><br>אז לחדשים מבנינו, אירוע הוא בעצם משהו שמתרחש. האירוע לרוב מתרחש על ידי המשתמש, אך לא תמיד (כמו שנראה בהמשך).<br>אירועים לדוגמה: לחיצה על העכבר, תזוזה של העכבר, לחיצה על מקש במקלדת וכו&#039;. כל אלה הם אירועים.<br><br><h3>מה עושים עם האירועים האלה?</h3><br>לפעמים נרצה לעשות משהו מסוים דווקא כשמשהו קורה.<br>לדוגמה, נרצה להקפיץ הודעה כאשר המשתמש ילחץ על כפתור מסוים באתר שלנו.<br>בדיוק כאן נכנסים האירועים. כדי ליישם את הדוגמה שלנו אנחנו נצטרך להשתמש באירוע click. אנחנו נצטרך לתפוס את האירוע ולדאוג שקוד מסוים (הקפצת הודעה במקרה שלנו) יפעל כאשר האירוע מתרחש.<br>נשמע מורכב? ממש לא. לפחות לא בחלק הזה. :)<br><br><h2>אירועים ומטפלי אירועים</h2><br>כדי להתחיל, אנחנו נצטרך להבדיל בין האירועים לבין מטפלי האירועים.<br><strong>האירועים</strong> - הדברים שמתרחשים כמו לחיצה על העכבר, לחיצה על כפתור במקלדת וכדומה.<br><strong>מטפלי האירועים</strong> - מה שבעצם מתרחש כשהאירוע מופעל, הדבר שמטפל באירוע.<br><br>חשוב להבין שלפעמים לאירוע אין מטפלי אירוע, ובמקרה כזה פשוט לא יקרה כלום שהאירוע יתרחש.<br>לפעמים גם המצב ההפוך קיים. לפעמים יש מטפל לאירוע abc כשהאירוע abc בכלל לא קיים. דבר כזה קורה בדרך כלל כטעות של המתכנת ואין סיבה לכתוב מטפלים לאירועים שלא קיימים.<br><br>מטפל אירוע נקרא גם מאזין לאירוע (event listener) כי הוא בעצם &quot;מקשיב&quot; ומחכה לפעול ברגע שהאירוע יתרחש.<br><br><h2>טיפול באירועים</h2><br>כדי לטפל באירוע אנחנו נשתמש בפונקציה <a href="https://developer.mozilla.org/en-US/docs/DOM/EventTarget.addEventListener">addEventListener</a>.<br>הפונקצייה addEventListener מקבלת שלושה פרמטרים (הרביעי אינו חלק מהסטנדרט ולכן לא אתייחס אליו):<br><strong>type</strong> - סוג האירוע. הכוונה היא ל-click במקרה של לחיצה, mouseover במקרה של מעבר עכבר וכדומה.<br><strong>listener</strong> - מטפל האירוע. כאן נעביר פונקציה שתתבצע כאשר האירוע יתרחש. הערך של this בפונקציה הוא האלמנט אליו הצמדנו את מטפל האירוע.<br><strong>useCapture (לא חובה)</strong> - קשה יותר להבין את המשמעות שלו מאשר שאר הפרמטרים ולכן ארחיב עליו אחרי הדוגמה הבאה.<br><br>לדוגמה, אם נרצה להקפיץ הודעה כאשר לוחצים על אלמנט מסוים, נצמיד לו מטפל לאירוע click בצורה הבאה:<br><div class="php codeblock"><span class="kw2">var</span> element <span class="sy0">=</span> document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;ID&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// getElementById is just for example of course...</span><br>
+element<span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Hello!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>פשוט מאוד, לא?<br><br><h3>הפרמטר useCapture</h3><br>הפרמטר הזה בא לטפל במקרים מסוימים מאוד.<br>ניקח את הקוד הזה:<br><div class="php codeblock"><span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;a&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; a<br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;b&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; b<br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Need to be first!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;b&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Hi!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br>המטרה שלנו כאן היא שכש-a נלחץ (גם אם אלמנט בתוכו נלחץ), &quot;Need to be first&quot; תמיד יוצג ראשון לפני כל מטפל אירוע אחר.<br>אם <a href="http://jsfiddle.net/Ag9nq/">נריץ את הקוד</a> ונלחץ על b נגלה שזה לא מה שקורה. קודם מוקפץ Hi ורק אז Need to be first. וזה לא מה שאנחנו רוצים.<br>למה זה קורה? כי ברגע שאנחנו לוחצים על b מופעלים קודם מטפלי האירועים של b, ורק אז מופעלים מטפלי האירועים של a (כי האמת שגם לחצו על a, אמנם לא ישירות). ככה ההירארכיה עובדת.<br><br>הפרמטר useCapture בא לפתור בדיוק את זה.<br>אם נעביר לו false, נקבל את ההתנהגות שראינו מקודם. לעומת זאת, אם נעביר true אז מטפל האירוע שרשמנו זה עתה יפעל תמיד לפני כל מטפל אירוע של אחד מהאלמנטים שמתחתיו בעץ ה-DOM (כלומר אלמנטים שהם בתוכו).<br><strong>חשוב מאוד להבין:</strong> זה לא אומר שמטפל האירוע תמיד יופעל ראשון. אלא פשוט לפני כל מטפלי האירועים של האלמנטים שבתוכו (מתחתיו בעץ ההירארכיה). ככה שאם יש אלמנט מעליו (אלמנט שהוא &quot;אבא&quot; של האלמנט שלנו) אז מטפל האירועים של האבא יופעל ראשון (כמובן אם גם הוא נרשם עם useCapture=true).<br><br>ככה שאם נתקן את הקוד שלנו:<br><div class="php codeblock"><span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;a&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; a<br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;b&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; b<br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Need to be first!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;b&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Hi!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br>עכשיו Need to be first יהיה ראשון כשנלחץ על b.<br><br><h3>כמה מטפלים לאותו אירוע, אפשרי?</h3><br>כמובן.<br>נראה את הקוד הבא:<br><div class="php codeblock"><span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;a&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; a<br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;first event listener&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;second event listener&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br>רשמנו את שני מטפלים לאותו אירוע. מה יקרה כשנלחץ על a?<br><a href="http://jsfiddle.net/f4fHa/">נריץ</a> ונראה שנקבל fisrt event listener ואז second event listener. שני מטפלי האירועים הופעלו.<br>אפשר לראות שמי שנרשם לאירוע ראשון מופעל ראשון. כל הקודם זוכה.<br>גם כאן useCapture משחק תפקיד, ואם ניתן למישהו useCapture=true אז הוא יופעל לפני כל השאר (גם אם הוא נרשם אחרון לאירוע).<br><br><strong>הערה:</strong> אני יודע שיש גם את הפונקצייה <a href="http://msdn.microsoft.com/en-us/library/ms536343(VS.85).aspx">attachEvent</a> ועוד דרכים לרשום מטפלים לאירועים (כמו element.onclick או כמו inline javascript מה שנקרא), אבל מטרת הפוסט היא להסביר על אירועים ולא על תאימות לאחור עם דפדפנים ישנים.<br><br><h2>מחיקת מטפלי אירועים</h2><br>לפעמים אנחנו לא נרצה עוד להקפיץ הודעה למשתמש כשהוא לוחץ על הכפתור. מה נעשה אז?<br>במקרה כזה נצטרך למחוק את המטפל של האירוע click של הכפתור שמקפיץ את ההודעה המעצבנת.<br>את זה נעשה באמצעות הפונקציה <a href="https://developer.mozilla.org/en-US/docs/DOM/EventTarget.removeEventListener">removeEventListener</a>.<br>הפונקציה removeEventListener מקבלת גם היא 3 פרמטרים:<br><strong>type</strong> - סוג האירוע שלו אנחנו מוחקים את המטפל.<br><strong>listener</strong> - המטפל של האירוע אותו אנחנו רוצים למחוק.<br><strong>useCapture (לא חובה)</strong> - נעביר true אם המטפל שאותו אנחנו מוחקים נרשם כ-useCapture=true או false אם לא.<br><br>דוגמה שתמחיש את העניין:<br><div class="php codeblock"><span class="sy0">&lt;</span>button id<span class="sy0">=</span><span class="st0">&quot;a&quot;</span><span class="sy0">&gt;</span>a<span class="sy0">&lt;/</span>button<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>button id<span class="sy0">=</span><span class="st0">&quot;b&quot;</span><span class="sy0">&gt;</span>b<span class="sy0">&lt;/</span>button<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="kw2">function</span> listener<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;clicked!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> listener<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;b&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>removeEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> listener<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br>אפשר לראות כאן שכתבנו פונקצית listener פשוטה שמקפיצה הודעה ורשמנו את הפונקציה כמטפל לאירוע click של הכפתור a.<br>רשמנו גם מטפל לאירוע click של הכפתור b, שמוחק בעצם את המטפל listener של האירוע click של הכפתור a.<br><a href="http://jsfiddle.net/cXPdp/">נריץ</a> ונראה שאם אנחנו לוחצים על a אנחנו מקבלים הודעה. אבל אם נלחץ על b ואז נלחץ שוב על a, נפסיק לקבל הודעות. כי הלחיצה על b מחקה את המטפל של האירוע של a.<br><br><h2>הפרמטר event</h2><br><br>מטפל האירוע שלנו (ה-listener) מקבל גם פרמטר. הפרמטר הוא אובייקט מסוג Event (נדבר על הקונסטרקטור Event ועל אחרים בחלק ב&#039;).<br>לאובייקט הזה יש הרבה מאפיינים ופונקציות והם משתנים בסוגים שונים של אירועים, אציג כאן רק חלק (<a href="https://developer.mozilla.org/en-US/docs/DOM/Event#Properties">הרשימה המלאה</a>):<br><a href="https://developer.mozilla.org/en-US/docs/DOM/event.currentTarget">currentTarget</a> - האלמנט אליו רשמנו את האירוע (מומלץ להשתמש בזה ולא ב-this כי את this אפשר לשנות).<br><a href="https://developer.mozilla.org/en-US/docs/DOM/event.target">target</a> - האלמנט המקורי ממנו הופעל האירוע. זה לא זהה לאלמנט אליו רשמנו את מטפל האירוע. במקרה שלחצנו על אחד מהאלמנטים בתוך האלמנט אליו רשמנו את מטפל האירוע אז currentTarget יחזיר לנו את אלמנט האבא אליו רשמנו את מטפל האירוע, אבל target יחזיר את האלמנט שעליו לחצנו, שהוא לא בהכרח האלמנט אליו רשמנו את מטפל האירוע.<br><a href="https://developer.mozilla.org/en-US/docs/DOM/event.type">type</a> - מחזיר את סוג האירוע. click, mouseover וכו&#039;.<br><a href="https://developer.mozilla.org/en-US/docs/DOM/event.preventDefault">preventDefault</a> - מבטל את ההתנהגות הנורמלית של האירוע. לדוגמה:<br><div class="php codeblock"><span class="sy0">&lt;</span>a href<span class="sy0">=</span><span class="st0">&quot;http://google.co.il&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;google&quot;</span><span class="sy0">&gt;</span>Google<span class="sy0">&lt;/</span>a<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;google&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; e<span class="sy0">.</span>preventDefault<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br>כשנלחץ על הקישור לא נעבור לגוגל כיוון שהפעלנו את preventDefault שמונעת את התנהגות ברירת המחדל של האירוע על אותו אלמנט (במקרה שלנו - לחיצה על לינק שתוביל לעמוד אחר).<br><a href="https://developer.mozilla.org/en-US/docs/DOM/event.stopImmediatePropagation">stopImmediatePropagation</a> - אם נפעיל את הפונקציה הזו באחד מהמטפלים של אירוע מסוים, אז גם אם יש מטפלים נוספים לאותו אירוע, הם לא יופעלו באירוע הנוכחי.<br>דוגמה:<br><div class="php codeblock"><span class="sy0">&lt;</span>button id<span class="sy0">=</span><span class="st0">&quot;a&quot;</span><span class="sy0">&gt;</span>click<span class="sy0">&lt;/</span>button<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Hello&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; e<span class="sy0">.</span>stopImmediatePropagation<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Hi!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br>אם <a href="http://jsfiddle.net/svWGU/">נריץ</a> ונלחץ על הכפתור נגלה שלא נקבל את ההודעה Hi אלא רק את Hello. למה? כי אחרי שהקפצנו את ההודעה Hello הפעלנו את stopImmediatePropagation ומנענו בעצם משאר מטפלי האירועים גם הם לפעול.<br><strong>שימו לב:</strong> מטפל האירוע שמקפיץ את ההודעה Hi עדיין רשום לאירוע. לא מחקנו אותו. ככה שאם לדוגמה נמחוק את מטפל האירוע הראשון אז אנחנו נקבל את ההודעה Hi. חשוב להבין את זה.<br><a href="https://developer.mozilla.org/en-US/docs/DOM/event.stopPropagation">stopPropagation</a> - מונע מהאירוע להמשיך &quot;להתפשט&quot; ולהפעיל מטפלי אירועים באלמנטים אחרים במעלה עץ ה-DOM (אלמנטים שהם &quot;הורים&quot; של האלמנט שהפעיל את האירוע). דוגמה:<br><div class="php codeblock"><span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;a&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; a<br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;b&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; b<br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Hello&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; document<span class="sy0">.</span>getElementById<span class="br0">&#40;</span><span class="st0">&quot;b&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>addEventListener<span class="br0">&#40;</span><span class="st0">&quot;click&quot;</span><span class="sy0">,</span> <span class="kw2">function</span> <span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span class="br0">&#40;</span><span class="st0">&quot;Hi!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; e<span class="sy0">.</span>stopPropagation<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw2">&lt;/script&gt;</span></div><br>אם <a href="http://jsfiddle.net/Lpyzb/">נריץ</a> ונלחץ על b נראה שאנחנו מקבלים את ההודעה Hi אבל לא מקבלים את ההודעה Hello. למה? כי ברגע שלחצנו על b והקפצנו את ההודעה Hi הפעלנו את stopPropagation שמנע מאלמנטים במעלה עץ ה-DOM (אלמנט כמו a לדוגמה) להפעיל גם הם את המטפלים שלהם לאותו אירוע. שימו לב שבלי stopPropagation היינו מקבלים כאן את ההודעה Hi ואז את Hello.<br><br><br><br>עד כאן חלק א&#039; של המדריך.<br>בחלק ב&#039; נדבר על דברים יותר מתקדמים כמו על הפעלה של אירועים מתוך הקוד ולאו דווקא על ידי המשתמש, נדבר על הקנסטרקטור Event ועל האחרים ש&quot;יורשים&quot; ממנו ונבין מה ההבדל בין כל אחד ואחד.<br>אני אולי גם אכתוב על יצירת אירועים משל עצמנו, אבל זה כבר לפרק ג&#039; שכנראה יהיה הכי קצר מבין שאר הפרקים.<br><br><br><strong>בקשה ממני:</strong> השתדלתי לתת קישורים למקורות שונים, השתמשו בהם כדי להבין את הנושא יותר טוב ולהכיר דברים מעבר למה שהצלחתי להכניס לפוסט. :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=16&r=g&d=mm" alt="iiddaannyy">
+<a>iiddaannyy</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2325"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/03/2013 14:38</span><br>
+תודה רבה עידן</div>
+<a id="comment2326"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/03/2013 15:19</span><br>
+מאמר מעולה. עזר לי מאוד. תודה רבה. :-)</div>
+<a id="comment2327"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/03/2013 15:24</span><br>
+זה המדריך הכי טוב, הכי פשוט והכי מובן לאיבנטים שהי פעם ראיתי <br>
+מעולה, מעולה.<br>
+המון תודה.</div>
+<a id="comment2328"></a>
+<div class="blog-comment">
+<span class='comment-author'>nikolai</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/03/2013 15:54</span><br>
+המדריך מעולה :) מחכה לחלק הבא :)</div>
+<a id="comment2329"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>31/03/2013 19:51</span><br>
+תודה רבה לכולם. החלק השני יהיה יותר מתקדם ואסביר על הקונסטרקטורים של האירועים השונים, אתחול שלהם והפעלה שלהם מתוך הקוד. :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

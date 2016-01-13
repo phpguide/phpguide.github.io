@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="amitdar">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Session Executor - הפעלת קוד חד פעמי</title>
+<meta itemprop="name" content="Session Executor - הפעלת קוד חד פעמי">
+<meta itemprop="description" content="">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"166","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Session Executor - הפעלת קוד חד פעמי</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">amitdar, </div>
+<div class="right">&nbsp;<time datetime="2011-10-25T14:58:37+02:00" dir="rtl">25 לאוקטובר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.i-dev.co.il/uploads/images/session_executor_small.png" alt="Session Executor - הפעלת קוד חד פעמי">
+</div>
+<div class="right post-content">
+לעיתים אנו רוצים להפעיל קוד או פונקציה כלשהי פעם אחת בלבד בפניה (request) הבאה לאתר, אך אנו גם רוצים לשמור על יעילות הקוד ולכן לא נרצה לבצע בדיקה עבור כל בקשה לראות אם יש לנו פעולות מחכות לביצוע. בדיוק בשביל זה בניתי מחלקה שנקראת Session Executor המאפשרת בעזרת הסשן לפתור את הבעיה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>אז מתי נתקלים בכלל במקרים כאלו ?</h3><br><br>נניח והמשתמש עשה פעולה כלשהי, אך אתם רוצים שהפעולה עצמה תתבצע רק כאשר המשתמש טוען את הדף בפעם הבאה (כל דף באתר). במקרה רגיל הייתם שומרים את הפעולה בסשן או בבסיס הנתונים ובודקים האם מחכות לכם פעולות בכל בקשה, ואם כן הייתם מבצעים אותן ומוחקים. הבעיה כמו שתואר היא הצורך בבדיקה עבור כל בקשה, למרות שהפעולה יכולה להיות דבר די נדיר.<br><br><br><h3>אז מה Session Executor עושה ?</h3><br><br>כאשר אנו מפעילים את המחלקה היא דבר ראשון רושמת את עצמה לסשן. כאשר אובייקטים ומחלקות נרשמים לסשן הם בעצם עוברים serialize ונשמרים בצורת מחרוזת. כעת בפנייה הבאה לדף כאשר הסשן פועל מחדש באמצעות הפקודה ()session_start הוא בעצם עובר אובייקט אובייקט ויוצר אותו מחדש (עם הנתונים שנשמרו בתוכו כמובן). יצירה של אובייקט נעשית ע&quot;י הפעולה ההפוכה לשמירה שלו unserialize ובשלב זה אנו מפעילים את הקוד הרצוי.<br>לאחר שהקוד הרצוי פעל, אנו מבצעים סוג של &quot;טריק&quot; ומשנים את פונקציית ה- serialize שלא תחזיר דבר, מה שיגרום לאובייקט לא להישמר בסשן ולא להיות זמין בטעינת הדף הבאה - מה שרצינו!<br><br>להמשך הכתבה מאתר i-Dev לחץ <strong><a href="http://www.i-dev.co.il/Code/126">כאן</a></strong> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/1075b6e67ccb72781275eef3a420c040?s=16&r=g&d=monsterid" alt="amitdar">
+<a>amitdar</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment885"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/10/2011 19:16</span><br>
+במילים שלי: <br>
+<br>
+המחלקה מאפשרת לרשום פונקציה כלשהי לביצוע ככה שהיא תקרה בבקשה הבאה אל האתר - פעם אחת בלבד.<br>
+למשל אם יש לנו עמוד הזדהות שבסיומו נרצה שבבקשה הבאה יוצג למשתמש המשפט &quot;מזמן לא ביקרת&quot;.<br>
+אנחנו רוצים שההודעה תופיע רק פעם אחת בבקשה הבאה אחרי ההזדהות (ולא תקרה בבקשה השלישית והלאה).<br>
+<br>
+כלומר המשתמש נכנס לאתר וטוען עמוד = בקשה ראשונה.<br>
+לוחץ f5 = בקשה שניה.<br>
+עוד f5 = בקשה שלישית וכו&apos;.<br>
+אם אנחנו רוצים שקוד כלשהו התבצעה רק בבקשה מספר שתיים, נוכל בסוף בקשה מס&apos; 1 לרשום פעולה כלשהי לביצוע בבקשה הבאה.<br>
+<br>
+שיפור קטן לקוד שעשיתי מאפשר לרשום כמה פעולות שונות (ולהגדיר אותם מחוץ למחלקה)<br>
+<span dir="ltr"><a href="http://pastebin.com/nARfWDDQ">http://pastebin.com/nARfWDDQ</a></span><br>
+<br>
+יש שני חסרונות לדרך הזו:<br>
+א. לא ניתן לרשום פונקציות אנונימיות והפונקציה שתרצו להפעיל בבקשה הבאה חייבת להיות מוגדרת לפני כן.<br>
+כלומר אם אתם רוצים להפעיל את הפונקציה greeting, הקוד חייב להכיר אותה בבקשה הבאה, כלומר לעשות include לקובץ שמכיל את ההגדרה שלה. אני הייתי ממליץ ליצור מחלקה עם פונקציות כאלה<br>
+ולהוסיף אותה ל autoload<br>
+<br>
+ב. בגלל שהאובייקט נשמר בסשן, אחרי שמשתמשים בו הרשומה בסשן נשארת בכל זאת.<br>
+יותר מדי זבל בסשן. בתור אפשרות אפשר לנקות את הסשן מזבל בעת יצירת אובייקט חדש.<br>
+<br>
+עוד על autoload וטעינת סקריפטים אוטומטית בעת הצורך אפשר לקרוא כאן<br>
+<br>
+<span dir="ltr"><a href="טעינת סקריפטים לפי דרישה autoload.htm">http://phpguide.co.il/טעינת סקריפטים לפי דרישה autoload.htm</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

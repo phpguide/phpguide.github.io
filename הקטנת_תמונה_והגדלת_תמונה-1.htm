@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שינוי גודל תמונה ב-PHP , הקטנה, הגדלה, שינוי רזולוציה">
+<meta name="keywords" content="הגדלה, הקטנה, סקיצה, גודל, תמונה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>הקטנת תמונה והגדלת תמונה</title>
+<meta itemprop="name" content="הקטנת תמונה והגדלת תמונה">
+<meta itemprop="description" content="שינוי גודל תמונה ב-PHP , הקטנה, הגדלה, שינוי רזולוציה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"48","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>הקטנת תמונה והגדלת תמונה</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-04T20:34:11+02:00" dir="rtl">04 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/imageresize.jpg" alt="הקטנת תמונה והגדלת תמונה">
+</div>
+<div class="right post-content">
+פונקציה אחת מספיקה כדי ליצור תמונות מוקטנות, מוגדלות ומשונות.<br>הקוד שעובד עם כל פורמט, וההסבר לשירותכם. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+לפני מפתחים רבים עומדת שאלת יצירת סקיצה מוקטנת לתצוגה מקדימה. אפשר אפילו לומר שזהו השימוש הכי שכיח של ספריית GD. לפני שנתחיל עם הנושא הזה, רצוי לקרוא על <a href="מציירים_תמונות_עם_php-1.htm">עבודה בסיסית עם תמונות</a> ב ספריית GD.<br><br><br>בספריה הזו קיימת פונקציה <a href="http://php.net/imageCopyResempled">imageCopyResampled</a> או בתרגום לעברית — העתק תמונה בדיגום שונה. <br>בואו נראה קוד המשתמש בפונקציה הזו. <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+&nbsp; <span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'SOURCE'</span><span class="sy0">,</span> <span class="st_h">'original.jpg'</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<span class="co1">// הקובץ המקורי</span><br>
+&nbsp; <span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'TARGET'</span><span class="sy0">,</span> <span class="st_h">'small.jpg'</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; <span class="co1">// קובץ התמונה המוקטן -סקיצה</span><br>
+&nbsp; <span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'NEWX'</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// רוחב הסקיצה</span><br>
+&nbsp; <span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'NEWY'</span><span class="sy0">,</span> <span class="nu0">60</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// גובה הסקיצה</span><br>
+<br>
+&nbsp; <span class="co1">// מוצאים את גודל התמונה המקורית בעזרת הפונקציה הבאה</span><br>
+&nbsp; <span class="re0">$size</span> <span class="sy0">=</span> <span class="kw3">getimagesize</span><span class="br0">&#40;</span>SOURCE<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="coMULTI">/*<br>
+הפונקציה מקבלת כפרמטר שם של קובץ<br>
+ומחזירה מערך, שבין היתר מכיל את<br>
+אורך $size[0] <br>
+ורוחב $size[1] <br>
+של התמונה. אגב, אין צורך בספרייה הגרפית כדי להשתמש בה. היא עובדת ישירות<br>
+עם הכותרים של הקבצים הגרפיים. במידה ופורמט התמונה לא נתמך או הקובץ הוא אינו תמונה<br>
+הפונקציה תחזיר<br>
+false */</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$size</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">&#41;</span> <span class="kw3">die</span> <span class="br0">&#40;</span><span class="st_h">'Not an image'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="coMULTI">/* קוראים את התמונה לזיכרון <br>
+שימו לב שהפונקציה<br>
+imagecreatefromjpeg <br>
+מתאימה לעבודה רק עם תמונות מסוג<br>
+jpeg */</span><br>
+&nbsp; <span class="re0">$source</span> <span class="sy0">=</span> <span class="kw3">imagecreatefromjpeg</span><span class="br0">&#40;</span>SOURCE<span class="br0">&#41;</span>or <span class="kw3">die</span><span class="br0">&#40;</span><span class="st_h">'Could not load file'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// יוצרים תמונה חדשה ריקה בגודל של הסקיצה</span><br>
+&nbsp; <span class="re0">$target</span> <span class="sy0">=</span> <span class="kw3">imagecreatetruecolor</span><span class="br0">&#40;</span>NEWX<span class="sy0">,</span> NEWY<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// מעתיקים את התמונה הקיימת אל הסקיצה עם שינוי גודל</span><br>
+&nbsp; <span class="kw3">imagecopyresampled</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="re0">$target</span><span class="sy0">,</span> &nbsp;<span class="co1">// התמונה החדשה</span><br>
+&nbsp; &nbsp; <span class="re0">$source</span><span class="sy0">,</span> &nbsp;<span class="co1">// התמונה המקורית אותה מעתיקים</span><br>
+&nbsp; &nbsp; <span class="nu0">0</span><span class="sy0">,</span><span class="nu0">0</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp;<span class="co1">// קואורדינטת הפינה השמאלית העליונה להדבקה בסקיצה</span><br>
+&nbsp; &nbsp; <span class="nu0">0</span><span class="sy0">,</span><span class="nu0">0</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp;<span class="co1">// קואורדינטת הפינה השמאלית העליונה להעתקה מהמקור</span><br>
+&nbsp; &nbsp; NEWX<span class="sy0">,</span> &nbsp; &nbsp; <span class="co1">// הרוחב החדש של התמונה</span><br>
+&nbsp; &nbsp; NEWY<span class="sy0">,</span> &nbsp; &nbsp; <span class="co1">// הגובה החדש של התמונה</span><br>
+&nbsp; &nbsp; <span class="re0">$size</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="co1">// הרוחב של התמונה המקורית</span><br>
+&nbsp; &nbsp; <span class="re0">$size</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> &nbsp;<span class="co1">// האורך של התמונה המקורית</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="coMULTI">/* הפונקציה הזו סימנה מלבן <br>
+ברוחב size[0] <br>
+וגובה size[1] <br>
+שהפינה השמאלית שלו נמצאת ב-0,0 על תמונת המקור והעתיקה את המלבן הזה לתוך מלבן <br>
+ברוחב NEWX על NEWY <br>
+שפינתו השמאלית העליונה נמצאת ב-0.0 בסקיצה.<br>
+כלומר סימנה מלבן בגודל כל התמונה המקורית והעתיקה אותו תוך שינוי גודל <br>
+למלבן בגודל הסקיצה<br>
+*/</span><br>
+<br>
+<br>
+&nbsp; <span class="co1">// שומרים את התמונה בקובץ JPEG</span><br>
+&nbsp; <span class="co1">// פונקציות יצירת קבצי גרפיקה, כמו imagejpeg</span><br>
+&nbsp; <span class="co1">// יכולות לא רק לשלוח את התמונה היישר לדפדפן אלה גם לשמור אותם בקובץ</span><br>
+&nbsp; <span class="co1">// בשביל זה יש להעביר לפונקציה פרמטר שני - שם של קובץ</span><br>
+&nbsp; <span class="co1">// הפונקציה הזאת ספציפית יכולה לקבל גם פרמטר שלישי שהוא איכות התמונה</span><br>
+&nbsp; <span class="kw3">imagejpeg</span><span class="br0">&#40;</span><span class="re0">$target</span><span class="sy0">,</span> TARGET<span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// כמו תמיד, לא שוכחים לנקות אחרינו את הזיכרון ממידע מיותר</span><br>
+&nbsp; <span class="kw3">imagedestroy</span><span class="br0">&#40;</span><span class="re0">$target</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">imagedestroy</span><span class="br0">&#40;</span><span class="re0">$source</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br><img src="static\images\pixel.png" alt="הקטנת תמונה והגדלת תמונה" title="http://habreffect.ru/files/c3c/f5fca2dcb/yoleis-no-proportions-gd.png" class="content-image-float"><br>הקוד הזה עובד, אבל העיוותים שיצאו לא פרופורציונליים לא נראים ממש טוב.<br>בנוסף לזה הקוד לא יצא אוניברסלי. הוא מאפשר לעבוד רק עם תמונות מסוג jpeg עם שמות קבועים וגדלים קבועים. ניצור פונקציה שתפתור בעיות אלו ותעבוד עם כל פורמט שנתמך על ידי ספריית GD.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="coMULTI">/**************************************************************<br>
+Resize<br>
+פונקציה ליצירת סקיצות<br>
+פרמטרים:<br>
+&nbsp; $src &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - שם הקובץ המקורי<br>
+&nbsp; $dest &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- שם הקובץ המוקטן<br>
+&nbsp; $maxwidth, $maxheight &nbsp;- רוחב ואורך מרביים לתמונה בפיקסלים<br>
+&nbsp; $quality &nbsp; &nbsp; &nbsp; &nbsp; - איכות התמונה המתקבלת. ברירת מחדל - 100. האיכות המרבית<br>
+****************************************************************/</span><br>
+<br>
+<span class="kw2">function</span> resize<span class="br0">&#40;</span><span class="re0">$src</span><span class="sy0">,</span> <span class="re0">$dest</span><span class="sy0">,</span> <span class="re0">$maxwidth</span><span class="sy0">,</span> <span class="re0">$maxheight</span><span class="sy0">,</span> <span class="re0">$quality</span><span class="sy0">=</span><span class="nu0">100</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// אם הקובץ לא קיים - אין לנו מה לעשות איתו</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">file_exists</span><span class="br0">&#40;</span><span class="re0">$src</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// נקבל את כל הנתונים על התמונה</span><br>
+&nbsp; <span class="re0">$size</span> <span class="sy0">=</span> <span class="kw3">getimagesize</span><span class="br0">&#40;</span><span class="re0">$src</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// אם זא לא תמונה</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$size</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// מבררים את סוג התמונה &nbsp;שגם הוא התקבל על ידי getImageSize</span><br>
+&nbsp; <span class="co1">// png, jpeg, gif, bmp, psd, tiff, jpc, ...</span><br>
+&nbsp; <span class="co1">// ניצור מחרוזת שתחיל את שם הפונקציה המתאימה לסוג תמונה זה</span><br>
+&nbsp; <span class="re0">$format</span> <span class="sy0">=</span> <span class="kw3">strtolower</span><span class="br0">&#40;</span><span class="kw3">substr</span><span class="br0">&#40;</span><span class="re0">$size</span><span class="br0">&#91;</span><span class="st_h">'mime'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="kw3">strpos</span><span class="br0">&#40;</span><span class="re0">$size</span><span class="br0">&#91;</span><span class="st_h">'mime'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'/'</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$icfunc</span> <span class="sy0">=</span> <span class="st0">&quot;imagecreatefrom&quot;</span> <span class="sy0">.</span> <span class="re0">$format</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp; <span class="co1">// נבדוק שהכן קיימת פונקציה מתאימה לסוג התמונה הזה</span><br>
+&nbsp; <span class="co1">// imagecreatefrom[jpeg / png / gif / bmp / ...]</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">function_exists</span><span class="br0">&#40;</span><span class="re0">$icfunc</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// קצת מתמטיקה. נסו להבין לבד. יהיה הסבר למטה.</span><br>
+&nbsp; <span class="re0">$x_ratio</span> <span class="sy0">=</span> <span class="re0">$maxwidth</span> <span class="sy0">/</span> <span class="re0">$size</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$y_ratio</span> <span class="sy0">=</span> <span class="re0">$maxheight</span> <span class="sy0">/</span> <span class="re0">$size</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$ratio</span> &nbsp; &nbsp; &nbsp; <span class="sy0">=</span> <span class="kw3">min</span><span class="br0">&#40;</span><span class="re0">$x_ratio</span><span class="sy0">,</span> <span class="re0">$y_ratio</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$use_x_ratio</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$x_ratio</span> <span class="sy0">==</span> <span class="re0">$ratio</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$new_width</span> &nbsp; <span class="sy0">=</span> <span class="re0">$use_x_ratio</span> &nbsp;? <span class="re0">$maxwidth</span> &nbsp;<span class="sy0">:</span> <span class="kw3">floor</span><span class="br0">&#40;</span><span class="re0">$size</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">*</span> <span class="re0">$ratio</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$new_height</span> &nbsp;<span class="sy0">=</span> <span class="sy0">!</span><span class="re0">$use_x_ratio</span> ? <span class="re0">$maxheight</span> <span class="sy0">:</span> <span class="kw3">floor</span><span class="br0">&#40;</span><span class="re0">$size</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">*</span> <span class="re0">$ratio</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// טעינת התמונה לזיכרון באמצעות הפונקציה שמצאנו לנכונה עבור סוג תמונה זה</span><br>
+&nbsp; <span class="re0">$isrc</span> <span class="sy0">=</span> <span class="re0">$icfunc</span><span class="br0">&#40;</span><span class="re0">$src</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$idest</span> <span class="sy0">=</span> <span class="kw3">imagecreatetruecolor</span><span class="br0">&#40;</span><span class="re0">$new_width</span><span class="sy0">,</span> <span class="re0">$new_height</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">// נצבע את רקה התמונה החדשה בלבן</span><br>
+&nbsp; <span class="kw3">imagefill</span><span class="br0">&#40;</span><span class="re0">$idest</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu12">0xFFFFFF</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">imagecopyresampled</span><span class="br0">&#40;</span><span class="re0">$idest</span><span class="sy0">,</span> <span class="re0">$isrc</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="re0">$new_width</span><span class="sy0">,</span> <span class="re0">$new_height</span><span class="sy0">,</span> <span class="re0">$size</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$size</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw3">imagejpeg</span><span class="br0">&#40;</span><span class="re0">$idest</span><span class="sy0">,</span> <span class="re0">$dest</span><span class="sy0">,</span> <span class="re0">$quality</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw3">imagedestroy</span><span class="br0">&#40;</span><span class="re0">$isrc</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">imagedestroy</span><span class="br0">&#40;</span><span class="re0">$idest</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">return</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+<br>
+<span class="br0">&#125;</span></div><br><br>הסתדרתם עם החישובים?<br><div class="php codeblock"><span class="kw1">if</span> <span class="br0">&#40;</span>resize<span class="br0">&#40;</span><span class="st_h">'original.jpg'</span><span class="sy0">,</span> <span class="st_h">'small.jpg'</span><span class="sy0">,</span> <span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">60</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Image resized OK'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Resize failed!'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br><img src="static\images\pixel.png" alt="הקטנת תמונה והגדלת תמונה" title="http://habreffect.ru/files/470/7174f9f18/yoleis-proportions-gd.png" class="content-image-float"><br><br><h5>ומה בקשר לחישובים?</h5><br>בגלל שיש לנו מימדים מוגבלים (רוחב מקסימלי 100 וגובה מקסימלי 60) יהיה עלינו לחשב בכמה להקטין את התמונה. רוחב התמונה המקורית שלנו הוא 155. יש להקטין אותה לגודל 100, כלומר פי ~ 1.5 .גובה התמונה הוא 235 ויש להקטין אותה ל 60, פי 4 .<br>אם נקטין ב-1.5, אזי הרוחב יתאים, אך הגובה יהיה גדול מהמותר.<br>לכן עלינו להקטין את התמונה במכפיל הגדול מבין השניים. <br><br>אם הגובה דורש יותר הקטנה, אז הגובה של הסקיצה יהיה הגובה המרבי, אילו את הרוחב החדש נצטרך לחשב. אם הרוחב של התמונה דורש יותר הקטנה, אז הרוחב יהיה זה המרבי המותר, ואת הגובה החדש נצטרך לחשב. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment77"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/04/2011 21:58</span><br>
+מה אמור להיות בקובץ small?</div>
+<a id="comment78"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/04/2011 22:20</span><br>
+לא אמור להיות בו כלום.<br>
+זה קובץ שיווצר לבד.</div>
+<a id="comment428"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/07/2011 21:49</span><br>
+איך אני יכול לחבר בין החלק הראשון לחלק השני ?<br>
+שיצור את התמונה בגודל מתאים לפי החישוב..<br>
+אני לא מצליח</div>
+<a id="comment429"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/07/2011 23:09</span><br>
+הפונקציה כבר מוכנה. עליך רק לכתוב לה את האורך או הרוחב המירביים שאתה מאפשר והיא תקטין את התמונה בהתאם לגדול מביניהם באופן פרופורציונלי. <br>
+עם שאלות ספציפיות לגבי הקוד שלך תוכל לפנות דרך מערכת שאלה-תשובה :)</div>
+<a id="comment1601"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2012 12:46</span><br>
+יפה מאוד! יעזור להרבה אנשים</div>
+<a id="comment2004"></a>
+<div class="blog-comment">
+<span class='comment-author'>roee</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/10/2012 09:09</span><br>
+איפה הוא שמור את קובץ שהוא מקטין , בגלל אני מעלה לו תמונה ומדפיס את תשובה חזורת מפונקציה ואני מקבל דף ריק</div>
+<a id="comment2005"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/10/2012 11:08</span><br>
+resize(&apos;original.jpg&apos;, &apos;small.jpg&apos;, 100, 60)<br>
+<br>
+הוא שומר אותה בתור small.jpg</div>
+<a id="comment2006"></a>
+<div class="blog-comment">
+<span class='comment-author'>roee</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/10/2012 15:02</span><br>
+כוונה איפה אני מריץ את סקריפט שם הוא שמור את קובץ , small.jpg</div>
+<a id="comment2007"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/10/2012 17:06</span><br>
+בעת ריצת הקוד התמונה מאחסנת במיקום זמני (temp) . <br>
+אם אתה רוצה לשמור אותה תעשה קליק ימני -&gt; שמור תמונה בשם וככה תשמור אותה ... </div>
+<a id="comment2735"></a>
+<div class="blog-comment">
+<span class='comment-author'>itayFO</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2014 15:33</span><br>
+יפה מאוד,מדריך נהדר.<br>
+אבל יש דרך לעשות את זה בלי יחס פרופורציונלי?</div>
+<a id="comment2736"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/01/2014 10:53</span><br>
+@itayFO יש כאן שתי קטעי קוד. אחד מהם לא שומר על הפרופורציה של התמונה והשני עושה את זה. מה בדיוק השאלה?</div>
+<a id="comment2737"></a>
+<div class="blog-comment">
+<span class='comment-author'>itayFO</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/01/2014 12:53</span><br>
+התבלבלתי,מתנצל עלהשאלה המיותרת.<br>
+מסיבה כלשהי הקוד עובד לי על הXAMPP ולא על השרת..<br>
+עם PHPINFO מצאתי שהPHPGD מותקן..<br>
+יש לך רעיון?</div>
+<a id="comment2738"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/01/2014 20:34</span><br>
+זה בסדר. (:<br>
+אתה לא רק צריך שההרחבה הזאת תהיה מותקנת, אלא גם מופעלת. הנה מדריך קצר שאומר מה צריך לעשות כדי להפעיל את זה: <span dir="ltr"><a href="http://www.webassist.com/tutorials/Enabling-the-GD-library-setting">http://www.webassist.com/tutorials/Enabling-the-GD-library-setting</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

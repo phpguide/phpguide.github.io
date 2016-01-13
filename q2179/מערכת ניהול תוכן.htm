@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מערכת ניהול תוכן">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mirim">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מערכת ניהול תוכן | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מערכת ניהול תוכן | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מערכת ניהול תוכן">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">1</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מערכת ניהול תוכן.htm" title="שלום וברכה!קיימת בעיה שהקישור לא מוביל לדף לפי הid, אלא עובר לדף show.php וכותב הערה: ( ! ) Warning: mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in C:\wamp\www\new\show.php on line 45.אשמח לעזרתכם!ותודה על המדריכים הנהדריםif&amp;#40;isset&amp;#40;$_GET&amp;#91;">מערכת ניהול תוכן</a></h2>
+<div class="userinfo">
+פתח
+<a>mirim</a>
+,
+<time class="timeago relativetime" datetime="2015-08-23T20:00:59+03:00" style="display:inline-block;">
+23 לאוגוסט 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2179'>
+שלום וברכה!<br>קיימת בעיה שהקישור לא מוביל לדף לפי הid, אלא עובר לדף show.php וכותב הערה: ( ! ) Warning: mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in C:\wamp\www\new\show.php on line 45.<br>אשמח לעזרתכם!<br><strong>ותודה על המדריכים הנהדרים</strong><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span> <br>
+<br>
+&nbsp; <span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="sy0">,</span> <span class="st_h">'biznees'</span><span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="st_h">'vvvvvvvvvv'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SET NAMES 'utf8'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$pageResource</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT name,address FROM `info` WHERE `id`=&quot;</span><span class="sy0">.</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">mysqli_num_rows</span><span class="br0">&#40;</span><span class="re0">$pageResource</span><span class="br0">&#41;</span> <span class="sy0">!=</span> <span class="nu0">1</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'העמוד לא נמצא'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+<span class="co1">// הכנסת הנתונים מהמסד למערך</span><br>
+&nbsp; &nbsp; <span class="re0">$page</span> <span class="sy0">=</span> <span class="kw3">mysqli_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$pageResource</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<br>
+<span class="co1">//בדיקה שהעמוד נמצא במסד. (יכול להיות שאין עמוד כזה בכלל)</span><br>
+<br>
+<span class="co1">// הדפסת הנתונים למשתמש</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$page</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<br>
+&nbsp;<br>
+&nbsp; <span class="co1">//-run &nbsp;the query against the mysql query function </span><br>
+&nbsp; &nbsp;<br>
+<br>
+&nbsp; &nbsp;<br>
+&nbsp; <span class="kw1">echo</span><span class="st0">&quot;&lt;section class=titel_esek&gt;&quot;</span> <span class="sy0">.</span><span class="re0">$page</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;/section&gt;&quot;</span><span class="sy0">;</span><span class="co1">//&lt;!--titel_esek--&gt;</span><br>
+&nbsp; <span class="kw1">echo</span><span class="st0">&quot;&lt;section class=titel_esek2&gt;&lt;h2&gt; פרטי העסק&lt;/h2&gt;&lt;/section&gt;&quot;</span><span class="sy0">;</span><span class="co1">//&lt;!--titel_esek2--&gt;</span><br>
+&nbsp; <span class="kw1">echo</span><span class="st0">&quot;&lt;section class=teur_esek&gt;כתובת:&quot;</span> <span class="sy0">.</span><span class="re0">$page</span><span class="br0">&#91;</span><span class="st_h">'address'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;/section&gt;&quot;</span><span class="sy0">;</span><span class="co1">//&lt;!--teur_esek--&gt;</span><br>
+&nbsp; <span class="kw1">echo</span><span class="st0">&quot;&lt;section class=teur_esek&gt;טלפון:&lt;/section&gt;&quot;</span><span class="sy0">;</span><span class="co1">//&lt;!--teur_esek--&gt;</span><br>
+&nbsp; <span class="kw1">echo</span><span class="st0">&quot;&lt;section class=teur_esek&gt;טלפון נוסף:&lt;/section&gt;&quot;</span><span class="sy0">;</span><span class="co1">//&lt;!--teur_esek--&gt;</span><br>
+&nbsp; <span class="kw1">echo</span><span class="st0">&quot;&lt;section class=open_esek&gt; שעות פתיחה :&lt;/section&gt;&quot;</span><span class="sy0">;</span><span class="co1">//&lt;!--open_esek--&gt;</span><br>
+&nbsp;<span class="kw1">echo</span><span class="st0">&quot; &lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp;<span class="kw1">echo</span><span class="st0">&quot; &lt;section class=titel_esek2&gt;&lt;h2&gt;מפת הגעה&lt;/h2&gt;&lt;/section&gt;&quot;</span><span class="sy0">;</span><span class="co1">//&lt;!--titel_esek2--&gt;</span><br>
+&nbsp;<span class="br0">&#125;</span> <br>
+&nbsp;<span class="br0">&#125;</span><br>
+<span class="kw1">else</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'העמוד המבוקש לא קיים'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>הקישור נכתב כך:<br><div class="php codeblock"><span class="sy0">&lt;</span>a href<span class="sy0">=</span><span class="st_h">'show.php?id=x'</span><span class="sy0">&gt;</span><span class="st0">&quot;.<span class="es4">$row</span>[&quot;</span>id<span class="st0">&quot;].&quot;</span><span class="sy0">&lt;/</span>div<span class="sy0">&gt;&lt;/</span>a<span class="sy0">&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">1 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9515">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 24 לאוגוסט 2015 </span>
+<a id="answer_9515" href="מערכת ניהול תוכן.htm#answer_9515">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בעיקרון יש שני דברים שצריך לעשות כשמשהו לא עובד שיחסכו לך הרבה זמן:<br>א. לבדוק האם המשתנים מכילים מה שאתה חושבת והקישורים נראים כמו מה שאת חושבת<br>ב. לקרוא את טקסט השגיאה. למשל:<br><br><br>בטקסט השגיאה כתוב<br>expects parameter 1 to be mysqli_result, <strong>boolean given</strong> <br>מה שאומה שהמשתנה pageResource היה מסוג boolean ולא מסוג תוצאת שאילתה.<br><br>לפי <a href="http://php.net/manual/en/mysqli.query.php">הדוקומנטציה הפקודה mysqli-&gt;query</a> מחזירה או תוצאת שאילתה או false אם השאילתה נכשלה מכל סיבה שהיא<br><div class="php codeblock">Returns <span class="kw4">FALSE</span> on failure<span class="sy0">.</span> <span class="kw1">For</span> successful SELECT<span class="sy0">,</span> SHOW<span class="sy0">,</span> DESCRIBE or EXPLAIN queries <span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="br0">&#41;</span> will <span class="kw1">return</span> a mysqli_result object<span class="sy0">.</span> <span class="kw1">For</span> other successful queries <span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="br0">&#41;</span> will <span class="kw1">return</span> <span class="kw4">TRUE</span><span class="sy0">.</span></div><br><br>מזה נובע שאו שהשאילתה נכשלה או שזו לא הייתה שאילתת שליפה.<br>מכאן צריך לבדוק למה השאילתה נכשלה. את זה אפשר לעשות באמצעות הדפסת המאפיין <br><div class="php codeblock"><span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">error</span></div><br>(הועתק מאותו עמוד בדוקומנטציה שקושר)<br><br>ובכל אופן, הסיבה שזה קורא היא שהשאילתה לא נכונה. השאילתה שהמסד מקבל מהקוד שלך היא:<br><div class="php codeblock">SELECT name<span class="sy0">,</span>address FROM `info` WHERE `id`<span class="sy0">=</span>x</div><br>שימי לב לאות X במקום מספר. היא מגיעה מהקישור (שימי לב טוב לקישור) שלא מכיל מספר עמוד אלא את האות X<br><br>היות ש-mysql מצפה שמחרוזות יופיעו תמיד בתוך גרשיים השאילתה אמורה להיות <div class="php codeblock">where `id` <span class="sy0">=</span> <span class="st_h">'x'</span></div><br>אם כי עדיף לתקן את הקישור.<br><br><br><br><strong>מסכנות:</strong><br>א. לא מספיק לבדוק באמצעות mysql_num_rows, צריך גם לבדוק שהתוצאה איננה false<br>ב. יש איפשהו באתר מדריך על sql injection שחובה לקרוא. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

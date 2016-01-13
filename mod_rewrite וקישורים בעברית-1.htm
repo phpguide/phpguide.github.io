@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שִכתוב כתובות, כתובות בעברית והורדת סיומת באמצעות mod_rewrite.">
+<meta name="keywords" content="קישור בעברית, להוריד סיומת, mod_rewrite">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>mod_rewrite וקישורים בעברית</title>
+<meta itemprop="name" content="mod_rewrite וקישורים בעברית">
+<meta itemprop="description" content="שִכתוב כתובות, כתובות בעברית והורדת סיומת באמצעות mod_rewrite.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"123","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>mod_rewrite וקישורים בעברית</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-07-17T11:36:27+03:00" dir="rtl">17 ליולי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/url_rewrite.jpg" alt="mod_rewrite וקישורים בעברית">
+</div>
+<div class="right post-content">
+כל מה שצריך לדעת על החבאת הסיומת, על קישורים בעברית, על שִכתוב כתובות עם פרמטרים או סתם על איך ליצור קישורים יפים לעין ולמנועי החיפוש. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>mod_rewrite</h3><br>mod_rewrite זו הרחבה לשרת ה-Apache שמאפשרת לשרת לנתח את הכתובת המבוקשת ולהעביר את הבקשה לכתובת אחרת בתוך השרת, בלי שהלקוח ידע מזה. מבחוץ נראה שהשרת מקבל את הבקשה, מנתח אותה, מחליט אל מי להפנות אותה, עושה את הבקשה מעצמו אל עצמו אל הכתובת החדשה ומחזיר את התשובה מהכתובת המקורית.<br><br>את כללי שינוי הכתובת יש לרשום בקובץ הגדרות מיוחד שנקרא <span dir="ltr">htaccess</span>, שזה קובץ ללא שם עם סיומת htaccess. לא ניתן ליצור קובץ כזה דרך מערכת ההפעלה. יש לפתוח עורך טקסט ולבחור באפשרות "Save as" עם שם ריק וסיומת <span dir="ltr"><span style="color:green;">.htaccess</span></span>.<br><br><h4>דוגמה</h4><br><em><span dir="ltr">.htaccess</span></em><br><div class="php codeblock">RewriteEngine On<br>
+RewriteRule login login<span class="sy0">.</span>php<br>
+RewriteRule contact_us index<span class="sy0">.</span>php?action<span class="sy0">=</span>contactus</div><br>השורה הראשונה מפעילה את מנוע שִכתוב הכתובות.<br>כל פקודה מתחילה מהמילה <strong>RewriteRule</strong> – "כלל שכתוב", כאשר הכתובת שהשרת מצפה לקבל מופרדת ברווח מהכתובת שהשרת יבצע.<br><br>כשנגלוש אל http://example/login השרת יזהה את הכתובת <span style="color:blue;">login</span> ויבצע את הבקשה כאילו הייתה אל http://example/login.php.<br><br>כשנגלוש אל http://example/contact_us השרת יזהה את כתובת הגלישה <span style="color:blue;">contact_us</span> ויבצע את הבקשה כאילו הייתה http://example/index.php?action=contactus.<br><br><h3>ביטויים רגולריים</h3><br> mod_rewrite מבוסס על <a href="ביטויים_רגולריים.htm">ביטויים רגולריים</a> כדי לנתח את הבקשה. כלי חזק לניתוח הבקשות עומד לרשותנו, או לפחות לרשות מי שקרא על ביטויים רגולריים. :)<br><br><h4>דוגמה</h4><br><em><span dir="ltr">.htaccess</span></em><br><div class="php codeblock">RewriteEngine On<br>
+RewriteRule user<span class="sy0">/</span><span class="br0">&#40;</span><span class="br0">&#91;</span>a<span class="sy0">-</span>z0<span class="sy0">-</span><span class="nu0">9</span>_<span class="br0">&#93;</span><span class="sy0">+</span><span class="br0">&#41;</span> index<span class="sy0">.</span>php?action<span class="sy0">=</span>showUserInfo<span class="sy0">&amp;</span>username<span class="sy0">=</span>$<span class="nu19">1</span><br>
+RewriteRule <span class="br0">&#40;</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="sy0">-</span><span class="nu0">9</span>_<span class="br0">&#93;</span><span class="sy0">+</span><span class="br0">&#41;</span>\<span class="sy0">.</span>html page<span class="sy0">.</span>php?id<span class="sy0">=</span>$<span class="nu19">1</span></div><br><br>הקוד הראשון מחפש בקשות שמתחילות במילה user ואחריה שם משתמש. לדוגמה, גלישה לעמוד <em>http://example/user/alex</em> תתבצע כאילו גלשנו אל <em>http://example/index.php?action=showUserInfo&username=alex</em>.<br><br>הקוד השני הופך את כל הקישורים בסגנון <em><span dir="ltr">http://example/מספר.html</span></em> כאילו גלשנו אל <em><span dir="ltr">http://example/page.php?id=מספר</span></em>.<br><br><h3>דגלים</h3><br>דגלים מסמנים לשרת אופציות מיוחדות עבור אותו כלל שכתוב.<br><br><h4>NC – no case</h4><br>לפי ברירת המחדל התנאים רגישים לאותיות רישיות. כלומר, התנאי עם הכתובת user יעבוד אם נגלוש אל user, ולא יעבוד עם נגלוש ל-UsEr, למשל.<br>כדי לומר לתנאים לא להתייחס לגודל האותיות נשתמש ב-flag באופן הבא:<br><div class="php codeblock">RewriteRule user<span class="sy0">/</span><span class="br0">&#40;</span><span class="br0">&#91;</span>a<span class="sy0">-</span>z0<span class="sy0">-</span><span class="nu0">9</span>_<span class="br0">&#93;</span><span class="sy0">+</span><span class="br0">&#41;</span> user<span class="sy0">.</span>php?name<span class="sy0">=</span>$<span class="nu19">1</span> <span class="br0">&#91;</span>NC<span class="br0">&#93;</span></div><br><br><h4>QSA – Query String Append</h4><br>בגלל שהשרת כביכול מעביר בקשה חדשה בהתאם לשכתוב – הפרמטרים בכתובת עשויים להיעלם. הדגל QSA דואג לשמר את הפרמטרים בכתובת.<br>למשל:<br><div class="php codeblock">RewriteRule alex index<span class="sy0">.</span>php?action<span class="sy0">=</span>alex <span class="br0">&#91;</span>QSA<span class="br0">&#93;</span></div><br>כשנגלוש אל <em>http://example/alex<span style="color:darkblue;">?blabla=true&blibli=win</span></em> הפרמטרים יישמרו, והבקשה תועבר אל<br><em>http://example/index.php?action=alex<span style="color:darkblue;">&blabla=true&blibli=win</span></em>.<br><br><h4>L – Last</h4><br>לכתובת http://example.com/abcmus יכולים להתאים כמה תנאים במקביל.<br><div class="php codeblock">RewriteEngine On<br>
+RewriteRule a index<span class="sy0">.</span>php?action<span class="sy0">=</span>a<br>
+RewriteRule ab index<span class="sy0">.</span>php?action<span class="sy0">=</span>ab<br>
+RewriteRule abc index<span class="sy0">.</span>php?action<span class="sy0">=</span>abc</div><br>abcmus מתאימה לכל שלושת התנאים. השרת יעבור תנאי אחר תנאי ויבדוק אותם. התנאי האחרון שיתאים לו – הוא זה שישתמש בו. כלומר, abcmus יפנה אל action=abc.<br>על מנת למנוע מהשרת להמשיך את הבדיקה ברגע שתנאי מסוים תואם, ולא להמשיך בכל זאת לעבור תנאי אחר תנאי – נשתמש בדגל Last. כלומר, אם התנאי התאים – תנצל אותו ואל תבדוק תנאים אחרים.<br><br><div class="php codeblock">RewriteEngine On<br>
+RewriteRule a index<span class="sy0">.</span>php?action<span class="sy0">=</span>a <span class="br0">&#91;</span>L<span class="br0">&#93;</span><br>
+RewriteRule ab index<span class="sy0">.</span>php?action<span class="sy0">=</span>ab <span class="br0">&#91;</span>L<span class="br0">&#93;</span><br>
+RewriteRule abc index<span class="sy0">.</span>php?action<span class="sy0">=</span>abc <span class="br0">&#91;</span>L<span class="br0">&#93;</span></div><br>ברגע שתנאי a התאים, לא תתבצע בדיקה של שאר התנאים, והשרת יעשה את הפעולה שלו.<br><br><h4>לחבר דגלים</h4><br>לחבר מספר דגלים עבור אותו תנאי אפשר באמצעות פסיקים.<br>ברוב המקרים כל התנאים שלכם יכילו בדיוק את שלושת הדגלים האלו באופן הבא:<br><div class="php codeblock">RewriteRule alex index<span class="sy0">.</span>php?act<span class="sy0">=</span>alex <span class="br0">&#91;</span>L<span class="sy0">,</span>NC<span class="sy0">,</span>QSA<span class="br0">&#93;</span></div><br><br><h3>טיפים</h3><br><div class="php codeblock">RewriteRule a index<span class="sy0">.</span>php?action<span class="sy0">=</span>a</div><br>זהו תנאי גרוע, כי הביטוי הרגולרי תואם לכל הכתובות שבהם קיימת האות a. גם abcmus, גם blabla וגם odktnsqhjstnkhthqjskth<strong>A</strong>.html.<br>זוכרים למה? למדנו ביטויים רגולריים. השתמשו ב-^$ לסימון תחילת וסוף מחרוזת.<br><br><h4>500 Server Error</h4><br>העתקתם את הדוגמה וקיבלתם שגיאת 500? הסיבה לכך היא שהרחבת ה-mod_rewrite כבויה.<br>בתפריט ה-Wamp מצאו תחת apache modules את mod_rewrite, סמנו לידו v והפעילו את השרת מחדש.<br>לבעלי שרתים משלהם – מצאו בקובץ httpd.conf את mod_rewrite והורידו את הנקודה-פסיק לפני ה-load_module. אחרי הפעלה מחודשת של השרת הכול יעבוד.<br><br><h4>קבצים קיימים</h4><br>ברוב המקרים, אם יש בקשה לקובץ קיים – style.css, למשל – אנחנו רוצים שהשרת פשוט יבצע את הבקשה בלי להתחיל לעבור את כל התנאים. שלושת השורות הבאות מצילות את המצב:<br><div class="php codeblock"><span class="co2"># If the file exists – proccess the file, if not – proccess other rules<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">-</span>f <span class="br0">&#91;</span>OR<span class="br0">&#93;</span><br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">-</span>d <br>
+RewriteRule <span class="sy0">.*</span> <span class="sy0">-</span> <span class="br0">&#91;</span>L<span class="br0">&#93;</span></div><br><span dir="ltr">(L)</span> – אם הכתובת מובילה לקובץ קיים או שהיא שם של תיקיה קיימת, אזי לבצע את הבקשה הנוכחית כפי שהיא ולא להמשיך לעבור על תנאים אחרים.<br>את התנאי הזה יש לשים כתנאי הראשון מבין כל התנאים, כדי שהשרת יבדוק אותו קודם כול, ורק אם הוא לא מתאים (אם הבקשה היא לא לקובץ או לתיקייה מסוימים) – רק אז שימשיך הלאה.<br><br><h4>קישורים בעברית</h4><br>הדפדפנים והרשת כרגע לא יודעים להתמודד טוב מדי עם אותיות לא אנגליות בתוך הקישורים. כדי להקל עליהם – יש להשתמש בפונקציה <a href="http://php.net/urlencode">urlencode</a> על תוכן הקישורים כדי שהסימנים המוזרים והטקסט בעברית יקודדו באופן מסוים ויעברו ברשת בשלמותם. השרת ידאג לפענח את הקישורים חזרה לעברית תקינה. ראו <a href="phplive-17.htm?code=88">דוגמה</a>.<br><br><br><span style="color:green;">זהו זה, אתם מוכנים ליצור כתובות קצרות, יפות, שונות ומשונות כפי שבא לכם וכפי שהאתר הזה עושה.</span><br>ותתחילו מ<a href="בלי_www.htm">להוריד את ה-www</a>. ;-)<br><br><strong>upd</strong>: טיפ שנותן yehudade בתגובות למטה: רצוי לשים את כל הקוד שלכם לתוך תנאי מסוים, כך שבמקרה שהשרת לא תומך ב-mod_rewrite והמודול לא מותקן - לא תקבלו הרבה שגיאות 500.<br>התנאי הפשוט IfModule:<br><div class="php codeblock"><span class="sy0">&lt;</span>IfModule mod_rewrite<span class="sy0">.</span>c<span class="sy0">&gt;</span><br>
+<span class="sy0">...</span>קוד שִכתוב<span class="sy0">...</span><br>
+<span class="sy0">&lt;/</span>IfModule<span class="sy0">&gt;</span></div><br>זהו, אם המודול לא מופעל מאיזושהי סיבה – לפחות לא תופיעה שגיאה.<br><br>ככה למשל ייראה קוד לדוגמה יחד עם התנאי:<br><div class="php codeblock"><span class="sy0">&lt;</span>IfModule mod_rewrite<span class="sy0">.</span>c<span class="sy0">&gt;</span><br>
+<br>
+<span class="co2"># If the file exists - proccess the file, if not proccess other rules<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">-</span>f <span class="br0">&#91;</span>OR<span class="br0">&#93;</span><br>
+RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">-</span>d<br>
+RewriteRule <span class="sy0">.*</span> <span class="sy0">-</span> <span class="br0">&#91;</span>L<span class="br0">&#93;</span><br>
+<br>
+RewriteRule ^alex$ index<span class="sy0">.</span>php?act<span class="sy0">=</span>alex <span class="br0">&#91;</span>L<span class="sy0">,</span>NC<span class="sy0">,</span>QSA<span class="br0">&#93;</span><br>
+RewriteRule ^John$ index<span class="sy0">.</span>php?nhoj<span class="sy0">=</span>tca <span class="br0">&#91;</span>L<span class="sy0">,</span>NC<span class="sy0">,</span>QSA<span class="br0">&#93;</span><br>
+<br>
+<span class="sy0">&lt;/</span>IfModule<span class="sy0">&gt;</span></div> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment399"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 18:39</span><br>
+מדריך מצויין.<br>
+רק בקטע של ה500, למיטב זכרוני זה לא נכון.<br>
+כאשר mod_rewrite כבוי, הוא בכלל לא ישים לב לקובץ hta ובכך גם לא יתן שגיאה. השגיאה קורת רק כשהמוד דלוק ויש שגיאה כלשהי בקובץ, לדוגמא RewriteRulezz x x.php</div>
+<a id="comment400"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 18:47</span><br>
+תודה, מדריך מצויין.<br>
+רק שאלה, זה עובד גם ב Wamp ?</div>
+<a id="comment401"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 19:24</span><br>
+תודה רבה!<br>
+המדריך מצויין, כל הכבוד.</div>
+<a id="comment402"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 19:25</span><br>
+ב wamp יש אפאצ&apos;י שזה שרת לכל דבר.. אז כן.</div>
+<a id="comment403"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 20:42</span><br>
+כש mod_rewrite לא מופעל השרת לא יזהה את הפקודה RewriteEngine ויחזיר שגיאה בדיוק כפי שיחזיר אחת על פקודה אחת שהוא לא מזהה כמו RewriteRulez</div>
+<a id="comment404"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/07/2011 20:52</span><br>
+צודק :-)</div>
+<a id="comment419"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/07/2011 20:49</span><br>
+ההערה שהוספת בסוף ממש נכונה.</div>
+<a id="comment476"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/07/2011 22:47</span><br>
+מדריך יפה, אהבתי<br>
+<br>
+שאלה:<br>
+<br>
+אני לא בטוח שהבנתי את הכל ולכן אני שואל <br>
+נניח יש לי אתר בשם <span dir="ltr"><a href="http://example.com">http://example.com</a></span><br>
+משתמש גלש לאתר שלי בכותבת הבאה<br>
+<span dir="ltr"><a href="http://example.com/index.php?action=15">http://example.com/index.php?action=15</a></span><br>
+אני רוצה שכל גלישה לאתר שלי לא משנה לאיזה<br>
+ספרייה נכנסים או איזה פרמטרים המשתמש שולח לי דרך כתובת האתר, אני רוצה שתמיד ובכל מצב בשורת הכתובת של המשתמש יהיה את שם הכתובת של הדומיין שלי<br>
+במיקרה הזה יהיה רשום<br>
+<span dir="ltr"><a href="http://example.com">http://example.com</a></span><br>
+כיצד אני עושה את זה<br>
+תודה!</div>
+<a id="comment478"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/07/2011 00:45</span><br>
+אי אפשר לעשות את זה בדרכים פשוטות. השרת צריך להבין מה אתה רוצה ממנו ואיזה סקריפט להפעיל. את ההבחנה הזו הוא עושה לפי הכתובת.<br>
+<br>
+אמנם אתה יכול להגיד לו שבגלישה אל site.com/a הוא יפעיל את 1.php<br>
+ובגלישה אל site.com/b הוא יפעיל את 2.php<br>
+<br>
+אבל אין לו דרך כל הזמן בגלישה אל site.com לנחש לבד מה אתה רוצה ממנו ופעם להפעיל את 1.php ופעם את 2.php</div>
+<a id="comment565"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/08/2011 23:30</span><br>
+יש אפשרות ב HTACCESS לחסום גישה לקבצים בתיקיות אבל להשתמש בהם בעזרת ייבואם עם INCLUDE ב PHP ?<br>
+למשל גלשתי לכאן php.com/templates/header.php<br>
+וזה קובץ שמיובא עם INCLUDE לדף INDEX.PHP בתיקיית ROOT והוא מכיל נתונים שלא הייתי רוצה שהגולש יראה .<br>
+לאבטח את HEADER.PHP זה לא בעיה, אפשר עם PHP , אבל אני מחפש פתרון יותר יעיל , כלומר בקוד אחד<br>
+לחסום את הגישות לכל הקבצים בתיקיה TEMPLATES אבל לאפשר להפעיל אותם כאשר אני מייבא אותם לדפים בתיקיית ROOT .<br>
+<br>
+אשמח לשמוע פתרונות ובכלל לדעת אם לאבטח ככה עם HTACCESS זה מספיק .<br>
+עוד שאלה : אםם אני חוסם גישה לקבצים בתיקיה TEMPLATES עם HTACCESS בלבד , אנשים יוכלו לייבא אותם<br>
+משרת אחר עם INCLUDE ובעצם לצפות בתוכנם או ש HTACCESS חוסם את הגישה אוטומטית כאשר אני מבקש את הדף ?<br>
+<br>
+תודה מראש .</div>
+<a id="comment566"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/08/2011 23:31</span><br>
+שים קובץ htaccess עם התוכן<br>
+deny from all<br>
+בתוך התיקיה שאליה לא אמורים לגלוש<br>
+ו apache לא תאפשר גישה לקובץ הזה דרכה<br>
+<br>
+זה אומר שהסקריפט שלך יוכל לעשות לו אינקלוד (כי הסקריפט שלך ניגש ישירות לקובץ ולא מבקשה מ APACHE להחזיר את תוכן הקובץ)<br>
+<br>
+לעשות אינקלוד לסקריפט משרת חיצוני אי אפשר בכלל, כי השרת מפעיל את הקוד ומחזיר למבקש את התוצאה, ולא את תוכן הקוד. deny all תחסום אפשרות זו ולא ניתן יהיה לקבל דרך apache גם לא את תוצאה הסקריפט.<br>
+<br>
+מספיק טוב לאבטחה.</div>
+<a id="comment567"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 00:09</span><br>
+אחלה , תודה .</div>
+<a id="comment570"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 11:08</span><br>
+נגיד שעשיתי שכשנגלוש אל <span dir="ltr"><a href="http://example/login">http://example/login</a></span> השרת יזהה את כאילו הייתה אל <span dir="ltr"><a href="http://example/login.php">http://example/login.php</a></span>.<br>
+אבל אם משתמש כותב בשורת הכתובת <span dir="ltr"><a href="http://example/login.php">http://example/login.php</a></span>. מה יקרה?</div>
+<a id="comment571"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 11:51</span><br>
+הוא יגיעה אל אותו עמוד.<br>
+אפשר לחסום את זה, אבל בדרך כלל זה מיותר.</div>
+<a id="comment574"></a>
+<div class="blog-comment">
+<span class='comment-author'>xxxxx</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 19:01</span><br>
+סתם כדי לדעת, איך עושים את זה?</div>
+<a id="comment575"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 19:07</span><br>
+RewriteCond %{THE_REQUEST} ^[A-Z]+\ /[^?\ ]*\.php[/?\ ]<br>
+RewriteRule .*\.php$ 404.php [L]<br>
+<br>
+יעביר את כל הבקשות שמסתיימות ב php. לעמוד 404.php<br>
+במקום הביטוי הרגולרי בשורה הראשונה אתה יכול לרשום גם שם של קובץ ספציפי.</div>
+<a id="comment576"></a>
+<div class="blog-comment">
+<span class='comment-author'>xxxxx</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/08/2011 19:56</span><br>
+תודה ;)</div>
+<a id="comment760"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2011 20:36</span><br>
+כשאני שם את ה QSA,זה פוגע לי באתר,וגורם לו להיראות רק טקסט (כאילו אין CSS).<br>
+כשאני נכנס לקובץ של ה CSS,אני לא רואה כרגיל את כל העיצוב,אלא דף ריק,אבל הוא לא ריק בשרת.<br>
+אפשר בבקשה עזרה?</div>
+<a id="comment761"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/09/2011 20:39</span><br>
+הבעיה היא לא ב QSA אלה בשימוש ב-mod_rewrite עצמו. <br>
+ראה בפורום כאן: <span dir="ltr"><a href="http://phpguide.co.il/forum/index.php/topic,596.0.html">http://phpguide.co.il/forum/index.php/topic,596.0.html</a></span><br>
+ובבקשה להבא פנה עם שאלות לפורום.</div>
+<a id="comment890"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/10/2011 18:18</span><br>
+יש לי בעיה עם המילה Letters<br>
+הקוד שלי הוא:<br>
+RewriteRule Letters letters.php<br>
+<br>
+כשאני נכנס ל- localhost/Letters<br>
+זה מציג לי דף לבן ריק.<br>
+אם למשל אני הופך את האות הגדולה L לאות קטנה l,<br>
+אז זה עובד. ממה הבעיה יכולה לנבוע וכיצד ניתן לתקן זאת?<br>
+יש לי בקוד גם חלקים בעברית שעובדים מעולה, והקידוד הוא UTF-8. הכל מצוין חוץ מהמילה הזאת.</div>
+<a id="comment891"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/10/2011 18:20</span><br>
+יכול להיות שהיא חלק משם של קובץ ארוך יותר או יש קובץ עם המילה הזאת בשם ומשהו בתחילת ה htaccess מפריע לו.<br>
+נסה ככה:<br>
+RewriteRule ^Letters$ letters.php</div>
+<a id="comment892"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/10/2011 18:27</span><br>
+תודה על התגובה.<br>
+ניסיתי את הקוד הזה והוא גם לא עובד,<br>
+מכיוון שיש לי עוד קוד כזה רק בעברית, ניסיתי להכניס את הקוד האנגלי לקוד העברי, בצורה הבאה:<br>
+RewriteRule Letters|מכתבים letters.php<br>
+<br>
+וזה עדיין לא עובד.<br>
+ובשביל להיות בטוח, השארתי רק את השורה:<br>
+RewriteRule ^Letters$ letters.php<br>
+<br>
+כדי לוודא שאכן כלום לא מפריע.<br>
+אולי אפשרי להשתמש ב- urlencode ?</div>
+<a id="comment893"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/10/2011 18:28</span><br>
+אפשר להשתמש בפורום, הוא יותר נוח לשיחה :)<br>
++ תצרף את התוכן המלא של htaccess. יכול להיות שמשהו אחר מפריע לו</div>
+<a id="comment894"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/10/2011 18:33</span><br>
+לא משנה, כבר הסתדרתי.<br>
+פשוט הייתה לי תיקייה עם אותו שם ששכחתי ממנה.<br>
+<br>
+תודה רבה על ההסברים והידע :)</div>
+<a id="comment1217"></a>
+<div class="blog-comment">
+<span class='comment-author'>yehudade</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/01/2012 17:55</span><br>
+אני מתפלא שבכל השאלות והתשובות כאן לא ראיתי לרגע אחד את התנאי הפשוט IfModule<br>
+&lt;IfModule mod_rewrite.c&gt;<br>
+...קוד שיכתוב...<br>
+&lt;/IfModule&gt;<br>
+וזהו, במידה ומסיבה כלשהי המודול לא מופעל לפחות לא תופיע שגיאה</div>
+<a id="comment1219"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/01/2012 21:03</span><br>
+תודה יהודה, הכתבה עודכנה :)</div>
+<a id="comment1305"></a>
+<div class="blog-comment">
+<span class='comment-author'>Aviway</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/02/2012 17:13</span><br>
+אני לא הצלחתי להבין משהוא, ובנוסף זה גם לא עובד לי.<br>
+מה שכן עובד זה שאם אני רושם Home זה שולח אותי לדף שביקשתי, אבל אם אני לוחץ על הלוגו ע&quot;מ להגיע לאותה כתובת, אז הוא לא מראה לי בשורת הכתובת Home. שזה בעצם העניין של כל הסיפור הזה, לא?!</div>
+<a id="comment1396"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/03/2012 16:36</span><br>
+איך מקבלים יותר מפרמטר אחר כמו בדוגמא user<br>
+example.html/H/250/ybenDn/upload/DSC_00301.JPG/GETIMG.PHP<br>
+H-זה הפרמטר הראשון<br>
+250-זה השני<br>
+ybenDn/upload/DSC_00301.JPG-זה השלישי<br>
+</div>
+<a id="comment1397"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/03/2012 17:02</span><br>
+<span dir="ltr"><a href="http://phpguide.co.il/q358/%D7%90%D7%99%D7%9A+%D7%9E%D7%A7%D7%91%D7%9C%D7%99%D7%9D+%D7%99%D7%95%D7%AA%D7%A8+%D7%9E%D7%A4%D7%A8%D7%9E%D7%98%D7%A8+%D7%90%D7%97%D7%93+%D7%91%D7%A7%D7%95%D7%91%D7%A5+htaccess.htm">http://phpguide.co.il/q358/איך מקבלים יותר מפרמטר אחד בקובץ htaccess.htm</a></span></div>
+<a id="comment1398"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/03/2012 15:16</span><br>
+איך אפשר לעשות שהוא יקבל כל תו?<br>
+לא משנה איזה?</div>
+<a id="comment1399"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/03/2012 15:39</span><br>
+לא משנה הצלחתי</div>
+<a id="comment1648"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_242437</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 07:58</span><br>
+עם קורה מצב שיש שתי כתבות באותו שם..?<br>
+וכם עם רוצים לעשות בכותרת סימן כמו +?</div>
+<a id="comment1650"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 11:53</span><br>
+במקרה הראשון התנאי הראשון שיתאים לכתובת יפעל.<br>
+במקרה השני תוסיף לביטוי הרגולרי את הסימן +</div>
+<a id="comment1751"></a>
+<div class="blog-comment">
+<span class='comment-author'>aaa</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/07/2012 16:11</span><br>
+למה הקוד הזה לא עובד לי?<br>
+RewriteRule page/([0-9]+)\.html$ index.php?page=$1^ <br>
+יותר נכון יהיה לומר שהקוד כן עובד, אבל הוא מציג לי את הדף ללא CSS(הCSS נמצא בקובץ חיצוני) למה??? <br>
+<br>
+<br>
+הרי זה אמור לעבוד בדיוק כמו הקןד הזה בכתבה:<br>
+RewriteRule user/([a-z0-9_]+) index.php?action=showUserInfo&amp;username=$1<br>
+</div>
+<a id="comment1752"></a>
+<div class="blog-comment">
+<span class='comment-author'>aaa</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/07/2012 17:00</span><br>
+טוב הסתדרתי הייתה בעעיה עם הסלאש(*תודה ליעד)</div>
+<a id="comment1763"></a>
+<div class="blog-comment">
+<span class='comment-author'>ניב</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/07/2012 07:17</span><br>
+היי- איך אני נותן כתובות בעברית, לא הצלחתי</div>
+<a id="comment1841"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 01:42</span><br>
+לא הבנתי איך אני יכול להפוך את:<br>
+site.com/?page=show&amp;action=id<br>
+<br>
+ל:<br>
+<br>
+site.com/show.id או site.com/show/id או משהו כזה.<br>
+כמובן שזה דוגמא :-)</div>
+<a id="comment1842"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2012 02:07</span><br>
+לא משנה, הצלחתי :-)</div>
+<a id="comment2821"></a>
+<div class="blog-comment">
+<span class='comment-author'>ישראל</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/12/2014 12:22</span><br>
+משהו יודע איפה נמצא הקובץ .htaccess ב XAMPP</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

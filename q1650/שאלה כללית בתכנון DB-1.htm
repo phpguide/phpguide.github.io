@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה שאלה כללית בתכנון DB">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nightf">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>שאלה כללית בתכנון DB | שאלת לימוד PHP</title>
+<meta itemprop="name" content="שאלה כללית בתכנון DB | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה שאלה כללית בתכנון DB">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="שאלה כללית בתכנון DB-1.htm" title="היי, יש לי שאלה כללית לגבי תכנון נכון של טבלאות בDB.אני צריך להכניס נתונים מדף הרשמה לDB.בעבר, כשהייתי צריך להכניס נתונים לDB, היית מחלק נתונים בצורה לוגיתמבחינת הטבלאות, זאת אומרת שאם יש לי טופס הרשמה, ולדוגמא יש לי הוספה של כמה וכמה נתונים מאותו הסוג, אז נתוני הטופס יהיו בטבלה מסויימת לנתונים הכלליים,ואת שאר הנתונים (האלה שחוזרים על עצמם) אני מכניס לטבלה נפרדת, עם אותו ה-ID של השורהבטבלה הכללית יותר.כעת, המצב קצת שונה, מכיוון שאינני רואה הפרדה לוגית בי">שאלה כללית בתכנון DB</a></h2>
+<div class="userinfo">
+פתח
+<a>nightf</a>
+,
+<time class="timeago relativetime" datetime="2013-10-31T18:01:42+02:00" style="display:inline-block;">
+31 לאוקטובר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1650'>
+היי, יש לי שאלה כללית לגבי תכנון נכון של טבלאות בDB.<br>אני צריך להכניס נתונים מדף הרשמה לDB.<br>בעבר, כשהייתי צריך להכניס נתונים לDB, היית מחלק נתונים בצורה לוגית<br>מבחינת הטבלאות, זאת אומרת שאם יש לי טופס הרשמה, ולדוגמא יש לי <br>הוספה של כמה וכמה נתונים מאותו הסוג, אז נתוני הטופס יהיו בטבלה מסויימת לנתונים הכלליים,<br>ואת שאר הנתונים (האלה שחוזרים על עצמם) אני מכניס לטבלה נפרדת, עם אותו ה-ID של השורה<br>בטבלה הכללית יותר.<br>כעת, המצב קצת שונה, מכיוון שאינני רואה הפרדה לוגית בין מבנה הנתונים ולכן אני לא חושב על דרך להפריד,<br>הטופס הינו טופס להרשמה של משתמש. יש נתונים חשובים ובסיסיים יותר ויש נתונים פחות חשובים, ולכן דרך אפשרית הינה לעשות טבלה כללית של היוזר, ולאחר מכן ליצור עוד טבלה שתיקרא &quot;additional_info&quot;.<br>השאלה היא, האם מבחינת ביצועים עדיף לי שלא ליצור טבלה אחת משותפת עם משהו כמו 15 עמודות, אלא ליצור 2 טבלאות ולחלק את השדות ביניהם.<br><br>אשמח לעזרה,<br>תודה,<br>עידן. </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7553">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a486d6c341ababff2d012b9fafaef3f7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nightf</a>
+ב
+<span style="font-size:10px"> 31 לאוקטובר 2013 </span>
+<a id="answer_7553" href="שאלה כללית בתכנון DB-1.htm#answer_7553">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר לחסוך את כל החפירה בשאלה הבאה:<br>מתי אני צריך להפריד טבלה בDB, לכמה טבלאות? </p>
+</div>
+<div class="answer" id="answer7555">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 01 לנובמבר 2013 </span>
+<a id="answer_7555" href="שאלה כללית בתכנון DB-1.htm#answer_7555">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה תלוי. אני ממליץ לך לקרוא על נורמליזציה של בסיסי נתונים. אתה יכול להתחיל עם ה<a href="http://www.internet-israel.com/internet/%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99%D7%9D/mysql-%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99%D7%9D/%D7%A0%D7%95%D7%A8%D7%9E%D7%9C%D7%99%D7%96%D7%A6%D7%99%D7%94-%D7%A9%D7%9C-%D7%9E%D7%A1%D7%93%D7%99-%D7%A0%D7%AA%D7%95%D7%A0%D7%99%D7%9D/">מאמר של רן בר זיק</a>. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

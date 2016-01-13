@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה static - טוב או לא?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="zacharya">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>static - טוב או לא? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="static - טוב או לא? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה static - טוב או לא?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="static  טוב או לא.htm" title="אוקי השאלה הזאת די מופנת לאלכס אני מניח אבל אשמח אם כל מי שיש לו דעה ומבין בנושא יגיב כאן.בספר של אלכס בנושא הOOP יש פרק (נראה לי שלם) שעוסק בסטטיות, אבל בעיקרון רשום שם רק חסרונות של סטטיות ולא ראיתי אף יתרון אחד. השאלה היא האם בJAVA, שסטטי זה דבר נורא נפוץ ומשומש שם (למשל יצירת מופע של Scanner), בכל זאת עדיף לא להשתמש בסטטי?">static - טוב או לא?</a></h2>
+<div class="userinfo">
+פתח
+<a>zacharya</a>
+,
+<time class="timeago relativetime" datetime="2014-04-27T13:37:02+03:00" style="display:inline-block;">
+27 לאפריל 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1883'>
+אוקי השאלה הזאת די מופנת לאלכס אני מניח אבל אשמח אם כל מי שיש לו דעה ומבין בנושא יגיב כאן.<br>בספר של אלכס בנושא הOOP יש פרק (נראה לי שלם) שעוסק בסטטיות, אבל בעיקרון רשום שם רק חסרונות של סטטיות ולא ראיתי אף יתרון אחד. השאלה היא האם בJAVA, שסטטי זה דבר נורא נפוץ ומשומש שם (למשל יצירת מופע של Scanner), בכל זאת עדיף לא להשתמש בסטטי? </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8497">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8497" href="static  טוב או לא.htm#answer_8497">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בסדר הפוך:<br>המחלקה <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html">scanner</a> היא לא מחלקה סטטית ואפשר ליצור כמה מופעים שלה שתרצה. <br><br>שנית, אתה משתמש ב&quot;סטטי&quot; כדי להבטיח שיש לך מופע אחד של מחלקה בלבד. יש דרך הרבה יותר פשוטה להבטיח שיש לך מופע אחד של מחלקה וזה להעביר אותה בתור פרמטר למחלקה שלך. <br><br>כלומר במקום<br><div class="php codeblock"><span class="kw2">class</span> X<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">private</span> static Scanner scanner <span class="sy0">=</span> <span class="kw2">new</span> Scanner<span class="br0">&#40;</span><span class="sy0">..</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>פשוט להעביר אותו בתור פרמטר ולדאוג שאתה יוצר אותו רק פעם אחת לפני<br><div class="php codeblock"><span class="kw2">class</span> X<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">private</span> Scanner scanner<span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> X<span class="br0">&#40;</span>Scanner scanner<span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; this<span class="sy0">.</span>scanner <span class="sy0">=</span> scanner<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br><br>באופן כללי:<br>לסטטיק יש שני יתרונות והם:<br>1. שימוש בפחות זיכרון<br>2. זיכרון משותף בין כמה מופעים של אותה מחלקה<br><br>בPHP התוכנה שלך לא רצה כמה ימים והרווח משימוש מופחת בזיכרון הוא פחות ממזערי, לאומת זאת הסיכוי לעשות שטויות גבוה מאוד. למען האמת, גם בקוד java רצוי להימנע מסטטי עד כמה שאפשר, אבל אציין שיש מקרים בהם סטטי היא הדרך הכי פשוטה לעשות דברים מסוימים, אמנם כנראה לא תצטרך לעשות אותם הי פעם ב-PHP </p>
+</div>
+<div class="answer" id="answer8498">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8498" href="static  טוב או לא.htm#answer_8498">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא טענתי שscanner היא סטטי אלא שלרוב יוצרים מופע סטטי שלה.<br>הבנתי את הדרך שלך בנוגע ליצירת מופע אחד בלבד ללא סטטי, אך רשמת &quot;אבל אציין שיש מקרים בהם סטטי היא הדרך הכי פשוטה לעשות דברים מסוימים&quot; ואשמח לקבל פירוט אם לא אכפת לך ^^ </p>
+</div>
+<div class="answer" id="answer8504">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 28 לאפריל 2014 </span>
+<a id="answer_8504" href="static  טוב או לא.htm#answer_8504">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+העובדה שיש לך משהו משותף בין מופעים של מחלקות מאפשר לגישה פשוטה יותר למידע מכל מקום.<br>ב-PHP מעטים המקרים שבהם יהיו לך במקביל כמה מופעים של אותה מחלקה, שהיא לא DTO (וגם בג&apos;אווה)<br>אבל כאשר יש לך מופעים שונים של אותה מחלקה - משתנים סטטים זו הדרך הכי פשוטה להעביר נתונים בין אותם מופעים (וגם אז לא תמיד הכי מומלצת) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מיקום של דיב ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ישראל">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מיקום של דיב | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מיקום של דיב  | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מיקום של דיב ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מיקום של דיב -1.htm" title="אני רוצה לדעת מה המיקום של  דיב מסיום בציר הY ובציר הX אני אשמח אם משהו יכול אולי לעזור לי תודה רבה ויום טוב">מיקום של דיב </a></h2>
+<div class="userinfo">
+פתח
+<a>ישראל</a>
+,
+<time class="timeago relativetime" datetime="2014-03-31T10:33:45+03:00" style="display:inline-block;">
+31 למרץ 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1859'>
+אני רוצה לדעת מה המיקום של דיב מסיום בציר הY ובציר הX <br>אני אשמח אם משהו יכול אולי לעזור לי <br>תודה רבה ויום טוב </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8436">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/0f8492f31762583330d2ebcb7fa85a0a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>YardSodM</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2014 </span>
+<a id="answer_8436" href="מיקום של דיב -1.htm#answer_8436">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מצאתי מאמר שמסביר טוב מאוד איך עושים את זה.<br><a href="http://www.kirupa.com/html5/get_element_position_using_javascript.htm">כאן</a><br>בקיצור, זה הקוד של הפונקציה:<br><div class="php codeblock"><span class="kw2">function</span> getPosition<span class="br0">&#40;</span>element<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">var</span> xPosition <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">var</span> yPosition <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">while</span><span class="br0">&#40;</span>element<span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; xPosition <span class="sy0">+=</span> <span class="br0">&#40;</span>element<span class="sy0">.</span>offsetLeft <span class="sy0">-</span> element<span class="sy0">.</span>scrollLeft <span class="sy0">+</span> element<span class="sy0">.</span>clientLeft<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; yPosition <span class="sy0">+=</span> <span class="br0">&#40;</span>element<span class="sy0">.</span>offsetTop <span class="sy0">-</span> element<span class="sy0">.</span>scrollTop <span class="sy0">+</span> element<span class="sy0">.</span>clientTop<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; element <span class="sy0">=</span> element<span class="sy0">.</span>offsetParent<span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="br0">&#123;</span> x<span class="sy0">:</span> xPosition<span class="sy0">,</span> y<span class="sy0">:</span> yPosition <span class="br0">&#125;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="kw2">var</span> myElement <span class="sy0">=</span> document<span class="sy0">.</span>querySelector<span class="br0">&#40;</span><span class="st0">&quot;div&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<span class="kw2">var</span> position <span class="sy0">=</span> getPosition<span class="br0">&#40;</span>myElement<span class="br0">&#41;</span><span class="sy0">;</span><br>
+alert<span class="br0">&#40;</span><span class="st0">&quot;The element is located at: &quot;</span> <span class="sy0">+</span> position<span class="sy0">.</span>x <span class="sy0">+</span> <span class="st0">&quot;, &quot;</span> <span class="sy0">+</span> position<span class="sy0">.</span>y<span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer8437">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ca8952a88f711d2f4f52f42f65c77b81?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ישראל</a>
+ב
+<span style="font-size:10px"> 31 למרץ 2014 </span>
+<a id="answer_8437" href="מיקום של דיב -1.htm#answer_8437">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וואלה תודה ממש תודה !! </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="התגית marquee כבר מזמן לא עומדת בתקן ה-html. הנה תחליף שמעתיק את כל ה-marquee ומוסיף לו עוד טיפה, והכל בצורה תקינה - עם jQuery. :)">
+<meta name="keywords" content="marquee, js, jquery">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>marquee תקין עם jQuery</title>
+<meta itemprop="name" content="marquee תקין עם jQuery">
+<meta itemprop="description" content="התגית marquee כבר מזמן לא עומדת בתקן ה-html. הנה תחליף שמעתיק את כל ה-marquee ומוסיף לו עוד טיפה, והכל בצורה תקינה - עם jQuery. :)">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"170","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>marquee תקין עם jQuery</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iiddaannyy, </div>
+<div class="right">&nbsp;<time datetime="2011-11-12T18:02:46+02:00" dir="rtl">12 לנובמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://img40.imageshack.us/img40/8561/28444019.png" alt="marquee תקין עם jQuery">
+</div>
+<div class="right post-content">
+התגית marquee כבר מזמן לא עומדת בתקן ה-html.<br>הנה תחליף שמעתיק את כל ה-marquee ומוסיף לו עוד טיפה. והכל בצורה תקינה - עם jQuery. :) <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שלום לכולם,<br>החלטתי להכין marquee עם jQuery. כמובן שצריך את הספריה של jQuery כדי שזה יעבוד... :)<br><br>דמו:<br><a href="http://web-school.co.il/demos/marquee/v1.0">http://web-school.co.il/demos/marquee/v1.0</a><br><br>קובץ JS:<br><a href="http://web-school.co.il/demos/marquee/v1.0/marquee.js">http://web-school.co.il/demos/marquee/v1.0/marquee.js</a><br><br><span style="color:brown;">*שימו לב - יצאה גירסה 2.0: <a href="פלאגין Marquee לjQuery  גירסה 20.htm">כאן</a>*</span><br><br><br><h3>איך משתמשים?</h3><br>קודם כל ניצור instance חדש של הפונקציה marquee (אפשר להעביר כפרמטר אובייקט שקובע את המאפיינים של ה-marquee, האובייקט הוא כמו האובייקט שבמתודה setProperties שמופיעה בהמשך):<br><div class="php codeblock"><span class="kw2">var</span> m <span class="sy0">=</span> <span class="kw2">new</span> marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>כדי לשנות את המאפיינים של ה-marquee נפעיל את המתודה setProperties. היא מקבלת 2 פרמטרים:<br>1. אובייקט. מכיל את ההגדרות עצמן.<br>2. true/false (אופציונאלי). במידה ונעביר true, הפונקציה תשחזר את כל המאפיינים של ה-marquee לברירת המחדל, ואז תכניס את המאפיינים שנתנו לה בפרמטר הראשון (שימושי כאשר מעבירים רק מאפיין אחד בפרמטר הראשון ורוצים שכל שאר המאפיינים יאופסו לברירת המחדל, או כשמעבירים אובייקט ריק כפרמטר ראשון ו-true כפרמטר שני כדי לאפס את מאפייני ה-marquee).<br><div class="php codeblock">m<span class="sy0">.</span>setProperties<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; direction <span class="sy0">:</span> <span class="st_h">'up'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; delay <span class="sy0">:</span> <span class="nu0">100</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; scrollAmount <span class="sy0">:</span> <span class="nu0">10</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; behavior <span class="sy0">:</span> <span class="st_h">'alternate'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; loops <span class="sy0">:</span> <span class="nu0">3</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>המאפיינים:<br>direction - כיוון התנועה. מקבל right, left, up או down.<br>delay - הפסקה בין כל תזוזה. מקבל מספר חיובי, לפחות 85.<br>scrollAmount - מספר פיקסלים לזוז בכל תזוזה. מקבל ערך מספרי.<br>behavior - התנהגות ה-marquee וסגנון התנועה. מקבל scroll, slide או alternate.<br>loops - כמות סיבובים לביצוע. מקבל ערך מספרי. 0 נחשב כאין-סוף סיבובים. אינו אפקטיבי אם behavior נקבע ל-slide.<br><br>כדי להכניס אלמנטים לפונקציה נשתמש ב-create. הפונקציה מקבלת כפרמטר אובייקט שכל key שלו נותן &quot;שם&quot; שבאמצעותו נוכל לגשת לאלמנט וכל-value הוא בעצם האלמנט עצמו (אפשר להכניס מספר אלמנטים לתוך key באמצעות מערך):<br><div class="php codeblock">m<span class="sy0">.</span>create<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; div1 <span class="sy0">:</span> $<span class="br0">&#40;</span><span class="st0">&quot;#myMarqueeDiv&quot;</span><span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; div2 <span class="sy0">:</span> $<span class="br0">&#40;</span><span class="st0">&quot;#myOtherMarqueeDiv&quot;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>כאן יצרנו 2 אלמנטים; אחד עם השם &quot;div1&quot; והשני עם השם &quot;div2&quot;.<br>כמובן שאפשר להוסיף עוד מפתחות לאובייקט וכמו שאמרתי אפשר להכניס כמה אלמנטים לכל מפתח באמצעות מערך.<br><br>המאפיינים שקבענו ל-marquee (עם הפרמטר שהכנסנו לה או עם המתודה setProperties) הופכים להיות המאפיינים של האלמנטים שהכנסנו.<br>אם נרצה לשנות לאחד האלמנטים את המאפיינים שלו, נפעיל עליו את המתודה setProperties (זהה ל-setProperties הקודמת, רק שהיא לא משנה את מאפייני האלמנט לברירת המחדל של ה-marquee, אלא למאפיינים הנוכחיים של ה-marquee).<br><div class="php codeblock">m<span class="sy0">.</span>div1<span class="sy0">.</span>setProperties<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; direction <span class="sy0">:</span> <span class="st_h">'right'</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">:</span></div><br>כאן שינינו את המאפיין direction לאלמנט div1 (שיצרנו מקודם באמצעות create).<br><br>כדי להפעיל את ה-marquee על אלמנט מסוים, נפעיל את המתודה start:<br><div class="php codeblock">m<span class="sy0">.</span>div1<span class="sy0">.</span>start<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>כדי לעצור נפעיל את stop(). (אם נפעיל אחרי stop את start שוב, אז start ימשיך בדיוק מהנקודה שבו הוא הפסיק.)<br>כדי להפעיל מחדש את ה-marquee, נשתמש ב-restart().<br>כדי להחזיר את האלמנט למקומו לפני ה-marquee, נשמתשמ ב-reset().<br><br>אם נרצה להפעיל את כל האלמנטים שיצרנו, אפשר להשתמש ב-startAll():<br><div class="php codeblock">m<span class="sy0">.</span>startAll<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>בדומה ל-startAll() יש גם את stopAll(), את restartAll() ואת resetAll().<br><br><br>אשמח לביקורת ולהצעות לשיפור. :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=16&r=g&d=mm" alt="iiddaannyy">
+<a>iiddaannyy</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment923"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 21:12</span><br>
+קצת מוזר של marquee קונקרטי תהיה אפשרות לעשות <br>
+startAll גם ל maquees אחרים</div>
+<a id="comment924"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 21:24</span><br>
+מה זאת אומרת לבצע startAll לאחרים?<br>
+<br>
+ה-startAll מתבצע רק על האלמנטים שקיימים ב-instance שלו.<br>
+אם אני אצור 2 instancים ואפעיל באחד מהם את startAll, בשני לא יהיה שינוי.</div>
+<a id="comment925"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 21:43</span><br>
+הבנתי, במקרה הזה הכל בסדר.<br>
+בהנחה ש instance אחד הוא על דיב אחד בלבד.</div>
+<a id="comment926"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 21:47</span><br>
+ב-instance אתה יכול להכניס כמה אלמנטים שאתה רוצה עם המתודה create.<br>
+אחר כך אם תריץ את startAll באותו ה-instance, הוא יעבוד על כל האלמנטים שהכנסת עם המתודה create באותו ה-instance, לא ב-instanceים אחרים.</div>
+<a id="comment927"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 21:50</span><br>
+הבנתי. נראה מעולה, למרות שנראה מוזר לשים כמה את אותו אינסטנס על כמה אלמנטים.</div>
+<a id="comment928"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 21:58</span><br>
+זה יכול להיות מוזר, אבל תתיחס לזה כאל קופסה, ואפשרות למיון של האלמנטים שלך.<br>
+<br>
+יכול להיות שיש לי כמה marquees באתר.<br>
+2 marquees של חדשות,<br>
+3 marquees של תגובות,<br>
+ו-4 marquees של אשכולות לדוגמה.<br>
+<br>
+אז אני יכול ליצור instance אחד לחדשות וליצור בו 2 אלמנטים עם הפונקציה create, ליצור עוד instance אחד לתגובות וליצור בו 3 אלמנטים של עם create וליצור עוד instance לחדשות וליצור בו 4 אלמנטים עם create.<br>
+<br>
+<br>
+ככה אתה יכול לחלק את ה-marquees שלך לקבוצות ולשלוט על קבוצה בנפרד. (:</div>
+<a id="comment929"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 22:01</span><br>
+ראיתי בקוד משהו קצת לא מובן .<br>
+אחרי הCONSTRUCT עשית (marqueeProperties), מה זה אומר ?</div>
+<a id="comment930"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 22:06</span><br>
+זה פונקציה שקוראת לעצמה.<br>
+marqueeProperties זה הפרמטר שקיבלנו בפונקציה marquee, אני פשוט העברתי אותה ל-construct.<br>
+<br>
+זה מוסבר יפה כאן: <span dir="ltr"><a href="javascript_scopes_objects_functions.htm">http://phpguide.co.il/javascript_scopes_objects_functions.htm</a></span><br>
+(תחת הכותרת פונקציות).</div>
+<a id="comment931"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 22:10</span><br>
+תודה תודה גבר.<br>
+וראיתי עוד משהו שאתה מכניס אלמנטי JQ בפרמטר והKEY האסוציאטיבי שלהם הופך למשתנה של הINSTANCE בפני עצמו, אתה עושה את זה בתוך הלולאת FOR בCREATE נכון?? שאתה מוסיף למערך של THIS את הKEY ואז לפי מה שהבנתי זה כבר הופך את זה בעצמו למשתנה מחלקה (נגיד this[&apos;idan&apos;] אני אוכל לקרוא this.idan) אני טועה?.</div>
+<a id="comment932"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 22:13</span><br>
+לא ראיתי גם שהוא הראה דוגמא שהוא העביר פרמטר כמו שאמרת אחרי הסוגריים וגם שמתי לב שעשית את הקונסטרקטור אנונימיX::</div>
+<a id="comment933"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 22:23</span><br>
+פונקציה אנונימית היא פונקציה שאי אפשר לקרוא לה, ככה שזו לא ממש פונקציה אנונימית כי אתה יכול לקרוא לה, אם תעשה m.construct().<br>
+זה בגלל שברגע שהכנסתי את הפונקציה לתוך המשתנה construct, היא קיבלה את השם construct, והיא כבר לא אנונימית. :)<br>
+<br>
+<br>
+זה נכון שהוא לא הראה שהוא העביר פרמטר, אבל הוא הראה מה זו פונקציה שקוראת לעצמה.<br>
+אני פשוט הוספתי פרמטר.<br>
+<br>
+אתה יכול לראות את זה כאן:<br>
+<span dir="ltr"><a href="http://phpguide.co.il/forum/index.php/topic,559.0.html">http://phpguide.co.il/forum/index.php/topic,559.0.html</a></span></div>
+<a id="comment934"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 22:26</span><br>
+וכן, זה נכון מה שאמרת בתגובה השנייה שלך (התגובה עם ה-this.idan).</div>
+<a id="comment935"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/11/2011 22:28</span><br>
+זה קורה בגלל שב-js אין מערך אסוציאטיבי, במקומו יש את האובייקט.<br>
+<br>
+ככה שלכתוב x.abc = 5<br>
+שווה ללכתוב: x[&apos;abc&apos;] = 5<br>
+<br>
+:)</div>
+<a id="comment936"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/11/2011 03:14</span><br>
+קומנט בדיקה</div>
+<a id="comment937"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/11/2011 03:15</span><br>
+שדגכ</div>
+<a id="comment938"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/11/2011 21:55</span><br>
+גם אני רציתי לשאול או להעיר משהו: למה לעשות את CONSTRUCT כ&quot;כביכול אנונימית&quot; אך לא אנונימית, במה זה עוזר ? כדי שתוכל אחרי זה לקרוא לה ישר ?</div>
+<a id="comment939"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/11/2011 01:29</span><br>
+היא לא &quot;כביכול אנונימית&quot;, היא לא אנונימית.<br>
+הרגע שהכנסתי אותה למשתנה היא לא אנונימית.<br>
+אם השאלה שלך היא למה עשיתי את זה כפונקציה, ולא סתם קוד, אז הסיבה היא שרציתי למיין בין הדברים,<br>
+וככה אני יודע אם זה construct.</div>
+<a id="comment941"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/11/2011 22:49</span><br>
+אבל אתה ישר אח&quot;כ קורא לה ושומר את התוצאה בתוך this.construct .</div>
+<a id="comment942"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/11/2011 10:17</span><br>
+נכון.<br>
+כי construct זו פונקציה שפועלת ברגע שוקוראים לאובייקט.<br>
+ככה שברגע שאתה תעשה:<br>
+x = new marquee אז construct יופעל אוטומטית.</div>
+<a id="comment943"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/11/2011 10:56</span><br>
+אם הכוונה שלך היא למה הכנסתי את זה למשתנה, זה כי אני רציתי למיין בין הדברים, ושלא יהיו קודים מפוזרים באוויר.</div>
+<a id="comment977"></a>
+<div class="blog-comment">
+<span class='comment-author'>shay</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/12/2011 21:36</span><br>
+dfgdfgdfg</div>
+<a id="comment1061"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/01/2012 22:49</span><br>
+תודה עזרתה לי..</div>
+<a id="comment1064"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/01/2012 16:56</span><br>
+שמחתי לעזור. (:</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

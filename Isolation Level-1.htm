@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="ארבעת רמות ההפרדה של טראנזקציה ממקבילותיה.">
+<meta name="keywords" content="isolation level, transaction, serializable">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Transaction Isolation Level</title>
+<meta itemprop="name" content="Transaction Isolation Level">
+<meta itemprop="description" content="ארבעת רמות ההפרדה של טראנזקציה ממקבילותיה.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"219","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Transaction Isolation Level</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-06-21T12:24:24+03:00" dir="rtl">21 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/isolationlevel.png" alt="Transaction Isolation Level">
+</div>
+<div class="right post-content">
+אחרי שלמדנו <a href="Commit  Rollback ב PHP.htm">מהן טראנזקציות</a>, ניכנס לאחורי הקלעים שלהן ונראה איך השינויים מטראנזקציה שמתבצעת על ידי סקריפט אחד יהיו נגישים לסקריפט אחר ובאיזה שלב. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>Isolation</h3><br>Isolation היא הפרדה של שתי טראנזקציות אחת מהשנייה, כך שאם טראנזקציה אחת משנה את הנתונים ועדיין לא עשתה Commit, פעולות אחרות על המסד עדיין יעבדו עם הערכים הישנים. <br>הפעולה &quot;העברת כסף&quot; מחולקת לשני חלקים: להוריד כסף בשורה אחת, להוסיף כסף בשורה אחרת. אם טראנזקציה ביצעה את הפעולה הראשונה ועוד לא ביצעה את השנייה, אנחנו לא רוצים ששליפה שתתבצע במקביל תראה שינוי כלשהו בחשבון. (למרות שזו דוגמה לא ממש הוגנת, בגלל מגנון נעילת הנתונים.)<br><br><h3>נעילת נתונים</h3><br>כדי למנוע בעיות סנכרון נתונים, שכל אחד חושב שהערך האמיתי הוא אחר – מסדי נתונים פשוט מגבילים גישה לאותם נתונים עד שהטראנזקציה תסתיים. השאילתה המקבילה פשוט תחכה בתור עד שהטראנזקציה תסיים את העברת הכספים או עד שתיכשל ותחזיר הכל לקדמותו.<br><br>בטבלאות מסוג InnoDB מתבצעת נעילה ברמת השורה. אם טראנזקציה מבצעת פעולה כלשהי על שורה א&#039;, קריאה וכתיבה לשורה זו משאילתות מקבילות תהיה חסומה. גישה לשורות אחרות עדיין תהיה אפשרית ותעבוד כמו שצריך. אבל לפעמים נעדיף התנהגות שונה שמוגדרת באמצעות Isolation Level.<br><br><img src="static\images\pixel.png" alt="Transaction Isolation Level" title="http://ncdn.phpguide.co.il/blogimages/isolationlevel_i.png" class="content-image-float"><br><br><h3>Isolation Level</h3><br>רמת הבידוד (Isolation Level) מגדירה לטראנזקציה אילו נתונים לחסום ומפני אילו פעולות.<br>בסטנדרט שפת SQL מוגדרות ארבע רמות נעילה:<br><br><h4>Read Uncommited</h4><br>ברמת נעילה Read Uncommited אין ממש נעילה, ופעולות שמתרחשות במהלך הטראנזקציה ניתנות מיד לקריאה, עוד לפני Commit מכל מקום שהוא, כולל מטראנזקציות מקבילות. מצב כזה גורם לקריאה מזוהמת. אם טראנזקציה אחת שינתה נתונים, השנייה קראה אותם ואז הראשונה ויתרה עם Rollback – קיבלנו קריאה שגויה (מזוהמת). <br><br><h4>Read Commited</h4><br>ברמת Read Commited הנתונים מתאפשרים לקריאה מתוך טראנזקציה מקבילה רק אחרי Commit של הטראנזקציה הנוכחית. בין היתר, הטראנזקציה הנוכחית לא תראה את השינויים לפני שתעשה Commit. אם הטראנזקציה מכניסה שורה לטבלה ואז מנסה לעדכן אותה – נקבל שגיאה, כיוון שגם מבחינת הטראנזקציה הנוכחית השינויים עדיין לא נכנסו לתוקף.<br><br><h4>Repeatable Reads</h4><br>Repeatable Reads היא רמת הבידוד ברירת המחדל של MySQL. ההבדל בינה לבין הקודמת (Read Commited) הוא שהיא עצמה תראה את השינויים שהיא עושה. אם היא תכניס שורה לטבלה ואחר כך תנסה לקרוא אותה – היא תוכל, כיוון שהשינויים שנעשו בטראנזקציה נגישים לטראנזקציה עצמה. קריאה של נתונים מבחוץ תחזיר את הנתונים שהופיעו בטלה לפני תחילת הטראנזקציה.<br><br><h4>Serializable</h4><br>Serializable היא רמת הבידוד הכי גבוהה. מתבצעת בה נעילה מלאה לכתיבה וגם לקריאה. טראנזקציות שרוצות לעבוד על אותם נתונים מחכות שהטראנזקציות הקודמות יסיימו. <br><br><h3>הגדרת Isolation Level</h3><br>נוכל לבחור את Isolation Level הרצוי באמצעות הפקודה Set למשתנה tx_isolation באופן הבא:<br><div class="php codeblock">SET SESSION tx_isolation<span class="sy0">=</span><span class="st_h">'SERIALIZABLE'</span><span class="sy0">;</span></div><br>את הפקודה הזו יש לבצע לפני תחילת הטראנזקציה, ולא לשכוח להחזירה למצב הקודם אחרי, אם רוצים (אבל עדיף פשוט לשנות את הגדרות המסד בקובץ my.cnf אחת ולתמיד). </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1682"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/06/2012 15:25</span><br>
+עוד שאלה קלאסית של רעיון עבודה שמעידה על זה, שאתם יודעים משהו מעבר ל crud</div>
+<a id="comment1683"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/06/2012 16:18</span><br>
+מדריך מעולה!</div>
+<a id="comment1686"></a>
+<div class="blog-comment">
+<span class='comment-author'>dan252</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2012 13:41</span><br>
+למה זה שימושי?</div>
+<a id="comment1687"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2012 13:50</span><br>
+למקרה שתחליט לשנות את האינטרציה בין טראנזקציות ולחסום גישה לנתונים מסוימים כאשר מישהו עובד איתם. רוב הסיכויים שהשינויים שלך יהיו בין repeatable reads ל serializable ובחזרה. למרות שבמקרים מסוימים לא אכפת לך מ dirty reads ואתה יכול להעלות את הביצועים מזה ששני טראנזקציות יעבדו במקביל. </div>
+<a id="comment1689"></a>
+<div class="blog-comment">
+<span class='comment-author'>dan252</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/06/2012 13:52</span><br>
+תודה על התשובה</div>
+<a id="comment2338"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 00:09</span><br>
+מה היא הברירת מחדל?</div>
+<a id="comment2339"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 00:15</span><br>
+תנסה לבדוק בדוקומנטציה, אבל מהניסיון שלי, עדיף שלא להסתמך על ברירות מחדל, כי הן עלולות להשתנות בגרסאות מאוחרות יותר.</div>
+<a id="comment2340"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 00:32</span><br>
+default = repeatable read</div>
+<a id="comment2341"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 13:08</span><br>
+1( תודה רבה אלכס<br>
+2( ligh הברירת מחדל הרבה פעמים היא הברירה הכי טובה לממוצע. ואם ישנו אותה נבחן מחדש, הטיעון שישנו אותה הוא די טפשי.</div>
+<a id="comment2342"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 14:30</span><br>
+ברמת repeatable בזמן הטרנזקציה מאופשר הכנסה של נתונים לא ע&quot;י הטרנזקציה?</div>
+<a id="comment2343"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 16:07</span><br>
+קריאה של נתונים מבחוץ תחזיר את הנתונים שהופיעו בטלה לפני תחילת הטראנזקציה.</div>
+<a id="comment2344"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 16:07</span><br>
+במחשבה שניה כתוב במדריך כבר מהי ברירת המחדל.</div>
+<a id="comment2345"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 16:18</span><br>
+liorel100, אני לא חושב שזה טיעון טיפשי משום שלא תמיד תוכל לשנות פרויקט שכבר עלה לאוויר. אנשים בדרך כלל לא עוברים על אתרים שהם פיתחו לפני שנתיים לחברה מסוימת. חוץ מזה, זה הרבה יותר קל פשוט להגדיר את מה שאתה רוצה וגמרנו.</div>
+<a id="comment2346"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 16:46</span><br>
+1) לא הבנתי האם הדרגה השלישית נועלת שינוי נתונים מבחוץ<br>
+2) תלוי מאד, הרי גם הגדרות של הדרגות עשויות להשתנות. ולמה שחברה שלא עבדתי עליה תעדכן את גרסת הMYSQL שלה?</div>
+<a id="comment2347"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/04/2013 17:17</span><br>
+לא הבנתי. די ברור שהגרסה של התוכנה תתעדכן, ואז יכול להיות שברירת המחדל תשתנה. זה מה שאמרתי.<br>
+ולמה הכוונה שהגדרות של הגדרות עשויות להשתנות? מובן שתמיד יכולים להיות כל מיני שינויים. (אם כי בד&quot;כ לא יהיו כאלה שיגרמו לכך שגרסאות קודמות לא יוכלו לעשות משהו מסוים, כי אז זה יהיה API Break.) מה שאני אומר זה לנסות למנוע בעיות תאימות עם גרסאות לעתיד.<br>
+חוץ מזה, אני חושב שזה מנהג מעולה לא להסתמך על ברירות מחדל, ופשוט לכתוב מה שאתה רוצה שיהיה.<br>
+אין טעם להמשיך להתווכח, אז בוא פשוט נסכים שלא להסכים. :-)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

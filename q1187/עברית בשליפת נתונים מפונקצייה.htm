@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה עברית בשליפת נתונים מפונקצייה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>עברית בשליפת נתונים מפונקצייה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="עברית בשליפת נתונים מפונקצייה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה עברית בשליפת נתונים מפונקצייה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="עברית בשליפת נתונים מפונקצייה.htm" title="שלום חברים,פרסמתי נושא פה מקודם,בקשר לזה שזה שולח לי אימייל בגיבריש.התקדמנו עם פתרון הבעיה הזו,והגענו למסקנה שזה בעיה בשליפה של הנתונים מהפונקצייה.אני רוצה להראות כאן שוב את המקור של הקוד..Functions.php - המחלקה שומרת את כל ההגדרות של האתר, והפונקציות הבסיסיות:&amp;lt;?php
+include &apos;includes/emails.php&apos;;">עברית בשליפת נתונים מפונקצייה</a></h2>
+<div class="userinfo">
+פתח
+<a>ArielTador</a>
+,
+<time class="timeago relativetime" datetime="2013-01-15T16:24:13+02:00" style="display:inline-block;">
+15 לינואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1187'>
+שלום חברים,<br><br>פרסמתי נושא פה מקודם,<br>בקשר לזה שזה שולח לי אימייל בגיבריש.<br>התקדמנו עם פתרון הבעיה הזו,<br>והגענו למסקנה שזה בעיה בשליפה של הנתונים מהפונקצייה.<br><br>אני רוצה להראות כאן שוב את המקור של הקוד..<br><br>Functions.php - המחלקה שומרת את כל ההגדרות של האתר, והפונקציות הבסיסיות:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">include</span> <span class="st_h">'includes/emails.php'</span><span class="sy0">;</span><br>
+<span class="kw2">class</span> functions<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">//site info</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$site</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">=&gt;</span><span class="st_h">'Asite'</span><span class="sy0">,</span> <span class="st_h">'salogan'</span><span class="sy0">=&gt;</span><span class="st_h">'בניית אתרים'</span><span class="sy0">,</span> <span class="st_h">'author'</span><span class="sy0">=&gt;</span><span class="st_h">'אוטהור'</span><span class="sy0">,</span> <span class="st_h">'description'</span><span class="sy0">=&gt;</span><span class="st_h">'תאור'</span><span class="sy0">,</span> <span class="st_h">'charset'</span><span class="sy0">=&gt;</span><span class="st_h">'utf-8'</span><span class="sy0">,</span> <span class="st_h">'lang'</span><span class="sy0">=&gt;</span><span class="st_h">'he'</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="sy0">=&gt;</span><span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection.htm" data-cfemail="4b2a39222e273f2a2f24390b2c262a222765282426">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">,</span> <span class="st_h">'from'</span><span class="sy0">=&gt;</span><span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection.htm" data-cfemail="681b1d1818071a1c28091b011c0d460b07460104">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">//site links</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$links</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'sitecss'</span><span class="sy0">=&gt;</span><span class="st_h">'SiteDesign/css/'</span><span class="sy0">,</span> <span class="st_h">'sitejs'</span><span class="sy0">=&gt;</span><span class="st_h">'SiteDesign/js/'</span><span class="sy0">,</span> <span class="st_h">'siteimg'</span><span class="sy0">=&gt;</span><span class="st_h">'SiteDesign/images/'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="co1">//get_tamplete_name &nbsp;function</span><br>
+&nbsp; <span class="kw2">function</span> get_tamplete_name <span class="br0">&#40;</span><span class="re0">$tamplete_name</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="st_h">'includes/'</span><span class="sy0">.</span><span class="re0">$tamplete_name</span><span class="sy0">.</span><span class="st_h">'.php'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="co1">//get_page_name &nbsp;function</span><br>
+&nbsp; <span class="kw2">function</span> get_page_name <span class="br0">&#40;</span><span class="re0">$tamplete_name</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="st_h">'includes/pages/'</span><span class="sy0">.</span><span class="re0">$tamplete_name</span><span class="sy0">.</span><span class="st_h">'/body.php'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$functions</span> <span class="sy0">=</span> <span class="kw2">new</span> functions<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br><br>Emails.php - המחלקה ששולפת את הנתונים מהפונקצייה(הפונקצייה הבעיתית שעושה הכל בגיבריש!!)<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> emails <span class="kw2">extends</span> functions<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">//send_conf_complete_email() Function</span><br>
+&nbsp; <span class="kw2">function</span> send_support_email <span class="br0">&#40;</span><span class="re0">$fullname</span><span class="sy0">,</span> <span class="re0">$email</span><span class="sy0">,</span> <span class="re0">$phone</span><span class="sy0">,</span> <span class="re0">$xsubject</span><span class="sy0">,</span> <span class="re0">$xbody</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$to</span> &nbsp; &nbsp; &nbsp;<span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$subject</span> <span class="sy0">=</span> <span class="st_h">'SUBJECT'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$message</span> <span class="sy0">=</span> <span class="st_h">'<br>
+&nbsp; &nbsp; &lt;body dir=&quot;rtl&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;div style=&quot;float: right;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;b&gt;שלום, לך מנהל יקר,&lt;/b&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; הגיע פנייה מאתרך '</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;b&gt;פרטים על הפנייה: &lt;/b&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;b&gt;שם מלא: &lt;/b&gt;'</span><span class="sy0">.</span><span class="re0">$fullname</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;b&gt;אימייל: &lt;/b&gt;'</span><span class="sy0">.</span><span class="re0">$email</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;b&gt;טלפון: &lt;/b&gt;'</span><span class="sy0">.</span><span class="re0">$phone</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;b&gt;נושא הפנייה: &lt;/b&gt;'</span><span class="sy0">.</span><span class="re0">$xsubject</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;b&gt;תוכן הפנייה: &lt;/b&gt;'</span><span class="sy0">.</span><span class="re0">$xbody</span><span class="sy0">.</span><span class="st_h">'&lt;br /&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;b&gt;בברכה, מערכת '</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">' - '</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'salogan'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&lt;/b&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &lt;/body&gt;<br>
+&nbsp; &nbsp; '</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="re0">$headers</span> <span class="sy0">=</span> <span class="st0">&quot;MIME-Version: 1.0&quot;</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$headers</span> <span class="sy0">.=</span> <span class="st0">&quot;Content-type:text/html;charset=UTF-8<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$headers</span> <span class="sy0">.=</span> <span class="st_h">'From: &lt;'</span><span class="sy0">.</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">'&gt;'</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="re0">$mail</span> <span class="sy0">=</span> <span class="kw3">mail</span><span class="br0">&#40;</span><span class="re0">$to</span><span class="sy0">,</span> <span class="re0">$subject</span><span class="sy0">,</span> <span class="re0">$message</span><span class="sy0">,</span> <span class="re0">$headers</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$mail</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$emails</span> <span class="sy0">=</span> <span class="kw2">new</span> emails<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>Index.php - הקובץ הראשי, ששולף את כל הקודים של האתר, ומרכז אותם אל תוך עמוד הבית<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="co1">//includes</span><br>
+<span class="kw1">include</span> <span class="st_h">'includes/functions.php'</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//tampletes</span><br>
+<span class="kw1">include</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">get_tamplete_name</span><span class="br0">&#40;</span><span class="st_h">'encode'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">include</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">get_tamplete_name</span><span class="br0">&#40;</span><span class="st_h">'header'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//pages</span><br>
+<span class="kw1">include</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">get_page_name</span><span class="br0">&#40;</span><span class="st_h">'home'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//tampletes</span><br>
+<span class="kw1">include</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">get_tamplete_name</span><span class="br0">&#40;</span><span class="st_h">'footer'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>Body.php - הקובץ שמכיל את הטופס, שאותו הפונקצייה שולחת לשליפה<br><br><div class="php codeblock">&lt;div id=&quot;center-texts&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;url-text&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;SiteDesign/images/home_title.png&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;דף הבית&lt;/span&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;welcome-text&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;l1&quot; style=&quot;display: block;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;&lt;b&gt;Asite - אודותינו&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;l2&quot; style=&quot;display: none;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;&lt;b&gt;Asite - מאמרים&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;l3&quot; style=&quot;display: none;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;&lt;b&gt;Asite - למה אנחנו&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;l4&quot; style=&quot;display: none;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;&lt;b&gt;Asite - קידוד אתרים&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;l5&quot; style=&quot;display: none;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;&lt;b&gt;Asite - תכנות אתרים&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;l6&quot; style=&quot;display: none;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;&lt;b&gt;Asite - עיצוב אתרים&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;l7&quot; style=&quot;display: none;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;&lt;b&gt;Asite - שרתים ואחסונים&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט טקסט&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;div id=&quot;left-tabs&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;li id=&quot;t1&quot;&gt;&lt;span&gt;אודותינו&lt;/span&gt;&lt;/li&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;li id=&quot;t2&quot;&gt;&lt;span&gt;מאמרים&lt;/span&gt;&lt;/li&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;li id=&quot;t3&quot;&gt;&lt;span&gt;למה אנחנו&lt;/span&gt;&lt;/li&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;li id=&quot;t4&quot;&gt;&lt;span&gt;קידוד אתרים&lt;/span&gt;&lt;/li&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;li id=&quot;t5&quot;&gt;&lt;span&gt;תכנות אתרים&lt;/span&gt;&lt;/li&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;li id=&quot;t6&quot;&gt;&lt;span&gt;עיצוב אתרים&lt;/span&gt;&lt;/li&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;li id=&quot;t7&quot;&gt;&lt;span&gt;שרתים ואחסונים&lt;/span&gt;&lt;/li&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &lt;div id=&quot;sliderp&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;slider-wrapper theme-default&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;slider&quot; class=&quot;nivoSlider&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;nivo-slider/demo/images/toystory.jpg&quot; data-thumb=&quot;nivo-slider/demo/images/toystory.jpg&quot; alt=&quot;&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;nivo-slider/demo/images/up.jpg&quot; data-thumb=&quot;nivo-slider/demo/images/up.jpg&quot; alt=&quot;&quot; title=&quot;&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot; src=&quot;nivo-slider/demo/scripts/jquery-1.7.1.min.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot; src=&quot;nivo-slider/jquery.nivo.slider.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $(window).load(function() {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $('#slider').nivoSlider();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;div id=&quot;contact-bg&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;contact-title&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -צור קשר-<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p id=&quot;contact-inputs&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;form method=&quot;post&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;table style=&quot;float: right;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; שם מלא:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;text&quot; class=&quot;contact-sinput&quot; name=&quot;fullname&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; אימייל:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;text&quot; class=&quot;contact-sinput&quot; name=&quot;email&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; טלפון<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;text&quot; class=&quot;contact-sinput&quot; name=&quot;phone&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; נושא הפנייה:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;text&quot; class=&quot;contact-sinput&quot; name=&quot;subject&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/table&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;table style=&quot;float: right;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; תוכן הפנייה:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;textarea class=&quot;contact-stext&quot; name=&quot;body&quot;&gt;&lt;/textarea&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;שלח&quot; class=&quot;contact-submit&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/table&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;width: 700px;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-Type: text/html; charset='</span><span class="sy0">.</span><span class="re0">$function</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'charset'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$fullname</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'fullname'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$email</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$phone</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'phone'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$subject</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'subject'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$body</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'body'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errors</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'/[^a-z0-9]{5,20}/i'</span><span class="sy0">,</span> <span class="re0">$fullname</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$respawn</span> <span class="sy0">=</span> <span class="st_h">'השם המלא יכול להכיל תווים בעברית בלבד, וללא מספרים'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errors</span><span class="sy0">++;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'/^[-!#$%&amp;\'*+\\.\/0-9=?A-Z^_`{|}~]+@([-0-9A-Z]+\.)+([0-9A-Z]){2,4}$/i'</span><span class="sy0">,</span> <span class="re0">$email</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$respawn</span> <span class="sy0">=</span> <span class="st_h">'האימייל אינו תקין'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errors</span><span class="sy0">++;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'/^[0-9]{9,10}$/i'</span><span class="sy0">,</span> <span class="re0">$phone</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$respawn</span> <span class="sy0">=</span> <span class="st_h">'מספר הטלפון, חייב להכיל 9-10 תווים, במספרים בלבד'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errors</span><span class="sy0">++;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$fullname</span> <span class="sy0">==</span> <span class="kw4">null</span> <span class="sy0">||</span> <span class="re0">$email</span> <span class="sy0">==</span> <span class="kw4">null</span> <span class="sy0">||</span> <span class="re0">$phone</span> <span class="sy0">==</span> <span class="kw4">null</span> <span class="sy0">||</span> <span class="re0">$subject</span> <span class="sy0">==</span> <span class="kw4">null</span> <span class="sy0">||</span> <span class="re0">$body</span> <span class="sy0">==</span> <span class="kw4">null</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$respawn</span> <span class="sy0">=</span> <span class="st_h">'אחד, או יותר מהשדות רקים'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$errors</span><span class="sy0">++;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$errors</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;font color=&quot;red&quot;&gt;'</span><span class="sy0">.</span><span class="re0">$respawn</span><span class="sy0">.</span><span class="st_h">'&lt;/font&gt;&lt;br /&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$errors</span> <span class="sy0">&gt;</span> <span class="nu0">1</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$rage</span> <span class="sy0">=</span> <span class="re0">$errors</span><span class="sy0">-</span><span class="nu0">1</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;font color=&quot;black&quot;&gt;לאחר שתפתור בעיה זו, תצטרך לתקן עוד '</span><span class="sy0">.</span><span class="re0">$rage</span><span class="sy0">.</span><span class="st_h">' בעיות!&lt;/font&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="kw1">elseif</span><span class="br0">&#40;</span><span class="re0">$errors</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'&lt;font color=&quot;green&quot;&gt;פנייתך התקבלה בהצלחה, ותענה בהקדם!&lt;/font&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sendf</span> <span class="sy0">=</span> <span class="re0">$emails</span><span class="sy0">-&gt;</span><span class="me1">send_support_email</span><span class="br0">&#40;</span><span class="re0">$fullname</span><span class="sy0">,</span> <span class="re0">$email</span><span class="sy0">,</span> <span class="re0">$phone</span><span class="sy0">,</span> <span class="re0">$subject</span><span class="sy0">,</span> <span class="re0">$body</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">?&gt;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/form&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div><br><br>Encode.php - הקובץ אשר שומר את כל תגי ה meta, ושליפת קבצי ה css וה js של האתר<br><br><div class="php codeblock">&lt;!doctype html&gt;<br>
+&lt;!--[if IE 7 ]&gt; &nbsp; &nbsp;&lt;html class=&quot;no-js ie ie7 lte7 lte8 lte9&quot; lang=&quot;he&quot;&gt; &lt;![endif]--&gt;<br>
+&lt;!--[if IE 8 ]&gt; &nbsp; &nbsp;&lt;html class=&quot;no-js ie ie8 lte8 lte9&quot; lang=&quot;he&quot;&gt; &lt;![endif]--&gt;<br>
+&lt;!--[if IE 9 ]&gt; &nbsp; &nbsp;&lt;html class=&quot;no-js ie ie9 lte9&gt;&quot; lang=&quot;he&quot;&gt; &lt;![endif]--&gt;<br>
+&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt; &lt;html class=&quot;no-js&quot; lang=&quot;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'lang'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>&quot;&gt; &lt;!--&lt;![endif]--&gt;<br>
+<br>
+&nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &lt;!--Language tags--&gt;<br>
+&nbsp; &nbsp; &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'charset'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;<br>
+&nbsp; &nbsp; &lt;!--End Language tags--&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;!--Page title--&gt;<br>
+&nbsp; &nbsp; &lt;title&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">' - '</span><span class="sy0">.</span><span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'salogan'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>&lt;/title&gt;<br>
+&nbsp; &nbsp; &lt;!--End Page Title--&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;!-- meta tags --&gt;<br>
+&nbsp; &nbsp; &lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;meta name=&quot;author&quot; content=&quot;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'author'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;meta name=&quot;description&quot; content=&quot;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'description'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;!-- end meta tags --&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;!--link to scripts--&gt;<br>
+&nbsp; &nbsp; &lt;link href=&quot;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">links</span><span class="br0">&#91;</span><span class="st_h">'sitecss'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>ui-darkness/jquery-ui-1.9.2.custom.css&quot; rel=&quot;stylesheet&quot;&gt;<br>
+&nbsp; &nbsp; &lt;link href=&quot;style.php&quot; rel=&quot;stylesheet&quot;&gt;<br>
+&nbsp; &nbsp; &lt;script src=&quot;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">links</span><span class="br0">&#91;</span><span class="st_h">'sitejs'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>jquery-1.8.3.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &lt;script src=&quot;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">links</span><span class="br0">&#91;</span><span class="st_h">'sitejs'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>jquery-ui-1.9.2.custom.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &lt;script src=&quot;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">links</span><span class="br0">&#91;</span><span class="st_h">'sitejs'</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>left-tabs.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &lt;!--Slider loads--&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; href=&quot;nivo-slider/themes/default/default.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; href=&quot;nivo-slider/themes/light/light.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; href=&quot;nivo-slider/themes/dark/dark.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; href=&quot;nivo-slider/themes/bar/bar.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;link rel=&quot;stylesheet&quot; href=&quot;nivo-slider/nivo-slider.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;!--End Slider loads--&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;!--End link to scripts--&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &lt;/head&gt;<br>
+<br>
+&nbsp; &lt;body dir=&quot;rtl&quot;&gt;</div><br><br><br><br><br>בואו אני יסביר בגדול מה קורא כאן,<br>שימו לב שבקובץ body.php בשליחה של הנתונים בטופס, יש את הפונקציה send_support_email, שהיא שולחת את הפרטים של המשתמש אלי לאימייל..<br>הפרטים בפונקצייה מגיעים ל emails.php, שבו יש את המקור של הפונקצייה send_support_email..<br>בפונקציה יש $body, שהוא בעצם מכיל את תוכן הפנייה המלא, שבו הכנסתי גם טקסט משלי,<br>משום מה.. האימייל נשלח אלי, כתוב בעברית, ורק הפרטים של המשתמש כתובים לי בג&#039;יבריש, וגם הפרטים ששלפתי מהמשתנה $site שבקובץ functions.php..<br><br>עכשיו, השאלה שלי היא: איך אני עושה שזה ישלח לי את הפרטים של המשתמש, והשליפה מהמשתנה $site בעברית?!!?!?!!?!?!? </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5224">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 16 לינואר 2013 </span>
+<a id="answer_5224" href="עברית בשליפת נתונים מפונקצייה.htm#answer_5224">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה אף אחד לא עונה?! </p>
+</div>
+<div class="answer" id="answer5225">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 16 לינואר 2013 </span>
+<a id="answer_5225" href="עברית בשליפת נתונים מפונקצייה.htm#answer_5225">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\q1186\היי אשמח לעזרה .htm">קידוד UTF-8: הסוף לג&#039;יבריש, לסימני שאלה ולסמלים מוזרים במקום עברית ושפות נוספות</a><br>בלי להיכנס ליותר מדי פרטים, ההדר של הקידוד (1) צריך להופיע בכל דף שבו אתה רוצה להשתמש בקידוד מסוים. פשוט תעשה include. (או במקרה שלך - שים אותו ב-index.php.) </p>
+</div>
+<div class="answer" id="answer5226">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 16 לינואר 2013 </span>
+<a id="answer_5226" href="עברית בשליפת נתונים מפונקצייה.htm#answer_5226">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שמתי ב index.php בצורה הבאה:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="co1">//includes</span><br>
+<span class="kw1">include</span> <span class="st_h">'includes/functions.php'</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-Type: text/html; charset='</span><span class="sy0">.</span><span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">site</span><span class="br0">&#91;</span><span class="st_h">'charset'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st_h">''</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//tampletes</span><br>
+<span class="kw1">include</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">get_tamplete_name</span><span class="br0">&#40;</span><span class="st_h">'encode'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">include</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">get_tamplete_name</span><span class="br0">&#40;</span><span class="st_h">'header'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//pages</span><br>
+<span class="kw1">include</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">get_page_name</span><span class="br0">&#40;</span><span class="st_h">'home'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//tampletes</span><br>
+<span class="kw1">include</span> <span class="re0">$functions</span><span class="sy0">-&gt;</span><span class="me1">get_tamplete_name</span><span class="br0">&#40;</span><span class="st_h">'footer'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>לא עובד.. </p>
+</div>
+<div class="answer" id="answer5227">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 16 לינואר 2013 </span>
+<a id="answer_5227" href="עברית בשליפת נתונים מפונקצייה.htm#answer_5227">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבעיה היא שאתה צריך כנראה להשתמש בזה <strong>לפני </strong>שאתה עושה את האינקלוד ל-functions.php; השורה הראשונה בקוד. :-)<br>תשמע, אין טעם לעשות שם בחירה איזה קידוד. פשוט תשתמש ב-UTF-8. מה הבעיה בו? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה עבודה עם IPN של PAYPAL">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="יוספי">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>עבודה עם IPN של PAYPAL | שאלת לימוד PHP</title>
+<meta itemprop="name" content="עבודה עם IPN של PAYPAL | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה עבודה עם IPN של PAYPAL">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="עבודה עם IPN של PAYPAL.htm" title="אני רוצה משהו פשוטלחייב גולש ולאחר מכן שיוחזר לאתר שלי להמשך הזמנהקראתי את המדריך שלךhttp://phpguide.co.il/%D7%A2%D7%91%D7%95%D7%93%D7%94+%D7%A2%D7%9D+Paypal+IPN.htmמה שקורה שזה באמת מציג תשלום אבל לאחר התשלום זה לא חוזר אוטומטי לאתרלמה ?תודה">עבודה עם IPN של PAYPAL</a></h2>
+<div class="userinfo">
+פתח
+<a>יוספי</a>
+,
+<time class="timeago relativetime" datetime="2013-03-21T15:05:36+02:00" style="display:inline-block;">
+21 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1322'>
+אני רוצה משהו פשוט<br>לחייב גולש ולאחר מכן שיוחזר לאתר שלי להמשך הזמנה<br>קראתי את המדריך שלך<br>http://phpguide.co.il/%D7%A2%D7%91%D7%95%D7%93%D7%94+%D7%A2%D7%9D+Paypal+IPN.htm<br><br>מה שקורה שזה באמת מציג תשלום <br>אבל לאחר התשלום זה לא חוזר אוטומטי לאתר<br>למה ?<br>תודה </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5823">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 21 למרץ 2013 </span>
+<a id="answer_5823" href="עבודה עם IPN של PAYPAL.htm#answer_5823">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">add_field</span><span class="br0">&#40;</span><span class="st_h">'return'</span><span class="sy0">,</span> <span class="re0">$url</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>לשם חוזר המשתמש לאחר הקניה </p>
+</div>
+<div class="answer" id="answer5825">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/560b21a52a3497c963392d0a375015de?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>יוספי</a>
+ב
+<span style="font-size:10px"> 21 למרץ 2013 </span>
+<a id="answer_5825" href="עבודה עם IPN של PAYPAL.htm#answer_5825">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כתבתי <br> $p-&gt;add_field(&#039;return&#039;, &#039;www.ynet.co.il?action=success&#039;); // the path to where the user will return after pay<br>אני משלם ב PAYPAL לוחץ PAY NOW <br>ואז הוא רושם<br><br>Your transaction ID for this payment is: 6*********5X.<br><br>We&#039;ll send a confirmation email to *****@gmail.com.<br><br> Go to PayPal account overview<br><br>הוא לא חוזר לאתר שציינתי לו שם אחרי התשלום<br>מדוע? </p>
+</div>
+<div class="answer" id="answer5830">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 22 למרץ 2013 </span>
+<a id="answer_5830" href="עבודה עם IPN של PAYPAL.htm#answer_5830">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש שמה קישור:<br>return to XXX`s test story site </p>
+</div>
+<div class="answer" id="answer5831">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/560b21a52a3497c963392d0a375015de?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>יוספי</a>
+ב
+<span style="font-size:10px"> 22 למרץ 2013 </span>
+<a id="answer_5831" href="עבודה עם IPN של PAYPAL.htm#answer_5831">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא אחי<br>תראה תמונה ....http://up367.siz.co.il/up2/u4gxmyojjmyz.gif<br>אני רוצה בכלל שיחזור אוטומטי אבל גם ככה הוא לא חוזר </p>
+</div>
+<div class="answer" id="answer5834">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 22 למרץ 2013 </span>
+<a id="answer_5834" href="עבודה עם IPN של PAYPAL.htm#answer_5834">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="http://bit.ly/ZZvByJ">PayPal Express Checkout</a>... </p>
+</div>
+<div class="answer" id="answer5842">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 23 למרץ 2013 </span>
+<a id="answer_5842" href="עבודה עם IPN של PAYPAL.htm#answer_5842">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+רוב הסיכויים שהקישור ששמת לא תקין.<br>וודא שהוא מתחיל בhttp(s):// , שהכתובת תקינה באמת. </p>
+</div>
+<div class="answer" id="answer5844">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/560b21a52a3497c963392d0a375015de?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>יוספי</a>
+ב
+<span style="font-size:10px"> 23 למרץ 2013 </span>
+<a id="answer_5844" href="עבודה עם IPN של PAYPAL.htm#answer_5844">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+$p-&gt;add_field(&#039;return_url&#039;, &#039;http://www.ynet.co.il&#039;);<br>הקישור טוב,זה לא חוזר אטומטי... </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

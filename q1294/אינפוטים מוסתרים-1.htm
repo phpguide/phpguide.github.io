@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה אינפוטים מוסתרים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>אינפוטים מוסתרים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="אינפוטים מוסתרים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה אינפוטים מוסתרים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="אינפוטים מוסתרים-1.htm" title="מה השימושים של אינפוטים מוסתרים ?בחיים לא הבנתי את זה, למה צריך את זה ומה זה נותן, אשמח אם מישהו יסביר :-).הכוונה:&amp;lt;input type=&amp;quot;hidden&amp;quot; /&amp;gt;">אינפוטים מוסתרים</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2013-03-10T23:43:11+02:00" style="display:inline-block;">
+10 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1294'>
+מה השימושים של אינפוטים מוסתרים ?<br>בחיים לא הבנתי את זה, למה צריך את זה ומה זה נותן, אשמח אם מישהו יסביר :-).<br><br>הכוונה:<br><div class="php codeblock"><span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;hidden&quot;</span> <span class="sy0">/&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5672">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5672" href="אינפוטים מוסתרים-1.htm#answer_5672">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+א. נותנים לך תיקח.<br>ב. תחשוב על מצב שאתה רוצה לשולח לשרת משהו אבל הלקוח לא צריך לראות\לערוך אותו.<br>ברוב הדפדפנים אם הסטייל של הinput הוא display:none הוא לא ישלח בטופס (במקרה של visibility:hidden הוא ישלח אבל אתה צריך להגדיר גם height width 0 כדי שלא יצנזר לך ת&#039;קידוד).<br>הדוגמא הכי פשוטה שאני חושב עליה זה CSRF TOKEN, או טופס מחיקה (הלקוח לא צריך לדעת את הID של העמודה במסד שהוא רוצה למחוק), או referer בטופס התחברות..<br>קיצור יש עוד מליון ואחת שימושים לזה, אני לא רואה איך לא מצאת לזה עדיין הסבר XD<br>נשיקות ולהלהטוב. </p>
+</div>
+<div class="answer" id="answer5675">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5675" href="אינפוטים מוסתרים-1.htm#answer_5675">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אל תשכח שכמו כל דבר אחר בצד לקוח - אל תשים שם מידע רגיש. תשים שם מידע שצריך להיות שם, אבל אל תשכח שהמשתמש יכול לראות את זה וגם לערוך את זה אם הוא רוצה. </p>
+</div>
+<div class="answer" id="answer5678">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5678" href="אינפוטים מוסתרים-1.htm#answer_5678">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז זו בדיוק הבעיה שלי בהבנה, אם הוא יכול לראות ולערוך, למה לשים שם משהו ? </p>
+</div>
+<div class="answer" id="answer5679">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5679" href="אינפוטים מוסתרים-1.htm#answer_5679">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הטופס של כתיבת תשובה לשאלה באתר הזה נראה זהה בכל השאלות.<br>מאיפה השרת יודע תשובה לאיזה שאלה כתבת?<br><br>אתה צריך להעביר לשרת איזשהו מזהה של מספר השאלה שאליה שייכת התשובה.<br>בשביל זה אתה שם שדה שקיים אבל לא מוצג וויזואלית למשתמש.<br><br>באותה מידה המשתמש שלך יכול לפתוח את הקוד, לשנות את הערך של השדה הזה ולשלוח<br>אבל יהיה לו יותר פשוט לחזור לעמוד של שאלות-תשובות, לעבור לשאלה אחרת ולענות ישירות משם.<br>הוא יכול לעשות את זה (לשנות את תוכן השדה), אבל אין לו באמת בשביל מה.<br><br>השדה הזה משמש אותך להעברת נתונים מהדפדפן לשרת בלי שהמשתמש יראה אותם על המסך.<br>לשנות אותם הוא תמיד יכול, אבל אין לו בשביל מה. </p>
+</div>
+<div class="answer" id="answer5681">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5681" href="אינפוטים מוסתרים-1.htm#answer_5681">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי, תודה :). </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

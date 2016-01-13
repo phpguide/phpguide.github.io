@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="סןף סוף סדרת מדריכים ברורה לפיתוח אפליקציות למערכת ההפעלה של גוגל, אנדרואיד. והפעם – הקדמה על מערכת ההפעלה והתקנת סביבת הפיתוח. מה זה אנדרוא">
+<meta name="keywords" content="אנדרואיד, סביבת פיתוח, ADT, JAVA, SDK, ליבת לינוקס, IDE, ADB, ANDROID STUDIO, ANDROID SOFTWARE DEVELOPMENT, ANDROID DEBUG BRIDGE">
+<meta name="author" content="YardSodM">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>1# סדרת מדריכים לפיתוח לאנדרואיד – הקדמה והתקנת סביבת הפיתוח</title>
+<meta itemprop="name" content="1# סדרת מדריכים לפיתוח לאנדרואיד – הקדמה והתקנת סביבת הפיתוח">
+<meta itemprop="description" content="סןף סוף סדרת מדריכים ברורה לפיתוח אפליקציות למערכת ההפעלה של גוגל, אנדרואיד. והפעם – הקדמה על מערכת ההפעלה והתקנת סביבת הפיתוח. מה זה אנדרוא">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"367","rating":"8","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>1# סדרת מדריכים לפיתוח לאנדרואיד – הקדמה והתקנת סביבת הפיתוח</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">YardSodM, </div>
+<div class="right">&nbsp;<time datetime="2014-04-17T09:13:49+03:00" dir="rtl">17 לאפריל 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://i.imgur.com/FVjslFO.png" alt="1# סדרת מדריכים לפיתוח לאנדרואיד – הקדמה והתקנת סביבת הפיתוח">
+</div>
+<div class="right post-content">
+סןף סוף סדרת מדריכים ברורה לפיתוח אפליקציות למערכת ההפעלה של גוגל, אנדרואיד. והפעם – הקדמה על מערכת ההפעלה והתקנת סביבת הפיתוח. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שלום לכולם!<br>ברוכים הבאים למדריך הראשון בסדרת מדריכים לפיתוח בסיסי לאנדרואיד.<br>ובמדריך הראשון:<br>• מה זה אנדרואיד ומה הוא מספק<br>• היכרות עם סביבת הפיתוח והתקנה<br><h2>הקדמה</h2><h3>מה זה אנדרואיד?</h3>אנדרואיד היא מערכת הפעלה המבוססת על ליבת לינוקס. מערכת ההפעלה מפורסמת על ידי גוגל כפרויקט קוד פתוח הנקרא <span dir="ltr">AOSP (<strong>A</strong>ndroid <strong>O</strong>pen <strong>S</strong>ource <strong>P</strong>roject)</span>.<br>המערכת מספקת ממשק משתמש עשיר, תומכת בגרפיקה בתלת מימד ובדו מימד באמצעות OpenGL, שימוש במסד נתונים מסוג SQLite ותמיכה בפעולות רקע.<br>את האפליקציות מפתחים בסביבת פיתוח תומכת (לרב eclipse) וכותבים באמצעות קוד JAVA.<h3>מה צריך לדעת כדי להמשיך במדריך?</h3>כמובן – מחשב עם ווינדוס (XP או יותר), מק (גרסה 10.8.5 או יותר) או לינוקס.<br>סביבת פיתוח וJAVA - בהמשך המדריך.<br>כדי לפתח לאנדרואיד לא צריך טלפון אנדרואיד (אבל כדאי) – נדבר על זה בהמשך.<h2>סביבת הפיתוח</h2>ערכת הפיתוח של אנדרואיד, או <span dir="ltr">SDK (Android <strong>S</strong>oftware <strong>D</strong>evelopment <strong>K</strong>it)</span> מכילה בתוכה שלל כלים חשובים לפיתוח, בדיקה, והרצת האפליקציה.<br>ערכת הפיתוח מכילה בתוכה כלי מאוד חשוב והוא נקרא <span dir="ltr">ADB (<strong>A</strong>ndroid <strong>D</strong>ebug <strong>B</strong>ridge)</span>. הכלי מאפשר חיבור למכשיר אנדרואיד (וירטואלי או ממשי), ניהול המכשיר ותיקון באגים באפליקציה.<br>גוגל מספקת שני סביבות פיתוח משולבות (IDE):<br> 1. <span dir="ltr">ADT (<strong>A</strong>ndroid <strong>D</strong>evelopment <strong>T</strong>ools)</span> – שמבוסס על סביבת הפיתוח eclipse, בו נשתמש בסדרת המדריכים.<br> 2. Android Studio – סביבת פיתוח חדשה יחסית, עדיין בגרסת בטא. מבססת על סביבת הפיתוח IntelliJ.<h3>התקנת סביבת הפיתוח</h3>ועכשיו לחלק המעניין במדריך – התקנת סביבת הפיתוח.<br>בסדרת המדריכים נעבוד בסביבת הפיתוח eclipse שמצריכה JAVA מותקן על המחשב.<h4>שלב 1 – התקנת JAVA</h4>הורידו והתקינו את JAVA מהאתר הרשמי: <a href="https://www.java.com/en/download/">כאן</a>.<h4>שלב 2 – הורדת ה-ADT</h4>הורידו את ה-ADT מאתר הרשמי של אנדרואיד: <a href="http://developer.android.com/sdk/index.html">כאן</a>.<br>יש ללחוץ על הכפתור הכחול &quot;Download The SDK&quot;, לאשר את התנאים ולבחור גרסת סיביות.<h4>שלב 3</h4>חלצו את הקבצים מקובץ ה-ZIP אל כל מקום במחשב, איפה שנוח לכם.<h4>שלב 4 – התקנת ה-workspace</h4>ה- Workspace הוא תיקייה המכילה בתוכה את כל הפרויקטים ב-eclipse.<br>בתוך תיקיית ה-ADT, כנסו לתיקייה eclipse והריצו את eclipse (לוגו ירוק או סגול, תלוי במערכת ההפעלה).<br>בחלון שנפתח, בחרו את מיקום תיקיית ה-Workspace. מומלץ לסמן את תיבת הסימון על מנת לקבוע את מיקום ברירת המחדל של ה-Workspace.<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="1# סדרת מדריכים לפיתוח לאנדרואיד – הקדמה והתקנת סביבת הפיתוח" title="http://i.imgur.com/sD9y6Jr.png" class="content-image-float"><h2>סיום</h2>זהו! סביבת הפיתוח ADT מוכנה לשימוש. אם כל השלבים עברו בהצלחה, אתם אמורים לראות את המסך הבא:<br><img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="1# סדרת מדריכים לפיתוח לאנדרואיד – הקדמה והתקנת סביבת הפיתוח" title="http://i.imgur.com/5WCZ4uE.png" class="content-image-float"><br>עד כאן המדריך הראשון, ובמדריכים הבאים:<br>• יצירת אפליקציה ראשונה ושימוש בסביבת הפיתוח<br>• AVD – Android Virtual Device<br>• אלמנטים בסיסיים<br>• JAVA: משתנים ומערכים<br>• JAVA: try ו-catch, if ו-else<br>• JSON<br>• תכנות מונחה עצמים<br>ועוד...<br>מקווה שהבנתם :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/0f8492f31762583330d2ebcb7fa85a0a?s=16&r=g&d=monsterid" alt="YardSodM">
+<a>YardSodM</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2782"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielSafari</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/04/2014 23:03</span><br>
+נחמד!<br>
+<br>
+אהבתי :)<br>
+לדעתי פיתוח אפליקציות הוא תחום מגניב, אבל לא ממש נוח.<br>
+למה לא נוח?<br>
+כי אם אתה רוצה לפתח אפליקציה טובה - אתה צריך לפתח אותה לפחות ל-2 חנויות שונות (app store וה-market של אנדרואיד).<br>
+<br>
+אני אישית מעוניין להתחיל לפתח אפליקציות דווקא ל-windows phone, בגלל שאפשר לבנות את האפליקציות שם ב-html 5 ו-JS, שאני מכיר יותר טוב מ-#C או Java....<br>
+<br>
+אבל מדריך מעולה!! D:</div>
+<a id="comment2783"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/04/2014 17:11</span><br>
+תודה רבה, חיכתי לזה :)<br>
+מחכה להמשך!</div>
+<a id="comment2784"></a>
+<div class="blog-comment">
+<span class='comment-author'>Splash</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/04/2014 00:18</span><br>
+כל הכבוד ,אשמח לראות דברים קצת יותר מתקדמים.<br>
+<br>
+@ArielSafari יש את זה בכל תחום בערך,גם בבניית אתרים אתה צריך להתאים קוד ב js,css לדפדפנים שונים וגם את הצד שרת הרבה פעמים יש שרתים שתומכים רק בגירסאות נמוכות שדורשות ממך לממש לבד חלק מהפונקציות ולפעמים גם לשנות חלקים רבים בתכנית.<br>
+<br>
+אם בכל זאת לא השתכנעת יש את phonegap של אדובי שמאפשר לפתח לכל הפלטפורמות בלי ידע ב java ,הכל מבוסס על סיינטקס של html - js - css . כמובן שיש כל מיני שינויים מינורים שצריך לעשות כדי להתאים לכל מערכת אבל בסופו של דבר הוא חוסך המון זמן עבודה על מנת ליצור אפליקציה לכל הפלטפורמות</div>
+<a id="comment2790"></a>
+<div class="blog-comment">
+<span class='comment-author'>ArielTador</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/05/2014 20:56</span><br>
+תודה רבה, אחלה מדריך!<br>
+<br>
+מתי ההמשך?</div>
+<a id="comment2795"></a>
+<div class="blog-comment">
+<span class='comment-author'>אורי1209</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/05/2014 14:13</span><br>
+אחרי שהעברתי את זה מהzip למחשב זה לא נתן לי להכנס</div>
+<a id="comment2796"></a>
+<div class="blog-comment">
+<span class='comment-author'>YardSodM</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/05/2014 16:53</span><br>
+@אורי1209 באיזה מערכת הפעלה אתה משתמש?<br>
+תבדוק שהנתיב של ה-ADT הוא באנגלית (בלי אותיות בעברית כמו C:\users\אורי\desktop\אנדרואיד\ADT)<br>
+וכמובן תוודא שהתקנת את הגרסא האחרונה של ג&apos;אווה.<br>
+אתה מקבל שגיאה? צלם מסך ותעלה</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

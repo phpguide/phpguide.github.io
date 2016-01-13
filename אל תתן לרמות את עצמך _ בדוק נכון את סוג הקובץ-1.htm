@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="בדיקת סוג הקובץ כמו שצריך ב-PHP.">
+<meta name="keywords" content="MIME, סוג, סיומת, קובץ">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>אל תיתן לרמות אותך – בדוק את סוג הקובץ באמת</title>
+<meta itemprop="name" content="אל תיתן לרמות אותך – בדוק את סוג הקובץ באמת">
+<meta itemprop="description" content="בדיקת סוג הקובץ כמו שצריך ב-PHP.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"151","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>אל תיתן לרמות אותך – בדוק את סוג הקובץ באמת</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-09-06T19:06:34+03:00" dir="rtl">06 לספטמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.geekpedia.com/Pictures/Icons/unknown_216_48.png" alt="אל תיתן לרמות אותך – בדוק את סוג הקובץ באמת">
+</div>
+<div class="right post-content">
+כשאתה מאפשר למישהו להעלות קבצים לשרת שלך – אי אפשר להמעיט בערכה של האבטחה, ולהסתמך רק על סיומת הקובץ זה רעיון גרוע ביותר. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>את סוג הקובץ אפשר להבין לפי תוכן הקובץ</h3><br>כל קובץ (למעט אולי קובץ טקסט רגיל) מכיל בתוכו גם מידע על סוג הקובץ עצמו, כדי שהתוכנה מתאימה תדע איך להציג אותו נכון. סוג הקובץ נקרא באנגלית MIME type.<br>המידע הזה הרבה יותר אמין מסיומת קובץ, מכיוון שאת הסיומת אפשר לשנות, בלי להמיר את סוג הקובץ.<br><br><h4>את ה-MIME אפשר לקרוא מתוך הקובץ</h4><br>file_info היא הרחבה ל-PHP שהחל מגרסה 5.3 היא מובנית בשפה.<br>לקבל באמצעותה את סוג ה-MIME של הקובץ אפשר בשני שורות בלבד:<br><div class="php codeblock"><span class="re0">$file</span> <span class="sy0">=</span> <span class="st_h">'someTextFileRenamedToJPG.jpg'</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$file_info</span> <span class="sy0">=</span> <span class="kw2">new</span> finfo<span class="br0">&#40;</span>FILEINFO_MIME<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$mime_type</span> <span class="sy0">=</span> <span class="re0">$file_info</span><span class="sy0">-&gt;</span><span class="me1">file</span><span class="br0">&#40;</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<br>
+<span class="kw1">echo</span> <span class="re0">$mime_type</span><span class="sy0">;</span> <span class="co1">// text/plain</span></div><br><br><h4>במקרה של העלאת תמונות אפשר להשתמש בפונקציה getimagesize()</h4><br>הפונקציה <a href="http://php.net/getimagesize">getimagesize</a> תחזיר false במקרה שהקובץ אינו תמונה. אם זו תמונה, היא תחזיר מערך עם מידע על התמונה, לא משנה באיזו סיומת יהיה הקובץ.<br>הערה: אם הקובץ לא קיים או שהוא לא תמונה – תיזרק שגיאה. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment752"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/09/2011 11:55</span><br>
+תודה רבה אלכס.</div>
+<a id="comment753"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/09/2011 11:58</span><br>
+בכיף. מקווה שזה יעזור להגן על אתרים :)</div>
+<a id="comment1836"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/08/2012 17:12</span><br>
+אני רוצה לקבל מהגולש קישור לתמונה, כמובן שעליי לוודא שהקישור שהוא נתן הוא אכן מוביל לתמונה קיימת.<br>
+שימוש בgetimagesize יהיה הטוב ביותר ? במקרה שהלינק מוביל לתמונה אמיתית יחזיר TRUE במידה ולא יחזיר FALSE. או שהפונקציה לא עובדת עם לינקים ורק עם תמונות בשרת?</div>
+<a id="comment2529"></a>
+<div class="blog-comment">
+<span class='comment-author'>mmm</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/08/2013 16:44</span><br>
+מצטרף לשאלה של ben.</div>
+<a id="comment2532"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/08/2013 02:09</span><br>
+עובדת, הבעיה היחידה היא שהשרת האחר יכול להחזיר תמונה אמיתי כשאתה תנסה לבדוק אותה עם getimagesize ולהחזיר משהו אחר לחלוטין כשזה לא אתה שמנסה לבדוק.<br>
+חוץ מזה, קרא את המדריך של cayce על איך הוא פרץ ל phpguide על ידי קישורים של תמונות. <br>
+<span dir="ltr"><a href="איך פרצתי ל phpguide.htm">http://phpguide.co.il/איך פרצתי ל phpguide.htm</a></span></div>
+<a id="comment2537"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/08/2013 16:03</span><br>
+יש גם דרכים למנוע פריצה כזאת ע&quot;י מה שהסברתי בתגובה שלי למאמר איך פורצים את PHP GUIDE</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

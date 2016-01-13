@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בחירה מרובה בPHP">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="yakir">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>בחירה מרובה בPHP | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בחירה מרובה בPHP | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בחירה מרובה בPHP">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בחירה מרובה בPHP-1.htm" title="יש לי ת&amp;#039;קוד הזה:&amp;lt;input type=&amp;quot;checkbox&amp;quot; name=&amp;quot;reminder&amp;quot; value=&amp;quot;24 שעות&amp;quot;
+&amp;nbsp;&amp;lt;?php isset&amp;#40;$_POST&amp;#91;&apos;reminder&apos;&amp;#93;&amp;#41; &amp;amp;&amp;amp; $_POST&amp;#91;">בחירה מרובה בPHP</a></h2>
+<div class="userinfo">
+פתח
+<a>yakir</a>
+,
+<time class="timeago relativetime" datetime="2013-06-18T17:39:08+03:00" style="display:inline-block;">
+18 ליוני 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1523'>
+יש לי ת&#039;קוד הזה:<br><div class="php codeblock">&lt;input type=&quot;checkbox&quot; name=&quot;reminder&quot; value=&quot;24 שעות&quot;<br>
+&nbsp;<span class="kw2">&lt;?php</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'reminder'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;reminder&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;24 שעות&quot;</span>?<span class="kw1">print</span> <span class="st_h">'checked'</span><span class="sy0">:</span><span class="st_h">''</span><span class="sy0">;</span> <span class="sy1">?&gt;</span> onclick='max_checkbox(0);' /&gt;24 שעות<br>
+&lt;input type=&quot;checkbox&quot; name=&quot;reminder&quot; value=&quot;48 שעות&quot;<br>
+&nbsp;<span class="kw2">&lt;?php</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'reminder'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;reminder&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;48 שעות&quot;</span>?<span class="kw1">print</span> <span class="st_h">'checked'</span><span class="sy0">:</span><span class="st_h">''</span><span class="sy0">;</span> <span class="sy1">?&gt;</span> onclick='max_checkbox(1);' /&gt;48 שעות<br>
+&lt;input type=&quot;checkbox&quot; name=&quot;reminder&quot; value=&quot;שבוע&quot; <br>
+<span class="kw2">&lt;?php</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'reminder'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;reminder&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;שבוע&quot;</span>?<span class="kw1">print</span> <span class="st_h">'checked'</span><span class="sy0">:</span><span class="st_h">''</span><span class="sy0">;</span> <span class="sy1">?&gt;</span> onclick='max_checkbox(2);' /&gt;שבוע <br>
+&lt;input type=&quot;checkbox&quot; name=&quot;reminder&quot; value=&quot;שבועיים&quot;<br>
+<span class="kw2">&lt;?php</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'reminder'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;reminder&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;שבועיים&quot;</span>?<span class="kw1">print</span> <span class="st_h">'checked'</span><span class="sy0">:</span><span class="st_h">''</span><span class="sy0">;</span> <span class="sy1">?&gt;</span> onclick='max_checkbox(3);' /&gt;שבועיים<br>
+&lt;input type=&quot;checkbox&quot; name=&quot;reminder&quot; value=&quot;שלושה שבועות&quot;<br>
+&nbsp;<span class="kw2">&lt;?php</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'reminder'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;reminder&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;שלושה שבועות&quot;</span>?<span class="kw1">print</span> <span class="st_h">'checked'</span><span class="sy0">:</span><span class="st_h">''</span><span class="sy0">;</span> <span class="sy1">?&gt;</span> onclick='max_checkbox(4);' /&gt;שלושה שבועות</div><br><br>עשיתי את התנאי שאם הטופס לא נשלח אז הוא שומר את התיבות שנבחרו הכל טוב ויפה במידה והמשתמש בוחר תיבה אחת , אבל אם הוא בוחר שתי תיבות (CHECKBOX) אז הוא שומר (שומר הכוונה לCHECKED)<br>רק את התיבה האחרונה מביניהם .. <br><br>מקווה שהבנתם </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6889">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/190d413353868f74fda4ad037a7c0932?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yakir</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2013 </span>
+<a id="answer_6889" href="בחירה מרובה בPHP-1.htm#answer_6889">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קוד ברור יותר אולי ..<br>http://pastebin.com/mJaqsWj1 </p>
+</div>
+<div class="answer" id="answer6893">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2013 </span>
+<a id="answer_6893" href="בחירה מרובה בPHP-1.htm#answer_6893">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. למה אתה לא עובד עם select ?<br>2. כדי להעביר מערך לשרת אתה צריך לקרוא לinput בשם של מערך,<br>:AKA<br><div class="php codeblock"><span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;checkbox&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;reminder[]&quot;</span> <span class="sy0">/&gt;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

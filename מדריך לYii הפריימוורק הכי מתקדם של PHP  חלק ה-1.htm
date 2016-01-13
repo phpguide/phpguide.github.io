@@ -1,0 +1,461 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חלק ה&apos; של המדריך ל-Yii: טפסים ובדיקות הזנה">
+<meta name="keywords" content="yii, php framework">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Yii | טפסים ובדיקות הזנה</title>
+<meta itemprop="name" content="Yii | טפסים ובדיקות הזנה">
+<meta itemprop="description" content="חלק ה&apos; של המדריך ל-Yii: טפסים ובדיקות הזנה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"198","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii | טפסים ובדיקות הזנה</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2012-02-29T21:25:33+02:00" dir="rtl">29 לפברואר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/yii5.jpg" alt="Yii | טפסים ובדיקות הזנה">
+</div>
+<div class="right post-content">
+במדריך אני אלמד אתכם איך להשתמש בטפסים בעזרת הפריימוורק Yii של PHP. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+לחצו <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק א.htm">כאן</a> בכדי להגיע לחלק א&apos; של המדריך; <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ב.htm">חלק ב&apos;</a>; <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ג.htm">חלק ג&apos;</a>; <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ד.htm">חלק ד&apos;</a>.<br><br>במדריך הקודם הבטחתי שאלמד אתכם לעשות התחברות וגם פרופילי משתמשים, אבל אנשים חשבו שלא לימדתי נכון, כי עשיתי טופס בדרך שונה מהדרך ש-Yii נותנת. לכן במדריך הזה אנו נעשה את טופס ההרשמה בדרך המקובלת ב-Yii.<br>שלא תבינו לא נכון; המדריך הקודם כן משמעותי והוא כן חשוב כי לימדתי איך להוסיף טור לטבלה וגם איך ליצור מודלים.<br><br>עכשיו, דבר ראשון ניצור את המודל של הטופס בתיקייה protected/models/RegisterForm.php, ושם ניצור מחלקה בשם RegisterForm שתירש מהמחלקה CFormModel.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> RegisterForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>לכל שדה צריך משתנה משלו. השדות יהיו: שם משתמש, סיסמה, אימות סיסמה, אימייל וקוד קאפצ&apos;ה.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> RegisterForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$username</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של שם המשתמש</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password2</span><span class="sy0">;</span> &nbsp;<span class="co1">// השדה של אימות הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// השדה של הדואר האלקטרוני</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$verifyCode</span><span class="sy0">;</span> <span class="co1">// השדה של הקאפצ'ה</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו בואו נציג את הטופס בדף.<br>נפתח את ה-action שמציג את ההרשמה, ושם ניצור משתנה שהוא ייקח מחלקה חדשה של הטופס. נקרא למשתנה model ונוסיף לאותו לרינדור.<br>זה הולך כך:<br><span class="dirleft"><span dir="ltr">protected/controllers/AccountController.php</span></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> AccountController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$layout</span> <span class="sy0">=</span> <span class="st_h">'header'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionRegister<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> RegisterForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'register'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו בואו ניצור את הטופס.<br>נפתח את הטופס הקודם שעשינו (protected/views/account/register.php), נמחק את כל מה שיש שם ונכין אחד חדש.<br><br>דבר ראשון, בואו נשים כותרת קטנה ונפתח את הטופס.<br><span class="dirleft"><span dir="ltr">protected/views/account/register.php</span></span><br><div class="php codeblock">&lt;h1&gt;הירשם&lt;/h1&gt;<br>
+<span class="sy1">&lt;?</span> <span class="re0">$form</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CActiveForm'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; <br>
+<span class="sy1">&lt;?</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br>איפה ה-&lt;form&gt;? עדין לא לימדתי אותכם על widget אז אני אלמד אתכם עכשיו.<br>אפשר להגדיר את ה-widget כמו רינדור ברינדור. (אין לי הגדרה יותר מתאימה לזה כעת...)<br>כשפתחנו את ה-widget אנחנו רינדרנו את ה-&lt;form&gt;, וכשסגרנו את ה-widget רינדרנו את ה-<span dir="ltr">&lt;/form&gt;</span>.<br>את המשתנה <span dir="ltr">$form</span> יצרנו כדי שהוא יעזור לנו להציג את השדות.<br><br>עכשיו בואו נציג את השדות.<br><div class="php codeblock">&lt;h1&gt;הירשם&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="re0">$form</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CActiveForm'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt; &nbsp; &nbsp;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>אוקיי, כנראה אתם אומרים לעצמכם כמה דברים: מה הן הפונקציות האלו ולמה זה מציג את הטופס באנגלית באתר?<br>Yii מאפשרת להציג קוד HTML יותר בקלות ע&quot;י פונקציות ב-PHP וגם כדי ש-Yii תזהה את השדות האלו.<br><br>עכשיו הסבר על הפונקציות.<br><div class="php codeblock">textField<span class="br0">&#40;</span> <span class="kw2">Class</span> <span class="sy0">,</span> String <span class="br0">&#41;</span><span class="sy0">;</span></div><br>ב-Class אמורה להיות המחלקה של הטופס. (מה שהוספנו בקונטרולר לרינדור זה המשתנה שאמור להיות שם.)<br>ב-String אמור להיות השם של השדה. ומה אמרנו? כדי שיהיה שדה בטופס צריך ליצור משתנה של השדה, ואם נכניס ב-String שם של שדה שהוא לא משתנה במחלקה של הטופס, נקבל שגיאה.<br>ה-labelEx וה-passwordField גם מקבלים משתנים בצורה כזאת.<br>ה-labelEx מציג את השם של השדה. למה זה באנגלית, אתם שואלים? טוב, בהמשך אנחנו נשנה את זה לעברית.<br><br>עכשיו נוסיף את כפתור שליחת הטופס.<br><div class="php codeblock">&lt;h1&gt;הירשם&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="re0">$form</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CActiveForm'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt; &nbsp; &nbsp;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">submitButton</span><span class="br0">&#40;</span><span class="st_h">'התחבר'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+<span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>הסבר קטן:<br>CHtml זו גם מחלקה שעוזרת בהצגת קודי HTML בעזרת PHP.<br>עכשיו אתם בטח רוצים לשאול למה לא השתמשנו במשתנה form או למה כשהצגנו את השדות לא השתמשנו ב-CHtml. התשובה היא כזאת: מכיוון שהמחלקה CHtml לא נותנת אפשרות למחלקה של הטופס לקלוט את ה-inputs (יש דרך שהיא כן מאפשרת, אבל לא השתמשתי בה.), נשתמש במשתנה form, ולמה אני לא משתמש ב-form להציג את הכפתור? כי כבר אמרתי שבשביל להציג input צריך ליצור משתנה שלו במחלקה של הטופס, ובשביל מה ליצור משתנה חדש?<br><br>עכשיו אפשר לראות שכאשר אנו שולחים את הטופס לא קורה כלום; הוא שולח את הטופס, אבל לא מציג שגיאה ולא מוסיף למסד.<br>לכן בואו נתחיל לעבוד.<br>דבר ראשון נבדוק אם שלחו את הטופס.<br>ב-action נכתוב תנאי, בעזרתו נבדוק אם ה-POST בשם RegisterForm קיים. למה בשם RegisterForm? בגלל שה-RegisterForm זה השם של המחלקה של הטופס.<br><br><span class="dirleft"><span dir="ltr">protected/controllers/AccountController.php</span></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> AccountController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$layout</span> <span class="sy0">=</span> <span class="st_h">'header'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionRegister<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> RegisterForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">'Work!'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'register'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>כתבתי <span dir="ltr">print &apos;Work!&apos;;</span> בשביל לראות אם שליחת הטופס עובדת.<br>תשלחו גם אתם את הטופס, ואם זה מציג Work זה אומר שעד עכשיו עשיתם טוב, ואם לא - חזרו על המדריך שוב.<br><br>עכשיו בואו נעשה שזה יציג Work רק אם אין שגיאות בטופס.<br>לכך יש את הפונקציה validate של המחלקה של הטופס והיא בודקת אם הטופס נשלח ואם אין שגיאות בטופס.<br>אבל לפני זה צריך להגדיר את ה-POST לטופס בעזרת המשתנה של המחלקה של הטופס בשם attributes. נגדיר לו את הטופס כך:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> AccountController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$layout</span> <span class="sy0">=</span> <span class="st_h">'header'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionRegister<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$model</span> <span class="sy0">=</span> <span class="kw2">new</span> RegisterForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">attributes</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'RegisterForm'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">-&gt;</span><span class="me1">validate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">print</span> <span class="st_h">'Work!'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'register'</span><span class="sy0">,</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'model'</span><span class="sy0">=&gt;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו יש לנו בעיה קטנה: בכל פעם שנשלח את הטופס לא נראה את השגיאות, כי אין חוקים לטופס.<br><br>אז קודם כל בואו נציג את השגיאות בדף.<br><div class="php codeblock">&lt;h1&gt;הירשם&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="re0">$form</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CActiveForm'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; [b]<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">errorSummary</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>[/b]<br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt; &nbsp; &nbsp;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">submitButton</span><span class="br0">&#40;</span><span class="st_h">'התחבר'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+<span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>הופנקציה errorSummary מציגה את כל שגיאות שבטופס. אם יהיו עכשיו שגיאות - זה יציג אותם.<br><br>אבל עדיין אם נריץ את הטופס לא נראה שגיאות, כי לא יצרנו עדיין את החוקים.<br>לכן, נפתח את המודל של הטופס ושם ניצור פונקציה חדשה בשם rules שמחזירה מערך שהוא בעצם החוקים.<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> RegisterForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$username</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של שם המשתמש</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password2</span><span class="sy0">;</span> &nbsp;<span class="co1">// השדה של אימות הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// השדה של הדואר האלקטרוני</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$verifyCode</span><span class="sy0">;</span> <span class="co1">// השדה של הקאפצ'ה</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>עכשיו עדיין לא הגדרנו חוקים, אלא רק יצרנו את הפונקציה. לכן, בואו נגדיר את החוקים.<br>אלו החוקים:<br> - שם המשתמש חייב להכיל 4-16 תווים.<br> - שם המשתמש מופיע רק פעם אחת במסד.<br> - הסיסמה חייבת להכיל לפחות 6 תווים.<br> - אימות הסיסמה חייב להיות שווה לסיסמה.<br> - האימייל חייב להופיע רק פעם אחת במסד.<br> - האימייל חייב להיות תקין.<br> - הקאפצ&apos;ה חייבת להיות תקינה. (בהמשך נוסיף אותה.)<br><br>ואנחנו מממשים את זה כך:<br><span class="dirleft"><span dir="ltr">protected/models/RegisterForm.php</span></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> RegisterForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$username</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של שם המשתמש</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password2</span><span class="sy0">;</span> &nbsp;<span class="co1">// השדה של אימות הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// השדה של הדואר האלקטרוני</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$verifyCode</span><span class="sy0">;</span> <span class="co1">// השדה של הקאפצ'ה</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_identity</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="sy0">,</span> <span class="st_h">'length'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'min'</span> <span class="sy0">=&gt;</span> <span class="nu0">4</span><span class="sy0">,</span> <span class="st_h">'max'</span> <span class="sy0">=&gt;</span> <span class="nu0">16</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק את כמות התווים בשם המשתמש</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="sy0">,</span> <span class="st_h">'unique'</span><span class="sy0">,</span> <span class="st_h">'className'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Account'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק אם שם המשתמש לא נמצא במסד</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'length'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'min'</span> <span class="sy0">=&gt;</span> <span class="nu0">6</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בדיקת כמות התווים בסיסמה</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password2'</span><span class="sy0">,</span> <span class="st_h">'compare'</span><span class="sy0">,</span> <span class="st_h">'compareAttribute'</span> <span class="sy0">=&gt;</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודקים אם אימות הסיסמה והסיסמה זהים</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'unique'</span><span class="sy0">,</span> <span class="st_h">'className'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Account'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק אם האימייל לא נמצא במסד</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'checkMX'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">// בודק את התקינות של האימייל</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>כמו שניתן לראות, במערך שאנו מחזירים בפונקציה אנחנו יוצרים מערכים, זאת אומרת מערך בתוך מערך.<br>בכל מערך אנחנו מגדירים את התנאים, ובכל תנאי השדה הראשון הוא השם של השדה, כמו שניתן לראות.<br>הסבר בתווים: array(שם השדה, התנאי, הגדרות).<br>ועכשיו הסבר מפורט:<br><br><strong>length</strong><br>בודק את מספר התווים בשדה. ההגדרות שלו בהם השתמשנו הן min, max ו-allowEmpty. ה-min זו כמות התווים המינימלית של השדה, max זו כמות המקסמלית של התווים ו-allowEmpty זה האם לא לבדוק את השדה אם הערך בו ריק. לדוגמה, אם לא הכנסתי טקסט לשם המשתמש ולא עשיתי ש-allowEmpty יהיה שווה ל-false - הוא לא יבדוק את התנאי.<br><br><strong>unique</strong><br>בודק אם הערך נמצא בטבלה. לדוגמה, בשם משתמש הוא בדק אם שם המשתמש נמצא במסד בטבלה של ה-accounts. ההגדרה שלו היא className, שמקבלת את השם של המודל של הטבלה. בדקנו אם שם המשתמש נמצא בטבלה של ה-accounts ורשמנו את השם של המודל של הטבלה accounts, שלו קוראים Account.<br><br><strong>compare</strong><br>בודק אם שדה מסויים שווה לשדה אחר. במקרה הזה בדקנו אם השדה password2 שווה לשדה password. ההגדרה שלו היא compareAttribute, שמקבלת את השדה אליו הוא צריך להשוות.<br><br><strong>email</strong><br>בודק אם השדה הוא אימייל והוא תקין, ההגדרות שלו הן allowEmpty, שבודקת אם לבדוק אם השדה ריק, וגם checkMX, שבודקת אם הדומיין של האימייל קיים. לדוגמה, אם רשמתי <a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="711409101c011d143106101d1d105f121e1c">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script> הוא יאשר את קיומו, כי walla קיים, אבל אם הייתי רושם <a class="__cf_email__" href="cdn-cgi\l\email-protection-1.htm" data-cfemail="e6839e878b968a83a691878a8a87d4c885898b">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script> זה יכחיש את קיומו (שגיאה), מכיוון ש-walla2 לא קיים.<br><br>יש עוד הרבה תנאים שלא הראיתי. ניתן למצוא אותם <a href="http://www.yiiframework.com/doc/guide/1.1/en/form.model">כאן</a>.<br><br><br>עכשיו בואו נטפל בעניין האנגלית. דבר ראשון נתקן את ה-labels.<br>בשבילו ניצור פונקציה חדשה בשם attributeLabels שהיא גם מחזירה מערך, ושם נגדיר כל שדה ופירושו בעברית.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> RegisterForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$username</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של שם המשתמש</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password2</span><span class="sy0">;</span> &nbsp;<span class="co1">// השדה של אימות הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// השדה של הדואר האלקטרוני</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$verifyCode</span><span class="sy0">;</span> <span class="co1">// השדה של הקאפצ'ה</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_identity</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="sy0">,</span> <span class="st_h">'length'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'min'</span> <span class="sy0">=&gt;</span> <span class="nu0">4</span><span class="sy0">,</span> <span class="st_h">'max'</span> <span class="sy0">=&gt;</span> <span class="nu0">16</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק את כמות התווים בשם המשתמש</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="sy0">,</span> <span class="st_h">'unique'</span><span class="sy0">,</span> <span class="st_h">'className'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Account'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק אם שם המשתמש לא נמצא במסד</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'length'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'min'</span> <span class="sy0">=&gt;</span> <span class="nu0">6</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בדיקת כמות התווים בסיסמה</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password2'</span><span class="sy0">,</span> <span class="st_h">'compare'</span><span class="sy0">,</span> <span class="st_h">'compareAttribute'</span> <span class="sy0">=&gt;</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודקים אם אימות הסיסמה והסיסמה זהים</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'unique'</span><span class="sy0">,</span> <span class="st_h">'className'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Account'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק אם האימייל לא נמצא במסד</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'checkMX'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">// בודק את התקינות של האימייל</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> attributeLabels<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'username'</span> <span class="sy0">=&gt;</span> <span class="st_h">'שם משתמש'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="st_h">'סיסמה'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'password2'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אימות סיסמה'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'email'</span> <span class="sy0">=&gt;</span> <span class="st_h">'דואר אלקטרוני'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'verifyCode'</span> <span class="sy0">=&gt;</span> <span class="st_h">'קוד אבטחה'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>אם תריצו עכשיו את האתר אתם תיראו שזה בעברית, אבל השגיאות עדיין באנגלית, אז בואו נתקן את זה.<br>את זה מגדירים בתנאים שברוב זה עוד הגדרה בשם message, רק שב-length זה מתחלק ל-tooLong (ארוך מדי) ול-tooShort (קצר מידי).<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> RegisterForm <span class="kw2">extends</span> CFormModel<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$username</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של שם המשתמש</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password</span><span class="sy0">;</span> &nbsp; <span class="co1">// השדה של הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$password2</span><span class="sy0">;</span> &nbsp;<span class="co1">// השדה של אימות הסיסמה</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$email</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// השדה של הדואר האלקטרוני</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$verifyCode</span><span class="sy0">;</span> <span class="co1">// השדה של הקאפצ'ה</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_identity</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> rules<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="sy0">,</span> <span class="st_h">'length'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'min'</span> <span class="sy0">=&gt;</span> <span class="nu0">4</span><span class="sy0">,</span> <span class="st_h">'max'</span> <span class="sy0">=&gt;</span> <span class="nu0">16</span><span class="sy0">,</span> <span class="st_h">'tooShort'</span> <span class="sy0">=&gt;</span> <span class="st_h">'מספר התווים בשם המשתמש חייב להיות לפחות 4 תווים'</span><span class="sy0">,</span> <span class="st_h">'tooLong'</span> <span class="sy0">=&gt;</span> <span class="st_h">'בשם המשתמש חייבים להיות עד 16 תווים ולא יותר'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק את כמות התווים בשם המשתמש</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'username'</span><span class="sy0">,</span> <span class="st_h">'unique'</span><span class="sy0">,</span> <span class="st_h">'className'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Account'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'שם המשתמש נמצא במסד'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק אם שם המשתמש לא נמצא במסד</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'length'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'min'</span> <span class="sy0">=&gt;</span> <span class="nu0">6</span><span class="sy0">,</span> <span class="st_h">'tooShort'</span> <span class="sy0">=&gt;</span> <span class="st_h">'מספר התווים בסיסמה חייב להיות לפחות 6'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בדיקת כמות התווים בסיסמה</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'password2'</span><span class="sy0">,</span> <span class="st_h">'compare'</span><span class="sy0">,</span> <span class="st_h">'compareAttribute'</span> <span class="sy0">=&gt;</span> <span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אימות הסיסמה אינו זהה לסיסמה'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודקים אם אימות הסיסמה והסיסמה זהים</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'unique'</span><span class="sy0">,</span> <span class="st_h">'className'</span> <span class="sy0">=&gt;</span> <span class="st_h">'Account'</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'הדואר האלקטרוני נמצא במסד'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">// בודק אם האימייל לא נמצא במסד</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="sy0">,</span> <span class="st_h">'allowEmpty'</span> <span class="sy0">=&gt;</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="st_h">'checkMX'</span> <span class="sy0">=&gt;</span> <span class="kw4">true</span><span class="sy0">,</span> <span class="st_h">'message'</span> <span class="sy0">=&gt;</span> <span class="st_h">'הדואר האלקטרוני אינו תקין'</span><span class="br0">&#41;</span> <span class="co1">// בודק את התקינות של האימייל</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> attributeLabels<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'username'</span> <span class="sy0">=&gt;</span> <span class="st_h">'שם משתמש'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="st_h">'סיסמה'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'password2'</span> <span class="sy0">=&gt;</span> <span class="st_h">'אימות סיסמה'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'email'</span> <span class="sy0">=&gt;</span> <span class="st_h">'דואר אלקטרוני'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'verifyCode'</span> <span class="sy0">=&gt;</span> <span class="st_h">'קוד אבטחה'</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div><br><br>אם אתם רוצים להראות שגיאה רק של שדה מסויים זה לא בעיה. זה הולך כך:<br><div class="php codeblock">&lt;h1&gt;הירשם&lt;/h1&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="re0">$form</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">beginWidget</span><span class="br0">&#40;</span><span class="st_h">'CActiveForm'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &lt;table&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'username'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">passwordField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'password2'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;tr&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">labelEx</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">textField</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;&lt;span style=&quot;color:#ff0000&quot;&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">error</span><span class="br0">&#40;</span><span class="re0">$model</span><span class="sy0">,</span> <span class="st_h">'email'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/span&gt;&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> CHtml<span class="sy0">::</span><span class="me2">submitButton</span><span class="br0">&#40;</span><span class="st_h">'התחבר'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+<span class="kw2">&lt;?php</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">endWidget</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>מחקתי את ה-errorSummary ופשוט הצגתי כל שגיאה ליד השדה שלה.<br>הפונקציה error מקבלת ערכים כמו ב-textField.<br><br>ה-captcha תהיה בחלק ו&apos;, בגלל ש-phpguide מגביל אותי בכמות התווים במדריך. P: </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1372"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/02/2012 20:20</span><br>
+כל הכבוד.. אבל סתם טיפ..<br>
+לפני הצגת השגיאות, הייתי מעדיף לעשות בדיקה האם קיים בכלל שגיאות, ואם אכן קיים, אז ליצור את ה-DIV שאמור לסכם הכל.<br>
+<br>
+בקשר לעברית, זה קצת מוזר להתחיל לכתוב msg לכל שדה, אז אני חושב שכדי כבר לשנות את השפה הראשית של האפליקציה, ואז אתה מקבל את השפה שנמצאת בתיקית he תחת MESSEGES.</div>
+<a id="comment1374"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/02/2012 22:17</span><br>
+יש ב yii כמה סוגי וולדיטורים שאליהו תיאר למעלה.<br>
+אפשר להוסיף קישור לרשימת כל הוולדיטורים וכל הפרמטרים האפשריים שהם מקבלים<br>
+yii validators cheat sheet<br>
+<span dir="ltr"><a href="http://yii.googlecode.com/files/yii-1.1.0-validator-cheatsheet.pdf">http://yii.googlecode.com/files/yii-1.1.0-validator-cheatsheet.pdf</a></span><br>
+<br>
+כמעט לכל וולידטור אפשר לתת פרמטר של message<br>
+עם הודעת שגיאה שתוצג במקרה והוזן תוכן שלא עובר וולידציה.<br>
+<br>
+</div>
+<a id="comment1375"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/02/2012 22:50</span><br>
+אפשר, אבל בשביל לקבל רק עברית.. עם התרגום הברירת מחדל, זה פשוט לשנות את שפת האפליקציה וסאלמת..</div>
+<a id="comment1376"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/02/2012 23:18</span><br>
+תודה על התגובות :) אבל אני צריך לדעת אם המדריך הזה עזר למישהו</div>
+<a id="comment1377"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/02/2012 23:19</span><br>
+אני משתמש 120753 פשוט לא הייתי מחובר</div>
+<a id="comment1379"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/03/2012 15:11</span><br>
+תודה ענקיית אליהו! כל כך חיכיתי להמשך המדריכים :)!</div>
+<a id="comment1382"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/03/2012 22:56</span><br>
+אליהו, תמשיך לכתוב.. רואים שאתה יודע מה שאתה עושה בקוד ולא סתם עובד כמו רובוט. תמשיך ככה.</div>
+<a id="comment1389"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/03/2012 12:51</span><br>
+תודה רבה אליהו! אתה ממש עוזר עם המדריכים האלה!<br>
+תמשיך כך (;<br>
+<br>
+אני כבר מחכה למדריך הבא</div>
+<a id="comment1420"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/03/2012 20:45</span><br>
+תודות!</div>
+<a id="comment1430"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/03/2012 08:09</span><br>
+אחלה מדריך ^^<br>
+<br>
+מחכה להבא!</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

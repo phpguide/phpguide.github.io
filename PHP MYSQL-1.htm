@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מאמר למתחילים המסביר איך להשתמש בבסיס נתונים (מסוג MySQL) בקוד PHP.">
+<meta name="keywords" content="mysqli,procedural,מתחילים">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>PHP + MySQL</title>
+<meta itemprop="name" content="PHP + MySQL">
+<meta itemprop="description" content="מאמר למתחילים המסביר איך להשתמש בבסיס נתונים (מסוג MySQL) בקוד PHP.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"326","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>PHP + MySQL</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">OrelBeY, </div>
+<div class="right">&nbsp;<time datetime="2013-05-11T21:46:28+03:00" dir="rtl">11 למאי 2013</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.dev-explorer.com/images/articles/mysql-stored-procedures-and-mysqli/php_and_mysql_logos.jpg" alt="PHP + MySQL">
+</div>
+<div class="right post-content">
+מאמר למתחילים המסביר איך להשתמש בבסיס נתונים (מסוג MySQL) בקוד PHP.<br>המאמר תורגם מ-<a href="http://www.phpknowhow.com/mysql/mysqli-procedural-functions/">PHPKnowHow</a> (ועבר מספר שינויים). <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+קודם כול, יכול להיות שאתם לא יודעים מה זה בכלל בסיס נתונים (נקרא גם מסד נתונים) או MySQL. אז אני אנסה להסביר על זה בכמה מילים (ואולי ארחיב במאמר נפרד).<br>בסיס נתונים הוא בעצם מקום שבו נשמור נתונים של היישום שלנו - משתמשים (שמות פרטיים, כתובות אימייל...) ודברים בסגנון.<br>בדרך כלל נשתמש ב-MySQL, שזה סוג מסוים של בסיס נתונים שמבוסס על שפת SQL. זו תוכנה, למעשה, ואנחנו צריכים להתקשר אתה. למטרה זו נשתמש בשפה דומה מאוד ל-SQL. <a href="http://www.devschool.co.il/guides/sql/sql_HOME.aspx">אחרי שלמדנו עליה קצת</a>, אנחנו רוצים לדעת איך אנחנו מתקשרים אליה דרך PHP.<br>במאמר הזה נלמד על פונקציות שיעזרו לנו לתקשר עם בסיס נתונים מסוג MySQL.<br><br><h3>mysqli_connect()</h3><br>הפונקציה הזאת משמשת להתחברות אל MySQL. לפני שמשתמשים בבסיס הנתונים צריכים להתחבר אליו. אם ההתחברות הצליחה - הפונקציה תחזיר מזהה link שתוכל להשתמש בו בפונקציות MySQLi אחרות. אם ההתחברות נכשלה - תיזרק שגיאה.<br>בדוגמה הבאה המשתמש robin עם הסיסמה robin123 רוצה להתחבר לבסיס נתונים שנקרא company_db ב-localhost. למשתמש robin צריכה להיות הרשאת גישה אל company_db.<br><div class="php codeblock"><span class="re0">$link</span> <span class="sy0">=</span> <span class="kw3">mysqli_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'robin'</span><span class="sy0">,</span> <span class="st_h">'robin123'</span><span class="sy0">,</span><span class="st_h">'company_db'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אם פורט ה-MySQL שלך שונה מברירת המחדל (3308), אתה צריך להעביר את מספר הפורט כפרמטר החמישי.<br><br><h3>mysqli_connect_error()</h3><br>כמו שהוזכר מקודם, הפונקציה mysqli_connect() זורקת שגיאה אם יש ההתחברות נכשלת. mysqli_connect_error() מחזירה את השגיאה בקריאה האחרונה ל-mysqli_connect(). אם לא הייתה שגיאה, היא תחזיר NULL.<br>על מנת לראות איך זה עובד, עצור את שרת ה-MySQL וקרא ל-mysqli_connect(). אם הצגת שגיאות PHP מופעלת, אתה תראה שגיאה שכוללת מידע כמו זו למטה. mysqli_connect_error() הייתה מחזירה את אותה הודעה.<br><div class="php codeblock">Can’t connect to <span class="kw3">MySQL</span> server on ‘localhost’</div><br>בפועל, <a href="טיפול_בשגיאות.htm">זה לא טוב לאפשר הצגת שגיאות כאלה למשתמשים שלך</a>. (שגיאות עלולות להכיל מידע רגיש ולהיראות טכניות.)<br>לכן נניח פה שמנעת הצגת שגיאות PHP. אנחנו עדיין רוצים לטפל בשגיאה, ולמטרה זו נשתמש ב-mysqli_connect_error() כדי לדעת מה השגיאה, ואז נטפל בה. המבנה הכללי הוא כזה:<br><div class="php codeblock"><span class="re0">$link</span> <span class="sy0">=</span> <span class="kw3">mysqli_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'robin'</span><span class="sy0">,</span> <span class="st_h">'robin123'</span><span class="sy0">,</span> <span class="st_h">'company_db'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">mysqli_connect_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">!==</span> <span class="kw4">NULL</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="re0">$logMessage</span> <span class="sy0">=</span> <span class="st_h">'MySQL Error: '</span> <span class="sy0">.</span> <span class="kw3">mysqli_connect_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// עכשיו שמור את השגיאה בקובץ או שלח אימייל למפתח</span><br>
+&nbsp; <span class="co1">// והצג לגולש הודעה נחמדה בלי נתונים רגישים.</span><br>
+<span class="br0">&#125;</span></div><br><br><h3>mysqli_select_db()</h3><br>על מנת להחליף את בסיס הנתונים שבשימוש באחד אחר, קרא לפונקציה mysqli_select_db(). לדוגמה דמיין לעצמך של-robin יש הרשאות גישה גם לבסיס נתונים בשם company_new_db, ועכשיו הוא רוצה לבצע עליו פעולות.<br><div class="php codeblock"><span class="re0">$link</span> <span class="sy0">=</span> <span class="kw3">mysqli_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'robin'</span><span class="sy0">,</span> <span class="st_h">'robin123'</span><span class="sy0">,</span> <span class="st_h">'company_db'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// using company_db</span><br>
+<br>
+<span class="kw3">mysqli_select_db</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="sy0">,</span> <span class="st_h">'company_new_db'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// using company_new_db</span></div><br>שים לב לפרמטר הראשון של הפונקציה - מזהה ה-link שהוחזר מ-mysqli_connect. רוב פונקציות MySQLi הפרוצדורליות יעבדו בצורה הזאת.<br>הפונקציה mysqli_select_db() מחזירה TRUE אם הכול הולך כשורה, ו-FALSE אם היא נכשלת. קודם לכן למדנו על זיהוי שגיאות התחברות וטיפול בהן. בהמשך נלמד על טיפול בשגיאות MySQLi נוספות.<br><br><h3>mysqli_close()</h3><br>כדי לסגור את החיבור לבסיס הנתונים תוכל להשתמש בפונקציה mysqli_close(). כמו הפונקציה הקודמת שלמדנו, גם זאת תחזיר TRUE אם הפעולה תצליח, ו-FALSE אם הפעולה תיכשל.<br>PHP יסגור חיבורים פתוחים וישחרר את המשאבים עם סיום ביצוע הקוד, אבל זה הרגל טוב להשתמש ב-mysqli_close() אחרי ביצוע הפעולות על בסיס הנתונים על מנת לשחרר את המשאבים מיד.<br><br><h3>mysqli_query()</h3><br>זו הפונקציה המשמשת לביצוע שאילתות MySQL. היא מחזירה FALSE אם ביצוע השאילתה נכשל. עבור שאילתות MySQL כמו SELECT (כשיש פלט, תוצאה) היא מחזירה מזהה של סט תוצאה (תרגום חופשי של result set indentifier), שיכול להיות מועבר לפונקציות כמו mysqli_fetch_array(). עבור שאילתות כמו INSERT ו-UPDATE היא מחזירה TRUE אם השאילתה בוצעה בהצלחה.<br><br><h3>mysqli_fetch_array()</h3><br>הפונקציה mysqli_fetch_array() משמשת לקריאת נתונים מ-result set indentifier, שמוחזר על ידי mysqli_query().<br>הפונקציה מחזירה שורה אחת של נתונים כמערך ואז מעבירה את המצביע (pointer) לשורה הבאה. (בקריאה הבאה ל-mysqli_fetch_array(), הפונקציה תחזיר את השורה הבאה, וכן הלאה.)<br>כשאין עוד שורות להחזיר, היא מחזירה NULL. עקב ההתנהגות הזאת, בדרך כלל משתמשים בפונקציה הזאת בלולאת while, כמו בדוגמה הבאה:<br><div class="php codeblock"><span class="co1">// לאחר ההתחברות לבסיס הנתונים</span><br>
+<span class="co1">// התוצאה של השאילתה נמצאת במשתנה result</span><br>
+<br>
+<span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysqli_fetch_array</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">!==</span> <span class="kw4">NULL</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="co1">// כל עוד יש נתונים, המשתנה row יהיה מערך.</span><br>
+<span class="co1">// אם אין יותר נתונים, row נעשה NULL, והלולאה מסתיימת.</span><br>
+<span class="br0">&#125;</span></div><br><br>יש לציין שהפונקציה תגדיר ערכים של שדות NULL ל-NULL של PHP. (כך שזה לא יהיה מחרוזת &quot;NULL&quot; או משהו כזה, אלא כמו כל NULL ב-PHP.)<br><br>בוא נניח שטבלת ה-employee הבאה זמינה בבסיס הנתונים שלנו, שנקרא company_db:<br><img src="static\images\pixel.png" alt="PHP + MySQL" title="http://img853.imageshack.us/img853/8362/employeetable.png" class="content-image-float"><br><br>הקוד הבא מראה כיצד לאחזר (&quot;לשלוף&quot;) את ה-IDs, את השמות הפרטיים ואת שמות המשפחה מהטבלה שלנו וכיצד להשתמש בהם.<br><div class="php codeblock"><span class="co1">// לאחר ההתחברות לבסיס הנתונים</span><br>
+<br>
+<span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">&quot;SELECT 'id', 'first_name', 'last_name' FROM 'employee'&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysqli_fetch_array</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">!==</span> <span class="kw4">NULL</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'. '</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">' '</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="co1">// נלמד בהמשך</span><br>
+<span class="kw3">mysqli_free_result</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">mysqli_close</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הקוד הזה ידפיס את השורות הבאות:<br><div class="php codeblock"><span class="nu0">1</span><span class="sy0">.</span> Robin Jackman<br>
+<span class="nu0">2</span><span class="sy0">.</span> Taylor Edward</div><br><h4>אפשר גם מערך אסוציאטיבי?</h4><br>נוסף על ערכים עם מפתחות מספריים, הפונקציה mysqli_fetch_array() מחזירה גם ערכים עם מפתחות מסוג מחרוזת, התואמים לשמות העמודות בטבלה. לפיכך, קטע הקוד הבא (יחד עם ההתחברות וביצוע השאילתה) יחזיר את אותה התוצאה כמו קטע הקוד הקודם.<br><div class="php codeblock"><span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">!==</span><span class="kw4">NULL</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'. '</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'first_name'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">' '</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'last_name'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><h4>בחירת סוג המערך</h4><br>אם אתה מעוניין לקבל מערך עם מפתחות מסוג אחד בלבד, אתה יכול להעביר ערך נוסף (מסוג int) בתור הפרמטר השני של mysqli_fetch_array(). לרשותך עומדים הקבועים הבאים:<br>MYSQLIֹ_BOTH - ערך ברירת המחדל. מחזיר את שני סוגי המפתחות.<br>MYSQLI_NUM - מחזיר מערך ממופתח (עם ערכים מספריים).<br>MYSQLI_ASSOC - מחזיר מערך אסוציאטיבי (עם ערכים מסוג מחרוזת).<br><br>PHP מספק גם שתי פונקציות להשגת התוצאה הרצויה בלי להעביר פרמטר שני לפונקציה: mysqli_fetch_row() פועל כאילו הועבר MYSQLI_NUM, ו-mysqli_fetch_assoc(), שפועל כאילו הועבר MYSQLI_ASSOC.<br>שתי הפונקציות האלה מקבלות את הפרמטר הראשון שמקבל mysqli_fetch_array().<br><br><h3>mysqli_free_result()</h3><br>לאחר שימוש בסט תוצאה של שאילתה, מומלץ לשחרר את הזיכרון המשומש לשמירתו. את זה ניתן להשיג על ידי שימוש ב-mysqli_free_results():<br><div class="php codeblock"><span class="kw3">mysqli_free_result</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h3>mysqli_num_rows()</h3><br>הפונקציה mysqli_num_rows() מחזירה את מספר השורות ב-result set. באמצעות שימוש בה, אתה יכול לפעול אחרת אם אין תוצאה:<br><div class="php codeblock"><span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">mysqli_num_rows</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// יש לפחות תוצאה אחת</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="co1">// אין תוצאות</span><br>
+<span class="br0">&#125;</span></div><br><br><h3>mysqli_affected_rows()</h3><br>הפונקציה mysqli_affected_rows() מספק מידע על שאילתת ה-MySQL האחרונה שבוצעה.<br>עבור שאילתות כמו INSERT ו-UPDATE, התוצאה תהיה מספר השורות שהושפעו. (שורות שנוספו, שעודכנו, שנמחקו, וכן הלאה.) עבור SELECT, התוצאה תהיה מספר השורות שהוחזרו מהשאילתה.<br>ערכים מיוחדים הם 0 ומינוס אחד. 0 יוחזר במקרה שהשאילתה לא תאמה שום שורה, במקרה שהשאילתה לא השפיעה על שום שורה, או במקרה שעדיין לא בוצעה שאילתה. -1 מציין שהשאילתה החזירה שגיאה.<br><br>עכשיו נראה דוגמה לשימוש ב-mysqli_affected_rows(). בקטע הקוד נריץ שאילתת UPDATE על מנת לעדכן את שם המשפחה של Taylor בטבלה employee. אנו מזהים את השורה שלו בטבלה באמצעות ה-ID, שהוא ייחודי לו, ולכן אנחנו יודעים שרק שורה אחת אמורה להתעדכן.<br><div class="php codeblock"><span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">&quot;UPDATE 'employee' SET 'last_name' = 'Adams' WHERE 'id' = 2&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="sy0">,</span> <span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">mysqli_affected_rows</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="br0">&#41;</span> <span class="sy0">===</span> <span class="nu0">1</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// קוד נוסף</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="co1">// הצג הודעת שגיאה</span><br>
+<span class="br0">&#125;</span></div><br><br><h3>mysqli_error()</h3><br>אם הייתה שגיאה בפונקציה האחרונה שיכולה להיכשל או להצליח, הפונקציה mysqli_error() תחזיר מחרוזת המתארת את השגיאה. אם לא חלה שגיאה, היא תחזיר מחרוזת ריקה.<br><br><h3>mysqli_real_escape_string()</h3><br>לכמה תווים יש משמעות מיוחדות במשפטי SQL. לדוגמה, מירכאות בודדות תוחמות מחרוזות. זה אומר שאם משפט ה-SQL שלך מכיל את התווים המיוחדים האלה, ואתה לא מעוניין להשתמש בתפקיד שלהם, אתה צריך להבריח אותם לפני ביצוע השאילתה. את זה אפשר לעשות באמצעות הפונקציה mysqli_real_escape_string().<br>הקריאה הבאה ל-mysqli_query תחזיר FALSE כיוון שהגרש ב-O&#039;Neil לא הוברח.<br><div class="php codeblock"><span class="re0">$name</span> <span class="sy0">=</span> <span class="st0">&quot;O'Neil&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">&quot;SELECT 'id' FROM 'employee' WHERE 'last_name' = '<span class="es4">$name</span>'&quot;</span><span class="sy0">;</span><br>
+<span class="kw3">mysqli_query</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="sy0">,</span> <span class="re0">$query</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>זה לא היה קורה אם היינו מבריחים את התווים המיוחדים האלה קודם:<br><div class="php codeblock"><span class="re0">$name</span> <span class="sy0">=</span> <span class="kw3">mysqli_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$link</span><span class="sy0">,</span> <span class="st0">&quot;O'Neil&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אם שאילתות ה-SQL שלך מבוססות על מידע מהמשתמש, זה תמיד יהיה רעיון טוב להשתמש בפונקציה הזאת עליו, מכיוון שהוא עלול להכיל את התווים המיוחדים האלה.<br><br>עניין נוסף הוא שמידע מהמשתמש עלול להכיל ניסיונות למציאת פרצות אבטחה, לעתים באמצעות שימוש בתווים מיוחדים כדי לבצע פעולות זדוניות. הברחת מידע מהמשתמש היא השלב הראשון למניעת פרצות אבטחה מהסוג הזה. פרצת האבטחה הזאת נקראת <a href="SQL_Injection.htm">SQL Injection (הזרקת SQL), ותוכל לקרוא עליה פה באתר</a>.<br><br><h3>הערה</h3><br>הרשיתי לעצמי לערוך את המאמר המקורי. שיניתי, למשל, את הטיפול הפרימיטיבי בשגיאות, כמו השימוש ב-error suppression (האופרטור @) וב-die(). </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=16&r=g&d=monsterid" alt="OrelBeY">
+<a>OrelBeY</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2476"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/05/2013 19:32</span><br>
+בשביל מה להשתמש בפונקציות רגילות<br>
+אפשר פשוט להשתמש בmysql_<br>
+כל היופי בmysqli זה המחלקות...</div>
+<a id="comment2477"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/05/2013 19:50</span><br>
+בעיקרון תרגמתי את זה בעקבות בקשה של אלכס:<br>
+<span dir="ltr"><a href="q1401\שליפת עמודה ספציפית תוכן משאילתה ולאחר מכן פרסום בPHP.htm#answer_6214">http://phpguide.co.il/q1401/שליפת עמודה ספציפית תוכן משאילתה ולאחר מכן פרסום בPHP.htm#answer_6214</a></span><br>
+כמו שהוא ציין בהערה שלו וכמו שציינתי כאן למעלה, ההרחבה MySQL עומדת לצאת מ-PHP, ובכל מקרה יש ל-MySQLi לא מעט יתרונות עליה, גם אם לא מחשיבים את העניין של ה-OOP. אתה יכול לראות את ההשוואה פה:<br>
+<span dir="ltr"><a href="http://php.net/manual/en/mysqli.overview.php">http://php.net/manual/en/mysqli.overview.php</a></span><br>
+וכמו שאמרתי בהתחלה, זה מיועד למתחילים, מה שאומר שאני לא הולך לסבך אותם עם OOP כרגע. :-)</div>
+<a id="comment2478"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/05/2013 00:41</span><br>
+בגלל שאין יותר דבר כזה mysql_*</div>
+<a id="comment2479"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/05/2013 00:44</span><br>
+מאמר מעולה.<br>
+אהבתי את הדוגמאות שבאות אפילו עם ציורים של טבלאות.<br>
+לדעתי מה שמיותר פה זה ההסבר על mysql, השוואה בינו לבין זה, למה נכתבה הכתבה וכו&apos;.<br>
+בן אדם שמתחיל לקרוא את המדריך לא יודע שום דבר על מה שהיה וזה גם לא אמור לעניין אותו.<br>
+<br>
+בנוסף, אם היה הסבר של פסקה-שניים על למה יש מסד נתונים ואיך באופן כללי עובדת PHP עם מסד<br>
+בכלל היה סופר מדהים. להתחיל ישר מפירוט של פונקציות עוד לפני שממש ברור מה הולכים לעשות איתן - מקשה על ההבנה.</div>
+<a id="comment2480"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/05/2013 14:18</span><br>
+אני מעדיף להשתמש בPDO.</div>
+<a id="comment2481"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/05/2013 17:40</span><br>
+נראה מעולה. אני חושב שראוי להזכיר prepared statements בפסקה שדיברת בה על sql injection.</div>
+<a id="comment2482"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/05/2013 20:58</span><br>
+תודה רבה על הפידבקים. אלכס - צודק, אני אערוך בהקדם. iiddaannyy - כמובן. אוסיף בקרוב. :-)</div>
+<a id="comment2483"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/05/2013 12:50</span><br>
+אלכס, ערכתי. עכשיו זה נראה בסדר?<br>
+@iiddaannyy - אוסיף בהקדם. :-)</div>
+<a id="comment2484"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/05/2013 01:03</span><br>
+אוראל המדריכים שלך טובים מאד אבל אני מרגיש שאתה יכול לנצל את הזמן והכשרון שלך לנושאים יותר מתקדמים ... סתם לכתוב מדריך על API די פשוט של מסד נתונים זה בזבוז של זמן, במיוחד שהדוקומנטציה מרחיבה על הנושא מעל ומעבר.</div>
+<a id="comment2485"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/05/2013 02:49</span><br>
+ליאור,<br>
+קודם כול - תודה על המחמאה. :-)<br>
+אני לא לגמרי מסכים אתך. אני בהחלט חושב שאני צריך לכתוב על נושאים מתקדמים, חדשים או כאלה שאנשים בדרך כלל לא מכירים, אבל באותה מידה לכתוב גם למתחילים. זה לא פחות חשוב. אם היית אומר לי לקרוא את הדוקומנטציה או מאמרים באנגלית גם כמה חודשים אחרי שהתחלתי ללמוד - הייתי מנפנף אותך. בעיקר בהתחלה, קשה לרובנו לקרוא טקסטים כאלה באנגלית, והמטרה שלי פה היא לעזור.<br>
+יש לי תכנונים גדולים למאמרים שאני הולך לכתוב או לתרגם. (אם כי תמיד צצים נושאים חדשים ומעניינים, ואז אני נשאב אליהם... D:) אבל התכנונים האלה ייקחו לי הרבה זמן ליישם, בין השאר כי אין לי יותר מדי זמן פנוי ביום-יום. אז אולי זה לא נראה כל כך מאורגן, אבל יש מאסטר-פלאן. D:</div>
+<a id="comment2486"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/05/2013 04:37</span><br>
+הסוד האמיתי זה לא לכתוב מה שאתה רוצה, אלה מה שאנשים רוצים לקרוא :)<br>
+ואחד הדברים שחסרים לאנשים ובאינטרנט הישראלי - זה נושאי העבודה עם מסד.</div>
+<a id="comment2487"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/05/2013 13:31</span><br>
+<span dir="ltr"><a href="https://www.google.co.il/#safe=off&amp;site=&amp;source=hp&amp;q=mysqli+%D7%9E%D7%93%D7%A8%D7%99%D7%9A&amp;oq=mysqli+%D7%9E%D7%93%D7%A8%D7%99%D7%9A&amp;gs_l=hp.3..0.470.2790.0.3004.14.13.1.0.0.0.277.1501.3j6j2.11.0...0.0...1c.1.14.hp.irXECruuJy4&amp;bav=on.2,or.r_cp.&amp;bvm=bv.46751780,d.d2k&amp;fp=c4e22645d91cc0c&amp;biw=1920&amp;bih=955">https://www.google.co.il/#safe=off&amp;site=&amp;source=hp&amp;q=mysqli מדריך&amp;oq=mysqli מדריך&amp;gs_l=hp.3..0.470.2790.0.3004.14.13.1.0.0.0.277.1501.3j6j2.11.0...0.0...1c.1.14.hp.irXECruuJy4&amp;bav=on.2,or.r_cp.&amp;bvm=bv.46751780,d.d2k&amp;fp=c4e22645d91cc0c&amp;biw=1920&amp;bih=955</a></span><br>
+אין מדריכים? הצחקת אותי.<br>
+<br>
+אם כבר אין מדריכים לMVC, ולכן אני הרמתי את הכפפה לזמן קצר אך לא המשכתי אם זה (אין לי מושג למה האמת).</div>
+<a id="comment2488"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/05/2013 11:50</span><br>
+אם מישהו יהיה מוכן לכתוב כמה פסקאות על שימוש בסיסי ב-prepared statements אני אשמח מאוד. לא ממש יצא לי לכתוב.</div>
+<a id="comment2489"></a>
+<div class="blog-comment">
+<span class='comment-author'>zacharya</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/05/2013 00:38</span><br>
+אפשר להבין משהו?<br>
+כתוב לך שם בשליפה כלשהי:<br>
+</div>
+<a id="comment2490"></a>
+<div class="blog-comment">
+<span class='comment-author'>zacharya</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/05/2013 00:39</span><br>
+מצטער התגובה הקודמת נשלחה בלי שסיימתי ^_^<br>
+טוב, אז כתוב לך באחת השליפות:<br>
+$row = mysqli_fetch_array($result);<br>
+אבל משתנה השליפה היה query, אולי פיספסתי משהו?<br>
+<br>
+אה ובשליפה בmysqli לפי מה שהבנתי לא משתמשים יותר בmysql_query בשליפה נכון?</div>
+<a id="comment2491"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/05/2013 03:26</span><br>
+הוספתי הערה שבקוד הזה התוצאה נמצאת במשתנה result. :-)<br>
+זה לא MySQLi. ונכון, לא משתמשים בזה. ב-MySQLi יש עוד קטן בסוף (בשם של הפונקציה הספציפית הזאת).</div>
+<a id="comment2496"></a>
+<div class="blog-comment">
+<span class='comment-author'>ToMeRiKo</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2013 05:09</span><br>
+WAMP לא תומך בזה משום מה יש לך מושג למה ?<br>
+</div>
+<a id="comment2497"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/06/2013 21:11</span><br>
+למה אתה מתכוון כשאתה אומר ש-Wamp לא תומך בזה? אגב, יהיה נכון יותר לפרסם את זה באזור השאלות.</div>
+<a id="comment2498"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2013 01:12</span><br>
+כנראה האקסטנשן לא מופעל.<br>
+</div>
+<a id="comment2501"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/06/2013 03:41</span><br>
+זה קצת מוזר, כי בו&apos;ינדוס זה מגיע מופעל.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מה זה עוגיות קוקיס, איך הם פועלות ואיך ליצור אותם עם php">
+<meta name="keywords" content="cookies, קוקיס, קוקיז, setcookie">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>כל האמת על קוקיס</title>
+<meta itemprop="name" content="כל האמת על קוקיס">
+<meta itemprop="description" content="מה זה עוגיות קוקיס, איך הם פועלות ואיך ליצור אותם עם php">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"92","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>כל האמת על קוקיס</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-05-15T19:52:01+03:00" dir="rtl">15 למאי 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/cookiepost.png" alt="כל האמת על קוקיס">
+</div>
+<div class="right post-content">
+המנגנון של קוקיס מתגלה. הסבר ברור על איך הכל עובד, מה זה קוקיס ואיך לאכול את העוגיות כדי שלא יכאב בבטן או במקום אחר <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+קוקי זה כמו מדבקה. הדפדפן פעם ראשונה ניגש אל השרת, השרת לוקח מדבקה, כותב עליה <strong>שם=אלכס</strong>, מדביק אותה על המצח של הדפדפן ומעכשיו כל פעם שהדפדפן בא אל השרת, הוא יכול לקרוא את התוכן של המדבקה.<br><br>הדפדפן יכול להחליט לכתוב לעצמו משהו על המדבקה (כשהוא בבית והשרת לא רואה אותו) ובפעם הבאה כשייפגש עם השרת, השרת יקרא את כל התוכן החדש שיהיה כתוב שם.<br><br>הדפדפן יכול למחוק משהו מהמדבקה כשהשרת לא רואה. הוא יכול להוסיף לה משהו או לשנות בה משהו והשרת יקרא את מה שיהיה כתוב בה כשהם יפגשו שוב.<br><br><br><h3>השרת לא זוכר שום דבר</h3><br>הדרך (השפה) שבה הדפדפן והשרת מדברים נקראת פרוטוקול http. השפה הזאת לא נותנת אפשרות לשמור מידע על החיבור. כל פעם שדפדפן ניגש לשרת, השרת לא יודע אם זה אותו אחד שהיה כאן לפני שניה, אתמול בערב או זה אותו דפדפן מלפני חודש.<br><br>מטרתם של העוגיות היא לאפשר סוג של זיכרון. השרת ידביק על הדפדפן מדבקה - אתה משתמש מספר 1. וכל פעם שאותו דפדפן יבוא עם המדבקה, השרת יוכל לקרוא אותה ולהגיד: <em>אאאההה, ממצב משתמש מס&#039; 1</em> ?<br><br><h4>מדבקה, כמעט</h4><br>השוני היחידי ממדבקה, היא שהשרת לא יכול להדביק שום דבר על הדפדפן. אינו לו שליטה עליו. השרת <strong>יכול לבקש</strong> מהדפדפן להדביק על עצמו מדבקה. לבקש מהדפדפן ליצור לעצמו קוקי.<br><br>כדי לומר לדפדפן ליצור קוקי השרת משתמש ב-header הבא:<br><div class="php codeblock">Set<span class="sy0">-</span>Cookie<span class="sy0">:</span> name<span class="sy0">=</span>Alex</div><br>הדפדפן מקבל מהשרת את הפקודה הזאת, יוצר לעצמו מדבקה וכותב עליה name=Alex. <br>כל פעם שהוא יפנה אל השרת הזה מאתה, הוא יבוא אם המדבקה הזו.<br><br><br><br><h3>יצירת קוקי</h3><br>ב-php קיימת פונקציה מיוחדת להדבקת מדבקות <a href="http://php.net/setcookie">setcookie</a>. היא מקבלת די הרבה פרמטרים. בואו נראה איך להשתמש בה.<br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span> <span class="st_h">'Alex'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הפקודה הזו גורמת לשרת לייצר את ה-header שתואר מעלה ולשלוח אותו לדפדפן.<br>המדבקה שתיווצר תוצמד לכל פניה של הדפדפן אל השרת מרגע יצירתה ועד סוף העולם או מחיקת הדפדפן (הראשון מביניהם בכל אופן), אלה אם נשתמש בפרמטר השלישי של הפונקציה:<br><br><br><br><h3>תוקפה של קוקי</h3><br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span> <span class="st_h">'Alex'</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">3600</span> <span class="br0">&#41;</span><span class="sy0">;</span></div><br>הפרמטר השלישי הוא השניה שבה תוקפו של הקוקי יפוג. <br><br>הזמן במערכות מחשב לרוב מחושב בשניות מאז נקודת התחלת ספירה כלשהי. הגיוני לחשוב שיש לספור את כמות השניות מאז שנת אפס לספירה, אבל כמות השניות שעברה ב2000 שנה האחרונות גדולה מדי, לכן החליטו להשתמש בנקודת הייחוס של הזמן בתאריך <span dir="ltr">01/01/1970 00:00:00</span>.<br><br>למשל כמות השניות שעברה מאז תחילת 1970 עד רגע כתיבת הודעה זו היא 1305488755 שניות. הפונקציה time() מחזירה את המספרה הזה. כמות השניות שעברו מאז תחילת 1970. <br><br>הפרמטר השלישי של הפונקציה setcookie היא השנייה שבה הקוקי אמור לפוג. בשנייה הזו הדפדפן יוריד מעצמו את המדבקה. השנייה הזו היא גם יחסית לתחילת 1970, לכן מחברים לרגע הנוכחי עוד 3600 שניות וזו תהיה השנייה שתבוא בעוד שעה.<br><br>אם לא ניתן ערך לפרמטר השלישי (או ניתן את הערך 0) תוקפו של הקוקי יהיה עד סגירת חלון הדפדפן (לא הטאב, אלה הדפדפן). <br><br><br><br><h3>תיקיה של קוקי</h3><br>משום מה קוקי שנוצר בתיקיה אחת phpguide.co.il/directory/index.php לא יהיה זמין לשרת בכתובת בתיקיה אחרת phpguide.co.il/another/index.php . כנראה שהדפדפנים החליטו להתחכם ולא באים לשרת עם המדבקה כשפונים לתיקיה אחרת.<br><br>לפעמים זה טוב, כשיש לכם פורום בתיקיה <span dir="ltr">phpguide.co.il/forum/</span> (ובאמת יש אחד כזה, תבדקו אותי). אבל לפעמים אתם רוצים שקוקי שהוגדר בתיקיה מסוימת בכל זאת יהיה נגיש בכל מקום באתר.<br><br>הפרמטר הרביעי ממלא בדיוק את הפונקציה הזו:<br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span> <span class="st_h">'Alex'</span><span class="sy0">,</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">3600</span> <span class="sy0">,</span> <span class="st_h">'/'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>סלאש יחיד מסמן זמינות של קוקי בכל תיקיות האתר. <br>אפשר לרשום ישירות את שם התיקיה אם רוצים /forum/.<br>אם לא נגדיר ערך זה, הערך ברירת מחדל תהיה התיקיה שבה נמצא הסקריפט שיוצר את הקוקי. <br><br><br><br><h3>קריאת קוקי</h3><br>אחרי שיצרנו את הקוקי אפשר לקרוא אותו לתוך משתנה.<br>את כל הנתונים מהקוקי שהדפדפן מגיעה איתם, php שמה במערך <span dir="ltr">$_COOKIE</span><br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span> <span class="st_h">'Alex'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br><br>הפעילו את הקוד ונסו לחשוב למה בטעינה הראשונה של העמוד לא הופיע בו שום דבר?<br>תשובה בצבע לבן:<br><br><span style="color:#EFEFF8;">הסיבה היא שבפעם הראשונה הדפדפן בה אל השרת בלי שום מדבקה. php לא ראתה שום נתונים כדי לשים במערך. לאחר מכן השרת ביקש לשים מדבקה ובזה הפגישה הראשונה ביניהם הסתיימה. אחרי שלחצנו f5 הדפדפן ניגש אל השרת שוב, הפעם עם תוכן במבדקה. php קראה אותו ושמה במשתנה <span dir="ltr">$_COOKIE</span> שהדפסנו.</span><br><br><br><br><br><h3>מונה כניסות</h3><br>בואו נספור כמה פעמים ביקרנו בעמוד מסוים. <br>קיוויתי שתוכלו לעזור לי לכתוב את הקוד.<br><br>הקוד צריך לבדוק האם כבר קיים קוקי:<br> אם לא, כלומר זה כניסה ראשונה של הדפדפן — ליצור קוקי חדש עם הערך 1.<br> אם כן, לקרוא את הערך, להגדיל אותו באחד וליצור קוקי חדש עם אותו שם, שידרוס את הקוקי הישן.<br>אחרי הכל להדפיס את הערך למסך עם המילים: זה הביקור ה X שלך בעמוד.<br><br>יש מצב שהתשובה תהיה בתגובות, <br>אבל לא קראתם את כל זה בשביל להעתיק את התשובה מהתגובות, נכון?<br><br><br><br><br><h3>אבטחת קוקי</h3><br>הקוקי כולו נמצא אצל הדפדפן. הוא יכול לשנות את הערך שלו, למחוק אותו, להוסיף לשם נתונים ולעשות כל שברצונו עם הקוקי שלכם. לא ממש רצוי לשמור שם נתונים סודיים, כי גם לקרוא אותו לא כל כך קשה.<br><br>אחרי שלחצתם 15 פעמים f5 במונה ספירות שלכם, כנסו ל<span class="dirleft"><br>Firefox: Options -&gt; Privacy Tab -&gt; Remove individual cookies<br>Chrome: Options -&gt; Under the hood -&gt; Content settings -&gt; All cookies and site data<br>Opera: Menu -&gt; Settings -&gt; Preferences -&gt; Advanced tab -&gt; Cookies -&gt; Manage Cookies<br>Internet Explorer: getfirefox.com -&gt; Firefox 4 free download<br></span><br>ב firefox למשל ממש קל לשנות את הערך של הקוקי.<br>הגדילו את מונה הכניסות שלכם ב 100 וכנסו לעמוד המונה שלכם שוב. <br>נו, איך?<br><br>עכשיו שנו את תוכן הקוקי שלכם למילה &quot;hello&quot; וכנסו שוב לעמוד המונה. קיבלתם שגיאה או תוצאה לא צפויה? לא הייתם מוכנים לערך לא מספרי בקוקי שלכם? הזהרו.<br><br>הצלחתי להעביר את המסר שעל <span style="color:red;">קוקי אי אפשר לסמוך</span>?<br>עכשיו החלק שבו אני אומר לכם:<br>תשמרו בקוקי נתונים לתווך הארוך.<br><br>נחמד לשמור את שם המשתמש והסיסמה ובקוקי:<br>אם הוא יחליט למחוק אותם — בסדר, יצטרך להזדהות באתר שוב.<br>אם הוא ינסה לשנות אותם, האתר יבדוק את השם והסיסמה, יבין שהם לא נכונים והמשתמש רק יתבאס. את השם והסיסמה של מישהו אחר הוא ממילא לא יודע.<br><br>קוקי מקום שמירה מצוין לנתונים שלא אכפת לכם אם המשתמש ינסה לשנות.<br><br>רק תעשו טובה, אל תשמרו בקוקי את שם המשתמש והסיסמה. מישהו אחר פשוט ייגש למחשב, יפתח את רשימת הקוקי, יעתיק את הנתונים וילך לבצע מעשים זדוניים.<br><br>+ נתונים רגישים לא צריכים להיות בקוקי, כיוון שקוקי יכול להיגנב על ידי פרצת הבטחה ספציפית. ובכלל בשביל נתונים רגישים <span style="color:green;">והזדהות קיים מנגנון הסשנים,</span> שאליו נגיע בפרק הבא (<span style="color:gray;">אחרי שתכתבו מונה כניסות כמובן</span> =). </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment125"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/05/2011 22:54</span><br>
+תודה רבה אלכס, קראתי את כל המאמר, מאמר מצוין, תודה.<br>
+עכשיו יש לי שאלה אליך, נגיד ויש לי פורום,<br>
+איך בעצם אני ידע אם המשתמש מחובר או לא?<br>
+אני בד&quot;כ מביא עוגייות, אחת - ID המשתמשים, שתיים - סיסמת המשתמש(מוצפנת).<br>
+<br>
+באיזה תחליף להשתמש? תודה רבה.</div>
+<a id="comment126"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/05/2011 22:58</span><br>
+התחליף הוא להשתמש בסשן, שהוא מנגנון שמירת נתונים זמניים בצידו של השרת. כרגע אין לי מדריך טוב לתת לך על זה בעברית, אבל תוכל לקרוא על זה באנגלית באתר של php.net אם תרצה.</div>
+<a id="comment127"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2011 00:09</span><br>
+ומה לגבי Session Hijacking ?</div>
+<a id="comment128"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2011 08:44</span><br>
+אספר גם על זה ואיך לכתוב נכון כדי לא לפחד מ session hijacking</div>
+<a id="comment129"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2011 14:50</span><br>
+תודה רבה אלכס. מתי בערך אתה תפרסם את המדריך(כלומר, מתי תכתוב אותו)?</div>
+<a id="comment130"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2011 15:15</span><br>
+תרשם לעשדכונים במייל ואתה תהיה הראשון לדעת על פרסומו :-)</div>
+<a id="comment131"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/05/2011 16:49</span><br>
+Done :) תודה אלכס.</div>
+<a id="comment1058"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/01/2012 21:57</span><br>
+session hijacking זה פריצה בדפדפן</div>
+<a id="comment1059"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/01/2012 23:09</span><br>
+זה לא פריצה בדפדפן, זה xss שגונב לך את הקוקי.<br>
+לקרוא על זה אפשר כאן: <br>
+<span dir="ltr"><a href="Cross_Site_Scripting.htm">http://phpguide.co.il/Cross_Site_Scripting.htm</a></span></div>
+<a id="comment1062"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/01/2012 23:54</span><br>
+יש כמה סוגי התקפות מסוג session hijacking. יותר נכון, תת התקפות. זה לא בהכרח xss. פשוט צריך להחליף id בכל פנייה וזה בקרוב המקרים פותר את הבעיה.</div>
+<a id="comment1164"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 10:13</span><br>
+לא הבנתי משהו:<br>
+אני רוצה להשתמש באתר בקוקי ולא בסשן-כדי שזה ישמר לו גם לפעמים הבאות,כמו זכור אותי.<br>
+אז אם לא להעביר שם שם וסיסמה(מוצפנת),אז איך כן לעשות את זה???</div>
+<a id="comment1165"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 10:19</span><br>
+ועוד הוספה קטנה למה לא יהיה בעיית אבטחה:<br>
+אם זה מהמחשב האישי שלו-אז רק לו יש גישה לקוקי ואם יש לעוד מישהו אז זה בעייה שלו שפרצו לו למחשב ...<br>
+ואם זה ממחשב ציבורי - אז הוא יצטרך ללחוץ התנתקות בשביל לצאת מהאתר כדי שאחד אחר לא יוכל להיכנס על חשבונו,ובלחיצה על התנתקות הקוקי נמחק!</div>
+<a id="comment1166"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 11:01</span><br>
+אתה יכול להשתמש גם וגם, אף אחד לא מגביל אותך.<br>
+לתווך הקצר מידע על המשתמש תשמור בסשן. בקוקי תשמור שם משתמש ושם ושם משתמש מוצפן (ראה תגובות לכתבה <span dir="ltr"><a href="SESSION.htm">http://phpguide.co.il/SESSION.htm</a></span> )<br>
+</div>
+<a id="comment1167"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 11:14</span><br>
+הנה אז אתה מסכים שבקוקי שומרים: שם משתמש וסיסמא מוצפנת?</div>
+<a id="comment1168"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 13:23</span><br>
+לא. תשמור שם משתמש ושם משתמש מוצפן<br>
+ID ו ID מוצפן או כל מזהה אחר. לא צריכה להיות שם סיסמה של משתמש ואין שום סיבה שתהיה שם.</div>
+<a id="comment1169"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 14:50</span><br>
+אבל אתה צריך להבין,שאם אני שומר נתונים בקוקי שהם יזהו את המשתמש.<br>
+אז זה כבר לא משנה האם זה שם וסיסמה(מוצפנת), או שזה id ומזהה אחר מוצפן.<br>
+<br>
+##למקרה שלא הבנת אז: הזיהוי לאתר הוא ע&quot;י מה שבקוקי גם לשיטתך וגם לשיטתי. רק מה לשים שם?-כבר לא ממש משנה כי אם יש לו את הקוקי הוא יתחבר בין אם יש שם שם ובין אם יש שם מספר מזהה... </div>
+<a id="comment1171"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 15:36</span><br>
+<span dir="ltr"><a href="phplive-2.htm?code=249">http://phpguide.co.il/phplive?code=249</a></span> </div>
+<a id="comment1173"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/01/2012 15:40</span><br>
+לא הבנתי מה באת להראות בקוד,תוכל להסביר (בקצרה)?</div>
+<a id="comment1362"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/02/2012 23:15</span><br>
+המדריכים שלך פשוט מעולים תודה.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

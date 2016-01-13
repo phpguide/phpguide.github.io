@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה Traits - משתנים סטטיים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>Traits - משתנים סטטיים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="Traits - משתנים סטטיים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה Traits - משתנים סטטיים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="Traits  משתנים סטטיים-1.htm" title="בעמוד הדוקומנטציה על Traits (המדהים, אגב) כתוב:Static variables can be referred to in trait methods, but cannot be defined by the trait. Traits can, however, define static methods for the exhibiting class">Traits - משתנים סטטיים</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2013-05-03T14:19:26+03:00" style="display:inline-block;">
+03 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1416'>
+ב<a href="http://php.net/manual/en/language.oop5.traits.php">עמוד הדוקומנטציה על Traits</a> (המדהים, אגב) כתוב:<br><div class="php codeblock">Static variables can be referred to in trait methods<span class="sy0">,</span> but cannot be <span class="kw3">defined</span> by the trait<span class="sy0">.</span> Traits can<span class="sy0">,</span> however<span class="sy0">,</span> <span class="kw3">define</span> static methods <span class="kw1">for</span> the exhibiting <span class="kw2">class</span><span class="sy0">.</span></div><br>ניסיתי להגדיר משתנים סטטיים (ומאפיינים סטטיים) ב-Traits, וזה עבד לי מעולה. כנראה פספסתי משהו. מישהו יכול להסביר לי את זה בבקשה? </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6276">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6276" href="Traits  משתנים סטטיים-1.htm#answer_6276">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה מדבר על משתנים סטטיים בתוך מתודות. לא על מאפייני מחלקה.<br><br>המסקנה ממה שהם כותבים היא שמשתנה סטטי בתוך מתודה ב-trait לא יהיה זהה בכל המחלקות שמשתמשות באותו trait.<br>אם תראה את הדוגמה שאחרי שני המשפטים שהבאת, תוכל לראות שמודפס פעמיים 1. במקום 1 ואז 2, כפי שאולי היינו מצפים משום שהמשתנה הוא סטטי.<br><br>אבל זה כבר מובן מאליו ברגע שאתה מבין ששימוש ב-trait הוא פשוט העתקה של תוכן ה-trait אל תוך המחלקה שלנו. </p>
+</div>
+<div class="answer" id="answer6277">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6277" href="Traits  משתנים סטטיים-1.htm#answer_6277">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן, את זה הבנתי. ההסבר שלהם על זה לא ממש לא ברור. תודה. -) </p>
+</div>
+<div class="answer" id="answer6279">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6279" href="Traits  משתנים סטטיים-1.htm#answer_6279">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אגב בד&quot;כ נהוג לכנות משתנים בתוך קלאס כ-property, אז לרוב אם יכתבו variables כנראה לא יתייחסו למשתנים של הקלאס/טרייט/וואטאבר (כשהערך מדובר על oo כמובן) </p>
+</div>
+<div class="answer" id="answer6281">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 03 למאי 2013 </span>
+<a id="answer_6281" href="Traits  משתנים סטטיים-1.htm#answer_6281">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הנה משהו שפספסתי. תודה לך. :-) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

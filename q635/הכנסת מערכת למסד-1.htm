@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הכנסת מערכת למסד">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_238505">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הכנסת מערכת למסד | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הכנסת מערכת למסד | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הכנסת מערכת למסד">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הכנסת מערכת למסד-1.htm" title="לדוגמה את זה$reg = array&amp;#40;
+&apos;username&apos; =&amp;gt; $_POST&amp;#91;&apos;username&apos;&amp;#93;,
+&apos;pass&apos; =&amp;gt; $_POST">הכנסת מערכת למסד</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_238505</a>
+,
+<time class="timeago relativetime" datetime="2012-06-13T05:54:32+03:00" style="display:inline-block;">
+13 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText635'>
+לדוגמה את זה<br><div class="php codeblock"><span class="re0">$reg</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+<span class="st_h">'username'</span> <span class="sy0">=&gt;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span><span class="sy0">,</span><br>
+<span class="st_h">'pass'</span> <span class="sy0">=&gt;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'pass'</span><span class="br0">&#93;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ואני רוצה להכניס את זה למסד את כל המערך<br><br>username זה השם של העמודה<br>אותו דבר גם לדבי pass </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2524">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/6addd3b25a5cec42e29142166b3b6b34?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_225492</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2524" href="הכנסת מערכת למסד-1.htm#answer_2524">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אתה מתכוון למסד הנתונים אז ככה..<br><br>המסד נתונים עובד בצורה של KEY VALUE <br><br>זאת אומרת שאתה צריך לדעת לאיזה KEY לדחוף איזה VALUE ..<br><br>בגדול בטבלה שלך זה יראה כ<br><br>שם משתמש ||| סיסמא<br>משה 1234<br><br>אז אתה יכול להכניס מערך שלם בשורת ה INSERT אבל זה לא ייתן כלום..ולא תוכל לעבוד עם זה<br><br>אתה צריך להכניס לuser את מה שיש ביוזר ולPASS מה שיש בPASS<br><br>דרך אגב רצוי כל קלט מהמשתמש מפני XSS ואינג&#039;קשן </p>
+</div>
+<div class="answer" id="answer2525">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/814e6cffc837c67fb35e6c68d4ed5014?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238505</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2525" href="הכנסת מערכת למסד-1.htm#answer_2525">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פשוט ראותי שב PHPBB עושים ככה </p>
+</div>
+<div class="answer" id="answer2527">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f82ecce40dd4f5e993bd29585ef22608?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238610</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2527" href="הכנסת מערכת למסד-1.htm#answer_2527">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה יכול לעבוד עם unserialize\serialize או json.<br>להמיר בשמירה למחרוזת (string) ולהמיר חזרה למערך (array) בשליפה.<br><br>דוגמא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <br>
+&nbsp; <span class="coMULTI">/*INSERT****************************************************************************/</span><br>
+&nbsp; <span class="re0">$reg</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st_h">'username'</span> <span class="sy0">=&gt;</span> <span class="st_h">'foo'</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st_h">'pass'</span> <span class="sy0">=&gt;</span> <span class="st_h">'bar'</span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$insertReg</span> <span class="sy0">=</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="kw3">serialize</span><span class="br0">&#40;</span><span class="re0">$reg</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `table_name` (`row_id`, `column_name`) VALUE ('1234', '<span class="es4">{$insertReg}</span>');&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="coMULTI">/*SELECT****************************************************************************/</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT `column_name` FROM `table_name` WHERE `row_id`='1234' LIMIT 1;&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$reg</span> <span class="sy0">=</span> <span class="kw3">unserialize</span><span class="br0">&#40;</span><span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'column_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw3">var_dump</span><span class="br0">&#40;</span><span class="re0">$Reg</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2536">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85441949cbcbb27d4e408b76005d28a3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_238774</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2536" href="הכנסת מערכת למסד-1.htm#answer_2536">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא בדיוק עוזר..<br>בPHPBB איך הם עושים את זה? </p>
+</div>
+<div class="answer" id="answer2537">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 ליוני 2012 </span>
+<a id="answer_2537" href="הכנסת מערכת למסד-1.htm#answer_2537">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בדיוק כמו שמשתמש_225492 אמר. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

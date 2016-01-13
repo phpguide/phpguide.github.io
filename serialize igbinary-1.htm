@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="[PHP] הסבר על תהליך הסריאליזציה והחלפת Serialize ב-igbinary.">
+<meta name="keywords" content="igbinary, serialize, json, session">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Igbinary וסריאליזציה עם Serialize</title>
+<meta itemprop="name" content="Igbinary וסריאליזציה עם Serialize">
+<meta itemprop="description" content="[PHP] הסבר על תהליך הסריאליזציה והחלפת Serialize ב-igbinary.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"216","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Igbinary וסריאליזציה עם Serialize</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-06-18T13:33:18+03:00" dir="rtl">18 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/serialize.jpg" alt="Igbinary וסריאליזציה עם Serialize">
+</div>
+<div class="right post-content">
+Serialization הוא תהליך של הפיכת אובייקט למחרוזת שאפשר לשמור במסד או לשלוח דרך הרשת. ב-PHP יש פונקציה מובנית בדיוק בשביל זה, והיא נקראת <a href="http://php.net/serialize">Serialize</a>, שבה, בין היתר, משתמש מנגנון הסשן. ומה אם אני אומר שזו אחת הפונקציות האיטיות והלא יעילות שיש, אבל יש חלופה? <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>מה זה סריאליזציה?</h3><br>נניח שאנחנו צריכים לקחת את המערך <span dir="ltr">[1, 2, &#039;hi&#039;]</span> ולשמור אותו בקובץ או לשלוח אותו בתור הודעה לתוכנית אחרת באינטרנט. השאלה שעולה היא – איך לעשות את זה, הרי כל מה שאנחנו יכולים לשלוח או לשמור בקובץ זה רק טקסט? אני בטוח שעלית על הפתרון, שאומר – צריך לרשום את המערך בצורה טקסטואלית.<br><br>סריאליזציה היא פעולה של רישום אובייקט בצורת מחרוזת, והפונקציה <a href="http://php.net/serialize">Serialize</a> עושה בדיוק את זה.<br>המערך מהדוגמה הקודמת שלנו יקבל את הצורה הבאה אחרי סריאליזציה:<br><div class="php codeblock">a<span class="sy0">:</span><span class="nu0">3</span><span class="sy0">:</span><span class="br0">&#123;</span>i<span class="sy0">:</span><span class="nu0">0</span><span class="sy0">;</span>i<span class="sy0">:</span><span class="nu0">1</span><span class="sy0">;</span>i<span class="sy0">:</span><span class="nu0">1</span><span class="sy0">;</span>i<span class="sy0">:</span><span class="nu0">2</span><span class="sy0">;</span>i<span class="sy0">:</span><span class="nu0">2</span><span class="sy0">;</span>s<span class="sy0">:</span><span class="nu0">2</span><span class="sy0">:</span><span class="st0">&quot;hi&quot;</span><span class="sy0">;</span><span class="br0">&#125;</span></div><br>למי שיודע קצת אנגלית לא תהיה שום בעיה לפענח את זה ככה:<br><div class="php codeblock">a<span class="sy0">:</span><span class="nu0">3</span><span class="sy0">:</span><span class="br0">&#123;</span> <span class="co1">// array, size 3</span><br>
+&nbsp; i<span class="sy0">:</span><span class="nu0">0</span><span class="sy0">;</span>i<span class="sy0">:</span><span class="nu0">1</span><span class="sy0">;</span> <span class="co1">// index: 0, value: (integer) 1</span><br>
+&nbsp; i<span class="sy0">:</span><span class="nu0">1</span><span class="sy0">;</span>i<span class="sy0">:</span><span class="nu0">2</span><span class="sy0">;</span> <span class="co1">// index 1, value: (integer) 2</span><br>
+&nbsp; i<span class="sy0">:</span><span class="nu0">2</span><span class="sy0">;</span>s<span class="sy0">:</span><span class="nu0">2</span><span class="sy0">:</span><span class="st0">&quot;hi&quot;</span><span class="sy0">;</span> <span class="co1">// index 2, value (string, length 2) &quot;hi&quot;</span><br>
+<span class="br0">&#125;</span></div><br>מסובך, ארוך, וכל זה בשביל מערך עם שלושה איברים? למה אנחנו לא יכולים לרשום <span dir="ltr">[1, 2, &#039;hi&#039;]</span> וזהו?<br><br><h3>JSON</h3><br>JSON, או בשמו המלא JavaScript Object Notation, הוא דרך לרישום אובייקטים שהגיע במקור משפת &quot;נחשו לבד&quot;, בזכות הקריאות שלה לבן אדם וקוצר הכתיבה שלה. מהר מאוד היא זכתה לפופולריות ובצדק. תראו איך ייראה המערך שלנו כשהוא מקודד ב-JSON באמצעות הפונקציה <a href="http://php.net/json_encode">json_encode</a>:<br><div class="php codeblock"><span class="br0">&#91;</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">2</span><span class="sy0">,</span><span class="st0">&quot;hi&quot;</span><span class="br0">&#93;</span></div><br>בדיוק ככה. סוגרים מרובעים מסמנים מערך, מספרים הם מספרים, מחרוזות בגרשיים, וכל זה לפי הסדר. הרבה יותר קריא, קצר ומהיר יותר ליצירה וךפענוח. אבל האמת היא שזה ממילא נשמר בסשן, ולכן למה שזה יהיה קריא?<br><br><h3>Igbinary</h3><br>Igbinary הוא דרך רישום נוסף של נתונים בצורה בינארית ולא טקסטואלית. לדוגמה, בטח שמעת שמספרים תופסים בזיכרון בדרך כלל 4 בתים. אם היינו שומרים מספר כמו 123456789 בתור מחרוזת, היינו תופסים הרבה יותר – את כל תשעת הבתים.<br><br>Igbinary הוא הרחבה ל-PHP שמאפשרת לשמור את הסשן בצורה בינארית, כך שהמקום שהוא יתפוס יהיה הרבה יותר נמוך ומהירות העיבוד תהיה גבוהה יותר משמעותית, וכל זה בזכות ההימנעות מפענוח טקסט ועבודה ישירה עם סוגי הנתונים המתאימים.<br><br>גרף השוואות המהירויות נראה ככה:<br><img src="static\images\pixel.png" alt="Igbinary וסריאליזציה עם Serialize" title="http://ncdn.phpguide.co.il/blogimages/igbinary.png" class="content-image-float"><br><br>Compact היא אופציה של Igbinary לדחוס את המידע עוד יותר אחרי ההמרה. היא אמנם מורידה את אורך התוצאה, אבל מוסיפה עוד פעולה ביצירה ובפענוח שעושות את התהליך אף איטי יותר מ-Serialize רגיל. הבחירה בין מקום לביצועים נשארת בידכם אחרי ההתקנה, שדורשת <a href="http://www.metod.si/how-to-install-igbinary-serializer-for-php/">קצת קימפולים בלינוקס</a>. למי שיש Windows או שלא רוצה לשמוע את המילה קימפולים יכול לחפש בגוגל איפה אפשר להוריד את php_igbinary.dll לגרסת ה-PHP שלו.<br><br>אחרי ההתקנה יש לשנות את הקונפיגורציה של php.ini לשימוש ב-Igbinary בצורה הבאה:<br><div class="php codeblock">session<span class="sy0">.</span>serialize_handler <span class="sy0">=</span> igbinary</div><br>בנוסף, Igbinary יכול לשמש גם ב-APC או ב-Memcached לפני השמירה, וההתקנה בשבילם היא אפילו בגדר חובה, כיוון שכמות הסריאליזציות ש-PHP עושה במקרים האלה ממש לא קטנה.<br><br>דבר זה הוא מסוג השינויים שכדאי לעשות בשרת הפרודאקשן שלכם ואין ממש טעם לעשות בשרתי Wamp, שממילא כיוון השדרוגים הרצוי בשבילם הוא לא ביצועים. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1657"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_242770</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 16:47</span><br>
+או פשוט להשתמש ב implode</div>
+<a id="comment1658"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 17:13</span><br>
+נחמד.<br>
+אבל לא מצעתי לזה הרבה שימושים...</div>
+<a id="comment1659"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 17:36</span><br>
+@razand<br>
+כשאתה עובד לדוגמה מול השרת עם ajax, ואתה מקבל מסה גדולה של נתונים, json פשוט מצילה אותך.<br>
+לדוגמה בצ&apos;אט, אתה רוצה לקבל את רשימת ההודעות החדשות של כל משתמש. עם כל הודעה אתה רוצה לקבל את השולח, את הזמן ואת תוכן ההודעה. בהנחה שיש *רק* 25 הודעות חדשות, איך אתה רוצה להעביר אותן? json היא הדרך הכי טובה במקרה הזה.</div>
+<a id="comment1660"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 18:21</span><br>
+השימוש היחידי שלה זה סריאליזציה של נתונים בסשן / memcached / apc<br>
+אי אפשר להחליף עם זה את json בעבודה מול client כי אין שום דבר בקליינט שמסוגל לפענח או לייצר את זה, וגם אין דרך להפעיל את הפונקציה הזו בצורה עצמאית.</div>
+<a id="comment1661"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 18:35</span><br>
+אם אתה מדבר על הקליינט, אין בעיה עם json.</div>
+<a id="comment1662"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/06/2012 23:24</span><br>
+כל הכבוד! כתבה מצויינת,<br>
+השתמשתי בעבר הרחוק ב serialize הרגיל, <br>
+אין על JSON</div>
+<a id="comment1671"></a>
+<div class="blog-comment">
+<span class='comment-author'>PHPDeveloper</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2012 00:05</span><br>
+אלכס אתה גדול, תודה!</div>
+<a id="comment1930"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/09/2012 19:36</span><br>
+חשוב מאוד לציין כמה דברים בנוגע ל-json.<br>
+<br>
+- json_encode לא זוכרת מאיזו מחלקה נוצר האובייקט. כשנבצע decode כל אובייקט ייחשב כמופע של stdClass.<br>
+<br>
+- אי אפשר לעבוד עם sleep__ ועם wakeup__ עם json.<br>
+<br>
+- רק מאפיינים ציבוריים יעברו סריאליזציה עם json.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

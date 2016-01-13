@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה extends למחלקה בתוך הקוד?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="PHPDeveloper">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>extends למחלקה בתוך הקוד? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="extends למחלקה בתוך הקוד? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה extends למחלקה בתוך הקוד?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">3</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="extends למחלקה בתוך הקוד.htm" title="הייאף פעם לא נתקלתי באפשרות הזו אבל האם היא קיימת?יש לי מחלקה של קונטרולר שהיא נוצרת ברגע שהראוטר קולט את הURL של השם הספציפי (אגב אלכס זה עובד, כמה תיקוני קוד פשוטים ;) ), עכשיו אני לא רוצה שאנשים ייצטרכו לעשות אקסטנדס מראש למחלקה של הקונטרולר אלא אני רוצה לעשות דרך הקוד שלי בפריימוורק.. משהו כמו זה $dada = new Controller&amp;#40;&amp;#41;">extends למחלקה בתוך הקוד?</a></h2>
+<div class="userinfo">
+פתח
+<a>PHPDeveloper</a>
+,
+<time class="timeago relativetime" datetime="2012-12-14T10:35:57+02:00" style="display:inline-block;">
+14 לדצמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1131'>
+היי<br><br>אף פעם לא נתקלתי באפשרות הזו אבל האם היא קיימת?<br>יש לי מחלקה של קונטרולר שהיא נוצרת ברגע שהראוטר קולט את הURL של השם הספציפי (אגב אלכס זה עובד, כמה תיקוני קוד פשוטים ;) ), עכשיו אני לא רוצה שאנשים ייצטרכו לעשות אקסטנדס מראש למחלקה של הקונטרולר אלא אני רוצה לעשות דרך הקוד שלי בפריימוורק.. משהו כמו זה <div class="php codeblock"><span class="re0">$dada</span> <span class="sy0">=</span> <span class="kw2">new</span> Controller<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw2">extends</span> exController</div><br><br>מישהו יכול לומר לי רעיון איך לעשות את זה? </div>
+</div>
+<h3>
+<span id="answersCounter">3 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4945">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לדצמבר 2012 </span>
+<a id="answer_4945" href="extends למחלקה בתוך הקוד.htm#answer_4945">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בצורה שרשמת - אין אפשרות.<br>מה הבדל בין לכתוב את ה extends בקובץ של הגדרת המחלקה לאומת לכתוב את ה extends בקובץ של השימוש במחלקה?<br>יש מצבים שבהם אתה רוצה מחלקה Controller שהיא <strong>לא</strong> יורשת מ exController?<br><br>לא הבנתי בכלל למה אתה רוצה לעשות את זה.<br>אין שום בעיה להגדיר את תכונות ההורשה בזמן שמגדירים את המחלקה עצמה. זה אינטויטיבי, ברור וזה המקום שבו זה אמור להיות. </p>
+</div>
+<div class="answer" id="answer4948">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4e4f20cf39acbf62d3c9787713a5ffaa?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>PHPDeveloper</a>
+ב
+<span style="font-size:10px"> 15 לדצמבר 2012 </span>
+<a id="answer_4948" href="extends למחלקה בתוך הקוד.htm#answer_4948">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש מקרים שבהם הקונטרולר אמור להוריש ממחלקה שונה מהברירת המחדל הרגילה. יש לי בקוד מזהה שבודק במה עוסק הקונטרולר וכך הוא <strong>אמור </strong>להכניס אוטומטית את ההורשה מאב מחלקה אחרת על פי הנדרש.. </p>
+</div>
+<div class="answer" id="answer4949">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 15 לדצמבר 2012 </span>
+<a id="answer_4949" href="extends למחלקה בתוך הקוד.htm#answer_4949">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז תעשה שני מחלקות אב והמשתמש יבחר לבד ממה לרוש<br>או שבפונקציות של מחלקת האב תוסיף לעצמך איזה דגל ותשנה את ההתנהגות של המחלקה בהתאם.<br>או שתעיף את הפונקציונליות השונה ממחלקת האב. היא לא אמורה להיות שם. זה לא המטרה של הורשה </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

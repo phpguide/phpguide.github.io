@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="HHVM - הדבר הגדול הבא">
+<meta name="keywords" content="hhvm, hiphop php">
+<meta name="author" content="raslin">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>HHVM - הדבר הגדול הבא</title>
+<meta itemprop="name" content="HHVM - הדבר הגדול הבא">
+<meta itemprop="description" content="HHVM - הדבר הגדול הבא">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"365","rating":"12","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>HHVM - הדבר הגדול הבא</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">raslin, </div>
+<div class="right">&nbsp;<time datetime="2014-04-12T09:24:36+03:00" dir="rtl">12 לאפריל 2014</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://hhvm.com/wp-content/themes/hhvm/hhvm.png" alt="HHVM - הדבר הגדול הבא">
+</div>
+<div class="right post-content">
+ישנם כמה דברים שהחלט עשו שינוי משמעותי בעולם ה php, ה OOP למשל, composer, ועוד כמה מהפכות,<br>אשמח לספר לכם על הבא בתור, hhvm. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+ישנם כמה דברים שהחלט עשו שינוי משמעותי בעולם ה php, ה OOP למשל, composer, ועוד כמה מהפכות,<br>אשמח לספר לכם על הבא בתור, HHVM. <br><br> HipHop PHP נוצרה ע״י הצוות של פייסבוק במטרה לחסוך משאבים בשרתי החברה. <br> פייסבוק שכמו שרובכם ידעתם, כתובה ב php, וכוללת הרבה קוד, סליחה, המון קוד!<br> שפת ה php עם כל הנוחות שבה, היא לא שפה שקרובה למכונה כמו c++,<br>ועל כן לא מסוגלת לרוץ ולהיות חסכונית במשאבים כמוהה.  אז מה עושים? לשכתב הכל ל c++ זה לא ריאלי מאחר ומדובר במיליוני שורות. <br><br>אז כן, הפרוייקט HIPHOP PHP, קיים כבר שנים, האמת מאז 2008, והיה מתרגם כל פעם את כל הקוד ל c++ (HPHPc),<br> הבעיה, שהתהליך הזה לקח שעות,  אומנם הקוד בסוף רץ יותר,<br> אבל עבור המפתחים זה היה נורא. <br><br>לכן פייסבוק יצרו גירסא שלא מקמפלת את כל הקוד כל הזמן (HPHPi), <br>וגם גירסא שמתאימה לפיתוח לוקאלי (HPHPd), אנחנו ב 2012,<br> ו HPHPi היה הצלחה מאוד גדולה עבור פייסבוק, הם קיבלו שיפור מאסיבי בביצועים,<br> אך בעותה העת תמכו בגירסא 5.2 של php עם כמה הסתיגויות ודברים מסויימים שלא כל כך עבדו.  ב2011,<br> פייסבוק פתחו את hhvm (hiphop virtual machine) כקוד פתוח לציבור, <br>וביטלו את hphpc (מה שמקמפל לשפת c++),<br> hhvm כבר יודע לקמפל קוד של php תוך כדי ריצה, וואו! כש hhvm הוצג לראשונה,<br> הוא כבר תמך ב php 5.4 כמעט ב100%. <br>(תמיכה מלאה ב 5.5 אוטוטו)  בגירסא 2.3 של hhvm הוצגה היכולת בשימוש fast CGI,<br> כך שמי שמשתמש ב nginx עם php-fpm יכול בקלות להלביש את hhvm ואפילו לבחור איזו בקשה לנתב לאן, <br>(כמו שאני עשיתי, ותכף נסתכל על זה)  הקהילה של hhvm גדלה, <br>ויש הרבה הרחבות, שמחליפות הרחבות רגילות של php, ונכנסות ישר לתוך HHVM, <br>ונותנות לנו עוד שיפורי ביצועים (לחובבי ה mongo, תוסף ה MongoDB קיים ל HHVM)  לפי נתונים של פייסבוק, <br>ניתן לקבל פי 5 יותר ביצועים, פי 5???<br> על אותו שרת אני יכול לשרת פי 5 יותר משתמשים?<br> נשמע טוב מכדי להיות אמיתי, החלטתי לבדוק בעצמי, כי עד שאני לא בודק, לא מאמין לאף אחד.  <br><br>לצורך הבדיקה, העליתי שרת עליו התקנתי רק nginx + php-fpm + mysql  עם ההרחבות המקובלות ל php.    <br>כדי שנוכל לקבל תמונה איכותית יותר, העליתי 2 שרתים, <br><br>שרת אחד קטן: <br>ubuntu server 13 <br>ליבה אחת<br> 512 mb ram<br> כונן ssd  <br><br>שרת אחד חזק:<br> ubuntu server 13<br> 4 ליבות<br> 8גיגה ראם <br>כונן ssd  <br><br>מניסיון, תוכנות מסוימות לפעמים יכולות להתנהג שונה בסביבות חזקות-חלשות יותר,<br> לרוב שרתים גדולים מטשטשים הבדלים, ובכל זאת נבדוק את זה,<br>כמובן שהתאמתי את ההגדרות של ה nginx בשרת החזק שיעבוד עם 4 ליבות.  <br><br>נתחיל עם ההתקנה של hhvm<br><br><div class="php codeblock">  wget <span class="sy0">-</span>O <span class="sy0">-</span> http<span class="sy0">:</span><span class="co1">//dl.hhvm.com/conf/hhvm.gpg.key | apt-key add -</span><br>
+<span class="kw1">echo</span> deb http<span class="sy0">:</span><span class="co1">//dl.hhvm.com/ubuntu saucy main | tee /etc/apt/sources.list.d/hhvm.list</span><br>
+apt<span class="sy0">-</span>get update<br>
+apt<span class="sy0">-</span>get install hhvm</div><br><br><br>  וכעט נפעיל את hhvm כ deamon<br><div class="php codeblock"> service hhvm start</div><br><br>  יש לי 2 קבצים ב site-available של nginx, אחד רגיל, והשני משתמש ב hhvm, כדי להשתמש ב hhvm החליפו את הבלוג הרגיל שמזהה php ב<br><br><div class="php codeblock">   &nbsp; &nbsp; &nbsp; &nbsp;location ~ \<span class="sy0">.</span>php$ <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fastcgi_pass 127<span class="sy0">.</span>0<span class="sy0">.</span>0<span class="sy0">.</span>1<span class="sy0">:</span><span class="nu0">9000</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fastcgi_index index<span class="sy0">.</span>php<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fastcgi_param SCRIPT_FILENAME <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nginx<span class="sy0">/</span>html<span class="re0">$fastcgi_script_name</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">include</span> fastcgi_params<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>    (שימו לב, הקבצים שלי יושבים ב /usr/share/nginx/html)  <br><br>כעט יש לי 2 כתובות, אחת מריצה לי את האתר רגיל, <br>והאחרת תפעיל לי את האתר עם hhvm,  כיצד תדעו ש hhvm פועל?<br> ב response של כל בקשה לשרת תקבלו: X-Powered-By:HHVM/3.0.1<br>  (כמובן, עם מספר הגירסא שלכם)  <br><br>חשוב להזכיר, בגירסאות קודמות של HHVM יכולתם להריץ שרת מובנה משלכם,<br> ללא שימוש ב Nginx או Apache, כל זה השתנה בגירסא 3, <br>וכעת זה מתלבש כ fast CGI על Nginx או Apache, שזה מעולה, ככה יש לנו את היכולות הנהדרות של שניהם.    <br><br><strong>כיצד מתבצעת הבדיקה  </strong><br><br>החלטתי לבדוק על 2 השרתים, את שני הדברים הבאים:<br> קוד אחד שנותן לי x (מאות אלפים) מספרים בסדרת פיבונ׳צאי, <br>שזו עבודה קצת מאסיבית עם מספרים ומערכים.<br><br> והבדיקה היותר רצינית: בלוג של וורדפרס, שבו יש הכל מהכל!  <br>אז בסך הכל יש לנו 4 טסטים שונים, שכל אחד מהם אני אריץ 3 פעמים ליתר ביטחון לוודא שאין (ולא צריכות להיות) הפרעות ברקע.  <br><br>חשוב: אני לא בודק כמה זמן קוד רץ, מבדיקות שערכתי ב hhvm זה רץ מהר יותר, אבל זה לא הכל. <br>אני עושה בדיקת ab של Apache, זו הבדיקה המקובלת לבדוק עמידות של שרת, ובעיקר בכמה בקשות לשניה אני יכול לתמוך (מי שלא מכיר את הבדיקה, תכף יבין הכל)<br><br>    ניסיתי בכל מיני תצורות והתוצאות פחות או יותר זהות, <br><div class="php codeblock">ab <span class="sy0">-</span>n <span class="nu0">1000</span> <span class="sy0">-</span>c <span class="nu0">100</span> http<span class="sy0">:</span><span class="co1">//… </span></div><br><br>(1000 בקשות, 100 במקביל)<br><br><strong>       Nginx + php </strong><br><br>כעת נבדוק את המצב הרגיל, nginx + php-fpm,<br>  הקובץ בסך הכל כולל פונקציה שמחזיקה x ספרות בסידרת פיבונאצ׳י, (200 אלף במקרה שלנו), <br>הרבה מספרים, חישובים, ומערך אחד גדול בעיקר.<br><br>  תוצאה בשרת הקטן:<br><div class="php codeblock">Requests per second<span class="sy0">:</span> &nbsp; &nbsp;<span class="nu19">15.02</span></div><br><br>תוצאה בשרת הגדול:<br><div class="php codeblock">Requests per second<span class="sy0">:</span> &nbsp; <span class="nu19">55.93</span></div><br><br>אתר הוורדפרס :<br><br>  תוצאה בשרת הקטן:<br><div class="php codeblock">Requests per second<span class="sy0">:</span> &nbsp; <span class="nu19">24.79</span></div><br><br>תוצאה בשרת הגדול:<br><div class="php codeblock">Requests per second<span class="sy0">:</span> &nbsp;<span class="nu19">92.98</span></div><br><br><strong>       Nginx + hhvm </strong><br><br>  תוצאה בשרת הקטן:<br><div class="php codeblock">Requests per second<span class="sy0">:</span> &nbsp; <span class="nu19">80.61</span></div><br>בשרת הגדול: <br><div class="php codeblock">Requests per second<span class="sy0">:</span> &nbsp; <span class="nu19">229.84</span></div><br><br>אתר הוורדפרס <br>  תוצאה בשרת הקטן:<br><div class="php codeblock">Requests per second<span class="sy0">:</span> &nbsp; &nbsp;<span class="nu19">55.51</span></div><br>בשרת הגדול: <br><div class="php codeblock">Requests per second<span class="sy0">:</span> &nbsp; <span class="nu19">171.33</span></div><br><br><br>אז ככה,<br>  התוצאות בשרת הקטן: <br>קוד הפיבונ׳צאי יכול לשרת פי 5.33 יותר בקשות עם hhvm <br>בעוד קוד הוורדפרס יותר מורכב, ועדיין ניתן לשרת פי 2.2 יותר בקשות!  <br><br>התוצאות בשרת החזק: קוד הפיבונ׳צאי: <br> יכול לשרת בדיוק פי 4.16 יותר בקשות עם hhvm<br> וורדפרס: פי 1.85 יותר בקשות<br><br>   בהחלט שווה לשים לב להתפתחויות, <br>האתר הרישמי: <a href="http://hhvm.com">hhvm.c om</a><br><br>  הרפוזיטורי בגיטהאב שמכיל גם מדריך התקנה לapache:<br> <a href="https://github.com/facebook/hhvm">https://github.com/facebook/hhvm</a><br><br>  ובונוס: <br>ניתן להריץ קבצים עם תצורה קצת שונה של php (אפילו קראו לזה hacklang כאילו זו שפה חדשה) שתעזור קצת יותר לקומפיילר של hhvm,<br> וטוענים שזה נותן עד פי 9 יותר ביצועים: <br><a href="http://hacklang.org">http://hacklang.org/    </a><br><br>כמובן ניתן לעשות tuning נוסף ולשפר ביצועים,u כן, זה עובד עם הפריימוורקים שלכם.<br><br>  ישנם בהחלט כמה דברים ששינו את עולם ה php, אני בטוח שזה אחד מהם.<br> התוצאות מדהימות לחלוטין, ההבדל הוא לא באחוזים בודדים, ההבדל הוא בין כמעט פי 2 באתרים מורכבים לפי 5 ויותר! תארו לכם, אתם יכולים לשרת פי 2-5 יותר אנשים על אותה החומרה! <br>או לשרת את אותה כמות האנשים על חצי / חמישית חומרה ( = חיסכון בהרבה כסף)  <br><br>מקווה שיצאתם עם מסקנות, שיהיה לכם בהצלחה :)        </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=16&r=g&d=monsterid" alt="raslin">
+<a>raslin</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment2781"></a>
+<div class="blog-comment">
+<span class='comment-author'>asafmaoz</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/04/2014 10:13</span><br>
+אחלה פוסט, תודה.<br>
+אם אפשר מידי פעם לצרף רשימה של המקורות להמשך חפירה בנושא...</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="אופרטורים — פקודות קטנות כאלה כמו חיבור וחיסור">
+<meta name="keywords" content="אופרטורים, אינקרימנט, דיקרימנט">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>אופרטורים</title>
+<meta itemprop="name" content="אופרטורים">
+<meta itemprop="description" content="אופרטורים — פקודות קטנות כאלה כמו חיבור וחיסור">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"51","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>אופרטורים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-01T18:59:38+02:00" dir="rtl">01 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="" alt="אופרטורים">
+</div>
+<div class="right post-content">
+אופרטורים — פקודות קטנות כאלה כמו חיבור וחיסור <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+המילה המפחידה היא שם לתווים שמסמנים פעולות כלשהן.<br>אני בטוח אתם מכירים כמה כאלה, כמו + שמסמן חיבור, - שמסמן חיסור ועוד כמה.<br>בואו נראה איך זה עובד ב-php.<br><br><br><div class="php codeblock"><span class="re0">$iInt</span> <span class="sy0">=</span> <span class="nu0">99</span><span class="sy0">;</span> <br>
+<span class="re0">$fFloat</span> <span class="sy0">=</span> <span class="nu19">10.2</span><span class="sy0">;</span> <br>
+<span class="re0">$sum</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$iInt</span> <span class="sy0">+</span> <span class="re0">$fFloat</span><span class="br0">&#41;</span><span class="sy0">/</span><span class="nu0">2</span> <span class="sy0">-</span> <span class="re0">$iInt</span> <span class="sy0">*</span> <span class="re0">$fFloat</span><span class="sy0">;</span> <br>
+<span class="co1">// $sum = (99 + &nbsp; 10.2 )/2 - ( 99 &nbsp;* &nbsp; 10.2 ) =</span></div><br>די פשוט למדי. אבל כדי לעשות הכל עוד יותר פשוט - <br>לאופרטורים המתמטיים הבסיסיים יש גם קיצורים.<br><div class="php codeblock"><span class="re0">$iNum</span> <span class="sy0">+=</span> <span class="nu0">7</span><span class="sy0">;</span> <span class="co1">// $iNum = $iNum + 7;</span><br>
+<span class="re0">$iNum</span> <span class="sy0">-=</span> <span class="nu0">7</span><span class="sy0">;</span> <span class="co1">// $iNum = $iNum - 7;</span><br>
+<span class="re0">$iNum</span> <span class="sy0">*=</span> <span class="nu0">7</span><span class="sy0">;</span> <span class="co1">// $iNum = $iNum * 7;</span><br>
+<span class="re0">$iNum</span> <span class="sy0">/=</span> <span class="nu0">7</span><span class="sy0">;</span> <span class="co1">// $iNum = $iNum / 7;</span></div> <br><br><h5>חיבור מחרוזות</h5><br>אופרטור הנקודה . מחבר כמה מחרוזות למחרוזת אחת.<br>ככה הוא נראה:<br><div class="php codeblock"><span class="re0">$sHello</span> <span class="sy0">=</span> <span class="st_h">'Hello'</span><span class="sy0">;</span> <br>
+<span class="re0">$sWorld</span> <span class="sy0">=</span> <span class="st_h">'World'</span><span class="sy0">;</span> <br>
+<span class="re0">$sHelloWorld</span> <span class="sy0">=</span> <span class="re0">$sHello</span> <span class="sy0">.</span> <span class="st_h">' '</span> <span class="sy0">.</span> <span class="re0">$sWorld</span> <span class="sy0">.</span> <span class="st_h">'!'</span><span class="sy0">;</span> <br>
+<span class="co1">// $sHelloWorld = &quot;Hello World!&quot;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'Hello'</span><span class="sy0">.</span><span class="st_h">' '</span><span class="sy0">.</span><span class="st_h">'World'</span><span class="sy0">;</span></div><br><br>גם לאופרטור הזה יש גרסה מקוצרת יותר:<br><div class="php codeblock"><span class="re0">$sHello</span> <span class="sy0">=</span> <span class="st_h">'Hello'</span><span class="sy0">;</span> <br>
+<span class="re0">$sHello</span> <span class="sy0">.=</span> <span class="st_h">' World!'</span><span class="sy0">;</span></div><br><br><h5>שארית מחילוק</h5><br><br>עוד אופרטור מתמטי קטן להיום – שארית מחילוק %<br>החלק מהמספר שנשאר לא מחולק<br><br>השארית של חילוק 4 ב 3 היא 1<br>השארית של חילוק 17 ב 7 היא 3<br>השארית של חילוק 727 ב 7 היא:<br><div class="php codeblock"><span class="re0">$iInt</span> <span class="sy0">=</span> <span class="nu0">727</span><span class="sy0">;</span> <span class="re0">$iDivider</span> <span class="sy0">=</span> <span class="nu0">7</span><span class="sy0">;</span> <br>
+<span class="re0">$fModule</span> <span class="sy0">=</span> <span class="re0">$iInt</span> <span class="sy0">%</span> <span class="re0">$iDivider</span><span class="sy0">;</span> <br>
+<span class="co1">// = 6 &nbsp;(727/7 = 103 + 6/7)</span></div> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

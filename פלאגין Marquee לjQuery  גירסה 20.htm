@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="גרסה 2.0 של פלאגין Marquee לספרייה jQuery.">
+<meta name="keywords" content="jquery marquee, marquee plugin">
+<meta name="author" content="iiddaannyy">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>פלאגין Marquee ל-jQuery – גרסה 2.0</title>
+<meta itemprop="name" content="פלאגין Marquee ל-jQuery – גרסה 2.0">
+<meta itemprop="description" content="גרסה 2.0 של פלאגין Marquee לספרייה jQuery.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"236","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>פלאגין Marquee ל-jQuery – גרסה 2.0</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iiddaannyy, </div>
+<div class="right">&nbsp;<time datetime="2012-08-04T19:51:01+03:00" dir="rtl">04 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://mikemurko.com/wp-content/uploads/2010/11/jquerythumb.jpg" alt="פלאגין Marquee ל-jQuery – גרסה 2.0">
+</div>
+<div class="right post-content">
+התחליף על בסיס jQuery לתגית Marquee שלא בתקן של W3C חוזר בגרסה שנייה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<a href="marquee בדרך תקינה עם jquery.htm">לגרסה הקודמת לחצו כאן</a>.<br><br><a href="http://webhub.co.il/demos/marquee.html">דמו לגרסה 2.0 של הפלאגין</a> | <a href="https://raw.github.com/iiddaannyy/jQueryMarquee/master/v1.0/marquee.js">הפלאגין – גרסה 2.0</a><br><br><h2>מה חדש בגרסה 2.0</h2><br>– תוקנו מספר באגים<br>– כ-90% מהקוד שוכתב<br>– ביצועים מעט מהירים יותר (נבדק על פיירפוקס בלינוקס)<br>– הקוד נכתב כפלאגין לספרייה jQuery<br>– מאפיינים שלא אמורים להיות נראים אל מי שמשתמש בפלאגין הוגדרו כ-private (לא בדיוק, אלא משהו שמדמה את זה), כך שאי אפשר לשנות בטעות מאפיין שאסור לגעת בו.<br>– השימוש הפך פשוט יותר<br><br><h2>איך משתמשים בפלאגין</h2><br>קודם כל נאתחל את הפלאגין:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>כמובן שבמקום ourElement נכתוב מחרוזת מתאימה שמצביעה על האלמנט שלנו.<br>Marquee מקבלת כפרמטר אובייקט שיקבע את המאפיינים. במקרה שהפרמטר לא יוגדר, ערכי ברירת המחדל יוצבו.<br><br><h3>המאפיינים</h3><br><h4>direction</h4><br>אחראי על כיוון התנועה.<br>ערכים אפשריים: <span dir="ltr">right</span>, <span dir="ltr">left</span>, <span dir="ltr">up</span>, <span dir="ltr">down</span>.<br><br><h4>delay</h4><br>קובע את זמן ההפסקה בין כל תזוזה במילי-שניות.<br>מקבל מספר חיובי מעל 84.<br><br><h4>scrollAmount</h4><br>אחראי על כמות הפיקסלים שיש לזוז בכל פעם.<br>מקבל מספר שלם.<br><br><h4>behavior</h4><br>קובע את התנהגות ה-Marquee ואת סגנון התנועה.<br>ערכים אפשריים: <span dir="ltr">scroll</span>, <span dir="ltr">slide</span>, <span dir="ltr">alternate</span>.<br><br><h4>loops</h4><br>קובע את כמות הסיבובים לביצוע.<br>ערכים אפשריים: מספר שלם אי-שלילי (שלם שגדול או שווה ל-0).<br>0 נחשב כאין-סוף סיבובים, ואינו אפקטיבי אם ה-behavior הוגדר כ-slide.<br><br><h3>אפשרויות ה-Marquee</h3><br>Marquee מחזירה לנו אובייקט עם הפונקציות <span dir="ltr">setProperties</span>, <span dir="ltr">start</span>, <span dir="ltr">stop</span>, <span dir="ltr">restart</span> ו-<span dir="ltr">reset</span>.<br><br><h4>setProperties</h4><br>כדי לשנות את המאפיינים של ה-Marquee אחרי שיצרנו אותו, נשתמש בפונקציה setProperties, שמקבלת שני פרמטרים:<br><strong>props</strong> – אובייקט המאפיינים. בדיוק כמו הפרמטר שאפשר לשלוח ל-Marquee באתחול הפלאגין.<br><strong>toDefault</strong> – אופציונלי. מקבל true או false. קובע האם לאפס את המאפיינים לערכי ברירת המחדל לפני שהמאפיינים ששלחנו ב-props חלים על ה-Marquee.<br><br>דוגמה לשינוי כיוון התנועה ללמעלה:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>setProperties<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;direction&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;up&quot;</span><br>
+<span class="br0">&#125;</span><span class="sy0">,</span> <span class="kw4">false</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h4>start</h4><br>כדי להתחיל את התנועה, נפעיל את start:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>start<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h4>stop</h4><br>כדי לעצור את התנועה, נפעיל את stop:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>stop<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h4>reset</h4><br>כדי לעצור את התנועה ולהחזיר את האלמנט למקום שבו התחיל, נפעיל את reset:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="kw3">reset</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h4>restart</h4><br>כדי להתחיל את התנועה מחדש, נפעיל את restart (זהה להפעלת reset ואחר כך start):<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>restart<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h3>תכונות נוספות</h3><br>הפונקציות <span dir="ltr">start</span>, <span dir="ltr">stop</span>, <span dir="ltr">restart</span> ו-<span dir="ltr">reset</span> מחזירות את האלמנט שעליו אנחנו מבצעים את ה-Marquee, כלומר, אפשר לעשות משהו כזה:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>start<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>css<span class="br0">&#40;</span><span class="st_h">'color'</span><span class="sy0">,</span> <span class="st_h">'red'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הקוד הזה יתחיל את תנועת ה-Marquee על האלמנט ואחר כך יקבע לאלמנט את תכונת ה-CSS שנקראת color עם הערך red.<br><br>בפעם הראשונה שנפעיל את Marquee על האלמנט (באמצעות הפונקציה Marquee, כמובן) היא תהיה יכולה לקבל אובייקט של מאפיינים ואז היא תאתחל את הפלאגין.<br>לאחר מכן אפשר לקרוא לה בלי פרמטרים, והיא פשוט תחזיר את האובייקט עם כל הפונקציות. כלומר, אפשר לעשות משהו כזה:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;direction&quot;</span> <span class="sy0">:</span> <span class="st_h">'down'</span><br>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">.</span>start<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">//some code</span><br>
+$<span class="br0">&#40;</span><span class="st_h">'ourElement'</span><span class="br0">&#41;</span><span class="sy0">.</span>marquee<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>stop<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h2>מספר הערות</h2><br>– הפלאגין בעצם מכניס לאלמנט שקבענו שני אלמנטי div, ואליהם מכניס את התוכן שהיה באלמנט. יש לקחת זאת בחשבון כשבונים את קבצי ה-CSS וכשניגשים לאלמנטים שאמורים להיות בתוך האלמנט שקבענו לו Marquee.<br>– כפי שצוין בהערה הקודמת, הפלאגין מוסיף שני אלמנטי div לתוך האלמנט. מכאן נובע שאי אפשר להשתמש בפלאגין על אלמנטים כמו img ו-input (אלמנטים ללא תוכן). אם רוצים לעשות זאת, יש להכניס את האלמנט ללא התוכן (כמו img ו-input) לתוך div, ועל הדיב לבצע את ה-Marquee, כי הרי ה-Marquee מזיז את התוכן של האלמנט שקבענו לו, ולא את האלמנט עצמו.<br>– אפשר לשנות את המאפיינים עם setProperties תוך כדי התנועה ומיד יראו את ההשפעה. אין צורך לבצע stop בשביל זה, אלא אם כן משנים את ה-behavior או את ה-delay. במקרה כזה, נצטרך לבצע stop, לשנות ואז לבצע start.<br>– האובייקט של הפלאגין נשמר באמצעות הפונקציה data של jQuery תחת השם Marquee. אין לשנות אותו עם הפונקציה data, אחרת עלולות להתקבל תוצאות לא-צפויות. (אפשר להשתמש בפונקציה data על האלמנט בלי שום בעיה, רק לא לשמור ערכים תחת השם Marquee.) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=16&r=g&d=mm" alt="iiddaannyy">
+<a>iiddaannyy</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1791"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/08/2012 11:24</span><br>
+נראה מגניב, רק לא ברור למה הדיליי צריך להיות יותר מ 84.<br>
+נשמע כמו איזה magic constant משום מקום.</div>
+<a id="comment1792"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/08/2012 12:25</span><br>
+תודה . <br>
+דרך אגב , למה הורידו את מרקורי מהתקן ? כל כך הרבה קוד בשביל תגית אחת שיצאה מהתקן ?</div>
+<a id="comment1793"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/08/2012 13:30</span><br>
+@intval<br>
+האמת היא שנצמדתי להגבלות שהיו לתג marquee עצמו לפני שהוא הוצא מהתקן.<br>
+בדקתי, ולפי מה שמצאתי המינימום היה 85, אז יישמתי את זה גם כאן.<br>
+יכול להיות שאתה באמת צודק ובגרסה הבאה (אם תהיה) אני אתן יד חופשית לשים איזה מספר חיובי שרוצים.<br>
+<br>
+@shlomo120<br>
+בבקשה.<br>
+אין לי מושג למה הוא הוצא מהתקן. אני בטוח שתמצא הסבר מפורט באינטרנט, אני לא בדקתי. :)</div>
+<a id="comment1794"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/08/2012 14:46</span><br>
+כל הכבוד ותודה. :)</div>
+<a id="comment1795"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/08/2012 15:28</span><br>
+:)</div>
+<a id="comment1811"></a>
+<div class="blog-comment">
+<span class='comment-author'>questioner</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/08/2012 23:16</span><br>
+תודה רבה.<br>
+<br>
+כשCSS3 ייתמך במלואו, כדאי לעבור לאנימציות CSS?</div>
+<a id="comment2244"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/02/2013 15:11</span><br>
+הקישורים שבורים, יש סיכוי לעדכן?</div>
+<a id="comment2434"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/04/2013 22:44</span><br>
+עידכנתי.</div>
+<a id="comment2437"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/04/2013 17:53</span><br>
+תודה :)</div>
+<a id="comment2732"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>13/01/2014 22:06</span><br>
+@iiddaannyy הקישור לדמו שבור.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

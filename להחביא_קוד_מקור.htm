@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="דוגמה מעניינת להחבאת קוד המקור של העמוד תוך שימוש ב-css ו-headers">
+<meta name="keywords" content="להחביא קוד מקור, hide source">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>להחביא קוד מקור</title>
+<meta itemprop="name" content="להחביא קוד מקור">
+<meta itemprop="description" content="דוגמה מעניינת להחבאת קוד המקור של העמוד תוך שימוש ב-css ו-headers">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"40","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>להחביא קוד מקור</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-01T19:15:54+02:00" dir="rtl">01 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.stylemyprofile.net/images/category/codes/_thumbs/source-code-thumb.png" alt="להחביא קוד מקור">
+</div>
+<div class="right post-content">
+דוגמה מעניינת להחבאת קוד המקור של העמוד<br>בביצועו של עיצוב css ומנגינתם של כותרי headers רגילים. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+במקום הקדמה: פותחים Firefox / Opera ועוברים <a href="http://mathiasbynens.be/demo/css-without-html">בקישור הזה</a>.<br>פותחים את קוד המקור ומתפלאים. לאתר אין קוד מקור. <br>בהמשך הסבר על איך דבר כזה יכול להיות.<br><br><br><h3>טריק ראשון</h3><br>רבים לא יודעים שהתגים <em>&lt;html&gt;</em> , <em>&lt;head&gt;</em> ו - <em>&lt;body&gt;</em> הם לא תגי חובה.<br> לכן הקוד הבא יהיה תקין לחלוטין: <br><div class="php codeblock"><span class="sy0">&lt;!</span>DOCTYPE html<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Example<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span></div><br>כשהדפדפן יתקל בקוד הזה ולא ימצא את התגים המתאימים הוא ייצור אותם בעצמו ולכן ניתן יהיה לתת להם עיצוב באמצעות css<br><br>בדוגמה שראיתם אין בכלל doctype או תג title<br>לכן הקוד שם הוא לא תקין ולא כדאי לשים קוד כזה באתר אמיתי.<br><br><br><h3>טריק שני</h3><br>לפי ההגדרה, בפרוטוקול ה-http קיים header ששמו Link<br>האפקט שלו הוא בדיוק כמו התג <em>&lt;link&gt;</em> שניתן להכניס בקוד,<br>מה שאומר שאת הקוד <br><div class="php codeblock"><span class="sy0">&lt;</span>link href<span class="sy0">=</span><span class="st0">&quot;style.css&quot;</span> rel<span class="sy0">=</span><span class="st0">&quot;stylesheet&quot;</span> <span class="sy0">/&gt;</span></div><br>ניתן להחליף ב-header:<br><div class="php codeblock"><span class="kw3">Link</span><span class="sy0">:</span> <span class="sy0">&lt;</span>style<span class="sy0">.</span>css<span class="sy0">&gt;;</span>rel<span class="sy0">=</span>stylesheet</div><br>או במקרה של PHP<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Link: &lt;style.css&gt;;rel=stylesheet'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br><br><h3>ה-css</h3><br><div class="php codeblock">html <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;background<span class="sy0">:</span> <span class="co2">#666;<br>
+</span> &nbsp; padding<span class="sy0">:</span> 1em<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+body <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;border<span class="sy0">:</span> 5px dashed <span class="co2">#eee;<br>
+</span> &nbsp; color<span class="sy0">:</span> <span class="co2">#fff; <br>
+</span>font<span class="sy0">:</span> 3em<span class="sy0">/</span><span class="nu19">1.5</span> Helvetica<span class="sy0">,</span> Arial<span class="sy0">,</span> sans<span class="sy0">-</span>serif<span class="sy0">;</span><br>
+&nbsp; &nbsp;padding<span class="sy0">:</span> 1em<span class="sy0">;</span><br>
+&nbsp; &nbsp;width<span class="sy0">:</span> 30em<span class="sy0">;</span><br>
+&nbsp; &nbsp;margin<span class="sy0">:</span> <span class="nu0">0</span> auto<span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+body<span class="sy0">::</span><span class="me2">after</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp;content<span class="sy0">:</span> <span class="st_h">'O HAI! Have a look at my source code :)'</span><span class="sy0">;</span> <span class="coMULTI">/* This needs to be on the ::after (and not just on `body`) for it to work in Firefox 3.6.x. */</span><br>
+<span class="br0">&#125;</span></div><br>הפקודה after מוסיפה תוכן כלשהו אחרי האובייקט.<br><br><br>הכל יפה ונחמד בתיאוריה. בפועל הכותר Link נתמך רק על ידי Firefox ו Opera<br>דפדפני IE ו-WebKit לא מסתדרים איתו בגלל באג מסוים. <br><br>אין באמת דרך אפקטיבית להחביא את קוד המקור, הרי שקוד המקור נשלח למחשב של המשתמש ולמשתמש יש גישה מלאה למחשב שלו. כל מה שכתוב כאן הוא בגדר טריק קסם קטן. <br><br>אם אתם מחפשים דרך אמיתית וטובה להסתיר קוד מקור - דעו לכם שהיא לא קיימת.<br>אין שום סיבה להסתיר אותו ואין צורך לפחד מגנבה. הקוד מקור של כל אתר גדול פתוח ונגיש לכל אחד ואף אחד עדיין לא גנב את גוגל. <br><br>עדיף שתשקיעו את המאמצים שלכם בפיתוח משהו מעניין ויפה במקום לנסות להסתיר קוד מקור. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment526"></a>
+<div class="blog-comment">
+<span class='comment-author'>TheOnlyOne</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/08/2011 19:47</span><br>
+מצדיק פה כל מילה ומילה שנאמרה, בכלל למה לא לתמוך בקוד פתוח?</div>
+<a id="comment527"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/08/2011 03:14</span><br>
+קוד המקור של העמוד זה לא קוד פתוח :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

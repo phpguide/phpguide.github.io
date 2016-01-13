@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מדריך לעבודה עם cURL בPHP">
+<meta name="keywords" content="curl, מדריך לcurl, הסבר curl">
+<meta name="author" content="Michael">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>cURL - שליחת נתונים לפרטוקולים מגוונים</title>
+<meta itemprop="name" content="cURL - שליחת נתונים לפרטוקולים מגוונים">
+<meta itemprop="description" content="מדריך לעבודה עם cURL בPHP">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"114","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>cURL - שליחת נתונים לפרטוקולים מגוונים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">Michael, </div>
+<div class="right">&nbsp;<time datetime="2011-06-27T19:35:51+03:00" dir="rtl">27 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://ncdn.phpguide.co.il/blogimages/url_rewrite.jpg" alt="cURL - שליחת נתונים לפרטוקולים מגוונים">
+</div>
+<div class="right post-content">
+תמיד רציתם להתחבר מהקוד PHP שלכם לאתרים שונים, או לשלוח POST/GET לאתר מסוים, או סתם לקבל את הקוד מקור של האתר? - cURL <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h2>מה זה curl</h2><br>cURL הינה סיפרייה שנועדה לעבודה עם פרוטוקולים שונים כגון http, ftp, imap, smtp ועוד <br>(ניתן לראות את כולם כאן: <a href="http://en.wikipedia.org/wiki/CURL">http://en.wikipedia.org/wiki/CURL</a>).<br><strong>curl קיימת לא רק בPHP</strong>, אלא גם שפות כמו פייתון, פרל, C, באש ונתמכת ע&quot;י לינוקס, מאק וחלונות.<br>עם הסיפרייה ניתן לעשות דברים מגוונים ובינהם לשלוח POST/GET, להעלות קבצים לFTP, לעבוד עם פרוקסי, לשמור קוקיז ולבנות crawlerים, ועוד המון דברים אחרים (שניתן לראות בקישור הוויקיפדיה).<br><br><h2>לעבודה</h2><br>כאן אנחנו נלמד איך עובדים עם הסיפריה בPHP.<br>לפני העבודה תצטרכו להתקין את הסיפריה, רק לאחר מכן תוכלו לעבוד איתה.<br><br><h4>curl_init</h4><br>היא הפונקציה שאיתה מתחילים עבודה עם cURL.<br>יש לה פרמטר אחד, שאפשר להשאיר אותו ריק, שזה הקישור.<br>לדוגמא:<br><div class="php codeblock"><span class="re0">$ch</span> <span class="sy0">=</span> <span class="kw3">curl_init</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// or with url: $ch = curl_init('http://google.com');</span></div><br>וככה התחלנו את הסיישן שלנו.<br><br><strong>curl_setopt</strong><br>היא הפונקציה שמשחקת את התפקיד הראשי פה.<br>בא מגדירים אופציה (ומכאן נובע השם setopt = set option), אשר תשתמש אותנו בעבודה.<br>המבנה של הפונקציה הוא ככה: <div class="php codeblock">bool <span class="kw3">curl_setopt</span> <span class="br0">&#40;</span> resource <span class="re0">$ch</span> <span class="sy0">,</span> int <span class="re0">$option</span> <span class="sy0">,</span> mixed <span class="re0">$value</span> <span class="br0">&#41;</span></div><br>הפונקציה מחזירה בוליאן.<br>הפרמטר הראשון זהו המשתנה עם הסיישן (ראה דוגמא עם הפונקציה curl_init).<br>הפרמטר השני זה האופציה (ניתן לראות את כל האופציות <a href="http://www.php.net/manual/en/function.curl-setopt.php">כאן</a>)<br>הפרמטר השלישי הוא הערך.<br>נתחיל בדוגמא איך לקחת את המקור של מאקו:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="co1">// create a new cURL resource</span><br>
+<span class="re0">$ch</span> <span class="sy0">=</span> <span class="kw3">curl_init</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// set URL and other appropriate options</span><br>
+<span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_URL<span class="sy0">,</span> <span class="st0">&quot;http://www.mako.co.il/&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_HEADER<span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// grab URL and pass it to the browser</span><br>
+&nbsp; <span class="kw3">curl_exec</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// close cURL resource, and free up system resources</span><br>
+<span class="kw3">curl_close</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br>יש לכם הערות שמסבירים מה הולך פה.<br>בשלב הראשון הוא יוצר עבודה עם curl.<br>בשלב השני הוא עושה אופציה CURLOPT_URL ומכניס קישור (האופציה הנ&quot;ל שוות ערך לגדרת הקישור כבר ביצירת הסיישן).<br>בנוסף לזה - מכבים את האופציה של HEADER שזה לא יהיה כלול בפלט.<br>בשלב השלישי הוא משתמש בפונקציה curl_exec אשר מריצה את מה שעשינו בעצם.<br>בשלב הרביעי סוגרים את הסיישן ע&quot;י curl_close (לא חובה, אבל רצוי מאוד).<br>וזהו, יש לנו את הקוד.<br>פשוט נכון?<br>חשוב לדעת, הפלט יודפס אוטומטי אלא אם כן להוסיף את האופציה CURLOPT_RETURNTRANSFER כTRUE. כלומר, אם תריצו את הקוד הפלט יודפס.<br><br>אני אלמד אתכם על עוד כמה אופציות חיוניות, שיעזרו לכם.<br><br><strong>CURLOPT_URL</strong><br>כמו שאמרתי לפני זה, האופציה הזו משתמשת להגדרת הקישור שאיתו אנחנו הולכים לעבוד.<br>אני אישית מעדיף לעשות ככה, מאשר להגדיר בINIT עצמו.<br><br><strong>CURLOPT_HEADER</strong><br>מחזיר האדר של הדף.<br>קחו דוגמא להאדר שהתקבל אחרי ששלחתי בקשה למאקו:<br><div class="php codeblock">HTTP<span class="sy0">/</span><span class="nu19">1.1</span> <span class="nu0">200</span> OK <br>
+Server<span class="sy0">:</span> Apache<span class="sy0">-</span>Coyote<span class="sy0">/</span><span class="nu19">1.1</span> <br>
+X<span class="sy0">-</span>Powered<span class="sy0">-</span>By<span class="sy0">-</span>Mako<span class="sy0">-</span>Render<span class="sy0">:</span> WS04<span class="sy0">,</span> <span class="nu0">60000</span><span class="sy0">,</span> Mf<span class="sy0">:</span>Mf<span class="sy0">,</span> <span class="co2">#22, 45_1309201125725 <br>
+</span>Connection<span class="sy0">:</span> close <br>
+<span class="kw3">Date</span><span class="sy0">:</span> Mon<span class="sy0">,</span> <span class="nu0">27</span> Jun <span class="nu0">2011</span> <span class="nu0">19</span><span class="sy0">:</span><span class="nu8">01</span><span class="sy0">:</span><span class="nu0">51</span> GMT <br>
+Server<span class="sy0">:</span> Microsoft<span class="sy0">-</span>IIS<span class="sy0">/</span><span class="nu19">6.0</span> <br>
+X<span class="sy0">-</span>BE<span class="sy0">-</span>SRV<span class="sy0">:</span> vap04 <br>
+X<span class="sy0">-</span>Powered<span class="sy0">-</span>By<span class="sy0">:</span> ASP<span class="sy0">.</span>NET <br>
+Via<span class="sy0">:</span> CN<span class="sy0">-</span><span class="nu0">5000</span><span class="sy0">,</span> CN<span class="sy0">-</span><span class="nu0">5000</span> <br>
+Content<span class="sy0">-</span>Type<span class="sy0">:</span> text<span class="sy0">/</span>html<span class="sy0">;</span>charset<span class="sy0">=</span>UTF<span class="sy0">-</span><span class="nu0">8</span> <br>
+Accept<span class="sy0">-</span>Ranges<span class="sy0">:</span> bytes <br>
+Cache<span class="sy0">-</span>Control<span class="sy0">:</span> <span class="kw2">private</span><span class="sy0">,</span> max<span class="sy0">-</span>age<span class="sy0">=</span><span class="nu0">30</span> Age<span class="sy0">:</span> <span class="nu0">0</span> <br>
+Expires<span class="sy0">:</span> Mon<span class="sy0">,</span> <span class="nu0">27</span> Jun <span class="nu0">2011</span> <span class="nu0">19</span><span class="sy0">:</span><span class="nu8">02</span><span class="sy0">:</span><span class="nu0">21</span> GMT <br>
+x<span class="sy0">-</span>cdn<span class="sy0">:</span> Served by Cotendo <br>
+Transfer<span class="sy0">-</span>Encoding<span class="sy0">:</span> chunked <br>
+Connection<span class="sy0">:</span> Keep<span class="sy0">-</span>Alive</div><br>שתבינו פחות או יותר איך זה נראה.<br><br><strong>CURLOPT_USERAGENT</strong><br>האופציה משתמשת על מנת להגדיר USER AGENT לבקשה שלנו.<br>לדוגמא: <div class="php codeblock"><span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_USERAGENT<span class="sy0">,</span> <span class="st0">&quot;Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><strong>CURLOPT_POST, CURLOPT_POSTFIELDS</strong><br>בשביל לשלוח POST, קודם נצטרך לאפשר זאת ע&quot;י האופציה CURLOPT_POST.<br>לאחר שאישרנו, אנחנו שולחים POST עם האופציה CURL_POSTFIELDS<br>דוגמא:<br><div class="php codeblock"><span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_POST<span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_POSTFIELDS<span class="sy0">,</span> <span class="st0">&quot;par1=val1&amp;par2=val2&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>זוהי דוגמא לאיך POST נראה. איפה שכתבתי את הPOST, אתם יכולים גם להכניס מערך.<br>לדוגמא:<br><div class="php codeblock"><span class="re0">$array</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;par1&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;val1&quot;</span><span class="sy0">,</span> <span class="st0">&quot;par2&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;val2&quot;</span><span class="br0">&#41;</span><br>
+<span class="kw3">curl_setopt</span><span class="br0">&#40;</span><span class="re0">$ch</span><span class="sy0">,</span> CURLOPT_POSTFIELDS<span class="sy0">,</span> <span class="re0">$array</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>ופונקציה נוספת (פונקציה, לא אופציה): <strong>curl_getinfo</strong><br>הפונצקיה מחזירה נתונים על הסיישן, כגון קישור, סוג תקשורת, תגובה.<br>בנוסף יש לו פרמטר אופציה (לא כמו בcurl_setopt, אופציות אחרות) שיחזיר את המידע שאתם צריכים. אם הפרמטר הזה לא מוחזר PHP יחזיר מערך עם נתונים קבועים שאתם יכולים לראות אותו כאן: <a href="http://www.php.net/manual/en/function.curl-getinfo.php">http://www.php.net/manual/en/function.curl-getinfo.php</a><br><br>את כל העבודה שלנו אנחנו סוגרים עם פונקציה <strong><span dir="ltr">curl_close($resource)</span></strong><br>כאשר <span dir="ltr">$resource</span> הוא המשתנה שהתחלתם איתו את העבודה בcurl.<br><br><br>זהו למדריך :-)<br>כמה טיפים:<br>תכתבו מחלקה. כן, זה מעצבן לכתוב את זה, אז פשוט תכתבו מחלקה. כשהתחלתי ללמוד את הנושא הזה בניתי מחלקה וזה גם עזר לי ללמוד ועד היום אני משתמש באותה מחלקה והיא מקצרת לי תקוד, וגם בכללי נוח לעבוד עם מחלקה.<br>כמו כן, חשוב להזכיר שוב, על מנת לעבוד עם הסיפרייה נצטרך קודם להתקין אותה.<br><br>לימדתי כאן כמה פונקציות מרכזיות, את השאר אתם יכולים ללמוד לבד כאן: <a href="http://php.net/manual/en/book.curl.php">http://php.net/manual/en/book.curl.php</a><br><br>הסוף)) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=16&r=g&d=monsterid" alt="Michael">
+<a>Michael</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment276"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/06/2011 00:06</span><br>
+מיכאל, קודם כל תודה רבה על המדריך. ממש אהבתי אותו. המדריך מאוד מאורגן מסודר וברור.<br>
+<br>
+ברשותך הוסיף לכתבה ואומר שכל בקשה ותשובה בין הדפדפן לשרת מכילה נתונים וכותרים. הכותרים (header) של תשובת שרת מכילים מידע על קידוד העמוד, סוג התוכן, תאריך יצירת העמו, שם/סוג וגרסת השרת המפעיל.<br>
+<br>
+הנתונים האלה לא נמצאים בתוך קוד ה-html בתגים מיוחדים, אלה מועברים בנוסף לתוכן. כמו נתונים על מעטפה במכתב שמכילים מידע על מי, מאיפה ולאן נשלח המכתב עם הבול, כך גם כותרים באים עם כל מכתב של נתונים, אבל לא נמצאים בתוך המכתב עצמו.<br>
+<br>
+הכותרים שרשימה ארוכה שלהם ממאקו שראינו - יודפסו לכם למסך גם כן, כיוון ש curl תציג את כל תוכן הבקשה (כולל המעטפה). כדי לוותר על המעטפה יש צורך בלהגדיר: &quot;אין צורך בכותרים&quot; באופן הבא:<br>
+<br>
+curl_setopt($ch, CURLOPT_NOHEADER, true); //x<br>
+שאומר - אל תביא לי את הכותרים.<br>
+<br>
+מסובר על זה במדריך. רציתי רק להרחיב מעט על הכותרים עצמם. שוב כל הכבוד מיכאל :-)</div>
+<a id="comment277"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/06/2011 00:32</span><br>
+CURL זה לעצלנים. מה הבעיה לעבוד עם סוקט מול פרוטוקולי HTTP ולכתוב מחלקה כבר עם המימוש הזה? ומה אם המחלקה לא מותקנת?<br>
+לדוגמה: כתבתי בפייתון תוכנית שהשתמשה בCURL, וכשהעלתי לSHELL גיליתי שאין שם CURL -&gt; נדפקתי. הייתי צריך לשכתב הכל בעזרת הספריות urllib2 urllib וכו&apos;...<br>
+כמו כן, בC, כמה שלא ניסיתי לא הבנתי איך לעבוד עם CURL. מה שכן הבנתי שסוקטים הרבה יותר פשוט ממה שזה נראה<br>
+<br>
+נ.ב למה צריך JS כדי לשלוח תגובה? מה עם NOSCRIPT?</div>
+<a id="comment278"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/06/2011 00:38</span><br>
+noscript זה לעצלנים, תפעיל js :)<br>
+<br>
+כל אחד עם דרך העבודה שלו. מבחינתי לכתוב קוד 8 שורות הרבה יותר קל ומהר מלכתוב את אותו דבר על גבי סוקטים. לא ברור רק מה הם היתרונות של סוקטים ולמה להשתמש בשכבות אבסטרקציה אחרות זה בסדר (למשל pdo) ודווקא curl היא לעצלנים.<br>
+<br>
+בכל אופן, אף אחד לא מגביל אותי או אותך. תכתוב איך שנוח לך. זה זכותך והקוד שלך :)</div>
+<a id="comment279"></a>
+<div class="blog-comment">
+<span class='comment-author'>Michael</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/06/2011 00:54</span><br>
+Qazjap11 זה חבר שלי, הוא פעם בנה בוט בפייתון עם curl ואז גילה שהשרת לא תומך בזה מאז הוא נגד curl ))</div>
+<a id="comment280"></a>
+<div class="blog-comment">
+<span class='comment-author'>iosolidar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/06/2011 08:01</span><br>
+זה עניין של מה אתה מעוניין לעשות, אם אתה רוצה לממש לקוח HTTP שיטפל בכל המצבים השונים שיבושם לך. אבל אין שום סיבה לא להשתמש בכלים נוחים שקיימים בחוץ שרק יקצרו את זמן העבודה שלך. <br>
+<br>
+מתכנתים טובים הם עצלנים: <span dir="ltr"><a href="http://blogoscoped.com/archive/2005-08-24-n14.html">http://blogoscoped.com/archive/2005-08-24-n14.html</a></span></div>
+<a id="comment281"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/06/2011 15:45</span><br>
+curl לעצלנים? מי שאומר כך לא מבין כנראה עד הסוף מה זה curl.</div>
+<a id="comment282"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/06/2011 13:54</span><br>
+אני עם lulzsec .<br>
+ואני עדיין מחפש מה הקשר חח ..<br>
+לנושא: cURL אחלה ספריה, נוחה וגמישה רצח .<br>
+מדריך נחמד, רק הוא לא מפורט יותר מדי, אבל לפחות הבאת את הנקודות החשובות, כל הכבוד !</div>
+<a id="comment284"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/06/2011 17:43</span><br>
+מדריך נחמד, סוקר נושאים חשובים בספרייה cURL, ספרייה מעולה, קלה לשימוש ונוחה.<br>
+מדריך יפה, כל הכבוד!</div>
+<a id="comment293"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2011 15:50</span><br>
+אלכס,תודה רבה על עוד מאמר נפלא.<br>
+כיף ללמוד ממישהו כמוך.</div>
+<a id="comment294"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2011 15:51</span><br>
+מחבר המאמר מיכאל ארנזון (Michael בפורום)<br>
+כל התודות מגיעות לו :)</div>
+<a id="comment295"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2011 16:16</span><br>
+סליחה,לא שמתי לב שמישהו אחר כתב את המאמר... בכל זאת מאמר יפה מאוד. תודה רבה.</div>
+<a id="comment299"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yehonatan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2011 20:51</span><br>
+איך אני משלב preg_match עם curl?</div>
+<a id="comment300"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/07/2011 20:52</span><br>
+כדי ש curl תחזיר לך מחרוזת לתוך משתנה שתוכל להשתמש בה בתוך preg_match עליך להגדיר את האופציה CURLOPT_RETURNTRANSFER ל true</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

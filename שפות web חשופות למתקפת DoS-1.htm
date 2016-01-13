@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="PHP חשופה למתקפות DoS">
+<meta name="keywords" content="php, DoS, post, hash">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>שפות פיתוח Web חשופות למתקפת DoS</title>
+<meta itemprop="name" content="שפות פיתוח Web חשופות למתקפת DoS">
+<meta itemprop="description" content="PHP חשופה למתקפות DoS">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"183","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>שפות פיתוח Web חשופות למתקפת DoS</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-01-16T21:20:33+02:00" dir="rtl">16 לינואר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.websitemagazine.com/images/blog/ddos-mini.gif" alt="שפות פיתוח Web חשופות למתקפת DoS">
+</div>
+<div class="right post-content">
+כמה שפות תכנות חשופות למתקפת Denial of Service בגלל פונקציות השמירה במבני נתונים מפתח-ערך (hash data structures). בין השפות: php, java, python ו-ruby. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+הבעיה נוגעת לשרתי web (או במקרה של רובי - לפריימוורקים).<br><br>במילים פשוטות: כש-PHP מכניסה ערך למערך, היא עושה גיבוב (hash, כמו md5) למפתח של המערך.<br>יש סבירות מסוימת שניתנת לחישוב, שעבור שני ערכים שונים, פונקציית הגיבוב תיתן את אותה תוצאה.<br>מכיוון שאין הגבלה על כמות הערכים המועברים ב-POST, התוקף יכול להעביר רשימה ארוכה של שדות, שעלולות לגרום לפונקציית הגיבוב להחזיר את אותו ערך עבור שניים מהם. במקרה הזה, השרת ייתקע למשך כמה שעות עם 100% CPU וישכח מכל השאר.<br><br>התיקון כבר מוכן ב-PHP ונמצא בגרסה 5.3.9 ובגרסה<span dir="ltr">5.4 RC 4</span>.<br>לדאוג אין סיבה, אבל לוודא שהשרת שלכם ושל חברת האחסון שלכם עובד עם הגירסה הכי אחרונה - תמיד כדאי.<br><a href="http://www.ocert.org/advisories/ocert-2011-003.html">יש גם את המידע המלא למתעניינים</a>. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1027"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/01/2012 15:00</span><br>
+אני 5.3.8 =\<br>
+תודה על המידה בכל אופן.</div>
+<a id="comment1029"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/01/2012 19:40</span><br>
+תודה רבה.</div>
+<a id="comment1032"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/01/2012 23:47</span><br>
+כרגע כולם 5.3.8<br>
+5.3.9 עוד לא יצא, גם לא 5.4</div>
+<a id="comment1033"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/01/2012 00:29</span><br>
+אהה חח אוקיי (:</div>
+<a id="comment1039"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/01/2012 00:22</span><br>
+תוודה (-:</div>
+<a id="comment1282"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/02/2012 06:28</span><br>
+כדי ש PHP תכניס ת&apos;ערך למערך צריך למצוא דף PHP שמקבל נתונים ב POST ועושה בהם שימוש או אפשר &quot;לספים&quot; כל דף PHP</div>
+<a id="comment1283"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/02/2012 11:07</span><br>
+באופן כללי מספיק כל דף כי PHP בכל מקרה ממלאת את מערך ה POST גם אם אתה אף פעם לא ניגש אליו.<br>
+למרות שגם למצוא דף שמשתמש בנתונים האלה זה אחד הדברים הכי קלים :)</div>
+<a id="comment1324"></a>
+<div class="blog-comment">
+<span class='comment-author'>Yoni_Cohen</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/02/2012 09:43</span><br>
+חחח עכשיו לתומכי DotNet יש עוד מה להוסיף בVS PHP.<br>
+<br>
+יש לכלוך דומה גם על ASP?</div>
+<a id="comment1325"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/02/2012 12:08</span><br>
+כבר אין להם מה להוסיף. תיקנו את כזה כבר :)</div>
+<a id="comment1326"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/02/2012 15:24</span><br>
+מי שרוצה להפיל את השרת של עצמו:<br>
+<br>
+&lt;?php<br>
+for ($i = 0; $i &lt;= 10000000; $i++){<br>
+$tmp[] = $i;<br>
+}<br>
+<br>
+for ($i = 0; $i &lt;= 10000000; $i++){<br>
+$_GET[] = $i;<br>
+}<br>
+?&gt;</div>
+<a id="comment1327"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/02/2012 15:30</span><br>
+בשביל זה יש הגבלה על זמן ריצת הסקריפט ועל כמות הזיכרון המותרות לו.<br>
+למרות שיש דרכים יותר פשוטות להפיל את השרת של עצמך :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה טופס העלאת תמונה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="phpon">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>טופס העלאת תמונה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="טופס העלאת תמונה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה טופס העלאת תמונה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="טופס העלאת תמונה-1.htm" title="&amp;lt;!DOCTYPE html PUBLIC &amp;quot;-//W3C//DTD XHTML 1.0 Strict//EN&amp;quot;
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&amp;quot;&amp;gt;
+&amp;lt;html xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot; xml:lang=&amp;quot;en&amp;quot; lang=&amp;quot;he&amp;quot; &amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;title&amp;gt;Stepping Through an Array &amp;lt;/title&amp;gt;
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;common.css&amp;quot; /&amp;gt;
+
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;">טופס העלאת תמונה</a></h2>
+<div class="userinfo">
+פתח
+<a>phpon</a>
+,
+<time class="timeago relativetime" datetime="2013-05-13T15:14:19+03:00" style="display:inline-block;">
+13 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1450'>
+<div class="php codeblock">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;<br>
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;he&quot; &gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Stepping Through an Array &lt;/title&gt;<br>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;common.css&quot; /&gt;<br>
+<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;sendPhoto&quot;</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; processForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; displayForm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> processForm<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st0">&quot;photo&quot;</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> and <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st0">&quot;photo&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;error&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span><br>
+UPLOAD_ERR_OK <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st0">&quot;photo&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;type&quot;</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st0">&quot;image/jpeg&quot;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;p&gt;only Jepg photos!&lt;/p&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span> <span class="sy0">!</span><span class="kw3">move_uploaded_file</span><span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st0">&quot;photo&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;tmp_name&quot;</span><span class="br0">&#93;</span><span class="sy0">,</span><br>
+<span class="st0">&quot;photos/&quot;</span> <span class="sy0">.</span> <span class="kw3">basename</span><span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st0">&quot;photo&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;name&quot;</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;p&gt;Sorry, there was a problem uploading that photo.&lt;/p&gt;&quot;</span> <span class="sy0">.</span><br>
+<span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st0">&quot;photo&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;error&quot;</span><span class="br0">&#93;</span> <span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; dipslayThanks<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">switch</span><span class="br0">&#40;</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st0">&quot;photo&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;error&quot;</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> UPLOAD_ERR_INI_SIZE<span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$message</span> <span class="sy0">=</span> <span class="st0">&quot;the photo is larger than the server allows.&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> UPLOAD_ERR_FORM_SIZE<span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$message</span> <span class="sy0">=</span> <span class="st0">&quot;the photo is larger than the script allows.&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">case</span> UPLOAD_ERR_NO_FILE<span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$message</span> <span class="sy0">=</span> <span class="st0">&quot;No file eas uploaded. Make sure you choos a file to upload.&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">default</span><span class="sy0">:</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$message</span> <span class="sy0">=</span> <span class="st0">&quot;Please contact your server administrator for help.&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;p&gt;Sorry, there was a problem uploading that photo. <span class="es4">$message</span>&lt;/p&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="kw2">function</span> displayForm<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;h1&gt;Uploading a Photo&lt;/h1&gt;<br>
+&nbsp; &nbsp; &lt;p&gt;Please enter your name and choose a photo to upload, then click<br>
+Send Photo.&lt;/p&gt;<br>
+<br>
+&nbsp; &nbsp; &lt;form action=&quot;files.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;<br>
+&nbsp; &nbsp; &lt;div style=&quot;width: 30em;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;input type=&quot;hidden&quot; name=&quot;MAX_FILE_SIZE&quot; value=&quot;50000&quot; /&gt;<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;label for=&quot;visitorName&quot;&gt;Your name&lt;/label&gt;<br>
+&nbsp; &nbsp; &lt;input type=&quot;text&quot; name=&quot;visitorName&quot; id=&quot;visitorName&quot; value=&quot;&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;label for=&quot;photo&quot;&gt;Your photo&lt;/label&gt;<br>
+&nbsp; &nbsp; &lt;input type=&quot;file&quot; name=&quot;photo&quot; id=&quot;photo&quot; value=&quot;&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &lt;div style=&quot;clear: both;&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; name=&quot;sendPhoto&quot; value=&quot;Send Photo&quot; /&gt;<br>
+&nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &lt;/form&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> displayThanks<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;h1&gt;Thank You&lt;/h1&gt;<br>
+&lt;p&gt;Thanks for uploading your photo<span class="kw2">&lt;?php</span> <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;visitorName&quot;</span><span class="br0">&#93;</span> <span class="br0">&#41;</span><br>
+<br>
+<span class="kw1">echo</span> <span class="st0">&quot;, &quot;</span> <span class="sy0">.</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st0">&quot;visitorName&quot;</span><span class="br0">&#93;</span> <span class="sy1">?&gt;</span>!&lt;/p&gt;<br>
+&lt;p&gt;Here’s your photo:&lt;/p&gt; &nbsp; &nbsp;<br>
+&lt;p&gt;&lt;img src=&quot;photos/<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$_FILES</span><span class="br0">&#91;</span><span class="st0">&quot;photo&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;name&quot;</span><span class="br0">&#93;</span> <span class="sy1">?&gt;</span>&quot; alt=&quot;Photo&quot; /&gt;<br>
+&lt;/p&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br><br>הבעייה היא בשורה 25 move_iploaded_file משהו כזה..( ! ) Warning: move_uploaded_file(wamp/images.jpg): failed to open stream: No such file or directory in C:\wamp\www\php files\files.php on line 25<br>Call Stack<br># Time Memory Function Location<br>1 0.0008 150912 {main}( ) ..\files.php:0<br>2 0.0008 151192 processForm( ) ..\files.php:14<br>3 0.0008 151304 move_uploaded_file ( ) ..\files.php:25<br><br>( ! ) Warning: move_uploaded_file(): Unable to move &#039;C:\wamp\tmp\php513D.tmp&#039; to &#039;wamp/images.jpg&#039; in C:\wamp\www\php files\files.php on line 25<br>Call Stack<br># Time Memory Function Location<br>1 0.0008 150912 {main}( ) ..\files.php:0<br>2 0.0008 151192 processForm( ) ..\files.php:14<br>3 0.0008 151304 move_uploaded_file ( ) ..\files.php:25<br>Sorry, there was a problem uploading that photo.<br><br>0 </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6469">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/85d8ba5e8d11a29a5805a3e75ef024d6?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>zacharya</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6469" href="טופס העלאת תמונה-1.htm#answer_6469">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+או שתבדוק את הרשאותהתיקייה (777) או שתבדוק שהיא בכלל קיאו שתבדוק את הרשאותהתיקייה (777) או שתבדוק שהיא בכלל קיימת.ימת. </p>
+</div>
+<div class="answer" id="answer6471">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 13 למאי 2013 </span>
+<a id="answer_6471" href="טופס העלאת תמונה-1.htm#answer_6471">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הצלחתי! </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

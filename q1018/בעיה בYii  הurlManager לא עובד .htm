@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בעיה בYii | הurlManager לא עובד ...">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="shlomo120">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>בעיה בYii | הurlManager לא עובד ... | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בעיה בYii | הurlManager לא עובד ... | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בעיה בYii | הurlManager לא עובד ...">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בעיה בYii  הurlManager לא עובד .htm" title="אהלן.ישר ולעניין : קובץ הconfig.php : &amp;lt;?php
+return array
+&amp;#40;
+&amp;nbsp; &apos;basePath&apos;=&amp;gt;dirname&amp;#40;__FILE__&amp;#41;.DIRECTORY_SEPARATOR.">בעיה בYii | הurlManager לא עובד ...</a></h2>
+<div class="userinfo">
+פתח
+<a>shlomo120</a>
+,
+<time class="timeago relativetime" datetime="2012-09-04T13:07:51+03:00" style="display:inline-block;">
+04 לספטמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1018'>
+אהלן.<br>ישר ולעניין : <br>קובץ הconfig.php : <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st_h">'basePath'</span><span class="sy0">=&gt;</span>dirname<span class="br0">&#40;</span><span class="kw4">__FILE__</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="kw4">DIRECTORY_SEPARATOR</span><span class="sy0">.</span><span class="st_h">'..'</span><span class="sy0">,</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;site&quot;</span><span class="sy0">,</span><br>
+<br>
+&nbsp; <span class="st0">&quot;components&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;db&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st_h">'class'</span><span class="sy0">=&gt;</span><span class="st_h">'CDbConnection'</span><span class="sy0">,</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;connectionString&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;mysql:host=localhost;dbname=forum&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;username&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;root&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;password&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;root&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;charset&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;utf8&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;emulatePrepare&quot;</span><span class="sy0">=&gt;</span>true<span class="sy0">,</span> &nbsp;<span class="co1">// needed by some MySQL installations&nbsp; &nbsp; </span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;urlManager&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;urlFormat&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;path&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;rules&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot;topic&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;site/topic&quot;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="co1">//'errorHandler' &nbsp;=&gt; array( 'errorAction'=&gt;'site/error' ),&nbsp; </span><br>
+&nbsp; <span class="br0">&#41;</span><span class="sy0">,</span><br>
+&nbsp;<br>
+&nbsp; <span class="st0">&quot;import&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;application.controllers.*&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;application.models.*&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;application.sources.*&quot;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>הדף מהקונטרולר : <br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> actionTopic<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">PageTitle</span> &nbsp;<span class="sy0">=</span> <span class="st0">&quot;Yii Tets - &quot;</span><span class="sy0">.</span><span class="kw4">__FUNCTION__</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$data</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st0">&quot;some_text&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;some_text&quot;</span><span class="sy0">;</span> &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span> <span class="st0">&quot;Topic&quot;</span> <span class="sy0">,</span> &nbsp;<span class="re0">$data</span> &nbsp;<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br><br>קובץ הhtaccess :<br><div class="php codeblock">Options <span class="sy0">+</span>FollowSymLinks<br>
+IndexIgnore <span class="sy0">*</span><span class="coMULTI">/*<br>
+<br>
+&lt;IfModule mod_rewrite.c&gt;<br>
+&nbsp; RewriteEngine on<br>
+<br>
+&nbsp; # if a directory or a file exists, use it directly<br>
+&nbsp; RewriteCond %{REQUEST_FILENAME} !-f<br>
+&nbsp; RewriteCond %{REQUEST_FILENAME} !-d<br>
+<br>
+&nbsp; RewriteRule . index.php<br>
+&nbsp; # otherwise forward it to index.php<br>
+&lt;/IfModule&gt;</span></div><br><br>ועכשיו לבעיה : <strong>כל הבקשות</strong> מועברות לindex של הקונטרולר . גם אם הכתובת קונפגה כבר , עדיין העמוד מראה את האינדקס של הקונטרולר (actionIndex) . <br>תעזרו לי בבקשה כי נמאס מהכתבות המעצבנות האלו ! :)<br><br>(נעזרתי במדריך הזה - http://phpguide.co.il/Yii++%D7%9B%D7%AA%D7%95%D7%91%D7%95%D7%AA+%D7%99%D7%95%D7%AA%D7%A8+%D7%9E%D7%A8%D7%92%D7%A9%D7%95%D7%AA.htm) </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4443">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 לספטמבר 2012 </span>
+<a id="answer_4443" href="בעיה בYii  הurlManager לא עובד .htm#answer_4443">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה להוסיף<br><div class="php codeblock"><span class="st_h">'showScriptName'</span><span class="sy0">=&gt;</span>false<span class="sy0">,</span></div> </p>
+</div>
+<div class="answer" id="answer4444">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>shlomo120</a>
+ב
+<span style="font-size:10px"> 04 לספטמבר 2012 </span>
+<a id="answer_4444" href="בעיה בYii  הurlManager לא עובד .htm#answer_4444">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קבילתי שגיאה : <div class="php codeblock">Property <span class="st0">&quot;CWebApplication.showScriptName&quot;</span> is not <span class="kw3">defined</span><span class="sy0">.</span></div> </p>
+</div>
+<div class="answer" id="answer4445">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 לספטמבר 2012 </span>
+<a id="answer_4445" href="בעיה בYii  הurlManager לא עובד .htm#answer_4445">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא באפליקיישן, אלה ב urlManager </p>
+</div>
+<div class="answer" id="answer4447">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>shlomo120</a>
+ב
+<span style="font-size:10px"> 04 לספטמבר 2012 </span>
+<a id="answer_4447" href="בעיה בYii  הurlManager לא עובד .htm#answer_4447">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עדיין לא ... <br>הקטע הוא שהקטע קוד של הurlManager ,אין לי אפשרות כניסה לקונטרולרים אחרים ... <br>לא עדיף כבר לעבוד עם htaccess טהור ? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

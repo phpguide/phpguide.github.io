@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מבוא לעבודה בסיסית עם ספריית GD ליצירה ושינוי גרפיקה באמצעות php">
+<meta name="keywords" content="php gd, gd, ציור, תמונות">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>מציירים תמונות עם php</title>
+<meta itemprop="name" content="מציירים תמונות עם php">
+<meta itemprop="description" content="מבוא לעבודה בסיסית עם ספריית GD ליצירה ושינוי גרפיקה באמצעות php">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"25","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>מציירים תמונות עם php</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-11-05T16:11:17+02:00" dir="rtl">05 לנובמבר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://image.become.co.uk/imageserver/s0/145724272-75-75-5-0/bakerross-paint-pens-dries.jpg" alt="מציירים תמונות עם php">
+</div>
+<div class="right post-content">
+php מסתדרת טוב מאוד עם גרפיקה, יודעת ליצור תמונות, לצייר עליהן, לשנות את גודלם, לכתוב טקסט וכל דבר אפשרי אחר. עד עכשיו קידדתם? תתחילו לצייר! <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+Php מכילה כלים ליצירה, שינוי ועבודה עם תמונות באמצעות ספריית פונקציות הנקראת GD. כתבה הבאה נראה איך להשתמש בספריה הזו, ניצור תמונה מחייכת משלנו, נשמור אותה ונציג למשתמש.<br><br><br>ראשית עלינו לוודא שהספריה מותקנת בשרת שלנו. <br>ניצור קובץ php חדש ונכתוב בו <div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="kw3">phpinfo</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>הפונקציה הזו מחזירה את כל המידע על אופן ההתקנה, הרחבות ונתונים על השרת עליו php מותקנת. נפעיל את הסקריפט ונחפש טבלה עם הכותרת gd<br><br><img src="static\images\pixel.png" alt="מציירים תמונות עם php" title="http://habreffect.ru/files/e76/6b5ad0a9f/e.png" class="content-image-float"><br><br>במידה והטבלה הזו אינה מופיע יהיה עלינו להתקין את GD<br>לעזרה בנושא אנא פנו לפורום או לחברת האיחסון שלכם. <br><br><h3>מהי תמונה</h3><br>במובן הכי פשוט תמונה היא אוסף של נקודות, כאשר לכל נקודה יש צבע משלה.<br>המחשב ירשום לעצמו בדרך כלשהי כמה נקודות יש ומה צבעה של כל נקודה וכך תיווצר לנו תמונה בסיסית.<br>קיימים דרכים שונות לרישום נתוני התמונה. אלו הם הפורמטים השונים<br> <span dir="ltr">(jpg, png, gif, bmp, … )</span>. <br><br><h3>התמונה הראשונה</h3><br>הקוד הבא ייצור ריבוע שחור ויציג אותו למשתמש.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$img</span> <span class="sy0">=</span> <span class="kw3">imagecreatetruecolor</span><span class="br0">&#40;</span><span class="nu0">300</span><span class="sy0">,</span> <span class="nu0">350</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Content-type: image/png&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imagepng</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>בואו נראה איך הוא עובד.<br><br>השורה הראשונה יוצרת תמונה בגודל ורוחב הנתונים בצבע שחור.<br>צבע שחור הוא אינו צבע בפני עצמו. צבע שחור הוא חוסר צבע אחר. תארו לעמצכם חדר חשוך בלי אור ובלי חלונות. כל שאתם רואים מסביבכם הוא צבע שחור, למרות שבפועל הקירות באותו חדר יכולים להיות בכל צבע שהוא. חוסר אור גורם לכל להראות שחור. כיוון שלא הגדרנו לתמונה שום צבע — התמונה שחורה.<br><br>השורה השניה אחראית ליידע את הדפדפן שהדפדפן עומד לקבל מהשרת תמונה ולא קובץ html רגיל כדי שיהיה מוכן להציג את התמונה. <br><br>השורה השלישית אחראית על רישום בכתב את תוכן התמונה ושליחתה לדפדפן<br>( כמות הנקודות בתמונה, צבעה של כל נקודה וכו&apos; ) <br><br><br><h3>צבעים בסיסיים אדום, ירוק, כחול</h3><br>קיימים שלושה צבעים בסיסיים – אדום, ירוק וכחול אותם ניתן לערבב וליצור כל צבע אחר שתרצו.<br>כדי לקבל צבע לבן – יש לערבב 255 דליים של כל שלושת הצבעים. כדי לקבל ירוק, צריך 255 דליים של צבע ירוק. לאומת זאת כדי לקבל צהוב צריך לערבב 255 דליים של ירוק עם 255 דליים של אדום. <br><br>למה כל כך הרבה? הסיבה היא שכמות השחור (חוסר צבע) תעלה על כמות הצבע עמצו ולכן הצבע יראה כהה יותר ממה שהו באמת. כדי שהצבע יהווה את הצבע האמיתי שלו וכמות השחור לא תכהה אותו יש להשתמש בכמות הצבע המירבית האפשרית. <br>את כמות הצבע שנרצה לתת למשהו אפשר לחשב בין 0 דליים לבין 255 דליים. שזוהי כמות בגודל של 28 .<br><br>נסו לשחק עם הצבעים <a href="http://www.maxi-pedia.com/rgb+color+picker">בעמוד הזה</a> ולראות איך הצבע מושפע מכמות האדום, הירוק והכחול. <br><br><br><h3>הגדרת צבע באמצעות imageColorAllocate</h3><br>בphp קיימת פונקציה שנקראת <a href="http://php.net/imagColorAllocate">imageColorAllocate</a> שמקבלת את כמות האדום, ירוק, כחול ומחשבת את הצבע הסופי. את הצבע הזה נוכל להעביר כפרמטר לפונקציות כדי שישתמשו בו. לדוגמה: הפונקציה לציור קו שתקבל כפרמטר צבע כלשהו ותצייר קו מאותו צבע. <br><br><div class="php codeblock"><span class="re0">$yellow</span> <span class="sy0">=</span> <span class="kw3">imagecolorallocate</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>הפרמטר הראשון שהפונקציה מקבלת היא מזהה של התמונה בזיכרון כדי לדעת לייחס את אותו צבע לאותה תמונה. הצורך במזהה זה נובע מכך שיש תמונות שתומכות ביותר או פחות צבעים מאשר 16 מליון צבעים.<br>(יש לנו 255 * 255 * 255 אפשרויות של ערבובי צבעים באמצעות שלושת צבעי הבסיס, מעל 16 מליון סה&quot;כ)<br><br>שלושת הפארמטרים האחרים הם כמות האדום, ירוק, כחול בהתאמה. <br>אמרנו כי צהוב הוא ערבוב של אדום וירוק לכן כמות הכחול תשאר אפסית.<br><br><h3>נצייר קו באמצעות imageLine</h3><br>לצייר קו ניתן באמצעות הפונקציה <a href="http://php.net/imageline">imageLine</a><br>נסו לצייר קו צהוב אלכסוני מהפינה השמאלית העליונה לפינה הימנית התחתונה.<br><br>כדי להצליח במשימה יהיה עלינו לבצע את השלבים הבאים.<br>1. לראות איך פועלת הפונקציה <a href="http://php.net/imageline">imageLine</a><br>יש לגלוש בדפדפן לכתובת <a href="http://php.net/imageline">php.net/imageLine</a> ולראות אילו פאראמטרים מקבלת הפונקציה<br>2. להציב את הערכים המתאימים, לקרוא לפונקציה ולראות את התוצאה.<br><br>נסו בעצמכם לפני המשך הקריאה. <br><br><img src="static\images\pixel.png" alt="מציירים תמונות עם php" title="http://habreffect.ru/files/c25/00cdd5c01/e.png" class="content-image-float"><br><br>אם הצלחתם ויצא לכם הקוד הבא – כל הכבוד.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="re0">$img</span> <span class="sy0">=</span> <span class="kw3">imagecreatetruecolor</span><span class="br0">&#40;</span><span class="nu0">300</span><span class="sy0">,</span> <span class="nu0">350</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$yellow</span> <span class="sy0">=</span> <span class="kw3">imagecolorallocate</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">imageLine</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">300</span><span class="sy0">,</span> <span class="nu0">350</span><span class="sy0">,</span> <span class="re0">$yellow</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Content-type: image/png&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imagepng</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אם לא, לא נורא. תסתכלו על הקוד ונסו לצייר קו אלכסוני בכיוון השני <br>(מהפינה הימנית העליונה לפינה השמאלית התחתונה)<br>כפי שאתם רואים, הפונקציה מקבלת שישה פרמטרים.<br><br>הראשון הוא מזהה התמונה – על איזו תמונה לצייר את הקו<br>השני והשלישי הוא המיקום ההתחלתי של הקו. כאשר ראשית הצירים נמצאת בנקודה המאלית העליונה.<br>הרביעי והחמישי הם נקודת הסיום של הקו.<br>והפרמטר האחרון הוא הצבע בו יצבע הקו המוגדר על ידי פונקציית <a href="http://php.net/imagecolorallocate">imageColorAllocate</a><br><br><h3>ציור מלבנים בעזרת imageFilledRectangle</h3><br><br>לא ניתן ואין צורך להגדיר צבע רקע מסוים. כדי ליצור תמונה עם צבע רקע משלנו מספיק לצייר מלבן על כל גודל התמונה בצבע שנרצה. נסו לצבוע את הרקע בירוק ולהשאיר את הקווים האלכסונייפ במקום. <br><br>גשו ל <a href="http://php.net/imageFilledRectangle">php.net/imageFilledRectangle</a> , <br>בדקו אלו ששת הפרמטרים הפונקציה מקבלת וצבעו את הרקע בירוק.<br><br><img src="static\images\pixel.png" alt="מציירים תמונות עם php" title=" http://habreffect.ru/files/e01/9dbb90cc7/e.png" class="content-image-float"><br><br>אם יצא לכם הקוד הבא והקו הצהוב נשאר במקום – כל הכבוד.<br>אם לא, לא נורא, נסו להבין את הקוד וצבעו לאחר מכן את הרקע בצבע אחר.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="re0">$img</span> <span class="sy0">=</span> <span class="kw3">imagecreatetruecolor</span><span class="br0">&#40;</span><span class="nu0">300</span><span class="sy0">,</span> <span class="nu0">350</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$yellow</span> <span class="sy0">=</span> <span class="kw3">imagecolorallocate</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$green</span> <span class="sy0">=</span> &nbsp;<span class="kw3">imageColorAllocate</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">imageFilledRectangle</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">300</span> <span class="sy0">,</span> <span class="nu0">350</span><span class="sy0">,</span> <span class="re0">$green</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imageLine</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">300</span><span class="sy0">,</span> <span class="nu0">350</span><span class="sy0">,</span> <span class="re0">$yellow</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st0">&quot;Content-type: image/png&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imagepng</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שימו לב שציור הקו האלכסוני חייב לבוא אחרי צביעת הרקע<br>אחרת המלבן הירוק יתמקם מעל הקו והקו לא יראה.<br><br><h3>כתיבת טקסט בעזרת imageTTFtext</h3><br>Ttf זהו קיצור של המילים true type font<br>פונט או בעברית גופן – הוא תמונה של אות. אילו נקודות על המחשב לצבוע כדי להציג אות מסוימת.<br><br>הפונקציה הנ&quot;ל משתמשת בקובץ פונט מסוים כדי לדעת איך בדיוק לצייר את האות.<br>באמצעותה נוכל לצייר טקסט בגופנים שונים. תוכלו להעתיק את <span dir="ltr">Arial (true type)</span> מתיקיית <br><span dir="ltr">C:/Windows/Fonts</span> לתוך התיקייה שבה נמצא הסקריפט ולשנות את שם הקובץ ל <span dir="ltr">Arial(.ttf)</span> .<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="co1">// The text to draw</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="st_h">'phpguide.co.il'</span><span class="sy0">;</span><br>
+<span class="co1">// Replace path by your own font path</span><br>
+<span class="re0">$font</span> <span class="sy0">=</span> <span class="st_h">'Arial.ttf'</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Create the image</span><br>
+<span class="re0">$im</span> <span class="sy0">=</span> <span class="kw3">imagecreatetruecolor</span><span class="br0">&#40;</span><span class="nu0">400</span><span class="sy0">,</span> <span class="nu0">130</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Create some colors</span><br>
+<span class="re0">$white</span> <span class="sy0">=</span> <span class="kw3">imagecolorallocate</span><span class="br0">&#40;</span><span class="re0">$im</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">255</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$black</span> <span class="sy0">=</span> <span class="kw3">imagecolorallocate</span><span class="br0">&#40;</span><span class="re0">$im</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imagefilledrectangle</span><span class="br0">&#40;</span><span class="re0">$im</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">400</span><span class="sy0">,</span> <span class="nu0">130</span><span class="sy0">,</span> <span class="re0">$white</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// Add the text</span><br>
+<span class="kw3">imagettftext</span><span class="br0">&#40;</span><span class="re0">$im</span><span class="sy0">,</span> <span class="nu0">20</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">10</span><span class="sy0">,</span> <span class="nu0">50</span><span class="sy0">,</span> <span class="re0">$black</span><span class="sy0">,</span> <span class="re0">$font</span><span class="sy0">,</span> <span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Set the content-type</span><br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-type: image/png'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imagepng</span><span class="br0">&#40;</span><span class="re0">$im</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שימו לב לפונקציה שמציירת את הטקסט.<br><br>היא מקבלת הרבה פרמטרים. (א) את התמונה עליה נצייר, (ב) גודל הטקסט, (ג) זווית הטקסט, (ד,ה) מיקום תחילת כתיבת הטקסט, (ו) צבע, (ז) מיקום קובץ הגופן, (ח) הטקסט עצמו.<br><br>שחקו מעט עם הפרמטרים כדי לראות איך הם משפיעים על התמונה:<br> שנו את הגודל, זווית ומיקום הטקסט.<br><br>אם אתם לא רואים את הטקסט, וודאו שהעתקתם ורשמתם את שם <span class="underline">וסיומת</span> הקובץ הפונטים ללא שגיאות ובאותן אותיות (גדולו וקטנות) כפי שהקובץ נקרא.<br><br><br><h3>עבודה עם תמונות קיימות imageCreateFrom</h3><br>Php מאפשרת לנו לטעון תמונה קיימת ולעבוד איתה או לצייר עליה באמצעות פונקציות מסוימות.<br>חשוב לזכור שלכל פורמט תמונה מותאמת פונקציה משל עצמה. לתמונות מסוג png נשתמש ב <a href="http://php.net/imagecreatefrompng">imageCreateFromPng</a> . לתמונות gif נשתמש ב <a href="http://php.net/imagecreatefromgif">imageCreateFromGif</a><br><br>נסו לטעון תמונה מהמחשב שלכם ולכתוב phpguide.co.il ישירות עליה.<br>רמז: הדבר היחידי שמשתנה הוא שהתמונה אינה נוצרת על ידי imageCreateTrueColor אלה מאתה נוצרת בעזרת הפונקציה המתאימה.<br><br>אני ציירתי משהו כזה: <br><img src="static\images\pixel.png" alt="מציירים תמונות עם php" title="http://habreffect.ru/files/496/85d8e4d7b/e.png" class="content-image-float"><br>באמצעות הקוד הבא: <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="st0">&quot;I'm learning<br>
+to use GD library<br>
+at the<br>
+PHPGUIDE.CO.IL&quot;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$font</span> <span class="sy0">=</span> <span class="st_h">'Arial.ttf'</span><span class="sy0">;</span><br>
+<span class="re0">$im</span> <span class="sy0">=</span> <span class="kw3">imagecreatefromjpeg</span><span class="br0">&#40;</span><span class="st_h">'back.jpg'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Add the text</span><br>
+<span class="kw3">imagettftext</span><span class="br0">&#40;</span><span class="re0">$im</span><span class="sy0">,</span> <span class="nu0">20</span><span class="sy0">,</span> <span class="nu0">3</span><span class="sy0">,</span> <span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">90</span><span class="sy0">,</span> <span class="kw3">imagecolorallocate</span><span class="br0">&#40;</span><span class="re0">$im</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="re0">$font</span><span class="sy0">,</span> <span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// Set the content-type</span><br>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-type: image/png'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imagepng</span><span class="br0">&#40;</span><span class="re0">$im</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>שימו לב, <a href="http://www.funhunter.net/wp-content/uploads/2009/04/subway-tunnel-sign.jpg">שתמונת המקור</a> שלי הייתה מסוג jpg לכן הייתי חייב להשתמש בפונקציה המתאימה לתמונת jpeg<span class="dirleft"><br> <a href="http://php.net/imagecreatefromgif">imagecreatefromgif</a> <br> <a href="http://php.net/imagecreatefromjpeg">imagecreatefromjpeg</a> <br> <a href="http://php.net/imagecreatefrompng">imagecreatefrompng</a> <br></span><br><br><h3>שמירת תמונה בקובץ</h3><br>הפונקציה imagepng מאפשרת לנו להעביר פרמטר שני - שם של קובץ<br>לתוכו הפונקציה תשמור את התמונה שלנו.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$img</span> <span class="sy0">=</span> <span class="kw3">imagecreatetruecolor</span><span class="br0">&#40;</span><span class="nu0">300</span><span class="sy0">,</span> <span class="nu0">350</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">imagepng</span><span class="br0">&#40;</span><span class="re0">$img</span><span class="sy0">,</span> <span class="st_h">'image1.png'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הפונקציה תיצור את התמונה בתוך הקובץ.<br>במקרה הזה אין צורך לשלוח לדפדפן הודעה בנוגע לסוג המסמך.<br><br>שאלה שתמיד נשאלת היא איך להציג למשתמש תמונה וטקסט באותו סקריפט.<br>הובכן, הדבר בלתי אפשרי. הדפדפן צריך לקבל מהשרת הודעה מהו סוג העמוד<br>באמצעות פונקציית ה-header ואינו מסוגל להתמודד עם תמונה ו-html במסמך אחד.<br><br>יהיה עליכם לפרק את הסקריפט לשני חלקים<br>הראשון אחראי על תצוגת הטקסט ומכיל קוד <span dir="ltr">&lt;img src&gt;</span> שיגרום לדפדפן לשלוח בקשה לסקריפט השני ולקבל ממנו תמונה בחזרה.<br><br><br><h2>בעיות נפוצות:</h2><br><h3>ג&apos;יבריש במקום עברית </h3><br>יכול לנבוע משני סיבות עיקריות.<br>א. קובץ הפונט שלכם לא מכיל הגדרה - איך לצייר את האותיות העבריות.<br>נסו להחליף את הגופן בArial שמכיל גם את האותיות העבריות. <br>ב. אתם לא משתמשים בקידוד utf-8 . כל הפונקציות הללו עובדות עם utf-8 בלבד<br>עליכם [url=/UTF_8_%D7%A7%D7%99%D7%93%D7%95%D7%93_%D7%95%D7%A1%D7%99%D7%9E%D7%A0%D7%99_%D7%A9%D7%90%D7%9C%D7%94.htm]לעבור מיד לשימוש ב utf-8[/url] ולשכוח את כל הקידודים האחרים לצמיתות.<br><br><br><h3>הדפדפן מציג טקסט לא ברור במקום תמונה </h3><br>זוכרים את השורה <br><div class="php codeblock"><span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-type: image/png'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>מטרתה לומר לדפדפן שהעמוד הוא תמונה ולא עמוד html רגיל.<br>וודאו ששורה זו נמצאת בקוד שלכם.<br><br><br><h3>הדפדפן כותב שלא יכול להציג את התמונה ובה שגיאה או מציג את שם העמוד</h3><br>כנראה שיש שגיאה כלשהי בקוד והסקריפט שולח הודעת שגיאה. <br>הדפדפן מקבל מהשרת שורת טקסט ולא מצליח לפענח אותה כתמונה, לכן כותב שהתמונה אינה תקינה.<br>כדי לראות את השגיאה שphp החזירה ניתן להוריד את שורת ה <br><div class="php codeblock"><span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-type: image/png'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ואתם תראו את השגיאה בדפדפן.<br><br><br><h3><span dir="ltr">Fatal error: Call to undefined function ...</span></h3><br><br>הפונקציה לא קיימת. כאן שני אפשרויות.<br>א. רשמתם את שם הפונקציה לא נכון ויש לוודא באתר php.net שרשמתם אותה נכון.<br>ב. ספריית gd לא מותקנת אצלכם. אנא פנו לפורום לקבלת עזרה בהתקנה<br><br><br><br><h3><br>על המסך מופיע Resource id #... במקום התמונה שלי</h3><br><h4>משאב (Resource):</h4><br>משאב הוא מצביע, קישור למשהו חיצוני.<br>תארו לעצמכם מוסך גדול עם עשרות חניות.<br>מפינת הרחוב בחריקה מטורפת יוצאת לה פררי אדומה יפהפיה, עוצרת לה בחניה מספר חמש של המוסך ויוסי, הבעלים של הפררי יוצא וצועק לעבר המוסכניק: מלא לי 10 ליטר שמן במכונית. החניתי אותו בחניה מספר חמש ומראה לכיוונה עם האגודל. <br>העובד שלנו קיבל מהמוסכניק שני דברים. א. מספר (כמות ליטרי השמן) ב. מזהה ייחודי (מצביע) של מיקום המכונית בחניית המוסך. הוא לא קיבל את המכונית עצמה, אלה קישור למיקום בו נמצאת המכונית. <br>קישור זה למשהו חיצוני נקרא משאב.<br><br>התמונה שיש לנו בזיכרון היא משאב. יש פונקציה מיוחדת הלוקחת את המשאב מהזיכרון, רושמת אותו באופן בינארי ושולחת לדפדפן ושמה — imagePNG. בקוד שלך מופיע echo למשאב שלא מסוגל להדפיס מכונית. לאומתו הפונקציה imagePNG היא פונקציה מיוחדת שיודעת להתניע את המכונית, לנהוג למקום אחר ולמסור אותה לבעלים.<br><br><br><h3>זהו זה.</h3> <br>כעת אתם מוזמנים לפנות <a href="http://php.net/manual/en/book.image.php">לדוקומנטציה</a> ולנסות בעצמכם פונקציות שונות ומשונות לציור תמונות, כי אין אף מדריך שיסביר באופן מפורט שימוש בכל פונקציה בנפרד מלבד <a href="http://php.net/manual/en/book.image.php">הדוקומנטציה</a>.<br>במידה ויש לכם שאלות – אנא פנו לפורום ונשמח לעזור. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment28"></a>
+<div class="blog-comment">
+<span class='comment-author'>idan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/03/2011 15:20</span><br>
+מדריך מעולה ויצירתי :)<br>
+LIKE אחד גדול.</div>
+<a id="comment147"></a>
+<div class="blog-comment">
+<span class='comment-author'>עידו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/05/2011 20:19</span><br>
+מדריך מעולה!<br>
+כל הכבוד! :]</div>
+<a id="comment672"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/08/2011 23:18</span><br>
+יוצאת לי עברית הפוכה :/</div>
+<a id="comment673"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/08/2011 10:32</span><br>
+GD תמיד כותבת משמאל לימין.<br>
+אתה צריך להפוך את סדר האותיות במחרוזת בעצמך לפני הכתיבה.</div>
+<a id="comment674"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/08/2011 12:53</span><br>
+אבל אם חלק כתוב בעברית וחלק באנגלית?</div>
+<a id="comment675"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/08/2011 16:32</span><br>
+תעשה את ההיפוך לפני שאתה מחבר את המחרוזות או שתקרא ל imagettftext כמה פעמים</div>
+<a id="comment676"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/08/2011 16:38</span><br>
+אין דרך אחרת? :/</div>
+<a id="comment677"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/08/2011 16:44</span><br>
+אני לא מכיר. GD לא תומכת בכתיבה מימין לשמאל. בשביל זה יש פונקציות היפוך סדר אותיות כמו hebrev אבל הם לא מסתדרות עם utf-8. או שתכתוב פונקציה כזאת משלך, או שתראה פתרונות אחרים בתגובות בדוקומנטציה.</div>
+<a id="comment963"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/12/2011 20:43</span><br>
+מדריך מעולה, תודה רבה. :)</div>
+<a id="comment1109"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 14:38</span><br>
+יש אפשרות להדביק תמונה קטנה על תמונה גדולה?</div>
+<a id="comment1110"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 14:49</span><br>
+תבחר את הפונקציה שמתאימה לך:<br>
+imagecopy, imagecopyresampled, imagecopyresized</div>
+<a id="comment1151"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/01/2012 19:57</span><br>
+אחרי שאנ ימשתמש בפונ&apos; imagepng($im); באיזה דף, איך אני משתמש בתמונה הזאת?</div>
+<a id="comment1152"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/01/2012 08:55</span><br>
+&lt;img src=&quot;scriptWithImagePng.php&quot; /&gt;</div>
+<a id="comment1153"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/01/2012 19:10</span><br>
+thx</div>
+<a id="comment2506"></a>
+<div class="blog-comment">
+<span class='comment-author'>zacharya</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/07/2013 10:19</span><br>
+היה נחמד אם היה אפשר להפעיל את הספרייה בPHP אונליין ^^</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

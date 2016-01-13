@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="יצאה PHP 5.4.5 עם תיקוני באגים ושיפורי מהירות">
+<meta name="keywords" content="php, 5.4.5, מהיר, performance">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>PHP 5.4 מהירה פי כמה מ PHP 5.3</title>
+<meta itemprop="name" content="PHP 5.4 מהירה פי כמה מ PHP 5.3">
+<meta itemprop="description" content="יצאה PHP 5.4.5 עם תיקוני באגים ושיפורי מהירות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"234","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>PHP 5.4 מהירה פי כמה מ PHP 5.3</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-07-28T15:05:31+03:00" dir="rtl">28 ליולי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://cloud.ohloh.net/attachments/42/php_med.png" alt="PHP 5.4 מהירה פי כמה מ PHP 5.3">
+</div>
+<div class="right post-content">
+רק לפני 10 ימים יצאה הגרסה האחרונה של php 5.4.5 שמתקנת באג הבטחה קריטי אבל זה לא הסיבה היחידה לעדכן את השרתים. המפתחים עושים הכל כדי שכל גרסת PHP תהיה מהירה מקודמותיה. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>מהירה פי 2 !!??</h3><br>הכל התחיל בערב יום שבת כשישב מול המקלדת שלו וחשב לעצמו איך לנצל את השעה הקרובה עד שיתחיל השידור של המשחק בטלוויזיה. הדפדפן החליף בין עמודי הפייסבוק לבלוגים בכל לחיצה עד שפתאום נעצר בעמוד לבן עם אותיות קטנות ושחורות. על המסך הופיעה הכותרת php moves to git . <br>&quot;מעניין&quot; - חשב לעצמו. &quot;עכשיו אפשר לראות מה חדש בגרסה הבאה עוד לפני שהיא יצאה&quot; - והדפדפן במהירות החליף את התמונה על המסך בעמוד הראשי של github.com. למרות שעוד לא עבר זמן רב מהרגע שיצאה 5.3 ולידיו הגיעה האפשרות לשחק עם ניימספייסים ולהעביר פונקציות אנונימיות בתור פרמטרים, הפיתוי לראות מה חדש היה גדול.<br>פקודה אחת והגרסה החדשה כבר הופיעה בשולחן העבודה. עוד שלוש פקודות והכל התקמפל לכמה קבצים שנשאר רק לזרוק לשרת ולהפעיל. 5.4 באמת נראית מעניין. מערכים קצרים, משהו מוזר בשם <a href="Traits.htm">traits</a>, מעבר ל utf-8.. &quot;מגניב&quot; במילה אחת.<br>ההתלהבות והאצבעות הזריזות ייצרו קוד קצר לבדיקת מהירות והתוצאות גרמו להתפלאות גדולה יותר. שבע השורות הפשוטות האלה הראו הבדל של שמיים וארץ במהירות יצירת האובייקטים בכל אחת מהגרסאות:<br><br><div class="php codeblock"><span class="re0">$r</span> <span class="sy0">=</span> <span class="nu0">10</span> <span class="sy0">*</span> <span class="nu0">1000</span> <span class="sy0">*</span> <span class="nu0">1000</span><span class="sy0">;</span><br>
+<span class="re0">$start</span> <span class="sy0">=</span> <span class="kw3">microtime</span><span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<br>
+<span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$r</span><span class="sy0">--</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">new</span> StdClass<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+&nbsp;<br>
+<span class="re0">$finish</span> <span class="sy0">=</span> <span class="kw3">microtime</span><span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;time taken: &quot;</span> <span class="sy0">.</span> <span class="br0">&#40;</span><span class="re0">$finish</span> <span class="sy0">-</span> <span class="re0">$start</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span></div><br><br><img src="static\images\pixel.png" alt="PHP 5.4 מהירה פי כמה מ PHP 5.3" title="http://www.lornajane.net/wp-content/uploads/2012/06/graphshot.png" class="content-image-float"><br><br><br><h3>בכל זאת מהיר אבל קצת פחות</h3><br>&quot;מהיר פי יותר מ2&quot; הייתה התוצאה שכל כך הפתיעה אותו, עד כדי כך שהוא תפס את מכשיר הטלפון וחייג. &quot;שמע מה גיליתי&quot; אמר לשפופרת אחרי שהשיחה נענתה וסיפר על הממצאים. &quot;מעניין&quot; - הייתה התגובה של הקול בצד השני, &quot;אבל יצירת אובייקטים זה לא כל מה שהסקריפט שלך עושה. תנסה משהו נוסף.&quot;<br><br>עוד דקה של קימוט המצח והפעלת התאים האפורים הביאה איתה את ההבנה. באמת שהסקריפט שכתב לא הייתה הבדיקה הטובה ביותר למהירות. הרי סקריפט צריך לא רק ליצור אובייקטים, אלה גם לקרוא קבצים, להחליט על תנאים, לגשת למשתנים ולעשות חישובים. סקריפט יותר מתקדם - זה מה שהיה צריך.<br><br>למזלו מפתחי ה-php כבר מגירסה 5.1 הכלילו סקריפט בדיקות מהירות שבו הם עצמם משתמשים לבדיקות ולהשוואת בין הגרסאות. הוא רק עוד לא ידע שגם פה התוצאות לא פחות משמחות. אחרי כמה דקות גם הבדיקות החדשות עלו לאוויר והגרף הבא הצתייר <br><br> <img src="static\images\pixel.png" alt="PHP 5.4 מהירה פי כמה מ PHP 5.3" title="https://chart.googleapis.com/chart?cht=bvs&amp;chs=650x300&amp;chma=30,30,30,30&amp;chbh=50,20&amp;chxt=x,y,x&amp;chxl=0:|5.1.6|5.2.17|5.3.14|5.4.4|2:||PHP%20version&amp;chd=t:3.97,4.1,2.8,2.25&amp;chds=0,5&amp;chxr=1,0,5&amp;chco=991d66|c57fa3|bebcb9|52b4b2&amp;chts=000000,24&amp;chxs=0,,18|1,,18|2,,18" class="content-image-float"><br><br>&quot;לא רע&quot; עברה המחשבה בראשו. ניכר שמפתחי ה-PHP משתפרים וההישגים במהירות מתקבלים בזכות כתיבת קוד תקין יותר וויתור על פרקטיקות גרועות. אולי מתישהו php אפילו תהפוך לשפה טובה הייתה המחשבה האחרונה שלו לפני שפעמון הדלת קטע אותו. בעל הקול מהטלפון ועוד שני חברים עמדו שם עם פיצוחים ושתייה והמשחק בדיוק עמד להתחיל..<br><br><br><span style="color:green;">ואגב</span><br><h3>יצאה PHP 5.4.5</h3><br>כמו כל הגרסאות המינוריות - גם הגרסה הנוכחית יצאה במפתיע עם תיקון לבעיית אבטחה הקשורה לקריאת קבצים מהדיסק באמצעות streams. בנוסף לזה <a href="http://www.php.net/ChangeLog-5.php">תוקנו למעלה מ30 באגים</a> נוספים בהרחבות רבות <span dir="ltr">(exif, json, fpm, iconv, reflection, ..)</span><br><br>ככה שיש הרבה סיבות טובות להיעזר ב<a href="6_צעדים_קצרים_לעדכון_גרסת_php_ב_wamp.htm">מדריך עדכון גרסת PHP ב-wamp</a> ולהשתדרג. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1777"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/07/2012 11:32</span><br>
+באמת היא הגירסא החדשה ניראתה לי יותר מהירה ... <br>
+תודה רבה על האימות :) </div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

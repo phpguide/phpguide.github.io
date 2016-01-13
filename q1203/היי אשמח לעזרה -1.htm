@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה היי אשמח לעזרה ">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="alexmelo">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>היי אשמח לעזרה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="היי אשמח לעזרה  | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה היי אשמח לעזרה ">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="היי אשמח לעזרה -1.htm" title="היי חברים יש לי טופס צור קשר אני מעוניין לעשות שדה ניסתר ולבדק האם הוא מלא ,במידה ולא אז אני יבצע את הבדיקות .במידה והוא מלא אז אני יהרוג את הסקריפט הוא לא יעשה כלום .משהו יכול לעזור לי תודה ועוד שאלה קטנה האם אני צריך לעשות escaping לשדות גם אם אין שימוש בבסיס נתונים ?">היי אשמח לעזרה </a></h2>
+<div class="userinfo">
+פתח
+<a>alexmelo</a>
+,
+<time class="timeago relativetime" datetime="2013-01-20T11:30:36+02:00" style="display:inline-block;">
+20 לינואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1203'>
+היי חברים יש לי טופס צור קשר אני מעוניין לעשות שדה ניסתר ולבדק האם הוא מלא ,<br>במידה ולא אז אני יבצע את הבדיקות .<br>במידה והוא מלא אז אני יהרוג את הסקריפט הוא לא יעשה כלום .<br>משהו יכול לעזור לי תודה <br><br>ועוד שאלה קטנה האם אני צריך לעשות escaping לשדות גם אם אין שימוש בבסיס נתונים ? </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5266">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fde6f4fb89c317dd68a45195e576983f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>alexmelo</a>
+ב
+<span style="font-size:10px"> 20 לינואר 2013 </span>
+<a id="answer_5266" href="היי אשמח לעזרה -1.htm#answer_5266">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה הקוד <div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="co1">// EDIT THE 2 LINES BELOW AS REQUIRED</span><br>
+&nbsp; &nbsp; <span class="re0">$email_to</span> <span class="sy0">=</span> <span class="st0">&quot;<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="22434e475a4f434e4b4c101162454f434b4e0c414d4f">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$email_subject</span> <span class="sy0">=</span> <span class="st0">&quot;письмо от Техниона&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="kw2">function</span> died<span class="br0">&#40;</span><span class="re0">$error</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// your error code can go here</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$error</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="co1">// validation expected data exists</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">||</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'last_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">||</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">||</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'phone'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">||</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'city'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; died<span class="br0">&#40;</span><span class="st_h">'We are sorry, but there appears to be a problem with the form you submitted.'</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="re0">$first_name</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// required</span><br>
+&nbsp; &nbsp; <span class="re0">$last_name</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'last_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// required</span><br>
+&nbsp; &nbsp; <span class="re0">$email_from</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// required</span><br>
+&nbsp; &nbsp; <span class="re0">$telephone</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'phone'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// not required</span><br>
+&nbsp; &nbsp; <span class="re0">$city</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'city'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// required</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">=</span> <span class="st0">&quot;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$email_exp</span> <span class="sy0">=</span> <span class="st_h">'/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$email_exp</span><span class="sy0">,</span><span class="re0">$email_from</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$email_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="re0">$string_exp</span> <span class="sy0">=</span> <span class="st0">&quot;/^[A-Za-z .-]+$/&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$string_exp</span><span class="sy0">,</span><span class="re0">$first_name</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$name_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$string_exp</span><span class="sy0">,</span><span class="re0">$last_name</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$last_name_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$city</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">2</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$city_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">&quot;/^[0-9]{10}$/&quot;</span><span class="sy0">,</span> <span class="re0">$telephone</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$telephone</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">10</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$phone_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$error_message</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; died<span class="br0">&#40;</span><span class="re0">$error_message</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="re0">$email_message</span> <span class="sy0">=</span> <span class="st0">&quot;Form details below.<span class="es1">\n</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="kw2">function</span> clean_string<span class="br0">&#40;</span><span class="re0">$string</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$bad</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;content-type&quot;</span><span class="sy0">,</span><span class="st0">&quot;bcc:&quot;</span><span class="sy0">,</span><span class="st0">&quot;to:&quot;</span><span class="sy0">,</span><span class="st0">&quot;cc:&quot;</span><span class="sy0">,</span><span class="st0">&quot;href&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="re0">$bad</span><span class="sy0">,</span><span class="st0">&quot;&quot;</span><span class="sy0">,</span><span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;First Name: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$first_name</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;Last Name: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$last_name</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;Email: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$email_from</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;Telephone: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$telephone</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;city: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$city</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp;<br>
+<span class="co1">// create email headers</span><br>
+<span class="re0">$headers</span> <span class="sy0">=</span> <span class="st_h">'From: '</span><span class="sy0">.</span><span class="re0">$email_from</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">.</span><br>
+<span class="st_h">'Reply-To: '</span><span class="sy0">.</span><span class="re0">$email_from</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span> <span class="sy0">.</span><br>
+<span class="st_h">'X-Mailer: PHP/'</span> <span class="sy0">.</span> <span class="kw3">phpversion</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy0">@</span><span class="kw3">mail</span><span class="br0">&#40;</span><span class="re0">$email_to</span><span class="sy0">,</span> <span class="re0">$email_subject</span><span class="sy0">,</span> <span class="re0">$email_message</span><span class="sy0">,</span> <span class="re0">$headers</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<span class="kw1">echo</span><span class="st0">&quot;&lt;li class='error2'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$successfully_msg</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer5274">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5274" href="היי אשמח לעזרה -1.htm#answer_5274">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="co1">// EDIT THE 2 LINES BELOW AS REQUIRED</span><br>
+&nbsp; &nbsp; <span class="re0">$email_to</span> <span class="sy0">=</span> <span class="st0">&quot;<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="e0818c85988d818c898ed2d3a0878d81898cce838f8d">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$email_subject</span> <span class="sy0">=</span> <span class="st0">&quot;письмо от Техниона&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="kw2">function</span> died<span class="br0">&#40;</span><span class="re0">$error</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// your error code can go here</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="re0">$error</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'hidden_field_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="st_h">''</span> <span class="sy0">!==</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'hidden_field_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; died<span class="br0">&#40;</span><span class="st_h">'This field was supposed to be empty'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="co1">// validation expected data exists</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'last_name'</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'phone'</span><span class="br0">&#93;</span><span class="sy0">,</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'city'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; died<span class="br0">&#40;</span><span class="st_h">'We are sorry, but there appears to be a problem with the form you submitted.'</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="re0">$first_name</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// required</span><br>
+&nbsp; &nbsp; <span class="re0">$last_name</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'last_name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// required</span><br>
+&nbsp; &nbsp; <span class="re0">$email_from</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// required</span><br>
+&nbsp; &nbsp; <span class="re0">$telephone</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'phone'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// not required</span><br>
+&nbsp; &nbsp; <span class="re0">$city</span> <span class="sy0">=</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="kw3">strip_tags</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'city'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// required</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">=</span> <span class="st0">&quot;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$email_exp</span> <span class="sy0">=</span> <span class="st_h">'/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/'</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$email_exp</span><span class="sy0">,</span><span class="re0">$email_from</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$email_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$string_exp</span> <span class="sy0">=</span> <span class="st0">&quot;/^[A-Za-z .-]+$/&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$string_exp</span><span class="sy0">,</span><span class="re0">$first_name</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$name_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$string_exp</span><span class="sy0">,</span><span class="re0">$last_name</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$last_name_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$city</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">2</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$city_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span> <span class="sy0">!</span><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">&quot;/^[0-9]{10}$/&quot;</span><span class="sy0">,</span> <span class="re0">$telephone</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$telephone</span><span class="br0">&#41;</span> <span class="sy0">&lt;</span> <span class="nu0">10</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$error_message</span> <span class="sy0">.=</span> <span class="st0">&quot;&lt;li class='error'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$phone_error</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">strlen</span><span class="br0">&#40;</span><span class="re0">$error_message</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; died<span class="br0">&#40;</span><span class="re0">$error_message</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="re0">$email_message</span> <span class="sy0">=</span> <span class="st0">&quot;Form details below.<span class="es1">\n</span><span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">function</span> clean_string<span class="br0">&#40;</span><span class="re0">$string</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$bad</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;content-type&quot;</span><span class="sy0">,</span><span class="st0">&quot;bcc:&quot;</span><span class="sy0">,</span><span class="st0">&quot;to:&quot;</span><span class="sy0">,</span><span class="st0">&quot;cc:&quot;</span><span class="sy0">,</span><span class="st0">&quot;href&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="re0">$bad</span><span class="sy0">,</span><span class="st0">&quot;&quot;</span><span class="sy0">,</span><span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;First Name: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$first_name</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;Last Name: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$last_name</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;Email: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$email_from</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;Telephone: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$telephone</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$email_message</span> <span class="sy0">.=</span> <span class="st0">&quot;city: &quot;</span><span class="sy0">.</span>clean_string<span class="br0">&#40;</span><span class="re0">$city</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; <span class="co1">// create email headers</span><br>
+&nbsp; <span class="re0">$headers</span> <span class="sy0">=</span> <span class="st_h">'From: '</span><span class="sy0">.</span><span class="re0">$email_from</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">.</span><br>
+&nbsp; <span class="st_h">'Reply-To: '</span><span class="sy0">.</span><span class="re0">$email_from</span><span class="sy0">.</span><span class="st0">&quot;<span class="es1">\r</span><span class="es1">\n</span>&quot;</span> <span class="sy0">.</span><br>
+&nbsp; <span class="st_h">'X-Mailer: PHP/'</span> <span class="sy0">.</span> <span class="kw3">phpversion</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// NEVER NEVER NEVER NEVER NEVER NEVER</span><br>
+&nbsp; <span class="co1">// NEVER EVER</span><br>
+&nbsp; <span class="co1">// NEVER EVER USE</span><br>
+&nbsp; <span class="co1">// DO YOU HEAR ME? NEEEEEEEEVER</span><br>
+&nbsp; <span class="co1">// USE THE @ sign</span><br>
+&nbsp; <span class="co1">// NEVER!!!</span><br>
+&nbsp; <span class="co1">// BUT..</span><br>
+&nbsp; <span class="co1">// NO, NO BUT. NO EVER.</span><br>
+&nbsp; <span class="re0">$sent</span> <span class="sy0">=</span> <span class="kw3">mail</span><span class="br0">&#40;</span><span class="re0">$email_to</span><span class="sy0">,</span> <span class="re0">$email_subject</span><span class="sy0">,</span> <span class="re0">$email_message</span><span class="sy0">,</span> <span class="re0">$headers</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+&nbsp; <br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$sent</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Sorry, couldn't send your email&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw1">else</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span><span class="st0">&quot;&lt;li class='error2'&gt;&quot;</span><span class="sy0">.</span><span class="re0">$successfully_msg</span><span class="sy0">.</span><span class="st0">&quot;&lt;/li&gt;&lt;br/&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="kw3">die</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<span class="br0">&#125;</span></div><br><br><br>שנית, אף פעם. אף פעם. אף פעם, בשום מצב שהוא, אל תעשה את הטעות הכי נוראית שאחרי זה שעות מתכנתים מנסים להבין איפה היא. אף פעם אל תשתמש בשטרודל @.<br><br>כנראה שאתה מנסה לשלוח אימייל מהמחשב הלוקאלי ולא משרת של חברת האחסון, בגלל זה אתה לא מקבל אותו.<br><br>רביעית, תכניס שדה בטופס. לבדוק האם מילאו את השדה הזה אפשר על ידי הפונקציה <br><div class="php codeblock"><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'fieldname'</span><span class="br0">&#41;</span></div><br>לבדוק שהתוכן שלו לא ריק אפשר על ידי השוואה עם מחרוזת ריקה<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span><span class="st_h">''</span> <span class="sy0">===</span> <span class="kw3">trim</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'fieldname'</span><span class="br0">&#93;</span><span class="br0">&#41;</span></div><br>הכנסתי לך דוגמה לקוד. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

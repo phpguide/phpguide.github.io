@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="המדריך מסביר על הטלת צל (חיצוני/פנימי) מאלמנטים (box-shadow) ומטקסט (text-shadow) ועל גבולות (borders/outlines) מרובים באמצעות קוד CSS3 קצר ונקי.">
+<meta name="keywords" content="box-shadow,text-shadow,צל ב-CSS">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>box-shadow ו-text-shadow ב-CSS3</title>
+<meta itemprop="name" content="box-shadow ו-text-shadow ב-CSS3">
+<meta itemprop="description" content="המדריך מסביר על הטלת צל (חיצוני/פנימי) מאלמנטים (box-shadow) ומטקסט (text-shadow) ועל גבולות (borders/outlines) מרובים באמצעות קוד CSS3 קצר ונקי.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"203","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>box-shadow ו-text-shadow ב-CSS3</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">OrelBeY, </div>
+<div class="right">&nbsp;<time datetime="2012-04-04T00:31:14+03:00" dir="rtl">04 לאפריל 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://img844.imageshack.us/img844/2183/85368395.png" alt="box-shadow ו-text-shadow ב-CSS3">
+</div>
+<div class="right post-content">
+תמיד רציתם להטיל צל (חיצוני/פנימי) מאלמנטים/טקסט ולא ידעתם איך? פעם התחשק לכם ליצור הרבה גבולות סביב אלמנט כלשהו ולא יכולתם יותר מ-2 (border ו-outline)? אתם יותר ממוזמנים לקרוא את המדריך הבא, שיסביר לכם בפירוט איך לעשות את כל אלה באמצעות קוד CSS נקי. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>box-shadow - הטלת צל (או צללים) מאלמנט</h3><br>נתחיל עם התכונה box-shadow, שבאמצעותה ניתן להטיל צל מאלמנטים.<br>במהלך הדוגמאות בחלק הזה של המדריך ילווה אותנו div שקוד ה-CSS שלו (נכון לעכשיו) הוא:<br><div class="php codeblock">text<span class="sy0">-</span>align<span class="sy0">:</span> center<span class="sy0">;</span><br>
+width<span class="sy0">:</span> 200px<span class="sy0">;</span><br>
+height<span class="sy0">:</span> 80px<span class="sy0">;</span><br>
+background<span class="sy0">-</span>color<span class="sy0">:</span> <span class="co2">#005300;<br>
+</span>padding<span class="sy0">:</span> 40px<span class="sy0">;</span> <br>
+color<span class="sy0">:</span> <span class="co2">#FFFFFF;</span></div><br>כרגע הוא נראה כך:<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img33.imageshack.us/img33/8789/17058816.png" class="content-image-float"><br><br><h4>שלושת הערכים הבסיסיים של box-shadow</h4><br>ל-box-shadow יש שלושה ערכים בסיסיים ושלושה ערכים אופציונאליים.<br>אם משתמשים רק בערכים הבסיסיים, הערך הראשון הוא המיקום האופקי (-) של הצל מהאלמנט, הערך השני הוא המיקום האנכי (|) של הצל מהאלמנט והערך השלישי הוא צבע הצל. כך זה נראה:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> horizontal<span class="sy0">-</span>position vertical<span class="sy0">-</span>position shadow<span class="sy0">-</span>color<span class="sy0">;</span></div><br>(ההסבר מחולק לחלקים, עוד מעט הכל יהיה ברור.)<br>כדי להסביר על המרחק האופקי והאנכי של הצל מהאלמנט, נתחיל מזה שהצל עצמו הוא בגודל של האלמנט שקיבל את התכונה box-shadow. כל מה שאנחנו צריכים לעשות זה להזיז אותו לצד הימני/שמאלי (אופקי) של האלמנט ולצידו העליון/תחתון (אנכי).<br>כדי להזיז את הצל ימינה, נכניס בערך הראשון מספר חיובי (בצירוף px) המציין את כמות הפיקסלים שעל הצל לזוז ימינה. כדי להזיז אותו שמאלה, נכתוב מספר שלילי (בצירוף px) המציין את כמות הפיקסלים שעל הצל לזוז שמאלה. באותו אופן, על מנת להזיז את הצל מטה, נכניס בערך השני מספר חיובי (בצירוף px) המציין את כמות הפיקסלים שעל הצל לזוז מטה, או מספר שלילי (בצירוף px) המציין את כמות הפיקסלים שעל הצל לזוז מעלה.<br><br>בתור דוגמה, ניתן לדיב (div) שלנו את קוד ה-CSS הבא:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 10px 5px <span class="co2">#5C915C;</span></div><br>באמצעות השורה הזאת בעצם אמרנו לצל שנמצא &quot;מאחורי&quot; הדיב לזוז 10 פיקסלים ימינה, 5 פיקסלים מטה, ולהיות בצבע #5C915C. הוא ייראה כך עכשיו:<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img803.imageshack.us/img803/9940/33572693.png" class="content-image-float"><br><br>כעת ניתן לדיב שלנו את קוד ה-CSS הבא:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> <span class="sy0">-</span>10px 5px <span class="co2">#5C915C;</span></div><br>כמו שניתן לראות בתמונה הבאה, הגדרות הצל הן כמו אלה שבדוגמה הקודמת, מלבד המרחק האופקי של הצל מהאלמנט - שעכשיו הוא 10 פיקסלים שמאלה.<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img705.imageshack.us/img705/7843/67909185.png" class="content-image-float"><br><br><h4>טשטוש צל האלמנט באמצעות box-shadow</h4><br>box-shadow מקבל ערך נוסף (אופציונאלי), שהוא טשטוש הצל, ובעצם - מרחק טשטוש הצל. סדר הערכים ב-box-shadow יהיה עכשיו כך:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> horizontal<span class="sy0">-</span>position vertical<span class="sy0">-</span>position blur<span class="sy0">-</span>distance shadow<span class="sy0">-</span>color<span class="sy0">;</span></div><br>הדיב החביב שלנו יקבל עכשיו את קוד ה-CSS הבא:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 5px 5px 5px <span class="co2">#5C915C;</span></div><br>ועכשיו סוף סוף הצל ייראה כמו שצל אמור להיראות:<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img835.imageshack.us/img835/3089/30269701.png" class="content-image-float"><br><br>נזכור שהצל תמיד נמצא מאחורי האלמנט, כך שהוא יצליח &quot;לפלוש&quot; גם לצד השמאלי ולצד העליון של הדיב לאחר שניתן לו את קוד ה-CSS הבא:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 10px 10px 40px <span class="co2">#5C915C;</span></div><br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img195.imageshack.us/img195/1994/92316409.png" class="content-image-float"><br>מכיוון שמרחק הטשטוש שהגדרנו לצל כל כך גבוה, הוא מופיע (כמובן שבגודל קטן יחסית) גם בצד העליון ובצד השמאלי של הדיב. אם לא נרצה שזה יקרה, נוכל להזיז את הצל קצת יותר ימינה ומטה (או להקטין את מרחק הטשטוש), ובעצם לוותר על רמה גבוהה כזו של טשטוש.<br>אם כבר מדברים על זה, איך אנחנו יכולים לומר לצל להופיע ביותר משני צִדי האלמנט? בשביל זה יש ערך נוסף ב-box-shadow.<br><br><h4>תוספת לגודל צל האלמנט באמצעות box-shadow</h4><br>ל-box-shadow יש ערך נוסף (אופציונאלי), שהוא מרחק התפשטות הצל, כלומר תוספת לגודל הצל. אחרי הכל, הצל הוא בגודל של האלמנט, אבל מה אם אנחנו רוצים להגדיל אותו?<br>בשביל להגדיר את גודל הצל עלינו לכתוב גם את מרחק הטשטוש שלו, כך שאם לא נרצה טשטוש - פשוט נכתוב 0px במקום המיועד להגדרת מרחק הטשטוש.<br>כשרוצים להגדיר גם את התפשטות הצל, סדר הערכים שמקבל box-shadow יהיה כך:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> horizontal<span class="sy0">-</span>position vertical<span class="sy0">-</span>position blur<span class="sy0">-</span>distance spread shadow<span class="sy0">-</span>color<span class="sy0">;</span></div><br><br>אז יש לנו דיב עם קוד ה-CSS הבא:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 10px 10px <span class="co2">#5C915C;</span></div><br>והוא נראה כך:<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img833.imageshack.us/img833/1024/91482167.png" class="content-image-float"><br>ניתן לגודל הצל תוספת בסך חמישה פיקסלים (חשוב לזכור שהתוספת היא לכל הכיוונים):<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 10px 10px 0px 5px <span class="co2">#5C915C;</span></div><br>מישהו מסוגל לחשוב איך הצל של הדיב ייראה עכשיו? בדיוק, אנו נראה שהוא &quot;זז&quot; חמישה פיקסלים נוספים ימינה ומטה, ונוכל גם לראות (בצד ימין) שהוא התרחב ב-5 פיקסלים בקצה העליון שלו, ובצד התחתון נוכל לראות שהוא התרחב ב-5 פיקסלים שמאלה. מה שבעצם קרה זה שהצל גדל בחמישה פיקסלים לכל צד.<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img38.imageshack.us/img38/6734/75321747.png" class="content-image-float"><br>נרחיב אותו בחמישה פיקסלים נוספים:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 10px 10px 0px 10px <span class="co2">#5C915C;</span></div><br>איך הוא ייראה עכשיו? תסתכלו בתמונה הבאה:<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img401.imageshack.us/img401/853/11972809.png" class="content-image-float"><br><br><h5>צל מכל צדי האלמנט באמצעות box-shadow</h5><br>אוקיי, כל זה חביב ונחמד, אבל איך אנחנו אנחנו שמים את הצל בכל הצדדים באופן שווה, בתוספת של טשטוש יפה?<br>זה מאוד פשוט. תחילה נאמר לצל להישאר במקום, לא לזוז. (ולא, אנחנו לא עומדים לירות בו או משהו כזה...) אחר כך נטשטש אותו קצת ונרחיב אותו (עם דגש על &quot;נרחיב אותו&quot;).<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 0px 0px 7px 10px <span class="co2">#5C915C;</span></div><br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img818.imageshack.us/img818/7528/72904355.png" class="content-image-float"><br><br><h4>צל פנימי באלמנט באמצעות box-shadow</h4><br>ל-box-shadow יש ערך אופציונאלי נוסף (ואחרון), וכשהוא מופיע, הוא בעצם אומר לצל להופיע בתוך האלמנט ולא מחוצה לו. לערך הזה קוראים inset. הוא תמיד יהיה הערך האחרון של ה-box-shadow, וניתן להשתמש בו בכל מצב - גם אם לא הוגדרה תוספת לגודל הצל או מרחק טשטוש הצל.<br>יש לשים לב לכך של-inset לא אכפת מה-padding ומהתוכן של האלמנט - הוא פשוט גורם לצל לדרוס אותם, אם הוא בגודל המתאים (הערכים של היום כל כך אנוכיים...).<br><br>נשתמש בדוגמה הקודמת בצירוף ה-inset.<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 0px 0px 7px 10px <span class="co2">#5C915C inset;</span></div><br>התוצאה:<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img824.imageshack.us/img824/3028/93488121.png" class="content-image-float"><br><br><h4>Multiple Shadows ו-Multiple Outlines באמצעות box-shadow</h4><br>נשארו לנו רק שני דברים (או אולי דבר אחד?) נוספים בקשר ל-box-shadow, והם Multiple Shadows ו-Multiple Outlines, או בעברית - צללים מרובים ומסגרות (או גבולות, איך שלא תקראו לזה) מרובות.<br>בעיקרון, אנחנו יכולים ליצור לאלמנט כמות בלתי מוגבלת של צללים. את כולם נכניס למופע אחד של ה-box-shadow, ונפריד ביניהם באמצעות פסיקים. לדוגמה:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 0px 0px 0px 10px <span class="co2">#5C915C,<br>
+</span>0px 0px 0px 10px <span class="co2">#005300,<br>
+</span>0px 0px 0px 10px <span class="co2">#5C915C;</span></div><br>מי מצא את הטעות? :)<br>נכון, אני בעצם רציתי להגדיר שלושה צללים שכל אחד מהם הוא בגודל עשרה פיקסלים לכל צד (ללא טשטוש), אך שכחתי שאני צריך <strong>להגדיל</strong> ב-10 כל פעם, מכיוון שבעצם לא הרחבתי את הצל השני ואת הצל השלישי, כך שהתוצאה של הקוד שכתבתי תהיה כאילו כתבתי רק את השורה הראשונה [בלי הפסיק בסופה :)].<br>הייתי צריך לכתוב את הקוד הבא:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> 0px 0px 0px 10px <span class="co2">#5C915C,<br>
+</span>0px 0px 0px 20px <span class="co2">#005300,<br>
+</span>0px 0px 0px 30px <span class="co2">#5C915C;</span></div><br>כך זה ייראה:<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img850.imageshack.us/img850/9850/78571706.png" class="content-image-float"><br>יש לי הרגשה שבאמצעות הדוגמה הזאת עניתי גם לגבי ה-Multiple Shadows וגם לגבי ה-Multiple Outlines. :)<br><br>דבר אחד אחרון לפני שעוברים לתמיכה של ה-box-shadow בדפדפנים שונים - אני בטוח ששמתם לב שבפוקוס על inputים באתר הזה מופיע מסביבם צל בצבע תכלת. זה באמצעות box-shadow. :)<br><br><h4>התמיכה של הדפדפנים הנפוצים ב-box-shadow</h4><br>ה-box-shadow נתמך בדפדפנים כרום, פיירפוקס החל מגרסה 4, אופרה, אקספלורר החל מגרסה 9 וספארי החל מגרסה 5.1.1.<br>על מנת להשתמש ב-box-shadow בספארי יש לפנות אליו בתור <span dir="ltr">-webkit-box-shadow</span>, אחרת הוא יתעלם.<br>אין סיבה להימנע להשתמש ב-box-shadow רק בגלל שזה-שאין-לנקוב-בשמו, מר IE, החליט לא לתמוך בו בגרסאות קצת יותר ישנות. אם מישהו גולש באתר שלכם דרך אחת מהגרסאות המאוסות שלו - הוא פשוט לא יראה את האפקטים המרהיבים, זה הכל.<br><br><h3>text-shadow - הטלת צל (או צללים) מטקסט</h3><br>תכונה דומה ל-box-shadow (עם פחות אפשרויות) קיימת גם להטלת צל (או צללים) מטקסט, והיא נקראת text-shadow.<br>על התכונה הזו לא נרחיב יותר מדי, כי כבר הרחבנו על האפשרויות הקיימות בה בהקשר ל-box-shadow.<br>גם ל-text-shadow יש שלושה ערכים בסיסיים, שהם בדיוק כמו ב-box-shadow:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> horizontal<span class="sy0">-</span>position vertical<span class="sy0">-</span>position shadow<span class="sy0">-</span>color<span class="sy0">;</span></div><br>כמו ב-box-shadow, גם לה יש ערך נוסף (אופציונאלי), שהוא מרחק טשטוש הצל:<br><div class="php codeblock">box<span class="sy0">-</span>shadow<span class="sy0">:</span> horizontal<span class="sy0">-</span>position vertical<span class="sy0">-</span>position blur<span class="sy0">-</span>distance shadow<span class="sy0">-</span>color<span class="sy0">;</span></div><br>בניגוד ל-box-shadow, אין לה את הערך inset (שהוא חסר שימוש בטקסט) וגם את הערך שאחראי על התפשטות הצל.<br><br><h4>הטלת צל לכל צדי הטקסט באמצעות text-shadow</h4><br>כשהיינו רוצים להטיל צל לכל הצדדים ב-box-shadow, היינו משתמשים בערך שאחראי על התפשטות הצל. ב-text-shadow פשוט נאמר לצל לא לזוז, ונגדיל את מרחק הטשטוש שלו מספר פעמים (כדי שהטשטוש בעצם לא יהיה מטושטש, כי המטרה שלנו היא בעצם להרחיב את הצל).<br>לדוגמה:<br><div class="php codeblock">text<span class="sy0">-</span>shadow<span class="sy0">:</span> 0px 0px 5px <span class="co2">#005300,<br>
+</span>0px 0px 5px <span class="co2">#005300,<br>
+</span>0px 0px 5px <span class="co2">#005300;</span></div><br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img205.imageshack.us/img205/8393/76660729.png" class="content-image-float"><br><br>אם נרצה לחזק עוד יותר את הצל, נוכל להוסיף עוד Blur Distances:<br><div class="php codeblock">text<span class="sy0">-</span>shadow<span class="sy0">:</span> 0px 0px 5px <span class="co2">#005300,<br>
+</span>0px 0px 5px <span class="co2">#005300,<br>
+</span>0px 0px 5px <span class="co2">#005300,<br>
+</span>0px 0px 5px <span class="co2">#005300,<br>
+</span>0px 0px 5px <span class="co2">#005300;</span></div><br>כך זה ייראה:<br><img src="static\images\pixel.png" alt="box-shadow ו-text-shadow ב-CSS3" title="http://img839.imageshack.us/img839/4093/28162124.png" class="content-image-float"><br><br><h4>התמיכה של הדפדפנים הנפוצים ב-text-shadow</h4><br>בכללי, ההיתמכות של התכונה text-shadow קצת פחות טובה מזו של ה-box-shadow; היא נתמכת בכל הדפדפנים הנפוצים מלבד אקספלורר בכל הגרסאות שלו (שזה אומר - כרום, פיירפוקס, ספארי ואופרה), אבל שוב - זה לא צריך למנוע מכם להשתמש ב-text-shadow. :)<br><br>הייתי מעוניין לציין שכתבתי את המדריך הזה לאחר צפייה ב<a href="http://player.vimeo.com/video/31719130">הרצאה של Lea Verou ב-Fronteers 2011</a> (שווה צפייה).<br><br>זה הכל לפעם הזאת. שיהיה לכם יום/ערב נעים, ו... נתראה במדריך הבא. :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=16&r=g&d=monsterid" alt="OrelBeY">
+<a>OrelBeY</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1443"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/04/2012 21:45</span><br>
+מדריך חמוד (:<br>
+כל הכבוד!!</div>
+<a id="comment1444"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/04/2012 21:47</span><br>
+ללא ספק מדריך מצויין, למדתי מלא דברים חדשים כל שני האלמנטים האלה. תודה רבה לך תמשיך כך ושיהיה לך בהצלחה.<br>
+<br>
+אשמח אם תכתוב מדריכי JS :)</div>
+<a id="comment1446"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>03/04/2012 22:36</span><br>
+אוראל, מדריך נחמד, ישר כח..!</div>
+<a id="comment1447"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/04/2012 08:10</span><br>
+בשמחה. :)<br>
+תודה. ^_^ האמת היא שב-JS אני קצת פחות מבין, אבל אשתדל לכתוב בקרוב מדריכי HTML5, CSS3 ו-JS מ-א&apos; עד ת&apos; (כמעט). :)</div>
+<a id="comment1448"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/04/2012 08:14</span><br>
+שכחתי להוסיף למדריך שהערך שאחראי על תוספת לגודל הצל יכול לקבל גם מספר פיקסלים שלילי, מה שיכול ליצור אפקט מאוד נחמד שראיתי שהרבה בלוגים מבזבזים עליו תמונות. ^_^</div>
+<a id="comment1449"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/04/2012 10:51</span><br>
+:)</div>
+<a id="comment1450"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/04/2012 14:37</span><br>
+עוד דבר קטן: אפשר לעשות דבר דומה ל-box-shadow גם ב-IE מתחת לגרסה 9 עם הפילטרים שלו (<span dir="ltr"><a href="http://hedgerwow.appspot.com/demo/shadow">http://hedgerwow.appspot.com/demo/shadow</a></span>) וגם כמה אפשרויות דומות ל-text-shadow (<span dir="ltr"><a href="http://heygrady.com/blog/2011/03/10/css-text-shadows-in-internet-explorer">http://heygrady.com/blog/2011/03/10/css-text-shadows-in-internet-explorer</a></span>), אבל זה יותר מדי חומר לפה, אז... אתם מוזמנים לקרוא (ואולי בהמשך זה ייכנס למדריך על הפילטרים של IE).</div>
+<a id="comment1452"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/04/2012 15:31</span><br>
+טנק&apos;ס</div>
+<a id="comment1455"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/04/2012 15:50</span><br>
+מגניב. השתמשתי בזה כעת לאיזה אתר של לקוח שאין לו עיצוב פיקס. נראה אם יאהב.<br>
+<br>
+אמיר סימן טוב<br>
+</div>
+<a id="comment1456"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/04/2012 19:35</span><br>
+<span dir="ltr"><a href="http://css3maker.com/">http://css3maker.com/</a></span> מומלץ בחום</div>
+<a id="comment1457"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>09/04/2012 19:43</span><br>
+תודה רבה, אחלה אתר. :)<br>
+זו ההזדמנות לציין שצריך להיזהר עם מחוללי קוד, כי אין בהם את כל האפשרויות, ולפעמים זה יוצר קוד לא תקני. שימוש בתוכנות כמו דרימוויבר, רחמנא ליצלן, הוא הצד הקיצוני של התגלמות הרוע של מחוללי הקוד.</div>
+<a id="comment1498"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/04/2012 15:41</span><br>
+חיפשתי דרך לעשות צל פנימי גם באקספלורר ולא מצאתי, למישהו יש הצעה?</div>
+<a id="comment1502"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/04/2012 17:30</span><br>
+או שתשתמש בתמונה או שתעזוב את זה ככה. אם מישהו משתמש בדפדפן מיושן, בהחלט ייתכן שזה לא ממש יפריע לו... :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

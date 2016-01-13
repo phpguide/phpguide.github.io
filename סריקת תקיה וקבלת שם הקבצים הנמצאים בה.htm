@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="איך לקבל קבצים ולהשתמש בהם בתוך תקייה">
+<meta name="keywords" content="סריקת,תקייה,מדריך,PHP,קבלת,קבצים,מערך,גלריה">
+<meta name="author" content="raz1001">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>סריקת תקיה וקבלת שם הקבצים הנמצאים בה.</title>
+<meta itemprop="name" content="סריקת תקיה וקבלת שם הקבצים הנמצאים בה.">
+<meta itemprop="description" content="איך לקבל קבצים ולהשתמש בהם בתוך תקייה">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"159","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>סריקת תקיה וקבלת שם הקבצים הנמצאים בה.</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">raz1001, </div>
+<div class="right">&nbsp;<time datetime="2011-09-23T14:38:35+03:00" dir="rtl">23 לספטמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.up2me.co.il/images/83188189.jpg" alt="סריקת תקיה וקבלת שם הקבצים הנמצאים בה.">
+</div>
+<div class="right post-content">
+יש לכם תקיה ואם רוצים ש ה Php יקבל את הקבצים.<br>שנימצאים בתקיה וידע להשתמש בהם.שימושי לגלריות של תמונות<br>וכמובן שיש בזה עוד שימושים <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+רוצים לסרוק תקיה כלשהי ולקבל את הנתונים שלה ב php.<br>פה תוכלו לקבל קצת מידע על כך.<br>הנה הקוד:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="re0">$dir</span> <span class="sy0">=</span> <span class="kw3">scandir</span><span class="br0">&#40;</span><span class="st0">&quot;images/&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">&lt;</span>count<span class="br0">&#40;</span><span class="re0">$dir</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st0">&quot;index.html&quot;</span> <span class="sy0">||</span> <span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st0">&quot;.&quot;</span> <span class="sy0">||</span> <span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st0">&quot;..&quot;</span> <span class="sy0">||</span> <span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st0">&quot;Thumbs.db&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;img src=&quot;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="st0">&quot;images/&quot;</span><span class="sy0">.</span><span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">;</span><span class="sy1">?&gt;</span>&quot; /&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="br0">&#125;</span></div><br>זאת דוגמה לקוד שבודק איזה קבצים יש בתקיה $dir.<br>ואז מציג אותם בתוך תמונה.<br>עכשיו דוגמה לקוד שמייבא קבצים של php לתוך המערכת בעזרת require.<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <br>
+<span class="re0">$dir</span> <span class="sy0">=</span> <span class="kw3">scandir</span><span class="br0">&#40;</span><span class="st0">&quot;php/&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">&lt;</span>count<span class="br0">&#40;</span><span class="re0">$dir</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st0">&quot;index.html&quot;</span> <span class="sy0">||</span> <span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st0">&quot;.&quot;</span> <span class="sy0">||</span> <span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st0">&quot;..&quot;</span> <span class="sy0">||</span> <span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st0">&quot;Thumbs.db&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">&quot;php/&quot;</span><span class="sy0">.</span><span class="re0">$dir</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br>עכשיו אפשר להשתמש בנתונים שנמצאים בתוך הקבצים.<br>ולהשתמש בהם </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=16&r=g&d=mm" alt="raz1001">
+<a>raz1001</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment840"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/10/2011 01:52</span><br>
+קצת קשה להבין נתת פה קודים בלי הסבר מפורט על מה הקוד עושה הפונקציות שכתובות שם וכולי.<br>
+אישית לא הבנתי כלום.</div>
+<a id="comment841"></a>
+<div class="blog-comment">
+<span class='comment-author'>fingerbang</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/10/2011 08:31</span><br>
+scandir תחזירה מערך של כל הקבצים והתיקיות בנתיב שסיפקת לה.<br>
+השמות &quot;.&quot; ו &quot;..&quot; הם מעיין שמות סימבולים בלינוקס, הנקודה מציינת את התיקיה הזאת ןהנקודותיים מציינת את התיקיה מעל בעץ. וצריך(לרוב) להתעלם מהן.</div>
+<a id="comment843"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>04/10/2011 19:29</span><br>
+במקום else תכתוב בתוך ה-if את הביטוי ההפוך...</div>
+<a id="comment844"></a>
+<div class="blog-comment">
+<span class='comment-author'>raz1001</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/10/2011 21:50</span><br>
+אני השתמשתי בזה אחרת.</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

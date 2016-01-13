@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה תבניות עיצוב וAOP">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mee">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>תבניות עיצוב וAOP | שאלת לימוד PHP</title>
+<meta itemprop="name" content="תבניות עיצוב וAOP | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה תבניות עיצוב וAOP">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">9</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="תבניות עיצוב וAOP.htm" title="יש לי שתי שאלות1. האם יש תבניות אחרות חוץ מMVC?2. מה זה בעצם AOP ? (Aspect Oriented Programming)">תבניות עיצוב וAOP</a></h2>
+<div class="userinfo">
+פתח
+<a>mee</a>
+,
+<time class="timeago relativetime" datetime="2014-10-09T21:33:28+03:00" style="display:inline-block;">
+09 לאוקטובר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2037'>
+יש לי שתי שאלות<br>1. האם יש תבניות אחרות חוץ מMVC?<br>2. מה זה בעצם AOP ? (Aspect Oriented Programming) </div>
+</div>
+<h3>
+<span id="answersCounter">9 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9109">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 לאוקטובר 2014 </span>
+<a id="answer_9109" href="תבניות עיצוב וAOP.htm#answer_9109">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. יש הרבה מאוד תבניות עיצוב. לא כולן הן תבניות אירגוניות (structural) לכן הם לא מה שאתה מחפש, אבל בוויקיפדיה יש <a href="http://he.wikipedia.org/wiki/%D7%AA%D7%91%D7%A0%D7%99%D7%AA_%D7%A2%D7%99%D7%A6%D7%95%D7%91">רשימה שלמה של תבניות כאלו ואחרות</a>. ביניהן גם MVP ו-MVVM. ישנן הרבה דרכים לארגן את הקוד, אך לא כולן זכו לפופואלריות או שמות משלהם.<br><br>2. AOP הוא גישה של הפרדת כל החלקים &quot;הכלליים&quot; מהתוכנה עצמה. למשל על פעולה כמו כתיבה ללוגים אפשר להסתכל לא כעל חלק נפרד מהחלקים האחרים של התוכנה ויחד עם זאת חלק משותף לכולם, לכן לפעמים אפשר להוסיף אותו לתוך הקוד בצורה נפרדת ולא כחלק מהמחלקה. בדרך כלל עושים את זה על ידי הוספת פעולות שמתבצעות לפני ואחרי מתודות אחרות, למשל ככה:<br><br><div class="php codeblock"><span class="coMULTI">/*** @before: log('beforeTransfer')<br>
+@before: checkAuth<br>
+@require: sum &gt; 0<br>
+***/</span><br>
+<span class="kw2">public</span> <span class="kw2">function</span> TransferMoney<span class="br0">&#40;</span><span class="re0">$from</span><span class="sy0">,</span> <span class="re0">$to</span><span class="sy0">,</span> <span class="re0">$sum</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="sy0">...</span><br>
+<span class="br0">&#125;</span></div><br><br>ל-PHP קיימים כלים כמו <br>https://github.com/AOP-PHP/AOP<br>https://github.com/lisachenko/go-aop-php<br>לביצוע AOP </p>
+</div>
+<div class="answer" id="answer9113">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dd9468027e34789d485079bc14d52650?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mee</a>
+ב
+<span style="font-size:10px"> 16 לאוקטובר 2014 </span>
+<a id="answer_9113" href="תבניות עיצוב וAOP.htm#answer_9113">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ולAOP יש כלים לגרום לפעולות שלי לעבוד לפני/אחרי/תוךכדי/לא יודע פעולות אחרות ? זה המטרה שלה בעצם?<br>ו2. זה הכרחי? לא יותר שימושי לעשות תנאי או פעולה לפני/אחרי/לא יודע מה ולחסוך את השימוש בAOP או שכדאי להשתמש בזה ? </p>
+</div>
+<div class="answer" id="answer9114">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 16 לאוקטובר 2014 </span>
+<a id="answer_9114" href="תבניות עיצוב וAOP.htm#answer_9114">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לגבי השימושיות של זה - זה אולי יותר לצורך נוחות. <br>כתבת שורה מעל ועכשיו יש כתיבה ללוג לפני ואחרי שהמתודה מופעלת יחד עם הפרמטרים שהועברו לה, למשל.<br><br>באופן כללי AOP זה <strong>לא רק</strong> לפני, אחרי, במקום, אלא הוספה של משהו לקוד, בלי לשנות את הקוד עצמו. למרות שברוב המקרים בהחלט מדובר ב&quot;לפני&quot;-&quot;אחרי&quot;. </p>
+</div>
+<div class="answer" id="answer9115">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dd9468027e34789d485079bc14d52650?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mee</a>
+ב
+<span style="font-size:10px"> 17 לאוקטובר 2014 </span>
+<a id="answer_9115" href="תבניות עיצוב וAOP.htm#answer_9115">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ושרתים יכולים לתמוך בזה או שאני חייב שרת משלי כאילו שיהיה שלי פיזי? כי הבנתי בAOP-PHP שצריך להתקין את זה על גבי השרת<br>או שלא ?<br><br>וזה פוגע בביצועים? או שלא כלכך ? </p>
+</div>
+<div class="answer" id="answer9116">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 17 לאוקטובר 2014 </span>
+<a id="answer_9116" href="תבניות עיצוב וAOP.htm#answer_9116">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקרה של הספריה שבחרת יש צורך בגישה להתקנת תוספים ,אני לא מכיר שרת שיתופי שמאפשר לך להתקין תוספים ל php אבל היום אתה יכול למצוא שרת וירטואלי במחירים סבירים שכן יתן לך את האפשרות.<br>עוד אפשרות זה ללכת על האפשרות השנייה שאלכס הביא שלא דורשת ממך להתקין ספריות - <br><a href="https://github.com/lisachenko/go-aop-php"></a><br><br>טכנית זה ככל הנראה כן יעבוד לאט יותר ,אני לא יודע להגיד לך כמה זה באמת פוגע כי לא יצא לי להשתמש אבל בסופו של דבר משהו אמור לסרוק את הקבצים האלה.<br>פתרון נחמד שקיים החל מ laravel 5 הוא שימוש ב gulp יחד עם watch ובעצם רק כאשר הקובץ ישתנה אז הפונקציה תרוץ.<br>בנוסף מאחר וזה נשמר תחת קובץ cache מסויים ניתן להריץ גם את החלק של ה gulp על המחשב הפרטי והפעולות עדיין יעבדו גם אם בשרת עצמו לא מותקן npm/gulp או כל ספריה אחרת. </p>
+</div>
+<div class="answer" id="answer9117">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dd9468027e34789d485079bc14d52650?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mee</a>
+ב
+<span style="font-size:10px"> 17 לאוקטובר 2014 </span>
+<a id="answer_9117" href="תבניות עיצוב וAOP.htm#answer_9117">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה ההבדל בין שרת שיתופי לשרת וירטואלי? היום אני מתרגל על המחשב האישי שלי אבל בעתיד אני מאמין שארצה לעבור לשרת <br>האפשרות השנייה נראה לי מסובכת מדי מבחינת התפעול, לפחות לפי הREADME <br>מה זה GULP בעצם ? </p>
+</div>
+<div class="answer" id="answer9118">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 17 לאוקטובר 2014 </span>
+<a id="answer_9118" href="תבניות עיצוב וAOP.htm#answer_9118">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אממ אתה יכול למצוא הסבר מעמיק יותר בויקיפדיה ואתרים שקשורים לתחום אך בכל אני אתן הסבר על קצה המזלג -<br>אחסון שיתופי זה אחסון שבו כל המשתמשים רצים על אותו מחשב והדבר היחיד שמפריד ביניהם זה תיקיות[והרשאות מן הסתם] ,באחסון מסוג זה אתה מאוד תלוי במי שמאוחסן איתך משום שאם הוא נמצא תחת מתקפה מסויימת גם אתה נמצא תחתיה או כמו שאומרים אם אני נופל אתה נופל איתי.<br>מדובר חבילה הזולה ביותר בד&quot;כ ורוב האחסונים לא נותנים לך יותר מידי אפשרויות לשחק עם ההגדרות.<br><br>שרת וירטואלי לעומת זאת מוגדר כתת מחשב,תחשוב שלמשל יש לנו מחשב עם 32 גיגה ראם ו 12 ליבות.<br>שרת וירטואלי מאפשר לי לחלק את אותם נתונים למשתמשים,ככה שלמשתמש א יהיה 4 גיגה ראם וליבה וירטואלית אחת.במידה ואותו שרת מועמס יתר על המידה מבחינת ראם\מעבד רק אותו שרת יפגע מאחר והוא לא יכול לנצל את המשאבים שלך.<br>אפשר לומר שכמעט ולא תרגיש בהבדל במידה והשרת מוגדר כמו שצריך הוא יתפקד כמו מחשב רגיל ויהיו לך בדיוק את אותם היכולות כמו שיש לך במחשב הפרטי כך שיש לך יותר שליטה על מה שקורא בפועל ועל ההגדרות של השרת.<br>מה שכן יש מאוד להיזהר בהזמנה של שרת וירטואלי מחברות לא מוכרות שכן הרבה חברות מוכרות לך לפעמים נתונים מאוד מרשימים במחירים מאוד זולים [לפעמים אפילו יותר מהאחסון השיתופי] אך בפועל מעולם לא תזכה להשתמש בנתונים הללו מאחר ועוד משתמש חולק איתך אותם [או מה שנקרא over selling]<br>אותו דבר אגב קורא גם בשרת שיתופי,הרבה פעמים תראה &quot;שטח אחסון ללא הגבלה&quot; או תעבורה ללא הגבלה,זה לא פחות מטריק ציני של יחצנות,ברגע שתגיע למכסה מסויימת אתה תגלה מהר מאוד שכן יש הגבלה.<br><br>בנוסף לשני אלו יש גם שרת יעודי,במקרה כזה מדובר בדיוק כמו המחשב שיש לך בבית רק שבד&quot;כ יש לו נתונים הרבה יותר מרשימים,בין אם במעבד,זכרון וירטואלי,כרטיס רשת,קירור וכו&apos;<br>שרת זה אפשר להשכיר מחברות אחסון ולמעשה,בדיוק כמו בשרת הוירטואלי יש לך שליטה מלאה על כל מה שקורא.<br>אפשר לומר שבמקרה הזה אתה עצמאי לגמרי ורק במידה ויש תקלה במחשב\האינטרנט של החברת אחסון קורס לא תוכל לספק את השירותים שלך.<br><br>לגבי gulp אם אתה לא יודע מה זה אולי עדיף שתדלג על התחום הזה בנתיים,אם כל פעם שתשמע מושג חדש אתה תקפוץ אליו אתה לא תגיע לשום מקום,תתרכז במשהו אחד ומשם תתקדם.<br>ובכל זאת אני יענה בקצרה [הסברים מפורטים,מדריכים וכו&apos; אתה יכול למצוא בגוגל],gulp היא ספריה שמיועדת עבור nodejs ומשתמשת ביכולות של השפה על מנת לבצע מספר פעולות כגון minify,join,uglify וכך בעצם ,אם בעבר הייתה צריך לעשות את הפעולות האלה בצורה ידנית \ תוך כדי קימפול הקוד היום הספריה הזאת עושה את זה בשבילך בעזרת כמה שורות קוד בודדות ובכך שומרת על סדר מסויים בין הקוד שאמור להיות מוצג למשתמש לבין הקוד המקורי.<br>זה לא היכולות היחידות אבל אפשר לומר שזה הבסיס. </p>
+</div>
+<div class="answer" id="answer9119">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dd9468027e34789d485079bc14d52650?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mee</a>
+ב
+<span style="font-size:10px"> 17 לאוקטובר 2014 </span>
+<a id="answer_9119" href="תבניות עיצוב וAOP.htm#answer_9119">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי תודה רבה על ההסבר :) </p>
+</div>
+<div class="answer" id="answer9126">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 19 לאוקטובר 2014 </span>
+<a id="answer_9126" href="תבניות עיצוב וAOP.htm#answer_9126">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הספריה השניה ( https://github.com/lisachenko/go-aop-php ) לא דורשת שום התקנות ורוב הסיכויים שתוכל להשתמש בה בכל שרת </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

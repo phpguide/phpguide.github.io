@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה Mobile website/css">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mayden">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>Mobile website/css | שאלת לימוד PHP</title>
+<meta itemprop="name" content="Mobile website/css | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה Mobile website/css">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="Mobile websitecss-1.htm" title="אהלן חבר&amp;#039;ה,חשבתי אולי יש כאן כמה שיוכלו לעזור לי..אני בונה עכשיו אתר Mobile לאתר שקיים. בסימולטורים השונים (iPhone 4, 3GS, Galaxy, iPad) - האתר נראה טוב והכל עובד כשורה, אבל כשאני מנסה להיכנס מהאייפון שלי/של חבר.. זה כביכול לא מזהה את ה- CSS.ניסיתי להכניס את ה- CSS בתוך הקובץ עצמו, ניסיתי לשנות את הmedia properties, שיחקתי עם ה- viewport.יש למישהו רעיונות?תודה :)">Mobile website/css</a></h2>
+<div class="userinfo">
+פתח
+<a>mayden</a>
+,
+<time class="timeago relativetime" datetime="2013-03-11T11:14:34+02:00" style="display:inline-block;">
+11 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1295'>
+אהלן חבר&#039;ה,<br>חשבתי אולי יש כאן כמה שיוכלו לעזור לי..<br>אני בונה עכשיו אתר Mobile לאתר שקיים. <br><br>בסימולטורים השונים (iPhone 4, 3GS, Galaxy, iPad) - האתר נראה טוב והכל עובד כשורה, אבל כשאני מנסה להיכנס מהאייפון שלי/של חבר.. זה כביכול לא מזהה את ה- CSS.<br><br>ניסיתי להכניס את ה- CSS בתוך הקובץ עצמו, ניסיתי לשנות את הmedia properties, שיחקתי עם ה- viewport.<br><br>יש למישהו רעיונות?<br><br>תודה :) </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5674">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5674" href="Mobile websitecss-1.htm#answer_5674">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+למה הכוונה? לפי איך שאני רואה את זה, הבעיה היא עם ה-media queries, אבל אף פעם אי אפשר לדעת. אולי תדביק כאן חלק קטן מהקוד? </p>
+</div>
+<div class="answer" id="answer5676">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/550250b403b4540876614d2d3d4dd1c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mayden</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5676" href="Mobile websitecss-1.htm#answer_5676">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="sy0">&lt;!</span>DOCTYPE html <span class="kw2">PUBLIC</span> <span class="st0">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span> <span class="st0">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>html xmlns<span class="sy0">=</span><span class="st0">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta http<span class="sy0">-</span>equiv<span class="sy0">=</span><span class="st0">&quot;Content-Type&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;text/html;charset=utf-8&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta name<span class="sy0">=</span><span class="st0">&quot;viewport&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;width=100%; initial-scale=1; minimum-scale=1; maximum-scale=1;&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta name<span class="sy0">=</span><span class="st0">&quot;viewport&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;target-densitydpi=device-dpi&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta name<span class="sy0">=</span><span class="st0">&quot;Cache-Control&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;no-cache&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>meta name<span class="sy0">=</span><span class="st0">&quot;apple-touch-fullscreen&quot;</span> content<span class="sy0">=</span><span class="st0">&quot;yes&quot;</span> <span class="sy0">/&gt;</span><br>
+<br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span> Football <span class="br0">&#40;</span>soccer<span class="br0">&#41;</span> highlights<span class="sy0">,</span> goals<span class="sy0">,</span> videos <span class="sy0">&amp;</span>amp<span class="sy0">;</span> clips <span class="sy0">|</span> <span class="nu0">101</span> Great Goals <span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>link rel<span class="sy0">=</span><span class="st0">&quot;stylesheet&quot;</span> href<span class="sy0">=</span><span class="st0">&quot;http://www.101greatgoals.com/wp-content/themes/tutorial/css/mobile.css&quot;</span> type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span> media<span class="sy0">=</span><span class="st0">&quot;all&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>style type<span class="sy0">=</span><span class="st0">&quot;text/css&quot;</span> <span class="sy0">&gt;</span>&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="sy0">.</span>clockIcon <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; width<span class="sy0">:</span> 14px<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; height<span class="sy0">:</span> 14px<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; clear<span class="sy0">:</span> both<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; float<span class="sy0">:</span> left<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; padding<span class="sy0">-</span>right<span class="sy0">:</span> 3px<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;/</span>style<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;http://code.jquery.com/jquery-latest.min.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span><br>
+<br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;wrapper&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;header&quot;</span><span class="sy0">&gt;</span></div><br><br>והקובץ CSS:<br><div class="php codeblock">body<span class="sy0">,</span> html <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; height<span class="sy0">:</span><span class="nu0">100</span><span class="sy0">%;</span><br>
+&nbsp; &nbsp; <span class="sy0">-</span>ms<span class="sy0">-</span>text<span class="sy0">-</span>size<span class="sy0">-</span>adjust<span class="sy0">:</span>none<span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="sy0">-</span>webkit<span class="sy0">-</span>text<span class="sy0">-</span>size<span class="sy0">-</span>adjust<span class="sy0">:</span> none<span class="sy0">;</span><br>
+&nbsp; &nbsp; background<span class="sy0">:</span> <span class="co2">#fff;<br>
+</span>&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">*</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; font<span class="sy0">-</span>family<span class="sy0">:</span> Arial<span class="sy0">,</span> Helvetica<span class="sy0">,</span> sans<span class="sy0">-</span>serif<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co2">#wrapper {<br>
+</span>&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="co2">#header {<br>
+</span>&nbsp; &nbsp; width<span class="sy0">:</span> <span class="nu0">100</span><span class="sy0">%;</span><br>
+&nbsp; &nbsp; background<span class="sy0">:</span> url<span class="br0">&#40;</span><span class="st_h">'/wp-content/themes/tutorial/images/header-bg-m.jpg'</span><span class="br0">&#41;</span> repeat<span class="sy0">-</span>x<span class="sy0">;</span><br>
+&nbsp; &nbsp; height<span class="sy0">:</span> 60px<span class="sy0">;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span><span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">.</span>boxStuff <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="sy0">-</span>webkit<span class="sy0">-</span>border<span class="sy0">-</span>radius<span class="sy0">:</span> 4px<span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="sy0">-</span>moz<span class="sy0">-</span>border<span class="sy0">-</span>radius<span class="sy0">:</span> 4px<span class="sy0">;</span><br>
+&nbsp; &nbsp; border<span class="sy0">-</span>radius<span class="sy0">:</span> 4px<span class="sy0">;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">-</span>top<span class="sy0">:</span> <span class="sy0">-</span>10px<span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">-</span>left<span class="sy0">:</span> 10px<span class="sy0">;</span><br>
+&nbsp; &nbsp; background<span class="sy0">-</span>color<span class="sy0">:</span> <span class="co2">#214583;<br>
+</span>&nbsp; &nbsp; clear<span class="sy0">:</span> both<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; h2 <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; font<span class="sy0">:</span> normal 16px Arial<span class="sy0">,</span> Helvetica<span class="sy0">,</span> sans<span class="sy0">-</span>serif<span class="sy0">;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span><span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; border<span class="sy0">-</span>bottom<span class="sy0">:</span> none<span class="sy0">;</span><br>
+&nbsp; &nbsp; border<span class="sy0">:</span><span class="nu0">0</span><span class="sy0">!</span>important<span class="sy0">;</span><br>
+&nbsp; &nbsp; line<span class="sy0">-</span>height<span class="sy0">:</span>28px<span class="sy0">!</span>important<span class="sy0">;</span><br>
+&nbsp; &nbsp; color<span class="sy0">:</span> <span class="co2">#fff;<br>
+</span>&nbsp; &nbsp; font<span class="sy0">-</span>weight<span class="sy0">:</span> bold<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">.</span>videosBox <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; ul <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; img <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; width<span class="sy0">:</span> 100px<span class="sy0">;</span><br>
+&nbsp; &nbsp; float<span class="sy0">:</span> left<span class="sy0">;</span><br>
+&nbsp; &nbsp; border<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; height<span class="sy0">:</span> 76px<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp;a <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; font<span class="sy0">-</span>size<span class="sy0">:</span> 13px<span class="sy0">;</span><br>
+&nbsp; &nbsp; color<span class="sy0">:</span><span class="co2">#191919; <br>
+</span>&nbsp; &nbsp; text<span class="sy0">-</span>decoration<span class="sy0">:</span>none<span class="sy0">;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">-</span>top<span class="sy0">:</span> 10px<span class="sy0">;</span><br>
+&nbsp; &nbsp; vertical<span class="sy0">-</span>align<span class="sy0">:</span> middle<span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp;li <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; line<span class="sy0">-</span>height<span class="sy0">:</span> 0px<span class="sy0">;</span><br>
+&nbsp; &nbsp; list<span class="sy0">-</span>style<span class="sy0">-</span>type<span class="sy0">:</span> none<span class="sy0">;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; width<span class="sy0">:</span> auto<span class="sy0">;</span><br>
+&nbsp; &nbsp; clear<span class="sy0">:</span> both<span class="sy0">;</span><br>
+&nbsp; &nbsp; border<span class="sy0">-</span>bottom<span class="sy0">:</span> 1px solid <span class="co2">#edede7;<br>
+</span>&nbsp; &nbsp; font<span class="sy0">-</span>size<span class="sy0">:</span> 11px<span class="sy0">;</span><br>
+&nbsp; &nbsp; color<span class="sy0">:</span> <span class="co2">#c9c9c9;<br>
+</span>&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">.</span>textImg <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; width<span class="sy0">:</span> 200px<span class="sy0">;</span><br>
+&nbsp; &nbsp; word<span class="sy0">-</span>wrap<span class="sy0">:</span>break<span class="sy0">-</span>word<span class="sy0">;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> 5px<span class="sy0">;</span><br>
+&nbsp; &nbsp; line<span class="sy0">-</span>height<span class="sy0">:</span> 20px<span class="sy0">;</span><br>
+&nbsp; &nbsp; float<span class="sy0">:</span> left<span class="sy0">;</span><br>
+&nbsp; &nbsp; claer<span class="sy0">:</span> both<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">.</span>blogPosts <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">.</span>picturesBox <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">.</span>otherSports <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; margin<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">;</span> <br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; iframe <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; width<span class="sy0">:</span> 100px<span class="sy0">;</span><br>
+&nbsp; &nbsp; float<span class="sy0">:</span> left<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">.</span>readmore <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; float<span class="sy0">:</span> right<span class="sy0">;</span><br>
+&nbsp; &nbsp; width<span class="sy0">:</span> <span class="nu0">100</span><span class="sy0">%;</span><br>
+&nbsp; &nbsp; clear<span class="sy0">:</span> both<span class="sy0">;</span><br>
+&nbsp; &nbsp; text<span class="sy0">-</span>align<span class="sy0">:</span> right<span class="sy0">;</span><br>
+&nbsp; &nbsp; padding<span class="sy0">-</span>right<span class="sy0">:</span> 4px<span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="sy0">.</span>readmore a<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; font<span class="sy0">-</span>weight<span class="sy0">:</span> bold<span class="sy0">;</span><br>
+&nbsp; &nbsp; font<span class="sy0">-</span>size<span class="sy0">:</span> 13px<span class="sy0">;</span><br>
+&nbsp; &nbsp; color<span class="sy0">:</span> <span class="co2">#404044;<br>
+</span>&nbsp; <span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer5677">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5677" href="Mobile websitecss-1.htm#answer_5677">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא רואה שום סיבה שזה יקרה. אין אפילו שאילתת מדיה אחת (חוץ מזה שזה נועד לכל המכשירים). אולי מישהו אחר יוכל לעזור לך...<br>שאר קוד ה-XHTML שלך תקני? </p>
+</div>
+<div class="answer" id="answer5680">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5680" href="Mobile websitecss-1.htm#answer_5680">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יכול להיות שהשרת שמחזיר את קובץ ה-CSS חוסם אותו לגישה ממובייל דיבייסים?<br>אם הכל עולה בדפדפן, זה אומר שזה אמור לעלות גם בדפדפן מובייל וכתובות נכונות והכל בסדר. </p>
+</div>
+<div class="answer" id="answer5682">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/550250b403b4540876614d2d3d4dd1c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mayden</a>
+ב
+<span style="font-size:10px"> 11 למרץ 2013 </span>
+<a id="answer_5682" href="Mobile websitecss-1.htm#answer_5682">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני כבר מתעסק בזה יומיים ואני לא מצליח למצוא שום תשובה,<br>Light - אפילו בדקתי גם את זה, עשיתי תקינות לקוד הXHTML וה- CSS בValidator של W3C, והכל נמצא תקין.<br>אלכס - גם אני חשבתי כך, אז בגלל זה העברתי את זה למסמך עצמו.. ועדיין - לא עובד.<br><br>מה שמצחיק זה, שבסימולטורים שונים שבהם ניתן להציג את המסמך כ- iPhone 3GS.. הכל עובד מצויין, אבל בפלאפון שלי (iPhone 4) לא מציג שום הגדרת CSS. <br><br>למרות שבדקתי... ושיניתי את הכל לצבע אדום.. ועבד הכל שונה. אבל רקע, שינוי פונט, וכו&#039; - לא מציג. </p>
+</div>
+<div class="answer" id="answer5686">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/550250b403b4540876614d2d3d4dd1c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>mayden</a>
+ב
+<span style="font-size:10px"> 12 למרץ 2013 </span>
+<a id="answer_5686" href="Mobile websitecss-1.htm#answer_5686">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+טוב חבר&#039;ה,<br>תודה רבה על העזרה =) <br><br>עליתי על הבעיה... האתר שאני עובד איתו מלא ב- Caching (מתחיל מ- Memcache ונגמר ב23,000 סוגי Caching שונים). </p>
+</div>
+<div class="answer" id="answer5690">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 12 למרץ 2013 </span>
+<a id="answer_5690" href="Mobile websitecss-1.htm#answer_5690">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אוף, איך פספסתי את זה. זה היה אמור להיות כ&quot;כ ברור. &gt;:<br>נ.ב. קוראים לי אוראל. :) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

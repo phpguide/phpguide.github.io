@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מחלקה בתוך מחלקה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="soogo">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>מחלקה בתוך מחלקה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מחלקה בתוך מחלקה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מחלקה בתוך מחלקה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מחלקה בתוך מחלקה-1.htm" title="יש לי מחלקת DB  ומחלקת USERאיך אני יכול להשתמש ב DB בתוך ה USER?">מחלקה בתוך מחלקה</a></h2>
+<div class="userinfo">
+פתח
+<a>soogo</a>
+,
+<time class="timeago relativetime" datetime="2015-02-03T17:08:32+02:00" style="display:inline-block;">
+03 לפברואר 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2107'>
+יש לי מחלקת DB ומחלקת USER<br>איך אני יכול להשתמש ב DB בתוך ה USER? </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9280">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 04 לפברואר 2015 </span>
+<a id="answer_9280" href="מחלקה בתוך מחלקה-1.htm#answer_9280">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\phplive-25.htm?code=1020"> http://phpguide.co.il/phplive?code=1020</a><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw2">class</span> DB<br>
+<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Query ..<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @param string $query<br>
+&nbsp; &nbsp;* @return string<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> query<span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$query</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+&nbsp; <br>
+<span class="kw2">class</span> User<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* @var DB<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">protected</span> <span class="re0">$db</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* New User ...<br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @param DB $db<br>
+&nbsp; &nbsp;* @return void<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$db</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">db</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Get DB ... <br>
+&nbsp; &nbsp;*<br>
+&nbsp; &nbsp;* @return DB<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">protected</span> <span class="kw2">function</span> getDB<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">db</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co4">/**<br>
+&nbsp; &nbsp;* Use DB Class ... <br>
+&nbsp; &nbsp;* <br>
+&nbsp; &nbsp;* @return string<br>
+&nbsp; &nbsp;*/</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> useDBClass<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">getDB</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'SELECT 1;'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$db</span> &nbsp;<span class="sy0">=</span> <span class="kw2">new</span> DB<span class="sy0">;</span><br>
+<span class="re0">$user</span> <span class="sy0">=</span> <span class="kw2">new</span> User<span class="br0">&#40;</span><span class="re0">$db</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">print</span> <span class="re0">$user</span><span class="sy0">-&gt;</span><span class="me1">useDBClass</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// prints 'SELECT 1;' ..</span></div> </p>
+</div>
+<div class="answer" id="answer9281">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 06 לפברואר 2015 </span>
+<a id="answer_9281" href="מחלקה בתוך מחלקה-1.htm#answer_9281">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה לגבי EXTEND ? </p>
+</div>
+<div class="answer" id="answer9284">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 07 לפברואר 2015 </span>
+<a id="answer_9284" href="מחלקה בתוך מחלקה-1.htm#answer_9284">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה הבעיה? אתה פשוט מעביר מופע של מחלקה DB למחלקה User..<br>לא משנה עם המחלקה יורשת או לא.. </p>
+</div>
+<div class="answer" id="answer9285">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b4380fdf9d9f06b8b05bfe48f1678aeb?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>soogo</a>
+ב
+<span style="font-size:10px"> 08 לפברואר 2015 </span>
+<a id="answer_9285" href="מחלקה בתוך מחלקה-1.htm#answer_9285">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ומה עדיף? </p>
+</div>
+<div class="answer" id="answer9286">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 09 לפברואר 2015 </span>
+<a id="answer_9286" href="מחלקה בתוך מחלקה-1.htm#answer_9286">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+המחלקה User לא מממשת פונקציות של DB אלה משתמשת בהן,במידה ואתה רוצה ליצור פונקציות אחידות כמו get,first,exist וכל מיני שטויות כאלה תדאג שהמחלקות של שמתקשורת ל DB יממשו interface. </p>
+</div>
+<div class="answer" id="answer9288">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a4db1c31becff591ef5464fb12b9ec74?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>HtmHell</a>
+ב
+<span style="font-size:10px"> 16 לפברואר 2015 </span>
+<a id="answer_9288" href="מחלקה בתוך מחלקה-1.htm#answer_9288">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+משתמשים ב-Extend רק אם יש קשר של הורה-ילד בין המחלקות. לדוגמה, מחלקת &quot;מכונית מירוץ&quot; תירש את מחלקת מכונית, ומחלקת &quot;ילד&quot; תירש את מחלקת &quot;בן אדם&quot;, אבל מחלקת &quot; משתמש&quot; לא תירש את מחלקת &quot;מסד&quot;, כי אין פה קשר מתאים.<br><br>זה מצויין שהעברת את המחלקה בפרמטר, אבל למה הוספת מתודת getDB? הרי הרעיון הוא שהמחלקה User תשתמש במחלקת המסד בתוך המתודות שלה, ואתה רק תקרא למתודות, בלי להשתמש במסד מחוץ למחלקה.<br>עדיף כמובן לפצל את זה עם מחלקת ריפוזיטורי, אבל תתחיל בזה.<br><br>בכל מקרה, ממליץ לך לקרוא את הספר של אלכס על תכנות מונחה עצמים, מאוד מומלץ! אתה תבין בהרבה יותר על מה מדובר, ומהי הדרך הנכונה לממש את זה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

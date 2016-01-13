@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה איך המחלקה שלי ?">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משהה">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>איך המחלקה שלי ? | שאלת לימוד PHP</title>
+<meta itemprop="name" content="איך המחלקה שלי ? | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה איך המחלקה שלי ?">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">10</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="איך המחלקה שלי -1.htm" title="עשיתי בעבר מחלקה לעבודה עם מסד נתונים והיא לא הייתה משו, אז החלטתי להתחיל מחדש ולהתייחס להערות שנתנו לי.אז יצרתי שתי מחלקות, האחת Database שהיא אחראית על הקשר עם המסד, והשנייה SqlStatement שהיא אחראית על השאילתה עצמה.Database :  http://pastebin.com/MkhCVpiDSqlStatement : http://pastebin.com/zSqXLAAyאיך המחלקות ? הם טובות לעבודה עם PDO או שיש עוד דברים שאני צריך לעבוד עליהם ?תודה (:">איך המחלקה שלי ?</a></h2>
+<div class="userinfo">
+פתח
+<a>משהה</a>
+,
+<time class="timeago relativetime" datetime="2013-09-11T11:42:36+03:00" style="display:inline-block;">
+11 לספטמבר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1608'>
+עשיתי בעבר מחלקה לעבודה עם מסד נתונים והיא לא הייתה משו, אז החלטתי להתחיל מחדש ולהתייחס להערות שנתנו לי.<br>אז יצרתי שתי מחלקות, האחת Database שהיא אחראית על הקשר עם המסד, והשנייה SqlStatement שהיא אחראית על השאילתה עצמה.<br><br>Database : http://pastebin.com/MkhCVpiD<br><br>SqlStatement : http://pastebin.com/zSqXLAAy<br><br>איך המחלקות ? הם טובות לעבודה עם PDO או שיש עוד דברים שאני צריך לעבוד עליהם ?<br><br>תודה (: </div>
+</div>
+<h3>
+<span id="answersCounter">10 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer7354">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 לספטמבר 2013 </span>
+<a id="answer_7354" href="איך המחלקה שלי -1.htm#answer_7354">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בגדול אחלה.<br>אם יש בעיות - אתה תיתקל בהם כשתשתמש במחלקה שלך בעצמך.<br>למשל איך אני עושה שני טרנזקציות במקביל ?<br><br>יש דברים שלא מלמדים במדריכי OOP, כמו זה שפונקציה צריכה להחזיר רק סוג נתונים אחד<br>פונקציות מסוג <em>return transaction object or false</em> זה סלט.<br><br>פונקציות מסוימות בכלל לא צריכות להחזיר שום דבר. <br>מה נותן לך true or false מ rollback? אתה קיבלת true אתה מתעלם. אם יקבלת false - מה תעשה? תנסה שנית?<br>בתור לקוח של המחלקה אתה אפילו לא תחשוב לנסות שוב, וגם אתה לא צריך. שהמחלקה תנסה שנית לבד. (שזה חסר טועלת בפני עצמו, כי מה השתנה מאז הפעם הקודמת)<br>פונקציה כזו צריכה או לא להחזיר שום דבר, או לזרוק שגיאה. <br><br><br>עוד דבר, תשכח מהפקודה die. לתמיד.<br>קודם כל שגיאות לא צריכות להגיע ללקוח בכלל. <br>שנית, ה die הזה מפסיק את הביצוע של הקוד במקומות אחרים. אולי הייתי באמצע לשלוח אימייל למישהו ופתחתי חיבור לשרת אחר, אחרי זה הלכתי לקרוא רגע משהו מהמסד והוא נפל? נשאר לי בשרת קבצים / דברים פתוחים.<br><br>תשכח מ die. אין שום סיבה בתוכנה כלשהי להשתמש בזה.<br>ואחרי שתוריד את ה die תבין שכל ה try/catch בקונסטרקטור מיותר. שיזרוק שגיאה ישירות לרמה מעל. </p>
+</div>
+<div class="answer" id="answer7364">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 15 לספטמבר 2013 </span>
+<a id="answer_7364" href="איך המחלקה שלי -1.htm#answer_7364">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מזתומרת שתי טרנזקציות במקביל ? לא נגעתי כל כך בטרנזקציות, רק עשיתי בדיקה במחלקה שלי אם יש שימוש בטרנזקציה..זה טוב או שאני פשוט צריך להשאיר את זה כמו שעשו את זה במחלקה שירשתי ממנה ?<br><br>סבבה אז במקום die להשתמש במחלקה לשגיאות ? <br>ולמה לא try&amp;ctach ? השתמשתי בזה כדי שהמשתמש לא יצטרך לעשות את זה בעצמו אז הכנסתי את זה לתוך הקונסטרקטור </p>
+</div>
+<div class="answer" id="answer7368">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 16 לספטמבר 2013 </span>
+<a id="answer_7368" href="איך המחלקה שלי -1.htm#answer_7368">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לגבי טרנזקציות יש שני אפשריות - או להעתמק ולהבין מה עושים איתם ומה כדאי שהמחלקה תעשה איתם<br>או לא להתעמק ולא לעשות איתם שום דבר.<br><br>לגבי try/catch - זה מעולה. רק אחרי שתשים אותה - תבין שאין לך ממש מה לכתוב בבלוק של ה catch<br>בגלל זה זה יהיה מיותר שם. </p>
+</div>
+<div class="answer" id="answer7371">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 16 לספטמבר 2013 </span>
+<a id="answer_7371" href="איך המחלקה שלי -1.htm#answer_7371">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואיפה אני יכול ללמוד להתעמק בטרנזקציות ?<br><br>אולי ליצור מחלקה של שגיאות ובcatch פשוט להכניס לה את האובייקט $e? <br>שיצא משו כזה: <br>http://phpguide.co.il/phplive?code=841 </p>
+</div>
+<div class="answer" id="answer7378">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 17 לספטמבר 2013 </span>
+<a id="answer_7378" href="איך המחלקה שלי -1.htm#answer_7378">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא. בשביל מה להדפיס משהו?<br>אתה לא יודע אם הבן אדם שמשתמש במחלקה שלך רוצה בכלל להדפיס משהו.<br>פשוט תחזיר לו את השגיאה ושיעשה איתה מה שהוא חושב לנכון. </p>
+</div>
+<div class="answer" id="answer7379">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 18 לספטמבר 2013 </span>
+<a id="answer_7379" href="איך המחלקה שלי -1.htm#answer_7379">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מממ צודק.<br>אז אתה אומר שכדאי להשאיר את זה ככה, ושהמשתמש יעשה try/catch בעצמו ? </p>
+</div>
+<div class="answer" id="answer7380">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 18 לספטמבר 2013 </span>
+<a id="answer_7380" href="איך המחלקה שלי -1.htm#answer_7380">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בדיוק.<br>אתה מסיים את העבודה ב throw </p>
+</div>
+<div class="answer" id="answer7382">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 18 לספטמבר 2013 </span>
+<a id="answer_7382" href="איך המחלקה שלי -1.htm#answer_7382">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אני לא צריך throw כי אני מוחק את הtry/ctach לא ? </p>
+</div>
+<div class="answer" id="answer7383">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 18 לספטמבר 2013 </span>
+<a id="answer_7383" href="איך המחלקה שלי -1.htm#answer_7383">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקרה הספציפי של הקונסטרטור כאן - אתה לא צריך throw כי כבר יש throw מובנה בתוך הקונסטרקטור של PDO.<br>במקרים אחרי - אתה תמיד מחזיר שגיאה איפה שאתה יכול. </p>
+</div>
+<div class="answer" id="answer7391">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/5d7b8036b4428cc7b9e0d03afd1807e1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משהה</a>
+ב
+<span style="font-size:10px"> 22 לספטמבר 2013 </span>
+<a id="answer_7391" href="איך המחלקה שלי -1.htm#answer_7391">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אה סבבה, ואיך אני מחזיר שגיאות ? זורק אקספשיינס? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

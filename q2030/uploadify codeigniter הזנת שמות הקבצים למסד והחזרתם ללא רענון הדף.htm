@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה uploadify codeigniter: הזנת שמות הקבצים למסד והחזרתם ללא רענון הדף">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="kamish">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>uploadify codeigniter: הזנת שמות הקבצים למסד והחזרתם ללא רענון הדף | שאלת לימוד PHP</title>
+<meta itemprop="name" content="uploadify codeigniter: הזנת שמות הקבצים למסד והחזרתם ללא רענון הדף | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה uploadify codeigniter: הזנת שמות הקבצים למסד והחזרתם ללא רענון הדף">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  unanswered">
+<div class="item-count">0</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="uploadify codeigniter הזנת שמות הקבצים למסד והחזרתם ללא רענון הדף.htm" title="היי, אני משתמש בפלגין uploadify להעלאת קבצים ב-codeigniter. הקבצים משויכים לדף כתבה, ואחרי השליחה שלהם לשרת אני רוצה להציג אותם בדף העריכת כתבה מבלי צורך לרענן את הדף. הנה הקוד: the view:
+
+&amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;
+
+
+&amp;lt;?php echo form_open_multipart&amp;#40;&amp;#41;; ">uploadify codeigniter: הזנת שמות הקבצים למסד והחזרתם ללא רענון הדף</a></h2>
+<div class="userinfo">
+פתח
+<a>kamish</a>
+,
+<time class="timeago relativetime" datetime="2014-10-02T06:22:53+03:00" style="display:inline-block;">
+02 לאוקטובר 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2030'>
+היי, <br><br>אני משתמש בפלגין uploadify להעלאת קבצים ב-codeigniter. הקבצים משויכים לדף כתבה, ואחרי השליחה שלהם לשרת אני רוצה להציג אותם בדף העריכת כתבה מבלי צורך לרענן את הדף. <br><br>הנה הקוד: <br><br><div class="php codeblock">the view:<br>
+<br>
+&lt;div class=&quot;container&quot;&gt;<br>
+<br>
+<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> form_open_multipart<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&lt;ul class=&quot;unstyled&quot;&gt;<br>
+&nbsp; &nbsp; &lt;li&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> form_upload<span class="br0">&#40;</span><span class="st_h">'userfile'</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="st_h">'id=&quot;userfile&quot;'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$error</span><span class="br0">&#41;</span><span class="br0">&#41;</span> ? <span class="re0">$error</span> <span class="sy0">:</span> <span class="st_h">''</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;/li&gt;<br>
+&nbsp; &nbsp; &lt;li&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> form_button<span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'content'</span><span class="sy0">=&gt;</span> <span class="st_h">'שלח'</span><span class="sy0">,</span> <span class="st_h">'id'</span><span class="sy0">=&gt;</span><span class="st_h">'upload-file'</span><span class="sy0">,</span> <span class="st_h">'class'</span><span class="sy0">=&gt;</span><span class="st_h">'btn btn-large btn-primary'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;/li&gt;<br>
+&lt;/ul&gt;<br>
+<br>
+<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> form_close<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp;&lt;/div&gt;<br>
+&lt;!-- End Of Main Content --&gt;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;script&gt;window.jQuery || document.write('&lt;script src=&quot;/assets/js/jquery/jquery-1.8.0.min.js&quot;&gt;&lt;\/script&gt;')&lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;script src=&quot;/assets/js/jquery/uploadify_31/jquery.uploadify-3.1.min.js&quot; &nbsp; &nbsp; &nbsp; &nbsp;type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;script src=&quot;/assets/bootstrap/js/bootstrap.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot;&gt;<br>
+<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $(document).ready(function () {<br>
+<br>
+&nbsp; &nbsp; var base_url = '<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> base_url<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>';<br>
+<br>
+&nbsp; &nbsp; $('#upload-file').click(function (e) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; e.preventDefault();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; $('#userfile').uploadify('upload', '*');<br>
+&nbsp; &nbsp; });<br>
+<br>
+&nbsp; &nbsp; $('#userfile').uploadify({<br>
+<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'auto':false,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'swf': base_url + 'assets/js/jquery/uploadify_31/uploadify.swf',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'uploader': base_url + 'uploadify_v3/do_upload',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'cancelImg': base_url + 'assets/javascript/jquery/uploadify_31/uploadify-cancel.png',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'fileTypeExts':'*.jpg;*.bmp;*.png;*.tif',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'fileTypeDesc':'Image Files (.jpg,.bmp,.png,.tif)',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'fileSizeLimit':'2MB',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'fileObjName':'userfile',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'buttonText':'בחר תמונות',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'multi':true,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'removeCompleted':false,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'onUploadError' : function(file, errorCode, errorMsg, errorString) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert('The file ' + file.name + ' could not be uploaded: ' + errorString);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; });<br>
+});<br>
+the Controller:<br>
+<br>
+&nbsp;class Uploadify_v3 extends CI_Controller<br>
+&nbsp;{<br>
+<br>
+public $view_data = array();<br>
+private $upload_config;<br>
+<br>
+function __construct()<br>
+{<br>
+&nbsp; &nbsp; parent::__construct();<br>
+}<br>
+<br>
+public function index()<br>
+{<br>
+&nbsp; &nbsp; $this-&gt;load-&gt;helper(array('url', 'form'));<br>
+&nbsp; &nbsp; $this-&gt;load-&gt;view('uploadify_v3', $this-&gt;view_data);<br>
+}<br>
+<br>
+public function do_upload()<br>
+{<br>
+&nbsp; &nbsp; $this-&gt;load-&gt;library('upload');<br>
+<br>
+&nbsp; &nbsp; $image_upload_folder = FCPATH . '/uploads';<br>
+<br>
+&nbsp; &nbsp; if (!file_exists($image_upload_folder)) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; mkdir($image_upload_folder, DIR_WRITE_MODE, true);<br>
+&nbsp; &nbsp; }<br>
+<br>
+&nbsp; &nbsp; $this-&gt;upload_config = array(<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'upload_path' &nbsp; =&gt; $image_upload_folder,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'allowed_types' =&gt; 'png|jpg|jpeg|bmp|tiff',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'max_size' &nbsp; &nbsp; &nbsp;=&gt; 2048,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'remove_space' &nbsp;=&gt; TRUE,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'encrypt_name' &nbsp;=&gt; TRUE,<br>
+&nbsp; &nbsp; );<br>
+<br>
+&nbsp; &nbsp; $this-&gt;upload-&gt;initialize($this-&gt;upload_config);<br>
+<br>
+&nbsp; &nbsp; if (!$this-&gt;upload-&gt;do_upload()) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; $upload_error = $this-&gt;upload-&gt;display_errors();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; echo json_encode($upload_error);<br>
+&nbsp; &nbsp; } else {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; $file_info = $this-&gt;upload-&gt;data();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$this-&gt;load-&gt;model('user_model');<br>
+<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; $query_file = $this-&gt;user_model-&gt;insert_file($file_info['file_name']);<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo json_encode($query_file);<br>
+&nbsp; &nbsp; }<br>
+<br>
+&nbsp; }<br>
+the model:<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public function insert_file($filename)<br>
+{<br>
+&nbsp; &nbsp; $data = array(<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'file_name' &nbsp; &nbsp; &nbsp;=&gt; $filename<br>
+<br>
+&nbsp; &nbsp; );<br>
+&nbsp; &nbsp; &nbsp;$insert = $this-&gt;db-&gt;insert('files', $data);<br>
+&nbsp; $last_id = $this-&gt;db-&gt;insert_id();<br>
+<br>
+&nbsp; &nbsp; return $last_id;<br>
+<br>
+<br>
+<br>
+}</div> </div>
+</div>
+<h3>
+<span id="answersCounter">0 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

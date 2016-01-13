@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מדריך פשוט ליצירת הרשמה עם פייסבוק">
+<meta name="keywords" content="פייסבוק, facebook, הרשמה">
+<meta name="author" content="RedAlarm">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>הרשמה בעזרת הפייסבוק</title>
+<meta itemprop="name" content="הרשמה בעזרת הפייסבוק">
+<meta itemprop="description" content="מדריך פשוט ליצירת הרשמה עם פייסבוק">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"231","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>הרשמה בעזרת הפייסבוק</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">RedAlarm, </div>
+<div class="right">&nbsp;<time datetime="2012-07-16T15:58:38+03:00" dir="rtl">16 ליולי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.directmedics.com/images/news/38.jpg" alt="הרשמה בעזרת הפייסבוק">
+</div>
+<div class="right post-content">
+מדריך פשוט ליצירת הרשמה בעזרת פייסבוק לאתר שלכם. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+כמו שכולכם יודעים, בתקופה האחרונה פייסבוק תפס תאוצה ענקית וכל דבר ברשת כמעט מקושר לפייסבוק.<br>כמעט לכל בן אדם היום שמשתמש קבוע באינטרנט יש לו פייסבוק, אז למה לסבך להם את החיים עם הרשמות מיותרות אם אפשר להירשם עם הפייסבוק עצמו?<br><br>נתחיל ביצירת אפליקצית פייסבוק דרך הקישור <a href="https://developers.facebook.com/apps">הזה</a>,<br>נלחץ על Create new app, וניתן לה כל שם שנרצה, בנוסף נבחר שאנחנו לא רוצים אחסון בחינם כי אין לנו טעם בזה.<br>לאחר שיצרנו את האפליקציה יופיע לנו הגדרות האפליקציה - שם האפליקציה, מספר האפליקציה וכו&#039;.<br>נלחץ על Edit settings ובWebsite with Facebook Login נוסיף את כתובת האתר שלנו.<br>נלחץ Save changes ונחזור לעמוד הקודם.<br>מה שעשינו עכשיו היה בעצם יצירת אפליקציה שבעזרתה נרשם, ונתנו לה הרשאות שנוכל להשתמש בה דרך האתר שלנו לצורך ההרשמה.<br><br>אז אפליקציה יש לנו, ויש לה אישור להתחבר לאתר שלנו.<br>מה שעכשיו נשאר לנו, ההרשמה עצמה.<br>ניצור iframe שהמקור שלו זה<br>https://www.facebook.com/plugins/registration<br>עכשיו זה לא מספיק לנו, נצטרך לשלוח למקור שלו גם מידע דרך GET.<br>לכן נוסיף סימן שאלה ואחריו client_id, הclient_id זה בעצם המספר של האפליקציה שיצרנו, ניקח מהעמוד שהיינו בו קודם, של הפרטים על האפליקציה מהשורה App ID ונשים במקור של הiframe.<br>בנתיים יש לנו<br><strong><br>https://www.facebook.com/plugins/registration?client_id=<span style="color:darkred;">XXXXXXX</span><br></strong><br>אחרי המספר של האפליקציה, נרצה לבחור לאן לשלוח את הטופס, ACTION כמו כל טופס רגיל.<br>הטופס של פייסבוק שולח סטרינג שאחר כך נדע לפענח אותו וממנו להוציא את הפרטים של אותו טופס.<br>לכן, נוסיף למקור הiframe שלנו את הכתובת שנרצה לשלוח את הטופס דרך redirect_uri.<br>אז עד פה הכתובת שלנו נראה ככה<br><strong><br><span dir="ltr">https://www.facebook.com/plugins/registration?client_id=<span style="color:darkred;">XXXXXXX</span>&amp;redirect_uri=<span style="color:orange;">http://www.abc.def</span><br></span></strong><br>אז טופס יש לנו, לאן לשלוח את הטופס יש לנו. נשאר לנו השדות של הטופס.<br>נוסיף לכתובת fields כדי לבחור איזה שדות יהיו לנו בטופס.<br>בfields נוכל לכתוב כמה דברים<br><strong>name</strong> כדי לבקש את השם של המשתמש.<br><strong>birthday</strong> כדי לבקש את תאריך יום ההולדת של המשתמש.<br><strong>email</strong> כדי לבקש את האימל של המשתמש.<br><strong>gender</strong> כדי לבקש את מין המשתמש.<br><strong>location</strong> כדי לבקש את עיר המגורים של המשתמש.<br><strong>password</strong> כדי לכתוב סיסמא חדשה למשתמש החדש שנרשם, שלא קשורה לפייסבוק.<br><strong>captcha</strong> קוד אבטחה, כדי למנוע בוטים.<br>כל השדות האלו חוץ מסיסמא וקוד האבטחה יהיו מלאים אוטומטי ברגע שמשתמש אשר מחובר לפייסבוק יתחבר לאתר שלכם.<br><br>זהו, סיימנו ליצור את הטופס והכתובת המלאה של הטופס נראת ככה<br><strong><br><span dir="ltr">https://www.facebook.com/plugins/registration?client_id=<span style="color:darkred;">XXXXXXX</span>&amp;redirect_uri=<span style="color:orange;">http://www.abc.def</span>&amp;fields =<span style="color:green;">name,birthday,gender,location,email,password,captcha</span><br></span></strong><br><br>עכשיו שסיימנו ליצור את הטופס, נראה לעצב אותו. נוכל לעצב את הiframe בעזרת style פשוט לדוגמא<br><span dir="ltr">style=&quot;border:black thin solid;&quot;</span><br>נוכל גם לקבוע אורך ורוחב בעזרת <span dir="ltr">width=&quot;40%&quot; height=&quot;600px&quot;</span><br><br>אז זהו, סיימנו ליצור את הטופס ולעצב אותו.<br>והקוד שלנו נראה ככה<br><br><div class="php codeblock"><span class="sy0">&lt;</span>iframe src<span class="sy0">=</span><span class="st0">&quot;https://www.facebook.com/plugins/registration?<br>
+&nbsp; &nbsp; &nbsp; &nbsp; client_id=XXXXX&amp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; redirect_uri=http://abc.def&amp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; fields=name,birthday,gender,location,email,password,captcha&quot;</span><br>
+&nbsp; &nbsp; &nbsp; style<span class="sy0">=</span><span class="st0">&quot;background-color:green;&quot;</span><br>
+&nbsp; &nbsp; &nbsp; width<span class="sy0">=</span><span class="st0">&quot;40%&quot;</span><br>
+&nbsp; &nbsp; &nbsp; height<span class="sy0">=</span><span class="st0">&quot;600px&quot;</span><span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>iframe<span class="sy0">&gt;</span></div><br><br>עכשיו אחרי שיש לנו את הטופס והוא נשלח, נרצה לקבל את המידע מהטופס.<br>כמו שכתבתי קודם, אנחנו לא נקבל את הקלט של המשתמש ישירות לעמוד, לכן נצטרך &quot;לפענח&quot; אותו.<br>נלך לredirect_uri שהגדרנו מוקדם בiframe,<br>ונכתוב מספר פונקציות שפייסבוק נתנה בדוקומנטציה שלה שעליהם אני לא ארחיב עכשיו.<br><br><div class="php codeblock"><span class="kw2">function</span> parse_signed_request<span class="br0">&#40;</span><span class="re0">$signed_request</span><span class="sy0">,</span> <span class="re0">$secret</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">list</span><span class="br0">&#40;</span><span class="re0">$encoded_sig</span><span class="sy0">,</span> <span class="re0">$payload</span><span class="br0">&#41;</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st_h">'.'</span><span class="sy0">,</span> <span class="re0">$signed_request</span><span class="sy0">,</span> <span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">;</span> <br>
+<br>
+&nbsp; <span class="co1">// decode the data</span><br>
+&nbsp; <span class="re0">$sig</span> <span class="sy0">=</span> base64_url_decode<span class="br0">&#40;</span><span class="re0">$encoded_sig</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$data</span> <span class="sy0">=</span> <span class="kw3">json_decode</span><span class="br0">&#40;</span>base64_url_decode<span class="br0">&#40;</span><span class="re0">$payload</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">strtoupper</span><span class="br0">&#40;</span><span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'algorithm'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">!==</span> <span class="st_h">'HMAC-SHA256'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">error_log</span><span class="br0">&#40;</span><span class="st_h">'Unknown algorithm. Expected HMAC-SHA256'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="co1">// check sig</span><br>
+&nbsp; <span class="re0">$expected_sig</span> <span class="sy0">=</span> <span class="kw3">hash_hmac</span><span class="br0">&#40;</span><span class="st_h">'sha256'</span><span class="sy0">,</span> <span class="re0">$payload</span><span class="sy0">,</span> <span class="re0">$secret</span><span class="sy0">,</span> <span class="re0">$raw</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$sig</span> <span class="sy0">!==</span> <span class="re0">$expected_sig</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">error_log</span><span class="br0">&#40;</span><span class="st_h">'Bad Signed JSON signature!'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$data</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">function</span> base64_url_decode<span class="br0">&#40;</span><span class="re0">$input</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">base64_decode</span><span class="br0">&#40;</span><span class="kw3">strtr</span><span class="br0">&#40;</span><span class="re0">$input</span><span class="sy0">,</span> <span class="st_h">'-_'</span><span class="sy0">,</span> <span class="st_h">'+/'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br><br>נבדוק אם הטופס נשלח ואם כן ניצור מערך שיהיה בו את הקלט של המשתמש.<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'signed_request'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$registerDetails</span> <span class="sy0">=</span> parse_signed_request<span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'signed_request'</span><span class="br0">&#93;</span><span class="sy0">,</span> XXXX <span class="coMULTI">/* כאן אנחנו אמורים לתת לפונקציה גם את הsecret של האפליקציה שלנו */</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'הטופס לא נשלח'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br>עכשיו אם נרצה להשתמש בקלט של המשתמש דרך המשתנה נבצע את זה דרך האינדקס registration של המערך שיצרנו קודם ואחריו את שם האינפוט של הטופס.<br>לדוגמא כדי לגשת לשם נרשום<br><div class="php codeblock"><span class="kw1">echo</span> <span class="re0">$registerDetails</span><span class="br0">&#91;</span><span class="st_h">'registration'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br><br>זהו, עד כאן המדריך ליצירת טופס הרשמה של פייסבוק. תהנו :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/c41a3ea81ec29d93d34f705e310b6970?s=16&r=g&d=monsterid" alt="RedAlarm">
+<a>RedAlarm</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1757"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/07/2012 15:57</span><br>
+יפה מאוד ! </div>
+<a id="comment1760"></a>
+<div class="blog-comment">
+<span class='comment-author'>fcbdaniel</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/07/2012 06:24</span><br>
+ענקקק תודה !!</div>
+<a id="comment1761"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/07/2012 01:24</span><br>
+ההרשמה באתר הזה עובדת ככה?<br>
+כי זה ניראה קצת שונה...</div>
+<a id="comment1819"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/08/2012 13:21</span><br>
+מה לגבי ההתחברות ? </div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

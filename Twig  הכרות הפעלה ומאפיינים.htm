@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="Twig project, שמת תבניות">
+<meta name="keywords" content="Twig project, שמת תבניות">
+<meta name="author" content="RaFaeL">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Twig - הכרות, הפעלה ומאפיינים</title>
+<meta itemprop="name" content="Twig - הכרות, הפעלה ומאפיינים">
+<meta itemprop="description" content="Twig project, שמת תבניות">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"243","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Twig - הכרות, הפעלה ומאפיינים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">RaFaeL, </div>
+<div class="right">&nbsp;<time datetime="2012-08-21T10:21:49+03:00" dir="rtl">21 לאוגוסט 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.israup.net/images/eb6e5fb4260053ab4f5869f9269e5e59.png" alt="Twig - הכרות, הפעלה ומאפיינים">
+</div>
+<div class="right post-content">
+המדריך המלאה למערכת התבניות הטובה ביותר.<br>חלק א&#039; - הכרות, הפעלה - שימוש ומאפיינים מיוחדים. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>Twig project</h3><br>Twig הינה מערכת תבניות המאפשרת לבצע הפרדה בין קוד ה-HTML וה-PHP באתרינו(MVC - Model Viewer Controller).<br>הסבר מפורט על המוסג MvC תוכלו למצוא בכתובת <a href="mvc_מפרידים_html_מ_php.htm">הבאה</a> - תודה לאלכס על כתיבת המדריך.<br>ל-Twig המון מאפיינים אשר הופכים אותה לשונה ומיוחדת יותר מאחרים, בין המאפיינים שלה 3 מאפיינים בולטים - מהירות, אבטחה וגמישות - פירוט מלא בהמשך המדריך\כתבה.<br><br><h4>שלושת המאפיינים הכי חשובים</h4><br>כמו שאמרתי בהתחלה ל-Twig המון מאפיינים שהופכים אותה לשונה ומיוחדת יותר ממערכות אחרות, ביניהם 3 מאפיינים בולטים וחשובים מאוד:<br>* <strong>מהירות</strong>: Twig ממירה את הקוד שנכתב בתבנית לקוד PHP מהיר ויעיל, מה שאנחנו כמעט תמיד לא עושים.<br>* <strong>אבטחה</strong>: ל-Twig אפשרויות אבטחה גדולות - ביניהם מצב SandBox, AutoEscape ורבים אחרים...<br>* <strong>גמישות</strong>: Twig פועלת על lexer ו-parser גמישים במיוחד, הדבר זה מאפשר למפתחים להגדיר תגיות ומסננים מותאמים אישית.<br><br><h4>אבל PHP היא שפת תבנית, לא?</h4><br>כשזה מגיע למנועי תבנית ב-PHP, הרבה אנשים יגידו לך שPHP עצמו הוא מנוע תבנית. <br>אבל גם אם PHP התחיל את חייו כשפת תבנית, זה לא התפתח הרבה בשנים האחרונות.<br><h5>השוואה בין הקוד של TwiG לשל PHP</h5><br>* <strong>קוד מתומצת</strong>:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$var</span> <span class="sy1">?&gt;</span><br>
+<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$var</span><span class="sy0">,</span> <span class="kw4">ENT_QUOTES</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="br0">&#41;</span> <span class="sy1">?&gt;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="br0">&#123;</span> <span class="kw2">var</span> <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="br0">&#123;</span> <span class="kw2">var</span><span class="sy0">|</span>escape <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="br0">&#123;</span> <span class="kw2">var</span><span class="sy0">|</span>e <span class="br0">&#125;</span><span class="br0">&#125;</span></div><br><br>* <strong>קוד דומה בשני האפשרויות</strong>:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">for</span> user in users <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="sy0">*</span> <span class="br0">&#123;</span><span class="br0">&#123;</span> user<span class="sy0">.</span>name <span class="br0">&#125;</span><span class="br0">&#125;</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">else</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; No user have been found<span class="sy0">.</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">endfor</span> <span class="sy0">%</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">count</span><span class="br0">&#40;</span><span class="re0">$users</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$users</span> <span class="kw1">as</span> <span class="re0">$user</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'* '</span><span class="sy0">.</span> <span class="re0">$user</span> <span class="sy0">.</span><span class="st_h">'&lt;br /&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'No user have been found.'</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>* <strong>אפשרויות רבות</strong>:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw2">extends</span> <span class="st0">&quot;layout.html&quot;</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#123;</span><span class="sy0">%</span> block content <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; Content of the page<span class="sy0">...</span><br>
+<span class="br0">&#123;</span><span class="sy0">%</span> endblock <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br>* <strong>לימוד קל וקליט</strong>: התחביר הוא קל ללימוד ועבר אופטימיזציה כדי לאפשר למעצבי אינטרנט לעשות עבודתם מהר מבלי לסבך את חייהם.<br><br>* <strong>אבטחה</strong> - פלט מאובטח בצורה אוטומטית:<br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> autoescape <span class="kw4">true</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw2">var</span> <span class="sy0">%</span><span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw2">var</span><span class="sy0">|</span>raw <span class="sy0">%</span><span class="br0">&#125;</span> &nbsp; &nbsp; <span class="br0">&#123;</span><span class="co2"># var won't be escaped #}<br>
+</span> &nbsp; &nbsp;<span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw2">var</span><span class="sy0">|</span>escape <span class="sy0">%</span><span class="br0">&#125;</span> &nbsp;<span class="br0">&#123;</span><span class="co2"># var won't be doubled-escaped #}<br>
+</span><span class="br0">&#123;</span><span class="sy0">%</span> endautoescape <span class="sy0">%</span><span class="br0">&#125;</span></div><br><div class="php codeblock"><span class="br0">&#123;</span><span class="sy0">%</span> <span class="kw1">include</span> <span class="st0">&quot;user.html&quot;</span> sandboxed <span class="sy0">%</span><span class="br0">&#125;</span></div><br><br><h4>הורדה והתקנה של Twig</h4><br>אחרי שהכרנו את המערכת וראינו את הצד הטוב של המערכת ניגש להורדה והתקנת המערכת.<br><h5>הורדה</h5><br>על מנת להוריד את המערכת לחצו <a href="https://github.com/fabpot/Twig/tags">כאן</a> ותורידו את הגירסא הכי חדשה.<br>הגירסא הנוכחית: 1.9.1, <a href="https://github.com/fabpot/Twig/zipball/v1.9.1">כאן</a>.<br><h5>התקנה</h5><br>לאחר ההורדה יש מספר צעדים פשוטים על מנת להתקין את המערכת, קודם כל יש לדאוג שיש לכם תיקיה שאיתה תעבדו.<br>עכשיו חלצו את הקובץ שהורדתם לשולחן העבודה\כל מקום אחר שבא לכם.<br>כעת צרו תקיה חדשה בשם Protected, העבירו לשם את התקייה fabpot-Twig-0c7a0d7\lib\Twig - (לא את התוכן את כל התקיה!).<br><br><h4>תחילת עבודה עם Twig ותוכנית ראשונה - Hello World</h4><br>כעת אחרי שהכל מוכן ניצור את הדף הראשון שלנו, בשביל לעשות זות צרו דף בשם hello.php (דוגמא!).<br>נכניס לשם את הקוד הבא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp; <span class="kw1">require_once</span> <span class="st_h">'/path/to/Protected/Twig/Autoloader.php'</span><span class="sy0">;</span><br>
+&nbsp; Twig_Autoloader<span class="sy0">::</span><span class="me2">register</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$loader</span> <span class="sy0">=</span> <span class="kw2">new</span> Twig_Loader_String<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$twig</span> <span class="sy0">=</span> <span class="kw2">new</span> Twig_Environment<span class="br0">&#40;</span><span class="re0">$loader</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$twig</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span><span class="st_h">'Hello {{ world }}!'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'world'</span> <span class="sy0">=&gt;</span> <span class="st_h">'World!'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><h5>הסבר שורה אחרי שורה</h5><br>1: יבוא של הקובץ Autoloader שאחראי לעבודה של המערכת, ניתן במקום require_once להשתמש ב include_once.<br>_once - בודק האם הקובץ כבר בשימוש בעבר, ורק אם לא מיבא את הקובץ.<br>2: הפעלת המערכת על ידי קראיה לפונקציה register שנימצאת במחלקה Twig_Autoloader.<br>4: מגדירים משתנה שמשתווה לתשובת המחלקה Twig_Loader_String אשר אחראית לטעינת התבניות.<br>5: מגדירים משתנה נוסף שאחראי לביצוע פעולות המערכת בתבניות שנקראות על ידי המחלקה Twig_Loader_String.<br>7: מדפיסים את הקוד המוכן לאחר ביצוע כל הפקודות בתבנית - המשתנה הראשון זוהי התבנית, המשתנה השני מערך של &quot;משפטים&quot;. <br><br>נריץ אותו ונקבל פלט כזה: &quot;Hello World!!&quot;.<br><br><h4>בפרק הבא</h4><br>* יצירת תבניות מתקדמות<br>* שימוש ב-include<br>* כיצד משתמשים ב Layout ו Blockים?<br><br><h5>בהצלחה!</h5><br><br><h5>חלק ב</h5><br>* חלק ב&#039; <a href="Twig  יוצרים תבניות מתקדמותפשוטות.htm">כאן</a> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/7ff5a4244432d30b20b8a8a2d7ed82e7?s=16&r=g&d=monsterid" alt="RaFaeL">
+<a>RaFaeL</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1859"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 13:28</span><br>
+twig היה מנוע התבניות הראשון שהשתמשתי בו.<br>
+הוא מדהים :) ממנו הגיע לקוד שלי הפונקציה e שמשמשת אותי בתור קיצור ל htmlSpecialChars<br>
+<br>
+<br>
+רפאל, הרבה תודות על המדריך :)<br>
+מחכה בקוצר רוח לחלק ב&apos;</div>
+<a id="comment1862"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 13:35</span><br>
+תודה רבה על המדריך. :)</div>
+<a id="comment1863"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 16:10</span><br>
+אין קשר בין mvc ל-twig שהיא template engine.</div>
+<a id="comment1866"></a>
+<div class="blog-comment">
+<span class='comment-author'>Th3Location</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 19:51</span><br>
+מחזק את זה שמעלי, אין קשר. הוא כן מסייע בהפרדה בין הלוגיקה לעיצוב בצורה טובה אך איננו ממש את כל התבנית MVC.<br>
+<br>
+עדין, לי מזכיר ROR ואני מעדיף כמה שפחות להתקרב....אבל אחלה דבר למי שיש לו עצבים כמו Smarty</div>
+<a id="comment1867"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 22:10</span><br>
+תודה רבה על המדריך ? <br>
+<br>
+יש אפשרות לעבוד עם מסד איתה ביחד ? שהשליפה תהיה בעזרת המנוע שלה כבר ולא ע&quot;י רינדור של PHP ? </div>
+<a id="comment1868"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 22:11</span><br>
+תודה רבה על המדריך ! *</div>
+<a id="comment1870"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 23:18</span><br>
+אתה יכול לעשות דבר כזה:<br>
+$sth = $db-&gt;prepare(&quot;SELECT* FROM table INNER JOIN table2 ON table.id = table2.id WHERE category = ? ORDER BY table.id DESC&quot;);<br>
+$sth-&gt;execute(array(1514125));<br>
+<br>
+echo $twig-&gt;render(&quot;page.html&quot;, array(&apos;forllop1&apos; =&gt; $sth-&gt;fetchAll()));<br>
+<br>
+וזה הקוד של התבנית:<br>
+{% for id, item in forllop1 %}<br>
+* {{ id }}: {{ item[&apos;key&apos;] }}<br>
+{% else %}<br>
+Not found!<br>
+{% endfor %}</div>
+<a id="comment1871"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/08/2012 23:18</span><br>
+^ נכתב באתר...</div>
+<a id="comment1873"></a>
+<div class="blog-comment">
+<span class='comment-author'>dan_barzilay</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/08/2012 10:12</span><br>
+מישהו יכול לכתוב פה את פונקציית ה escape שלהם כמו שהיא בקוד המקור שלהם, כלומר את הפונקציה עצמה?</div>
+<a id="comment1877"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/08/2012 11:25</span><br>
+למה קשה להכנס ל-github שלהם ולראות את הקובץ Core.php ב-lib/Twig/Extension.<br>
+twig_escape_filter<br>
+שום דבר מיוחד - htmlspecialchars כרגיל.</div>
+<a id="comment1878"></a>
+<div class="blog-comment">
+<span class='comment-author'>nirbe</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/08/2012 11:52</span><br>
+תודה רבה, אני עכשיו מתחיל ללמוד פעם ראשונה איך לעבוד עם framework ו MVC.</div>
+<a id="comment1879"></a>
+<div class="blog-comment">
+<span class='comment-author'>RaFaeL</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/08/2012 13:23</span><br>
+@dan_barzilay אם אתה מנסה לכתוב מערכת תבניות כמו TWIG, אז אתה מבזבז זמן.<br>
+<br>
+כל מקרה הם משתמשים ב htmlspecialchars רגיל(<span dir="ltr"><a href="http://php.net/manual/en/function.htmlspecialchars.php">http://php.net/manual/en/function.htmlspecialchars.php</a></span>).</div>
+<a id="comment1888"></a>
+<div class="blog-comment">
+<span class='comment-author'>JBStyle</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/08/2012 21:59</span><br>
+לדעתי הוא בכלל לא מבזבז זמן, זו אחלה התנסות לכתוב כל מיני דברים .</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה jquery ajax">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nirbe">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>jquery ajax | שאלת לימוד PHP</title>
+<meta itemprop="name" content="jquery ajax | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה jquery ajax">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">9</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="jquery ajax-1.htm" title="שלום,אני בונה טופס הוספת מאמר שנשלח עם jq ajax,עכשיו, אחרי שאני שולח המערכת עושה לי שגיאה כזאת:Request-URI Too Large
+
+The requested URL&apos;s length exceeds the capacity limit for this server.איך אני יכול לסדר את זה?תודה רבה!">jquery ajax</a></h2>
+<div class="userinfo">
+פתח
+<a>nirbe</a>
+,
+<time class="timeago relativetime" datetime="2012-10-07T12:06:37+02:00" style="display:inline-block;">
+07 לאוקטובר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1074'>
+שלום,<br>אני בונה טופס הוספת מאמר שנשלח עם jq ajax,<br>עכשיו, אחרי שאני שולח המערכת עושה לי שגיאה כזאת:<br><div class="php codeblock">Request<span class="sy0">-</span>URI Too Large<br>
+<br>
+The requested URL<span class="st_h">'s length exceeds the capacity limit for this server.</span></div><br><br>איך אני יכול לסדר את זה?<br><br>תודה רבה! </div>
+</div>
+<h3>
+<span id="answersCounter">9 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4690">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>shlomo120</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4690" href="jquery ajax-1.htm#answer_4690">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ככל הנראה אתה שולח את הבקשה בגט. השגיאה אומרת שהמידע שמועבר דרך הURL כלומר הגט גדול מדי. ישנה דרך אחת לפיתרון והיא לשלוח את הבקשה בפוסט... </p>
+</div>
+<div class="answer" id="answer4694">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4694" href="jquery ajax-1.htm#answer_4694">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ניסיתי ב FROM לשנות את ה action ל post, אבל זה לא עזר. </p>
+</div>
+<div class="answer" id="answer4696">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4696" href="jquery ajax-1.htm#answer_4696">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אתה שולח בAjax , מה הטעם לשנות משהו בהגדרה של הטופס ?<br>תשנה את מה שצריך בהגדרה של ה Ajax, לא של הטופס </p>
+</div>
+<div class="answer" id="answer4699">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4699" href="jquery ajax-1.htm#answer_4699">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא ממש מומחה בזה.<br>זה הקוד שלי:<br><div class="php codeblock">$<span class="br0">&#40;</span><span class="st0">&quot;#ajaxmesbox&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>hide<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;form[name='&quot;</span><span class="sy0">+</span>formname<span class="sy0">+</span><span class="st0">&quot;']&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>submit<span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">var</span> data <span class="sy0">=</span> $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span><span class="kw3">serialize</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span><span class="st0">&quot;#ajaxmesbox&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>load<span class="br0">&#40;</span><span class="st0">&quot;includes/ajax/&quot;</span><span class="sy0">+</span>tofile<span class="sy0">+</span><span class="st0">&quot;.php&quot;</span><span class="sy0">,</span> data<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>html<span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>show<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="st0">&quot;#ajaxmesbox&quot;</span><span class="br0">&#41;</span><span class="sy0">.</span>show<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span>html<span class="br0">&#40;</span>html<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4704">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 08 לאוקטובר 2012 </span>
+<a id="answer_4704" href="jquery ajax-1.htm#answer_4704">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה פונקציה, כי אני משתמש בזה כמה פעמים. </p>
+</div>
+<div class="answer" id="answer4705">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 08 לאוקטובר 2012 </span>
+<a id="answer_4705" href="jquery ajax-1.htm#answer_4705">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש קצת הבדלים בין GET לבין POST.<br>GET זה כשכול הפרמטרים שלך מועברים בשורת הכתובת<br>abc.php?a=1&amp;b=2&amp;c=3&amp;d=4&amp;...&amp;e=5<br>POST זה כשכל הפרמטרים מועברים בתוכן הבקשה, לא בכתובת. והכתובת נשארת פשוט abc.php<br><br>השגיאה שקיבלת אומרת <br>הכתובת שאתה מנסה לגשת אליה - ארוכה מדי.<br><br>מכאן נובע שהבקשה שלך נשלחת ב GET, כל הנתומים של הטופס נכתבים בשורת הכתובת והדפדפן או השרת מגבילים את עורך הכתובת המרבי. הפתרון יהיה לשנות את הבקשה ככה, שהנתונים נשלחים ב POST.<br><br>הולכים לדוקומנטציה של <a href="http://api.jquery.com/load/">jquery.load</a><br>ומנסים להבין מה הפונקציה הזו עושה ואיך לשנות את הmethod שבו היא משתמשת, ואז מגלים את השורה הבאה:<br><br><div class="php codeblock">It is roughly equivalent to $<span class="sy0">.</span>get<span class="br0">&#40;</span>url<span class="sy0">,</span> data<span class="sy0">,</span> success<span class="br0">&#41;</span></div><br>שבתרגום מאנגלית אומר שהפעולה load שוות ערך לפעולה get ומכאן שהיא שולחת הכל ב GET.<br>ואז יש לנו שני אופציות. או להפסיק להשתמש ב load ולעבור לשימוש בפונקציה אחרת, נגיד post.$<br>או לקרוא הלאה ולראות אם אפשר לשנות את ההתנהגות של load.$<br><br>ממשיכים לקרוא הלאה ומגלים את השורה הבאה<br><div class="php codeblock">The POST method is used <span class="kw1">if</span> data is provided <span class="kw1">as</span> an object<span class="sy0">;</span> otherwise<span class="sy0">,</span> GET is assumed<span class="sy0">.</span></div><br>אם הפרמטר של הנתונים מועבר בתור אובייקט - הפונקציה משתמשת ב POST, אחרת היא משתמשת ב GET.<br><br>בוא נראה איזה פרמטר אנחנו מעבירים לה? אנחנו מעבירים לה את data<br>ואיך data נוצר?<br><div class="php codeblock"><span class="kw2">var</span> data <span class="sy0">=</span> $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span><span class="kw3">serialize</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>מה זה סריאליזציה ? זה רישום אובייקט בצורת מחרוזת.<br>אבל אם אתה לא יודע מה זה, יש לך שני אופציות. א. לשאול, ב. לקרוא מדריכים ב phpguide. יש מדריך שלם על זה.<br><br>עכשיו כשאנחנו יודעים ש data זה מחרוזת, ולא אובייקט ובגל זה הפונקציה עושה GET ולא POST<br>נשאר לברר איך הופכים את זה לאובייקט במקום מחרוזת.<br>לאן הולכים בשביל זה? נכון מאוד, לקרוא את הדוקמנטציה.<br><br>אני כתבתי במחיפוש של הדוקומטציה של jquery את המילה serialize<br>וקיבלתי את <a href="http://api.jquery.com/?ns0=1&amp;s=serialize&amp;go=">התוצאה הבאה</a>. ראיתי ברשימה את הפונקציה serializeArray ומה היא עושה לאומת serialize רגיל וגיליתי שזה בדיוק מה שאני צריך. היא לוקחת אלמנטים של טופס ומכניסה אותם למערך (שזה אובייקט) במקום מחרוזת.<br><br>והדבר היחידי שצריך לשנות בקוד בשביל שהכל יעבוד זה את השורה<br><div class="php codeblock"><span class="kw2">var</span> data <span class="sy0">=</span> $<span class="br0">&#40;</span>this<span class="br0">&#41;</span><span class="sy0">.</span>serializeArray<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4708">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 08 לאוקטובר 2012 </span>
+<a id="answer_4708" href="jquery ajax-1.htm#answer_4708">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+השאלה עכשיו איך אני מושך את הנתונים בדף שאליו אני שולח דרך AJAX... </p>
+</div>
+<div class="answer" id="answer4709">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 08 לאוקטובר 2012 </span>
+<a id="answer_4709" href="jquery ajax-1.htm#answer_4709">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw1">echo</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'something'</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br>לא עובד ככה? תבדוק <span class="underline"><strong>לבד</strong></span> מה יש במערך פוסט, במקום לחכות שלוש שעות לכל תשובה. </p>
+</div>
+<div class="answer" id="answer4710">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 08 לאוקטובר 2012 </span>
+<a id="answer_4710" href="jquery ajax-1.htm#answer_4710">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה רבה! </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

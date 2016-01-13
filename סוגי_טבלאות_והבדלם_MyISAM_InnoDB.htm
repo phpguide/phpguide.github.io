@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="תיאור סוגי הטבלאות Storage Engines שמספקת , MySQL ומתי להשתמש בכל אחת מהן">
+<meta name="keywords" content="טבלאות, סוגי טבלאות, MyISAM, InnoDB, Memory, Archive, BlackHole, Mysql, Engine, Storage Engine">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>סוגי טבלאות והבדלם MyISAM, InnoDB</title>
+<meta itemprop="name" content="סוגי טבלאות והבדלם MyISAM, InnoDB">
+<meta itemprop="description" content="תיאור סוגי הטבלאות Storage Engines שמספקת , MySQL ומתי להשתמש בכל אחת מהן">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"70","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>סוגי טבלאות והבדלם MyISAM, InnoDB</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-03-09T19:50:16+02:00" dir="rtl">09 למרץ 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://farm6.static.flickr.com/5186/5691804736_acb75d05be_s.jpg" alt="סוגי טבלאות והבדלם MyISAM, InnoDB">
+</div>
+<div class="right post-content">
+יש במסד טבלאות, שונות ומשונות. אפשר לנחש למה הם שם, מה הם עושות, במה עדיף להשתמש ומתי ואפשר לא לנחש אלה פשוט לקרוא את ההמשך. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שישה סוגי טבלאות בסיסיים מגיעים ביחד עם ההתקנה של שרת ה-mysql<br><br>— MyISAM סוג הטבלה הבסיסי הקיים במסד.<br>InnoDB — טבלה עם אפשרויות מורחבות (טרנזאקציות, נעילות שורה, שמירה בטוחה)<br>Memory — טבלה שנשמרת אך ורק בזכרון ה-ram ומאותחלת עם כל הפעלה מחדש של המסד<br>BlackHole — טבלת חור שחור. היא לא באמת שומרת את הנתונים שלכם איפשהו<br>Archive — טבלת ארכיון, המסוגלת לנהל כמויות אדירות של מידע, במחיר של פונקציונאליות<br>CSV — טבלת comma seperated values<br><br><br><h3>csv — comma seperated values</h3><br>CSV - ראשי תיבות של &quot;ערכים המופרדים בפסיקים&quot; לעצמו הוא פורמט (אופן רישום) נתונים ישן מאוד. יעודו היה העברת מידע בין תוכנות ומחשבים נפרדים. מחשב אחד היה מייצר קובץ שיראה למשל ככה:<br><div class="php codeblock"><span class="nu0">1</span><span class="sy0">,</span><span class="kw3">intval</span><span class="sy0">,</span>qwerty<br>
+<span class="nu0">2</span><span class="sy0">,</span>guide<span class="sy0">,</span><span class="nu0">111111</span><br>
+<span class="nu0">3</span><span class="sy0">,</span>alex<span class="sy0">,</span>abcabc</div><br>קובץ זה הכיל ערכים המופרדים בפסיקים, הצד המקבל ידע לפענח את הפורמט הזה ולקבל מתוכו את המידע הנדרש. <br><br>לתוך MySQL טבלה זו הגיעה למטרת נוחות. בעבר השימוש ב-csv היה מאוד פופולארי, ולתכניתנים היה הרבה יותר נוח להשתמש ב-sql כדי לעבוד עם הערכים בקובץ הזה, כאשר מנוע ה-mysql היה דואג לבד לעדכן ולבצע את כל הפעולות על הנתונים ולשים פסיקים במקומות הנכונים.<br>סביר להניח שלא ייצא לכם להשתמש בטבלאות מהסוג הזה, כיוון שהיום רווח השימוש בפורמט ה-xml , אבל סוג הטבלה הזה עדיין קיים ונגיש לאחר ההתקנה.<br><br><br><br><h3>BlackHole</h3><br>כשמו הוא — חור שחור. כל הנתונים שיגיעו אליו - יעלמו ברחווי היקום. שליפה ממנו תמיד תחזיר תוצאה ריקה של אפס שורות. הטבלה הזות פשוט קיימת, יש בה שדות, מפתחות (אינדקסים), אבל הנתונים בה פשוט לא נשמרים.<br><br>בשביל מה הטבלה הזו? שאלה טובה. השימוש העיקרי שלה הוא כאשר ברשותכם כמה שרתי mysql נפרדים שעליכם לסנכרן (לשמור על העתק מלא של הנתונים בין השרתים). לדוגמה יש לכם שרת ראשי, שעליו האתר שלכם מבצע את כל פעולות המשתמשים ושרת משני, שמשמש אך ורק לשמירת מידע גדול (כמו פרסומים בבלוג). אין סיבה שהשרת הראשון יכיל את טקסטי הבלוג, כאשר הוא גם כך נמצא תחת עומס מתמיד של פעולות המשתמשים, אבל הבעיה היא שהאתר עובד עם השרת הראשון, ולכן כל עדכון בלוג שתעשו דרך האתר - האתר ינסה לשמור בשרת הראשון.<br><br>במקרה הזה יהיה נוח לעשות בשרת הראשון טבלת בלוג מסוג חור שחור, שהאתר ינסה לשמור אליה את הנתונים. מנגנון הסנכרון יתפוס את הנתונים האלו, יעביר אותם לשרת השני, שם הם באמת יתעדכנו, ובשרת הראשון הם לא ישמר כלל, כך שלא יכביד עליו עול הזכרון .<br><br>בכל אופן, טבלאות כאלה קיימות, לא שומרות את הנתונים שלכם ואם תרצו להחביא משהו - זה המקום :)<br><br><br><br><h3>Archive</h3><br>ארכיון היא טבלה מצוינת לשמירת כמות נתונים עצומה לתווך ארוך. מנגד קיימות מספר מגבלות. הטבלה מאפשרת לבצע רק שני פעולות עליה: SELECT ו-INSERT. בגדול שום דבר אחר גם לא אמור להיות בטבלה הזו. אין אפשרות לעדכן ערכים או למחוקם בכלל. <br><br>אין תמיכה באינדקסים, auto_increment ובשום דבר מיותר אחר. מעולה לניהול לוגים, למשל מי ומתי הזדהה במערת ההזדהות של האתר. לכו תדעו מתי תצטרכו מידע כזה, אבל שיהיה.<br><br><br><br><h3>Memory</h3><br>טבלה שנשמרת בזכרון ה-ram של השרת. מהירה בטירוף, אבל מוגבלת בגודל מסיבות ברורות, לא שומרת את הנתונים לתווך הרחוק ובכלל מעולה לשמירה של נתונים זמניים. אם המסד ייפול, כל הנתונים שנשמרו בטבלה הזו יעלמו, למרות שהטבלה עצמה וכל המבנה שלה ימשיכו להתקיים.<br><br><br><br><h3>MyISAM</h3><br>עד לא מזמן טבלת ברירת המחדל של MySQL. טבלה מאוד בסיסית, יעילה בשליפות, מעט איטית בהכנסת נתונים, תומכת באינדקסים, auto_increment וכל הדברים האחרים שאתם רגילים אליהם מרוב השימוש בטבלאות אלו. יש הגבלה של כמות שורות אפשרית, העומדת על 4 מיליאד. והכי חשוב: ניתן ליצור אינדסים על שדות מסוג טקסט ומידע בינארי, מה שמאפשר לבצע בהם חיפוש.<br><br><br><h3>InnoDB</h3><br>המחליפה של MyISAM בגרסאות החדשות של mysql. היא עוצבה לעבודה יעילה עם כמויות מידע גדולות, והביצועים שלה תחת עומס גדול עוקפים בהרבה מסדי נתונים וסוגי טבלאות אחרים. InnoDB תומכת בטראנזקציות, כלומר בנויה במיוחד לענות לדרישות גבוהות של עמידות, בידוד מידע ועקביות. רק טבלאות InnoDB נותנות אחראיות לשמירה ותקינות הנתונים שלכם גם במקרה שפתאום באמצע השאילתה יתנתק החשמל.<br><br>כתיבה לטבלה זו מהירה בהרבה מכתיבה לטבלה מסוג MyISAM, בזכות מנגנון נעילת שורה. בטבלאות MyISAM, כאשר היה מתבצע עדכון נתונים כלשהו, היה המסד חוסם את קובץ הנתונים לקריאה/כתיבה מפני חיבורים מקבילים עד שיסיים לעדכן את הנתונים (אחרת שליפה מקבילה עשויה <s>להחזיר חצאי תוצאה</s> להתבלבל).<br><br>כך נגרמו המתנות מיותרות: במידה ובאתרכם גלשו בבת אחת שני משתמשים, ואחד הגולשים היה מפעיל סקריפט עדכון שלהו, המסד היה נועל את הקובץ עד סיום העדכון בו, והסקריפט של המשתמש השני חיקה לו. אם גלשו באתרכם יותר משתמשים במקביל, היה המצב מחריף.<br><br>InnoDB, לאומתה, נועלת רק את השורה שבה נעשה העדכון ושאר הטבלה זמינה לכתיבה וקריאה לשאר הגולשים, גם בטבלאות שגודלם מגיעה ל 1 TerraByte.<br><br>שני חסרונות קלים מאפשרים את קיומה של MyISAM:<br>א. MyISAM מבצעת פעולות שליפה מעט מעט יותר מהר <br>ב. MyISAM מאפשר לבצע חיפוש (full text search) וליצור אינדקסים על שדות מסוג Text. כלומר לאנדקס את כל תוכן שדות מסוג טקבט ולבצא בהם חיפושים יעילים יותר. שימו לב שלא מדובר מחיפוש מסוג LIKE שהוא זמין גם ב-InnoDB.<br><br><br>מאתה אלה הם טבלאות ברירת המחדל במסד ורצוי להשתמש בהם במקום MyISAM. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment802"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/09/2011 02:16</span><br>
+אחלה של הסבר :) אם כי אולי יש טעויות כתיב פה ושם. אבל זה הסיבה שהתחלתי את התגובה ב &quot;אחלה של הסבר&quot; כי זה מה שבולט פה יותר וההסבר על ההבדלים מובן מאוד.<br>
+שאפילו אני שלא מבין עדיין על מסדי נתונים הבנתי שיותר כדאי לי להשתמש עם InnoDB מאשר MyISAM רק במקרה שיש לי למעלה מאלפים של גולשים מחוברים באתר. (בעתיד אני מקווה :) )<br>
+<br>
+ועוד דבר לפי מה שנראה לי שאם באמת מחפשים יותר ביצועים אז כנראה משתמשים עם כמה טבלאות שונות עם מנועים שונים בשביל ביצועים יותר מועילים :)<br>
+<br>
+ושוב תודה רבה א ח ל ה ש ל ה ס ב ר !!! :)</div>
+<a id="comment803"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/09/2011 11:29</span><br>
+שמחתי שנהנית ולמדת משהו חדש :) <br>
+גם במקרים של מעט שורות בטבלה בכל זאת יש טעם להשתמש דווקא ב-INNODB</div>
+<a id="comment1459"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/04/2012 16:32</span><br>
+פרגנתי, לא תמיד מוצאים ברשת בדיוק את התוכן שמחפשים ועוד בעברית</div>
+<a id="comment1460"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2012 10:03</span><br>
+מישהו מעוניין פה שאני אכתוב מדריך בנושא PARTITION ועבודה מול DB גדולים?</div>
+<a id="comment1462"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/04/2012 10:55</span><br>
+כל מדריך יתקבל בברכה. :)</div>
+<a id="comment1916"></a>
+<div class="blog-comment">
+<span class='comment-author'>refaelgold</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/08/2012 11:29</span><br>
+אני לא ממש מצליח ליצור FK באמצעות myISAM ורשום לי בפורומים שזה לא ממש אפשרי . .<br>
+אשמח לייעוץ <br>
+</div>
+<a id="comment1917"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>30/08/2012 12:16</span><br>
+זה בלתי אפשרי עם myisam.<br>
+רק עם innodb.<br>
+</div>
+<a id="comment2803"></a>
+<div class="blog-comment">
+<span class='comment-author'>confis</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/07/2014 09:01</span><br>
+מדריך מעולה תודה רבה<br>
+PARTITION ועבודה מול DB גדולים<br>
+זה בדיוק מה שאני מחפש - אשמח אם תמצא זמן לכתוב מדריך<br>
+<br>
+שוב תודה</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

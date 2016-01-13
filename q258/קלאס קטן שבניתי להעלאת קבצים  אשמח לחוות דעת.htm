@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה קלאס קטן שבניתי להעלאת קבצים - אשמח לחוות דעת">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="hexdec">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>קלאס קטן שבניתי להעלאת קבצים - אשמח לחוות דעת | שאלת לימוד PHP</title>
+<meta itemprop="name" content="קלאס קטן שבניתי להעלאת קבצים - אשמח לחוות דעת | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה קלאס קטן שבניתי להעלאת קבצים - אשמח לחוות דעת">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">4</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="קלאס קטן שבניתי להעלאת קבצים  אשמח לחוות דעת.htm" title="http://pastebin.com/XpEBHB0Kבהערות למעלה ישנם הוראות התקנה.אשמח לתגובות.">קלאס קטן שבניתי להעלאת קבצים - אשמח לחוות דעת</a></h2>
+<div class="userinfo">
+פתח
+<a>hexdec</a>
+,
+<time class="timeago relativetime" datetime="2012-02-11T21:02:13+02:00" style="display:inline-block;">
+11 לפברואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText258'>
+http://pastebin.com/XpEBHB0K<br>בהערות למעלה ישנם הוראות התקנה.<br>אשמח לתגובות. </div>
+</div>
+<h3>
+<span id="answersCounter">4 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer1076">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 12 לפברואר 2012 </span>
+<a id="answer_1076" href="קלאס קטן שבניתי להעלאת קבצים  אשמח לחוות דעת.htm#answer_1076">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כל הכבוד. יש כמה הערות קטנות:<br><br>1. קודם כל יש סטנדרטים כלתיבת הערות. נקראים phpdoc <br>2. במקום file_exists תבדוק is_dir ותזרוק שגיאה, לא die<br>3. למה שהקונסטקרטוק לא יקבל גם מערך של options <a href="http://php.net/array_merge_recursive">ותחבר</a> אותו עם המערך של ברירת המחדל<br>4. לא ברור ה submit_form בתור action של טופס אני מצפה שזו תהיה מטודה פשוטה שבסה&quot;כ מחזירה מחרוזת ולא עושה מליון פעולות אחרות שאיכשהו מכל זה נוצר action לטופס.<br>5. המטודה שמדפיסה את הטופס יכולה להיות סטטית?<br><br> </p>
+</div>
+<div class="answer" id="answer1086">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b21689a6ca2de9a8f08168495041fc56?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>hexdec</a>
+ב
+<span style="font-size:10px"> 12 לפברואר 2012 </span>
+<a id="answer_1086" href="קלאס קטן שבניתי להעלאת קבצים  אשמח לחוות דעת.htm#answer_1086">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>תודה רבה אלכס, אני ממש אוהב את התגובות הבונות שלך :)!</strong><br><br>1. אפשר איזשהו קישור? לעולם לא שמעתי על זה.<br>2. אוקיי, ובקשר ללזרוק שגיאה.. אתה מתכוון exception &amp; throw? אני אצטרך ללמוד על זה, מכוון שלעולם לא חשבתי שזה שימושי... למה דווקא את זה ולא die?<br>3. כי עדיף שזה יעשה לבד, ואם המשתמש ירצה, שישנה אותם. לא כולם מבינים בדברים האלה כל כך (למרות שצריך ידע ממש בסיסי, אבל בסדר...)<br>4. לא ממש הבנתי אותך. וזה פשוט מחזיר מחרוזת פשוטה של טופס. ה &quot;פעולה&quot; (יותר נכון מתודה) שיש שם זה קריאה למתודה אחרת שמוודאת את הטופס.<br>5. למה לעשות את זה? </p>
+</div>
+<div class="answer" id="answer1098">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2012 </span>
+<a id="answer_1098" href="קלאס קטן שבניתי להעלאת קבצים  אשמח לחוות דעת.htm#answer_1098">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. gooo..e<br>2. die קוטע לך את הסקריפט. שגיאות לא.<br>3. באופן כללי אף אחד חוץ ממך לא ישתמש במחלקה הזאת, אז אתה יכול לעשות מה שאתה רוצה, למרות שנראה לי הגיוני להעביר פרמטרים לקונסטרקור בשורה אחת מאשר להפעיל קונסטרקטור ואחריו את ה setoption<br>4. <div class="php codeblock">action<span class="sy0">=</span><span class="st0">&quot;'.<span class="es4">$this-&gt;submit_form</span>().'&quot;</span></div> והמטודה הזו מחזירה true או false ובכלל לא מחרוזת.<br>5. כי היא לא עושה שום דבר שבאמת קשור למאפייני המחלקה ולא משנה איזה מופע זה - התוצאה תמיד תהיה אותו דבר.<br> </p>
+</div>
+<div class="answer" id="answer1102">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b21689a6ca2de9a8f08168495041fc56?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>hexdec</a>
+ב
+<span style="font-size:10px"> 13 לפברואר 2012 </span>
+<a id="answer_1102" href="קלאס קטן שבניתי להעלאת קבצים  אשמח לחוות דעת.htm#answer_1102">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. תודה.<br>2. לא ממש הצלחתי להשתמש בזריקת שגיאות וזה..<br>3. אחשוב על זה.<br>4. לא הבנתי אותך, אז מה כן לעשות? action לדף שונה? לדוגמה upload.php?<br>5. אם לקלאס יש כבר Instance אז למה רק את ה submit_form להפוך לסטטי? במה זה יעזור? יוריד את כמות המשאבים? לא נראה לי... </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="Commit&amp;Rollback, מחויבות בין שאילתות מסד נתונים המשולבות בקוד ה-PHP">
+<meta name="keywords" content="sql, php, commit, rollback">
+<meta name="author" content="raslin">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Commit&amp;Rollback ב-PHP עבור שאילתות מסד נתונים</title>
+<meta itemprop="name" content="Commit&amp;Rollback ב-PHP עבור שאילתות מסד נתונים">
+<meta itemprop="description" content="Commit&amp;Rollback, מחויבות בין שאילתות מסד נתונים המשולבות בקוד ה-PHP">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"177","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Commit&amp;Rollback ב-PHP עבור שאילתות מסד נתונים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">raslin, </div>
+<div class="right">&nbsp;<time datetime="2011-12-17T08:17:59+02:00" dir="rtl">17 לדצמבר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://www.decisiontree.com/uploadedFiles/images/backup/sql-icon.png" alt="Commit&amp;Rollback ב-PHP עבור שאילתות מסד נתונים">
+</div>
+<div class="right post-content">
+אספר בקצרה על commit&amp;rollback, אפשרות מעולה ליצור מחויבות בין כמה שאילתות של מסד נתונים המשולבות בקוד ה-PHP שירוצו יחדיו בכל מצב. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שלום לכולם,<br>אתחיל מסיפור. היה היה (ועדיין קיים, ויהיה קיים) אתר בשם איזרהסולג&#039;רס, משחק דפדפן, עם כמות עצומה של משתמשים, ובגלל אופי האתר, גם כמות אדירה של שאילתות בשניה!<br>בימים טובים, הכל היה חלק והייתי שמח כשהשרת היה סוחב, והיו גם ימים פחות טובים, בהם השרת קצת קרטע, ואפילו קרס.<br>חשבתם פעם מה קורה לשאילתה כשהשרת קורס באמצע? גם לא חייב לקרוס, יכול סתם להיתקע. יותר מזה, בדקתי ויצא לי ש-2 שאילתות מנוגדות שמתבצעות באותה השניה גורמות גם כן לבעיות.<br><br>אז מה עושים?<br>מה היה עושה בנק אילו היה לו שתי שאילתות? לדוגמה, להעביר כסף מא&#039; לב&#039;? <br>אם א&#039; העביר וקרה משהו לשאילתה וב&#039; לא קיבל, אבל לא&#039; ירד הכסף?<br><br>לפעולה כזו יש שם מקצועי - טרנסקציות (Transactions), ול-MySQL יש אפשרות &quot;לחייב&quot; שתי שאילתות לרוץ בכל מקרה!<br>אם קרה ואחת מהן נתקעה או לא התבצעה, גם האחרת לא מתבצעת, וכך א&#039; לא מאבד את הכסף שלו!<br><br>אני לא אכנס למבנה מסד הנתונים, ואיך הקריאה ממנו מתבצעת, <strong>אבל חשוב לדעת שהאפשרות קיימת רק בטבלאות המשתמשות במנוע InnoDB.</strong><br>(אתם יכולים לשנות את המנוע של הטבלה ממש בקלות.)<br><br>אראה לכם כיצד COMMIT עובד.<br><div class="php codeblock"><span class="co1">// כאן אנחנו מתחילים את הטרנסאקציה</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'BEGIN'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$query1</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT money FROM users WHERE id='1'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$data</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">fetchAssoc</span><span class="br0">&#40;</span><span class="re0">$query1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$query2</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;UPDATE users set money=money + <span class="es4">{$data['money']}</span> WHERE id='2'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="re0">$query3</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">&quot;UPDATE users set money=money - <span class="es4">{$data['money']}</span> WHERE id='1'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$query1</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$query2</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$query3</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="co1">//אם הכל התבצע, אנו נחייב את השאילתות האלה</span><br>
+&nbsp; <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'COMMIT'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="co1">// אם קרה משהו באמצע, תחזיר לקדמותו</span><br>
+&nbsp; <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'ROLLBACK'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="br0">&#125;</span></div><br><br>כך אנו מחייבים כמה שאילתות להתבצע יחדיו או אף אחת מהן; זה מתאים לכל מי שמפתח אתר לבנק, או סתם אתר שצריך להעביר זהב משחקן אחד לאחר ונתקל בעניין דומה, או סתם רוצה להיות מקצועי יותר. :)<br>שוב אני מדגיש, זה עובד על טבלאות שעל גבי מנוע InnoDB, שלעומת MyISAM הוא מאפשר טרנסאקציות.<br><br>מי שרוצה עוד מדריכים חופרים בנושאי ה-SQL מוזמן לבקש,<br>בהצלחה! :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=16&r=g&d=monsterid" alt="raslin">
+<a>raslin</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment978"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/12/2011 13:01</span><br>
+מדריך מעולה, תודה.<br>
+הוסיף לומר, שלמחלקות mysqlI ו PDO יש תמיכה מובנית בטראנזקציות, ככה שאפשר לקרוא למטודה מסוימת של המחלקה במקום לעשות את שאילתות ה begin/commit/rollback באופן עצמאי.<br>
+<br>
+רוב השימוש שלכם בטרנזקציות יהיה בתוך בלוקים של try/catch שבמקרה ואחת השאילתות לא הצליחה<br>
+יהיה צורך לבטל את ביצועם של כל שאר.<br>
+<br>
+שימו לב, טראנזקציות הם פר חיבור אחד למסד. כלומר לא ניתן לבצע שני חיבורים שונים למסד ולהכניס אותם לאותה טרנזקציה. תצטרכו ליצור שני טרנזקציות נפרדות ולשניהם יחד לעשות קומיט או לשניהם יחד רולבאק.<br>
+<br>
+רומן, תודה :)</div>
+<a id="comment979"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/12/2011 14:07</span><br>
+תודה רבה, למדתי דבר נוסף!<br>
+<br>
+אני מת לדעת את אופן הפעולה של המסדים בFACEBOOK, הרי הם לא משתמשים בMYSQL נכון?</div>
+<a id="comment980"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/12/2011 14:54</span><br>
+לפי דעתי הם משתמשים בהכל תלוי בתוכן,<br>
+אולי חלק הם שומרים בmysql רגיל כי זה מסד רלציוני,<br>
+מצד שני את ההמלצות חברים הם בטח עושים במסד מסוג גראפ,<br>
+כגון neo4j , ובטח בשביל המידע השוטף יש להם את קסנדרה,<br>
+אם אני לא טועה זה השם, זה מסד מסוג nosql שהם המציאו</div>
+<a id="comment2124"></a>
+<div class="blog-comment">
+<span class='comment-author'>liorel100</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/01/2013 15:37</span><br>
+אם אני עושה טרנזקציה א&apos; המכילה שאילתות 1 ו2, וטרנזקציה ב&apos; המכילה שאילתות 3 ו4 , נניח ב&apos; מופעלת בדיוק לפני ש1 מסתיים , אז זה ימתין עד ש2 יסיים ורק אז ישחרר את 3 ו4? או שיבצע קודם את 3?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

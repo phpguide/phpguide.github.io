@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="חלק ג&apos; של המדריך ל-Yii: שכבות ברינדור והתחברות למסד נתונים.">
+<meta name="keywords" content="yii, php framework">
+<meta name="author" content="ilikeme">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Yii | תבניות layouts וקבצי ההגדרות</title>
+<meta itemprop="name" content="Yii | תבניות layouts וקבצי ההגדרות">
+<meta itemprop="description" content="חלק ג&apos; של המדריך ל-Yii: שכבות ברינדור והתחברות למסד נתונים.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"186","rating":"31","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Yii | תבניות layouts וקבצי ההגדרות</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">ilikeme, </div>
+<div class="right">&nbsp;<time datetime="2012-01-16T23:14:53+02:00" dir="rtl">16 לינואר 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/yii3.jpg" alt="Yii | תבניות layouts וקבצי ההגדרות">
+</div>
+<div class="right post-content">
+חלק ג&apos; של המדריך ל-Yii, הפריימוורק הכי טוב לעבודה עם PHP. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+על מנת להגיע לשיעור הראשון לחצו <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק א.htm">כאן</a>, לשיעור השני לחצו <a href="מדריך לYii הפריימוורק הכי מתקדם של PHP  חלק ב.htm">כאן</a>.<br><br>לפני שאדבר על עבודה במסד נתונים עם מודלים, אדבר על שכבות ברינדור.<br>השכבות הן המבנה של האתר, וכאשר מרנדרים אותן - הרינדור יוצג בתוך התבנית של האתר.<br>ראו MVC.<br><br>זה פשוט מאוד. ה-layouts נמצאים נמצאים בנתיב protected/views/layouts<br>נכין שכבה, נקרא לה header, ובה נכתוב תבנית של אתר רגיל, מה שאומר שזה הקובץ <span class="dirleft"><em>protected/views/layouts/header.php</em></span><br><div class="php codeblock">&lt;!DOCTYPE html&gt;<br>
+&lt;html dir=&quot;rtl&quot;&gt;<br>
+&nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &lt;title&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">pageTitle</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/title&gt;<br>
+&nbsp; &nbsp; &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;<br>
+&nbsp; &lt;/head&gt;<br>
+&nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; &lt;div align=&quot;center&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$content</span><span class="sy0">;</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;</div><br><strong>הסבר:</strong> <span dir="ltr">$this</span> לוקח מהמשתנים מה-controller, אבל משום מה לא יצרנו משתנה כזה בקונטרול. אבל בכל מקרה, YII יודע להתאים את הכותרת לפי הקונטרולר והפעולה.<br>כמובן שלא חייבים להשתמש בזה, ניתן לשנות את הכותרת ע&quot;י הפונקציה setPageTitle שיש ל-controller בסיסי.<br><br>המשתנה content מדפיס את מה שרינדרנו.<br>אם נריץ את האתר, נראה שהכותרת לא תשתנה. זה בגלל שעדיין לא הגדרנו layout לקונטרולר, לכן נפתח את הקונטרולר הקודם שהכנו בשם Main.<br><span class="dirleft"><em>protected/controllers/MainController.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionIndex<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span> <span class="st0">&quot;login&quot;</span> <span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;date&quot;</span><span class="sy0">=&gt;</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;d/m/Y&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionHello<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">=</span><span class="st0">&quot;Guest&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello <span class="es4">$name</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br>עכשיו רק נגדיר משתנה בשם layout שהוא יהיה השם של ה-layout. במקרה שלנו, השם של ה-layout זה header.<br><span class="dirleft"><em>protected/controller/MainController.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> MainController <span class="kw2">extends</span> CController<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$layout</span> <span class="sy0">=</span> <span class="st_h">'header'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionIndex<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">render</span><span class="br0">&#40;</span> <span class="st0">&quot;login&quot;</span> <span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">&quot;date&quot;</span><span class="sy0">=&gt;</span><span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">&quot;d/m/Y&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> actionHello<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">=</span><span class="st0">&quot;Guest&quot;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;Hello <span class="es4">$name</span>&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>אם נריץ עכשיו את האתר, נראה שזה ריכז את הכל לאמצע ושינה את הכותרת.<br><br><h4>חיבור למסד</h4><br>אחרי שלמדנו על שכבות, אסביר לכם איך לעבוד עם מסד, אני אדבר רק על MySQL.<br>דבר ראשון נפתח את ה-config שלנו מהמדריך הקודם:<br><span class="dirleft"><em>protected/config/config.php</em></span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;main&quot;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>בשביל להתחבר אל המסד לא צריך לעשות mysql_connect וכו&apos;, פשוט נוסיף עוד אלמנט ב-config בשם components, שהוא מערך, ובתוכו ניצור עוד אלמנט בשם db, שהוא גם יהיה מערך.<br>protected/config/config.php<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;main&quot;</span><span class="sy0">,</span><br>
+&nbsp; <br>
+&nbsp; <span class="st0">&quot;components&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;db&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br>כאן נגדיר את הפרטים של המסד, והנה אנחנו מחוברים אליו. :)<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">return</span> <span class="kw3">array</span><br>
+<span class="br0">&#40;</span><br>
+&nbsp; <span class="st0">&quot;defaultController&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;main&quot;</span><span class="sy0">,</span><br>
+&nbsp; <br>
+&nbsp; <span class="st0">&quot;components&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; <span class="st0">&quot;db&quot;</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><br>
+&nbsp; &nbsp; <span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;connectionString&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;mysql:host=localhost;dbname=DBNAME&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;username&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;USERNAME&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;password&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;PASSWORD&quot;</span><span class="sy0">,</span><br>
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;charset&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;utf8&quot;</span><br>
+&nbsp; &nbsp; <span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>ב-dbname נכניס את השם של המסד, ב-USERNAME את שם המשתמש, ב-password את הסיסמה של המסד, ו-utf8 זה הקידוד.<br><br>אם רשמנו את הפרטים נכון, אנחנו נהיה מחוברים למסד.<br><br>עכשיו נצטרך לדעת איך לעבוד עם טבלאות והוספה, חיפוש, כמות וכדו&apos;, שאת זה אלמד אותכם במדריך הבא. :) </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/33b250f17bb1a4cbc7b6815830cc61eb?s=16&r=g&d=monsterid" alt="ilikeme">
+<a>ilikeme</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1077"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/01/2012 22:25</span><br>
+כל הכבוד לך, מחכים לעוד מדריכים. :)</div>
+<a id="comment1078"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 09:45</span><br>
+מדהים, כל הכבוד.<br>
+הייתי מוסיף במילים שלי ש<br>
+כאשר אנחנו מפעילים this-&gt;render על view כלשהו<br>
+הקונטרולר מרנדר את כל מה שיש בתוך ה view <br>
+אחרי זה הוא מרנדר את ה layout ומכניס את מה שהוא רינדר ב view בתור המשתנה $content<br>
+של ה layout</div>
+<a id="comment1080"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 16:45</span><br>
+<br>
+עכשיו רק נגדיר משתנה בשם layout שהוא יהיה השם של ה-layout. במקרה שלנו, השם של ה-layout זה header.<br>
+protected/controller/MainController.php<br>
+<br>
+^^^^ אחרי זה בקוד שהוצג אין שינוי.<br>
+</div>
+<a id="comment1081"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 17:19</span><br>
+טעות שלי רז שחכתי להוסיף :p<br>
+אבל אני חושב שהבנת את העניין אני אנסה לערוך</div>
+<a id="comment1082"></a>
+<div class="blog-comment">
+<span class='comment-author'>razand</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 17:39</span><br>
+לא ביודק הבנתי איך מוסיפים את ה layout</div>
+<a id="comment1083"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 19:07</span><br>
+יש לך טעות!<br>
+כתבת &quot;עכשיו רק נגדיר משתנה בשם layout שהוא יהיה השם של ה-layout. במקרה שלנו, השם של ה-layout זה header.&quot; אבל לא הוספת כלום בקוד :(</div>
+<a id="comment1084"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 19:13</span><br>
+בדרך כלל גם header לא משמש בתור כל ה layout<br>
+אצלי ה layout עושה render ל header.php, אחרי זה echo $content ובסוף render footer</div>
+<a id="comment1085"></a>
+<div class="blog-comment">
+<span class='comment-author'>theCool</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 19:15</span><br>
+כל הכבוד על המדריך D=<br>
+אני כל כך שמח שאתה מכין אותם!<br>
+<br>
+תוסיף את השורה $this-&gt;layout = &quot;header&quot;;<br>
+^__^<br>
+<br>
+אני מתחיל להכנס לעניינים בזכותך!!<br>
+</div>
+<a id="comment1086"></a>
+<div class="blog-comment">
+<span class='comment-author'>theCool</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 19:25</span><br>
+&gt;&gt;בדרך כלל גם header לא משמש בתור כל ה layout<br>
+&gt;&gt;אצלי ה layout עושה render ל header.php, אחרי זה echo $content ובסוף render footer<br>
+<br>
+ואיפה אתה כותב כל דבר? ואיך? אשמח לדוגמה ;)</div>
+<a id="comment1087"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 22:06</span><br>
+אתה יכול לראות את כל קוד המקור של האתר<br>
+<span dir="ltr"><a href="https://github.com/intval/phpguide">https://github.com/intval/phpguide</a></span><br>
+<br>
+אתה תראה שם קובץ layouts/main.php<br>
+שעושה render לקבצים אחרים (header, footer, sidebar)</div>
+<a id="comment1088"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 22:40</span><br>
+אני שחכתי להוסיף public $layout = &quot;header״; אני אשמח אם אלכס יערוך את זה, למרות שאני חושב שהבנתם. אני פשוט לא יודע איך לערוך הודעות</div>
+<a id="comment1089"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 22:57</span><br>
+לפי הקוד שיצא לי לראות באתר, לא אלכס ולא אתה יכולים לערוך את המדריך.<br>
+הדרך היחידה זה דרך ה-PMA. אני טועה אלכס? :)</div>
+<a id="comment1090"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>17/01/2012 23:40</span><br>
+כן, אתה טועה :)</div>
+<a id="comment1091"></a>
+<div class="blog-comment">
+<span class='comment-author'>KingYes</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/01/2012 00:16</span><br>
+אני מחכה ל-commit שלך :)<br>
+או שאני באמת עייף ולא יכול לבדוק את זה כמו שצריך. חח</div>
+<a id="comment1092"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/01/2012 17:32</span><br>
+מתי המדריך הבא? </div>
+<a id="comment1093"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/01/2012 17:43</span><br>
+המדריך הבא בקרוב :) (אני אשתדל אני אדבר על מודלים ואולי גם על טפסים)</div>
+<a id="comment1094"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/01/2012 18:09</span><br>
+וגם על מסד נתונים D:</div>
+<a id="comment1095"></a>
+<div class="blog-comment">
+<span class='comment-author'>יוווווווווואו</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/01/2012 18:47</span><br>
+יוווווווווווואו כמה נוח זה לעבוד עם YII! מחכה להמשך.<br>
+אשמח אם תכין מדריך על איך לעבוד עם מסד נתונים וגם על הרשמת משתמשים + ניהול של אדמין (דברים כמו שהאדמין יכול לשנות את השמות של הדפים בתפריט אן את התוכן ב&quot;אודותינו&quot; וכל זה בלי לשנות את הקוד של הדף אלא להתחבר כאדמין למשתמש שלו ושיש לו אפשרות כזאת) <br>
+<br>
+יא מלך.</div>
+<a id="comment1096"></a>
+<div class="blog-comment">
+<span class='comment-author'>ilikeme</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/01/2012 20:39</span><br>
+מסד נתונים זה גם מודלים</div>
+<a id="comment1113"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/01/2012 16:43</span><br>
+תודה רבה! אין עליך. אני הולך להשתמש בזה המון! מחכה בקוצר רוח להמשך המדריך.</div>
+<a id="comment1207"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/01/2012 21:09</span><br>
+&lt;?php echo $content; ?&gt; - משתנה שרירותי ?<br>
+מה בקשר לפונקציה setPageTitle ? איך אני מפעיל אותה ואני רוצה שינוי בכותרת?<br>
+אפשרי לשלוח ל layout משתנה שיהיה בעצם הכותרת במידה ואני רוצה להשתמש באותה תבנית בכל הדפים?<br>
+<br>
+תודה.</div>
+<a id="comment1208"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/01/2012 22:04</span><br>
+$content הוא משתנה קבוע ש YII משתמשת בו.<br>
+<br>
+אין צורך להעביר שום משתנה בתור title ל layout<br>
+פשוט בקונטרולר שלך תפעיל את המטודה setPageTitle<br>
+Yii תציב את הערך במקום המתאים בעצמה.</div>
+<a id="comment1210"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/01/2012 12:31</span><br>
+ואיך אני מפעיל את המתודה? זה לא הכי מובן...</div>
+<a id="comment1211"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/01/2012 12:45</span><br>
+בתוך כל action שבא לך<br>
+$this-&gt;setPageTitle<br>
+תנסה</div>
+<a id="comment2218"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/02/2013 20:59</span><br>
+איך אני מתחבר למסד באמצעות PDO ולא MYSQL ?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

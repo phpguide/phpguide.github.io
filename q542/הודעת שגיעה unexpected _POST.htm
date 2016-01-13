@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הודעת שגיעה unexpected &apos;$_POST">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_193357">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>הודעת שגיעה unexpected &apos;$_POST | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הודעת שגיעה unexpected &apos;$_POST | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הודעת שגיעה unexpected &apos;$_POST">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הודעת שגיעה unexpected _POST.htm" title="שתי שאלות בקשה .1.איך פותרים את הבעיה עם ההודעת שגיעה?2. איך אני מצליח לקרוא את drope list בסוף התוכנית.תודה!זו ההודעת שגיעה שאני מקבלMultiple annotations found at this line:	- syntax error, unfinished class 	 declaration	- syntax error, unexpected &apos;$_POST&apos;בשורות הבאות :public $width = $_POST">הודעת שגיעה unexpected &apos;$_POST</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_193357</a>
+,
+<time class="timeago relativetime" datetime="2012-05-03T09:38:22+03:00" style="display:inline-block;">
+03 למאי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText542'>
+שתי שאלות בקשה .<br>1.איך פותרים את הבעיה עם ההודעת שגיעה?<br>2. איך אני מצליח לקרוא את drope list בסוף התוכנית.<br>תודה!<br><br>זו ההודעת שגיעה שאני מקבל<br><br>Multiple annotations found at this line:<br> - syntax error, unfinished class <br> declaration<br> - syntax error, unexpected '$_POST'<br><br>בשורות הבאות :<br><div class="php codeblock"><span class="kw2">public</span> <span class="re0">$width</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'width'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$height</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'height'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">protected</span> static <span class="re0">$formula</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span></div><br> שסוגרות את ה if ובסוף התוכנית כאשר יש לי סוגרים מסולסלות.<br><br>קוד התוכנית :<div class="php codeblock">&lt;h2&gt;OOP Class Demo&lt;/h2&gt;<br>
+&lt;p&gt;<br>
+Please enter two numbers to calculate the area of rectangle or tringle and press submit...<br>
+&lt;p&gt;<br>
+&lt;form method=&quot;post&quot; action=&quot;demo.php&quot;&gt;<br>
+&lt;br&gt;width&lt;input type=text name=num_a&gt;<br>
+&lt;br&gt;height&lt;input type=text name=num_b&gt;<br>
+&lt;br&gt;&lt;input type=&quot;radio&quot; name=&quot;shape&quot; value=&quot;Rectangle&quot; /&gt; Rectangle<br>
+&lt;br&gt;&lt;input type=&quot;radio&quot; name=&quot;shape&quot; value=&quot;Tringle&quot; /&gt; Tringle<br>
+&lt;br&gt;&lt;input type=submit&gt;<br>
+&lt;/form&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">echo</span><span class="br0">&#40;</span><span class="st0">&quot;&lt;br&gt;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp;<span class="br0">&#123;</span><span class="kw1">echo</span> <span class="st0">&quot;THERE is submit.!&quot;</span><span class="sy0">;</span> <br>
+&nbsp; <span class="kw2">Class</span> Rectangle <span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="co1">//Declare the attributes:</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$width</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'width'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$height</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'height'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">protected</span> static <span class="re0">$formula</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <br>
+<span class="co1">//Method to set the dimensions.</span><br>
+&nbsp; <span class="kw2">Function</span> create_formula<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">self</span> <span class="sy0">::</span> <span class="re0">$formula</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">*</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="co1">//Method to set the dimensions.</span><br>
+&nbsp; <span class="kw2">Function</span> set_size<span class="br0">&#40;</span><span class="re0">$w</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="re0">$h</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">=</span> <span class="re0">$w</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span> <span class="sy0">=</span> <span class="re0">$h</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">create_formula</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="co1">//Method to calculate and return the area.</span><br>
+&nbsp; <span class="kw2">function</span> get_area<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="re0">$formula</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">Class</span> Triangle <span class="kw2">extends</span> Rectangle<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">Function</span> create_formula<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">self</span> <span class="sy0">::</span> <span class="re0">$formula</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">*</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span><span class="br0">&#41;</span><span class="sy0">/</span><span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'shape'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><span class="kw1">echo</span><span class="br0">&#40;</span><span class="st_h">'your choice is: '</span><span class="sy0">.</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'shape'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="co1">// create object of rectangle and calculate it is area</span><br>
+&nbsp; <span class="re0">$rect</span> <span class="sy0">=</span> <span class="kw2">new</span> Rectangle <span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="br0">&#40;</span><span class="re0">$rect</span><span class="sy0">-&gt;</span><span class="me1">get_area</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// create object of tringle and calculate it is area by extends</span><br>
+&nbsp; <span class="re0">$tri</span> <span class="sy0">=</span> <span class="kw2">new</span> Triangle <span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$tri</span><span class="sy0">-&gt;</span><span class="me1">get_area</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+<span class="sy1">?&gt;</span></div><br> </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2044">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/4915439dc0c638abbf55106ec40c969d?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_193981</a>
+ב
+<span style="font-size:10px"> 03 למאי 2012 </span>
+<a id="answer_2044" href="הודעת שגיעה unexpected _POST.htm#answer_2044">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+PHP מפענחת את הקוד שלך ויוצרת מחלקות עוד לפני שהקוד שלך מורץ.<br>עד עכשיו היית רגיל שהקוד שלך קורה שורה שורה. כשמדובר בפונקציות ומחלקות זה לא ככה. מנוע ה PHP קודם קורא את הקוד שלך כולו, מייצר את הפונקציות והמחלקות שלך אצלו בזיכרון ורק אז מתחיל לעבור שורה שורה ולהפעיל אותם.<br><br>כשאתה כותב <br><div class="php codeblock"><span class="kw2">public</span> <span class="re0">$width</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'width'</span><span class="br0">&#93;</span><span class="sy0">;</span></div><br>מנוע ה PHP מבצע את השורה הזו הרבה לפני, שהוא בכלל מאתחל את המשתנה POST.<br>זה אומר שאתה לא יכול לגשת אל המשתנה POST בזמן <strong><span class="underline">הגדרת המחלקה</span></strong>. <br><br>במקום זה תעביר את אורך ורוחב בתור פרמטרים בעת <strong>יצירת מופע</strong><br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<br>
+<span class="kw2">Class</span> Rectangle <span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="co1">//Declare the attributes:</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$width</span> <span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="re0">$height</span> <span class="sy0">;</span><br>
+&nbsp; <span class="kw2">protected</span> static <span class="re0">$formula</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$width</span><span class="sy0">,</span> <span class="re0">$height</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">=</span> <span class="re0">$width</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span> <span class="sy0">=</span> <span class="re0">$height</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="co1">//Method to set the dimensions.</span><br>
+&nbsp; <span class="kw2">Function</span> create_formula<span class="br0">&#40;</span><span class="br0">&#41;</span> <br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">self</span> <span class="sy0">::</span> <span class="re0">$formula</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">*</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="co1">//Method to set the dimensions.</span><br>
+&nbsp; <span class="kw2">Function</span> set_size<span class="br0">&#40;</span><span class="re0">$w</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="re0">$h</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">=</span> <span class="re0">$w</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span> <span class="sy0">=</span> <span class="re0">$h</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">create_formula</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="co1">//Method to calculate and return the area.</span><br>
+&nbsp; <span class="kw2">function</span> get_area<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">::</span><span class="re0">$formula</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">Class</span> Triangle <span class="kw2">extends</span> Rectangle<span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw2">Function</span> create_formula<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">self</span> <span class="sy0">::</span> <span class="re0">$formula</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">*</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span><span class="br0">&#41;</span><span class="sy0">/</span><span class="nu0">2</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+<br>
+<br>
+<span class="sy1">?&gt;</span>&lt;h2&gt;OOP Class Demo&lt;/h2&gt;<br>
+&lt;p&gt;<br>
+Please enter two numbers to calculate the area of rectangle or tringle and press submit...<br>
+&lt;p&gt;<br>
+&lt;form method=&quot;post&quot; action=&quot;demo.php&quot;&gt;<br>
+&lt;br&gt;width&lt;input type=text name=num_a&gt;<br>
+&lt;br&gt;height&lt;input type=text name=num_b&gt;<br>
+&lt;br&gt;&lt;input type=&quot;radio&quot; name=&quot;shape&quot; value=&quot;Rectangle&quot; /&gt; Rectangle<br>
+&lt;br&gt;&lt;input type=&quot;radio&quot; name=&quot;shape&quot; value=&quot;Tringle&quot; /&gt; Tringle<br>
+&lt;br&gt;&lt;input type=submit&gt;<br>
+&lt;/form&gt;<br>
+<br>
+<br>
+<br>
+<span class="kw2">&lt;?php</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">echo</span><span class="br0">&#40;</span><span class="st0">&quot;&lt;br&gt;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp;<span class="br0">&#123;</span><span class="kw1">echo</span> <span class="st0">&quot;THERE is submit.!&quot;</span><span class="sy0">;</span> <br>
+&nbsp; <br>
+&nbsp; &nbsp; <br>
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'shape'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><span class="kw1">echo</span><span class="br0">&#40;</span><span class="st_h">'your choice is: '</span><span class="sy0">.</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'shape'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span><br>
+&nbsp; <span class="co1">// create object of rectangle and calculate it is area</span><br>
+&nbsp; <span class="re0">$rect</span> <span class="sy0">=</span> <span class="kw2">new</span> Rectangle <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'width'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'height'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="br0">&#40;</span><span class="re0">$rect</span><span class="sy0">-&gt;</span><span class="me1">get_area</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// create object of tringle and calculate it is area by extends</span><br>
+&nbsp; <span class="re0">$tri</span> <span class="sy0">=</span> <span class="kw2">new</span> Triangle <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'width'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'height'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="re0">$tri</span><span class="sy0">-&gt;</span><span class="me1">get_area</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+<span class="sy1">?&gt;</span></div><br><br>---<br>ואגב, משולש לא יכול לירוש ממרובע :)<br>הם שניהם יכולים לירוש מ"צורה". אבל משולש הוא לא מרובע.<br>ככה שהקוד התקני יותר יהיה משהו כזה:<br><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+abstract <span class="kw2">class</span> Shape<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">protected</span> <span class="re0">$width</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">protected</span> <span class="re0">$height</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$width</span><span class="sy0">,</span> <span class="re0">$height</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">SetSize</span><span class="br0">&#40;</span><span class="re0">$width</span><span class="sy0">,</span> <span class="re0">$height</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> SetSize<span class="br0">&#40;</span><span class="re0">$width</span><span class="sy0">,</span> <span class="re0">$height</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">=</span> <span class="re0">$width</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span> <span class="sy0">=</span> <span class="re0">$height</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> abstract <span class="kw2">function</span> GetArea<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<span class="kw2">class</span> Rectangle <span class="kw2">extends</span> Shape<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> GetArea<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">*</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw2">class</span> Triangle <span class="kw2">extends</span> Shape<br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> GetArea<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">width</span> <span class="sy0">*</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">height</span> <span class="sy0">*</span> <span class="nu19">.5</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<br>
+<br>
+<br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;h2&gt;OOP Class Demo&lt;/h2&gt;<br>
+&lt;p&gt;<br>
+Please enter two numbers to calculate the area of rectangle or tringle and press submit...<br>
+&lt;p&gt;<br>
+&lt;form method=&quot;post&quot; &gt;<br>
+&lt;br&gt;width&lt;input type=text name='width'&gt;<br>
+&lt;br&gt;height&lt;input type=text name='height'&gt;<br>
+&lt;br&gt;&lt;input type='submit' name='submit'&gt;<br>
+&lt;/form&gt;<br>
+<br>
+&lt;br/&gt;&lt;br/&gt;<br>
+<br>
+<span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+<br>
+<br>
+&nbsp; <span class="co1">// create object of rectangle and calculate it is area</span><br>
+&nbsp; <span class="re0">$rect</span> <span class="sy0">=</span> <span class="kw2">new</span> Rectangle <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'width'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'height'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'rectangle of this size would have the area of '</span><span class="sy0">,</span> <span class="re0">$rect</span><span class="sy0">-&gt;</span><span class="me1">GetArea</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="co1">// create object of tringle and calculate it is area by extends</span><br>
+&nbsp; <span class="re0">$tri</span> <span class="sy0">=</span> <span class="kw2">new</span> Triangle <span class="br0">&#40;</span><span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'width'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'height'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">echo</span> <span class="st_h">'triangle of this sizes would have the area of '</span><span class="sy0">,</span> <span class="re0">$tri</span><span class="sy0">-&gt;</span><span class="me1">GetArea</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+&nbsp; <br>
+<span class="sy1">?&gt;</span></div><br><br>(אני מניח יש איזהשהו הסבר בהמשך המדריך שלך מה זה abstract) </p>
+</div>
+<div class="answer" id="answer2045">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/632ac578c916f458399320483f5fc006?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_193357</a>
+ב
+<span style="font-size:10px"> 03 למאי 2012 </span>
+<a id="answer_2045" href="הודעת שגיעה unexpected _POST.htm#answer_2045">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+WOW ,Thanks </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

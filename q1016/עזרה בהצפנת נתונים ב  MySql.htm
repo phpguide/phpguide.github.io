@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה עזרה בהצפנת נתונים ב - MySql.">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>עזרה בהצפנת נתונים ב - MySql. | שאלת לימוד PHP</title>
+<meta itemprop="name" content="עזרה בהצפנת נתונים ב - MySql. | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה עזרה בהצפנת נתונים ב - MySql.">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="עזרה בהצפנת נתונים ב  MySql.htm" title="המדריך הזה.מה הבעיה בקוד הזה שהוא פשוט לא מכניס לי למסד ?$q = $db-&amp;gt;prepare&amp;#40;&amp;quot;INSERT INTO `accounts` (`username`) VALUES (DES_ENCRYPT(:user">עזרה בהצפנת נתונים ב - MySql.</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2012-09-02T20:31:24+03:00" style="display:inline-block;">
+02 לספטמבר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1016'>
+המדריך <a href="..\הצפנת_נתונים_ב_mysql.htm"><strong>הזה</strong></a>.<br><br>מה הבעיה בקוד הזה שהוא פשוט לא מכניס לי למסד ?<br><div class="php codeblock"><span class="re0">$q</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `accounts` (`username`) VALUES (DES_ENCRYPT(:username , somekey)) &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">bindParam</span><span class="br0">&#40;</span><span class="st0">&quot;:username&quot;</span> <span class="sy0">,</span> <span class="re0">$username</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>אבל אם במקום:<br><div class="php codeblock">DES_ENCRYPT<span class="br0">&#40;</span><span class="sy0">:</span>username <span class="sy0">,</span> somekey<span class="br0">&#41;</span></div><br><br>אני כותב משהו אחר, לדוגמא Usersblabla<br><div class="php codeblock"><span class="re0">$q</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `accounts` (`username`) VALUES ('Usersblabla') &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>או בדרך המלאה:<br><div class="php codeblock"><span class="re0">$q</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="st0">&quot;INSERT INTO `accounts` (`username`) VALUES (:username) &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">bindValue</span><span class="br0">&#40;</span><span class="st0">&quot;:username&quot;</span> <span class="sy0">,</span> <span class="st_h">'Usersblabla'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>זה מכניס לי למסד, משמע הבעיה היא בDES_ENCRYPT, אבל מה כבר לא תקין ? </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4413">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 02 לספטמבר 2012 </span>
+<a id="answer_4413" href="עזרה בהצפנת נתונים ב  MySql.htm#answer_4413">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשלח ל-bindParam גם את הפרמטר השלישי ואת הרביעי. </p>
+</div>
+<div class="answer" id="answer4414">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 02 לספטמבר 2012 </span>
+<a id="answer_4414" href="עזרה בהצפנת נתונים ב  MySql.htm#answer_4414">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$q</span><span class="sy0">-&gt;</span><span class="me1">bindParam</span><span class="br0">&#40;</span><span class="st0">&quot;:username&quot;</span> <span class="sy0">,</span> <span class="re0">$username</span> <span class="sy0">,</span> PDO<span class="sy0">::</span><span class="me2">PARAM_STR</span> <span class="sy0">,</span> <span class="nu0">20</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>זה מה שכתבתי, וזה עדיין לא עובד. </p>
+</div>
+<div class="answer" id="answer4415">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 03 לספטמבר 2012 </span>
+<a id="answer_4415" href="עזרה בהצפנת נתונים ב  MySql.htm#answer_4415">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כבר בדקנו ביחד למה זה לא עובד וגם כתבתי לך את התשובה.<br>זה קורה כי הפונקציה des_encrypt מחזירה כל הזמן null.<br>הסיבה שהיא מחזירה כל הזמן null היא בגלל <br><a href="http://dev.mysql.com/doc/refman/5.5/en/encryption-functions.html#function_des-encrypt">This function works only if MySQL has been configured with SSL support. See Section 6.3.8, “Using SSL for Secure Connections”.</a><br><br><br>הפתרון שהמלצתי לך עליו זה לעזור את חברת האחסון החינמית הזאת בגלל שהם לא קינפגו נכון את השרתים<br>או לממש את ההצפנה על ידי PHP.<br><br>חוץ מזה, מה זה somekey? זה משתנה? למה הוא לא מועבר ובלי נקודתתים בהתחלה?<br>מחרוזת? למה היא בלי גרשיים. </p>
+</div>
+<div class="answer" id="answer4419">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 03 לספטמבר 2012 </span>
+<a id="answer_4419" href="עזרה בהצפנת נתונים ב  MySql.htm#answer_4419">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן שחכתי להוסיף נקודותיים טעות שלי.<br>אז אתה מכיר חברת איחסונים חינמית אחרת ? אין לי איפה להריץ את זה ... </p>
+</div>
+<div class="answer" id="answer4420">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 03 לספטמבר 2012 </span>
+<a id="answer_4420" href="עזרה בהצפנת נתונים ב  MySql.htm#answer_4420">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+חברות איחסון חינמיות זה שואה. אפשר לקנות איחסון טוב ב5$ לחודש, זה כלום יחסית.<br>בכ&quot;מ, <a href="http://x10hosting.com">http://x10hosting.com</a> אמורים להיות טובים </p>
+</div>
+<div class="answer" id="answer4421">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 03 לספטמבר 2012 </span>
+<a id="answer_4421" href="עזרה בהצפנת נתונים ב  MySql.htm#answer_4421">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">We have disabled registrations from your country of origin due to continued abuse<span class="sy0">.</span></div><br><br>אי אפשר להרשם אליהם בכלל :S </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

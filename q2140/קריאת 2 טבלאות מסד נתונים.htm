@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה קריאת 2 טבלאות מסד נתונים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itzik">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>קריאת 2 טבלאות מסד נתונים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="קריאת 2 טבלאות מסד נתונים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה קריאת 2 טבלאות מסד נתונים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="קריאת 2 טבלאות מסד נתונים.htm" title="אולי לא כתבתי נכון?אני מנסה לקרוא נתונים מ-2 טבלאות במסד וזה פשוט לא מציג כלום.עריכה: (זה מציג אבל יש בעיה יותר מורכבת שזה מציג לי את הנתון האחרון 16 פעם ולא מציג את ה- 16 האחרונים)&amp;lt;?PHP
+$link = mysql_connect&amp;#40;CON_SERVER, CON_USERNAME,">קריאת 2 טבלאות מסד נתונים</a></h2>
+<div class="userinfo">
+פתח
+<a>itzik</a>
+,
+<time class="timeago relativetime" datetime="2015-05-06T18:39:04+03:00" style="display:inline-block;">
+06 למאי 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2140'>
+אולי לא כתבתי נכון?<br><br>אני מנסה לקרוא נתונים מ-2 טבלאות במסד וזה פשוט לא מציג כלום.<br><br><strong>עריכה: (זה מציג אבל יש בעיה יותר מורכבת שזה מציג לי את הנתון האחרון 16 פעם ולא מציג את ה- 16 האחרונים)</strong><br><br><div class="php codeblock"><span class="kw2">&lt;?PHP</span><br>
+<span class="re0">$link</span> <span class="sy0">=</span> <span class="kw3">mysql_connect</span><span class="br0">&#40;</span>CON_SERVER<span class="sy0">,</span> CON_USERNAME<span class="sy0">,</span> CON_PASSWORD<span class="br0">&#41;</span>or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_select_db</span><span class="br0">&#40;</span>CON_DATABASE<span class="br0">&#41;</span> or <span class="kw3">die</span><span class="br0">&#40;</span><span class="kw3">mysql_error</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">mysql_set_charset</span><span class="br0">&#40;</span><span class="st0">&quot;utf8&quot;</span><span class="sy0">,</span><span class="re0">$link</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="re0">$query</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT *<br>
+&nbsp; FROM &quot;</span><span class="sy0">.</span>CON_PREFIX<span class="sy0">.</span><span class="st0">&quot;Pack, &quot;</span><span class="sy0">.</span>CON_PREFIX<span class="sy0">.</span><span class="st0">&quot;Screen<br>
+&nbsp; WHERE ID<br>
+&nbsp; ORDER BY Time DESC<br>
+LIMIT 0,16&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; <span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$p3</span><span class="sy0">=</span><span class="kw3">mysql_fetch_array</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9348">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 09 למאי 2015 </span>
+<a id="answer_9348" href="קריאת 2 טבלאות מסד נתונים.htm#answer_9348">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה הכוונה ב <br>WHERE ID<br>לשלוף את כל השורות שבהם האידי : ??? <br><br><div class="php codeblock">select <span class="sy0">*</span> from <span class="kw3">Pack</span><span class="sy0">,</span> Screen<br>
+where <span class="kw3">Pack</span><span class="sy0">.</span>ID <span class="sy0">=</span> Screen<span class="sy0">.</span>ID<br>
+order by <span class="kw3">Pack</span><span class="sy0">.</span><span class="kw3">Time</span> DESC<br>
+LIMIT <span class="nu0">0</span><span class="sy0">,</span><span class="nu0">16</span></div> </p>
+</div>
+<div class="answer" id="answer9349">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 10 למאי 2015 </span>
+<a id="answer_9349" href="קריאת 2 טבלאות מסד נתונים.htm#answer_9349">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אלכס התכוונתי שזה מורכב<br><br>כי אני רוצה לשלוף מטבלת Pack את ה- 16 נתונים אחרונים ומטבלת Screen את ה- 16 נתונים אחרונים.<br><br>בטבלת Pack המספור הוא תחת ID ובטבלת Screen המספור של ה ID שתואם לטבלת Pack הינו PID </p>
+</div>
+<div class="answer" id="answer9350">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 10 למאי 2015 </span>
+<a id="answer_9350" href="קריאת 2 טבלאות מסד נתונים.htm#answer_9350">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני ישלח לך תמונות שתבין יותר טוב.<br><br><span class="underline">זה טבלת Packages</span><br><br><img src="..\static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="" title="http://srv1.jpg.co.il/1/554f2bccbd96b.png" class="content-image-float"><br><br><span class="underline">זה טבלת ScreenShots</span><br><br><img src="..\static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="" title="http://srv2.jpg.co.il/9/554f2bccc339c.png" class="content-image-float"><br><br><strong>טעיתי ב- WHERE התכוונתי לשים בו Stat` = &apos;1&apos; AND Depiction != &apos;&apos;</strong> </p>
+</div>
+<div class="answer" id="answer9351">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 10 למאי 2015 </span>
+<a id="answer_9351" href="קריאת 2 טבלאות מסד נתונים.htm#answer_9351">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+משהו כזה אמור לעבוד <div class="php codeblock">select <span class="sy0">*</span> from Packages<span class="sy0">,</span> ScreenShots<br>
+where ScreenShots<span class="sy0">.</span>PID <span class="sy0">=</span> Packages<span class="sy0">.</span>Id<br>
+Order by packages<span class="sy0">.</span>id desc<br>
+limit <span class="nu0">16</span></div><br><br>ואם אתה צריך רק את הסריןשוט האחרון של כל חבילה ולא את כולם, אז משהו בסגנון<br><div class="php codeblock">select <span class="sy0">*</span> from Packages<span class="sy0">,</span> ScreenShots<br>
+where ScreenShots<span class="sy0">.</span>ID <span class="sy0">=</span> <span class="br0">&#40;</span>SELECT <span class="kw3">Max</span><span class="br0">&#40;</span>ScreenShots<span class="sy0">.</span>ID<span class="br0">&#41;</span> FROM ScreenShots WHERE ScreenShots<span class="sy0">.</span>PID <span class="sy0">=</span> Packages<span class="sy0">.</span>ID<span class="br0">&#41;</span><br>
+Order by Packages<span class="sy0">.</span>ID desc<br>
+limit <span class="nu0">16</span></div> </p>
+</div>
+<div class="answer" id="answer9352">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 10 למאי 2015 </span>
+<a id="answer_9352" href="קריאת 2 טבלאות מסד נתונים.htm#answer_9352">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אלכס הקוד עובד מצויין וראיתי היום סגנון של הקוד הזה ופעלתי בסגנון שלו , יש רק בעיה קטנה (וגם עם הקוד שהבאת הבעיה חוזרת).<br><br>זה מציג את כל יישות ID שנמצא בטבלה ScreenShots, האם אפשרי לעשות שזה יציג רק תמונה אחת מ כל יישות PID.<br><br><img src="..\static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="" title="http://srv2.jpg.co.il/9/554f2bccc339c.png" class="content-image-float"><br><br>בתמונה למטה מסומן השדות PID שהוא חוזר עליהם ואין צורך שהם יחזרו מספיק שהוא יציג כל PID פעם אחת.<br><img src="..\static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" alt="" title="http://srv1.jpg.co.il/7/554fa053e96ea.png" class="content-image-float"> </p>
+</div>
+<div class="answer" id="answer9353">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 10 למאי 2015 </span>
+<a id="answer_9353" href="קריאת 2 טבלאות מסד נתונים.htm#answer_9353">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\intval.htm">@intval</a> השאילתה השנייה ממש לא יעילה,הרבה יותר מהיר יהיה להשתמש ב join מאשר לבצע תת שאילתה עבור כל שורה (17 שאילתות). כנ&quot;ל לגבי הראשונה אבל בשנייה זה הרבה יותר קריטי.<br><br>ד.א אלכס החיבור באמצעות google לא עובד יותר ודורש שחזור סיסמא על מנת להתחבר.בנוסף הכתובת לשחזור סיסמא אינה תיקנית [הדומיין מופיע פעמיים]<br><br><a href="..\users\itzik.htm">@itzik</a> שימוש ב group by יפתור לך את הבעיה. </p>
+</div>
+<div class="answer" id="answer9354">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/65d263d9a4b70f65d5eed0183fa3df5e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itzik</a>
+ב
+<span style="font-size:10px"> 11 למאי 2015 </span>
+<a id="answer_9354" href="קריאת 2 טבלאות מסד נתונים.htm#answer_9354">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\users\Splash.htm">@Splash</a> תודה רבה וגם ל- <a href="..\users\intval.htm">@intval</a> (אלכס) תודה רבה עובד מצויין </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

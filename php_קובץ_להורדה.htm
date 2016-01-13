@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מדריך קצר המסביר כיצד לגרום לדפדפן להוריד למחשב קובץ באמצעות קוד PHP פשוט">
+<meta name="keywords" content="דפדפן,קובץ,הורדה">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>לגרום לדפדפן להוריד קובץ באמצעות קוד PHP</title>
+<meta itemprop="name" content="לגרום לדפדפן להוריד קובץ באמצעות קוד PHP">
+<meta itemprop="description" content="מדריך קצר המסביר כיצד לגרום לדפדפן להוריד למחשב קובץ באמצעות קוד PHP פשוט">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"27","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>לגרום לדפדפן להוריד קובץ באמצעות קוד PHP</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2010-11-11T18:33:53+02:00" dir="rtl">11 לנובמבר 2010</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.liberty-theater.org/images/download-arrow.png" alt="לגרום לדפדפן להוריד קובץ באמצעות קוד PHP">
+</div>
+<div class="right post-content">
+6 שורות שצריך לכתוב כדי לגרום לדפדפן להוריד קובץ במקום לנסות לפתוח ולהציג אותו בעצמו. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+בואו נראה איך <strong>לשלוח למשתמש קובץ</strong> בעזרת PHP ולגרום לדפדפן להוריד אותו.<br><br>התקשורת בין שרת לדפדפן מורכבת משני חלקים:<br>header - כותרת שמכילה מידע על התוכן.<br>content - התוכן עצמו.<br><br>עלינו לומר לדפדפן בכותרת שהוא עומד לקבל מהשרת קובץ, והדפדפן ישמח להציע למשתמש לשמור אותו.<br><br><div class="php codeblock"><span class="re0">$file</span> <span class="sy0">=</span> <span class="st0">&quot;mashka.rar&quot;</span><span class="sy0">;</span><br>
+<span class="kw3">header</span> <span class="br0">&#40;</span><span class="st0">&quot;Content-Type: application/octet-stream&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">header</span> <span class="br0">&#40;</span><span class="st0">&quot;Accept-Ranges: bytes&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">header</span> <span class="br0">&#40;</span><span class="st0">&quot;Content-Length: &quot;</span><span class="sy0">.</span><span class="kw3">filesize</span><span class="br0">&#40;</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">header</span> <span class="br0">&#40;</span><span class="st0">&quot;Content-Disposition: attachment; filename=&quot;</span><span class="sy0">.</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="sy0">;</span> &nbsp;<br>
+<span class="kw3">readfile</span><span class="br0">&#40;</span><span class="re0">$file</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br><h3>מה בעצם עשינו בקוד הזה?</h3><br>השורה הראשונה היא שם הקובץ שיש לשלוח לדפדפן להורדה.<br>השורה השנייה היא סוג הקובץ. היא צריכה להיות כפי שרשום למעלה. אם נגיד לדפדפן שסוג הקובץ הוא html, הוא ינסה להציג אותו, ואם נגיד לו שסוג הקובץ הוא application/octet-stream, הוא ינסה לשמור אותו.<br>השורה השלישית אומרת לדפדפן שהשרת ישלח לו את הקובץ מתחילתו עד סופו. בפועל אפשר לשלוח חצי מהקובץ, או חלק כלשהו מהאמצע.<br>בשורה הרביעית אמרנו לדפדפן את גודל הקובץ, כדי שהוא ידע מתי הסוף ויציג למשתמש כמה נשאר.<br>בשורה החמישית אמרנו לדפדפן באיזה שם לשמור את הקובץ. הקובץ בשרת שלכם יכול להיקרא באופן שונה לגמרי. בשורה הזאת אנחנו בעצם מחליטים תחת איזה שם יציע הדפדפן לשמור את הקובץ אצל המשתמש.<br>בשורה השישית קוראים את תוכן הקובץ ושולחים אותו לדפדפן. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment95"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/04/2011 12:07</span><br>
+תודה</div>
+<a id="comment174"></a>
+<div class="blog-comment">
+<span class='comment-author'>מתן</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/06/2011 00:28</span><br>
+אדיר! תודה רבה!</div>
+<a id="comment474"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/07/2011 13:58</span><br>
+יפה מאוד , תודה גבר!</div>
+<a id="comment782"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/09/2011 03:46</span><br>
+מועיל (:</div>
+<a id="comment835"></a>
+<div class="blog-comment">
+<span class='comment-author'>yossi</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/10/2011 22:41</span><br>
+סלח לי ,אשמח לדעת מה השימוש הזה כלומר מתי או באיזה תנאים אני צריך להשתמש בקוד הזה?<br>
+תדה!</div>
+<a id="comment838"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>02/10/2011 00:20</span><br>
+כשאתה צריך לגרום לדפדפן לשמור קובץ כלשהו.</div>
+<a id="comment940"></a>
+<div class="blog-comment">
+<span class='comment-author'>iiddaannyy</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>14/11/2011 19:07</span><br>
+אהבתי, מאוד שימושי.<br>
+תודה. </div>
+<a id="comment1417"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/03/2012 17:58</span><br>
+תודה רבה על המדריך. :)<br>
+&quot;בפועל אפשר לשלוח חצי מהקובץ, או חלק כלשהו מהאמצע.&quot;<br>
+אם כבר כתבת את המדריך, יש סיכוי שתוכל להסביר כיצד לעשות זאת? ^_^</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

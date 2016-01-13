@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ביטוי רגולרי לסוגריים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="nocksh">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ביטוי רגולרי לסוגריים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ביטוי רגולרי לסוגריים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ביטוי רגולרי לסוגריים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ביטוי רגולרי לסוגריים-1.htm" title="ניסיתי לכתוב ביטוי רגולרי שמחפש מילה שבסופה יכולים להיות סוגריים, אבל הם לא חובה.כלומר, גם &amp;quot;abc&amp;quot; וגם &amp;quot;abc()&amp;quot; יהיו תקינים.משום מה לא הצלחתי. אשמח לעזרה.">ביטוי רגולרי לסוגריים</a></h2>
+<div class="userinfo">
+פתח
+<a>nocksh</a>
+,
+<time class="timeago relativetime" datetime="2012-10-02T22:45:22+02:00" style="display:inline-block;">
+02 לאוקטובר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1062'>
+ניסיתי לכתוב ביטוי רגולרי שמחפש מילה שבסופה יכולים להיות סוגריים, אבל הם לא חובה.<br>כלומר, גם &quot;abc&quot; וגם &quot;abc()&quot; יהיו תקינים.<br>משום מה לא הצלחתי. אשמח לעזרה. </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer4650">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 03 לאוקטובר 2012 </span>
+<a id="answer_4650" href="ביטוי רגולרי לסוגריים-1.htm#answer_4650">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="re0">$t</span> <span class="sy0">=</span><span class="st_h">'abc abc() xyz xyz() 123'</span><span class="sy0">;</span><br>
+<span class="kw3">preg_match_all</span><span class="br0">&#40;</span><span class="st0">&quot;#(\b\w+\b(?:\(\))?)#usUim&quot;</span><span class="sy0">,</span> <span class="re0">$t</span><span class="sy0">,</span> <span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer4653">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a3e4641913172e08d7eceb4b0543f258?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nocksh</a>
+ב
+<span style="font-size:10px"> 03 לאוקטובר 2012 </span>
+<a id="answer_4653" href="ביטוי רגולרי לסוגריים-1.htm#answer_4653">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר הסבר לגבי החלק הזה: <br>(?:\(\))?<br>תודה. </p>
+</div>
+<div class="answer" id="answer4671">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 04 לאוקטובר 2012 </span>
+<a id="answer_4671" href="ביטוי רגולרי לסוגריים-1.htm#answer_4671">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<img src="..\static\images\pixel.png" alt="" title="http://s8.postimage.org/qzu6o4e51/Untitled.png" class="content-image-float"><br><br><br>סוגריים אומרות למנוע הביטויים הרגולריים לשמור לתוך משתנה את מה שנמצא בתוכם בשביל שימוש חוזר.<br>אני רוצה להשתמש בסוגריים בשביל לסמן &quot;אוסף&quot; או &quot;רצף&quot; שכולו ביחד יכול להופיע אחד או אפס פעמים.<br><br>בשביל לסמן את הרצף - השתמש בסוגריים, אבל בגלל שמנוע הביטויים הרגולריים ינסה לזכור את התוכן שלהם,<br>אבל לי אין צורך בתוכן הזה, השתמשתי באופרטור ?: שפשוט אומר למנוע לא לזכור את מה שבתוך הסוגריים.<br><br>אתה יכול לנסות להוריד את ?: והכל יעבוד, אבל התוצאה שתקבל ב preg_match_all תהיה שונה, בגלל שהפעם תקבל בתוך ערך נפרד גם את מה שהמנוע זכר מתוך הסוגריים הפנימיות. </p>
+</div>
+<div class="answer" id="answer4677">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a3e4641913172e08d7eceb4b0543f258?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nocksh</a>
+ב
+<span style="font-size:10px"> 05 לאוקטובר 2012 </span>
+<a id="answer_4677" href="ביטוי רגולרי לסוגריים-1.htm#answer_4677">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בגלל זה לא הצלחתי, כי לא הכרתי את ?:<br>תודה!<br><br>ד&quot;א מאיפה התמונה? (או שציירת בעצמך?) </p>
+</div>
+<div class="answer" id="answer4678">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 05 לאוקטובר 2012 </span>
+<a id="answer_4678" href="ביטוי רגולרי לסוגריים-1.htm#answer_4678">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ציירתי ב word<br>וזה לא הסיבה שלא הצחלת. אתה יכול להוריד את האופרטור הזה ועדיין הכל יעבוד </p>
+</div>
+<div class="answer" id="answer4691">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/72a97fdf49d219cf38f0f5c4483e15f0?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ldbrgr</a>
+ב
+<span style="font-size:10px"> 07 לאוקטובר 2012 </span>
+<a id="answer_4691" href="ביטוי רגולרי לסוגריים-1.htm#answer_4691">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פעם הבאה תנסה לדבג עם <a href="http://gskinner.com/RegExr">RegExr</a> לפני, זה יחסוך לך זמן לחכות לתשובה. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

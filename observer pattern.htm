@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="Observer Pattern - תבנית המשקיף">
+<meta name="keywords" content="Observer, design patterns">
+<meta name="author" content="raslin">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>Observer Pattern – כל מה שרציתם לדעת</title>
+<meta itemprop="name" content="Observer Pattern – כל מה שרציתם לדעת">
+<meta itemprop="description" content="Observer Pattern - תבנית המשקיף">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"218","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Observer Pattern – כל מה שרציתם לדעת</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">raslin, </div>
+<div class="right">&nbsp;<time datetime="2012-06-20T12:45:23+03:00" dir="rtl">20 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://cdn4.iconfinder.com/data/icons/general22/png/128/binoculars.png" alt="Observer Pattern – כל מה שרציתם לדעת">
+</div>
+<div class="right post-content">
+Observer הוא פריט אחד מתוך רשימה מכובדת של Design Patterns. הוא מתפקד כסוג של מנהל אירועים – בקרה לכל חלק במערכת ועוד. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שלום לכל כרישי PHP Guide.<br>אני מניח שחלקכם שמעתם על Design Patterns או בקיצור DP, ולאלה שעוד לא שמעו – אספר בקצרה במה בכלל מדובר. :)<br><br><h3>Design Patterns</h3><br>Design Patterns הן פתרונות לבעיות נפוצות, אפשר לומר. כמו תוכניות מגירה למקרה שנתקל בבעיה נפוצה. לדוגמה, אם יורד גשם ואתם חייבים לצאת, אתם יכולים לחשוב על הרבה פתרונות – חלק טובים יותר, חלק פחות, אבל במקום שתחפשו פתרון ותבדקו כל דבר, למישהו כבר הייתה בעיה כזו לפניכם, והוא פתר אותה. איש לא פתר אותה טוב יותר אחריו. הוא המציא את המטרייה. ועד שאדם אחר לא יפתח משהו שימושי יותר ממטרייה, אין לנו סיבה לשבור את הראש ולחפש אחר פתרונות; אנחנו פשוט נכין מטרייה מראש, וזו <strong>תבנית</strong> ההתנהגות שלנו לגבי הבעיה הזו. (תבנית = Pattern)<br><br>גם בעולם התוכנה יש בעיות שונות. לדוגמה, <a href="database_singleton.htm">Singleton</a> בא למנוע יצירה של אובייקט יותר מפעם אחת (בטעות), ויש עוד הרבה תבניות שונות מסוגים שונים לצרכים שונים.<br><br><h3>Observer Pattern</h3><br>אחת התבניות השימושיות ביותר היא Observer, או בעברית – &quot;המשקיף&quot;.<br>אם אנחנו רוצים לעשות פעולה מסוימת – לנטר, לעקוב, לדווח – ברגע שאירוע מסוים מתבצע במערכת, איך נעשה את זה? נשתמש בפונקציה ששולחת דוא&quot;ל בכל פעם שמשתמש נרשם? נכתוב פונקציה שמכניסה שורה למסד הנתונים בכל פעם שמישהו מתחבר (לצורכי אבטחה)? ואם יש לנו עוד הרבה אירועים שונים במערכת שהיינו רוצים לנתר, מה נעשה אז? איך נעשה את זה חכם, כך שזה לא יפגע בגמישות של המערכת, ובעתיד, כשנרצה להוסיף לזה מידע שונה וכדו&#039;, לא נצטרך לערוך את קוד המערכת התקין שלנו (אחד מעקרונות התוכנה), אלא רק את אותה פעולה ספציפית שצריכה לקרות? איך נפריד אותה מהשאר?<br><br><h3>Observer פשוט</h3><br>ניקח תכונות בסיסיות של המשקיף (Observer) ונכניס אותם לתוך Interface, כך שנוכל לראות בבירור כל מודל שיצטרך משקיף ולחייב אותו להשתמש בפונקציות של המשקיף. ככה נמנע טעויות, ונוודא שהפונקציות של המשקיף קיימות בוודאות.<br><br>למען הנוכחות, אלו רשימת הקבצים שנצטרך:<br>IObserver.php – האינטרפייס שלנו (לא חובה, אבל תעשו טובה לעצמכם...)<br>Observer.php – משקיף אבסטרקטי, ממנו ניצור את המשקיפים השונים.<br>LoginObserver.php – משקיף ספציפי שיצרתי לצורך הדוגמה, משקיף שקשור להתחברות, כמובן.<br>ModelAbstract.php – ממנה כל המודלים יורשים, וכאן יושם האינטרפייס שממנו כל המודלים ירשו. בדרך כלל מודל אבסטרקט כזה קיים בכל מערכת MVC.<br>LoginModel.php – מחלקת ההתחברות עצמה, בשביל הדוגמא נעשה לוג של התחברות.<br><br><span class="dirleft"><em>IObserver.php</em></span><br><div class="php codeblock"><span class="kw2">interface</span> IObserver <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> attach<span class="br0">&#40;</span>Observer <span class="re0">$observer</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> dettach<span class="br0">&#40;</span>Observer <span class="re0">$observer</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> setstat<span class="br0">&#40;</span><span class="re0">$msg</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> notify<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>אלו ארבעת פונקציות הבסיס. כמובן שכמו ב-Interface רושמים רק את החתימות של הפונקציה, ומרגע זה, כל מודל (login.php, לדוגמה) יעשה איפלמינטציה (יישום) של האינטרפייס הזה, כך שנוכל לזהות בקלות מודלים המשתמשים במשקיף וגם לדעת בוודאות שמישהו לא מחק בטעות איזושהי פונקציה שקשורה לזה.<br><br>הפונקציה attach תחבר משקיף למודל שלנו; הפונקציה dettach – נחשו לבד; מהפונקציה setstat יתקבל המידע למשקיף (יכול להיות טקסט, אבל עדיף מערך מידע); והפונקציה notify תשלח את הנתונים.<br><br><br><span class="dirleft"><em>Observer.php</em></span><br><div class="php codeblock">abstract <span class="kw2">class</span> Observer <span class="br0">&#123;</span><br>
+&nbsp;<br>
+&nbsp; &nbsp; <span class="kw2">protected</span> <span class="re0">$msg</span> <span class="sy0">=</span> <span class="st0">&quot;&quot;</span><span class="sy0">;</span><br>
+&nbsp;<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> setstat<span class="br0">&#40;</span><span class="re0">$msg</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">msg</span> <span class="sy0">=</span> <span class="re0">$msg</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; abstract <span class="kw2">function</span> run<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span></div><br>זהו בסיס המשקיפים שממנו ניצור את כל המשקיפים השונים לכל הדברים שלנו וממנו נירש.<br>הפונקציה setstat מקבלת את הנתונים ושומרת; את הפונקציה run נצטרך לממש מחדש במשקיף הייחודי שניצור, וכאן אנחנו נחליט מה עושים עם המידע של אותו משקיף. בדוגמה שלנו יהיה משקיף שאחראי על שמירת לוגים של התחברויות, ולכן הוא יקבל מערכת מידע, ועם פונקציית run ישמור את זה בצורה שצריך במסד.<br>כל משקיף ומה שהוא עושה עם המידע שלו.<br><br><span class="dirleft"><em>LoginObserver.php</em></span><br><div class="php codeblock"><span class="kw2">class</span> LoginObserver <span class="kw2">extends</span> Observer <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> run<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="co1">//some db query or whatever with $this-&gt;msg data!</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>כאן יצרנו את המשקיף הייחודי שיורש מהמשקיף הבסיסי שתיארנו ממש מעל זה.<br>כאן אנחנו גם מממשים את פונקציית run בצורה הייחודית של אותו משקיף. (ראו הערה ליד הפונקציה)<br><br><span class="dirleft"><em>ModelAbstract.php</em></span><br><div class="php codeblock">abstract <span class="kw2">class</span> ModelAbstract implements IObserver<span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="kw2">private</span> <span class="re0">$observers</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> attach<span class="br0">&#40;</span>Observer <span class="re0">$observer</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">observers</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$observer</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> dettach<span class="br0">&#40;</span>Observer <span class="re0">$observer</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$newObservers</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">observers</span> <span class="kw1">as</span> <span class="re0">$oldObserver</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$oldObserver</span> <span class="sy0">!==</span> <span class="re0">$observer</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$newObservers</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$oldObserver</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">observers</span> <span class="sy0">=</span> <span class="re0">$newObservers</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> notify<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">observers</span> <span class="kw1">as</span> <span class="re0">$observer</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$observer</span><span class="sy0">-&gt;</span><span class="me1">run</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <span class="kw2">public</span> <span class="kw2">function</span> setstat<span class="br0">&#40;</span><span class="re0">$msg</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">observers</span> <span class="kw1">as</span> <span class="re0">$observer</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$observer</span><span class="sy0">-&gt;</span><span class="me1">setstat</span><span class="br0">&#40;</span><span class="re0">$msg</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>עכשיו אנחנו מיישמים את האינטרפייס, את כל המחלקות של האינטרפייס (חובה).<br>מהמודל אבסטרקט הזה נוריש לכל המודלים במערכת שלנו.<br>כמו שאתם רואים, הכל פשוט – יש מערך של משקיפים, אפשר להוסיף נתונים, להוריד אותם, לשלוח אותם ולשמור מידע.<br>הפונקציות האלה מקבלות רק משקיפים. אין מה לגעת בפונקציות האלה יותר מדי, וכבר כל המודלים שיירשו מפה יהיו עם התכונות האלה.<br><br>ולבסוף, המודל שלנו.<br><span class="dirleft"><em>Login.php</em></span><br><div class="php codeblock"><span class="kw2">Class</span> Login <span class="kw2">extends</span> ModelAbstract<span class="br0">&#123;</span><br>
+<br>
+&nbsp; <span class="kw2">function</span> login<span class="br0">&#40;</span><span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$password</span><span class="br0">&#41;</span><span class="br0">&#123;</span><span class="br0">&#125;</span><br>
+<br>
+&nbsp; <span class="kw2">function</span> getLoginData<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$password</span><span class="sy0">,</span> <span class="re0">$ip</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>זה מודל רגיל לכל דבר, מחלקה שבודקת ומטפלת בהתחברות ופונקציית getLoginData, שממנה המשקיף שלנו ייקח את המידע שהוא צריך.<br><br><h4>בואו נחבר את הכול</h4><br>אז תיישמו את המשקיף בקונטרולר שלכם או בכל קובץ שבו אתם יוצרים מופע של מחלקת Login (מודל Login).<br><br><div class="php codeblock"><span class="re0">$login</span> <span class="sy0">=</span> <span class="kw2">new</span> Login<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp;<br>
+<span class="re0">$login</span><span class="sy0">-&gt;</span><span class="me1">attach</span><span class="br0">&#40;</span><span class="kw2">new</span> LoginObserver<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$login</span><span class="sy0">-&gt;</span><span class="me1">setstat</span><span class="br0">&#40;</span><span class="re0">$login</span><span class="sy0">-&gt;</span><span class="me1">getLoginData</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$login</span><span class="sy0">-&gt;</span><span class="me1">notify</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>וזהו.<br>פונקציית ה-run במשקיף המיוחד שלנו LoginObserver עבד.<br>יותר מזה, אפשר בקלות לצרף כמה משקיפים לכמה דיווחים או לדברים שונים שאתם רוצים לעשות עם המידע, פשוט עושים עוד attach.<br><br>והנה, יש לנו מנהל אירועים, משקיף, לוגר. תקראו לזה איך שאתם רוצים, לנהל אירועים בצורה פשוטה. (כן, אחרי שתיישמו את זה פעם אחת זה מאוד פשוט)<br>בצורה מקצועית, איכותית, בצורה ששומרת על הקוד גמיש, פתוח לשינויים וסגור לבאגים עתידיים עם שינוי פעולות המשקיף.<br><br>אפשר להשתמש בזה באין סוף דרכים וצורות שונות. כמובן שזה קוד הבסיס, וכל אחד יתאים את זה למערכת שלו. שינוי קל בקוד יידרש למי שמשתמש ב-Namespaces.<br>וזהו, מקווה שנהניתם. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/39c2b97f386140623714a388ca353e79?s=16&r=g&d=monsterid" alt="raslin">
+<a>raslin</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1676"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2012 16:53</span><br>
+כתבה מעולה, מסבירה את עיקרון ה-observer בצורה יפה.<br>
+קצת פחות אהבתי את נוכחות ה-mvc במדריך כי כנראה שזה סתם מקשה על מי שלא סגור מה זה mvc.<br>
+<span dir="ltr"><a href="mvc_מפרידים_html_מ_php.htm">http://phpguide.co.il/mvc_מפרידים_html_מ_php.htm</a></span><br>
+<br>
+observerים מאוד נוכים במקרים שמחלקה אחת תלויה במידע של מחלקה אחרת וצריכה לדעת על עדכונים כאלה. למשל חנות יכולה &quot;להירשם לעדכונים&quot; של ספק וברגע שבספק משתנה כמות במלאי - הוא יעדכן את החנות.<br>
+<br>
+השימוש הרחב של observer הוא גדול בתוכנות שממשיכות לרוץ לאורך זמן, ששם העדכון מידע הזה הכרחי יותר, מאשר באתר, שבו נראה עמוד עם מוצרי החנות עבור הרגע הנוכחי ואם אחר כך ישתנו הספקרים זה כבר לא יעניין אף אחד - כי התוכנה כבר סיימה לרוץ.<br>
+<br>
+אחת השאלות הנפוצות ברעיונות עבודה היא לכתוב אובסרבר. שאלה שמראה בצורה מדהימה האם אתם יודעים משהו מעבר לכתיבת סקריפטים פרימיטיביים. <br>
+<br>
+אחת הספריות הפופולאריות של javascript שמושטתת כל כולה על observerים היא knockout.js.<br>
+ספריה מדהימה שמאשרת ליצור מודלים ולחבר אותם לאלמנטים בעמוד. ברגע שמתעדכן משהו במודל - אוטומטית מתעדכן גם העמוד וההיפך. <br>
+למשל אם יש מודל &quot;משתמש&quot; ויש לו שדה &quot;שם&quot;, יש בעמוד למעלה כיתוב &quot;שלום %שם%&quot; ולמטע שדה טקסט שמאשר לעדכן את אותו השם, הספריה תדאג באמצעות אובסרבינג לעדכן את ההודעה למעלה ואת המשתנה במודל ברגע שתזינו ערך חדש בשדה הטקסט וההיפך.<br>
+<br>
+בנוסף, הייתי שמח לראות בצירוף למדריך גם trait של observer שיאפשר לחבר פונקציונאליות של observableלכל מחלקה. ממליץ לנסות לכתוב אחד כזה לצורך תרגול למי שבאמת רוצה ללמוד.<br>
+<br>
+<span dir="ltr"><a href="Traits.htm">http://phpguide.co.il/Traits.htm</a></span></div>
+<a id="comment1677"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2012 16:58</span><br>
+היי אלכס,<br>
+תודה על התגובה,<br>
+לפי אמונתי הדרך היחידה לעבוד עם זה כמו שצריך (!!) היא דרך הרכבה עם MVC,<br>
+אחרת יווצר באלגן,<br>
+<br>
+בנוסף שכחתי לציין שיש Observer מובנה בPHP במחלקת SplSubject ו SplObserver<br>
+אבל זה תוסף שצריך להתקין בחלק מהמקרים.<br>
+<br>
+</div>
+<a id="comment1678"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2012 17:54</span><br>
+תודה לך :)<br>
+יצא מדהים </div>
+<a id="comment1680"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_243717</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/06/2012 09:55</span><br>
+מושקע יחסית למאמרים בעברית. יפה!</div>
+<a id="comment2522"></a>
+<div class="blog-comment">
+<span class='comment-author'>matan sh</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>24/07/2013 05:51</span><br>
+סתם שאלה,<br>
+<br>
+לא עדיף לקחת את הקוד האחרון אחרון ולשים אותו ב-class של ה-login בתור ה__destruct<br>
+<br>
+כי זה יעשה את אותה הפעולה, ואפילו לא נצטרך לרשום על כל פעולה את הקוד האחרון כי זה כבר יהיה מובנה. <br>
+כל מה שישאר לעשות זה להכין לו מה לעשות באירוע, ולקשר אותו באמצעות ה-extends?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

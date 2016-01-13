@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה HTTPONLY">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="itamarhadad">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>HTTPONLY | שאלת לימוד PHP</title>
+<meta itemprop="name" content="HTTPONLY | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה HTTPONLY">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">12</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="HTTPONLY-1.htm" title="http://php.net/manual/en/function.setcookie.phpלא הבנתי איך אני מפעיל אותו..ושימוש בו יגרום לJS לא להצליח לקרוא אותו?? + שבבדוק מרכיב לא יהיה ניתן לראות אותו??כשאני מוחק את הקוקי עליי להציב שוב HTTPONLY, או בכל מקרה איפה אני מציב אותו ואיך?קוד יצירה:setcookie&amp;#40;&amp;quot;user&amp;quot;,&amp;quot;$username">HTTPONLY</a></h2>
+<div class="userinfo">
+פתח
+<a>itamarhadad</a>
+,
+<time class="timeago relativetime" datetime="2012-06-18T10:18:30+03:00" style="display:inline-block;">
+18 ליוני 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText675'>
+http://php.net/manual/en/function.setcookie.php<br>לא הבנתי איך אני מפעיל אותו..<br>ושימוש בו יגרום לJS לא להצליח לקרוא אותו?? + שבבדוק מרכיב לא יהיה ניתן לראות אותו??<br><br>כשאני מוחק את הקוקי עליי להציב שוב HTTPONLY, או בכל מקרה איפה אני מציב אותו ואיך?<br>קוד יצירה:<br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;user&quot;</span><span class="sy0">,</span><span class="st0">&quot;<span class="es4">$username</span>&quot;</span><span class="sy0">,</span><span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">3600</span><span class="sy0">*</span><span class="nu0">24</span><span class="sy0">*</span><span class="nu0">7</span><span class="sy0">*</span><span class="nu0">4</span><span class="sy0">*</span><span class="nu0">12</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st0">&quot;password&quot;</span><span class="sy0">,</span><span class="st0">&quot;<span class="es4">$password</span>&quot;</span><span class="sy0">,</span><span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">3600</span><span class="sy0">*</span><span class="nu0">24</span><span class="sy0">*</span><span class="nu0">7</span><span class="sy0">*</span><span class="nu0">4</span><span class="sy0">*</span><span class="nu0">12</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>קוד מחיקה:<br>if(isset($_COOKIE[&quot;user&quot;]))setcookie(&quot;user&quot;,&quot;&quot;,$curtime-29030400);<br>if(isset($_COOKIE[&quot;password&quot;]))setcookie(&quot;password&quot;,&quot;&quot;,$curtime-29030400); </div>
+</div>
+<h3>
+<span id="answersCounter">12 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer2764">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2764" href="HTTPONLY-1.htm#answer_2764">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+*זה אפקטיבי רק לדפדפנים היותר מודרניים (למרות שכמעט אין כאלה שמשתמשים בדפדפנים שלא תומכים בזה, אבל חשוב לציין את זה).<br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'user'</span><span class="sy0">,</span><span class="re0">$username</span><span class="sy0">,</span><span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">31556926</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span><span class="re0">$password</span><span class="sy0">,</span><span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">31556926</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>בנוגע לקוד המחיקה, אתה לא צריך את ה-if הזה.<br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'user'</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer2767">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2767" href="HTTPONLY-1.htm#answer_2767">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני עובד עם כרום ולכרום זה יהיה אפקטיבי?<br>אבל עדיין לא הבנתי מה הHTTPONLY עושה<br>ולגבי הקוד מחיקה:<br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'user'</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">setcookie</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span><span class="st_h">''</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אפשר לעשות ככה ^^?? או להציב -1<br>אחרי הSET הזה יש בדיקה אם הקוקי קיים בהמשך הדף אז חשוב לי שהוא ימחק ישר.. </p>
+</div>
+<div class="answer" id="answer2768">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2768" href="HTTPONLY-1.htm#answer_2768">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לכרום זה יהיה אפקטיבי, הכוונה היא לדפדפנים ישנים.<br>ולא, אי אפשר 0. 0 זה אומר שהעוגייה תמחק כשיוצאים מהדפדפן. </p>
+</div>
+<div class="answer" id="answer2769">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2769" href="HTTPONLY-1.htm#answer_2769">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ומה לגבי 1-?<br><br>וואי אחי זה טוב..<br>יש לי אפשרות של זכור אותי אם הוא על TRUE אז קיים קוקי של שנה<br>ואם הוא על FALSE קיים קוקי של שעה וזה לא טוב כי אם אתה על האתר אתה מתנתק באמצע..<br><br>אז אתה אומר שאני צריך לשים 0? ב<strong>אל תזכור אותי</strong> </p>
+</div>
+<div class="answer" id="answer2771">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2771" href="HTTPONLY-1.htm#answer_2771">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מספרים שליליים לא ניסיתי, תבדוק.<br><br>בנוגע ל&#039;זכור אותי&#039;, כשהוא לא מסומן אין צורך בקוקיז. </p>
+</div>
+<div class="answer" id="answer2772">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2772" href="HTTPONLY-1.htm#answer_2772">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז במה..<br>אבל עזוב עובד מעולההההה!!!!!!!<br>כשאני יוצא מהדפדפן הקוקי נמחק!!<br><br>תודה בכל מקרה .. </p>
+</div>
+<div class="answer" id="answer2773">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2773" href="HTTPONLY-1.htm#answer_2773">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בסשן. </p>
+</div>
+<div class="answer" id="answer2774">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2774" href="HTTPONLY-1.htm#answer_2774">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עזוב כל עוד הקוקי נמחק רק <strong>כשיוצאים מהדפדפן</strong> לא אכפת לי..<br>ותגיד מהם כל שאר הפרמטרים<br><div class="php codeblock"><span class="kw3">setcookie</span><span class="br0">&#40;</span> name<span class="sy0">,</span> value<span class="sy0">,</span> expire<span class="sy0">,</span> path<span class="sy0">,</span> domain<span class="sy0">,</span> secure<span class="sy0">,</span> httponly<span class="br0">&#41;</span><span class="sy0">;</span></div><br>PATH DOMAIN SECURE??<br>הם יכולים לעזור לי באבטחת הקוקי?? </p>
+</div>
+<div class="answer" id="answer2775">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 18 ליוני 2012 </span>
+<a id="answer_2775" href="HTTPONLY-1.htm#answer_2775">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+את הקוקי המשתמש יכול לקרוא ולשנות, עדיף בסשן כשאפשר.<br><br>תקרא: http://php.net/manual/en/function.setcookie.php </p>
+</div>
+<div class="answer" id="answer2798">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2798" href="HTTPONLY-1.htm#answer_2798">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא מוסבר שם טוב גם בW3SCHOOL<br>אני לא הבנתי מה זה SECURE וגם אין שם דוגמה למה הוא עושה..<br>ומה זה הPATH וגם הDOMAIN?? </p>
+</div>
+<div class="answer" id="answer2802">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2802" href="HTTPONLY-1.htm#answer_2802">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+דווקא מוסבר מצוין.<br><strong>path</strong> - הנתיב בו העוגייה תהיה זמינה. אם בוחרים בתיקיה הראשית (/) העוגייה תהיה זמינה בתיקיה הראשית ובכל התיקיות שבתוכה. אם בוחרים בתיקיה foo לדוגמה, אז העוגייה תהיה זמינה בתיקיה foo ובכל התיקיות שבתוכנה (כמו foo/bar). ערך ברירת המחדל הוא התיקיה הנוכחית (/.).<br><strong>domain</strong> - הדומיין שבו זמינה העוגייה. לדוגמה תוכל תקבוע עוגייה באתר שלך ולקבוע לה זמינות עבור אתר אחר, כך שהאתר האחר יהיה יכול לגשת לעוגייה.<br><strong>secure</strong> - קובע האם על העוגייה להשלח בחיבור מאובטח (https). </p>
+</div>
+<div class="answer" id="answer2817">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b2f7c2eac105562e6a67409996581b1e?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>itamarhadad</a>
+ב
+<span style="font-size:10px"> 19 ליוני 2012 </span>
+<a id="answer_2817" href="HTTPONLY-1.htm#answer_2817">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+secure - קובע האם על העוגייה להשלח בחיבור מאובטח (https).<br>במה זה יועיל? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

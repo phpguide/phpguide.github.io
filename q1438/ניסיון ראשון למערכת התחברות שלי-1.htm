@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה ניסיון ראשון למערכת התחברות שלי">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="phpon">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>ניסיון ראשון למערכת התחברות שלי | שאלת לימוד PHP</title>
+<meta itemprop="name" content="ניסיון ראשון למערכת התחברות שלי | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה ניסיון ראשון למערכת התחברות שלי">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">6</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="ניסיון ראשון למערכת התחברות שלי-1.htm" title="&amp;lt;!DOCTYPE html PUBLIC &amp;quot;-//W3C//DTD XHTML 1.0 Strict//EN&amp;quot;
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&amp;quot;&amp;gt;
+&amp;lt;html xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot; xml:lang=&amp;quot;en&amp;quot; lang=&amp;quot;he&amp;quot; &amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;title&amp;gt;Stepping Through an Array &amp;lt;/title&amp;gt;
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;common.css&amp;quot; /&amp;gt;
+
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;">ניסיון ראשון למערכת התחברות שלי</a></h2>
+<div class="userinfo">
+פתח
+<a>phpon</a>
+,
+<time class="timeago relativetime" datetime="2013-05-10T18:14:30+03:00" style="display:inline-block;">
+10 למאי 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1438'>
+<div class="php codeblock">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;<br>
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;he&quot; &gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Stepping Through an Array &lt;/title&gt;<br>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;common.css&quot; /&gt;<br>
+<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;form action=&quot;regiss.php&quot; method=&quot;post&quot;&gt;<br>
+&lt;label for=&quot;userName&quot;&gt;&lt;/label&gt;<br>
+&lt;input type=&quot;text&quot; name=&quot;userName&quot; id=&quot;userName&quot; value=&quot;press your user name her!&quot;&gt;&lt;br /&gt;<br>
+<br>
+&lt;label for=&quot;password1&quot;&gt;&lt;/label&gt;<br>
+&lt;input type=&quot;password1&quot; name=&quot;password1&quot; id=&quot;password1&quot; value=&quot;press your passsword her!&quot;&gt;&lt;br /&gt;<br>
+<br>
+&lt;label for=&quot;password2&quot;&gt;&lt;/label&gt;<br>
+&lt;input type=&quot;password2&quot; name=&quot;password2&quot; id=&quot;password2&quot; value=&quot;press your passsword her!&quot;&gt;&lt;br /&gt;<br>
+<br>
+&lt;label for=&quot;email&quot;&gt;&lt;/label&gt;<br>
+&lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; value=&quot;press your email her!&quot;&gt;&lt;br /&gt;<br>
+<br>
+<br>
+<br>
+&lt;label for=&quot;comments&quot;&gt;&lt;/label&gt;<br>
+&lt;textarea name=&quot;comments&quot; id=&quot;comments&quot; rows=&quot;4&quot; cols=&quot;50&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;<br>
+<br>
+&lt;label for=&quot;submit&quot;&gt;&lt;/label&gt;<br>
+&lt;input type=&quot;submit&quot; name=&quot;submitButton&quot; id=&quot;submitButton&quot; value=&quot;submit!&quot;&gt;<br>
+<br>
+<br>
+<span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'userName'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'userName'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'said do it again please'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password1'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password1'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'said do it again please'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password2'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'password2'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'said do it again please'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'email'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'said do it again please'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'comments'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'comments'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'said do it again please'</span><span class="sy0">;</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submitButton'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submitButton'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="kw1">echo</span> <span class="st_h">'said do it again please'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;/form&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br>הבעייה פה היא בend of the file ואין לי מושג למה..<br>יש לציין שאיו פה אישור של הסיסמאות וכל זה עדיין, <br><br>מחר אני אנסה ללמוד איך לבנות מערכת עם , ואולי גם לעלות קבצים. </div>
+</div>
+<h3>
+<span id="answersCounter">6 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer6424">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>mtndiv</a>
+ב
+<span style="font-size:10px"> 10 למאי 2013 </span>
+<a id="answer_6424" href="ניסיון ראשון למערכת התחברות שלי-1.htm#answer_6424">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא סגרת את כל התנאים, כשאתה פותח if או else, תסגור אותו תמיד עוד לפני שהתחלת לכתוב קוד בפנים, ככה אני תמיד עושה וזה עוזר לי לא לשכוח להשאיר תנאי/פונקציה פתוחה ...<br>ד&quot;א, כדאי לך לעשות את הבדיקה בהתחלה, ובמקום echo תציב את ההודעה במשתנה, ובהמשך תבדוק אם המשתנה קיים אז תציג אותו. ככה:<br>http://pastebin.com/7BSLTsSc </p>
+</div>
+<div class="answer" id="answer6425">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 11 למאי 2013 </span>
+<a id="answer_6425" href="ניסיון ראשון למערכת התחברות שלי-1.htm#answer_6425">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עדיין לא עובד.. end of the file </p>
+</div>
+<div class="answer" id="answer6428">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 11 למאי 2013 </span>
+<a id="answer_6428" href="ניסיון ראשון למערכת התחברות שלי-1.htm#answer_6428">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;<br>
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;he&quot; &gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Stepping Through an Array &lt;/title&gt;<br>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;common.css&quot; /&gt;<br>
+&lt;style type=&quot;text/css&quot;&gt;<br>
+*{text-align:right;}<br>
+<br>
+&lt;/style&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+<span class="kw2">&lt;?php</span> <br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'submit'</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="re0">$_POST</span><span class="br0">&#91;</span><span class="st_h">'text'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="re0">$text</span> <span class="sy0">=</span> <span class="kw3">strrev</span> <span class="br0">&#40;</span><span class="re0">$text</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="br0">&#40;</span><span class="st_h">'text'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span><br>
+&lt;form action=&quot;replace.php&quot; method=&quot;post&quot;&gt;<br>
+&lt;label for=&quot;text&quot;&gt;&lt;/label&gt;<br>
+&lt;p&gt;הכנס טקסט כאן:&lt;/p&gt;<br>
+&lt;textarea type=&quot;text&quot; name=&quot;text&quot; id=&quot;text&quot; cols=&quot;50&quot; rows=&quot;4&quot; value='$text'&gt;&lt;/textarea&gt;&lt;br /&gt;<br>
+&lt;p&gt;הפוך טקסט&lt;/p&gt; &nbsp; &nbsp;&lt;input type=&quot;submit&quot; name=&quot;submitButton&quot; id=&quot;submitButton&quot; value=&quot;הופך טקסט&quot; /&gt;&lt;br /&gt;<br>
+&lt;/form&gt;<br>
+<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br>ניסיתי ללמוד איך בונים מערכת היפוך טקסט, אבל הוא לא הופך תטקסט, הוא רק מוחק אותו.. </p>
+</div>
+<div class="answer" id="answer6429">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 11 למאי 2013 </span>
+<a id="answer_6429" href="ניסיון ראשון למערכת התחברות שלי-1.htm#answer_6429">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשנה את:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="br0">&#40;</span><span class="st_h">'text'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>ל:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="re0">$text</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer6430">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/ef4399d34e4350385d9a0ed1c851538b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>phpon</a>
+ב
+<span style="font-size:10px"> 11 למאי 2013 </span>
+<a id="answer_6430" href="ניסיון ראשון למערכת התחברות שלי-1.htm#answer_6430">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עדיין לא עובד :/ </p>
+</div>
+<div class="answer" id="answer6442">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/96b3bb3a14b26e49ed7f21fea17493ff?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>yonikal56</a>
+ב
+<span style="font-size:10px"> 12 למאי 2013 </span>
+<a id="answer_6442" href="ניסיון ראשון למערכת התחברות שלי-1.htm#answer_6442">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פעם קרו לי כמה בעיות כאלה עם textarea תשנה לget ותסתכל בקשור זה יוסיף +++ די הרבה לפי מה שכתוב ואז זה לא יצליח להציג תשנה את הtextarea כולו לככה:<br><div class="php codeblock"><span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> cols<span class="sy0">=</span><span class="st0">&quot;50&quot;</span> rows<span class="sy0">=</span><span class="st0">&quot;4&quot;</span> value<span class="sy0">=</span><span class="st_h">'$text'</span> <span class="sy0">/&gt;</span></div><br>מקווה שעזרתי </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

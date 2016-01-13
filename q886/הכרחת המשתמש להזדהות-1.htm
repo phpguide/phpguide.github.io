@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הכרחת המשתמש להזדהות">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="shlomo120">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הכרחת המשתמש להזדהות | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הכרחת המשתמש להזדהות | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הכרחת המשתמש להזדהות">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">2</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הכרחת המשתמש להזדהות-1.htm" title="אהלן . היום ראיתי קוד באינטרנט שמכריח את הדפדפן לפתוח חלון הזדהות ממש כמו בראוטר לדוגמא .  הינה הקוד : &amp;lt;?php
+if &amp;#40;!isset&amp;#40;$_SERVER&amp;#91;&apos;PHP_AUTH_USER&apos;&amp;#93;&amp;#41;">הכרחת המשתמש להזדהות</a></h2>
+<div class="userinfo">
+פתח
+<a>shlomo120</a>
+,
+<time class="timeago relativetime" datetime="2012-08-13T14:07:35+03:00" style="display:inline-block;">
+13 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText886'>
+אהלן . <br>היום ראיתי קוד באינטרנט שמכריח את הדפדפן לפתוח חלון הזדהות ממש כמו בראוטר לדוגמא . <br>הינה הקוד : <br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'PHP_AUTH_USER'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'WWW-Authenticate: Basic realm=&quot;The Realm&quot;'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'HTTP/1.0 401 Unauthorized'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'If cancel is pressed this text shows'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw3">exit</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+<span class="co1">//always escape your data//</span><br>
+<span class="re0">$user</span><span class="sy0">=</span><span class="st_h">'user'</span><span class="sy0">;</span><br>
+<span class="re0">$pass</span><span class="sy0">=</span><span class="st_h">'pass'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp;<span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'PHP_AUTH_USER'</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="re0">$user</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'PHP_AUTH_PW'</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="re0">$pass</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st_h">'Authorized'</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br>עד כמה זה אפקטיבי ? חזק? מוגן?<br>תודה . </div>
+</div>
+<h3>
+<span id="answersCounter">2 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3790">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 לאוגוסט 2012 </span>
+<a id="answer_3790" href="הכרחת המשתמש להזדהות-1.htm#answer_3790">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה בסדר גמור. השאלה לאיזה מטרה.<br>תצא מנקודת הנחה שלמשתמש יש דפדפן משלו שהוא עצמו כתב שלא יראה לו את החלון הזה.<br><br>אבל ככה או ככה זה לא משנה שום דבר. אתה עדיין צריך לנהל את ההזדהות, לבדוק שהוא הזין משתמש וסיסמה נכונה, <br>שרשמת את זה בסשן כדי לא לשאול אותו כל פעם מחדש את הסיסמה. ככה שהדבר היחידי שאתה מקבל מהדפדפן - זה טופס הזדהות מוכן. לא שום דבר אחר. לא שום הבטחה, לא שום מנגנון, לא שום דבר אחר. </p>
+</div>
+<div class="answer" id="answer3800">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/de357e71ee8c0f7547a9d3f1fb57e5c4?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>shlomo120</a>
+ב
+<span style="font-size:10px"> 14 לאוגוסט 2012 </span>
+<a id="answer_3800" href="הכרחת המשתמש להזדהות-1.htm#answer_3800">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לזה מנגנון זכירה אוטומטי . <br>שמתי את הקוד בדף מסויים וגם לאחר 5 דקות לא היתי זקוק להכניס סיסמא שוב . <br>כמובן שבודקים שהסיסמא ושם משתמש במסד . <br>(זה קוד שראיתי באינטרנט . אין לי כל כך כוונה להשתמש בו . רק לדעת עליו עוד כמה דברים ... ) </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

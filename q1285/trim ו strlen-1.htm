@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה trim ו strlen">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="Ben">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>trim ו strlen | שאלת לימוד PHP</title>
+<meta itemprop="name" content="trim ו strlen | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה trim ו strlen">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="trim ו strlen-1.htm" title="היי.אוכל לדעת למה הפונקציה ()trim אינה מורידה באמת את הרווחים ?ולמה הפונקציה ()mb_strlen מחשבת אות כ 2 תווים ומספר כתו אחד בודד ?חשבתי להשתמש במקום trim ב preg_replace בשביל להסיר את כל הרווחים במחרוזת, יש משהו יותר טוב ?בכללי, אני רוצה לחשב את מספר התווים במחרוזת, רק את התווים לא כולל הרווחים, לכן אני מסיר את הרווחים ואז מחשב את התווים ומשום מה כלום לא עובד.">trim ו strlen</a></h2>
+<div class="userinfo">
+פתח
+<a>Ben</a>
+,
+<time class="timeago relativetime" datetime="2013-03-06T20:49:54+02:00" style="display:inline-block;">
+06 למרץ 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1285'>
+היי.<br>אוכל לדעת למה הפונקציה ()trim אינה מורידה באמת את הרווחים ?<br>ולמה הפונקציה ()mb_strlen מחשבת אות כ 2 תווים ומספר כתו אחד בודד ?<br><br>חשבתי להשתמש במקום trim ב preg_replace בשביל להסיר את כל הרווחים במחרוזת, יש משהו יותר טוב ?<br>בכללי, אני רוצה לחשב את מספר התווים במחרוזת, רק את התווים לא כולל הרווחים, לכן אני מסיר את הרווחים ואז מחשב את התווים ומשום מה כלום לא עובד. </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5652">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 06 למרץ 2013 </span>
+<a id="answer_5652" href="trim ו strlen-1.htm#answer_5652">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בקשר ל strlen, הסתדרתי. הייתי צריך להוסיף UTF-8 כפרמטר שני.<br>לאלה שהסתבכו ומצאו את השאלה הזו בתוצאות של גוגל:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">mb_strlen</span><span class="br0">&#40;</span><span class="st0">&quot;סתם משהו&quot;</span><span class="sy0">,</span> <span class="st0">&quot;UTF-8&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>כמובן שזה סופר גם את הרווחים, לכן <a href="..\phplive-39.htm?code=684">התוצאה </a>תיהיה 8.<br><br>בקשר ל trim, החלפתי את זה preg_replace. יותר שימושי, לא ? </p>
+</div>
+<div class="answer" id="answer5653">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 06 למרץ 2013 </span>
+<a id="answer_5653" href="trim ו strlen-1.htm#answer_5653">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא רואה שום סיבה ש-trim לא יוריד רווחים לבנים מתחילת המחרוזת או מסופה. אתה יכול לתת את הקוד?<br>אל תשתמש ב-RegEx כשיש לך משהו אחר. </p>
+</div>
+<div class="answer" id="answer5654">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 06 למרץ 2013 </span>
+<a id="answer_5654" href="trim ו strlen-1.htm#answer_5654">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+@OrelBeY, זה הקוד, הוא ממש פשוט האמת או שאולי יש משהו שאני לא מוסיף:<br>http://phpguide.co.il/phplive?code=685 </p>
+</div>
+<div class="answer" id="answer5655">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/b6d4f6eefe111d2c1941aa17a7662971?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Michael</a>
+ב
+<span style="font-size:10px"> 06 למרץ 2013 </span>
+<a id="answer_5655" href="trim ו strlen-1.htm#answer_5655">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+From the documentation: trim — Strip whitespace (or other characters) from the <strong>beginning</strong> and <strong>end</strong> of a string </p>
+</div>
+<div class="answer" id="answer5656">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 06 למרץ 2013 </span>
+<a id="answer_5656" href="trim ו strlen-1.htm#answer_5656">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כמו שמיכאל אמר, הפונקציה trim מסירה רווחים לבנים מההתחלה של המחרוזת ומסופה, ולא מעבר לזה. במקרה הזה אתה כן תצטרך להשתמש בביטוי רגולרי. שים לב איזה סוגי רווחים לבנים אתה רוצה להסיר (רווח רגיל, שורה חדשה...). </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="PSR-0 – סטנדרט העוסק במתן שמות נכונים לניימספייסים ובמבנה התיקיות.">
+<meta name="keywords" content="PSR-0, סטנדרט ניימספסים">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>PSR-0 – סטנדרטים לכתיבת קוד</title>
+<meta itemprop="name" content="PSR-0 – סטנדרטים לכתיבת קוד">
+<meta itemprop="description" content="PSR-0 – סטנדרט העוסק במתן שמות נכונים לניימספייסים ובמבנה התיקיות.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"217","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>PSR-0 – סטנדרטים לכתיבת קוד</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2012-06-19T18:30:52+03:00" dir="rtl">19 ליוני 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/psr0.png" alt="PSR-0 – סטנדרטים לכתיבת קוד">
+</div>
+<div class="right post-content">
+קבוצה ייצוגית של מפתחים העונה לשם PHP Framework Interoperability Group עבדה בחודשים האחרונים על מסמכי סטנדרטים לכתיבת קוד PHP.<br>PSR-0 עוסק בנתינת שמות נכונים לניימספייסים (Namespaces) ובחלוקה נכונה של קבצים בתיקיות. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>מי צריך סטנדרטים</h3><br>בתחילת הקריירה שלי חשבתי שלא צריך סטנדרטים לכתיבת קוד; שכל אחד יכתוב איך שנוח לו, העיקר שיעבוד. חשבתי שכתבתי קוד ברור, קריא ומסודר, למרות שבטח הוא לא היה קריא יותר מ<a href="http://s17.postimage.org/ixubrq7sf/code.png">זה</a>. ככה זה נמשך עד הרגע שבו גיליתי שאני לא המפתח היחיד בכדור הארץ. באותו זמן, מפתחים אחרים התחילו להתפלג לשתי קטגוריות – מפתחים שלא ידעו איפה כפתור הרווח והטאב במקלדת ומפתחים שתכנתו בפוטושופ.<br><br>למזלי, השותף הראשון שלי היה שייך לקטגוריה השנייה, והתחלנו לעבוד ביחד. אני כתבתי בקוד GetName, והוא כתב get_email; אני שמתי את הקבצים בתיקייה <span dir="ltr">users</span>, והוא שם בתיקייה <span dir="ltr">data/messages</span>; אני כתבתי <span dir="ltr">&lt;?php echo</span> והוא כתב <span dir="ltr">&lt;?=</span>. כמות הזמן שבילינו בחיפוש אופן הכתיבה של האחר חסכה לנו הרבה כסף על בירה, שהיינו יכולים לשתות באותו זמן מבוזבז.<br><br><h3>PSR-0</h3><br>PSR-0 הוא סטנדרט העוסק בשמות נכונים לניימספייסים (Namespaces) ובמבנה התיקיות בפרויקט.<br>היום כמעט כל פרויקט לא בנוי רק מקוד שכתבנו בעצמנו, אלא גם מקוד שמישהו אחר כתב, ממודול אחר, מפרויקט אחר בחברה או אפילו מחברה אחרת. הסטנדרט לשמות הניימספייסים שנקבע בקבוצת ה-FIG הוא כזה:<br><strong>1. שם הניימספייס חייב להיות רשום בצורה הבאה:<br><span dir="ltr">\&lt;Vendor Name&gt;\(&lt;Namespace&gt;\)*&lt;Class Name&gt;</span></strong><br>לכל ניימספייס יש שלושה חלקים: שם הארגון שמפתח אותו, שם הניימספייס עצמו ושם המחלקה בסופו.<br><br><strong>2. כל ניימספייס חייב להיות שייך לניימספייס אב שהוא שם הארגון.</strong><br>די פשוט – כל ניימספייס חייב להתחיל משם הארגון. (שם האתר, אם אין ארגון.)<br><br><strong>3. כל ניימספייס יכול להכיל כמות בלתי מוגבלת של תתי ניימספייסים.</strong><br>כלומר גם <span dir="ltr"><span style="color:blue;">\phpguide\module1\submodule2\subsub3\MyClass</span></span> זה בסדר גמור.<br><br><strong>4. ההפרדה בין ניימספייסים מתורגמת להפרדת תיקיות.</strong><br>לדעתי, זה הכלל הכי חשוב בסטנדרט הזה. היררכיית הניימספייסים תואמת להיררכיית הקבצים והתיקיות. עבור <span dir="ltr"><span style="color:blue;">\phpguide\module1\submodule2\subsub3\MyClass</span></span> תהיה תיקייה של phpguide שבתוכה תהיה תיקייה module1 ובה תיקייה submodule2 ובה תיקייה subsub3.<br><br><strong>5. כל תו &quot;_&quot; <span class="underline">בשם המחלקה בלבד</span> מתורגם להפרדת תיקייה גם הוא.</strong><br>כאשר התו _ נמצא בשם הניימספייס אין לו שום משמעות נוספת. הדוגמה שלנו:<br><span dir="ltr"><span style="color:blue;">\phpguide\module1\submodule2\subsub3\Encoder_FFMPEG_HD</span></span> יהפוך להיות תיקיה בשם <span dir="ltr">C:../phpguide/module1/submodule2/subsub2/Encoder/FFMPEG<strong>/</strong>...</span>.<br>שימו לב לזה ש-Encoder ו-FFMPEG הם עכשיו שמות של תיקיות שבתוכן יהיה הקובץ HD.php.<br><br><strong>6. אל שם הניימספייס המלא עם שם המחלקה מצורפת הסיומת <span dir="ltr">.php</span> כאשר שומרים אותם בקבצים.</strong><br>כלומר המחלקה <span dir="ltr"><span style="color:blue;">\phpguide\module1\submodule2\subsub3\Encoder_FFMPEG_HD</span></span> תהיה שמורה בקובץ <span dir="ltr">C:../phpguide/module1/submodule2/subsub2/Encoder/FFMPEG/HD.php</span>.<br><br><strong>7. האותיות בשמות יכולות להיות רק באנגלית.</strong><br>גם מספרים וקו תחתון מתקבלים, אבל לא אותיות בצ&#039;רקסית.<br><br><h4>דוגמאות</h4><br><div class="php codeblock">\Doctrine\Common\IsolatedClassLoader <span class="sy0">=&gt;</span> <span class="sy0">/</span>path<span class="sy0">/</span>to<span class="sy0">/</span>project<span class="sy0">/</span>lib<span class="sy0">/</span>vendor<span class="sy0">/</span>Doctrine<span class="sy0">/</span>Common<span class="sy0">/</span>IsolatedClassLoader<span class="sy0">.</span>php<br>
+<br>
+\Symfony\Core\Request <span class="sy0">=&gt;</span> <span class="sy0">/</span>path<span class="sy0">/</span>to<span class="sy0">/</span>project<span class="sy0">/</span>lib<span class="sy0">/</span>vendor<span class="sy0">/</span>Symfony<span class="sy0">/</span>Core<span class="sy0">/</span>Request<span class="sy0">.</span>php<br>
+<br>
+\Zend\Acl <span class="sy0">=&gt;</span> <span class="sy0">/</span>path<span class="sy0">/</span>to<span class="sy0">/</span>project<span class="sy0">/</span>lib<span class="sy0">/</span>vendor<span class="sy0">/</span>Zend<span class="sy0">/</span>Acl<span class="sy0">.</span>php<br>
+<br>
+\Zend\<span class="kw3">Mail</span>\Message <span class="sy0">=&gt;</span> <span class="sy0">/</span>path<span class="sy0">/</span>to<span class="sy0">/</span>project<span class="sy0">/</span>lib<span class="sy0">/</span>vendor<span class="sy0">/</span>Zend<span class="sy0">/</span><span class="kw3">Mail</span><span class="sy0">/</span>Message<span class="sy0">.</span>php<br>
+<br>
+\<span class="kw2">namespace</span>\package\Class_Name <span class="sy0">=&gt;</span> <span class="sy0">/</span>path<span class="sy0">/</span>to<span class="sy0">/</span>project<span class="sy0">/</span>lib<span class="sy0">/</span>vendor<span class="sy0">/</span><span class="kw2">namespace</span><span class="sy0">/</span>package<span class="sy0">/</span><span class="kw2">Class</span><span class="sy0">/</span>Name<span class="sy0">.</span>php<br>
+<br>
+\<span class="kw2">namespace</span>\package_name\Class_Name <span class="sy0">=&gt;</span> <span class="sy0">/</span>path<span class="sy0">/</span>to<span class="sy0">/</span>project<span class="sy0">/</span>lib<span class="sy0">/</span>vendor<span class="sy0">/</span><span class="kw2">namespace</span><span class="sy0">/</span>package_name<span class="sy0">/</span><span class="kw2">Class</span><span class="sy0">/</span>Name<span class="sy0">.</span>php</div><br><br>יש גם קוד מוכן ל-Autoloader <a href="https://gist.github.com/221634">בכתובת הזו</a>.<br>כמובן שכל זה עוסק בספריות שמיועדות לשימוש של מישהו. איש לא מצפה שכל האתר שלכם יהיה בנוי מניימספייסים, אבל המחלקות שתוכלו להשתמש בהן בפרויקטים אחרים – אכן צריכות לענות לסטנדרטים האלה.<br><br>אגב, למי שמשתמש בכל מיני פריימוורקים, רובם כוללים תיקיה בשם vendors שמיועדת בדיוק על מנת להכיל את הקוד של אנשים אחרים שתרצו להוסיף לפרויקט שלכם. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1664"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2012 21:40</span><br>
+אגב, קבוצת ה fig מורכבת ממפתחי פריימוורקים וכלים פופולריים אחרים, ביניהם מפתחי <br>
+lithium, phpbb, pear, joomla, droopal, propel, doctrine, cakephp, symphony, zf, ezpublish <br>
+ועוד כמה בכמות של נציג אחד לפרוייקט או 23 סה&quot;כ</div>
+<a id="comment1665"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2012 21:41</span><br>
+מי כותב את המדריך הבא על מה זה ניימספייס ? :)</div>
+<a id="comment1666"></a>
+<div class="blog-comment">
+<span class='comment-author'>משתמש_243718</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2012 21:41</span><br>
+נראה לא נוח בעליל, אבל תודה.</div>
+<a id="comment1667"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2012 21:43</span><br>
+האמת שאני מוצא אותו להרבה יותר נוח מסטנדרטים אחרים. חוץ מזה, הפריימוורק שלך כבר בטח כולל את הסקריפטים לטעינה של דברים כאלה, ככה שלך בתור מפתח נשאר רק לזכור לתת שמות נכונים לניימספייסים שאתה יוצר לשימוש חיצוני</div>
+<a id="comment1668"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2012 21:46</span><br>
+עוד פעם, לא מדובר בזה שאתה עכשיו צריך לכתוב את כל הקוד שלך בצורה הזאת.<br>
+מדובר בנתינת שמות נכונים למחלקות ופרויקטים שאתה מפרסם החוצה ורוצה שאנשים אחרים ישתמשו בהם.</div>
+<a id="comment1669"></a>
+<div class="blog-comment">
+<span class='comment-author'>cthulhu</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2012 21:54</span><br>
+התחביר של הניימספסים ב-php הוא די זוועתי למען האמת.</div>
+<a id="comment1670"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>19/06/2012 22:05</span><br>
+המפתחים הסבירו את זה בכך שתו \ היה התו היחידי הפנוי בשפה :)</div>
+<a id="comment1675"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2012 15:50</span><br>
+אני ממש מאוהב מ namespaces ובניתי מערכת גדולה+<br>
+עם זה, וזה נוח בטירוף,<br>
+התחביר נהיה קל בהרבה ברגע שמשתמשים ב use<br>
+</div>
+<a id="comment1700"></a>
+<div class="blog-comment">
+<span class='comment-author'>iosolidar</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>27/06/2012 11:36</span><br>
+אתה יודע מה אני חושב על רמת האירגון של רוב קוד ה-PHP וזה דחיפה מעולה לכיוון הנכון :).<br>
+<br>
+והקוד בתמונה ~זוועה~, הייתה לי פעם עבודה של הוספת תכונות למערכת עם קוד שנראה מאוד דומה לזה, היה סיוט.</div>
+<a id="comment2645"></a>
+<div class="blog-comment">
+<span class='comment-author'>ldbrgr</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/10/2013 13:43</span><br>
+זה רק חלק מהתקן, ההמשך פה: <span dir="ltr"><a href="https://github.com/php-fig/fig-standards/tree/master/accepted">https://github.com/php-fig/fig-standards/tree/master/accepted</a></span></div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

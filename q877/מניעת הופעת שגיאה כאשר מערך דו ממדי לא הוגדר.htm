@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="OrelBeY">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר | שאלת לימוד PHP</title>
+<meta itemprop="name" content="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">11</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm" title="&amp;lt;?php
+if &amp;#40;@$errors&amp;#91;&apos;inserting&apos;&amp;#93;&amp;#91;&apos;connecting&apos;&amp;#93;&amp;#41; &amp;#123;
+?&amp;gt;
+&amp;nbsp; &amp;nbsp; &amp;n">מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר</a></h2>
+<div class="userinfo">
+פתח
+<a>OrelBeY</a>
+,
+<time class="timeago relativetime" datetime="2012-08-12T14:19:52+03:00" style="display:inline-block;">
+12 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText877'>
+<div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">@</span><span class="re0">$errors</span><span class="br0">&#91;</span><span class="st_h">'inserting'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'connecting'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="sy0">@</span><span class="re0">$errors</span><span class="br0">&#91;</span><span class="st_h">'inserting'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'connecting'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/strong&gt;&lt;/p&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="br0">&#125;</span><br>
+<span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">@</span><span class="re0">$errors</span><span class="br0">&#91;</span><span class="st_h">'inserting'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'query'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="sy0">@</span><span class="re0">$errors</span><span class="br0">&#91;</span><span class="st_h">'inserting'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'query'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/strong&gt;&lt;/p&gt;<br>
+<span class="kw2">&lt;?php</span><br>
+<span class="br0">&#125;</span></div><br>בלי השטרודלים PHP זרק לי 2 שגיאות. אני מודע לכך שלא תמיד כשהסקריפט הזה ירוץ המערכים האלה יהיו קיימים, אבל אין דרך למנוע מ-PHP לזרוק לי שגיאות על זה חוץ מלהוסיף שם שטרודלים או לבדוק קודם אם הם הוגדרו באמצעות isset? </div>
+</div>
+<h3>
+<span id="answersCounter">11 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3747">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2012 </span>
+<a id="answer_3747" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3747">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+(טעות שלי; לא הייתי צריך להוסיף שטרודלים ב-echo.) </p>
+</div>
+<div class="answer" id="answer3748">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2012 </span>
+<a id="answer_3748" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3748">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בכלל לא היית צריך להוסיף שטרודלים... </p>
+</div>
+<div class="answer" id="answer3749">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d5489318b0ce990d7ea29e0cffd43110?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>JBStyle</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2012 </span>
+<a id="answer_3749" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3749">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה רע בisset ? </p>
+</div>
+<div class="answer" id="answer3750">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2012 </span>
+<a id="answer_3750" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3750">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כי יכול להיות שזה יהיה קיים אבל יכיל false, כך שבעצם אצטרך לכתוב יותר מתנאי אחד, אז אני מעדיף פשוט שטרודל. </p>
+</div>
+<div class="answer" id="answer3751">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/665efa711b885fb0bfda346fbe51c95c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>nirbe</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2012 </span>
+<a id="answer_3751" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3751">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<strong>זה לא קשור לנושא,</strong> אבל פעם ראשונה שאני רואה שימוש ב @, מה זה עושה בדיוק? </p>
+</div>
+<div class="answer" id="answer3753">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9965d88c814c14ff0ca3a089b5986402?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Y_Y</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2012 </span>
+<a id="answer_3753" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3753">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+nirbe-התעלמות משגיאות ואזהרות </p>
+</div>
+<div class="answer" id="answer3759">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d9f08e20b975b3c1cbdb6c49a1a46118?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>xzxxx7</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2012 </span>
+<a id="answer_3759" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3759">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מישהו פעם ניסח את השימוש בשטרודל ככה: (אין לי מושג מי XD)<br><em>&quot;להשתמש בשטרודל זה כמו שתגיד לרופא שכואבת לך האוזן אז הוא יכרות אותה.&quot;</em>, אני די מסכים איתו.<br>אין שום סיבה הגיונית להשתמש בשטרודל, אתה לא רוצה שיופיע שגיאות? תבטל אותן בPHP.INI, אין שום סיבה שהמנוע יבנה את השגיאה ולא יציג אותה.<br><br>בדיוק בשביל המצב שלך את את הפונקצה IsSet:<br><div class="php codeblock"><span class="kw2">&lt;?php</span> <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$errors</span><span class="br0">&#91;</span><span class="st_h">'inserting'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'connecting'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">:</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$errors</span><span class="br0">&#91;</span><span class="st_h">'inserting'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'connecting'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/strong&gt;&lt;/p&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">endif</span><span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$errors</span><span class="br0">&#91;</span><span class="st_h">'inserting'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'query'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">:</span> <span class="sy1">?&gt;</span><br>
+&nbsp; &nbsp; &lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;<span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$errors</span><span class="br0">&#91;</span><span class="st_h">'inserting'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'query'</span><span class="br0">&#93;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span>&lt;/strong&gt;&lt;/p&gt;<br>
+<span class="kw2">&lt;?php</span> <span class="kw1">endif</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>במצב של &quot;כי יכול להיות שזה יהיה קיים אבל יכיל false&quot;, תשתמש ב<a href="http://php.net/empty">EMPTY</a> <br><br>בהצלחה D: </p>
+</div>
+<div class="answer" id="answer3760">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 12 לאוגוסט 2012 </span>
+<a id="answer_3760" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3760">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני רוצה שהוא יציג שגיאות, אבל לא שגיאות שאני מטפל בהן בעצמי.<br><br>אה, לא ידעתי ש-empty מחזירה false כשהמשתנה מכיל false. תודה. :) </p>
+</div>
+<div class="answer" id="answer3832">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 לאוגוסט 2012 </span>
+<a id="answer_3832" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3832">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש ב-JS פונקציה כמו empty של PHP? </p>
+</div>
+<div class="answer" id="answer3833">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d5489318b0ce990d7ea29e0cffd43110?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>JBStyle</a>
+ב
+<span style="font-size:10px"> 14 לאוגוסט 2012 </span>
+<a id="answer_3833" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3833">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא חושב, אבל תוכל ליצור מימוש שלה .<br>בPHP הפונקציה empty עובדת באותה צורה של התנאי:<br>!isset($var) || $var == false </p>
+</div>
+<div class="answer" id="answer3834">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 14 לאוגוסט 2012 </span>
+<a id="answer_3834" href="מניעת הופעת שגיאה כאשר מערך דו ממדי לא הוגדר.htm#answer_3834">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+וזה לא יזרוק לי שגיאה אם המשתנה לא קיים? </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

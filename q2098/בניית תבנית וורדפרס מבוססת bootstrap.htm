@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה בניית תבנית וורדפרס מבוססת bootstrap">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mmm">
+<link rel="shortcut icon" href="..\static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>בניית תבנית וורדפרס מבוססת bootstrap | שאלת לימוד PHP</title>
+<meta itemprop="name" content="בניית תבנית וורדפרס מבוססת bootstrap | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה בניית תבנית וורדפרס מבוססת bootstrap">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index.htm"><img src="..\static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index.htm">פוסטים</a></li>
+<li><a href="..\qna.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">1</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="בניית תבנית וורדפרס מבוססת bootstrap.htm" title="בניתי תבנית וורדפרס מבוססת bootstrap, אך איני מצליח לערוך את עיצוב התפריטים כך שיתאימו לbootstrap, מפני שוורדפרס קובע את תצורת התפריטים בעצמו. ניסיתי תוספים ופילטרים למיניהם ללא הצלחה. רעיונות?">בניית תבנית וורדפרס מבוססת bootstrap</a></h2>
+<div class="userinfo">
+פתח
+<a>mmm</a>
+,
+<time class="timeago relativetime" datetime="2015-01-04T16:16:53+02:00" style="display:inline-block;">
+04 לינואר 2015 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText2098'>
+בניתי תבנית וורדפרס מבוססת bootstrap, אך איני מצליח לערוך את עיצוב התפריטים כך שיתאימו לbootstrap, מפני שוורדפרס קובע את תצורת התפריטים בעצמו. ניסיתי תוספים ופילטרים למיניהם ללא הצלחה. רעיונות? </div>
+</div>
+<h3>
+<span id="answersCounter">1 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer9335">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/90860abb074d988fac6c0f767e6eda62?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>omerbsh</a>
+ב
+<span style="font-size:10px"> 12 לאפריל 2015 </span>
+<a id="answer_9335" href="בניית תבנית וורדפרס מבוססת bootstrap.htm#answer_9335">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+היי , ניתקלתי באותה בעייה באתר שלי <a href="http://www.omerbsh.com/%D7%9E%D7%AA%D7%9B%D7%A0%D7%AA-php/">מתכנת PHP</a> , העניין בוורדפרס שכדי להתאים את התפריט לאתר שלך יש צורך בשימוש בmenu api שלהם , והתיעוד נמצא כאן - <br>https://codex.wordpress.org/Function_Reference/wp_nav_menu<br><br>אתה צריך לשנות את ההגדרות שנקראות container בעצם לdiv שעוטף לך את התפריט (לפי מה שBootstrap דורש) , וכדי לשנות את הפריטים בתפריט עצמו אתה צריך ליצור Class ולטעון אותה באובייקט - walker (גם כתוב עליו בדוקומנטציה).<br><br>זה מה שאני עשיתי שים לב , זה הclass של הwalker שלי - <br><div class="php codeblock"><span class="kw2">class</span> Custom_Walker_Nav_Menu <span class="kw2">extends</span> Walker_Nav_Menu <span class="br0">&#123;</span><br>
+&nbsp; <br>
+&nbsp; &nbsp; <span class="kw2">function</span> start_el <span class="br0">&#40;</span> <span class="sy0">&amp;</span><span class="re0">$output</span><span class="sy0">,</span> <span class="re0">$item</span><span class="sy0">,</span> <span class="re0">$depth</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="re0">$args</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="re0">$id</span> <span class="sy0">=</span> <span class="nu0">0</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$indent</span> <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="re0">$depth</span> <span class="br0">&#41;</span> ? <span class="kw3">str_repeat</span><span class="br0">&#40;</span> <span class="st0">&quot;<span class="es1">\t</span>&quot;</span><span class="sy0">,</span> <span class="re0">$depth</span> <span class="br0">&#41;</span> <span class="sy0">:</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$classes</span> <span class="sy0">=</span> <span class="kw3">empty</span><span class="br0">&#40;</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">classes</span> <span class="br0">&#41;</span> ? <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">:</span> <span class="br0">&#40;</span><span class="kw3">array</span><span class="br0">&#41;</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">classes</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$classes</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'menu-item-'</span> <span class="sy0">.</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">ID</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="co1">//print_r($classes);</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$class_names</span> <span class="sy0">=</span> <span class="kw3">join</span><span class="br0">&#40;</span> <span class="st_h">' '</span><span class="sy0">,</span> apply_filters<span class="br0">&#40;</span> <span class="st_h">'nav_menu_css_class'</span><span class="sy0">,</span> <span class="kw3">array_filter</span><span class="br0">&#40;</span> <span class="re0">$classes</span> <span class="br0">&#41;</span><span class="sy0">,</span> <span class="re0">$item</span><span class="sy0">,</span> <span class="re0">$args</span><span class="sy0">,</span> <span class="re0">$depth</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$class_names</span> <span class="sy0">=</span> <span class="re0">$class_names</span> ? <span class="st_h">' class=&quot;'</span> <span class="sy0">.</span> esc_attr<span class="br0">&#40;</span> <span class="re0">$class_names</span> <span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">'&quot;'</span> <span class="sy0">:</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$id</span> <span class="sy0">=</span> apply_filters<span class="br0">&#40;</span> <span class="st_h">'nav_menu_item_id'</span><span class="sy0">,</span> <span class="st_h">'menu-item-'</span><span class="sy0">.</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">ID</span><span class="sy0">,</span> <span class="re0">$item</span><span class="sy0">,</span> <span class="re0">$args</span><span class="sy0">,</span> <span class="re0">$depth</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$id</span> <span class="sy0">=</span> <span class="re0">$id</span> ? <span class="st_h">' id=&quot;'</span> <span class="sy0">.</span> esc_attr<span class="br0">&#40;</span> <span class="re0">$id</span> <span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">'&quot;'</span> <span class="sy0">:</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> <span class="re0">$indent</span> <span class="sy0">.</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$atts</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$atts</span><span class="br0">&#91;</span><span class="st_h">'title'</span><span class="br0">&#93;</span> &nbsp;<span class="sy0">=</span> <span class="sy0">!</span> <span class="kw3">empty</span><span class="br0">&#40;</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">attr_title</span> <span class="br0">&#41;</span> ? <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">attr_title</span> <span class="sy0">:</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$atts</span><span class="br0">&#91;</span><span class="st_h">'target'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="sy0">!</span> <span class="kw3">empty</span><span class="br0">&#40;</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">target</span> <span class="br0">&#41;</span> &nbsp; &nbsp; ? <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">target</span> &nbsp; &nbsp; <span class="sy0">:</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$atts</span><span class="br0">&#91;</span><span class="st_h">'rel'</span><span class="br0">&#93;</span> &nbsp; &nbsp;<span class="sy0">=</span> <span class="sy0">!</span> <span class="kw3">empty</span><span class="br0">&#40;</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">xfn</span> <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp;? <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">xfn</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">:</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$atts</span><span class="br0">&#91;</span><span class="st_h">'href'</span><span class="br0">&#93;</span> &nbsp; <span class="sy0">=</span> <span class="sy0">!</span> <span class="kw3">empty</span><span class="br0">&#40;</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">url</span> <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp;? <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">url</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">:</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$atts</span> <span class="sy0">=</span> apply_filters<span class="br0">&#40;</span> <span class="st_h">'nav_menu_link_attributes'</span><span class="sy0">,</span> <span class="re0">$atts</span><span class="sy0">,</span> <span class="re0">$item</span><span class="sy0">,</span> <span class="re0">$args</span><span class="sy0">,</span> <span class="re0">$depth</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$attributes</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span> <span class="re0">$atts</span> <span class="kw1">as</span> <span class="re0">$attr</span> <span class="sy0">=&gt;</span> <span class="re0">$value</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="sy0">!</span> <span class="kw3">empty</span><span class="br0">&#40;</span> <span class="re0">$value</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$value</span> <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st_h">'href'</span> <span class="sy0">===</span> <span class="re0">$attr</span> <span class="br0">&#41;</span> ? esc_url<span class="br0">&#40;</span> <span class="re0">$value</span> <span class="br0">&#41;</span> <span class="sy0">:</span> esc_attr<span class="br0">&#40;</span> <span class="re0">$value</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$attributes</span> <span class="sy0">.=</span> <span class="st_h">' '</span> <span class="sy0">.</span> <span class="re0">$attr</span> <span class="sy0">.</span> <span class="st_h">'=&quot;'</span> <span class="sy0">.</span> <span class="re0">$value</span> <span class="sy0">.</span> <span class="st_h">'&quot;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$item_output</span> <span class="sy0">=</span> <span class="re0">$args</span><span class="sy0">-&gt;</span><span class="me1">before</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$classes</span><span class="br0">&#91;</span><span class="nu0">4</span><span class="br0">&#93;</span><span class="sy0">==</span><span class="st_h">'current-menu-item'</span><span class="br0">&#41;</span> <br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$ba</span> <span class="sy0">=</span> <span class="st_h">'active'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$ba</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$item_output</span> <span class="sy0">.=</span> <span class="st_h">'&lt;a'</span><span class="sy0">.</span> <span class="re0">$attributes</span> <span class="sy0">.</span><span class="st_h">' class=&quot;list-group-item '</span><span class="sy0">.</span><span class="re0">$ba</span><span class="sy0">.</span><span class="st_h">'&quot;&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="co4">/** This filter is documented in wp-includes/post-template.php */</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$item_output</span> <span class="sy0">.=</span> <span class="re0">$args</span><span class="sy0">-&gt;</span><span class="me1">link_before</span> <span class="sy0">.</span> apply_filters<span class="br0">&#40;</span> <span class="st_h">'the_title'</span><span class="sy0">,</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">title</span><span class="sy0">,</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">ID</span> <span class="br0">&#41;</span> <span class="sy0">.</span> <span class="re0">$args</span><span class="sy0">-&gt;</span><span class="me1">link_after</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$item_output</span> <span class="sy0">.=</span> <span class="st_h">'&lt;/a&gt;'</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$item_output</span> <span class="sy0">.=</span> <span class="re0">$args</span><span class="sy0">-&gt;</span><span class="me1">after</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> apply_filters<span class="br0">&#40;</span> <span class="st_h">'walker_nav_menu_start_el'</span><span class="sy0">,</span> <span class="re0">$item_output</span><span class="sy0">,</span> <span class="re0">$item</span><span class="sy0">,</span> <span class="re0">$depth</span><span class="sy0">,</span> <span class="re0">$args</span> <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> end_el<span class="br0">&#40;</span> <span class="sy0">&amp;</span><span class="re0">$output</span><span class="sy0">,</span> <span class="re0">$item</span><span class="sy0">,</span> <span class="re0">$depth</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="re0">$args</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re0">$output</span> <span class="sy0">.=</span> <span class="st0">&quot;&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<span class="br0">&#125;</span></div><br><br>שלמעשה בתוכו אתה מתאים את הפריטים בתפריט כך שיצאימו עם Bootstrap . וכך אתה טוען את הclass כאשר אתה קורא לתפריט - <br><div class="php codeblock"><span class="kw2">&lt;?php</span> wp_nav_menu<span class="br0">&#40;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'theme_location'</span> &nbsp;<span class="sy0">=&gt;</span> <span class="st_h">'sidebar-menu'</span><span class="sy0">,</span><span class="st_h">'walker'</span> <span class="sy0">=&gt;</span> <span class="kw2">new</span> Custom_Walker_Nav_Menu<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></div><br><br>ממליץ שתבדוק איך הקובץ הבא של וורדפרס בנוי - <br>https://core.trac.wordpress.org/browser/tags/4.1.1/src//wp-includes/nav-menu-template.php#L0 </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="..\static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

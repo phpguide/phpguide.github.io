@@ -1,0 +1,658 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה 2 שאלות לגסי סשן.">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="משתמש_92562">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>2 שאלות לגסי סשן. | שאלת לימוד PHP</title>
+<meta itemprop="name" content="2 שאלות לגסי סשן. | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה 2 שאלות לגסי סשן.">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">36</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="2 שאלות לגסי סשן-1.htm" title="1.גניבת הסשן/קוקי יכולה להתבצע רק באמצעות הזרקת קוד JS בטפסים באתר? - אם כן אז אצלי הטפסים    מוגנים בפילטרים ובביטוי רגולרי,כך שלהגן על הסשן/קוקי זה מיותר,כי אין לו איך לגנוב אותם...2.אם נגנב סשן למשתמש, אז לפורץ יש רק את המזהה של הסשן. הוא יכול להתחבר עם זה לאתר-במידה ויש שם ערך של שם,וסיסמא מוצפנת?(לדעתי כן כי הבדיקה מחזירה שבאמת יש כזה שם וסיסמא,אבל אני לא בטוח בזה.)3.שאלה מספר 2 תקפה גם לגניבת קוקיתודה">2 שאלות לגסי סשן.</a></h2>
+<div class="userinfo">
+פתח
+<a>משתמש_92562</a>
+,
+<time class="timeago relativetime" datetime="2012-01-27T09:56:16+02:00" style="display:inline-block;">
+27 לינואר 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText180'>
+1.גניבת הסשן/קוקי יכולה להתבצע רק באמצעות הזרקת קוד JS בטפסים באתר? - אם כן אז אצלי הטפסים מוגנים בפילטרים ובביטוי רגולרי,כך שלהגן על הסשן/קוקי זה מיותר,כי אין לו איך לגנוב אותם...<br><br>2.אם נגנב סשן למשתמש, אז לפורץ יש רק את המזהה של הסשן. הוא יכול להתחבר עם זה לאתר-במידה ויש שם ערך של שם,וסיסמא מוצפנת?(לדעתי כן כי הבדיקה מחזירה שבאמת יש כזה שם וסיסמא,אבל אני לא בטוח בזה.)<br><br>3.שאלה מספר 2 תקפה גם לגניבת קוקי<br><br>תודה<br> </div>
+</div>
+<h3>
+<span id="answersCounter">36 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer720">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_720" href="2 שאלות לגסי סשן-1.htm#answer_720">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1. ב 99% מהמקרים גניבת קוקי זה באמת חור מסוג xss באתר. ולאגן צריך לא על טפסים, אלה על הדפסת נתונים לעמוד. ראה עוד על XSS - Cross Site Scripting<br>אך כמובן שיכולים סתם לבוא למישהו הביית, להעתיק ממנו את כל הקוקיז לדיסק וללכת. <br>זה כבר פחות בעיה שלך :)<br><br>2. אם הוא גנב לך את הסשן - אז הוא יכול להיתחבר עם שמך. הוא לא יידע מה שם המשתמש והסיסמה, אבל אם הוא ישלח את אותו מזהה סשן שאתה בדרך כלל שולח לשרת - אז השרת יחשוב שהוא זה אתה.<br>מה ששמור בשרת בסשן לא מעניין אף אחד, מעניין רק המזהה הזה, ואם הוא יודע אותו - הוא יכול להתחזות לך.<br><br>3. כנ&quot;ל לגבי קוקי. גנבו לך את הקוקי - השרת יפענח אותו - יוציא משם את שם המשתמש שלך ויחשוב שמי שעכשיו מחובר זה אתה </p>
+</div>
+<div class="answer" id="answer721">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/1552b9210f0a532c76702922fa13fcba?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_92562</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_721" href="2 שאלות לגסי סשן-1.htm#answer_721">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז לגבי 1. צריך להשתמש בפונקצייה <div class="php codeblock"><span class="kw3">htmlentities</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="kw4">ENT_QUOTES</span><span class="br0">&#41;</span></div>.<br> וכדי בכל זאת להוסיף את האבטחה על הסשן/קוקי ליתר ביטחון..(או שלא כי זה מיותר??)<br>ולגבי 2. אסור לשמור בסשן פרטים מזהים כמו שם וסיסמה. אלא לשמור רק פרטים כמו: IP,סוג דפדפן,וID- בשביל שליפת נתונים.<br>אני צודק ב1 ו2?<br> </p>
+</div>
+<div class="answer" id="answer722">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9b9720ee786b394503dbadb8ad240c06?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_94954</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_722" href="2 שאלות לגסי סשן-1.htm#answer_722">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw3">htmlSpecialChars</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="kw4">ENT_QUOTES</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="br0">&#40;</span><span class="sy0">;</span></div><br>בסשן מותר לשמור הכל כי אף אחד לא יכול לקרוא משם שום דבר חוץ ממך. בקוקי אסור, כי את הקוקי המשתמש יכול לקרוא. חוץ מזה בסשן אתה כבר לא צריך סיסמה, רק את שם המשתמש המזוהה </p>
+</div>
+<div class="answer" id="answer723">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/1552b9210f0a532c76702922fa13fcba?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_92562</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_723" href="2 שאלות לגסי סשן-1.htm#answer_723">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון שבסשן אני לא יכניס סיסמא,<br>אלא רק את שם המזהה ועוד כמה פרמטרים כמו IP וסוג דפדפן.<br>אבל אני שואל: <span class="underline">נניח</span> שיש לי בסשן שם וסיסמא,אז ברגע שהאקר מריץ את הסשן אמנם הוא לא רואה את המידע,אבל הוא מתחבר לאתר. לא כך?<br><br>דבר נוסף: כמו שאמרתי קודם,בסשן יש לי 3 פרמטרים ID IP וסוג דפדפן. אז אני צריך לשלוח 3 סשנים או שיש דרך נוחה יותר שהכל בסשן 1? </p>
+</div>
+<div class="answer" id="answer724">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9b9720ee786b394503dbadb8ad240c06?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_94954</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_724" href="2 שאלות לגסי סשן-1.htm#answer_724">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נכון, אבל זה לא משנה מה רשום לך בסשן, אם גנבו למשתמש את מזהה הסשן שלו - יכולים להתחזות אליו </p>
+</div>
+<div class="answer" id="answer726">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/1552b9210f0a532c76702922fa13fcba?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_92562</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_726" href="2 שאלות לגסי סשן-1.htm#answer_726">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל אם יש בסשן את הIP וגרסת הדפדפן שלו,<br><span class="underline">ובכל עמוד באתר יש בדיקה האם המידע הזה שבסשן שווה לגולש,אז אי אפשר להתחזות..</span><br>(כי הIP שלך שונה משל האקר סעודי,וגם הדפדפן יכול להיות שונה).<br><br>לגבי השאלה השנייה: אז אם עשיתי הגנת XSS אז אי אפשר לגנוב קוקי/סשן,אז כדי בכלל להגן על הסשן והקוקי עם כל הפרטים של IP ודפדפן או שזה כבר מיותר?<br><strong>דבר נוסף</strong> למה שינית את הקוד לזה:htmlSpecialChars,במה זה שונה ממה שאני כתבתי:htmlentities </p>
+</div>
+<div class="answer" id="answer727">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_727" href="2 שאלות לגסי סשן-1.htm#answer_727">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה נכון. אתה יכול להוסיף באמת בדיקה בכל עמוד שה IP של הגולש זהה לזה שאיתו הוא הזדהה באתר בהתחלה. זה אקטואלי למקרים שכבר גנבו לך את הסשן. אם יש לך הגנה מפני xss אז אין אפשרות לגנוב לך את הסשן, ואז גם הבדיקה הזו מיותרת.<br><br>htmlSpecialChars מחליף רק את התווים שעושים בעיות ב htmlentity שלהם (כלומר גרש, גרשיים, אמפרסנד, גדול מ, קטן מ).<br>htmlEntities עושה את זה לכל התווים ואין צורך לעשות את זה לכל התווים. מספיק לעשות את ה encode רק לתווים שיכולים לעשות משהו בכלל. </p>
+</div>
+<div class="answer" id="answer731">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/1552b9210f0a532c76702922fa13fcba?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_92562</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_731" href="2 שאלות לגסי סשן-1.htm#answer_731">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לגבי החלק הראשון-תודה,אז אני לא צריך להתחיל לאבטח את הסשן/קוקי..<br>ולגבי מניעת XSS(שזה בעצם יגן על הסשן/קוקי) אז לא הבנתי בסופו של דבר: איזה פונקצייה לכתוב?-רק את <br>htmlSpecialChars?(*ואיזה פרמטרים לשים לו,חוץ מהמחרוזת כמובן) </p>
+</div>
+<div class="answer" id="answer733">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_733" href="2 שאלות לגסי סשן-1.htm#answer_733">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בדיוק ככה<br><div class="php codeblock"><span class="kw3">htmlSpecialChars</span><span class="br0">&#40;</span><span class="re0">$str</span><span class="sy0">,</span> <span class="kw4">ENT_QUOTES</span><span class="sy0">,</span> <span class="st_h">'UTF-8'</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer738">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 27 לינואר 2012 </span>
+<a id="answer_738" href="2 שאלות לגסי סשן-1.htm#answer_738">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה לא הגנה מספיקה כי יש עם זה בעיות בדפדפנים ישנים יותר. לכן כדאי להשתמש ב-htmlpurifier. </p>
+</div>
+<div class="answer" id="answer787">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d983610489a3418245729ee2ad595a48?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_96419</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_787" href="2 שאלות לגסי סשן-1.htm#answer_787">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+קיבלתי כמה תובנות בעניין:<br> אנחנו מגנים על גניבת הקוקי/סשן,באמצעות מניעת XSS-שזה הדרך היחידה לגניבה(ע&quot;י פילטרים או ביטוי רגולרי בטפסים).<br><strong>אבל מה קורה אם המשתמש משנה את הקוקי של עצמו?</strong>-שאת זה הוא כבר לא צריך לגנוב...<br>לכן צריך לבצע גם הגנה על הקוקי/סשן כך:(<span class="underline">תקנו אותי אם אני תועה</span>)<br><strong>סשן:</strong>מקבל רק ערך של ID לצורך שליפת נתונים(כי אין מצב לנחש את המזהה של הסשן-זה כמו ניחוש סיסמא)<br><strong>קוקי:</strong>מקבל ID וסיסמא-מוצפנת. הID לצורך שליפת נתונים,והסיסמא: שלמקרה והוא ישנה את הפרטים בקוקי אז הוא צריך לכתוב סיסמא...כך שאין מצב לזה<br>וזה הגנה מספקת לדעתי. </p>
+</div>
+<div class="answer" id="answer791">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_791" href="2 שאלות לגסי סשן-1.htm#answer_791">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&gt;&gt; אנחנו מגנים על גניבת הקוקי/סשן,באמצעות מניעת XSS-שזה הדרך היחידה לגניבה(ע&quot;י פילטרים או ביטוי רגולרי בטפסים)<br><br>לא! זה ממש לא נכון. אתה מגן מפני sql injection ע&quot;י פילטרים וביטויים, עם בכל (כי יותר בטוח real_escape<br>מ XSS אתה מגן רק עם htmlSpecialChars / htmlpurifier<br><br><br>כדי שמשתמש לא ישנה את הקוקי של עצמו לא צריך שום סיסמה. <br>צריך בסה&quot;כ לגבב ( לשמור hash ) של הנתונים בקוקי, ככה שעם הוא ישנה את הנתונים הגלויים, את הנתונים בhash הוא לא ישנה. <a href="..\phplive-2.htm?code=249">ראה דוגמה</a>. אין שם סיסמה בקוקי, אבל אתה לא יכול לשנות שום דבר.<br> </p>
+</div>
+<div class="answer" id="answer795">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d983610489a3418245729ee2ad595a48?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_96419</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_795" href="2 שאלות לגסי סשן-1.htm#answer_795">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&gt;&gt;לא! זה ממש לא נכון..<br>זאת אומרת שהXSS פועל רק כשאני מדפיס את הקלט מהמשתמש?<br>(ואז פשוט להשתמש בפונקצייה htmlSpecialChars).<br><br>&gt;&gt;כדי שמשתמש לא ישנה את הקוקי של עצמו לא צריך שום סיסמה..<br>התכוונתי לומר שברגע שמנענו את גניבת הקוקי,אז נשאר לפצחן רק דרך אחת לפרוץ:<br>ע&quot;י שהוא פותח את הקוקי של עצמו ומשנה שם את הפרטים.<br>אז אם נשים בקוקי רק ID הוא מנחש את זה בקלות<br>ולכן נשים בקוקי גם את הסיסמא(מוצפנת),ואז כדי לפרוץ למשתמש אחר הוא יצטרך להכניס לקוקי את הסיסמא של אותו משתמש שאותה הוא לא יודע.<br>[<strong>אבל</strong>באמת לשנות את הקוקי של עצמו,כמו שאמרת זה חופשי,רק שהוא לא ידע איזה ערך(סיסמא)לשים]<br>ובכך לפי דעתי אבטחנו בצורה מלאה ונכונה את הקוקי והסשן<br>רק שלגבי סשן מספיק רק ID ולא צריך סיסמא כי המזהה של הסשן זה קצת יותר קשה לניחוש מאשר סיסמת המשתמש<br><br>הדברים נכונים,או שיש מה לשפר?<br> </p>
+</div>
+<div class="answer" id="answer796">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_796" href="2 שאלות לגסי סשן-1.htm#answer_796">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הכל נכון, כל הכבוד<br>חוץ מדבר אחד.<br>לא צריך שום סיסמה בקוקי. <a href="..\phplive-2.htm?code=249">תנסה להבין את הקוד הזה</a>. לא צריך שום סיסמה. אפשר בדרכים אחרות לבדוק שהוא לא שינה שום דבר. </p>
+</div>
+<div class="answer" id="answer798">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/87e5ce80e77c0446a576873dfac994ed?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_96568</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_798" href="2 שאלות לגסי סשן-1.htm#answer_798">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל כמו שהראת בקוד,שאם יהיה רק ID הוא פשוט ישנה את זה בקלות,לעומת סיסמה שהוא צריך לנחש.<br>&gt;&gt;&gt;אפשר בדרכים אחרות לבדוק שהוא לא שינה שום דבר.-התכוונת לסוג דפדפן וIP?<br><br>ד&quot;א זה אותו משתמש(_96419) </p>
+</div>
+<div class="answer" id="answer803">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 לינואר 2012 </span>
+<a id="answer_803" href="2 שאלות לגסי סשן-1.htm#answer_803">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא. תשנה בקוד את ה ID למה שאתה רוצה, חוץ מ 10 הקוד יכתוב לך שאתה מתחזה. </p>
+</div>
+<div class="answer" id="answer813">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3e4e4b5146cb86e7cbc70bae92477e5b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_97188</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2012 </span>
+<a id="answer_813" href="2 שאלות לגסי סשן-1.htm#answer_813">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ניסיתי ולא קורה כלום,לא הבנתי למה התכוונת.. </p>
+</div>
+<div class="answer" id="answer814">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/e247b8e672fe5eccd3cdb918fbdedb0a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_97041</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2012 </span>
+<a id="answer_814" href="2 שאלות לגסי סשן-1.htm#answer_814">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מה זה &quot;לא קורה כלום&quot; ? נכבה המסך?<br>מה כתוב לך בריבוע הצהוב אם אתה משנה את ה ID ואם אתה לא משנה את ה ID ? </p>
+</div>
+<div class="answer" id="answer821">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3e4e4b5146cb86e7cbc70bae92477e5b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_97188</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2012 </span>
+<a id="answer_821" href="2 שאלות לגסי סשן-1.htm#answer_821">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שאני משנה את $userid = 10; למס&#039; 20 פשוט לא קורה כלום,(או שלא הבנתי למה התכוונת..) </p>
+</div>
+<div class="answer" id="answer823">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2012 </span>
+<a id="answer_823" href="2 שאלות לגסי סשן-1.htm#answer_823">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ממ, הבנתי למה אתה מתכוון שאתה אומר &quot;לא קורא כלום&quot;.<br>יהיה הרבה יותר פשוט לשנינו אם תיקרא את הקוד ותבין מה אתה מצפה שיקרה כשאתה משנה את המספר ל20, כי כרגע לא משנה לאיזה ערך אתה משנה את המשתנה בשורה הראשונה התוצאה שתראה על המסך לא תשתנה. </p>
+</div>
+<div class="answer" id="answer827">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8ae41bdacd1bcfc1457344105c9bd6da?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_97389</a>
+ב
+<span style="font-size:10px"> 30 לינואר 2012 </span>
+<a id="answer_827" href="2 שאלות לגסי סשן-1.htm#answer_827">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אם אתה לא מבין פונקציה כלשהי - פשוט תסתכל בדוקומניטציה (ובדוגמאות שיש שם). </p>
+</div>
+<div class="answer" id="answer833">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 31 לינואר 2012 </span>
+<a id="answer_833" href="2 שאלות לגסי סשן-1.htm#answer_833">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+סוף סוף! לפחות אלכס ישכנע אותך שלא צריך לשמור שום סיסמה. </p>
+</div>
+<div class="answer" id="answer834">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3e4e4b5146cb86e7cbc70bae92477e5b?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_97188</a>
+ב
+<span style="font-size:10px"> 31 לינואר 2012 </span>
+<a id="answer_834" href="2 שאלות לגסי סשן-1.htm#answer_834">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני לא הבנתי את הקוד שם..<br>ולא הבנתי עדיין מה הבעייה שהקוקי ישמור ID וסיסמא מוצפנת, הרי שהפצחן פותח את הקוקי הוא רואה את הפרטים שלו,ולגנוב קוקי הוא לא יכול כי יש הגנה מXSS.<br>ובסשן אותו דבר: הוא לא יכול לראות את הפרטים בסשן, ולגנוב: הוא לא יודע את המזהה של הסשן(ולא שייך להתחיל לנחש).<br>אז איזה בעיית אבטחה יש פה? </p>
+</div>
+<div class="answer" id="answer838">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 31 לינואר 2012 </span>
+<a id="answer_838" href="2 שאלות לגסי סשן-1.htm#answer_838">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני חושב שהכוונה היא שחבל סתם לערב את הסיסמא אם אין צורך בכך.<br>מה לא הבנת? תן שורות מדויקות וננסה להסביר לך. :) </p>
+</div>
+<div class="answer" id="answer840">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 31 לינואר 2012 </span>
+<a id="answer_840" href="2 שאלות לגסי סשן-1.htm#answer_840">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשמור מה שאתה רוצה איפה שאתה רוצה ותעבור לנושא הבא. </p>
+</div>
+<div class="answer" id="answer855">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7bf0a7f3361e70fafbe9b161aa03a2b3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_98092</a>
+ב
+<span style="font-size:10px"> 01 לפברואר 2012 </span>
+<a id="answer_855" href="2 שאלות לגסי סשן-1.htm#answer_855">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&gt;&gt;&gt;אני חושב שהכוונה היא שחבל סתם לערב את הסיסמא אם אין צורך בכך<br>אז איך אני יאמת בכל דף את המשתמש? הרי ID אפשר לשנות בקלות,וIP משתנה כל הזמן(מדובר בקוקי)<br>ומאפייני דפדפן-אתה יודע כמה יש להם את אותו אקספלור9?... </p>
+</div>
+<div class="answer" id="answer861">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 01 לפברואר 2012 </span>
+<a id="answer_861" href="2 שאלות לגסי סשן-1.htm#answer_861">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הנה הקוד מילה במילה עם תוספות של הסברים שלי. חלק בעברית וחלק באנגלית ממש פשוטה.<br><br><div class="php codeblock"><span class="re0">$userid</span> <span class="sy0">=</span> <span class="nu0">10</span><span class="sy0">;</span> <span class="co1">// זה ה-איי-די של המשתמש</span><br>
+<span class="re0">$somesecret</span> <span class="sy0">=</span> <span class="st_h">'abcabcab'</span><span class="sy0">;</span> <span class="co1">// זה קוד סודי שלך.</span><br>
+<span class="co1">// זו בעצם הסיסמא שלך, לא של המשתמש.</span><br>
+<br>
+<span class="re0">$validCookie</span> <span class="sy0">=</span> <span class="re0">$userid</span> <span class="sy0">.</span><span class="st_h">'-'</span> <span class="sy0">.</span> <span class="kw3">hash</span><span class="br0">&#40;</span><span class="st_h">'sha256'</span><span class="sy0">,</span> &nbsp;<span class="re0">$userid</span> <span class="sy0">.</span> <span class="re0">$somesecret</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// &nbsp;קוקי שמכיל את </span><br>
+<span class="co1">// האיידי של המשתמש ואז מקף ואז הצפנה של האיידי</span><br>
+<span class="co1">// של המשתמש ביחד עם הקוד שלך.</span><br>
+<span class="co1">// now validCookie it's (without the enter):</span><br>
+<span class="co1">// 10-dbdb4d162c56a34202281c492acb566ad</span><br>
+<span class="co1">// d07e5949c7ff3ffcd27474235556052</span><br>
+<br>
+<span class="co1">// you do the setCookie stufff</span><br>
+<br>
+<span class="co1">// NOW COOL HACKER COMES AND CHANGES THE id to 55555555</span><br>
+<span class="co1">// his new cookie will be (without the enter)</span><br>
+<span class="co1">// 5555555555-dbdb4d162c56a34202281c492acb566a</span><br>
+<span class="co1">// dd07e5949c7ff3ffcd27474235556052</span><br>
+<span class="co1">// he doesn't know your 'somesecret', so he</span><br>
+<span class="co1">// didn't know he have to hash his ID with your </span><br>
+<span class="co1">// somesecret. in fact, he doesn't know your</span><br>
+<span class="co1">// somesecret, he can't know that.</span><br>
+<span class="co1">// now he visits your site with this cookie</span><br>
+<span class="co1">// you validate it:</span><br>
+<span class="co1">// this is his cookie</span><br>
+<span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'test'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'5555555555-dbdb4d162c56a34202281c492acb566add07e5949c7ff3ffcd27474235556052'</span><span class="sy0">;</span><br>
+<span class="co1">// now you put what before &quot;-&quot; (this - 5555555555) in '$user',</span><br>
+<span class="co1">// and the hash in '$hash';</span><br>
+<span class="kw3">list</span><span class="br0">&#40;</span><span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$hash</span><span class="br0">&#41;</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st_h">'-'</span><span class="sy0">,</span> <span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'test'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// now you print the user id</span><br>
+<span class="kw1">echo</span> <span class="st_h">'hello user id '</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// now you take the user id and your somesecret and hash it.</span><br>
+<span class="re0">$expectedHash</span> <span class="sy0">=</span> <span class="kw3">hash</span><span class="br0">&#40;</span><span class="st_h">'sha256'</span><span class="sy0">,</span> &nbsp;<span class="re0">$user</span> <span class="sy0">.</span> <span class="re0">$somesecret</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">// now you check if what you created before is like the</span><br>
+<span class="co1">// hash he have in his cookie.</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="re0">$hash</span> <span class="sy0">===</span> <span class="re0">$expectedHash</span> <span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">' you are real'</span><span class="sy0">;</span><br>
+<span class="kw1">else</span> <span class="kw1">echo</span> <span class="st_h">', but you are a hacker'</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer862">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 01 לפברואר 2012 </span>
+<a id="answer_862" href="2 שאלות לגסי סשן-1.htm#answer_862">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ערכתי. </p>
+</div>
+<div class="answer" id="answer863">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7bf0a7f3361e70fafbe9b161aa03a2b3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_98092</a>
+ב
+<span style="font-size:10px"> 01 לפברואר 2012 </span>
+<a id="answer_863" href="2 שאלות לגסי סשן-1.htm#answer_863">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הבנתי רק עד השורה הזאת:<div class="php codeblock"><span class="kw3">list</span><span class="br0">&#40;</span><span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$hash</span><span class="br0">&#41;</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">&#40;</span><span class="st_h">'-'</span><span class="sy0">,</span> <span class="re0">$_COOKIE</span><span class="br0">&#91;</span><span class="st_h">'test'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>תוכל להסביר לי משם, תאורטי? </p>
+</div>
+<div class="answer" id="answer866">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 01 לפברואר 2012 </span>
+<a id="answer_866" href="2 שאלות לגסי סשן-1.htm#answer_866">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה כנראה פשוט לא מכיר את הפונקציות הללו. בשביל זה יש את הדוקומניטציה.<br>הסברתי בדיוק.<br>הנה:<br><div class="php codeblock"><span class="co1">// now you put what before &quot;-&quot; (this - 5555555555) in '$user',</span><br>
+<span class="co1">// and the hash in '$hash';</span></div><br>כלומר, הוא לוקח את הקוקי של המשתמש. נכון היה בקוקי סימן מקף (-) בין ה-ID שלו לבין ההצפנה של ה-ID שלו עם הסיסמא שלך? בדיוק. אז הוא לוקח את ה-ID ושם אותו במשתנה $user, ואת ה-hash, ההצפנה, הוא שם במשתנה $hash.<br><br>עכשיו יש משתנה חדש בשם $expectedHash.<br>אנחנו לוקחים את ה-ID שהיה בקוקי ועושים מחדש הצפנה עם אותה הסיסמא המסובכת שלך, שרק מי שנכנס לקוד צד השרת של האתר יודע.<br>ועכשיו אנחנו פשוט בודקים אם ההצפנה שביצענו היא כמו ההצפנה שבקוקי. אם הוא שינה את ה-ID שבקוקי שלו - זה יזהה אותו כהאקר, כי הרי הוא לא שינה את ההצפנה שבקוקי שלו, אלא רק את ה-ID שבקוקי.<br>את ההצפנה אפשר רק עם הקוד ששמת ב-$somesecret. </p>
+</div>
+<div class="answer" id="answer867">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7bf0a7f3361e70fafbe9b161aa03a2b3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_98092</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2012 </span>
+<a id="answer_867" href="2 שאלות לגסי סשן-1.htm#answer_867">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+&gt;&gt;&gt; כי הרי הוא לא שינה את ההצפנה שבקוקי שלו, אלא רק את ה-ID שבקוקי.<br> ואם הוא ישנה גם את הסיסמא...אז הוא יוכל להיכנס.. </p>
+</div>
+<div class="answer" id="answer869">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2012 </span>
+<a id="answer_869" href="2 שאלות לגסי סשן-1.htm#answer_869">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אבל הוא לא יכול לשנות את הסיסמא כי הוא לא יכול להצפין את הסיסמא <strong>שלך </strong>ביחד עם ה-ID שלו <strong>כי אין לו גישה לקוד של האתר ולכן הוא לא יכול לגשת לסיסמא (somesecret) שלך.</strong> </p>
+</div>
+<div class="answer" id="answer870">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7bf0a7f3361e70fafbe9b161aa03a2b3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_98092</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2012 </span>
+<a id="answer_870" href="2 שאלות לגסי סשן-1.htm#answer_870">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זה מה שהבנתי:<br>בהתחברות לאתר אני שולף את הID שלו ומצפין את זה ביחד עם רצף מספרים קבועים.-והתוצאה למשתנה &#039;X&#039; <br>רק לא הבנתי איך בכל דף אתה מבצע בדיקה: האם המשתנה X שווה ל...(אל מה אתה משווה אותו)?<br>-----<br>דבר נוסף: ואז נגיד שהכל טוב אז הוא מתחבר,עכשיו אני צריך לשלוף את השם שלו(בשביל לומר לו שלום)<br>וגם לשלוף את הID כדי להציג לו תוכן <br>ולפי השיטה שלך: איך אני יזהה את המשתמש בשביל שליפה הרי כל מה שיש לי עליו זה מספר כלשהוא. </p>
+</div>
+<div class="answer" id="answer871">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2012 </span>
+<a id="answer_871" href="2 שאלות לגסי סשן-1.htm#answer_871">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה לוקח את ה-ID שלו, שם אותו במשתנה X, אחרי זה שם מקף (הסימן מקף, אתה יודע... ככה: -).<br>אחרי זה אתה לוקח את ה-ID שלו ומצפין אותו עם סיסמא שלך (לא חייב רק מספרים!) שנמצאת שם בקוד של האתר. את זה אתה שם אחרי המקף באותו המשתנה.<br><br>עכשיו הוא נכנס לאתר כשיש לו קוקי.<br>אתה לוקח מהקוקי את ה-ID שנמצא לפני המקף ושם במשתנה.<br>אתה לוקח גם את ההצפנה שיש אחרי המקף ושם במשתנה אחר.<br>אתה לוקח את ה-ID שנמצא במשתנה שיצרת מקודם ומעביר אותו הצפנה כמו בהתחברות ושם במשתנה אחר.<br>אתה לוקח את ההצפנה שהייתה בקוקי ובודק אם היא שווה להצפנה שיצרת מקודם.<br>זה הכל. </p>
+</div>
+<div class="answer" id="answer872">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7bf0a7f3361e70fafbe9b161aa03a2b3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>משתמש_98092</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2012 </span>
+<a id="answer_872" href="2 שאלות לגסי סשן-1.htm#answer_872">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ואם הוא פותח את הקוקי שלו-אז הוא רואה את ה<span class="underline">ID-<strong>הצופן</strong></span><br>ואם הצופן גלוי לו אז מה שווה כל האבטחה-הוא פשוט ישנה רק את הID(את החלק שלפני המקף). </p>
+</div>
+<div class="answer" id="answer873">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 02 לפברואר 2012 </span>
+<a id="answer_873" href="2 שאלות לגסי סשן-1.htm#answer_873">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+ההצפנה של ה-ID שלו עם הסיסמא שלך גלויה לו. אין לו סיכוי לפצח אותה ולגלות את הסיסמה שלך.<br>אם הוא משנה את ה-ID שלו (רק את החלק שלפני המקף), זה לא יעזור לו - אתה תזהה אותו כפורץ, כי לא תהיה לו ההצפנה של הסיסמא שלך עם ה-ID שהוא שם, אלא הצפנה של הסיסמא שלך עם ה-ID האמיתי שלו. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה באנרים מתחלפים מבוסס על מסד נתונים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="niv">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>באנרים מתחלפים מבוסס על מסד נתונים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="באנרים מתחלפים מבוסס על מסד נתונים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה באנרים מתחלפים מבוסס על מסד נתונים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">5</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="באנרים מתחלפים מבוסס על מסד נתונים-1.htm" title="אהלן,אני מעוניין ליצור באנרים מתחלפים על סמך מסד נתונים.הטבלה שלי נקראת banner ומכילה את הערכים הבאים:name, picture, code, link, idהשימוש הוא בעיקרון בפונקציה rand אותה הרצתי על ה-id, אך הבעיה החלה כאשר מחקתי באנרים מהמסד נתונים ואז לא כל מספר הוא אכן ID פעיל נניח שהטבלה שלי הייתה נראת כך:[code]niv (name) niv.png (picture) null (code) http://www.phpuide.co.il (link) 1 (id)niv (name) niv.png (picture) null (code) http://www.phpuide.co.il (link) 2 (i">באנרים מתחלפים מבוסס על מסד נתונים</a></h2>
+<div class="userinfo">
+פתח
+<a>niv</a>
+,
+<time class="timeago relativetime" datetime="2014-06-14T01:56:51+03:00" style="display:inline-block;">
+14 ליוני 2014 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1930'>
+אהלן,<br>אני מעוניין ליצור באנרים מתחלפים על סמך מסד נתונים.<br>הטבלה שלי נקראת banner ומכילה את הערכים הבאים:<br>name, picture, code, link, id<br><br>השימוש הוא בעיקרון בפונקציה rand אותה הרצתי על ה-id, אך הבעיה החלה כאשר מחקתי באנרים מהמסד נתונים ואז לא כל מספר הוא אכן ID פעיל נניח שהטבלה שלי הייתה נראת כך:<br>[code]<br>niv (name) niv.png (picture) null (code) http://www.phpuide.co.il (link) 1 (id)<br>niv (name) niv.png (picture) null (code) http://www.phpuide.co.il (link) 2 (id)<br>niv (name) niv.png (picture) null (code) http://www.phpuide.co.il (link) 3 (id)<br>[/code]<br><br>לאחר מחיקת באנר מספר id 2 הטבלה נראת כך:<br>[code]<br>niv (name) niv.png (picture) null (code) http://www.phpuide.co.il (link) 1 (id)<br>niv (name) niv.png (picture) null (code) http://www.phpuide.co.il (link) 3 (id)<br>[/code]<br><br>כלומר בהנחה ויוצא לי rand = 2 אין ערך כזה. ניסיתי לפתור את זה באמצעות הקוד הבא, אך הבעיה שמדי פעם הוא מחזיר לי null, מדוע?<br>[code]<br> $query = mysql_query(&quot;select * from banner&quot;);<br> $array = array();<br> while($row = mysql_fetch_array($query))<br> {<br> $array[] = $row[&apos;id&apos;];<br> }<br> $narray = count($array);<br> $rand = rand($array[0],$narray);<br> $id = $array[$rand];<br> $new_query = mysql_query(&quot;select * from banner where `id`=&apos;{$id}&apos;&quot;);<br> $new_row = mysql_fetch_array($new_query);<br> exit( var_dump($id));<br>[/code] </div>
+</div>
+<h3>
+<span id="answersCounter">5 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer8727">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/98f72371c95310dbe424f2aece2fe5d8?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>niv</a>
+ב
+<span style="font-size:10px"> 14 ליוני 2014 </span>
+<a id="answer_8727" href="באנרים מתחלפים מבוסס על מסד נתונים-1.htm#answer_8727">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז כנראה ש-PHP לא בריאה בשעות הלילה, הפתרון הוא שCOUNT מתחיל לספור מ-1 ואילו המערך מתחיל מ-0<br><br>בכל אופן, האם הדרך הזו יעילה מבחינת בזבוז משאבים? תודה רבה </p>
+</div>
+<div class="answer" id="answer8728">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>mtndiv</a>
+ב
+<span style="font-size:10px"> 14 ליוני 2014 </span>
+<a id="answer_8728" href="באנרים מתחלפים מבוסס על מסד נתונים-1.htm#answer_8728">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+במקום לחפש פתרון ב-PHP, תחפש פתרון ב-SQL:<br><div class="php codeblock">SELECT <span class="sy0">*</span> FROM `banner`<br>
+ORDER BY <span class="kw3">RAND</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+LIMIT <span class="nu0">1</span></div> </p>
+</div>
+<div class="answer" id="answer8729">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/9c311d265f51357a6643515b77157b4c?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>undefined </a>
+ב
+<span style="font-size:10px"> 14 ליוני 2014 </span>
+<a id="answer_8729" href="באנרים מתחלפים מבוסס על מסד נתונים-1.htm#answer_8729">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+יש לך את הפונקציה rand() בsql, תעשה לה order by. </p>
+</div>
+<div class="answer" id="answer8730">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 14 ליוני 2014 </span>
+<a id="answer_8730" href="באנרים מתחלפים מבוסס על מסד נתונים-1.htm#answer_8730">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="..\שליפת_שורות_רנדומלית_ב_mysql.htm">שליפת שורות אקראית בלי בזבוז משאבים</a> </p>
+</div>
+<div class="answer" id="answer8732">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/f032a456f986ab5afe0da9fd5706f3c3?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Splash</a>
+ב
+<span style="font-size:10px"> 14 ליוני 2014 </span>
+<a id="answer_8732" href="באנרים מתחלפים מבוסס על מסד נתונים-1.htm#answer_8732">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+מאחר ולא מדובר בטבלה גדולה אין בעיה לבצע זאת כך אך כן מומלץ להכיר את מה שאלכס ציין,בטבלאות עמוסות יותר ORDER BY RAND() עובד לאט.<br><br>שיטה נחמדה שיצא לי לראות בעבר - http://www.rndblog.com/how-to-select-random-rows-in-mysql<br>החסרון הוא שלא תמיד יצא לך מספר התוצאות שציפית.למשל רצית 5 אז פעם ב 10 הרצות בערך יצא לך 3-4 תוצאות בד&quot;כ,כמובן שתמיד יכול להיות לך 0 אך זה בד&quot;כ לא קורא.<br><br>ניתן כמובן לשפר את החישוב טיפה ככה שיצא סיכוי גבוה יותר ובנוסף להוסיף calllback במידה ונשלפו פחות מ 5 אז שישלוף ערך מסוים [למשל מספר השורות חלקי 2 וה id גדול ממה שקיבלת ובנוסף ה id לא שווה לשורות שכבר התקבלו מקודם] </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="mtndiv">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים | שאלת לימוד PHP</title>
+<meta itemprop="name" content="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">7</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים-1.htm" title="במדריך בונים פריימוורק - ניתוב קונטרולרים נתון קובץ htaccess.איך הוא משפיע על הכתובות ובא לידי ביטוי?אם אני רוצה לגשת לקונטרולר MainController למטודה Main - זה הכתובת: matan.co.il/Main/Main ?">דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים</a></h2>
+<div class="userinfo">
+פתח
+<a>mtndiv</a>
+,
+<time class="timeago relativetime" datetime="2013-01-20T14:49:42+02:00" style="display:inline-block;">
+20 לינואר 2013 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText1205'>
+במדריך <a href="..\בונים פריימוורק  ניתוב קונטרולרים ותצוגה.htm">בונים פריימוורק - ניתוב קונטרולרים</a> נתון קובץ htaccess.<br>איך הוא משפיע על הכתובות ובא לידי ביטוי?<br>אם אני רוצה לגשת לקונטרולר MainController למטודה Main - זה הכתובת: matan.co.il/Main/Main ? </div>
+</div>
+<h3>
+<span id="answersCounter">7 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer5270">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5270" href="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים-1.htm#answer_5270">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="co2"># להפעיל את מנוע הרירייט<br>
+</span>RewriteEngine On<br>
+<br>
+<span class="co2"># אם הנתיב שהוזן לא מוביל ישירות לתיקיה<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>d<br>
+<br>
+<span class="co2"># וגם אם הנתיב שהוזן אינו מוביל ישירות לקובץ<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>f<br>
+<br>
+<span class="co2"># וגם אם הנתיב שהוזן אינו symbolic link<br>
+</span>RewriteCond <span class="sy0">%</span><span class="br0">&#123;</span>REQUEST_FILENAME<span class="br0">&#125;</span> <span class="sy0">!-</span>l<br>
+<br>
+<span class="co2"># אם כל התנאים למעלה מתקיימים כולם ביחד, אז<br>
+</span><span class="co2"># להפנות את כל כל כל הכתובות שהוזנו אל הכתובת<br>
+</span>RewriteRule ^<span class="br0">&#40;</span><span class="sy0">.+</span><span class="br0">&#41;</span>$ index<span class="sy0">.</span>php?url<span class="sy0">=</span>$<span class="nu19">1</span> <span class="br0">&#91;</span>QSA<span class="sy0">,</span>L<span class="br0">&#93;</span><br>
+<span class="co2"># כאשר $1 מסמן את הטקסט שהוזן בתור כתובת<br>
+</span><span class="co2">#ראה דוגמאות למטה</span></div><br><br><br>אם למשל הכתובת שאליה פנו היא<br>site.com/style.css<br>ויש קובץ כזה style.css אז התנאי לא יופעל<br>אם הוזנה כתובת שהיא לא קיימת בשרת (לא תיקיה, לא קובץ ולא קישור סימבולי)<br>אז יתבצע התנאי של העעברה.<br><br>התנאי של העברה אומר<br><span dir="ltr">.com/123hellosite.com/ANYTHING_THAT_COMES_HERE</span><br>יופנה לכתובת<br><span dir="ltr">index.php?url=ANYTHING_THAT_COMES_HERE.com/123hello</span><br>כלומר אל קובץ האינדקס עם הכתובת בתור פרמטר.<br><br>נשאר להבין מה עושה הקוד בקובץ האינדקס עם הפרמטר הזה. תסתדר לבד? </p>
+</div>
+<div class="answer" id="answer5272">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>mtndiv</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5272" href="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים-1.htm#answer_5272">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה אלכס את זה אני הבנתי, וגם עם ה-php אני מסתדר מצוין.. פשוט הבעיה היא שאצלי מתקבל ארור.<br>Internal Server Error<br><br>אשמח לתשובה מהירה, תודה רבה! </p>
+</div>
+<div class="answer" id="answer5273">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>mtndiv</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5273" href="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים-1.htm#answer_5273">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שחכתי להוסיף: השאלה שלי היא איך פותרים את הארור הזה? תודה! </p>
+</div>
+<div class="answer" id="answer5275">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5275" href="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים-1.htm#answer_5275">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+פותחים את הלוג של אפאצ&#039;י וקוראים מה השגיאה.<br>אי אפשר לנחש ממה נובעת השגיאה רק על סמח זה שכתוב לך על המסך &quot;שגיאה&quot;.<br>רוב הסיכויים שלא הפעלת את mod_rewrite<br><br>בכל אופן, פתח את הלוג ותסתכל מה כתוב בו. </p>
+</div>
+<div class="answer" id="answer5280">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>mtndiv</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5280" href="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים-1.htm#answer_5280">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הפעלתי את mod_rewrite. ואני לא יודע איך נכנסים ללוג של האפאצ&#039;י.<br>מה שכן מישהו אמר לי שצריך לשנות את ההגדרות של HTTPD.CONF, אבל אני לא יודע איזה הגדרות לשנות בידיוק. </p>
+</div>
+<div class="answer" id="answer5281">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5281" href="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים-1.htm#answer_5281">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הערת אגב:<br>עד עכשיו לא קלטתי ש-RewriteCond זה תנאי. D:<br>אולי באמת הגיע הזמן ללמוד קצת להשתמש ב-htaccess.<br>תודה, אלכס. :-) </p>
+</div>
+<div class="answer" id="answer5282">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>mtndiv</a>
+ב
+<span style="font-size:10px"> 21 לינואר 2013 </span>
+<a id="answer_5282" href="דרוש הסבר לכללים בקובץ htaccess מהמדריך ניתוב קונטרולרים-1.htm#answer_5282">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא משנה הסתדרתי, הייתי צריך להתקין מחדש את ה-WAMP, כנראה ההגדרות השתנו. תודה בכל זאת </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

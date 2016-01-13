@@ -1,0 +1,862 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה אני צריך רעיונות לשדרוג מחלקה">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="pol292">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>אני צריך רעיונות לשדרוג מחלקה | שאלת לימוד PHP</title>
+<meta itemprop="name" content="אני צריך רעיונות לשדרוג מחלקה | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה אני צריך רעיונות לשדרוג מחלקה">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">13</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="אני צריך רעיונות לשדרוג מחלקה-1.htm" title="המחלקה הזאת היא מחלקה שיורשת מPDO ועובדת אם מסד נתוניםהמחלקה:&amp;lt;?php
+&amp;#91;b&amp;#93;&amp;#91;/b&amp;#93;
+class Sidox_Datebase extends PDO &amp;#123;
+
+&amp;nbsp; &amp;nbsp; ">אני צריך רעיונות לשדרוג מחלקה</a></h2>
+<div class="userinfo">
+פתח
+<a>pol292</a>
+,
+<time class="timeago relativetime" datetime="2012-07-27T21:43:14+03:00" style="display:inline-block;">
+27 ליולי 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText827'>
+המחלקה הזאת היא מחלקה שיורשת מPDO ועובדת אם מסד נתונים<br><span class="underline"><strong>המחלקה:<br></strong></span><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<span class="br0">&#91;</span>b<span class="br0">&#93;</span><span class="br0">&#91;</span><span class="sy0">/</span>b<span class="br0">&#93;</span><br>
+<span class="kw2">class</span> Sidox_Datebase <span class="kw2">extends</span> PDO <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_bind</span><span class="sy0">;</span> &nbsp; &nbsp; <span class="co2">#Linking the database with data<br>
+</span> &nbsp; &nbsp;<span class="kw2">private</span> <span class="re0">$_search</span><span class="sy0">;</span> &nbsp; <span class="co2">#Search Settings<br>
+</span> &nbsp; &nbsp;<span class="kw2">protected</span> <span class="re0">$_table</span><span class="sy0">;</span> &nbsp;<span class="co2">#Save a database table<br>
+</span><br>
+&nbsp; &nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$dsn</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$password</span><span class="sy0">,</span> <span class="re0">$table</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; parent<span class="sy0">::</span>__construct<span class="br0">&#40;</span><span class="re0">$dsn</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_table <span class="sy0">=</span> <span class="re0">$table</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* set in _bind name and value<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> __set<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_bind<span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot; `<span class="es4">$name</span>` &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_bind<span class="br0">&#91;</span><span class="st_h">'value'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot; '<span class="es4">$value</span>' &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* Insert into database<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st_h">'INSERT INTO `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_table <span class="sy0">.</span> <span class="st_h">'` (<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">','</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_bind<span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">' ) VALUES (<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">','</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_bind<span class="br0">&#91;</span><span class="st_h">'value'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">' )'</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">clean</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* Update into database<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> update<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_bind<span class="br0">&#91;</span><span class="st_h">'name'</span><span class="br0">&#93;</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot; {<span class="es4">$this-&gt;_bind</span>['name'][<span class="es4">$key</span>]} = {<span class="es4">$this-&gt;_bind</span>['value'][<span class="es4">$key</span>]} &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st_h">'UPDATE `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_table <span class="sy0">.</span> <span class="st_h">'` SET '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' , '</span><span class="sy0">,</span> <span class="re0">$sql</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">' WHERE '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' AND '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_search<span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">clean</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* Delete from database<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> delete<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st_h">'DELETE FROM `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_table <span class="sy0">.</span> <span class="st_h">'` WHERE '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' AND '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_search<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">clean</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$row</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$row</span><span class="sy0">-&gt;</span><span class="me1">fetch</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* set search settings<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> setWhere<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_search<span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot; `<span class="es4">$name</span>` = '<span class="es4">$value</span>' &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* get rows with settings<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getRow<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st_h">'SELECT * FROM `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_table <span class="sy0">.</span> <span class="st_h">'` WHERE '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' AND '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_search<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">clean</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$row</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$row</span><span class="sy0">-&gt;</span><span class="me1">fetch</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* clean all data in class<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> clean<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_search <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_bind <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* get all from database<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getAll<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st_h">'SELECT * FROM `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_table<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$row</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$row</span><span class="sy0">-&gt;</span><span class="me1">fetchAll</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div><br><br><strong><span class="underline">דוגמה לשימוש:<br></span></strong><strong>מסד נתונים לדוגמה:</strong><br><div class="php codeblock">CREATE TABLE <span class="kw1">IF</span> NOT EXISTS `demo` <span class="br0">&#40;</span><br>
+&nbsp; `id` int<span class="br0">&#40;</span><span class="nu0">11</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span> AUTO_INCREMENT<span class="sy0">,</span><br>
+&nbsp; `username` varchar<span class="br0">&#40;</span><span class="nu0">32</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; `password` varchar<span class="br0">&#40;</span><span class="nu0">32</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; `email` varchar<span class="br0">&#40;</span><span class="nu0">100</span><span class="br0">&#41;</span> NOT <span class="kw4">NULL</span><span class="sy0">,</span><br>
+&nbsp; PRIMARY <span class="kw3">KEY</span> <span class="br0">&#40;</span>`id`<span class="br0">&#41;</span><br>
+<span class="br0">&#41;</span> ENGINE<span class="sy0">=</span>InnoDB <span class="kw1">DEFAULT</span> CHARSET<span class="sy0">=</span>latin1 AUTO_INCREMENT<span class="sy0">=</span><span class="nu0">1</span> <span class="sy0">;</span></div><br><strong>דוגמה לשימוש במחלקה<br></strong><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+&nbsp;<span class="re0">$db</span> <span class="sy0">=</span> Sidox_Datebase<span class="br0">&#40;</span><span class="st0">&quot;mysql:host=localhost;dbname=demo&quot;</span><span class="sy0">,</span> <span class="st_h">'root'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="sy0">,</span> <span class="st_h">'demo'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">//Insert to db</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">username</span> <span class="sy0">=</span> <span class="st_h">'pol'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">password</span> <span class="sy0">=</span> <span class="st_h">'pass'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">email</span> <span class="sy0">=</span> <span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="4e2b232f27220e26213d3a602d2123">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">username</span> <span class="sy0">=</span> <span class="st_h">'pol1'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">password</span> <span class="sy0">=</span> <span class="st_h">'pass1'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">email</span> <span class="sy0">=</span> <span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="ed88808c8481ad85829e99c38e8280">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<br>
+<span class="re0">$row</span> <span class="sy0">=</span><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">setWhere</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span><span class="st_h">'pol'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">setWhere</span><span class="br0">&#40;</span><span class="st_h">'password'</span><span class="sy0">,</span><span class="st_h">'pass'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">getRow</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">:</span> <span class="co1">//can used to login...</span><br>
+<br>
+<span class="kw1">echo</span> <span class="st0">&quot;&lt;pre&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$row</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="st0">&quot;&lt;br /&gt;&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$row</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">getAll</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$row</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">username</span> <span class="sy0">=</span> <span class="st_h">'pol2'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">password</span> <span class="sy0">=</span> <span class="st_h">'pass2'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">email</span> <span class="sy0">=</span> <span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="d6b3bbb7bfbae496beb9a5a2f8b5b9bb">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><span class="sy0">;</span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">setWhere</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span><span class="st_h">'pol'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">update</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">//now pol is pol2 </span><br>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">setWhere</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span><span class="st_h">'pol'</span><span class="br0">&#41;</span><span class="sy0">-&gt;</span><span class="me1">delete</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </div>
+</div>
+<h3>
+<span id="answersCounter">13 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3511">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/fbd8d166d60e03c5854fe7114279a94f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>cthulhu</a>
+ב
+<span style="font-size:10px"> 28 ליולי 2012 </span>
+<a id="answer_3511" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3511">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+1) למה המתודה setWhere קובעת בדיקה האם הערכים זהים? מה תעשה כשתרצה לבדוק הם הערך הראשון גדול מהשני?<br>תעביר ל-setWhere ארגומנט אחד שיהיה ביטוי שיתאים ל-WHERE, כלומר משהו כזה:<br><div class="php codeblock">setWhere<span class="br0">&#40;</span><span class="st_h">'name &gt; pol'</span><span class="br0">&#41;</span></div><br><br>2) לא ברור לי הקשר הלוגי של המתודות שלך. לדוגמה, הקוד הזה:<br><div class="php codeblock"><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">setWhere</span><span class="br0">&#40;</span><span class="st_h">'name'</span><span class="sy0">,</span><span class="st_h">'pol'</span><span class="br0">&#41;</span></div><br>לא אומר כלום והוא לא תקין. אתה אומר &quot;המסד-קובע תנאי-קובע תנאי-מוציא שורה&quot;. זה אמור להיות &quot;מסד-שורות שצריך לקחת-קובע תנאי (אולי מס&#039; תנאי במכה אחת)-מוציא שורה&quot;.<br><br>3) במקום __set וכל הלולאות שאתה עושה, צור את המתודות שיקבלו ארגומנטים דינמיים ושאוב אותם באמצעות func_get_args. זה מתאים למקרים שבהם אתה לא יודע את כמות הפרמטרים שתקבל. המתודות שלך כרגע נראות גרוע מאוד, והמחלקה עצמה גם כן.<br><br>תלמד לכתוב מתודות לטוח ארוך, כלומר שהן יהיו יותר גמישות ויותר אוניברסליות. אני לא הייתי משתמש ב-wrapper שכתבת. </p>
+</div>
+<div class="answer" id="answer3512">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>pol292</a>
+ב
+<span style="font-size:10px"> 28 ליולי 2012 </span>
+<a id="answer_3512" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3512">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תודה לא חשבתי על זה שיניתי את הGETROW והורדתי את הGETALLROWS<br><div class="php codeblock"><span class="kw2">public</span> <span class="kw2">function</span> getRows<span class="br0">&#40;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st_h">'SELECT * FROM `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_table <span class="sy0">.</span><span class="st_h">'` '</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">func_num_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">.=</span> <span class="st_h">' WHERE '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' AND '</span><span class="sy0">,</span> <span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$row</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$row</span><span class="sy0">-&gt;</span><span class="me1">fetch</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="br0">&#125;</span></div><br>עכשיו יש לי שאלה אחרת איזה פונקציה שאני יכניס :<br><div class="php codeblock">getRows<span class="br0">&#40;</span><span class="st_h">'name = pol'</span><span class="br0">&#41;</span></div><br>וזה יהפוך את הname = pol ל &#039;name` = &#039;pol`?<br>הפתרון שלי לזה הוא לולאה אבל ניראה לי יש משהו שיכול לעזור בלי </p>
+</div>
+<div class="answer" id="answer3514">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/3f01ef901a86619cc74edc8f763175dc?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>bnayal</a>
+ב
+<span style="font-size:10px"> 28 ליולי 2012 </span>
+<a id="answer_3514" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3514">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא הבנתי, אתה מנסה לממש ORM משלך?<br>מה המטרה של המחלקה הזאת? </p>
+</div>
+<div class="answer" id="answer3515">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>pol292</a>
+ב
+<span style="font-size:10px"> 28 ליולי 2012 </span>
+<a id="answer_3515" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3515">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כן משהו פשוט לשימוש </p>
+</div>
+<div class="answer" id="answer3520">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 29 ליולי 2012 </span>
+<a id="answer_3520" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3520">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+בתור שיפור תעשה ככה שיהיה אפשר ליצור מופעים מהמחלקה שמקושרים לטבלאות שונות.<br>כלומר מחלקת user שיורשת מהמחלקה שלך תיגש אל טבלת users<br>מחלקה אחרת שיורשת מהמחלקה הזו תיגש לטבלה אחרת </p>
+</div>
+<div class="answer" id="answer3535">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>pol292</a>
+ב
+<span style="font-size:10px"> 01 לאוגוסט 2012 </span>
+<a id="answer_3535" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3535">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+הקוונה לפי שם המחלקה? </p>
+</div>
+<div class="answer" id="answer3540">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 01 לאוגוסט 2012 </span>
+<a id="answer_3540" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3540">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עדיף שלא. אבל לפי מאפיין של מחלקה - בהחלט אפשר. </p>
+</div>
+<div class="answer" id="answer3714">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>pol292</a>
+ב
+<span style="font-size:10px"> 10 לאוגוסט 2012 </span>
+<a id="answer_3714" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3714">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שידרגתי את זה קצת יש עוד משהו שכידי להוסיף?<br>המחלקה אמורה להיות חלק בתוך FRAMEWORK שאני עובד אליו אז אני רוצה שזה היה הכי פשוט לשימוש<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="coMULTI">/*<br>
+&nbsp;* **************************<br>
+&nbsp;* &nbsp; &nbsp; Sidox db model &nbsp; &nbsp; &nbsp;*<br>
+&nbsp;* **************************<br>
+&nbsp;* <br>
+&nbsp;* how to use:<br>
+&nbsp;* 1)connected to sql server<br>
+&nbsp;* demo for mysql:<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj = new Sidox_Model_Database(<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;&quot;mysql:host=localhost;dbname=pol&quot;, 'root', 'pass','table'(=null)<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;);<br>
+&nbsp;* 2)set table<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;table = &quot;tablename&quot;;<br>
+&nbsp;* 3)for add new information in db use<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;dbColum = 'x';<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;dbColum2 = 'y';<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;save(); <br>
+&nbsp;* 4)for update information in db use<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;update();<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;dbColum = 'y';<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;dbColum2 = 'x';<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;save('dbColum = x','dbColum2 = y');<br>
+&nbsp;* 5)delete information<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;delete('dbColum = y','dbColum2 = x');<br>
+&nbsp;* 6)get information<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;getRows('dbColum = y','dbColum2 = x');<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;getRows(); //get all<br>
+&nbsp;* 7)order by and limit<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;order('dbColum','DESC')-&gt;limit(0,2)-&gt;getRows('dbColum = y','dbColum2 = x');<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;order('dbColum','DESC')-&gt;limit(0,2)-&gt;getRows();<br>
+&nbsp;*/</span><br>
+<br>
+<span class="kw2">class</span> Sidox_Model_Database <span class="kw2">extends</span> PDO <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_data</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// @param string Linking the database with data</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_update</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span> &nbsp; <span class="co1">// @param bool var use update in function save</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_scan</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$table</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; <span class="co1">// @param string database table</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$dsn</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$password</span><span class="sy0">,</span> <span class="re0">$table</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; parent<span class="sy0">::</span>__construct<span class="br0">&#40;</span><span class="re0">$dsn</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">=</span> <span class="re0">$table</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* save params in $_data<br>
+&nbsp; &nbsp; &nbsp;* @param $name name of db column<br>
+&nbsp; &nbsp; &nbsp;* @param $value the colum value<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> __set<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_action <span class="sy0">==</span> <span class="st_h">'update'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'`'</span> <span class="sy0">.</span> <span class="re0">$name</span> <span class="sy0">.</span> <span class="st_h">'` = \''</span> <span class="sy0">.</span> <span class="re0">$value</span> <span class="sy0">.</span> <span class="st_h">'\''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#91;</span><span class="re0">$name</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot; '<span class="es4">$value</span>' &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* add mode: save in db new information<br>
+&nbsp; &nbsp; &nbsp;* update mode: update the information<br>
+&nbsp; &nbsp; &nbsp;* @param $_data save the information<br>
+&nbsp; &nbsp; &nbsp;* @param $_update save the mode of function (true = update, false = add)<br>
+&nbsp; &nbsp; &nbsp;* @param func_args where to scan for update<br>
+&nbsp; &nbsp; &nbsp;* @param $table db table<br>
+&nbsp; &nbsp; &nbsp;* @return false or query<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_update<span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#40;</span><span class="kw3">func_num_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//action update</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$rtn</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'UPDATE `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">.</span> <span class="st_h">'` SET '</span> <span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' , '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#41;</span> <span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">scanWhere</span><span class="br0">&#40;</span><span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_data <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_update <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$rtn</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_update <span class="sy0">==</span> <span class="kw4">false</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//action add</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$rtn</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'INSERT INTO `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">.</span> <span class="st_h">'` (<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' , '</span><span class="sy0">,</span> <span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">' ) VALUES (<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' , '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">' )'</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_data <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$rtn</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* active the update mode in save function<br>
+&nbsp; &nbsp; &nbsp;* @param $_update get true<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> update<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_update <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* delete db row<br>
+&nbsp; &nbsp; &nbsp;* @param func_args<br>
+&nbsp; &nbsp; &nbsp;* @return the query connection<br>
+&nbsp; &nbsp; &nbsp;* &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> delete<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">func_num_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'DELETE FROM `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">scanWhere</span><span class="br0">&#40;</span><span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* get DB rows<br>
+&nbsp; &nbsp; &nbsp;* @param func_args or null<br>
+&nbsp; &nbsp; &nbsp;* @return the query connection<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getRows<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st_h">'SELECT * FROM `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">.</span> <span class="st_h">'` '</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">func_num_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">.=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">scanWhere</span><span class="br0">&#40;</span><span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">.=</span> <span class="st0">&quot; &quot;</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">unset</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">unset</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_scan<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* Order By<br>
+&nbsp; &nbsp; &nbsp;* @param string $order what order<br>
+&nbsp; &nbsp; &nbsp;* @param string $type is ASC or DESC <br>
+&nbsp; &nbsp; &nbsp;* @param $_sets test if set if true function die<br>
+&nbsp; &nbsp; &nbsp;* @return $this<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> order<span class="br0">&#40;</span><span class="re0">$order</span><span class="sy0">,</span> <span class="re0">$type</span> <span class="sy0">=</span> <span class="st_h">'ASC'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#91;</span><span class="st_h">'order'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_scan <span class="sy0">.=</span> <span class="st_h">' ORDER BY '</span> <span class="sy0">.</span> <span class="re0">$order</span> <span class="sy0">.</span> <span class="st_h">' '</span> <span class="sy0">.</span> <span class="re0">$type</span> <span class="sy0">.</span> <span class="st_h">' '</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#91;</span><span class="st_h">'order'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* limit list<br>
+&nbsp; &nbsp; &nbsp;* @param int $limit start limit list or mach of limit<br>
+&nbsp; &nbsp; &nbsp;* @param int $endLimit end the limit list<br>
+&nbsp; &nbsp; &nbsp;* @param $_sets test if set if true function die<br>
+&nbsp; &nbsp; &nbsp;* @return $this<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> limit<span class="br0">&#40;</span><span class="re0">$limit</span><span class="sy0">,</span> <span class="re0">$endLint</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#91;</span><span class="st_h">'limit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$endLint</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_scan <span class="sy0">.=</span> <span class="st_h">' LIMIT '</span> <span class="sy0">.</span> <span class="re0">$limit</span> <span class="sy0">.</span> <span class="st_h">','</span> <span class="sy0">.</span> <span class="re0">$endLint</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_scan <span class="sy0">.=</span> <span class="st_h">' LIMIT '</span> <span class="sy0">.</span> <span class="re0">$limit</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#91;</span><span class="st_h">'limit'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* @param Array $scanArgs where scan<br>
+&nbsp; &nbsp; &nbsp;* @return where to scan<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> scanWhere<span class="br0">&#40;</span><span class="re0">$scanArgs</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> <span class="br0">&#40;</span><span class="re0">$i</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="kw3">sizeof</span><span class="br0">&#40;</span><span class="re0">$scanArgs</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">sscanf</span><span class="br0">&#40;</span><span class="re0">$scanArgs</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'%s %s %s'</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$operator</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$scanArgs</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">' `'</span> <span class="sy0">.</span> <span class="re0">$key</span> <span class="sy0">.</span> <span class="st_h">'` '</span> <span class="sy0">.</span> <span class="re0">$operator</span> <span class="sy0">.</span> <span class="st_h">' \''</span> <span class="sy0">.</span> <span class="re0">$value</span> <span class="sy0">.</span> <span class="st_h">'\''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="st_h">' WHERE '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' AND '</span><span class="sy0">,</span> <span class="re0">$scanArgs</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+<div class="answer" id="answer3719">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לאוגוסט 2012 </span>
+<a id="answer_3719" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3719">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+השיפור נראה נחמד. כל הכבוד :)<br>מה שכן, הייתי ממליץ לך לחשוב עד כמה נוח להישתמש במחלקה הזו.<br>מאוד לא אינטואיטיבי לזכור קודם להעביר ל x-&gt;update ואז לעשות save<br>חוץ מזה למפתח בכלל לא צריך להיות אכפת אם זה update או insert. שהמחלקה תחליט לבד.<br><br>בדרך כלל נהוג לעשות ככה, שכל מופע של מחלקה מייצג שורה אחת במסד שאיתה אפשר לעבוד.<br>מכאן הקוד שיוצא נראה בערך ככה:<br><br><div class="php codeblock"><span class="re0">$row1</span> <span class="sy0">=</span> Table1<span class="sy0">::</span><span class="me2">getById</span><span class="br0">&#40;</span><span class="nu0">4</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// row with id=4</span><br>
+<span class="re0">$row1</span><span class="sy0">-&gt;</span><span class="me1">column</span> <span class="sy0">=</span> <span class="st_h">'blabla'</span><span class="sy0">;</span><br>
+<span class="re0">$row1</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// makes an update</span><br>
+<br>
+<span class="re0">$newRow</span> <span class="sy0">=</span> <span class="kw2">new</span> Table1<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$newRow</span><span class="sy0">-&gt;</span><span class="me1">columnX</span> <span class="sy0">=</span> <span class="st_h">'yo'</span><span class="sy0">;</span><br>
+<span class="re0">$newRow</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// makes an insert</span><br>
+<br>
+<span class="re0">$Alexes</span> <span class="sy0">=</span> Table1<span class="sy0">::</span><span class="me2">where</span><span class="br0">&#40;</span><span class="br0">&#91;</span><span class="st_h">'name'</span> <span class="sy0">=&gt;</span> <span class="st_h">'alex'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// $alexes = array of Table1 instances</span><br>
+<span class="re0">$Alexes</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="st_h">'Tony'</span><span class="sy0">;</span><br>
+<span class="re0">$Alexes</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// update</span></div><br><br>אל תשכח להוסיף טיפול בשגיאות, במקרה ולא הוזנו כל שדות החובה למשל.<br>בנוסף כל הכבוד על שימוש ב PHPDOCS. רק שים לב שאתה כותב את ה-DOC מעל למשתנה או המטודה ולא בצד שלה, אחרת העורך חושב שזה ה-DOC של המשתנה הבא. </p>
+</div>
+<div class="answer" id="answer3721">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>pol292</a>
+ב
+<span style="font-size:10px"> 11 לאוגוסט 2012 </span>
+<a id="answer_3721" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3721">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כל הסיפור אם הUPDATE גם אני לא אהבתי אבל זאת הדרך היחידה שחשבתי שאני יוכל להיפתר מלולאה<br>פשוט אין לי רעיון איך להפריד בין מערך כזה מבלי להשתמש בלולאה:<br><div class="php codeblock"><span class="kw3">array</span><span class="br0">&#40;</span><br>
+<span class="st_h">'username'</span> <span class="sy0">=&gt;</span> <span class="st_h">'pol'</span><br>
+<span class="st_h">'password'</span> <span class="sy0">=&gt;</span> <span class="st_h">'pass'</span><br>
+<span class="st_h">'email'</span> <span class="sy0">=&gt;</span> <span class="st_h">'<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="355146514675514651531b565a58">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>'</span><br>
+<span class="br0">&#41;</span></div><br>כך שיצא לאחר ההפרדה `username`=&#039;pol`,`password`=&#039;pass&#039;,`email`= &#039;<a class="__cf_email__" href="..\cdn-cgi\l\email-protection-1.htm" data-cfemail="197d6a7d6a597d6a7d7f377a7674">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&#039;<br>הפתרון היחיד שהיה לי לזה שימוש בלולאת FOR </p>
+</div>
+<div class="answer" id="answer3723">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>intval</a>
+ב
+<span style="font-size:10px"> 11 לאוגוסט 2012 </span>
+<a id="answer_3723" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3723">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+כנראה שזה יהיה foreach אבל אין שום בעיה עם לולאה.<br>רק על תשכח לטפל ב sql injection<br><div class="php codeblock"><span class="re0">$x</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="st0">&quot;O'connor&quot;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3724">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>pol292</a>
+ב
+<span style="font-size:10px"> 11 לאוגוסט 2012 </span>
+<a id="answer_3724" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3724">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תהיה לי מחלקה שאוטומטית מטפלת בכל הקלטים ככה שלא תהיה לי אם זה בעיה היא מנתרת את כל הבעיות </p>
+</div>
+<div class="answer" id="answer3728">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/2a54d032a5507cc57787a829ff7215ce?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>pol292</a>
+ב
+<span style="font-size:10px"> 11 לאוגוסט 2012 </span>
+<a id="answer_3728" href="אני צריך רעיונות לשדרוג מחלקה-1.htm#answer_3728">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+זהו סידרתי את זה ופשוט מעכשיו צריך לרשום save() ברגע שבSAVE יש הגדרות חיפוש הוא מתייחס לזה כעל UPDATE<br>יש עוד משהו חשוב שכידי להוסיף שיקל על העבודה?<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="coMULTI">/*<br>
+&nbsp;* **************************<br>
+&nbsp;* &nbsp; &nbsp; Sidox db model &nbsp; &nbsp; &nbsp;*<br>
+&nbsp;* **************************<br>
+&nbsp;* <br>
+&nbsp;* how to use:<br>
+&nbsp;* 1)connected to sql server<br>
+&nbsp;* demo for mysql:<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj = new Sidox_Model_Database(<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;&quot;mysql:host=localhost;dbname=pol&quot;, 'root', 'pass','table'(=null)<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;);<br>
+&nbsp;* 2)set table<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;table = &quot;tablename&quot;;<br>
+&nbsp;* 3)for add new information in db use<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;dbColum = 'x';<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;dbColum2 = 'y';<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;save(); <br>
+&nbsp;* 4)for update information in db use<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;dbColum = 'y';<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;dbColum2 = 'x';<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;save('dbColum = x','dbColum2 = y');<br>
+&nbsp;* 5)delete information<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;delete('dbColum = y','dbColum2 = x');<br>
+&nbsp;* 6)get information<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;getRows('dbColum = y','dbColum2 = x');<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;getRows(); //get all<br>
+&nbsp;* 7)order by and limit<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;order('dbColum','DESC')-&gt;limit(0,2)-&gt;getRows('dbColum = y','dbColum2 = x');<br>
+&nbsp;* &nbsp; &nbsp; &nbsp;$obj-&gt;order('dbColum','DESC')-&gt;limit(0,2)-&gt;getRows();<br>
+&nbsp;*/</span><br>
+<br>
+<span class="kw2">class</span> Sidox_Model_Database <span class="kw2">extends</span> PDO <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* @param (string) $_data Linking the database with data<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_data</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* @param (string) $_scan scan in db<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$_scan</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* @param (string) $table database table<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="re0">$table</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* use parent construct and set table<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+&nbsp; &nbsp; <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="re0">$dsn</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$password</span><span class="sy0">,</span> <span class="re0">$table</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; parent<span class="sy0">::</span>__construct<span class="br0">&#40;</span><span class="re0">$dsn</span><span class="sy0">,</span> <span class="re0">$username</span><span class="sy0">,</span> <span class="re0">$password</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">=</span> <span class="re0">$table</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* save params in $_data<br>
+&nbsp; &nbsp; &nbsp;* @param $name name of db column<br>
+&nbsp; &nbsp; &nbsp;* @param $value the colum value<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">function</span> __set<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_action <span class="sy0">==</span> <span class="st_h">'update'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'`'</span> <span class="sy0">.</span> <span class="re0">$name</span> <span class="sy0">.</span> <span class="st_h">'` = \''</span> <span class="sy0">.</span> <span class="re0">$value</span> <span class="sy0">.</span> <span class="st_h">'\''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#91;</span><span class="re0">$name</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot; '<span class="es4">$value</span>' &quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* add mode: save in db new information<br>
+&nbsp; &nbsp; &nbsp;* update mode: update the information<br>
+&nbsp; &nbsp; &nbsp;* @param $_data save the information<br>
+&nbsp; &nbsp; &nbsp;* @param $_update save the mode of function (true = update, false = add)<br>
+&nbsp; &nbsp; &nbsp;* @param func_args where to scan for update<br>
+&nbsp; &nbsp; &nbsp;* @param $table db table<br>
+&nbsp; &nbsp; &nbsp;* @param $rtn return data<br>
+&nbsp; &nbsp; &nbsp;* @return false or query<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$rtn</span> <span class="sy0">=</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="kw3">func_num_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//action update</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$update</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_data <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$update</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$update</span> <span class="sy0">=</span> <span class="st0">&quot; `<span class="es4">{$key}</span>` = '<span class="es4">{$value}</span>'&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">continue</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$update</span> <span class="sy0">.=</span> <span class="st0">&quot; , `<span class="es4">{$key}</span>` = '<span class="es4">{$value}</span> '&quot;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$rtn</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'UPDATE `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">.</span> <span class="st_h">'` SET '</span> <span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$update</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">scanWhere</span><span class="br0">&#40;</span><span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//action add</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$rtn</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'INSERT INTO `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">.</span> <span class="st_h">'` (<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' , '</span><span class="sy0">,</span> <span class="kw3">array_keys</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">' ) VALUES (<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' , '</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_data<span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st_h">' )'</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_data <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$rtn</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* delete db row<br>
+&nbsp; &nbsp; &nbsp;* @param func_args<br>
+&nbsp; &nbsp; &nbsp;* @return the query connection<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> delete<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">func_num_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st_h">'DELETE FROM `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">scanWhere</span><span class="br0">&#40;</span><span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* get DB rows<br>
+&nbsp; &nbsp; &nbsp;* @param func_args or null<br>
+&nbsp; &nbsp; &nbsp;* @return the query connection<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> getRows<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st_h">'SELECT * FROM `'</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">table</span> <span class="sy0">.</span> <span class="st_h">'` '</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">func_num_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">0</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">.=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">scanWhere</span><span class="br0">&#40;</span><span class="kw3">func_get_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$sql</span> <span class="sy0">.=</span> <span class="st0">&quot; &quot;</span> <span class="sy0">.</span> <span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">unset</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">unset</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_scan<span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* Order By<br>
+&nbsp; &nbsp; &nbsp;* @param string $order what order<br>
+&nbsp; &nbsp; &nbsp;* @param string $type is ASC or DESC <br>
+&nbsp; &nbsp; &nbsp;* @param $_sets test if set if true function die<br>
+&nbsp; &nbsp; &nbsp;* @return $this<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> order<span class="br0">&#40;</span><span class="re0">$order</span><span class="sy0">,</span> <span class="re0">$type</span> <span class="sy0">=</span> <span class="st_h">'ASC'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#91;</span><span class="st_h">'order'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_scan <span class="sy0">.=</span> <span class="st_h">' ORDER BY '</span> <span class="sy0">.</span> <span class="re0">$order</span> <span class="sy0">.</span> <span class="st_h">' '</span> <span class="sy0">.</span> <span class="re0">$type</span> <span class="sy0">.</span> <span class="st_h">' '</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#91;</span><span class="st_h">'order'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* limit list<br>
+&nbsp; &nbsp; &nbsp;* @param int $limit start limit list or mach of limit<br>
+&nbsp; &nbsp; &nbsp;* @param int $endLimit end the limit list<br>
+&nbsp; &nbsp; &nbsp;* @param $_sets test if set if true function die<br>
+&nbsp; &nbsp; &nbsp;* @return $this<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> limit<span class="br0">&#40;</span><span class="re0">$limit</span><span class="sy0">,</span> <span class="re0">$endLint</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#91;</span><span class="st_h">'limit'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="kw3">empty</span><span class="br0">&#40;</span><span class="re0">$endLint</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_scan <span class="sy0">.=</span> <span class="st_h">' LIMIT '</span> <span class="sy0">.</span> <span class="re0">$limit</span> <span class="sy0">.</span> <span class="st_h">','</span> <span class="sy0">.</span> <span class="re0">$endLint</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_scan <span class="sy0">.=</span> <span class="st_h">' LIMIT '</span> <span class="sy0">.</span> <span class="re0">$limit</span><span class="sy0">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-&gt;</span>_sets<span class="br0">&#91;</span><span class="st_h">'limit'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+&nbsp; &nbsp; <span class="coMULTI">/*<br>
+&nbsp; &nbsp; &nbsp;* @param Array $scanArgs where scan<br>
+&nbsp; &nbsp; &nbsp;* @return where to scan<br>
+&nbsp; &nbsp; &nbsp;*/</span><br>
+<br>
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> scanWhere<span class="br0">&#40;</span><span class="re0">$scanArgs</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> <span class="br0">&#40;</span><span class="re0">$i</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="kw3">sizeof</span><span class="br0">&#40;</span><span class="re0">$scanArgs</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">sscanf</span><span class="br0">&#40;</span><span class="re0">$scanArgs</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'%s %s %s'</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="re0">$operator</span><span class="sy0">,</span> <span class="re0">$value</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$scanArgs</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">' `'</span> <span class="sy0">.</span> <span class="re0">$key</span> <span class="sy0">.</span> <span class="st_h">'` '</span> <span class="sy0">.</span> <span class="re0">$operator</span> <span class="sy0">.</span> <span class="st_h">' \''</span> <span class="sy0">.</span> <span class="re0">$value</span> <span class="sy0">.</span> <span class="st_h">'\''</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="st_h">' WHERE '</span> <span class="sy0">.</span> <span class="kw3">implode</span><span class="br0">&#40;</span><span class="st_h">' AND '</span><span class="sy0">,</span> <span class="re0">$scanArgs</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; &nbsp; <span class="br0">&#125;</span><br>
+<br>
+<span class="br0">&#125;</span></div> </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שליחת אימייל מ-php דרך שרת ה-smtp של google תוך שימוש במחלקה PHPMailer">
+<meta name="keywords" content="gmail, google, smtp, php, mail, sendmail">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>שליחת מייל מ-php דרך gmail smtp</title>
+<meta itemprop="name" content="שליחת מייל מ-php דרך gmail smtp">
+<meta itemprop="description" content="שליחת אימייל מ-php דרך שרת ה-smtp של google תוך שימוש במחלקה PHPMailer">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"57","rating":"29","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>שליחת מייל מ-php דרך gmail smtp</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-01-10T16:22:34+02:00" dir="rtl">10 לינואר 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.websitemagazine.com/images/blog/gmail-mini.gif" alt="שליחת מייל מ-php דרך gmail smtp">
+</div>
+<div class="right post-content">
+קצת על שרתי smtp ואיך לשלוח דואר מחשבון הgmail שלכם דרך סקריפט php.<br>מועיל מאוד אם השרת שלכם לא תומך בשליחת מיילים <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+שליחת אימייל דרך gmail בעזרת php היא לא עניין כה מסובך כפי שזה נשמע. <br>כשאנחנו שולחים אימייל בעזרת הפונקציה <span dir="ltr"><a href="http://php.net/mail">mail()</a></span> המפענח מתחבר אל תוכנה נוספת, הנקראת שרת smtp, מוסר לו את הבקשה לשלוח אימייל ליעד כזה עם נתונים כאלה ובזה פעולתו הסתיימה. לאחר מכן שרת ה-smtp מבצע את שליחת האימייל בפועל.<br><br>שרת smtp פרטי מותקן כיום כמעט על כל שרת של כל חברת איחסון קיימת, שמבצע את עבודתו היטב ובדרך כלל מספיק לכל הפעולות הבסיסיות והמורכבות שנרצה לבצע. מצד אחר להשתמש גם בשרת smtp חיצוני, לדוגמה שרת smtp של gmail. אם האתר שלכם מאוחסן על מחשב שלא מותקן עליו שרת smtp, כמו המחשב הביתי שלכם, או שפשוט החלטתם לא להתקין אחד כזה מסיבות ביצועים, פחד משימוש בו לרעה על ידי משתמשים אחרים במחשב שלכם (במקרה של איחסון משוטף) או מכל סיבה אחרת — תמיד תוכלו להשתמש בשרתים חיצוניים, כמו אלו של גוגל.<br><br><br>פרוטוקל ה-smtp הוא קבוצת הסכמים על איך שרת ה-smtp רוצה לקבל את כל הנתונים. באיזה אופן, סדר, אורך וזמן יש להעביר לו פרמטרים. רשימת ההסכמים הזו ארוכה ולכן לא נממש אותה בעצמנו. ניקח מחלקה קיימת שעושה את העבודה הזו שמה PHPMailer. ניתן <a href="http://sourceforge.net/projects/phpmailer/files/phpmailer%20for%20php5_6/PHPMailer%20v5.1/PHPMailer_v5.1.zip/download">להוריד מכאן</a>.<br><br>בתוך הארכיב ישנם שלושה קבצי php שמהווים את עצם המערכת. <br>את שלושת הקבצים האלה יש להעתיק לתיקית השרת של localhost<br><span class="dirleft">class.phpmailer.php, class.smtp.php, class.pop3.php</span><br>כדי שיהיה לנו יותר נוח, נשים את שלושת הסקריפטים האלה בתיקיה phpmailer<br>ונשתמש בהם משם. <br><br>כעת ניצור קובץ שיהיה אחרי על השליחה בפועל ויראה כך:<br><div class="php codeblock"><span class="kw2">&lt;?php</span><br>
+<br>
+<span class="kw1">require_once</span> <span class="st_h">'phpmailer/class.phpmailer.php'</span><span class="sy0">;</span> <span class="co1">// מיקום קובץ המחלקה</span><br>
+<br>
+<span class="re0">$mail</span> <span class="sy0">=</span> <span class="kw2">new</span> PHPMailer <span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// יצירת אובייקט המחלקה (קריאה למחלקה)</span><br>
+<br>
+<span class="co1">// הגדרות כלליות </span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">SMTPAuth</span> &nbsp; <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span> <span class="co1">// התחברות לשרת המיילים דורשת הזדהות</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">SMTPSecure</span> <span class="sy0">=</span> <span class="st0">&quot;ssl&quot;</span><span class="sy0">;</span> <span class="co1">// מתחברים בהתחברות מאובטחת</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">Host</span> <span class="sy0">=</span> <span class="st0">&quot;smtp.gmail.com&quot;</span><span class="sy0">;</span> <span class="co1">// כתובת השרת של גוגל</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">Port</span> &nbsp;<span class="sy0">=</span> <span class="nu0">465</span><span class="sy0">;</span> <span class="co1">// פורט השרת של גוגל</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">Mailer</span><span class="sy0">=</span> <span class="st0">&quot;smtp&quot;</span><span class="sy0">;</span> <span class="co1">// מגדירים למחלקה לשלוח אימייל דרך השרת החיצוני ולא באמצעות פונקציות mail</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">SMTPDebug</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="sy0">;</span> <span class="co1">// בפעם הראשונה נריץ את השליחה עם הודעות על מה הולך שם</span><br>
+<span class="co1">// אחרי שנראה שהכל עובד - יש למחוק את השורה למעלה</span><br>
+<br>
+<br>
+<span class="co1">// שם משתמש וסיסמה לחשבון</span><br>
+<span class="co1">// CHANGE THIS !!!!!!!!!!!!!!!!!!!!!!!!!!</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">Username</span> &nbsp; <span class="sy0">=</span> <span class="st0">&quot;<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="421b0d17100301010d170c1602252f232b2e6c212d2f">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">;</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">Password</span> &nbsp; <span class="sy0">=</span> <span class="st0">&quot;YOURPASSWORD&quot;</span><span class="sy0">;</span><br>
+<br>
+<br>
+<span class="co1">// מוען</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">FromName</span> <span class="sy0">=</span> <span class="st0">&quot;Mega admin&quot;</span><span class="sy0">;</span> <span class="co1">// שם - השם שלך</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">AddReplyTo</span> <span class="br0">&#40;</span><span class="st0">&quot;<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="1170757c787f517d7e72707d3f797e6265">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Mega admin&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// אם המקבל ילחץ &quot;השב&quot; התשובה שלו תשלח ל</span><br>
+<br>
+<span class="co1">// תוכן ההודעה</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">Subject</span> <span class="sy0">=</span> <span class="st0">&quot;Mail subject&quot;</span><span class="sy0">;</span> <span class="co1">// כותרת המכתב</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">Body</span> <span class="sy0">=</span> <span class="st0">&quot;Mail text&quot;</span><span class="sy0">;</span> <span class="co1">// תוכן המכתב</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">IsHTML</span> <span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// שולחים היפרטקסט ולא טקסט רגיל</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">CharSet</span> <span class="sy0">=</span> <span class="st_h">'UTF-8'</span><span class="sy0">;</span> <span class="co1">// קידוד המכתב</span><br>
+<br>
+<span class="co1">// מען</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">AddAddress</span> <span class="br0">&#40;</span><span class="st0">&quot;<a class="__cf_email__" href="cdn-cgi\l\email-protection.htm" data-cfemail="24471610101d1d101464544e4e4f540a474b49">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("data-cfhash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}t.parentNode.removeChild(t);}}catch(u){}}()/* ]]> */</script>&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Alex&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//כתובת אימייל אליה יישלח האימייל ושם הנמען</span><br>
+<span class="re0">$mail</span><span class="sy0">-&gt;</span><span class="me1">Send</span> <span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//ביצוע השליחה</span></div><br><br>רשמתי ליד כל שדה מה הוא אומר.<br>אפשר לשמור את הסקריפט, להריץ ולחקות שהאימייל שלכם יגיע כל רגע.<br><br><h5>יש עוד אפשרויות מגניבות</h5><br>לצורך העניין שליחת קובץ היא עכשיו עניין קלי קלות.<br>לאובייקט PHPMailer יש מטודה שנקראת AddAttachment שבעזרתה נוכל להוסיף קובץ או כמה קבצים שנרצה לאימייל.<br><div class="php codeblock"><span class="re0">$mail</span> <span class="sy0">-&gt;</span> <span class="me1">AddAttachment</span><span class="br0">&#40;</span><span class="st0">&quot;C:/www/localhost/sendme.txt&quot;</span><span class="sy0">,</span> <span class="st_h">'somename.txt'</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$mail</span> <span class="sy0">-&gt;</span> <span class="me1">AddAttachment</span><span class="br0">&#40;</span><span class="st0">&quot;C:/www/localhost/sendme2.txt&quot;</span><span class="sy0">,</span> <span class="st_h">'somename2.txt'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הפרמטר הראשון הוא מיקום הקובץ אצלכם בשרת, הפרמטר השני הוא השם שתחתו יראה המקבל את הקובץ. הם לא חייבים להיות זהים כלל.<br><br><span class="dirleft"><strong>Unable to find the socket transport &quot;ssl&quot; - did you forget to enable it when you configured PHP?</strong></span><br>שגיאה נחמדה שיכולה לקרות לכם אם php מקונפג בלי הרחבת openssl.<br>כדי לתקן את המצב יש לפתוח את הקובץ php.ini , למצוא בו את השורה<br><div class="php codeblock"><span class="sy0">;</span>extension<span class="sy0">=</span>php_openssl<span class="sy0">.</span>dll</div><br>להוריד בתחילתה את הנקודה פסיק ולהפעיל מחדש את שרת ה-apache. </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment232"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/06/2011 16:43</span><br>
+ממש יפה! כל הכבוד לך על המדריך הזה :)</div>
+<a id="comment258"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/06/2011 11:03</span><br>
+תודה... מקבל הודעת שגיאה :<br>
+SMTP Error: Could not connect to SMTP host.<br>
+מה לעשות?</div>
+<a id="comment259"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/06/2011 11:09</span><br>
+טעות שלי... לא הפעלתי מחדש את Apache אחרי ששיניתי את הקובץ php.ini.<br>
+<br>
+סליחה ותודה, אחלה מדריך!</div>
+<a id="comment263"></a>
+<div class="blog-comment">
+<span class='comment-author'>raslin</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/06/2011 23:17</span><br>
+אני רוצה לציין,<br>
+שאפשר לשלוח רק 100 אימיילים ביום<br>
+דרך ה API הזה,<br>
+קחו את זה בחשבון.</div>
+<a id="comment461"></a>
+<div class="blog-comment">
+<span class='comment-author'>dinamit</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2011 18:09</span><br>
+ואם אני רוצה להתקין את ה-PHPMAILER על שרת אחסון אתרים, צריך לשנות הגדרות איפשהו או פשוט להעתיק?<br>
+הרי אין על השרת את הקובץ php.ini<br>
+ניסיתי להתקין על שרת שתומך ב-PHP וב-SMTP אבל הוא מראה שגיאת התחברות לשרת SMTP.</div>
+<a id="comment462"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2011 18:10</span><br>
+phpmailer זה סתם סקריפט שאפשר להעתיק ולהפעיל.<br>
+אמנם בהנחה שהאיחסון תומך ב ssl</div>
+<a id="comment465"></a>
+<div class="blog-comment">
+<span class='comment-author'>dinamit</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>26/07/2011 18:21</span><br>
+תודה על התשובה המהירה!</div>
+<a id="comment665"></a>
+<div class="blog-comment">
+<span class='comment-author'>שם_חדש</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2011 17:47</span><br>
+זה פועל גם על אחסון? או רק ב-WAMP?</div>
+<a id="comment666"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2011 17:48</span><br>
+מה ההבדל בין השניים?</div>
+<a id="comment667"></a>
+<div class="blog-comment">
+<span class='comment-author'>שם_חדש</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>20/08/2011 17:52</span><br>
+חחח לא משנה P:<br>
+תודה</div>
+<a id="comment1132"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>21/01/2012 20:56</span><br>
+Unable to find the socket transport &quot;ssl&quot; - did you forget to enable it when you configured PHP?<br>
+<br>
+למרות שאפשרתי ssl בשרת וריסטרתי את הapache, אני מקבל את השגיאה הזאת.<br>
+</div>
+<a id="comment1137"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/01/2012 09:53</span><br>
+תנסה להתקין את PHP מחדש. יכול להיות שבהתקנה שלך פשוט אין את הקובץ php_openssl.dll</div>
+<a id="comment1142"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/01/2012 15:12</span><br>
+עובד<br>
+תודה רבה <br>
+<br>
+</div>
+<a id="comment1144"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>22/01/2012 19:30</span><br>
+כל הכבוד</div>
+<a id="comment1357"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/02/2012 22:45</span><br>
+זה שולח את המייל אבל זה כותב בדף של האתר את זה:<br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;220 mx.google.com ESMTP n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;220 mx.google.com ESMTP n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; FROM SERVER:220 mx.google.com ESMTP n52sm35915971eea.5 <br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;250-mx.google.com at your service, [79.181.157.41] &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;250-mx.google.com at your service, [79.181.157.41] &quot; <br>
+SMTP -&gt; get_lines(): $data was &quot;250-mx.google.com at your service, [79.181.157.41] &quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;250-SIZE 35882577 &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;250-mx.google.com at your service, [79.181.157.41] 250-SIZE 35882577 &quot; <br>
+SMTP -&gt; get_lines(): $data was &quot;250-mx.google.com at your service, [79.181.157.41] 250-SIZE 35882577 &quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;250-8BITMIME &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;250-mx.google.com at your service, [79.181.157.41] 250-SIZE 35882577 250-8BITMIME &quot; <br>
+SMTP -&gt; get_lines(): $data was &quot;250-mx.google.com at your service, [79.181.157.41] 250-SIZE 35882577 250-8BITMIME &quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;250-AUTH LOGIN PLAIN XOAUTH &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;250-mx.google.com at your service, [79.181.157.41] 250-SIZE 35882577 250-8BITMIME 250-AUTH LOGIN PLAIN XOAUTH &quot; <br>
+SMTP -&gt; get_lines(): $data was &quot;250-mx.google.com at your service, [79.181.157.41] 250-SIZE 35882577 250-8BITMIME 250-AUTH LOGIN PLAIN XOAUTH &quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;250 ENHANCEDSTATUSCODES &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;250-mx.google.com at your service, [79.181.157.41] 250-SIZE 35882577 250-8BITMIME 250-AUTH LOGIN PLAIN XOAUTH 250 ENHANCEDSTATUSCODES &quot; <br>
+SMTP -&gt; FROM SERVER: 250-mx.google.com at your service, [79.181.157.41] 250-SIZE 35882577 250-8BITMIME 250-AUTH LOGIN PLAIN XOAUTH 250 ENHANCEDSTATUSCODES <br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;334 VXNlcm5hbWU6 &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;334 VXNlcm5hbWU6 &quot; <br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;334 UGFzc3dvcmQ6 &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;334 UGFzc3dvcmQ6 &quot; <br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;235 2.7.0 Accepted &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;235 2.7.0 Accepted &quot; <br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;250 2.1.0 OK n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;250 2.1.0 OK n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; FROM SERVER:250 2.1.0 OK n52sm35915971eea.5 <br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;250 2.1.5 OK n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;250 2.1.5 OK n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; FROM SERVER:250 2.1.5 OK n52sm35915971eea.5 <br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;354 Go ahead n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;354 Go ahead n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; FROM SERVER:354 Go ahead n52sm35915971eea.5 <br>
+SMTP -&gt; get_lines(): $data was &quot;&quot; <br>
+SMTP -&gt; get_lines(): $str is &quot;250 2.0.0 OK 1330202618 n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; get_lines(): $data is &quot;250 2.0.0 OK 1330202618 n52sm35915971eea.5 &quot; <br>
+SMTP -&gt; FROM SERVER:250 2.0.0 OK 1330202618 n52sm35915971eea.5<br>
+איך אפשר להעלים את זה???<br>
+ויש לי עוד שאלה<br>
+איך אפשר לעשות שיהיה אפשר לשלוח יותר מ-100 אימיילים ביום (אם זה אפשרי)???<br>
+תודה רבה על העזרה!!!!!!!</div>
+<a id="comment1358"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>25/02/2012 23:16</span><br>
+שחכתי להפוך את הSMTPDebug = true;<br>
+לFALSE</div>
+<a id="comment1407"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/03/2012 14:49</span><br>
+אני מאחסן ב godaddy ומקבל שגיאת חיבור</div>
+<a id="comment1413"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/03/2012 18:45</span><br>
+שמע אלכס, אתה אחד התותחים!<br>
+אני יושב על זה כבר איזה שעתיים, באתרים בחו&quot;ל.<br>
+לא האמנתי שיש מצב שבעברית אקבל את הפיתרון.<br>
+<br>
+אחי, רק זה עבד לי!<br>
+ניסיתי כבר הכל.<br>
+<br>
+פשוט מלך!<br>
+<br>
+מאסף לירן<br>
+<span dir="ltr"><a href="www.attract.co.il">www.attract.co.il</a></span></div>
+<a id="comment1414"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>06/03/2012 20:03</span><br>
+שמח שעזרתי.</div>
+<a id="comment1574"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/05/2012 11:25</span><br>
+לא עובד לי, מודיע הודעה: SMTP -&gt; ERROR: Failed to connect to server: Unable to find the socket transport &quot;ssl&quot; - did you forget to enable it when you configured PHP? (42737496) <br>
+SMTP Error: Could not connect to SMTP host. <br>
+אני חדשה בזה, אשמח לתשובה<br>
+נ.ב. ניסיתי להתקין מחדש WAMP, לא עזר</div>
+<a id="comment1575"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/05/2012 13:22</span><br>
+תקרא את המדריך עד הסוף בבקשה...</div>
+<a id="comment1576"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>28/05/2012 14:02</span><br>
+יייייייישששששששששש, זה עובד!! צודק, לא קראתי עד הסוף כי לא הייתי מעוניינת בצירוף קובץ אז לא התייחסתי להמשך. תודה וסליחה</div>
+<a id="comment2834"></a>
+<div class="blog-comment">
+<span class='comment-author'>אריק</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>11/08/2015 18:56</span><br>
+למה זה לא עובד , האם יש משהו עדכני יותר</div>
+<a id="comment2850"></a>
+<div class="blog-comment">
+<span class='comment-author'>menahem770</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/10/2015 16:38</span><br>
+מישהו נתקל בבעיית קידוד?<br>
+<br>
+בהתחלה רק גוף ההודעה היה מקודד בסדר והפיע במייל בעברית קריאה. הכותרת ושם השולח (זה שמוגדר בצמוד למייל השולח) הופיעו בג&apos;יבריש.<br>
+אחרי שהוספתי את השורה שמגדירה את ה- CharSet שם השולח עבר לעברית אבל הכותר עדיין מופיעה בג&apos;יבריש ומסרבת להיות קריאה.<br>
+<br>
+קבצי ה-php שלי שמורים כ- charset=CP1255.<br>
+<br>
+יש רעיונות?</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Blog" ng-app="phpg">
+<head>
+<base href="https://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="שאלה הוצאת קודי PHP ממסד">
+<meta name="keywords" content="שאלה, עזרה">
+<meta name="author" content="ArielTador">
+<link rel="shortcut icon" href="..\static\images\favicon-1.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="..\static\styles\allstyles.compiled.css">
+<title>הוצאת קודי PHP ממסד | שאלת לימוד PHP</title>
+<meta itemprop="name" content="הוצאת קודי PHP ממסד | שאלת לימוד PHP">
+<meta itemprop="description" content="שאלה הוצאת קודי PHP ממסד">
+</head>
+<body dir='rtl' class="forum-qna">
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="..\index-3.htm"><img src="..\static\images\logo.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="..\index-3.htm">פוסטים</a></li>
+<li><a href="..\qna-1.htm" class="active">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<div class="qna_view_question" id="qnaQuestionHolder">
+<div class="qna-home-row">
+<div class="counts">
+ 
+<div class="status  answered">
+<div class="item-count">26</div>
+<div>
+תגובות
+</div>
+</div>
+</div>
+<div class="question-summary-wrapper">
+<h2><a href="הוצאת קודי PHP ממסד-1.htm" title="שלום,נגיד ובמסד נתונים יש לי טבלא בשם Test ובתוכה עמודה בשם Text,בתוך עמודת Text יש שורה שמכילה את התוכן הבא:echo &apos;&amp;lt;font color=red&amp;quot;&amp;gt;Hello Worlds&amp;lt;/font&amp;gt;&apos;;עכשיו, אני בדף PHP שלי, רוצה להדפיס את התוכן הזה בתור קוד PHP, כשאני מנסה בצורה רגילה, זה מראה לי רק את הקוד HTML כמו שאני רוצה, אבל ה PHP מוצג באתר בתור טקסט רגיל, כלומר בצורה כזו:">הוצאת קודי PHP ממסד</a></h2>
+<div class="userinfo">
+פתח
+<a>ArielTador</a>
+,
+<time class="timeago relativetime" datetime="2012-08-17T13:27:14+03:00" style="display:inline-block;">
+17 לאוגוסט 2012 </time>
+</div>
+</div>
+</div> <div class="clear"></div>
+<div style="border-top:1px dashed #D1D1D1; margin-top:10px; padding-top:10px; " class="qnapost" id='questionText913'>
+שלום,<br><br>נגיד ובמסד נתונים יש לי טבלא בשם Test ובתוכה עמודה בשם Text,<br>בתוך עמודת Text יש שורה שמכילה את התוכן הבא:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'&lt;font color=red&quot;&gt;Hello Worlds&lt;/font&gt;'</span><span class="sy0">;</span></div><br>עכשיו, אני בדף PHP שלי, רוצה להדפיס את התוכן הזה בתור קוד PHP, כשאני מנסה בצורה רגילה, זה מראה לי רק את הקוד HTML כמו שאני רוצה, אבל ה PHP מוצג באתר בתור טקסט רגיל, כלומר בצורה כזו:<br><br>echo &#039;<strong>Hello Worlds</strong>&#039;;<br><br>מה עושים? </div>
+</div>
+<h3>
+<span id="answersCounter">26 </span>
+תשובות
+</h3>
+<section class="answers" id="qnaAnswers">
+<div class="answer" id="answer3920">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3920" href="הוצאת קודי PHP ממסד-1.htm#answer_3920">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שבמסד זה יהיה ככה:<br><div class="php codeblock"><span class="sy0">&lt;</span>font color<span class="sy0">=</span>red<span class="st0">&quot;&gt;Hello Worlds&lt;/font&gt;</span></div><br><br>ושאתה מדפיס:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'Text'</span><span class="br0">&#93;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3921">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3921" href="הוצאת קודי PHP ממסד-1.htm#answer_3921">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, אני מתכוון שנגיד ויש לי קוד אחר של PHP, קוד עם מערכת הרשמה שבנויה ב PHP או משהו, והיא בתוך המסד ואני רוצה להדפיס אותה בתוך האתר..<br>מה אני עושה? </p>
+</div>
+<div class="answer" id="answer3922">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3922" href="הוצאת קודי PHP ממסד-1.htm#answer_3922">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תנסה להסביר יותר ברור, לא הבנתי מה אתה רוצה לפלוט... </p>
+</div>
+<div class="answer" id="answer3923">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3923" href="הוצאת קודי PHP ממסד-1.htm#answer_3923">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה רוצה להדפיס את הקוד עצמו או שאתה רוצה שהוא יבצע את הפעולות שבקוד? </p>
+</div>
+<div class="answer" id="answer3924">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3924" href="הוצאת קודי PHP ממסד-1.htm#answer_3924">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשמע, יש לי קוד PHP בתוך המסד ואני רוצה להדפיס אותו באתר שלי.., איך עושים את זה? </p>
+</div>
+<div class="answer" id="answer3925">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3925" href="הוצאת קודי PHP ממסד-1.htm#answer_3925">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשתמש ב <strong>htmlspecialchars</strong>. </p>
+</div>
+<div class="answer" id="answer3926">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3926" href="הוצאת קודי PHP ממסד-1.htm#answer_3926">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+איך משתמשים בזה? אתה יכול לתת לי דוגמא? </p>
+</div>
+<div class="answer" id="answer3927">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3927" href="הוצאת קודי PHP ממסד-1.htm#answer_3927">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<div class="php codeblock"><span class="kw1">echo</span> <span class="kw3">htmlspecialchars</span><span class="br0">&#40;</span><span class="re0">$db</span><span class="br0">&#91;</span><span class="st_h">'Text'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span></div> </p>
+</div>
+<div class="answer" id="answer3928">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3928" href="הוצאת קודי PHP ממסד-1.htm#answer_3928">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+<a href="http://it2.php.net/manual/en/function.htmlspecialchars.php"><strong>htmlspecialchars</strong></a> </p>
+</div>
+<div class="answer" id="answer3929">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3929" href="הוצאת קודי PHP ממסד-1.htm#answer_3929">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+עכשיו זה מציג לי את כל הקוד שרשום במסד.. מה עושים? </p>
+</div>
+<div class="answer" id="answer3930">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3930" href="הוצאת קודי PHP ממסד-1.htm#answer_3930">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+שתיהיה בריא, יש לך במסד את הקוד:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'something'</span><span class="sy0">;</span></div><br><br>ואתה רוצה להציג אותו, בדף הבית שיהיה כתוב:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'something'</span><span class="sy0">;</span></div><br><br>ולא something נכון ? </p>
+</div>
+<div class="answer" id="answer3931">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3931" href="הוצאת קודי PHP ממסד-1.htm#answer_3931">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אתה רוצה לבצע את הפעולות שבקוד או רק להציג את הקוד?<br>כלומר אתה רוצה שזה יהיה מוצג ככה:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'&lt;font color=red&quot;&gt;Hello Worlds&lt;/font&gt;'</span><span class="sy0">;</span></div><br>או <br><div class="php codeblock"><span class="sy0">&lt;</span>font color<span class="sy0">=</span>red<span class="st0">&quot;&gt;Hello Worlds&lt;/font&gt;</span></div><br>או<br><div class="php codeblock">Hello Worlds</div><br>? </p>
+</div>
+<div class="answer" id="answer3932">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3932" href="הוצאת קודי PHP ממסד-1.htm#answer_3932">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני רוצה שהוא ירשום something, שהוא בעצם יבצע את פעולת ה PHP שהיא בעצם echo .. </p>
+</div>
+<div class="answer" id="answer3933">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3933" href="הוצאת קודי PHP ממסד-1.htm#answer_3933">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+דרך המסד אי אפשר לבצע את הפעולות PHP. </p>
+</div>
+<div class="answer" id="answer3934">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3934" href="הוצאת קודי PHP ממסד-1.htm#answer_3934">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, אבל זה סוג של מערכת ניהול תוכן שעורכים בה דפים ב PHP.. </p>
+</div>
+<div class="answer" id="answer3935">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3935" href="הוצאת קודי PHP ממסד-1.htm#answer_3935">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז בדף index.php תכתוב:<br><div class="php codeblock"><span class="kw1">echo</span> <span class="st_h">'something'</span><span class="sy0">;</span></div><br><br>ואם אתה שולף מהמסד, תכתוב את מה שאתה צריך לשלוף במקום &#039;something&#039;. </p>
+</div>
+<div class="answer" id="answer3936">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3936" href="הוצאת קודי PHP ממסד-1.htm#answer_3936">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא, אבל זה סוג של מערכת ניהול תוכן שעורכים בה דפים ב PHP.. </p>
+</div>
+<div class="answer" id="answer3937">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3937" href="הוצאת קודי PHP ממסד-1.htm#answer_3937">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז תעשה שיערכו את הקובץ לא דרך המסד. </p>
+</div>
+<div class="answer" id="answer3938">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3938" href="הוצאת קודי PHP ממסד-1.htm#answer_3938">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+נו ? מה שכתבתי לך זה בסינית :) ? זה בPHP בשפה שבה אתה עורך.. מה הבעיה? </p>
+</div>
+<div class="answer" id="answer3939">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3939" href="הוצאת קודי PHP ממסד-1.htm#answer_3939">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אז אתם רוצים לומר לי שאין אפשרות לעשות את זה? </p>
+</div>
+<div class="answer" id="answer3940">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3940" href="הוצאת קודי PHP ממסד-1.htm#answer_3940">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+לא.. </p>
+</div>
+<div class="answer" id="answer3941">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/a7bf9407cf22f5ced54bf1c2ac3219a7?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>ArielTador</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3941" href="הוצאת קודי PHP ממסד-1.htm#answer_3941">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+תשמעו, htmlspecialchars הדפיס לי את מה שכתוב במסד(echo &#039;&lt;font color=&quot;red&quot;&gt;Hello Worlds&lt;/font&gt;),<br>עכשיו, מה שאני רוצה בעצם זה שזה ידפיס לי את הפעולה עצמה, כלומר שהוא יבצע את ה Echo וידפיס לי את התוצאה שאמורה לצאת.<br>ועוד דבר, אני לא רוצה לשים את הקוד בדף PHP, כלומר לא לשים את הקוד שבמסד בתוך הדף, אלא להוציא את הקוד מהמסד ולבצע את פעולת ה echo שבו..<br>איך אני עושה את זה? </p>
+</div>
+<div class="answer" id="answer3942">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/8c3a88af0af1853a38b1b328bc6f45df?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>razand</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3942" href="הוצאת קודי PHP ממסד-1.htm#answer_3942">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אי אפשר<br>אתה יכול לעשות את זה בלי להשתמש ב מסד נתונים </p>
+</div>
+<div class="answer" id="answer3946">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/7879b706e45bf4406cf3f246538d767f?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>OrelBeY</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3946" href="הוצאת קודי PHP ממסד-1.htm#answer_3946">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר; <a href="http://php.net/eval">eval()</a>.<br>אבל זה ממש לא מומלץ, אל תשתמש בזה.<br>בכל מקרה, למה אתה צריך לאחסן קוד PHP במסד? חייבת להיות דרך אחרת לעשות את מה שאתה רוצה לעשות. </p>
+</div>
+<div class="answer" id="answer3947">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/dfd75d4711d5ce92bee5293dcad70f9a?s=20&amp;r=g&amp;d=monsterid" alt="avatar"> ענה
+<a>Ben</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3947" href="הוצאת קודי PHP ממסד-1.htm#answer_3947">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אני גם עד עכשיו לא הבנתי לשם מה אתה עושה את כל זה. </p>
+</div>
+<div class="answer" id="answer3948">
+<div>
+<span class="userinfo">
+<img class="avatar" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=20&amp;r=g&amp;d=mm" alt="avatar"> ענה
+<a>iiddaannyy</a>
+ב
+<span style="font-size:10px"> 17 לאוגוסט 2012 </span>
+<a id="answer_3948" href="הוצאת קודי PHP ממסד-1.htm#answer_3948">#</a>
+</span>
+<div class="clear"></div>
+</div>
+<p>
+אפשר עם eval. אבל זה זו צורת העבודה הכי גרועה שיכולה להיות.<br>במסד שים רק פלט - טקסט ו-html שאתה מדפיס בסופו של דבר. בקובץ שלך אתה כותב את ה-php ופולט מהמסד את מה שצריך. </p>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="https://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="..\assets\c2224fc8\jquery.min.js"></script>
+<script type="text/javascript" src="..\static\scripts\scripts.compiled.js"></script>
+<script type="text/javascript" src="..\static\scripts\plugins.js"></script>
+<script type="text/javascript" src="..\static\scripts\ui.js"></script>
+<script type="text/javascript" src="..\static\scripts\analytics.js"></script>
+</body>
+</html>

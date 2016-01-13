@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="he" itemscope="" itemtype="http://schema.org/Article" ng-app="phpg">
+<head>
+<base href="http://phpguide.co.il/">
+<meta charset="utf-8">
+<meta name="description" content="מבוא לביטויים רגולריים, מדריך Preg_match , פטרנים, מודיפיקטורים ו-preg_replace">
+<meta name="keywords" content="ביטויים רגולריים, רגולריים, regexp, preg_match, preg_replace, preg">
+<meta name="author" content="intval">
+<link rel="shortcut icon" href="static\images\favicon.ico">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="static\styles\A.allstyles.compiled.css.pagespeed.cf.P4R8BwzxFu.css">
+<title>ביטויים רגולריים</title>
+<meta itemprop="name" content="ביטויים רגולריים">
+<meta itemprop="description" content="מבוא לביטויים רגולריים, מדריך Preg_match , פטרנים, מודיפיקטורים ו-preg_replace">
+</head>
+<body dir='rtl' class="article"><script type="text/javascript">window.phpgstate={"post":{"id":"55","rating":"30","hasCurrentUserVoted":false}};</script>
+<div class='page-container'>
+<section id='header'>
+<div class="topRowHolder">
+<a class="logo" href="index.htm"><img src="static\images\xlogo.jpg.pagespeed.ic.6YgiLES4FJ.jpg"></a>
+<nav class="main">
+<ul>
+<li><a href="index.htm" class="active">פוסטים</a></li>
+<li><a href="qna.htm">פורום</a></li>
+</ul>
+<div class="clear"></div>
+</nav> <div class="clear"></div>
+</div>
+</section>  
+<div class="layout-holder">
+<section id="content">
+<h1 class='content-title'><span></span>ביטויים רגולריים</h1>
+ 
+<div id="content-publishing-info">
+<div class="right">intval, </div>
+<div class="right">&nbsp;<time datetime="2011-03-17T20:42:49+02:00" dir="rtl">17 למרץ 2011</time></div>
+<div class="clear"></div>
+</div>
+ 
+<article>
+<header>
+<div class="right post-image">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://ncdn.phpguide.co.il/blogimages/regexp.jpg" alt="ביטויים רגולריים">
+</div>
+<div class="right post-content">
+איך להשתלט על המילה שמפחידה כל מילה — הכלי הנוח למציאת חלקים של מחרוזת בתוך מחרוזת, בדיקת תקינות ועוד אין ספור שימושים בזוג מילים שרק נראה קצת מסובך. <br>
+</div>
+<div class="clear"></div>
+</header>
+<br><br>
+ביטויים רגולריים הם כלי לחיפוש חלקים של מחרוזת בתוך מחרוזת.<br>אם בא לכם למצוא את כל אותיות ל&#039; שמופיעות בטקסט ומיד אחריהם בא המספר שלוש ולהחליף אותו בשם שלכם - ביטויים רגולריים זה מה שאתם צריכים.<br><br>ביטויים רגולריים מאפשרים לכם לחפש תת-מחרוזות לפי תבנית מסוימת.<br>תבנית דוגמאת האות ל&#039; ואחריה מספר. או כל מילה שמתחילה באות א&#039; או כל דבר אחר.<br><br>בהמשך הסבר מלא ודוגמאות של ביטויים רגולריים יחד עם פונקציות php מתאימות, כמה תרגילים להבנה עצמית עם פתרון ואפשרות לשאול שאלות בתגובות.<br><br><br><h3>מה אפשר לעשות עם ביטויים רגולריים?</h3><br>אם תרצו לבדוק האם המחרוזת שלכם מורכבת אך ורק מאותיות באנגלית,<br>או להחליף את כל האותיות Z שאחריהם בא מספר באות Q – תשתמשו בביטויים רגולריים. התבניות שלפיהם תתבצע העבודה (הדגשתי אותם) נקראת פטרן.<br><br>pattern (תבנית) – מחרוזת תווים, תווים מיוחדים ומודיפיקטורים<br>שלפיהם יתבצע חיפוש התת-מחרוזות.<br><br><br><br><h3>preg_match</h3><br><a href="http://php.net/preg_match">preg_match</a> היא הפונקציה הבסיסית לחיפוש תת-מחרוזת בתוך מחרוזת לפי ביטוי רגולרי.<br>היא מקבלת שלושה ארגומנטים, הראשון הוא תבנית החיפוש (הפטרן), השני הוא המחרוזת שבה מחפשים והשלישי הוא משתנה ריק שלתוכו הפונקציה בעצמה תכניס את תוצאות החיפוש. כך לדוגמה, כדי למצוא את ההופעה של 123 בתוך המחרוזת abc123xyz נכתוב את הפונקציה באופן הבא:<br><br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'abc123xyz'</span><span class="sy0">;</span><br>
+<span class="re0">$results</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$pattern</span> <span class="sy0">=</span> <span class="st_h">'#123#'</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$pattern</span><span class="sy0">,</span> <span class="re0">$string</span><span class="sy0">,</span> <span class="re0">$results</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$results</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// Array ( [0] =&gt; 123 )</span></div><br><br>התוצאה תהיה מערך שהאלמנט האפסי שלו יהיה המספר 123 (חיפשנו את 123 והוא נמצא במחרוזת). עד כאן אין לנו שום שימוש מעניין בתוצאות החיפוש, פרט לעובדה שאפשר להשתמש בקוד זה כדי לבדוק האם התת-מחרוזת 123 מופיע בתוך המחרוזת המקורית.<br><br><span style="color:gray;">שנו את המחרוזת המקורית למשהו שלא מכיל את 123 והפעילו שוב את הקוד.<br> מה מכיל המערך כעט?<br>א. הוא ריק (אפס אלמנטים)<br>ב. יש אלמנט אחד <span dir="ltr">results[0]</span>, אבל אינו מכיל ערך<br>ג. אלמנט אחד עם הערך abc </span><br><br>שימו לב, הפונקציה strpos הרבה יותר מהירה ועדיפה לבדיקה האם התת-מחרוזת נמצאת בתוך המחרוזת. השתמשו בה במקום.<br><br><h3>בדיקה בעזרת preg_match</h3><br>כדי לבדוק האם preg_match מצאה משהו (כלומר האם במחרוזת המקורית מופיע התת-מחרוזת 123) נוכל לספור את כמות האיברים שיש במערך <span dir="ltr">$results</span> ואם יש יותר מאפס איברים, כנראה שהתת-מחרוזת נמצאה. <br><br>הדרך היותר פשוטה היא להשתמש בעובדה ש- preg_match מחזירה את כמות התת-מחרוזות שנמצאו. אם התת-מחרוזת מופיע - preg_match תחזיר את המספר 1, אם לא - אפס. באופן הזה אין צורך ביצירת מערך מיוחד וספירתו אחר כך.<br><br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'123456789'</span><span class="sy0">;</span><br>
+<span class="re0">$pattern</span> <span class="sy0">=</span> <span class="st_h">'#123#'</span><span class="sy0">;</span><br>
+<br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="re0">$pattern</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'found'</span><span class="sy0">;</span><br>
+<span class="kw1">else</span> <span class="kw1">echo</span> <span class="st_h">'not found'</span><span class="sy0">;</span></div><br><br>php מתרגמת אוטומטית את המספר 1 ל-true ואת 0 ל-false, לכן אפשר להכניס את הפונקציה עצמה לתוך תנאי if כמו בדוגמה. שימו לב ש-preg_match אף פעם לא תחזיר מספר הגדול מאחד. preg_match עוצרת את הבדיקה של המחרוזת המקורית ברגע שנמצאה התאמה אחת. כדי למצוא את כל התת-מחרוזות שתואמות לתבנית נחליף את preg_match ב-<a href="http://php.net/preg_match_all">preg_match_all</a> שפועלת בצורה זהה בכל השאר.<br><br><span style="color:gray;">מהו הקוד הבודק האם יש את המילה php במחרוזת כלשהי?<br>א. <span dir="ltr">if( preg_match(&quot;#php#&quot;, $string) ) echo &#039;found&#039;;</span><br>ב. <span dir="ltr">if( <strong>!</strong>preg_match(&quot;#php#&quot;, $string) ) echo &#039;found&#039;;</span><br>ג. <span dir="ltr">if( preg_match(&quot;php&quot;, $string) ) echo &#039;found&#039;;</span><br></span><br><br><br><h3>מבנה של ביטוי רגולרי – ממה בנוי פטרן</h3><br>כל פטרן (תבנית חיפוש) של ביטוי רגולרי מכילה כמה חלקים קבועים:<br><br><br><h5>א. תו פתיחה - סגירה</h5><br>כל פטרן צריך להתחיל ולהסתיים בתווי פתיחה וסגירה שיגידו למנוע הביטויים הרגולריים שזוהי תחילתה וסיומה של התבנית. תו זה יכול להיות כל תו חוץ מ- &#039;\&#039; . לרוב משתמשים בסולמית (#) או בסלש &#039;/&#039;. <br><br><h5>ב. תוכן התבנית</h5><br>התת-מחרוזת שנחפש. במקרה הקודם שלנו הייתה זו 123. התוכן יהיה מורכב לרוב מתווים מיוחדים שנתמקד בהם בהמשך.<br><br><h5>ג. מודיפיקטורים</h5><br>מודיפיקטורים מאפשרים לשנות את הדרך שבה יתנהג מנוע הביטויים הרגולריים עם התבנית שלנו. לדוגמה התבנית abc תתאים רק למחרוזות שמכילות את abc ולא תתאים ל-aBc או ABc .את ההתנהגות הזו אפשר לשנות באמצעות המודיפיקטור i (קיצור של insensitive). <br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#BC#i'</span><span class="sy0">,</span> <span class="st_h">'abc23xyz'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'match'</span><span class="sy0">;</span></div><br><span style="color:gray;">הורידו את המודיפיקטור i ובדקו האם נמצאו האותיות BC במחרוזת המקורית?</span><br><br><br><h3>תווים מיוחדים</h3><br>כוחם של הביטויים הרגולריים מתגלה כאשר יש צורך בביטויים יותר מורכבים ממחרוזת ידוע מראש. פונקציונליות זו מושגת באמצעות תווים מיוחדים.<br><br><span style="color:darkred;">^</span> — תו המסמן תחילת מחרוזת.<br><span style="color:darkred;">$</span> — תו המסמן סוף מחרוזת.<br><br>הדוגמה הבאה תתאים למחרוזת שמכילה אך ורק את המילה dog. כלומר המחרוזת מתחילה, אחרי ההתחלה, כאות ראשונה, מופיע האות d, אחריה האות o ,אות g ואחריה המחרוזת מסתיימת. בלי שני התווים האלה, גם המחרוזת underdogs תתאים, כיוון שגם היא מכילה את dog ושם והאות d לא חייבת להיות ראשונה במחרוזת.<br><br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#^dog$#i'</span><span class="sy0">,</span> <span class="st_h">'dog'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'good'</span><span class="sy0">;</span></div><br><span style="color:gray;">מהו הביטוי הרגולרי כדי לבדוק האם המחרוזת מסתיימת באות e?<br>שימו לב, ביטוי רגולרי נקרא משמאל לימין.<br>א. <span dir="ltr">#e$#</span><br>ב. <span dir="ltr">#e^#</span><br>ג. <span dir="ltr">#^e#</span></span><br><br><br><span style="color:darkred;">.</span> ג&#039;וקר – מסמל כל תו חוץ מתו שורה חדשה <span dir="ltr">(\n)</span>.<br>הנקודה יכולה להחליף כל תו אחר בביטוי הרגולרי, כך למשל גם dog, dag, deg, d1g יתאימו לתבנית הבאה:<br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'dog'</span><span class="sy0">;</span> <span class="co1">// d1g, deg, DUG, dXg, ..</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#^d.g$#i'</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'match'</span><span class="sy0">;</span></div><br>התבנית הזו אומרת: מחרוזת שמתחילה באות d, אחריה בה כל תו אפשרי, אחריו האות g וזהו סוף המחרוזת. אם במחרוזת הנבדקת יופיע תו כלשהו אחרי האות g המחרוזת תיכשל בבדיקה, כיוון שהתבנית דורשת שאחרי האות g המחרוזת תסתיים.<br><br>שימו לב, שהנקודה מחליפה מקום של תו אחד בלבד.<br>dooooooog לא תתאים לביטוי הררגולרי של d.g<br><br><br><span style="color:darkred;">[]</span> – קבוצה מוגדרת של תווים = תחום (symbol class)<br>בתוך הסוגריים נמנים התווים שאחד מהם יכול להיות באותו מקום.<br><div class="php codeblock"><span class="co2">#patt[aoe]rn# // matches pattarn,pattorn, pattern</span></div><br><br>במנוע הביטויים הרגולריים קיימים תחומי תווים מוגדרים מראש. כך למשל a-z הוא תחום שמכיל את כל האותיות מ-a עד z והרישום [a-z] הוא שווה ערך לרישום [abcdefghijklmnopqrstuvwxyz] שמסמל כל אות מהתחום הזה.<br><br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'dog dug d1g d2g deg'</span><span class="sy0">;</span> <span class="co1">// dag, dbg, dcg, deg, .., dzg</span><br>
+<span class="re0">$results</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="re0">$pattern</span> <span class="sy0">=</span> <span class="st_h">'#d[a-z]g#i'</span><span class="sy0">;</span><br>
+<br>
+<span class="kw3">preg_match_all</span><span class="br0">&#40;</span><span class="re0">$pattern</span><span class="sy0">,</span> <span class="re0">$string</span><span class="sy0">,</span> <span class="re0">$results</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$results</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br><br>התבנית מחפשת מחרוזת שבה נמצאת האות d אחריה באה אות אחת מרצף a-z ואחריה האות g. אם ננסה לרשום מספר או אות בעברית במקום האות האמצעית לא נקבל תוצאות, כיוון שהחיפוש הוא אחר אחת האותיות מתחום a-z.<br><br>ניתן לכתוב את התחום A-z או a-Z שכולל את כל האותיות האנגליות הגדולות והקטנות, במקרה שלא השתמשתם במודיפיקטור i.<br><br><span style="color:gray;">איזה מהביטויים יבדוק האם המחרוזת מתחילה באות a <span class="underline">קטנה</span>, אחריה באה כל אות באנגלית (גדולה או קטנה) ומסתיימת במספר בין 5 ל-7?<br>א. <span dir="ltr">#^a[A-z][5-7]$#</span><br>ב. <span dir="ltr">#^[aA][a-Z][567]$#i</span><br>ג. <span dir="ltr">#^aA-z5-7$#i</span><br></span><br><br><br><h4>ממלאי מקום</h4><br>כפי שנקודה היא ממלאת מקום של כל תו אפשרי, יש ממלאי מקום ספציפיים יותר:<br><br><span dir="ltr"><span style="color:darkred;">\d</span></span> — סיפרה אחת. כל תו מ-0 עד 9. קיצור של digit<br><span dir="ltr"><span style="color:darkred;">\D</span></span> — כל תו שהוא לא סיפרה.<br><span dir="ltr"><span style="color:darkred;">\s</span></span> — רווח. קיצור של space<br><span dir="ltr"><span style="color:darkred;">\S</span></span> – כל תו שהוא לא רווח<br><span dir="ltr"><span style="color:darkred;">\w</span></span> – כל תו שיכול להיות חלק ממילה רגילה (אותיות וקו תחתון)<br><span dir="ltr"><span style="color:darkred;">\W</span></span> – כל תו שלא יכול להיות מילה (מספרים, דולרים, כוכביות, פסיקים..)<br><span dir="ltr"><span style="color:darkred;">\n</span></span> – מעבר שורה<br><br>כדי לבדוק האם המחרוזת מורכבת מ: האות a, רווח, אות b, רווח, וסיפרה כלשהי, נכתוב את הביטוי <span dir="ltr">#a\sb\s\d#</span> או פשוט <span dir="ltr">#a b \d#</span><br><br><br><h3>quantifiers</h3><br>כל ממלאי המקום מחליפים בעצמם תו אחד בלבד. כלומר <span dir="ltr">\d</span> תתאים לסיפרה אחת, אך לא תתאים למספר 19 (תשע-עשרה) כיוון שהוא מורכב משני תווים נפרדים לחלוטין. <br><br>כמתים (מהמילה כמות) מאפשרים להגדיר חזרות על תו מסוים כמה פעמים.<br>כמתים נכתבים באמצעות סוגריים מסולסלים באופן הבא:<br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'abccc'</span><span class="sy0">;</span> <span class="co1">// ab, abc, abcc, abccc</span><br>
+<span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#^abc{0,3}$#i'</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'match'</span><span class="sy0">;</span></div><br>התבנית הזאת תתאים לכל מחרוזת שמתחילה באות a, אחריה האות b ואחריה בין אפס לשלוש אותיות c. יותר משלוש אותיות c יתנו תוצאה שלילית. מחרוזת בלי האות c תיתן תוצאה חיובית, כיוון שהתבנית מרשה גם אפס חזרות של האות c.<br><br>המספר הראשון בסוגריים מסמל את כמות החזרות המינימליות הנדרשות, <br>המספר השני את כמות החזרות המקסימליות האפשריות.<br>מספר יחידי בסוגריים {1} יהווה גם את הגבול העליון וגם התחתון בו זמנית.<br><br>כדי לקבוע רק את הגבול התחתון יש להשמיט את הספרה השניה בכמת. לדוגמה, לפחות 5 תווים (בין חמש לאינסוף) <span dir="ltr">{5,}</span> <br><br><span style="color:gray;">מהו הביטוי שיאפשר לבדוק האם המחרוזת היא מספר תלת-ספרתי?<br>א. <span dir="ltr">#^\d{3}$#</span><br>ב. <span dir="ltr">#\d{3}#</span><br>ג. <span dir="ltr">#3 x \d ?#</span> </span><br><br><span style="color:gray;">מהו הביטוי שיאפשר לבדוק האם אורך המחרוזת הוא בין 3 ל-10 תווים?<br>א. <span dir="ltr">#^.{3,10}$#</span><br>ב. <span dir="ltr">#\w{3,10}#</span><br>ג. <span dir="ltr">#^{...}?$#</span> </span><br><br><br><br><span style="color:darkred;">?</span> — סימן שאלה הוא קיצור של <span dir="ltr">{0,1}</span> התו או מופיע פעם אחת, או לא מופיע כלל<br><span style="color:darkred;">+</span> — פלוס הוא קיצור של <span dir="ltr">{1,}</span> התו מופיע פעם אחת או יותר<br><span style="color:darkred;">*</span> — כוכבית היא קיצור של <span dir="ltr">{0,}</span> התו יכול לא להופיע, או להופיע כמה שבא לו.<br><br><br><br><span style="color:gray;">מהו הביטוי שיאפשר לבדוק האם המחרוזת מורכבת אך ורק מאותיות באנגלית?<br>רמז: כל תו הוא אות באנגלית שנמצאת בתחום a-z ויכולה להופיע מספר פעמים לא ידוע, פעם אחת או יותר.<br><br>א. <span dir="ltr">#^[a-z]+$#i</span><br>ב. <span dir="ltr">#^[A-z]+#</span><br>ג. <span dir="ltr">#^[A-z]?$i#</span> </span><br><br><br><br><br><h3>מודיפיקטורים</h3><br>חוץ מהמודיפיקטור i שגורם לתבנית להתאים גם לאותיות גדולות וגם לאותיות קטונות ישנם כמה מודיפיקטורים נוספים שכדאי להכיר.<br><br><span style="color:brown;">u</span> — קיצור של unicode, מוסיף תמיכה ב-utf8. כל הביטויים שלכם עשויים להכיל u<br><br><span style="color:brown;">s</span> — גורם לנקודה להתאים גם לתו של מעבר שורה. בלי מודיפיקטור s תו הנקודה . יכול להיות כל תו פרט למעבר שורה<span dir="ltr">(\n)</span><br><br><span style="color:brown;">x</span> — מתעלם מכל הרווחים בביטוי עצמו. אם הביטוי גדול ומבולגן, תוכלו לשים בו רווחים בכל מקום, אבל כדי שהמנוע לא יחשוב שזהו חלק מהתבנית, נשתמש במודיפיקטור x. אולם כדי לייצג רווח במחרוזת עצמה משתמש בסימון ה <span dir="ltr">\s</span><br><br><span style="color:brown;">m</span> — קיצור של multiline. ביטויים רגולריים בדרך כלל פועלים רק על מחרוזות שמורכבות משורה אחת. מבחינתם מעבר שורה הוא סיום המחרוזת והחיפוש בשורה הבאה כבר לא יתבצע, כאילו לא קיים. אם המחרוזת שלכם מכילה כמה שורות, תכללו מודיפיקטור זה בפטרן.<br><br><span style="color:brown;">U</span> — אות גדולה מהמילה Ungreedy. המודיפיקטור הזה מבקש ממנוע הביטוי הרגולרי לא להיות קמצן. נניח שתרצו למצוא את כל מה שנמצא בין שני אותיות a במחרוזת abaca. מברירת מחדל, הביטוי a.+a ינסה לתפוס כמה שיותר לעמצו (כי הוא קצמן ורוצה הכל לעצמו) ולכן התוצאה שתקבלו תהיה bac. כדי לגרום לו לעצור ב-a האמצעית נבקש ממנו לא להיות קמצן ולהתספק ב-a הראשונה שימצא באמצעות המודיפיקטור U.<br><br><br><br><h3>תת-פטרן</h3><br>זוג תווים נוסף, הסוגריים הם כלי מיוחד בביטויים רגולריים ולהם שני שימושים. הראשון הוא ריבוי אפשרויות, שמאוד דומה לתחום, כאשר הקו האנכי אומר <strong>או</strong>.<br><div class="php codeblock"><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#te(st|xt|mp)#'</span><span class="sy0">,</span> <span class="st_h">'test'</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הביטוי הזה יתאים לכל מחרוזת שמכילה את האותיות te ואחריהם באים או st או xt או mp. להבדיל מתחום [] האפשרויות יכולות להיות מורכבות מכמה אותיות יחד.<br><br>השימוש השני הוא <strong>זכירה</strong> של חלק כלשהו.<br><div class="php codeblock"><span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#t(e|o|i)st#'</span><span class="sy0">,</span> <span class="st_h">'test'</span><span class="sy0">,</span> <span class="re0">$results</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$results</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// Array ( [0] =&gt; test [1] =&gt; e )</span></div><br>מנוע הביטויים הרגולריים יזכור לא רק את כל הטקסט שהתאים לתבנית, <br>אלה גם את הטקסט שהתאים לתת-תבנית שנמצאת בסוגריים.<br><br>אפשר לגשת אל מה שהמנוע מצא (התת-מחרוזת שעונה לתת-תבנית בסוגריים) עוד בהמשך הביטוי עצמו. המנוע שם אותם ב&quot;משתנה רגולרי&quot; שהגישה אליו מתבצעת דרך <span dir="ltr">\1</span>. המשתנה השני יהיה <span dir="ltr">\2</span> וכך הלאה.<br><br>לדוגמה אם נרצה לבדוק שהמחרוזת מורכבת משני אותיות כפולות (aa, bb, cc) נתשמש בסוגריים כדי למצוא ולזכור את האות הראשונה ולאחר מכן לבדוק אם האות השניה זהה לה באופן הבא:<br><div class="php codeblock"><span class="kw1">if</span><span class="br0">&#40;</span> <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st_h">'#([a-z])\\1#'</span><span class="sy0">,</span> <span class="st_h">'aa'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">echo</span> <span class="st_h">'double'</span><span class="sy0">;</span></div><br>האות הראשונה יכולה להיות כל אות מתחום a-z. נמצא אותה ונשמור אותה לתוך המשתנה <span dir="ltr">\1</span>. האות שבאה אחר כך צריכה להיות זהה למשתנה 1.<br><br>שימו לב, הגישה למשתנה בתוך הביטוי היא עם באקסלאש (\) אחד בלבד. הסיבה שכאן מופיעים שני באקסלאשים היא כדי שphp תדע שהסלאש הבא הוא חלק מהמחרוזת עצמה. פעולה זו נקראת הברחה.<br><div class="php codeblock"><span class="re0">$var</span> <span class="sy0">=</span> <span class="st0">&quot;<span class="es1">\\</span>&quot;</span><span class="sy0">;</span> <span class="kw1">echo</span> <span class="re0">$var</span><span class="sy0">;</span></div><br><br><br><br><br><h3>preg_replace</h3><br><a href="http://php.net/preg_replace">preg_replace</a> משמשת להחלפת טקסט בתוך מחרוזת לפי ביטוי רגולרי.<br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'blabla my name is Alex blabla '</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st_h">'#my name is [A-z]+#'</span><span class="sy0">,</span> <span class="st_h">'my name is unknown'</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>הביטוי הזה מחפש בתוך string את המילים my name is שאחריהם באה אות אחת או יותר באנגלית ומחליפה אותם במילים my name is unknown.<br>המנוע הרגולרי מחפש בתוך string חלק שנראה כמו התבנית. את החלק הזה הוא מחליף בטקסט החדש. <br><br><strong>מחיקת תגים:</strong><br>הקוד הבא מחפש את התת-מחרוזות שדומות לתבנית: סוגר משולש שמאלי, אחריו כל דבר אפשרי, ואחריו סוגר משולש ימני. כל חלקי הטקסט שדומים לתבנית הזו יוחלפו בטקסט ריק. כל שאר חלקי הטקסט ישאר כפי שהיו:<br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'&lt;tag cool=&quot;true&quot;&gt;text&lt;/tag&gt;&lt;b&gt;bold&lt;/b&gt;&lt;bla /&gt;x'</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st_h">'#&lt;.*&gt;#U'</span><span class="sy0">,</span> <span class="st_h">''</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// textboldx</span></div><br><br><br><h5>שימוש בזכירה של תת-תבניות</h5><br>גם בהחלפות אפשר להשתמש באשפרויות הזכירה והמשתנים. למשל כדי להחליף את כל האותיות הכפולות באותיות יחידות נוכל להשתמש בקוד הזה:<br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'abbcddeffgghhizz'</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st_h">'#([a-z])\\1#'</span><span class="sy0">,</span> <span class="st_h">'\\1'</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//abcdefghiz</span></div><br>הקוד מחפש כל אות באנגלית (ומציב אותה במשתנה) שאחריה באה האות שהוא הציב במשתנה. כל מה שתואם לתבנית הזו הוא מחליף בתוכן של המשתנה.<br><br>במילים אחרות הקוד מחפש אות באנגלית, זוכר אותה, ואם אחריה באה בדיוק אותה אות, הוא מחליף את שניהן במה שהוא זכר, כלומר באות אחת.<br><br><br><h5>החלפה של שני משתנים</h5><br>ביטויים רגולריים מסוגלים לשמור על יותר ממשתנה אחד. לנוחך עובדה זו, אפשר להשתמש בביטוי רגולרי כדי למצוא שני דברים ולהחליף אותם במקום. למשל תיקון תאריך מפורמט אנגלי (חודש/יום/שנה) לפורמט אירופאי (יום/חודש/שנה).<br><div class="php codeblock"><span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'the date is: 03/17/2011'</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="kw3">preg_replace</span><span class="br0">&#40;</span><span class="st_h">'# (\d{2}) / &nbsp;(\d{2}) / &nbsp;(\d{4}) #x'</span><span class="sy0">,</span> <span class="st_h">'\\2/\\1/\\3'</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span></div><br>שימו לב למודיפיקטור x שגרם לביטוי להתעלם מרווים.<br><br><br><h3>preg_replace_callback</h3><br><a href="http://php.net/preg_replace_callback">preg_replace_callback</a> מבצעת החלפה לפי ביטוי רגולרי בדומה ל-preg_replace עם הבדל אחד קטן. על כל תת-מחרוזת שנמצאת תואמת לתבנית מופעלת פונקציה שלכם, שבערך המוחזר ממנה משתמשים להחלפה.<br><br>נניח ואתם רוצים להגדיל את כל המספרים שמופיעים בטקסט ב-10. נכתוב פונקציה שתקרא עבור כל מספר שימצא, ותחזיר את המספר מוגדל ב-10.<br><div class="php codeblock"><span class="kw2">function</span> myfunction<span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><br>
+<span class="br0">&#123;</span><br>
+&nbsp; <span class="kw3">print_r</span><span class="br0">&#40;</span><span class="re0">$result</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+&nbsp; <span class="kw1">return</span> <span class="re0">$result</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">+</span> <span class="nu0">10</span><span class="sy0">;</span><br>
+<span class="br0">&#125;</span><br>
+<br>
+<span class="re0">$string</span> <span class="sy0">=</span> <span class="st_h">'age: 10, year: 2011, another number: 56'</span><span class="sy0">;</span><br>
+<span class="kw1">echo</span> <span class="kw3">preg_replace_callback</span><span class="br0">&#40;</span><span class="st_h">'#\d+#'</span><span class="sy0">,</span> <span class="st_h">'myfunction'</span><span class="sy0">,</span> <span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span><br>
+<span class="co1">// Array ( [0] =&gt; 10 ) Array ( [0] =&gt; 2011 ) Array ( [0] =&gt; 56 ) </span><br>
+<span class="co1">// age: 20, year: 2021, another number: 66</span></div><br><br>נחפש כל קטע שמורכב מספרה אחת או יותר. קטע מחרוזת זה מוצב במערך בדומה לזה של preg_match ומועבר לפונקציה myfunction. הפונקציה myfunction מגדילה את המספר ב10 ומחזירה מספר חדש, שמשמש כתחליף למספר שנמצא.<br><br>כפי שניתן לראות, הפונקציה הופעלה שלוש פעמים, בעבור כל אחד מהחלקים<br>שנמצאו מתאימים לתבנית (עבור כל אחד משלושת המספרים).<br><br><strong>חשוב:</strong> הפונקציה שלכם לא תקבל טקסט, אלה תקבל מערך results בדומה לזה שמפיקה preg_match. תוכלו לגשת לאלמנטים של המערך ולבצע עליהם פעולות כמו בדוגמה.<br><br><h5>זהו זה</h5><br>זה כל מה שיש לדעת על ביטויים רגולריים. קצת נסיון ותירגול יעזרו להבין את החומר עד הסוף. נסו לענות על כל השאלות שנמצאו כאן בצבע האפור שהתשובה בכולם היא א&#039;. נסו להבין למה ולאחר מכן גשו לתרגילים האלא: <em>פתרונות ושאלות תוכלו להוסיף בתגובות.</em><br><br>א. כתבו ביטוי לבדיקת תקינות כתובת אימייל<br>ב. כתבו ביטוי אחד לבדיקת תקינות טלפון קווי וסלולרי<br>ג. כתבו ביטוי שימצא את כל הקישורים בעמוד<br>ד. כתבו ביטוי שיחליף את ההוסט של הקישור ב phpguide.co.il אבל ישאיר את שם העמוד והפרמטרים. <br>יהפוך <span dir="ltr">&lt;a someattr=&#039;cool&#039; href=&#039;https://<strong>example.com</strong>/search123&#039;&gt;</span> <br>ל- <span dir="ltr">&lt;a someattr=&#039;cool&#039; href=&#039;https://<strong>phpguide.co.il</strong>/search123&#039;&gt;</span><br>ולא משנה מה ההוסט המקורי.<br><br><br><br><br><strong><a href="mod_rewrite וקישורים בעברית.htm">שימוש בביטויים רגולריים עם mod_rewrite</a></strong> </article>
+<br><br>
+<div class="info_box" data-ng-controller="PostViewCtrl">
+<div class="right left-spaced">
+<img src="static\images\xpixel.gif.pagespeed.ic.rbts0odkqk.png" title="http://www.gravatar.com/avatar/29c688bfdc6cb0d2e6dea24ccdc7beb1?s=16&r=g&d=monsterid" alt="intval">
+<a>intval</a>
+</div>
+<div class="clear"></div>
+</div>
+<div>
+</div>
+<section class="comments" id='post_comments'>
+<h2>תגובות לכתבה:</h2>
+<a id="comment26"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/03/2011 16:29</span><br>
+דבר ראשון תודה רבה על המדריך המעולה!<br>
+דבר שני, ניסיתי לעשות את ה&quot;שיעורי בית&quot;,<br>
+הגעתי לג&apos;, ונתקלתי בבעיה קטנה:<br>
+לדוגמא יש קישור, ולאחר מכן טקסט, ואז עוד קישור,<br>
+זה יציג את הקישור, את הטקסט, ואת הקישור שאחריו.<br>
+איך אני יכול לעשות שזה לא יציג את הטקסט הזה באמצע ?<br>
+כי לדוגמא אם יש רק קישור, טקסט ואין קישור אח&quot;כ זה מציג טוב.<br>
+הנה הפטרן : $preg = &quot;#&lt;a href=(&apos;|\&quot;).+(&apos;|\&quot;)\s*&gt;\w+&lt;\/a&gt;#&quot;;<br>
+<br>
+תודה!</div>
+<a id="comment27"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>18/03/2011 17:18</span><br>
+היי שי. תודה על התגובה שלך.<br>
+כרגע הביטוי הרגולרי שלך פועל באופן &quot;קמצני&quot; כלומר הוא מנסה לתפוס חלק כמה שיותר גדול מהמחרוזת שתואמת לביטוי. <br>
+המודיפיקטור U יגרום לו לעצור אחרי שימצא את החלק הכי קצר שתואם לביטוי שלך.<br>
+<br>
+אשמח אם נעביר את את הדיון שלנו לפורום, שנותן אפשרויות עריכה נוחות יותר.</div>
+<a id="comment774"></a>
+<div class="blog-comment">
+<span class='comment-author'>Ben</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/09/2011 15:54</span><br>
+היי,<br>
+יש אפשרות לחסום עם preg_match את התווים של סוגריים מרובעים ? ] [ ?</div>
+<a id="comment776"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>15/09/2011 22:59</span><br>
+מה עם תו הברחה?</div>
+<a id="comment957"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/12/2011 15:51</span><br>
+אולי תוכלו להביא תשובה לביטוי אחד לבדיקת תקינות טלפון קווי וסלולרי?<br>
+</div>
+<a id="comment958"></a>
+<div class="blog-comment">
+<span class='comment-author'>intval</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/12/2011 19:26</span><br>
+תוכל לשאול שאלה בפורום או דרך שאלות-ותשובות ונשמח לעזור בכל שאלה פרטנית שהיא.</div>
+<a id="comment1427"></a>
+<div class="blog-comment">
+<span class='comment-author'>s976</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/03/2012 00:18</span><br>
+תודה רבה. מדריך מעולה. <br>
+אבל יש משהו שחיפשתי ולא מצאתי כאן: איך אני יכול להגדיר &apos;שלילה&apos;. <br>
+נגיד שיש לי מחרוזת של כמה משפטים, שכל אחד מהם מסתיים עם נקודה (ויתכן גם שאין שם שום נקודה כלל), ואני רוצה להוציא את המפשט הראשון, זאת אומרת עד הנקודה. אני מניח שאני אמור לחפש ^.* ולהוסיף בסוף שלילה של נקודה.<br>
+איך אני עושה את זה?</div>
+<a id="comment1428"></a>
+<div class="blog-comment">
+<span class='comment-author'>OrelBeY</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>16/03/2012 17:00</span><br>
+שלילה אתה יכול באמצעות הסוגריים המרובעים []. כאשר בהתחלה תכתוב ^. כך שזה אמור לצאת לך:<br>
+[^.] (אבל משמאל לימין)<br>
+הבעיה היחידה שאני מצאתי בזה הוא שזה מחשיב גם את ה-^ כאחד מהסימנים האסורים. זה כל מה שאני יודע.</div>
+<a id="comment1451"></a>
+<div class="blog-comment">
+<span class='comment-author'>אנונימי</span><span dir="rtl">&nbsp;</span>
+<span dir="ltr" class='comment-date'>05/04/2012 08:55</span><br>
+שלום אלכס,<br>
+ברצוני להפוך את הכתובת הבאה:<br>
+/מבצעים/מבצעי+שתיה<br>
+לכתובת:<br>
+/מבצעים/מבצעי_שתיה<br>
+ניסיתי דבר כזה:<br>
+מבצעים/(\w+)\+(\w+)\/?$<br>
+אך משום מה כנראה שה+ בURL לא נחשב ל+ רגיל...<br>
+יש פיתרון ?<br>
+</div>
+</section>
+</section>  
+<section id="sidebar">
+<section id="search_box">
+<form method="get" action="http://www.google.co.il/search" id="search_form">
+<input type="hidden" name="hl" value="iw">
+<input type="checkbox" name="sitesearch" style="display:none" value="http://phpguide.co.il" checked="">
+<input type="text" class="search_form" placeholder="חיפוש" name="q" id="search_field">
+<input type="submit" value="" title="לחפש">
+</form>
+</section>
+<style>.staticSidebarPageLinks a{color:#e85a2d;font-weight:bold;text-decoration:underline}</style>
+<div class='rblock staticSidebarPageLinks' style="padding:0 -50px; width:100%; background: white;">
+<a href="page_mvcebook.html" title="למד איך עובד MVC" onclick="Analytics.track('Promotion', 'click', 'GoToLanding', 'mvcebook-sidebar-banner1');">
+ספר חינם על MVC
+</a>
+שאתה הולך להוריד כי אם אתה רוצה ללמוד על ארגון קוד יעיל ומודרני באתרים כמו זה או פייסבוק או כי כולם אוהבים להוריד דברים איכותיים בחינם מהאינטרנט
+<br><br>
+<a href='page_oopbook.html'>
+ספר הלימוד - תכנות מונחה עצמים מאפס
+</a>
+שסוף סוף ילמד אותך פיתוח מונחה עצמים נכון בצורה פשוטה, יענה על כל השאלות ויכין אותך לרעיונות עבודה.
+<br><br>
+<a href='page_phpunit.html'>
+קורס בדיקות יחידה phpunit
+</a>
+שיעזור לך להקטין בחצי את כמות הבאגים, את כאב הראש והזמן המבוזבז על פתירתם
+<br><br>
+<a href='page_mysqlinteractive.html'>
+קורס mysql אינטרקטיבי
+</a>
+שיייקח אותך צעד אחר צעד למומחה שאילתות mysql לייב
+<br><br><br>
+<small>האתר ב-readonly
+<br>
+תודה לכל מי שתרם, ענה, שאל, כתב, לימד ועזר במשך השנים <br>
+orelbey, splash, raslin, cayce, iiddaannyy, michael, kingyes, ilikeme, itamarhadad, iosolidar, jbstyle<br>
+- alex@הדומיין הזה
+</small>
+</div>
+</section>
+</div>
+<footer id='footer'>
+</footer>
+</div>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets\c2224fc8\jquery.min.js.pagespeed.jm.0IhQ85x_cu.js"></script>
+<script src="static\scripts\scripts.compiled.js plugins.js ui.js analytics.js.pagespeed.jc.HoDAx8MSoV.js"></script><script>eval(mod_pagespeed_suqc1br1Uj);</script>
+<script>eval(mod_pagespeed_tNeKvp6lmR);</script>
+<script>eval(mod_pagespeed_PxPJYmoXjB);</script>
+<script>eval(mod_pagespeed_2G0hMgPcln);</script>
+</body>
+</html>
